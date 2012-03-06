@@ -121,8 +121,9 @@ public class mod_InfiLighting extends BaseModMp
 		File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
 				.append('/').append("mDiyo").toString() ) );
         me.mkdir();
-		props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-				.append('/').append("mDiyo").append('/').append("InfiLighting.cfg").toString())).getPath());
+		//props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
+				//.append('/').append("mDiyo").append('/').append("InfiLighting.cfg").toString())).getPath());
+		props = new InfiProps((new File(Minecraft.getMinecraftDir().getPath() + "/mDiyo/InfiLighting.cfg")).getPath();
 		props = InitProps(props);
 		getProps(props);
 		
