@@ -1,8 +1,9 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
+import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class WorkbenchItem extends ItemBlock
+public class WorkbenchItem extends CustomItemBlockInfi
 {
     public static final String blockType[] =
     {
@@ -15,16 +16,12 @@ public class WorkbenchItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.workbench.blockID, this);
     }
 
     public int getIconFromDamage(int i)
     {
-        return mod_InfiBlocks.infiCraftingTable.getBlockTextureFromSideAndMetadata(0, i);
-    }
-
-    public int getMetadata(int i)
-    {
-        return i;
+        return mod_InfiBlocks.workbench.getBlockTextureFromSideAndMetadata(0, i);
     }
 
     public String getItemNameIS(ItemStack itemstack)

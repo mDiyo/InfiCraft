@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.forge.*;
 import net.minecraft.src.orizon.*;
+//import net.minecraft.src.orizondim.*;
 import java.io.File;
 import java.util.*;
 import net.minecraft.client.Minecraft;
@@ -29,6 +30,7 @@ public class mod_Orizon extends BaseModMp
     public static Block gemOreLow3;
     
     public static Block calciteOre;
+    public static Block netherOre;
     public static Block marble;
     
     public static int mineralOreID;
@@ -50,6 +52,7 @@ public class mod_Orizon extends BaseModMp
     public static int gemOreLow3ID;
     
     public static int calciteOreID;
+    public static int netherOreID;
     public static int marbleID;
     
     public static Block cStone;
@@ -173,20 +176,50 @@ public class mod_Orizon extends BaseModMp
     	ModLoader.registerBlock(mineralOreLow1, net.minecraft.src.orizon.MineralOreMediumItem.class);
     	ModLoader.registerBlock(mineralOreLow2, net.minecraft.src.orizon.MineralOreLowItem.class);
     	ModLoader.registerBlock(mineralOreLow3, net.minecraft.src.orizon.MineralOreDarkItem.class);
+    	
     	ModLoader.registerBlock(mineralOreAlt, net.minecraft.src.orizon.MineralOreAltItem.class);
     	ModLoader.registerBlock(mineralOreAltHigh, net.minecraft.src.orizon.MineralOreAltHighItem.class);
     	ModLoader.registerBlock(mineralOreAltLow1, net.minecraft.src.orizon.MineralOreAltMediumItem.class);
     	ModLoader.registerBlock(mineralOreAltLow2, net.minecraft.src.orizon.MineralOreAltLowItem.class);
     	ModLoader.registerBlock(mineralOreAltLow3, net.minecraft.src.orizon.MineralOreAltDarkItem.class);
-    	ModLoader.registerBlock(cStone);
+    	
+    	ModLoader.registerBlock(gemOre, net.minecraft.src.orizon.GemOreItem.class);
+    	ModLoader.registerBlock(gemOreHigh, net.minecraft.src.orizon.GemOreHighItem.class);
+    	ModLoader.registerBlock(gemOreLow1, net.minecraft.src.orizon.GemOreMediumItem.class);
+    	ModLoader.registerBlock(gemOreLow2, net.minecraft.src.orizon.GemOreLowItem.class);
+    	ModLoader.registerBlock(gemOreLow3, net.minecraft.src.orizon.GemOreDarkItem.class);
+    	
+    	ModLoader.registerBlock(cStone, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	ModLoader.registerBlock(cCobble, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	ModLoader.registerBlock(cBrick, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	ModLoader.registerBlock(cMossy, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	ModLoader.registerBlock(cCracked, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	ModLoader.registerBlock(cTile, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	ModLoader.registerBlock(cFancy, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	ModLoader.registerBlock(cSquare, net.minecraft.src.orizon.ColoredStoneItem.class);
+    	
     	ModLoader.registerBlock(calciteOre, net.minecraft.src.orizon.CalciteOreItem.class);
     	ModLoader.registerBlock(marble, net.minecraft.src.orizon.MarbleItem.class);
+    	ModLoader.registerBlock(replaceOre, net.minecraft.src.orizon.OreReplacementItem.class);
+    	ModLoader.registerBlock(replaceMetal, net.minecraft.src.orizon.OreReplacementMetalItem.class);
+    	
     	MinecraftForgeClient.preloadTexture("/oretex/ores.png");
     	MinecraftForgeClient.preloadTexture("/oretex/stone.png");
+    	MinecraftForgeClient.preloadTexture("/oretex/gems.png");
     	
     	addNames();
+    	
+    	//DimensionManager.registerDimension(7, new WorldProviderOrizon(), true);
+    	
+    	/*ModLoader.registerBlock(warpPlank);
+		ModLoader.addName(warpPlank, "Reality-warping Plank");
+		ModLoader.addRecipe(new ItemStack(warpPlank, 1), new Object[] {
+			"p ", " p", 'p', Block.planks //Planks in shears pattern
+		});*/
     }
 
+    //public static Block warpPlank;
+    
     public void addNames() {
     	ModLoader.addLocalization("mineralCopper.name", "Copper Ore");
     	ModLoader.addLocalization("mineralTurquoise.name", "Turquoise Ore");
@@ -253,7 +286,14 @@ public class mod_Orizon extends BaseModMp
 		props = PropsHelperOrizon.InitSpawn(props);
 		PropsHelperOrizon.getSpawn(props);
 		
-		cStone = new ColoredStone(cStoneID, 0).setStepSound(Block.soundStoneFootstep).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone");
+		cStone = new ColoredStone(cStoneID, 0).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone");
+		cCobble = new CustomBlockStone(cCobbleID, 16).setHardness(Block.cobblestone.getHardness()).setBlockName("Colored Cobblestone");
+		cBrick = new CustomBlockStone(cBrickID, 32).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone Brick");
+		cMossy = new CustomBlockStone(cMossyID, 48).setHardness(Block.stone.getHardness()).setBlockName("Colored Moss Brick");
+		cCracked = new CustomBlockStone(cCrackedID, 64).setHardness(Block.stone.getHardness()).setBlockName("Colored Cracked Brick");
+		cTile = new CustomBlockStone(cTileID, 80).setHardness(Block.stone.getHardness()).setBlockName("Colored Tile");
+		cFancy = new CustomBlockStone(cFancyID, 96).setHardness(Block.stone.getHardness()).setBlockName("Colored Fancy Brick");
+		cSquare = new CustomBlockStone(cSquareID, 112).setHardness(Block.stone.getHardness()).setBlockName("Colored Square Brick");
 		
         mineralOre = new MineralOre(mineralOreID, 32).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setBlockName("Mineral Ore");
         mineralOreHigh = new MineralOre(mineralOreHighID, 0).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setBlockName("Mineral Ore High");

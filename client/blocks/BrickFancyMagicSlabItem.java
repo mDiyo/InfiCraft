@@ -3,7 +3,7 @@ package net.minecraft.src.blocks;
 import net.minecraft.src.*;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class BrickFancyMagicSlabItem extends CustomItemBlock
+public class BrickFancyMagicSlabItem extends CustomItemBlockInfi
 {
 	public static final String blockType[] =
 		{
@@ -16,7 +16,7 @@ public class BrickFancyMagicSlabItem extends CustomItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.brick.blockID, this);
+        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.fancyBrickMagicSlab.blockID, this);
     }
 
     public int getIconFromDamage(int i)

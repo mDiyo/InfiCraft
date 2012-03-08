@@ -10,11 +10,19 @@ public class ColoredStone extends Block
     public ColoredStone(int i, int j)
     {
         super(i, j, Material.rock);
+        enableStats = false;
     }
+    
+	public boolean getEnableStats() {return false;}
     
     protected int damageDropped(int md)
     {
         return md;
+    }
+    
+    public int idDropped(int i)
+    {
+    	return mod_Orizon.cCobble.blockID;
     }
     
     public int getBlockTextureFromSideAndMetadata(int side, int md)

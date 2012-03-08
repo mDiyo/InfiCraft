@@ -6,10 +6,8 @@ import net.minecraft.src.*;
 import net.minecraft.src.forge.*;
 import net.minecraft.client.Minecraft;
 
-public class BrickBlockItem extends CustomItemBlock
-{
-	protected Minecraft mc;
-	
+public class BrickBlockItem extends CustomItemBlockInfi
+{	
 	public static final String blockType[] =
 	{
 	    "obsidian", "snow", "sandstone", "brick", "netherrack", "diamond", "gold", "lapis", 

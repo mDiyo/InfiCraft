@@ -1,8 +1,9 @@
 package net.minecraft.src.flora;
 
 import net.minecraft.src.*;
+import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class BerryBushItem extends ItemBlock
+public class BerryBushItem extends CustomItemBlockFlora
 {
     public static final String blockType[] =
     {
@@ -15,11 +16,7 @@ public class BerryBushItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-    }
-
-    public int getMetadata(int i)
-    {
-        return i;
+        MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.berryBush.blockID, this);
     }
 
     public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)

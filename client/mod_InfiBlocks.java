@@ -43,9 +43,9 @@ public class mod_InfiBlocks extends BaseModMp
 	
 	public static int chiselID;
 	
-	public static Block infiCraftingTable;
+	public static Block workbench;
 	public static Block woolCarpet;
-	public static Block infiFurnace;
+	public static Block furnace;
 	public static Block magicSlabStone;
 	public static Block magicSlabSoil;
 	public static Block magicSlabWool;
@@ -126,7 +126,7 @@ public class mod_InfiBlocks extends BaseModMp
 		if (i == furnaceGuiID)
 		{
 			Minecraft minecraft1 = ModLoader.getMinecraftInstance();
-			return new InfiFurnaceGui(minecraft1.thePlayer.inventory, new InfiFurnaceLogic());
+			return new FurnaceGui(minecraft1.thePlayer.inventory, new FurnaceLogic());
 		}
 		else
 		{
@@ -203,10 +203,10 @@ public class mod_InfiBlocks extends BaseModMp
 		ModLoaderMp.RegisterGUI(this, craftingGuiID);
 		ModLoaderMp.RegisterGUI(this, furnaceGuiID);
 		
-		ModLoader.registerBlock(infiCraftingTable, net.minecraft.src.blocks.WorkbenchItem.class);
-		ModLoader.registerBlock(woolCarpet, net.minecraft.src.blocks.InfiCarpetItem.class);
-		ModLoader.registerBlock(infiFurnace, net.minecraft.src.blocks.InfiFurnaceItem.class);
-		ModLoader.registerTileEntity(net.minecraft.src.blocks.InfiFurnaceLogic.class, "InfiFurnace");
+		ModLoader.registerBlock(workbench, net.minecraft.src.blocks.WorkbenchItem.class);
+		ModLoader.registerBlock(woolCarpet, net.minecraft.src.blocks.CarpetItem.class);
+		ModLoader.registerBlock(furnace, net.minecraft.src.blocks.FurnaceItem.class);
+		ModLoader.registerTileEntity(net.minecraft.src.blocks.FurnaceLogic.class, "InfiFurnace");
 		
 		ModLoader.registerBlock(magicSlabStone, net.minecraft.src.blocks.MagicSlabStoneItem.class);
 		ModLoader.registerBlock(magicSlabSoil, net.minecraft.src.blocks.MagicSlabSoilItem.class);
@@ -256,9 +256,9 @@ public class mod_InfiBlocks extends BaseModMp
 		if(resolveConflicts)
 			PropsHelperInfiBlocks.resolveIDs(props);
 		
-		infiCraftingTable = (new WorkbenchBlock(blockCraftingID)).setHardness(0.5F).setBlockName("infiCraftingTable");
-		woolCarpet = (new InfiCarpetBlock(woolCarpetID)).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("woolCarpet");
-		infiFurnace = (new InfiFurnaceBlock(blockFurnaceID)).setBlockName("InfiFurnace");
+		workbench = (new WorkbenchBlock(blockCraftingID)).setHardness(0.5F).setBlockName("infiCraftingTable");
+		woolCarpet = (new CarpetBlock(woolCarpetID)).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("woolCarpet");
+		furnace = (new FurnaceBlock(blockFurnaceID)).setBlockName("InfiFurnace");
 		magicSlabStone = new MagicSlabStone(magicSlabStoneID, 23).setHardness(0.3F).setBlockName("Magic Slab Stone");
 		magicSlabSoil = new MagicSlabSoil(magicSlabSoilID, 23).setHardness(0.3F).setStepSound(Block.soundWoodFootstep).setBlockName("Magic Slab Soil");
 		magicSlabWool = new MagicSlabWool(magicSlabWoolID, 64).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("Magic Slab Wool");

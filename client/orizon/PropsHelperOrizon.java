@@ -28,7 +28,16 @@ public class PropsHelperOrizon {
 		mod_Orizon.gemOreLow3ID = infiprops.readInt("Gem Ore Dark ID");
 		
 		mod_Orizon.cStoneID = infiprops.readInt("Colored Stone ID");
+		mod_Orizon.cCobbleID = infiprops.readInt("Colored Cobblestone ID");
+		mod_Orizon.cBrickID = infiprops.readInt("Colored Brick ID");
+		mod_Orizon.cMossyID = infiprops.readInt("Colored Mossy Brick ID");
+		mod_Orizon.cCrackedID = infiprops.readInt("Colored Cracked Brick ID");
+		mod_Orizon.cTileID = infiprops.readInt("Colored Brick Tile ID");
+		mod_Orizon.cFancyID = infiprops.readInt("Colored Fancy Brick ID");
+		mod_Orizon.cSquareID = infiprops.readInt("Colored Square Brick ID");
+		
 		mod_Orizon.calciteOreID = infiprops.readInt("Calcite Ore ID");
+		mod_Orizon.netherOreID = infiprops.readInt("Nether Ore ID");
 		
 		mod_Orizon.replaceOreID = infiprops.readInt("Replacement Ore ID");
 		mod_Orizon.replaceMetalID = infiprops.readInt("Replacement Metal Ore ID");
@@ -42,31 +51,39 @@ public class PropsHelperOrizon {
 	{
 		infiprops.accessBoolean("Automatically Resolve ID conflicts", true);
 		
-		infiprops.accessInt("Mineral Ore ID", 131);
-		infiprops.accessInt("Mineral Ore High ID", 132);
-		infiprops.accessInt("Mineral Ore Medium ID", 133);
-		infiprops.accessInt("Mineral Ore Low ID", 134);
-		infiprops.accessInt("Mineral Ore Dark ID", 135);
+		infiprops.accessInt("Mineral Ore ID", 3211);
+		infiprops.accessInt("Mineral Ore High ID", 3212);
+		infiprops.accessInt("Mineral Ore Medium ID", 3213);
+		infiprops.accessInt("Mineral Ore Low ID", 3214);
+		infiprops.accessInt("Mineral Ore Dark ID", 3215);
 		
-		infiprops.accessInt("Mineral Ore Alt ID", 136);
-		infiprops.accessInt("Mineral Ore Alt High ID", 137);
-		infiprops.accessInt("Mineral Ore Alt Medium ID", 138);
-		infiprops.accessInt("Mineral Ore Alt Low ID", 139);
-		infiprops.accessInt("Mineral Ore Alt Dark ID", 140);
+		infiprops.accessInt("Mineral Ore Alt ID", 3216);
+		infiprops.accessInt("Mineral Ore Alt High ID", 3217);
+		infiprops.accessInt("Mineral Ore Alt Medium ID", 3218);
+		infiprops.accessInt("Mineral Ore Alt Low ID", 3219);
+		infiprops.accessInt("Mineral Ore Alt Dark ID", 3220);
 		
-		infiprops.accessInt("Gem Ore ID", 142);
-		infiprops.accessInt("Gem Ore High ID", 143);
-		infiprops.accessInt("Gem Ore Medium ID", 144);
-		infiprops.accessInt("Gem Ore Low ID", 145);
-		infiprops.accessInt("Gem Ore Dark ID", 146);
+		infiprops.accessInt("Gem Ore ID", 3221);
+		infiprops.accessInt("Gem Ore High ID", 3222);
+		infiprops.accessInt("Gem Ore Medium ID", 3223);
+		infiprops.accessInt("Gem Ore Low ID", 3224);
+		infiprops.accessInt("Gem Ore Dark ID", 3225);
 		
-		infiprops.accessInt("Colored Stone ID", 141);
+		infiprops.accessInt("Colored Stone ID", 3226);
+		infiprops.accessInt("Colored Cobblestone ID", 3227);
+		infiprops.accessInt("Colored Brick ID", 3228);
+		infiprops.accessInt("Colored Mossy Brick ID", 3229);
+		infiprops.accessInt("Colored Cracked Brick ID", 3230);
+		infiprops.accessInt("Colored Brick Tile ID", 3231);
+		infiprops.accessInt("Colored Fancy Brick ID", 3232);
+		infiprops.accessInt("Colored Square Brick ID", 3233);
 		
-		infiprops.accessInt("Replacement Ore ID", 149);
-		infiprops.accessInt("Replacement Metal Ore ID", 150);
+		infiprops.accessInt("Replacement Ore ID", 3234);
+		infiprops.accessInt("Replacement Metal Ore ID", 3235);
 		
-		infiprops.accessInt("Calcite Ore ID", 151);
-		infiprops.accessInt("Marble ID", 152);
+		infiprops.accessInt("Calcite Ore ID", 3236);
+		infiprops.accessInt("Nether Ore ID", 3237);
+		infiprops.accessInt("Marble ID", 3238);
 		
 		return infiprops;
 	}
@@ -81,6 +98,7 @@ public class PropsHelperOrizon {
 		mod_Orizon.genSilt = infiprops.readBoolean("Generate Silt");
 		mod_Orizon.redoVanillaOres = infiprops.readBoolean("Metallurgy Style Spawn");
 		mod_Orizon.replaceOres = infiprops.readBoolean("Replace Vanilla Ores");
+		mod_Orizon.genGems = infiprops.readBoolean("Generate Gemstones");
 		
 		mod_Orizon.copperRarity = infiprops.readInt("Copper Rarity");
 	    mod_Orizon.copperHeight = infiprops.readInt("Copper Height");
@@ -153,6 +171,7 @@ public class PropsHelperOrizon {
 		infiprops.accessBoolean("Generate Silt", true);
 		infiprops.accessBoolean("Metallurgy Style Spawn", true);
 		infiprops.accessBoolean("Replace Vanilla Ores", true);
+		infiprops.accessBoolean("Generate Gemstones", true);
 		
 		infiprops.accessInt("Copper Rarity", 10);
 	    infiprops.accessInt("Copper Height", 64);
@@ -202,11 +221,11 @@ public class PropsHelperOrizon {
 	    infiprops.accessInt("Topaz Height", 64);
 	    infiprops.accessInt("Amethyst Rarity", 1);
 	    infiprops.accessInt("Amethyst Height", 64);
-	    infiprops.accessInt("Quartz Rarity", 1);
+	    infiprops.accessInt("Quartz Rarity", 2);
 	    infiprops.accessInt("Quartz Height", 64);
-	    infiprops.accessInt("Rose Quartz Rarity", 1);
+	    infiprops.accessInt("Rose Quartz Rarity", 2);
 	    infiprops.accessInt("Rose Quartz Height", 64);
-	    infiprops.accessInt("Rock Crystal Rarity", 1);
+	    infiprops.accessInt("Rock Crystal Rarity", 2);
 	    infiprops.accessInt("Rock Crystal Height", 64);
 	    
 	    infiprops.accessInt("Marble Rarity", 22);
@@ -253,6 +272,8 @@ public class PropsHelperOrizon {
 				"Marble ID");
 		mod_Orizon.calciteOreID = changeID(props, mod_Orizon.calciteOreID, 
 				"Calcite Ore ID");
+		mod_Orizon.netherOreID = changeID(props, mod_Orizon.calciteOreID, 
+				"Nether Ore ID");
 		mod_Orizon.replaceOreID = changeID(props, mod_Orizon.replaceOreID, 
 				"Replacement Ore ID");
 		mod_Orizon.replaceMetalID = changeID(props, mod_Orizon.replaceMetalID, 
@@ -260,6 +281,20 @@ public class PropsHelperOrizon {
 		
 		mod_Orizon.cStoneID = changeID(props, mod_Orizon.cStoneID, 
 				"Colored Stone ID");
+		mod_Orizon.cCobbleID = changeID(props, mod_Orizon.cCobbleID, 
+				"Colored Cobblestone ID");
+		mod_Orizon.cBrickID = changeID(props, mod_Orizon.cBrickID, 
+				"Colored Brick ID");
+		mod_Orizon.cMossyID = changeID(props, mod_Orizon.cMossyID, 
+				"Colored Mossy Brick ID");
+		mod_Orizon.cCrackedID = changeID(props, mod_Orizon.cCrackedID, 
+				"Colored Cracked Brick ID");
+		mod_Orizon.cTileID = changeID(props, mod_Orizon.cTileID, 
+				"Colored Brick Tile ID");
+		mod_Orizon.cFancyID = changeID(props, mod_Orizon.cFancyID, 
+				"Colored Fancy Brick ID");
+		mod_Orizon.cSquareID = changeID(props, mod_Orizon.cSquareID, 
+				"Colored Square Brick ID");
 		
 		props.writeBoolean("Automatically Resolve ID conflicts", false);
 		return true;
@@ -268,7 +303,7 @@ public class PropsHelperOrizon {
 	private static int changeID(InfiProps props, int id, String s)
 	{
 		if(Block.blocksList[id] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
+			for(int i = 600; i < Block.blocksList.length; i++) {
 				if(Block.blocksList[i] == null) {
 					props.writeInt(s, i);
 					return i;

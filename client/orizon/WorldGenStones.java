@@ -38,35 +38,35 @@ public class WorldGenStones {
 		chrysocollaA = new OreGen(mod_Orizon.mineralOreAltID, 12, 2);
 		aggregateA = new OreGen(mod_Orizon.mineralOreAltID, 13, 8);
 		
-		copperS = new OreGenGradient(0, 12, false);
-		turquoiseS = new OreGenGradient(1, 8, false);
-		chalcociteS = new OreGenGradient(2, 8, false);
-		cassiteriteS = new OreGenGradient(3, 7, false);
-		tealliteS = new OreGenGradient(4, 5, false);
-		zincBloomS = new OreGenGradient(5, 9, false);
-		sphaleriteS = new OreGenGradient(6, 7, false);
-		cerussiteS = new OreGenGradient(7, 4, false);
-		cobaltS = new OreGenGradient(8, 6, false);
-		arditeS = new OreGenGradient(9, 6, false);
-		myuvilS = new OreGenGradient(10, 6, false);
-		galenaS = new OreGenGradient(11, 12, false);
-		chrysocollaS = new OreGenGradient(12, 2, false);
-		aggregateS = new OreGenGradient(13, 8, false);
+		copperS = new OreGenStratified(0, 12, false);
+		turquoiseS = new OreGenStratified(1, 8, false);
+		chalcociteS = new OreGenStratified(2, 8, false);
+		cassiteriteS = new OreGenStratified(3, 7, false);
+		tealliteS = new OreGenStratified(4, 5, false);
+		zincBloomS = new OreGenStratified(5, 9, false);
+		sphaleriteS = new OreGenStratified(6, 7, false);
+		cerussiteS = new OreGenStratified(7, 4, false);
+		cobaltS = new OreGenStratified(8, 6, false);
+		arditeS = new OreGenStratified(9, 6, false);
+		myuvilS = new OreGenStratified(10, 6, false);
+		galenaS = new OreGenStratified(11, 12, false);
+		chrysocollaS = new OreGenStratified(12, 2, false);
+		aggregateS = new OreGenStratified(13, 8, false);
 		
-		copperSA = new OreGenGradient(0, 12, true);
-		turquoiseSA = new OreGenGradient(1, 8, true);
-		chalcociteSA = new OreGenGradient(2, 8, true);
-		cassiteriteSA = new OreGenGradient(3, 7, true);
-		tealliteSA = new OreGenGradient(4, 5, true);
-		zincBloomSA = new OreGenGradient(5, 9, true);
-		sphaleriteSA = new OreGenGradient(6, 7, true);
-		cerussiteSA = new OreGenGradient(7, 4, true);
-		cobaltSA = new OreGenGradient(8, 6, true);
-		arditeSA = new OreGenGradient(9, 6, true);
-		myuvilSA = new OreGenGradient(10, 6, true);
-		galenaSA = new OreGenGradient(11, 12, true);
-		chrysocollaSA = new OreGenGradient(12, 2, true);
-		aggregateSA = new OreGenGradient(13, 8, true);
+		copperSA = new OreGenStratified(0, 12, true);
+		turquoiseSA = new OreGenStratified(1, 8, true);
+		chalcociteSA = new OreGenStratified(2, 8, true);
+		cassiteriteSA = new OreGenStratified(3, 7, true);
+		tealliteSA = new OreGenStratified(4, 5, true);
+		zincBloomSA = new OreGenStratified(5, 9, true);
+		sphaleriteSA = new OreGenStratified(6, 7, true);
+		cerussiteSA = new OreGenStratified(7, 4, true);
+		cobaltSA = new OreGenStratified(8, 6, true);
+		arditeSA = new OreGenStratified(9, 6, true);
+		myuvilSA = new OreGenStratified(10, 6, true);
+		galenaSA = new OreGenStratified(11, 12, true);
+		chrysocollaSA = new OreGenStratified(12, 2, true);
+		aggregateSA = new OreGenStratified(13, 8, true);
 		
 		redoGold = new OreGen(Block.oreGold.blockID, 0, 8);
 		redoDiamond = new OreGen(Block.oreDiamond.blockID, 0, 7);
@@ -90,6 +90,24 @@ public class WorldGenStones {
 	    marbleRose = new StoneGen(mod_Orizon.marble.blockID, 2, 40);
 	    marbleEmerald = new StoneGen(mod_Orizon.marble.blockID, 3, 40);
 	    marbleAzure = new StoneGen(mod_Orizon.marble.blockID, 4, 40);
+	    
+	    ruby = new OreGen(mod_Orizon.gemOre.blockID, 0, 7);
+	    emerald = new OreGen(mod_Orizon.gemOre.blockID, 1, 7);
+	    sapphire = new OreGen(mod_Orizon.gemOre.blockID, 2, 7);
+	    topaz = new OreGen(mod_Orizon.gemOre.blockID, 3, 7);
+	    amethyst = new OreGen(mod_Orizon.gemOre.blockID, 4, 7);
+	    quartz = new OreGen(mod_Orizon.gemOre.blockID, 5, 7);
+	    roseQuartz = new OreGen(mod_Orizon.gemOre.blockID, 6, 7);
+	    rockCrystal = new OreGen(mod_Orizon.gemOre.blockID, 7, 7);
+	    
+	    rubyS = new OreGenStratifiedGem(0, 7);
+	    emeraldS = new OreGenStratifiedGem(1, 7);
+	    sapphireS = new OreGenStratifiedGem(2, 7);
+	    topazS = new OreGenStratifiedGem(3, 7);
+	    amethystS = new OreGenStratifiedGem(4, 7);
+	    quartzS = new OreGenStratifiedGem(5, 7);
+	    roseQuartzS = new OreGenStratifiedGem(6, 7);
+	    rockCrystalS = new OreGenStratifiedGem(7, 7);
 	}
 	
 	public static WorldGenStones getInstance() {
@@ -131,9 +149,9 @@ public class WorldGenStones {
 			if(mod_Orizon.redoVanillaOres) {
 				int goldChunk = rand.nextInt(mod_Orizon.goldRarity) + (mod_Orizon.goldRarity / 2);
 				generateStratifiedVanillaVein(world, rand, chunkX, chunkZ, redoGoldS, goldChunk, mod_Orizon.goldHeight);
-				int diamondChunk = rand.nextInt(mod_Orizon.diamondRarity) + (mod_Orizon.diamondRarity / 2);
+				int diamondChunk = rand.nextInt(mod_Orizon.diamondRarity) + (mod_Orizon.diamondRarity / 2 +1);
 				generateStratifiedVanillaVein(world, rand, chunkX, chunkZ, redoDiamondS, diamondChunk, mod_Orizon.diamondHeight);
-				int lapisChunk = rand.nextInt(mod_Orizon.lapisRarity) + (mod_Orizon.lapisRarity / 2);
+				int lapisChunk = rand.nextInt(mod_Orizon.lapisRarity) + (mod_Orizon.lapisRarity / 2 + 1);
 				generateStratifiedVanillaVein(world, rand, chunkX, chunkZ, redoLapisS, lapisChunk, mod_Orizon.lapisHeight);
 				int redstoneChunk = rand.nextInt(mod_Orizon.redstoneRarity) + (mod_Orizon.redstoneRarity / 2);
 				generateStratifiedVanillaVein(world, rand, chunkX, chunkZ, redoRedstoneS, redstoneChunk, mod_Orizon.redstoneHeight);
@@ -172,7 +190,7 @@ public class WorldGenStones {
 			if(mod_Orizon.redoVanillaOres) {
 				int goldChunk = rand.nextInt(mod_Orizon.goldRarity) + (mod_Orizon.goldRarity / 2);
 				generateSimpleVein(world, rand, chunkX, chunkZ, redoGold, goldChunk, mod_Orizon.goldHeight);
-				int diamondChunk = rand.nextInt(mod_Orizon.diamondRarity) + (mod_Orizon.diamondRarity / 2);
+				int diamondChunk = rand.nextInt(mod_Orizon.diamondRarity) + (mod_Orizon.diamondRarity / 2 +1);
 				generateSimpleVein(world, rand, chunkX, chunkZ, redoDiamond, diamondChunk, mod_Orizon.diamondHeight);
 				int lapisChunk = rand.nextInt(mod_Orizon.lapisRarity) + (mod_Orizon.lapisRarity / 2);
 				generateSimpleVein(world, rand, chunkX, chunkZ, redoLapis, lapisChunk, mod_Orizon.lapisHeight);
@@ -303,6 +321,45 @@ public class WorldGenStones {
 	    }
 	}
 	
+	public static void generateGems(World world, Random rand, int chunkX,
+			int chunkZ) {
+		if(mod_Orizon.genStratifiedStone) {
+			int rubyChunk = rand.nextInt(mod_Orizon.rubyRarity*2) + (mod_Orizon.rubyRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, rubyS, rubyChunk, mod_Orizon.rubyHeight);
+			int emeraldChunk = rand.nextInt(mod_Orizon.emeraldRarity*2) + (mod_Orizon.emeraldRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, emeraldS, emeraldChunk, mod_Orizon.emeraldHeight);
+			int sapphireChunk = rand.nextInt(mod_Orizon.sapphireRarity*2) + (mod_Orizon.sapphireRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, sapphireS, sapphireChunk, mod_Orizon.sapphireHeight);
+			int topazChunk = rand.nextInt(mod_Orizon.topazRarity*2) + (mod_Orizon.topazRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, topazS, topazChunk, mod_Orizon.topazHeight);
+			int amethystChunk = rand.nextInt(mod_Orizon.amethystRarity*2) + (mod_Orizon.amethystRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, amethystS, amethystChunk, mod_Orizon.amethystHeight);
+			int quartzChunk = rand.nextInt(mod_Orizon.quartzRarity*2) + (mod_Orizon.quartzRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, quartzS, quartzChunk, mod_Orizon.quartzHeight);
+			int roseQuartzChunk = rand.nextInt(mod_Orizon.roseQuartzRarity*2) + (mod_Orizon.roseQuartzRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, roseQuartzS, roseQuartzChunk, mod_Orizon.roseQuartzHeight);
+			int rockCrystalChunk = rand.nextInt(mod_Orizon.rockCrystalRarity*2) + (mod_Orizon.rockCrystalRarity / 2);
+			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, rockCrystalS, rockCrystalChunk, mod_Orizon.rockCrystalHeight);
+		} else {
+			int rubyChunk = rand.nextInt(mod_Orizon.rubyRarity*2) + (mod_Orizon.rubyRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, ruby, rubyChunk, mod_Orizon.rubyHeight);
+			int emeraldChunk = rand.nextInt(mod_Orizon.emeraldRarity*2) + (mod_Orizon.emeraldRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, emerald, emeraldChunk, mod_Orizon.emeraldHeight);
+			int sapphireChunk = rand.nextInt(mod_Orizon.sapphireRarity*2) + (mod_Orizon.sapphireRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, sapphire, sapphireChunk, mod_Orizon.sapphireHeight);
+			int topazChunk = rand.nextInt(mod_Orizon.topazRarity*2) + (mod_Orizon.topazRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, topaz, topazChunk, mod_Orizon.topazHeight);
+			int amethystChunk = rand.nextInt(mod_Orizon.amethystRarity*2) + (mod_Orizon.amethystRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, amethyst, amethystChunk, mod_Orizon.amethystHeight);
+			int quartzChunk = rand.nextInt(mod_Orizon.quartzRarity*2) + (mod_Orizon.quartzRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, quartz, quartzChunk, mod_Orizon.quartzHeight);
+			int roseQuartzChunk = rand.nextInt(mod_Orizon.roseQuartzRarity*2) + (mod_Orizon.roseQuartzRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, roseQuartz, roseQuartzChunk, mod_Orizon.roseQuartzHeight);
+			int rockCrystalChunk = rand.nextInt(mod_Orizon.rockCrystalRarity*2) + (mod_Orizon.rockCrystalRarity / 2);
+			generateSimpleVein(world, rand, chunkX, chunkZ, rockCrystal, rockCrystalChunk, mod_Orizon.rockCrystalHeight);
+		}
+	}
+	
 	public static boolean generateVein(World world, Random rand, int chunkX, int chunkZ, 
 			OreGen ori, OreGen alt, int rarity, int height) 
 	{
@@ -328,14 +385,14 @@ public class WorldGenStones {
 	}
 	
 	public static boolean generateStratifiedVein(World world, Random rand, int chunkX, int chunkZ, 
-			OreGenGradient ori, OreGenGradient alt, int rarity, int height) 
+			OreGenStratified ori, OreGenStratified alt, int rarity, int height) 
 	{
 		for (int i = 0; i < rarity; i++)
 	    {
 			int hi = rand.nextInt(height);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
-	        OreGenGradient ore = ori;
+	        OreGenStratified ore = ori;
 	        if(rand.nextInt(4) == 0)
 	        	ore = alt;
 	        ore.generate(world, rand, randX, hi, randZ);
@@ -347,6 +404,19 @@ public class WorldGenStones {
 	    	        i++;
 	        	}
 	        }
+	    }
+		return true;
+	}
+	
+	public static boolean generateStratifiedVeinGem(World world, Random rand, int chunkX, int chunkZ, 
+			OreGenStratifiedGem ore, int rarity, int height) 
+	{
+		for (int i = 0; i < rarity; i++)
+	    {
+			int hi = rand.nextInt(height);
+	        int randX = chunkX + rand.nextInt(16);
+	        int randZ = chunkZ + rand.nextInt(16);
+	        ore.generate(world, rand, randX, hi, randZ);
 	    }
 		return true;
 	}
@@ -439,11 +509,6 @@ public class WorldGenStones {
 		}
 	}
 	
-	public static void generateGems(World world, Random random, int chunkX,
-			int chunkZ) {
-		
-	}
-	
 	public static void replaceBlocks(World world, int x, int y, int z, int bID, int md) {
 		if(bID == Block.stone.blockID)
 			world.setBlockAndMetadata(x, y, z, mod_Orizon.cStone.blockID, md);
@@ -503,35 +568,35 @@ public class WorldGenStones {
     static OreGen chrysocollaA;
     static OreGen aggregateA;
     
-    static OreGenGradient copperS;
-    static OreGenGradient turquoiseS;
-    static OreGenGradient chalcociteS;
-    static OreGenGradient cassiteriteS;
-    static OreGenGradient tealliteS;
-    static OreGenGradient zincBloomS;
-    static OreGenGradient sphaleriteS;
-    static OreGenGradient cerussiteS;
-    static OreGenGradient cobaltS;
-    static OreGenGradient arditeS;
-    static OreGenGradient myuvilS;
-    static OreGenGradient galenaS;
-    static OreGenGradient chrysocollaS;
-    static OreGenGradient aggregateS;
+    static OreGenStratified copperS;
+    static OreGenStratified turquoiseS;
+    static OreGenStratified chalcociteS;
+    static OreGenStratified cassiteriteS;
+    static OreGenStratified tealliteS;
+    static OreGenStratified zincBloomS;
+    static OreGenStratified sphaleriteS;
+    static OreGenStratified cerussiteS;
+    static OreGenStratified cobaltS;
+    static OreGenStratified arditeS;
+    static OreGenStratified myuvilS;
+    static OreGenStratified galenaS;
+    static OreGenStratified chrysocollaS;
+    static OreGenStratified aggregateS;
     
-    static OreGenGradient copperSA;
-    static OreGenGradient turquoiseSA;
-    static OreGenGradient chalcociteSA;
-    static OreGenGradient cassiteriteSA;
-    static OreGenGradient tealliteSA;
-    static OreGenGradient zincBloomSA;
-    static OreGenGradient sphaleriteSA;
-    static OreGenGradient cerussiteSA;
-    static OreGenGradient cobaltSA;
-    static OreGenGradient arditeSA;
-    static OreGenGradient myuvilSA;
-    static OreGenGradient galenaSA;
-    static OreGenGradient chrysocollaSA;
-    static OreGenGradient aggregateSA;
+    static OreGenStratified copperSA;
+    static OreGenStratified turquoiseSA;
+    static OreGenStratified chalcociteSA;
+    static OreGenStratified cassiteriteSA;
+    static OreGenStratified tealliteSA;
+    static OreGenStratified zincBloomSA;
+    static OreGenStratified sphaleriteSA;
+    static OreGenStratified cerussiteSA;
+    static OreGenStratified cobaltSA;
+    static OreGenStratified arditeSA;
+    static OreGenStratified myuvilSA;
+    static OreGenStratified galenaSA;
+    static OreGenStratified chrysocollaSA;
+    static OreGenStratified aggregateSA;
     
     static StoneGen calcite;
     static OreGenCalcite galenaC;
@@ -564,6 +629,15 @@ public class WorldGenStones {
     static OreGen quartz;
     static OreGen roseQuartz;
     static OreGen rockCrystal;
+    
+    static OreGenStratifiedGem rubyS;
+    static OreGenStratifiedGem emeraldS;
+    static OreGenStratifiedGem sapphireS;
+    static OreGenStratifiedGem topazS;
+    static OreGenStratifiedGem amethystS;
+    static OreGenStratifiedGem quartzS;
+    static OreGenStratifiedGem roseQuartzS;
+    static OreGenStratifiedGem rockCrystalS;
 
 	public static void generateSilt(World world, Random random, int chunkX,
 			int chunkZ) {

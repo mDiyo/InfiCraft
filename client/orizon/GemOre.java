@@ -8,7 +8,10 @@ public class GemOre extends Block
     public GemOre(int id, int texture)
     {
         super(id, texture, Material.rock);
+        enableStats = false;
     }
+    
+    public boolean getEnableStats() {return false;}
 
     protected int damageDropped(int md)
     {
@@ -22,6 +25,6 @@ public class GemOre extends Block
 
     public String getTextureFile()
     {
-        return "/steamtex/gems.png";
+        return "/oretex/gems.png";
     }
 }

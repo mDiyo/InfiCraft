@@ -7,11 +7,13 @@ import net.minecraft.src.EntityRenderer;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.RenderBlocks;
 import net.minecraft.src.Tessellator;
+import net.minecraft.src.mod_InfiBlocks;
+import net.minecraft.src.forge.ICustomItemRenderer;
+import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class InfiBlockRenders {
-	public InfiBlockRenders() {
-		
-	}
+	
+	public InfiBlockRenders() {}
 	
 	public static boolean RenderMagicWorld(RenderBlocks renderblocks, 
 			IBlockAccess iblockaccess, int x, int y, int z, MagicSlabBase slab)

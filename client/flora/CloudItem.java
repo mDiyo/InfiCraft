@@ -1,8 +1,9 @@
 package net.minecraft.src.flora;
 
 import net.minecraft.src.*;
+import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class CloudItem extends ItemBlock
+public class CloudItem extends CustomItemBlockFlora
 {
     public static final String blockType[] =
     {
@@ -14,16 +15,12 @@ public class CloudItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.cloud.blockID, this);
     }
 
     public int getIconFromDamage(int i)
     {
         return mod_FloraSoma.cloud.getBlockTextureFromSideAndMetadata(0, i);
-    }
-
-    public int getMetadata(int i)
-    {
-        return i;
     }
 
     public String getItemNameIS(ItemStack itemstack)

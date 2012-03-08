@@ -3,8 +3,7 @@ package net.minecraft.src.blocks;
 import net.minecraft.src.*;
 import net.minecraft.src.forge.*;
 
-public class BrickFancyItem extends ItemBlock
-	implements ITextureProvider
+public class BrickFancyItem extends CustomItemBlockInfi
 {
 	public static final String blockType[] =
 	{
@@ -17,25 +16,16 @@ public class BrickFancyItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.fancyBrick.blockID, this);
     }
 
     public int getIconFromDamage(int i)
     {
-        return mod_InfiBlocks.brick.getBlockTextureFromSideAndMetadata(0, i);
-    }
-
-    public int getMetadata(int i)
-    {
-        return i;
+        return mod_InfiBlocks.fancyBrick.getBlockTextureFromSideAndMetadata(0, i);
     }
 
     public String getItemNameIS(ItemStack itemstack)
     {
         return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("FancyBrick").toString();
     }
-
-	@Override
-	public String getTextureFile() {
-		return "/infiblocks/infiblocks.png";
-	}
 }

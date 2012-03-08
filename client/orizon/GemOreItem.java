@@ -2,23 +2,19 @@ package net.minecraft.src.orizon;
 import net.minecraft.src.forge.*;
 import net.minecraft.src.*;
 
-public class GemOreItem extends ItemBlock
+public class GemOreItem extends CustomItemBlockGem
 {
     public GemOreItem(int id)
     {
         super(id);
         setMaxDamage(0);
         setHasSubtypes(true);
+        MinecraftForgeClient.registerCustomItemRenderer(mod_Orizon.gemOre.blockID, this);
     }
 
     public int getIconFromDamage(int md)
     {
         return mod_Orizon.gemOre.getBlockTextureFromSideAndMetadata(0, md);
-    }
-
-    public int getMetadata(int md)
-    {
-        return md;
     }
     
     public static final String blockType[] =

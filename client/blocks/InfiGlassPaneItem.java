@@ -1,6 +1,7 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
+import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class InfiGlassPaneItem extends ItemBlock
 {
@@ -14,17 +15,16 @@ public class InfiGlassPaneItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        setFull3D();
+    }
+    
+    public int getMetadata(int i)
+    {
+        return i;
     }
 
     public int getIconFromDamage(int i)
     {
-        return mod_InfiBlocks.infiGlassPane.getBlockTextureFromSideAndMetadata(0, i);
-    }
-
-    public int getMetadata(int i)
-    {
-        return i;
+        return iconIndex + i;
     }
 
     public String getItemNameIS(ItemStack itemstack)

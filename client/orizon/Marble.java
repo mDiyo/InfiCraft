@@ -8,7 +8,10 @@ public class Marble extends Block
     public Marble(int i, int j)
     {
         super(i, j, Material.rock);
+        enableStats = false;
     }
+    
+    public boolean getEnableStats() {return false;}
 
     protected int damageDropped(int md)
     {

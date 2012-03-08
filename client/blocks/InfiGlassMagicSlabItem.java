@@ -1,8 +1,9 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
+import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class InfiGlassMagicSlabItem extends ItemBlock
+public class InfiGlassMagicSlabItem extends CustomItemBlockInfi
 {
 	public static final String blockType[] =
 	    {
@@ -14,6 +15,7 @@ public class InfiGlassMagicSlabItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.infiGlassMagicSlab.blockID, this);
     }
 
     public int getIconFromDamage(int i)
