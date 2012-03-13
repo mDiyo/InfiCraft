@@ -2,7 +2,7 @@ package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
 
-public class FurnaceItem extends CustomItemBlockInfi
+public class FurnaceItem extends ItemBlock
 {
     public static final String blockType[] =
     {
@@ -15,10 +15,12 @@ public class FurnaceItem extends CustomItemBlockInfi
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.furnace.blockID, this);
     }
 
-    public String getItemNameIS(ItemStack itemstack)
+    @Override
+    public int getMetadata(int md)
     {
-        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("FurnaceInfi").toString();
+        return md;
     }
 }

@@ -1,9 +1,8 @@
 package net.minecraft.src.flora;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.*;
 
-public class FloraLeavesItem extends CustomItemBlockFlora
+public class FloraLeavesItem extends ItemBlock
 {
     /*public static final String blockType[] =
     {
@@ -15,11 +14,13 @@ public class FloraLeavesItem extends CustomItemBlockFlora
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.floraLeaves.blockID, this);
     }
 
-    public int getIconFromDamage(int i)
+    @Override
+    public int getMetadata(int md)
     {
-        return mod_FloraSoma.cloud.getBlockTextureFromSideAndMetadata(0, i);
+        return md;
     }
 
     /*public String getItemNameIS(ItemStack itemstack)

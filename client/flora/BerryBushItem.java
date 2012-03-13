@@ -3,7 +3,7 @@ package net.minecraft.src.flora;
 import net.minecraft.src.*;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class BerryBushItem extends CustomItemBlockFlora
+public class BerryBushItem extends ItemBlock
 {
     public static final String blockType[] =
     {
@@ -16,7 +16,12 @@ public class BerryBushItem extends CustomItemBlockFlora
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.berryBush.blockID, this);
+    }
+    
+    @Override
+    public int getMetadata(int md)
+    {
+        return md;
     }
 
     public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
@@ -30,6 +35,7 @@ public class BerryBushItem extends CustomItemBlockFlora
         {
             world.setBlockAndMetadataWithNotify(i, j + 1, k, mod_FloraSoma.berryBush.blockID, itemstack.getItemDamage());
             itemstack.stackSize--;
+            world.playAuxSFX(2001, i, j, k, Block.grass.blockID);
             return true;
         }
         else

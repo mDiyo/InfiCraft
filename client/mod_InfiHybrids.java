@@ -936,7 +936,7 @@ public class mod_InfiHybrids extends BaseModMp
 
     public String getVersion()
     {
-        return "v1.0.6 Freedom";
+        return "v1.0.7 Freedom";
     }
 
     public void load()

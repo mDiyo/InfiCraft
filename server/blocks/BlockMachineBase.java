@@ -31,7 +31,7 @@ public abstract class BlockMachineBase extends BlockContainer
     {
         if(tileentity instanceof IInventory)
         {
-            ModLoader.OpenGUI(entityplayer, mod_InfiBlocks.furnaceGuiID, entityplayer.inventory, 
+            ModLoader.openGUI(entityplayer, mod_InfiBlocks.furnaceGuiID, entityplayer.inventory, 
 				new FurnaceContainer(entityplayer.inventory, (FurnaceLogic)tileentity));
             return true;
         } else

@@ -52,17 +52,17 @@ public class PropsHelperFloraSoma {
 
 		infiprops.accessInt("ingredientsID", 14033);
 		
-		infiprops.accessInt("Berry Bush ID", 3241);
-		infiprops.accessInt("Wood ID", 3242);
-		infiprops.accessInt("Leaves ID", 3243);
-		infiprops.accessInt("Cherry Leaves ID", 3244);
-		infiprops.accessInt("Sapling ID", 3245);
-		infiprops.accessInt("Redwood Door ID", 3246);
-		infiprops.accessInt("Crops ID", 3251);
-		infiprops.accessInt("Cloud ID", 3252);
-		infiprops.accessInt("Corruptor ID", 3253);
-		infiprops.accessInt("Corrupt Brick ID", 3254);
-		infiprops.accessInt("Saguaro Cactus ID", 3255);
+		infiprops.accessInt("Berry Bush ID", 167);
+		infiprops.accessInt("Wood ID", 168);
+		infiprops.accessInt("Leaves ID", 169);
+		infiprops.accessInt("Crops ID", 170);
+		infiprops.accessInt("Cloud ID", 171);
+		infiprops.accessInt("Corruptor ID", 172);
+		infiprops.accessInt("Corrupt Brick ID", 173);
+		infiprops.accessInt("Sapling ID", 174);
+		infiprops.accessInt("Cherry Leaves ID", 175);
+		infiprops.accessInt("Redwood Door ID", 176);
+		infiprops.accessInt("Saguaro Cactus ID", 177);
 		
 		infiprops.accessInt("Redwood Boat ID", 62);
 		infiprops.accessInt("Bloodboat ID", 63);
@@ -71,99 +71,34 @@ public class PropsHelperFloraSoma {
 		return infiprops;
 	}
 	
+	private static int idStart = 130;
+	
+	public static int changeID(InfiProps props, int id, String s)
+	{
+		if(Block.blocksList[id] != null) {
+			for(int i = idStart; i < Block.blocksList.length; i++) {
+				if(Block.blocksList[i] == null) {
+					props.writeInt(s, i);
+					idStart = i + 1;
+					return i;
+				}
+			}
+		}
+		return id;
+	}
+	
 	public static boolean resolveIDs(InfiProps props)
 	{
-		if(Block.blocksList[mod_FloraSoma.berryBlockID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.berryBlockID = i;
-					props.writeInt("Berry Bush ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.redwoodID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.redwoodID = i;
-					props.writeInt("Wood ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.floraLeavesID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.floraLeavesID = i;
-					props.writeInt("Leaves ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.cherryLeavesID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.cherryLeavesID = i;
-					props.writeInt("Cherry Leaves ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.cloudID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.cloudID = i;
-					props.writeInt("Cloud ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.floraCropsID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.berryID = i;
-					props.writeInt("Crops ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.corruptorID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.corruptorID = i;
-					props.writeInt("Corruptor ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.corruptBrickID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.corruptBrickID = i;
-					props.writeInt("Corrupt Brick ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.redwoodDoorID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.redwoodDoorID = i;
-					props.writeInt("Redwood Door ID", i);
-					break;
-				}
-			}
-		}
-		if(Block.blocksList[mod_FloraSoma.saguaroID] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					mod_FloraSoma.saguaroID = i;
-					props.writeInt("Saguaro Cactus ID", i);
-					break;
-				}
-			}
-		}
-		
+		mod_FloraSoma.berryBlockID = changeID(props, mod_FloraSoma.berryBlockID, "Berry Bush ID");
+		mod_FloraSoma.redwoodID = changeID(props, mod_FloraSoma.redwoodID, "Wood ID");
+		mod_FloraSoma.floraLeavesID = changeID(props, mod_FloraSoma.floraLeavesID, "Leaves ID");
+		mod_FloraSoma.cherryLeavesID = changeID(props, mod_FloraSoma.cherryLeavesID, "Cherry Leaves ID");
+		mod_FloraSoma.cloudID = changeID(props, mod_FloraSoma.cloudID, "Cloud ID");
+		mod_FloraSoma.corruptorID = changeID(props, mod_FloraSoma.corruptorID, "Corruptor ID");
+		mod_FloraSoma.corruptBrickID = changeID(props, mod_FloraSoma.corruptBrickID, "Corrupt Brick ID");
+		mod_FloraSoma.redwoodDoorID = changeID(props, mod_FloraSoma.redwoodDoorID, "Redwood Door ID");
+		mod_FloraSoma.saguaroID = changeID(props, mod_FloraSoma.saguaroID, "Saguaro Cactus ID");
+			
 		props.writeBoolean("Automatically Resolve ID conflicts", false);
 		return true;
 	}
@@ -209,8 +144,8 @@ public class PropsHelperFloraSoma {
 		spawnProps.accessInt("Ghost Tree Spawn Range", 80);
 		
 		spawnProps.accessInt("Cloud Spawn Density", 10);
-		spawnProps.accessInt("Cloud Spawn Height", 103);
-		spawnProps.accessInt("Cloud Spawn Range", 25);
+		spawnProps.accessInt("Cloud Spawn Height", 192);
+		spawnProps.accessInt("Cloud Spawn Range", 48);
 		spawnProps.accessInt("Dark Cloud Spawn Density", 10);
 		spawnProps.accessInt("Dark Cloud Spawn Height", 64);
 		spawnProps.accessInt("Dark Cloud Spawn Range", 128);

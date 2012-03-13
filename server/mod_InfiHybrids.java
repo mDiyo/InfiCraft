@@ -206,9 +206,6 @@ public class mod_InfiHybrids extends BaseModMp
     public static int fType;
     public static int brType;
     public static int blType;
-    public static Achievement woodMattock;
-    public static Achievement iceForever;
-    public static Achievement stoneHammer;
     public static Item treeRoot;
     public static Item coalBits;
     public static Item wWoodIceAxe;
@@ -935,7 +932,7 @@ public class mod_InfiHybrids extends BaseModMp
 
     public String getVersion()
     {
-        return "v1.0.6 Freedom";
+        return "v1.0.7 Freedom";
     }
 
     public void load()
@@ -1129,12 +1126,11 @@ public class mod_InfiHybrids extends BaseModMp
 
     public mod_InfiHybrids()
     {
-        ModLoader.addName(treeRoot, "Tree Root");
+        //ModLoader.addName(treeRoot, "Tree Root");
         ModLoader.addRecipe(new ItemStack(Block.sapling, 1), new Object[]
                 {
                     "l", "r", Character.valueOf('l'), Block.leaves, Character.valueOf('r'), treeRoot
                 });
-        addAchievements();
         InfiRecipeIceAxes.recipeStorm();
         InfiRecipeMattocks.recipeStorm();
         InfiRecipeHammers.recipeStorm();
@@ -1150,32 +1146,6 @@ public class mod_InfiHybrids extends BaseModMp
         	return 0;
         }
     }
-
-    public static void addAchievements()
-    {
-        woodMattock = (new Achievement(1352, "woodMattock", -9, -3, wWoodMattock, null)).registerAchievement();
-        ModLoader.addAchievementDesc(woodMattock, "A Farmer's Best Friend", "Construct a wooden Mattock");
-        iceForever = (new Achievement(1353, "iceForever", -7, -5, iceIceIceAxe, null)).registerAchievement();
-        ModLoader.addAchievementDesc(iceForever, "Ice^Infinity", "Create an Ice Axe from Ice");
-        stoneHammer = (new Achievement(1354, "stoneHammer", -8, -4, stStoneHammer, null)).registerAchievement();
-        ModLoader.addAchievementDesc(stoneHammer, "Diggy diggy hole!", "Craft a stone Hammer");
-    }
-
-    /*public void TakenFromCrafting(EntityPlayer entityplayer, ItemStack itemstack, IInventory iinventory)
-    {
-        if (itemstack.itemID == wWoodMattock.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(woodMattock);
-        }
-        if (itemstack.itemID == iceIceIceAxe.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(iceForever);
-        }
-        if (itemstack.itemID == wStoneHammer.shiftedIndex || itemstack.itemID == stStoneHammer.shiftedIndex || itemstack.itemID == saStoneHammer.shiftedIndex || itemstack.itemID == bStoneHammer.shiftedIndex || itemstack.itemID == mStoneHammer.shiftedIndex || itemstack.itemID == nStoneHammer.shiftedIndex || itemstack.itemID == iceStoneHammer.shiftedIndex || itemstack.itemID == sStoneHammer.shiftedIndex || itemstack.itemID == cStoneHammer.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(stoneHammer);
-        }
-    }*/
     
     public static File getMinecraftDir()
     {

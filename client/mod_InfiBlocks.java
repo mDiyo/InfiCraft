@@ -10,85 +10,9 @@ import net.minecraft.client.Minecraft;
 
 public class mod_InfiBlocks extends BaseModMp
 {
-	public static int blockCraftingID;
-	public static int woolCarpetID;
-	public static int blockChestID;
-	public static int blockFurnaceID;
-	public static int magicSlabStoneID;
-	public static int magicSlabSoilID;
-	public static int magicSlabWoolID;
-	
-	public static int stainedGlassID;
-	public static int stainedGlassPaneID;
-	public static int stainedGlassMagicSlabID;
-	public static int infiGlassID;
-	public static int infiGlassPaneID;
-	
-	public static int storageBlockID;
-	public static int brickID;
-	public static int crackedBrickID;
-	public static int fancyBrickID;
-	public static int runeBrickID;
-	public static int brownstoneID;
-	public static int iceBrickID;
-	
-	public static int infiGlassMagicSlabID;
-	public static int storageBlockMagicSlabID;
-	public static int brickMagicSlabID;
-	public static int crackedBrickMagicSlabID;
-	public static int fancyBrickMagicSlabID;
-	public static int runeBrickMagicSlabID;
-	public static int brownstoneMagicSlabID;
-	public static int iceBrickMagicSlabID;
-	
-	public static int chiselID;
-	
-	public static Block workbench;
-	public static Block woolCarpet;
-	public static Block furnace;
-	public static Block magicSlabStone;
-	public static Block magicSlabSoil;
-	public static Block magicSlabWool;
-	
-	public static Block stainedGlass;
-	public static Block stainedGlassPane;
-	public static Block stainedGlassMagicSlab;
-	public static Block infiGlass;
-	public static Block infiGlassPane;
-	
-	public static Block storageBlock;
-	public static Block brick;
-	public static Block crackedBrick;
-	public static Block fancyBrick;
-	public static Block runeBrick;
-	public static Block brownstone;
-	public static Block iceBrick;
-	
-	public static Block infiGlassMagicSlab;
-	public static Block storageBlockMagicSlab;
-	public static Block brickMagicSlab;
-	public static Block crackedBrickMagicSlab;
-	public static Block fancyBrickMagicSlab;
-	public static Block runeBrickMagicSlab;
-	public static Block brownstoneMagicSlab;
-	public static Block iceBrickMagicSlab;
-	
-	public static Item chiselIron;
-	public static Item chiselDiamond;
-	
-	public static int craftingGuiID;
-	public static int furnaceGuiID;
-	public static int magicSlabModel;
-	public static int paneModelID;
-	
-	public static boolean resolveConflicts;
-	
-	public static InfiProps props;
-	public static Minecraft mc;
-
 	public String getVersion()
 	{
-		return "v0.7 Color Bricked";
+		return "v0.7.3 Color Bricked";
 	}
 
 	public void load()
@@ -116,7 +40,8 @@ public class mod_InfiBlocks extends BaseModMp
 		}
 	}*/
 
-	public GuiScreen HandleGUI(int i)
+	@Override
+	public GuiScreen handleGUI(int i)
 	{
 		if (i == craftingGuiID)
 		{
@@ -200,8 +125,8 @@ public class mod_InfiBlocks extends BaseModMp
 	public mod_InfiBlocks()
 	{
 		//InfiBlockRecipes.recipeStorm();
-		ModLoaderMp.RegisterGUI(this, craftingGuiID);
-		ModLoaderMp.RegisterGUI(this, furnaceGuiID);
+		ModLoaderMp.registerGUI(this, craftingGuiID);
+		ModLoaderMp.registerGUI(this, furnaceGuiID);
 		
 		ModLoader.registerBlock(workbench, net.minecraft.src.blocks.WorkbenchItem.class);
 		ModLoader.registerBlock(woolCarpet, net.minecraft.src.blocks.CarpetItem.class);
@@ -239,9 +164,86 @@ public class mod_InfiBlocks extends BaseModMp
 		InfiBlockRecipes.furnaceBlaze();
 		//checkInitialized();
 		MinecraftForgeClient.preloadTexture("/infiblocks/infiblocks.png");
+		MinecraftForgeClient.preloadTexture("/infiblocks/infimachines.png");
 		
 		setupCraftHook();
 	}
+	
+	public static int blockCraftingID;
+	public static int woolCarpetID;
+	public static int blockChestID;
+	public static int blockFurnaceID;
+	public static int magicSlabStoneID;
+	public static int magicSlabSoilID;
+	public static int magicSlabWoolID;
+	
+	public static int stainedGlassID;
+	public static int stainedGlassPaneID;
+	public static int stainedGlassMagicSlabID;
+	public static int infiGlassID;
+	public static int infiGlassPaneID;
+	
+	public static int storageBlockID;
+	public static int brickID;
+	public static int crackedBrickID;
+	public static int fancyBrickID;
+	public static int runeBrickID;
+	public static int brownstoneID;
+	public static int iceBrickID;
+	
+	public static int infiGlassMagicSlabID;
+	public static int storageBlockMagicSlabID;
+	public static int brickMagicSlabID;
+	public static int crackedBrickMagicSlabID;
+	public static int fancyBrickMagicSlabID;
+	public static int runeBrickMagicSlabID;
+	public static int brownstoneMagicSlabID;
+	public static int iceBrickMagicSlabID;
+	
+	public static int chiselID;
+	
+	public static Block workbench;
+	public static Block woolCarpet;
+	public static Block furnace;
+	public static Block magicSlabStone;
+	public static Block magicSlabSoil;
+	public static Block magicSlabWool;
+	
+	public static Block stainedGlass;
+	public static Block stainedGlassPane;
+	public static Block stainedGlassMagicSlab;
+	public static Block infiGlass;
+	public static Block infiGlassPane;
+	
+	public static Block storageBlock;
+	public static Block brick;
+	public static Block crackedBrick;
+	public static Block fancyBrick;
+	public static Block runeBrick;
+	public static Block brownstone;
+	public static Block iceBrick;
+	
+	public static Block infiGlassMagicSlab;
+	public static Block storageBlockMagicSlab;
+	public static Block brickMagicSlab;
+	public static Block crackedBrickMagicSlab;
+	public static Block fancyBrickMagicSlab;
+	public static Block runeBrickMagicSlab;
+	public static Block brownstoneMagicSlab;
+	public static Block iceBrickMagicSlab;
+	
+	public static Item chiselIron;
+	public static Item chiselDiamond;
+	
+	public static int craftingGuiID;
+	public static int furnaceGuiID;
+	public static int magicSlabModel;
+	public static int paneModelID;
+	
+	public static boolean resolveConflicts;
+	
+	public static InfiProps props;
+	public static Minecraft mc;
 
 	static
 	{
@@ -272,7 +274,7 @@ public class mod_InfiBlocks extends BaseModMp
 
 		storageBlock = new StorageBlock(storageBlockID, 0).setHardness(0.3F).setBlockName("InfiStorage Block");
 		brick = new BrickBlock(brickID, 16).setHardness(0.3F).setBlockName("InfiBrick");
-		fancyBrick = new BrickFancy(fancyBrickID, 48).setHardness(0.3F).setBlockName("InfiBrick Fancy");
+		fancyBrick = new BrickFancy(fancyBrickID, 48).setHardness(0.3F).setStepSound(Block.soundStoneFootstep).setBlockName("InfiBrick Fancy");
 		iceBrick = new BrickIce(iceBrickID, 112).setHardness(Block.ice.getHardness()).setStepSound(Block.soundGlassFootstep).setBlockName("Ice Brick");
 		brownstone = new Brownstone(brownstoneID, 96).setHardness(Block.cobblestone.getHardness()).setBlockName("Brownstone");
 		

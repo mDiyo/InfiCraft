@@ -1810,7 +1810,7 @@ public class mod_InfiTools extends BaseModMp
 
     public String getVersion()
     {
-        return "v2.2.8 Twi";
+        return "v2.3.1 Twi";
     }
 
     public void load()
@@ -2214,168 +2214,172 @@ public class mod_InfiTools extends BaseModMp
         ModLoader.addName(stoneRod, "Stone Stick");
         ModLoader.addRecipe(new ItemStack(stoneRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Block.cobblestone
+                    "X", "X", 'X', Block.cobblestone
                 });
         ModLoader.addRecipe(new ItemStack(stoneRod, 1), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), stoneShard
+                    "X", "X", 'X', stoneShard
                 });
         ModLoader.addName(ironRod, "Iron Rod");
         ModLoader.addRecipe(new ItemStack(ironRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Item.ingotIron
+                    "X", "X", 'X', Item.ingotIron
                 });
         ModLoader.addRecipe(new ItemStack(ironRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), ironChunks
+                    "X", "X", 'X', ironChunks
                 });
         ModLoader.addName(diamondRod, "Diamond Shaft");
         ModLoader.addRecipe(new ItemStack(diamondRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Item.diamond
+                    "X", "X", 'X', Item.diamond
                 });
         ModLoader.addRecipe(new ItemStack(diamondRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), diamondShard
+                    "X", "X", 'X', diamondShard
                 });
         ModLoader.addName(goldRod, "Gold Rod");
         ModLoader.addRecipe(new ItemStack(goldRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Item.ingotGold
+                    "X", "X", 'X', Item.ingotGold
                 });
         ModLoader.addRecipe(new ItemStack(goldRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), goldChunks
+                    "X", "X", 'X', goldChunks
                 });
         ModLoader.addName(redstoneRod, "Redstone Rod");
         ModLoader.addRecipe(new ItemStack(redstoneRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), redstoneCrystal
+                    "X", "X", 'X', redstoneCrystal
                 });
         ModLoader.addRecipe(new ItemStack(redstoneRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), redstoneFragment
+                    "X", "X", 'X', redstoneFragment
                 });
         ModLoader.addName(obsidianRod, "Obsidian Shaft");
         ModLoader.addRecipe(new ItemStack(obsidianRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Block.obsidian
+                    "X", "X", 'X', Block.obsidian
                 });
         ModLoader.addRecipe(new ItemStack(obsidianRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), obsidianShard
+                    "X", "X", 'X', obsidianShard
                 });
         ModLoader.addName(sandstoneRod, "Sandstone Stick");
         ModLoader.addRecipe(new ItemStack(sandstoneRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Block.sandStone
+                    "X", "X", 'X', Block.sandStone
                 });
         ModLoader.addRecipe(new ItemStack(sandstoneRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), sandstoneShard
+                    "X", "X", 'X', sandstoneShard
                 });
         ModLoader.addName(boneRod, "Bone Rod");
         ModLoader.addRecipe(new ItemStack(boneRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Item.bone
+                    "X", "X", 'X', Item.bone
                 });
         ModLoader.addName(paperRod, "Paper Stick");
         ModLoader.addRecipe(new ItemStack(paperRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), paperStack
+                    "X", "X", 'X', paperStack
                 });
         ModLoader.addRecipe(new ItemStack(paperRod, 1), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Item.paper
+                    "X", "X", 'X', Item.paper
                 });
         ModLoader.addName(mossyRod, "Mossy Stick");
         ModLoader.addRecipe(new ItemStack(mossyRod, 1), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), mossBallGiant
+                    "X", "X", 'X', mossBallGiant
                 });
         ModLoader.addRecipe(new ItemStack(mossyRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), mossBallCrafted
+                    "X", "X", 'X', mossBallCrafted
                 });
         ModLoader.addName(netherrackRod, "Netherrack Rod");
         ModLoader.addRecipe(new ItemStack(netherrackRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Block.netherrack
+                    "X", "X", 'X', Block.netherrack
                 });
         ModLoader.addRecipe(new ItemStack(netherrackRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), netherrackShard
+                    "X", "X", 'X', netherrackShard
                 });
         ModLoader.addName(glowstoneRod, "Glowstone Rod");
         ModLoader.addRecipe(new ItemStack(glowstoneRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), glowstoneCrystal
+                    "X", "X", 'X', glowstoneCrystal
                 });
         ModLoader.addRecipe(new ItemStack(glowstoneRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), glowstoneFragment
+                    "X", "X", 'X', glowstoneFragment
                 });
         ModLoader.addName(iceRod, "Icicle");
         ModLoader.addRecipe(new ItemStack(iceRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Block.ice
+                    "X", "X", 'X', Block.ice
                 });
         ModLoader.addRecipe(new ItemStack(iceRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), iceShard
+                    "X", "X", 'X', iceShard
                 });
         ModLoader.addName(lavaRod, "Lava Rod");
         ModLoader.addRecipe(new ItemStack(lavaRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), lavaCrystal
+                    "X", "X", 'X', lavaCrystal
                 });
         ModLoader.addRecipe(new ItemStack(lavaRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), lavaFragment
+                    "X", "X", 'X', lavaFragment
                 });
         ModLoader.addName(slimeRod, "Slimy Stick");
         ModLoader.addRecipe(new ItemStack(slimeRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), slimeCrystal
+                    "X", "X", 'X', slimeCrystal
                 });
         ModLoader.addRecipe(new ItemStack(slimeRod, 2), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), slimeFragment
+                    "X", "X", 'X', slimeFragment
                 });
         ModLoader.addName(cactusRod, "Cactus Stick");
         ModLoader.addRecipe(new ItemStack(cactusRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Block.cactus
+                    "X", "X", 'X', Block.cactus
                 });
         ModLoader.addRecipe(new ItemStack(cactusRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), new ItemStack(Item.dyePowder, 1, 2)
+                    "X", "X", 'X', new ItemStack(Item.dyePowder, 1, 2)
                 });
         ModLoader.addName(flintRod, "Flint Rod");
         ModLoader.addRecipe(new ItemStack(flintRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Item.flint
+                    "X", "X", 'X', Item.flint
                 });
         ModLoader.addName(brickRod, "Brick Rod");
         ModLoader.addRecipe(new ItemStack(brickRod, 4), new Object[]
                 {
-                    "X", "X", Character.valueOf('X'), Item.brick
+                    "X", "X", 'X', Item.brick
                 });
         ModLoader.addRecipe(new ItemStack(Item.helmetChain, 1), new Object[]
                 {
-                    "XXX", "X X", Character.valueOf('X'), ironChunks
+                    "XXX", "X X", 'X', ironChunks
                 });
         ModLoader.addRecipe(new ItemStack(Item.legsChain, 1), new Object[]
                 {
-                    "XXX", "X X", "X X", Character.valueOf('X'), ironChunks
+                    "XXX", "X X", "X X", 'X', ironChunks
                 });
         ModLoader.addRecipe(new ItemStack(Item.bootsChain, 1), new Object[]
                 {
-                    "X X", "X X", Character.valueOf('X'), ironChunks
+                    "X X", "X X", 'X', ironChunks
                 });
         ModLoader.addRecipe(new ItemStack(Item.plateChain, 1), new Object[]
                 {
-                    "X X", "XXX", "XXX", Character.valueOf('X'), ironChunks
+                    "X X", "XXX", "XXX", 'X', ironChunks
+                });
+        ModLoader.addRecipe(new ItemStack(Block.torchWood), new Object[]
+                {
+                    "X", "y", 'X', coalBits, 'y', Item.stick
                 });
         
         addAchievements();
@@ -2449,7 +2453,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "s", "|", 's', shardArrayShort[shardIter], '|', stickArray[stickIter]
                 });
-        		ModLoader.addRecipe(new ItemStack(Item.arrow, 1), new Object[]
+        		ModLoader.addRecipe(new ItemStack(Item.arrow, 4), new Object[]
                 {
                     "s", "|", "f", 's', shardArrayShort[shardIter], '|', stickArray[stickIter], 'f', Item.feather
                 });

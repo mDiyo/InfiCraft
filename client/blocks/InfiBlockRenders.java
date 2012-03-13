@@ -764,7 +764,7 @@ public class InfiBlockRenders {
 	public static boolean RenderPaneInWorld(RenderBlocks renderblocks, 
 			IBlockAccess iblockaccess, int x, int y, int z, PaneBase pane)
 	{
-		int l = iblockaccess.func_48453_b();
+		int l = iblockaccess.getWorldHeight();
         Tessellator tessellator = Tessellator.instance;
         tessellator.setBrightness(pane.getMixedBrightnessForBlock(iblockaccess, x, y, z));
         float f = 1.0F;

@@ -5,7 +5,7 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.mod_FloraSoma;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class RedwoodItem extends CustomItemBlockFlora
+public class RedwoodItem extends ItemBlock
 {
     public static final String blockType[] =
     {
@@ -18,7 +18,13 @@ public class RedwoodItem extends CustomItemBlockFlora
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.redwood.blockID, this);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.redwood.blockID, this);
+    }
+    
+    @Override
+    public int getMetadata(int md)
+    {
+        return md;
     }
 
     public String getItemNameIS(ItemStack itemstack)

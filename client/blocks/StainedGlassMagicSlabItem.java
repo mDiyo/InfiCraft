@@ -3,7 +3,7 @@ package net.minecraft.src.blocks;
 import net.minecraft.src.*;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class StainedGlassMagicSlabItem extends CustomItemBlockInfi
+public class StainedGlassMagicSlabItem extends ItemBlock
 {
 	public static final String blockType[] =
 	{
@@ -16,12 +16,13 @@ public class StainedGlassMagicSlabItem extends CustomItemBlockInfi
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.stainedGlassMagicSlab.blockID, this);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.stainedGlassMagicSlab.blockID, this);
     }
 
-    public int getIconFromDamage(int i)
+    @Override
+    public int getMetadata(int md)
     {
-        return mod_InfiBlocks.stainedGlassMagicSlab.getBlockTextureFromSideAndMetadata(0, i);
+        return md;
     }
 
     public String getItemNameIS(ItemStack itemstack)

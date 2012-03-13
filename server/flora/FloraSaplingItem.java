@@ -1,20 +1,21 @@
 package net.minecraft.src.flora;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.*;
 
-public class FloraSaplingItem extends CustomItemBlockFlora
+public class FloraSaplingItem extends ItemBlock
 {
     public FloraSaplingItem(int i)
     {
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.floraSapling.blockID, this);
     }
 
-    public int getMetadata(int i)
+    @Override
+    public int getMetadata(int md)
     {
-        return i;
+        return md;
     }
 
     public int getIconFromDamage(int i)

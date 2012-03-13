@@ -235,7 +235,7 @@ public class FurnaceLogic extends BlockLogicMachine
     }
 
 	@Override
-	public ItemStack func_48315_b(int var1) {
+	public ItemStack getStackInSlotOnClosing(int var1) {
 		// TODO Auto-generated method stub
 		return null;
 	}

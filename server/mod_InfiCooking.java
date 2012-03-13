@@ -149,11 +149,7 @@ public class mod_InfiCooking extends BaseModMp
     public static int fType;
     public static int brType;
     public static int blType;
-    
-    public static Achievement woodPan;
-    public static Achievement ironPan;
-    public static Achievement lavaPan;
-    
+
     public static Item wWoodFryingPan;
     public static Item stWoodFryingPan;
     public static Item saWoodFryingPan;
@@ -399,7 +395,7 @@ public class mod_InfiCooking extends BaseModMp
 
     public String getVersion()
     {
-        return "v0.1 Infi~";
+        return "v0.1.1 Infi~";
     }
 
     public void load()
@@ -446,54 +442,54 @@ public class mod_InfiCooking extends BaseModMp
 					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, 'B', mod_InfiTools.slimeBucketEmpty
 				});
 		
-		ModLoader.addName(mod_InfiTools.woodBowlRawPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBowlRawPumpkinPie, 1), new Object[]
 				{
 					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), Item.bowlEmpty
 				});
-		ModLoader.addName(mod_InfiTools.woodBowlPumpkinPie, "Pumpkin Pie");
+		
 		ModLoader.addSmelting(mod_InfiTools.woodBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.woodBowlPumpkinPie, 1));
-		ModLoader.addName(mod_InfiTools.stoneBowlRawPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBowlRawPumpkinPie, 1), new Object[]
 				{
 					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.stoneBowlEmpty
 				});
-		ModLoader.addName(mod_InfiTools.stoneBowlPumpkinPie, "Pumpkin Pie");
+		
 		ModLoader.addSmelting(mod_InfiTools.stoneBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.stoneBowlPumpkinPie, 1));
-		ModLoader.addName(mod_InfiTools.goldBowlRawPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addRecipe(new ItemStack(mod_InfiTools.goldBowlRawPumpkinPie, 1), new Object[]
 				{
 					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.goldBowlEmpty
 				});
-		ModLoader.addName(mod_InfiTools.goldBowlPumpkinPie, "Pumpkin Pie");
+		
 		ModLoader.addSmelting(mod_InfiTools.goldBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.goldBowlPumpkinPie, 1));
-		ModLoader.addName(mod_InfiTools.netherrackBowlRawPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addRecipe(new ItemStack(mod_InfiTools.netherrackBowlRawPumpkinPie, 1), new Object[]
 				{
 					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.netherrackBowlEmpty
 				});
-		ModLoader.addName(mod_InfiTools.netherrackBowlPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addSmelting(mod_InfiTools.netherrackBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.netherrackBowlPumpkinPie, 1));
-		ModLoader.addName(mod_InfiTools.slimeBowlRawPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addRecipe(new ItemStack(mod_InfiTools.slimeBowlRawPumpkinPie, 1), new Object[]
 				{
 					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.slimeBowlEmpty
 				});
-		ModLoader.addName(mod_InfiTools.slimeBowlPumpkinPie, "Pumpkin Pie");
+		
 		ModLoader.addSmelting(mod_InfiTools.slimeBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.slimeBowlPumpkinPie, 1));
-		ModLoader.addName(mod_InfiTools.cactusBowlRawPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBowlRawPumpkinPie, 1), new Object[]
 				{
 					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.cactusBowlEmpty
 				});
-		ModLoader.addName(mod_InfiTools.cactusBowlPumpkinPie, "Pumpkin Pie");
+		
 		ModLoader.addSmelting(mod_InfiTools.cactusBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.cactusBowlPumpkinPie, 1));
-		ModLoader.addName(mod_InfiTools.glassBowlRawPumpkinPie, "Raw Pumpkin Pie");
+		
 		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBowlRawPumpkinPie, 1), new Object[]
 				{
 					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.cactusBowlEmpty
 				});
-		ModLoader.addName(mod_InfiTools.glassBowlPumpkinPie, "Pumpkin Pie");
+		
 		ModLoader.addSmelting(mod_InfiTools.glassBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.glassBowlPumpkinPie, 1));
 	}
 
@@ -596,32 +592,6 @@ public class mod_InfiCooking extends BaseModMp
         return 0;
     }
 
-    public static void addAchievements()
-    {
-        woodPan = (new Achievement(3149, "woodPan", -4, -4, wWoodFryingPan, AchievementList.buildHoe)).registerAchievement();
-        ModLoader.addAchievementDesc(woodPan, "Can you cook with it?", "Make a Frying Pan out of Wood");
-        ironPan = (new Achievement(1350, "woodPan", -3, -6, iIronFryingPan, woodPan)).registerAchievement();
-        ModLoader.addAchievementDesc(ironPan, "Homemade Meals", "Make a Frying Pan out of Iron");
-        lavaPan = (new Achievement(1351, "woodPan", -5, -6, lLavaFryingPan, ironPan)).registerAchievement();
-        ModLoader.addAchievementDesc(lavaPan, "Perpetual Cooking Power", "Make a Frying Pan out of Lava Crystals");
-    }
-
-    /*public void TakenFromCrafting(EntityPlayer entityplayer, ItemStack itemstack, IInventory iinventory)
-    {
-        if (itemstack.itemID == wWoodFryingPan.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(woodPan);
-        }
-        if (itemstack.itemID == wIronFryingPan.shiftedIndex || itemstack.itemID == stIronFryingPan.shiftedIndex || itemstack.itemID == iIronFryingPan.shiftedIndex || itemstack.itemID == dIronFryingPan.shiftedIndex || itemstack.itemID == rIronFryingPan.shiftedIndex || itemstack.itemID == bIronFryingPan.shiftedIndex || itemstack.itemID == glIronFryingPan.shiftedIndex || itemstack.itemID == sIronFryingPan.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(ironPan);
-        }
-        if (itemstack.itemID == dLavaFryingPan.shiftedIndex || itemstack.itemID == rLavaFryingPan.shiftedIndex || itemstack.itemID == bLavaFryingPan.shiftedIndex || itemstack.itemID == glLavaFryingPan.shiftedIndex || itemstack.itemID == lLavaFryingPan.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(lavaPan);
-        }
-    }*/
-    
     public static File getMinecraftDir()
     {
         return new File(".");

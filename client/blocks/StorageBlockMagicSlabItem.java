@@ -3,7 +3,7 @@ package net.minecraft.src.blocks;
 import net.minecraft.src.*;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class StorageBlockMagicSlabItem extends CustomItemBlockInfi
+public class StorageBlockMagicSlabItem extends ItemBlock
 {
 	public static final String blockType[] =
 	{
@@ -16,12 +16,17 @@ public class StorageBlockMagicSlabItem extends CustomItemBlockInfi
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.storageBlockMagicSlab.blockID, this);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.storageBlockMagicSlab.blockID, this);
     }
 
     public int getIconFromDamage(int i)
     {
         return mod_InfiBlocks.storageBlockMagicSlab.getBlockTextureFromSideAndMetadata(0, i);
+    }
+    
+    public int getMetadata(int i)
+    {
+        return i;
     }
 
     public String getItemNameIS(ItemStack itemstack)

@@ -44,6 +44,8 @@ public class PropsHelperOrizon {
 		
 		mod_Orizon.marbleID = infiprops.readInt("Marble ID");
 		
+		mod_Orizon.slimePoolID = infiprops.readInt("Slime Pool IDs");
+		
 		return infiprops;
 	}
 
@@ -51,39 +53,41 @@ public class PropsHelperOrizon {
 	{
 		infiprops.accessBoolean("Automatically Resolve ID conflicts", true);
 		
-		infiprops.accessInt("Mineral Ore ID", 3211);
-		infiprops.accessInt("Mineral Ore High ID", 3212);
-		infiprops.accessInt("Mineral Ore Medium ID", 3213);
-		infiprops.accessInt("Mineral Ore Low ID", 3214);
-		infiprops.accessInt("Mineral Ore Dark ID", 3215);
+		infiprops.accessInt("Mineral Ore ID", 137);
+		infiprops.accessInt("Mineral Ore High ID", 138);
+		infiprops.accessInt("Mineral Ore Medium ID", 139);
+		infiprops.accessInt("Mineral Ore Low ID", 140);
+		infiprops.accessInt("Mineral Ore Dark ID", 141);
 		
-		infiprops.accessInt("Mineral Ore Alt ID", 3216);
-		infiprops.accessInt("Mineral Ore Alt High ID", 3217);
-		infiprops.accessInt("Mineral Ore Alt Medium ID", 3218);
-		infiprops.accessInt("Mineral Ore Alt Low ID", 3219);
-		infiprops.accessInt("Mineral Ore Alt Dark ID", 3220);
+		infiprops.accessInt("Mineral Ore Alt ID", 142);
+		infiprops.accessInt("Mineral Ore Alt High ID", 143);
+		infiprops.accessInt("Mineral Ore Alt Medium ID", 144);
+		infiprops.accessInt("Mineral Ore Alt Low ID", 145);
+		infiprops.accessInt("Mineral Ore Alt Dark ID", 146);
 		
-		infiprops.accessInt("Gem Ore ID", 3221);
-		infiprops.accessInt("Gem Ore High ID", 3222);
-		infiprops.accessInt("Gem Ore Medium ID", 3223);
-		infiprops.accessInt("Gem Ore Low ID", 3224);
-		infiprops.accessInt("Gem Ore Dark ID", 3225);
+		infiprops.accessInt("Gem Ore ID", 147);
+		infiprops.accessInt("Gem Ore High ID", 148);
+		infiprops.accessInt("Gem Ore Medium ID", 149);
+		infiprops.accessInt("Gem Ore Low ID", 150);
+		infiprops.accessInt("Gem Ore Dark ID", 151);
 		
-		infiprops.accessInt("Colored Stone ID", 3226);
-		infiprops.accessInt("Colored Cobblestone ID", 3227);
-		infiprops.accessInt("Colored Brick ID", 3228);
-		infiprops.accessInt("Colored Mossy Brick ID", 3229);
-		infiprops.accessInt("Colored Cracked Brick ID", 3230);
-		infiprops.accessInt("Colored Brick Tile ID", 3231);
-		infiprops.accessInt("Colored Fancy Brick ID", 3232);
-		infiprops.accessInt("Colored Square Brick ID", 3233);
+		infiprops.accessInt("Colored Stone ID", 152);
+		infiprops.accessInt("Colored Cobblestone ID", 153);
+		infiprops.accessInt("Colored Brick ID", 154);
+		infiprops.accessInt("Colored Mossy Brick ID", 155);
+		infiprops.accessInt("Colored Cracked Brick ID", 156);
+		infiprops.accessInt("Colored Brick Tile ID", 157);
+		infiprops.accessInt("Colored Fancy Brick ID", 158);
+		infiprops.accessInt("Colored Square Brick ID", 159);
 		
-		infiprops.accessInt("Replacement Ore ID", 3234);
-		infiprops.accessInt("Replacement Metal Ore ID", 3235);
+		infiprops.accessInt("Replacement Ore ID", 160);
+		infiprops.accessInt("Replacement Metal Ore ID", 161);
 		
-		infiprops.accessInt("Calcite Ore ID", 3236);
-		infiprops.accessInt("Nether Ore ID", 3237);
-		infiprops.accessInt("Marble ID", 3238);
+		infiprops.accessInt("Calcite Ore ID", 162);
+		infiprops.accessInt("Nether Ore ID", 163);
+		infiprops.accessInt("Marble ID", 164);
+		
+		infiprops.accessInt("Slime Pool IDs", 3239);
 		
 		return infiprops;
 	}
@@ -99,6 +103,7 @@ public class PropsHelperOrizon {
 		mod_Orizon.redoVanillaOres = infiprops.readBoolean("Metallurgy Style Spawn");
 		mod_Orizon.replaceOres = infiprops.readBoolean("Replace Vanilla Ores");
 		mod_Orizon.genGems = infiprops.readBoolean("Generate Gemstones");
+		mod_Orizon.genSlimePools = infiprops.readBoolean("Generate Slime Pools");
 		
 		mod_Orizon.copperRarity = infiprops.readInt("Copper Rarity");
 	    mod_Orizon.copperHeight = infiprops.readInt("Copper Height");
@@ -157,6 +162,9 @@ public class PropsHelperOrizon {
 	    
 	    mod_Orizon.marbleRarity = infiprops.readInt("Marble Rarity");
 	    mod_Orizon.marbleHeight = infiprops.readInt("Marble Height");
+	    
+	    mod_Orizon.slimePoolRarity = infiprops.readInt("Slime Pool Rarity");
+	    mod_Orizon.slimePoolHeight = infiprops.readInt("Slime Pool Height");
 		
 		return infiprops;
 	}
@@ -172,28 +180,29 @@ public class PropsHelperOrizon {
 		infiprops.accessBoolean("Metallurgy Style Spawn", true);
 		infiprops.accessBoolean("Replace Vanilla Ores", true);
 		infiprops.accessBoolean("Generate Gemstones", true);
+		infiprops.accessBoolean("Generate Slime Pools", true);
 		
-		infiprops.accessInt("Copper Rarity", 10);
+		infiprops.accessInt("Copper Rarity", 8);
 	    infiprops.accessInt("Copper Height", 64);
-	    infiprops.accessInt("Turquoise Rarity", 12);
+	    infiprops.accessInt("Turquoise Rarity", 10);
 	    infiprops.accessInt("Turquoise Height", 64);
 	    infiprops.accessInt("Chalcocite Rarity", 4);
 	    infiprops.accessInt("Chalcocite Height", 64);
 	    infiprops.accessInt("Cassiterite Rarity", 10);
 	    infiprops.accessInt("Cassiterite Height", 64);
-	    infiprops.accessInt("Teallite Rarity", 10);
+	    infiprops.accessInt("Teallite Rarity", 8);
 	    infiprops.accessInt("Teallite Height", 64);
-	    infiprops.accessInt("Zinc Bloom Rarity", 10);
+	    infiprops.accessInt("Zinc Bloom Rarity", 9);
 	    infiprops.accessInt("Zinc Bloom Height", 64);
-	    infiprops.accessInt("Sphalerite Rarity", 8);
+	    infiprops.accessInt("Sphalerite Rarity", 7);
 	    infiprops.accessInt("Sphalerite Height", 64);
 	    infiprops.accessInt("Cerussite Rarity", 3);
 	    infiprops.accessInt("Cerussite Height", 64);
-	    infiprops.accessInt("Cobalt Rarity", 8);
+	    infiprops.accessInt("Cobalt Rarity", 5);
 	    infiprops.accessInt("Cobalt Height", 64);
-	    infiprops.accessInt("Ardite Rarity", 8);
+	    infiprops.accessInt("Ardite Rarity", 5);
 	    infiprops.accessInt("Ardite Height", 64);
-	    infiprops.accessInt("Myuvil Rarity", 8);
+	    infiprops.accessInt("Myuvil Rarity", 3);
 	    infiprops.accessInt("Myuvil Height", 64);
 	    infiprops.accessInt("Galena Rarity", 3);
 	    infiprops.accessInt("Galena Height", 64);
@@ -202,13 +211,13 @@ public class PropsHelperOrizon {
 	    infiprops.accessInt("Aggregate Rarity", 8);
 	    infiprops.accessInt("Aggregate Height", 64);
 	    
-	    infiprops.accessInt("Gold Rarity", 5);
+	    infiprops.accessInt("Gold Rarity", 4);
 	    infiprops.accessInt("Gold Height", 64);
 	    infiprops.accessInt("Diamond Rarity", 1);
 	    infiprops.accessInt("Diamond Height", 64);
 	    infiprops.accessInt("Lapis Rarity", 2);
 	    infiprops.accessInt("Lapis Height", 64);
-	    infiprops.accessInt("Redstone Rarity", 12);
+	    infiprops.accessInt("Redstone Rarity", 10);
 	    infiprops.accessInt("Redstone Height", 64);
 	    
 	    infiprops.accessInt("Ruby Rarity", 1);
@@ -230,6 +239,9 @@ public class PropsHelperOrizon {
 	    
 	    infiprops.accessInt("Marble Rarity", 22);
 	    infiprops.accessInt("Marble Height", 64);
+	    
+	    infiprops.accessInt("Slime Pool Rarity", 30);
+	    infiprops.accessInt("Slime Pool Height", 40);
 		return infiprops;
 	}
 	
@@ -300,12 +312,15 @@ public class PropsHelperOrizon {
 		return true;
 	}
 	
-	private static int changeID(InfiProps props, int id, String s)
+	private static int idStart = 130;
+	
+	public static int changeID(InfiProps props, int id, String s)
 	{
 		if(Block.blocksList[id] != null) {
-			for(int i = 600; i < Block.blocksList.length; i++) {
+			for(int i = idStart; i < Block.blocksList.length; i++) {
 				if(Block.blocksList[i] == null) {
 					props.writeInt(s, i);
+					idStart = i + 1;
 					return i;
 				}
 			}

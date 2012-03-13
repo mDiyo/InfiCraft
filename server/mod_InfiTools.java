@@ -270,11 +270,6 @@ public class mod_InfiTools extends BaseModMp
     public static int fType;
     public static int brType;
     public static int blType;
-    public static Achievement durablePickaxe;
-    public static Achievement treeSmelt;
-    public static Achievement woodPan;
-    public static Achievement ironPan;
-    public static Achievement lavaPan;
     public static Block blockMoss;
     public static Item pumpkinPulp;
     public static Item woodBucketEmpty;
@@ -1810,7 +1805,7 @@ public class mod_InfiTools extends BaseModMp
 
     public String getVersion()
     {
-        return "v2.2.8 Twi";
+        return "v2.3.1 Twi";
     }
 
     public void load()
@@ -2038,14 +2033,14 @@ public class mod_InfiTools extends BaseModMp
         InfiRecipeAxes.recipeStorm();
         InfiRecipeShovels.recipeStorm();
         InfiRecipeHoes.recipeStorm();
-        ModLoader.addLocalization("enchantment.frost", "Frost");
+
         ModLoader.registerBlock(blockMoss);
-        ModLoader.addName(paperStack, "Stack of Paper");
+        
         ModLoader.addRecipe(new ItemStack(paperStack, 1), new Object[]
                 {
                     "pp", "pp", Character.valueOf('p'), Item.paper
                 });
-        ModLoader.addName(paperDust, "Paper Dust");
+        
         ModLoader.addRecipe(new ItemStack(paperDust, 1), new Object[]
                 {
                     " r ", "gpg", " r ", Character.valueOf('p'), Item.paper, Character.valueOf('r'), Item.redstone, Character.valueOf('g'), Item.lightStoneDust
@@ -2054,7 +2049,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     " g ", "rpr", " g ", Character.valueOf('p'), Item.paper, Character.valueOf('r'), Item.redstone, Character.valueOf('g'), Item.lightStoneDust
                 });
-        ModLoader.addName(ironChunks, "Iron Chunk");
+        
         ModLoader.addRecipe(new ItemStack(ironChunks, 6), new Object[]
                 {
                     "ii", Character.valueOf('i'), Item.ingotIron
@@ -2063,7 +2058,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     ironChunks, ironChunks, ironChunks
                 });
-        ModLoader.addName(goldChunks, "Gold Chunk");
+        
         ModLoader.addRecipe(new ItemStack(goldChunks, 6), new Object[]
                 {
                     "gg", Character.valueOf('g'), Item.ingotGold
@@ -2080,7 +2075,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "g", Character.valueOf('g'), goldChunks
                 });
-        ModLoader.addName(mossBall, "Ball of Moss");
+        
         ModLoader.addRecipe(new ItemStack(mossBall, 3), new Object[]
                 {
                     "m", Character.valueOf('m'), Block.cobblestoneMossy
@@ -2089,17 +2084,17 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "m", Character.valueOf('m'), new ItemStack(Block.stoneBrick, 3, 1)
                 });
-        ModLoader.addName(mossBallGiant, "Mossy Patch");
+        
         ModLoader.addRecipe(new ItemStack(mossBallGiant, 1), new Object[]
                 {
                     "mm", "mm", Character.valueOf('m'), mossBall
                 });
-        ModLoader.addName(mossBallCrafted, "Moss-Infused Stone");
+        
         ModLoader.addRecipe(new ItemStack(mossBallCrafted, 1), new Object[]
                 {
                     " m ", "msm", " m ", Character.valueOf('m'), mossBallGiant, Character.valueOf('s'), Block.stone
                 });
-        ModLoader.addName(redstoneCrystal, "Redstone Crystal");
+        
         ModLoader.addRecipe(new ItemStack(redstoneCrystal, 1), new Object[]
                 {
                     "rrr", "rIr", Character.valueOf('r'), Item.redstone, Character.valueOf('I'), ironChunks
@@ -2108,17 +2103,17 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "rIr", "rrr", Character.valueOf('r'), Item.redstone, Character.valueOf('I'), ironChunks
                 });
-        ModLoader.addName(glowstoneCrystal, "Glowstone Crystal");
+        
         ModLoader.addRecipe(new ItemStack(glowstoneCrystal, 1), new Object[]
                 {
                     "ggg", "gIg", "ggg", Character.valueOf('g'), Item.lightStoneDust, Character.valueOf('I'), goldChunks
                 });
-        ModLoader.addName(obsidianCrystal, "Ebony Obelisk");
+        
         ModLoader.addShapelessRecipe(new ItemStack(obsidianCrystal), new Object[]
                 {
                     Block.obsidian, paperDust, paperDust, paperDust
                 });
-        ModLoader.addName(lavaCrystal, "Lava Crystal");
+        
         ModLoader.addRecipe(new ItemStack(lavaCrystal, 1), new Object[]
                 {
                     " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
@@ -2131,7 +2126,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
                 });
-        ModLoader.addName(slimeCrystal, "Slime Crystal");
+        
         ModLoader.addRecipe(new ItemStack(slimeCrystal, 1), new Object[]
                 {
                     " f ", "rsr", " f ", Character.valueOf('s'), Item.slimeBall, Character.valueOf('f'), Block.plantYellow, Character.valueOf('r'), Block.plantRed
@@ -2140,7 +2135,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     " r ", "fsf", " r ", Character.valueOf('s'), Item.slimeBall, Character.valueOf('f'), Block.plantYellow, Character.valueOf('r'), Block.plantRed
                 });
-        ModLoader.addName(blazeCrystal, "Frozen Blaze Essence");
+        
         ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
                 {
                     "pwp", "ncn", "plp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('c'),
@@ -2171,22 +2166,22 @@ public class mod_InfiTools extends BaseModMp
                     "plp", "ncn", "pwp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('c'),
                     Item.magmaCream, Character.valueOf('n'), Block.netherrack
                 });
-        ModLoader.addName(woodSplinters, "Wood Splinters");
-        ModLoader.addName(stoneShard, "Piece of Stone");
-        ModLoader.addName(diamondShard, "Diamond Shard");
-        ModLoader.addName(redstoneFragment, "Redstone Crystal Fragment");
-        ModLoader.addName(obsidianShard, "Obsidian Shard");
-        ModLoader.addName(sandstoneShard, "Piece of Sandstone");
-        ModLoader.addName(netherrackShard, "Netherrack Shard");
-        ModLoader.addName(glowstoneFragment, "Glowstone Crystal Fragment");
-        ModLoader.addName(iceShard, "Ice Shard");
-        ModLoader.addName(lavaFragment, "Lava Crystal Fragment");
-        ModLoader.addName(slimeFragment, "Slime Crystal Fragment");
-        ModLoader.addName(glassShard, "Glass Shard");
-        ModLoader.addName(coalBits, "Piece of Coal");
-        ModLoader.addName(flintShard, "Flint Shard");
-        ModLoader.addName(miniBrick, "Miniature Brick");
-        ModLoader.addName(blazeFragment, "Fragmented Blaze Essence");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         ModLoader.addRecipe(new ItemStack(Item.stick, 3), new Object[]
                 {
                     "s", "s", "s", Character.valueOf('s'), woodSplinters
@@ -2211,7 +2206,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "r", Character.valueOf('r'), blazeCrystal
                 });
-        ModLoader.addName(stoneRod, "Stone Stick");
+        
         ModLoader.addRecipe(new ItemStack(stoneRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Block.cobblestone
@@ -2220,7 +2215,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), stoneShard
                 });
-        ModLoader.addName(ironRod, "Iron Rod");
+        
         ModLoader.addRecipe(new ItemStack(ironRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Item.ingotIron
@@ -2229,7 +2224,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), ironChunks
                 });
-        ModLoader.addName(diamondRod, "Diamond Shaft");
+        
         ModLoader.addRecipe(new ItemStack(diamondRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Item.diamond
@@ -2238,7 +2233,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), diamondShard
                 });
-        ModLoader.addName(goldRod, "Gold Rod");
+        
         ModLoader.addRecipe(new ItemStack(goldRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Item.ingotGold
@@ -2247,7 +2242,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), goldChunks
                 });
-        ModLoader.addName(redstoneRod, "Redstone Rod");
+        
         ModLoader.addRecipe(new ItemStack(redstoneRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), redstoneCrystal
@@ -2256,7 +2251,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), redstoneFragment
                 });
-        ModLoader.addName(obsidianRod, "Obsidian Shaft");
+        
         ModLoader.addRecipe(new ItemStack(obsidianRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Block.obsidian
@@ -2265,7 +2260,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), obsidianShard
                 });
-        ModLoader.addName(sandstoneRod, "Sandstone Stick");
+        
         ModLoader.addRecipe(new ItemStack(sandstoneRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Block.sandStone
@@ -2274,12 +2269,12 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), sandstoneShard
                 });
-        ModLoader.addName(boneRod, "Bone Rod");
+        
         ModLoader.addRecipe(new ItemStack(boneRod, 2), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Item.bone
                 });
-        ModLoader.addName(paperRod, "Paper Stick");
+        
         ModLoader.addRecipe(new ItemStack(paperRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), paperStack
@@ -2288,7 +2283,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), Item.paper
                 });
-        ModLoader.addName(mossyRod, "Mossy Stick");
+        
         ModLoader.addRecipe(new ItemStack(mossyRod, 1), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), mossBallGiant
@@ -2297,7 +2292,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), mossBallCrafted
                 });
-        ModLoader.addName(netherrackRod, "Netherrack Rod");
+        
         ModLoader.addRecipe(new ItemStack(netherrackRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Block.netherrack
@@ -2306,7 +2301,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), netherrackShard
                 });
-        ModLoader.addName(glowstoneRod, "Glowstone Rod");
+        
         ModLoader.addRecipe(new ItemStack(glowstoneRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), glowstoneCrystal
@@ -2315,7 +2310,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), glowstoneFragment
                 });
-        ModLoader.addName(iceRod, "Icicle");
+        
         ModLoader.addRecipe(new ItemStack(iceRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Block.ice
@@ -2324,7 +2319,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), iceShard
                 });
-        ModLoader.addName(lavaRod, "Lava Rod");
+        
         ModLoader.addRecipe(new ItemStack(lavaRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), lavaCrystal
@@ -2333,7 +2328,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), lavaFragment
                 });
-        ModLoader.addName(slimeRod, "Slimy Stick");
+        
         ModLoader.addRecipe(new ItemStack(slimeRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), slimeCrystal
@@ -2342,7 +2337,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), slimeFragment
                 });
-        ModLoader.addName(cactusRod, "Cactus Stick");
+        
         ModLoader.addRecipe(new ItemStack(cactusRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Block.cactus
@@ -2351,12 +2346,12 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "X", "X", Character.valueOf('X'), new ItemStack(Item.dyePowder, 1, 2)
                 });
-        ModLoader.addName(flintRod, "Flint Rod");
+        
         ModLoader.addRecipe(new ItemStack(flintRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Item.flint
                 });
-        ModLoader.addName(brickRod, "Brick Rod");
+        
         ModLoader.addRecipe(new ItemStack(brickRod, 4), new Object[]
                 {
                     "X", "X", Character.valueOf('X'), Item.brick
@@ -2378,7 +2373,6 @@ public class mod_InfiTools extends BaseModMp
                     "X X", "XXX", "XXX", Character.valueOf('X'), ironChunks
                 });
         
-        addAchievements();
         ModLoader.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[]
                 {
                     mossBallGiant, Block.cobblestone
@@ -2449,7 +2443,7 @@ public class mod_InfiTools extends BaseModMp
                 {
                     "s", "|", 's', shardArrayShort[shardIter], '|', stickArray[stickIter]
                 });
-        		ModLoader.addRecipe(new ItemStack(Item.arrow, 1), new Object[]
+        		ModLoader.addRecipe(new ItemStack(Item.arrow, 4), new Object[]
                 {
                     "s", "|", "f", 's', shardArrayShort[shardIter], '|', stickArray[stickIter], 'f', Item.feather
                 });
@@ -2466,7 +2460,7 @@ public class mod_InfiTools extends BaseModMp
         addEEsupport();
         //addMetallurgySupport();
         MinecraftForge.registerCustomBucketHandler(new InfiBucketHandler());
-        ModLoader.setInGameHook(this, true, true);
+        //ModLoader.setInGameHook(this, true, true);
     }
     
     public static Random rand = new Random();
@@ -2595,20 +2589,6 @@ public class mod_InfiTools extends BaseModMp
         	return 600;
         } else
         return 0;
-    }
-
-    public static void addAchievements()
-    {
-        durablePickaxe = (new Achievement(1437, "durablePickaxe", 8, 2, dDiamondPickaxe, AchievementList.buildBetterPickaxe)).registerAchievement();
-        ModLoader.addAchievementDesc(durablePickaxe, "Mastering the Upgrade", "Construct the most durable Pickaxe");
-        treeSmelt = (new Achievement(1348, "treeSmelt", 8, 4, lLavaAxe, null)).registerAchievement();
-        ModLoader.addAchievementDesc(treeSmelt, "Burn to the Ground", "Create an axe out of Lava Crystals");
-        /*woodPan = (new Achievement(3149, "woodPan", -4, -4, wWoodFryingPan, AchievementList.buildHoe)).registerAchievement();
-        ModLoader.addAchievementDesc(woodPan, "Can you cook with it?", "Make a Frying Pan out of Wood");
-        ironPan = (new Achievement(1350, "woodPan", -3, -6, iIronFryingPan, woodPan)).registerAchievement();
-        ModLoader.addAchievementDesc(ironPan, "Homemade Meals", "Make a Frying Pan out of Iron");
-        lavaPan = (new Achievement(1351, "woodPan", -5, -6, lLavaFryingPan, ironPan)).registerAchievement();
-        ModLoader.addAchievementDesc(lavaPan, "Perpetual Cooking Power", "Make a Frying Pan out of Lava Crystals");*/
     }
 
     public static File getMinecraftDir()

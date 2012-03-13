@@ -39,7 +39,7 @@ public class WorkbenchBlock extends Block
         }
         else
         {
-        	ModLoader.OpenGUI(entityplayer, mod_InfiBlocks.craftingGuiID, entityplayer.inventory, 
+        	ModLoader.openGUI(entityplayer, mod_InfiBlocks.craftingGuiID, entityplayer.inventory, 
     				new WorkbenchContainer(entityplayer.inventory, world));
             return true;
         }

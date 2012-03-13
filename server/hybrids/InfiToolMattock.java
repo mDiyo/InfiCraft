@@ -16,37 +16,37 @@ public class InfiToolMattock extends InfiToolBase
         random = new Random();
     }
 
-    public boolean onBlockStartBreak(ItemStack itemstack, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
         World world = entityplayer.worldObj;
         if (world.isRemote)
         {
             return false;
         }
-        int l = world.getBlockId(i, j, k);
-        int i1 = world.getBlockMetadata(i, j, k);
+        int bID = world.getBlockId(x, y, z);
+        int md = world.getBlockMetadata(x, y, z);
         boolean flag = true;
         boolean flag1 = true;
         if (type1 == type2)
         {
-            flag = powers(itemstack, l, i, j, k, world, entityplayer, i1, type1);
+            flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, type1);
         }
         else
         {
             if (random.nextInt(100) + 1 <= 80)
             {
-                flag = powers(itemstack, l, i, j, k, world, entityplayer, i1, type1);
+                flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, type1);
             }
             if (random.nextInt(100) + 1 <= 20)
             {
-                flag1 = powers(itemstack, l, i, j, k, world, entityplayer, i1, type2);
+                flag1 = powers(itemstack, bID, x, y, z, world, entityplayer, md, type2);
             }
         }
         if (!flag || !flag1)
         {
-            world.playAuxSFX(2001, i, j, k, l + i1 * 256);
-            world.setBlockWithNotify(i, j, k, 0);
-            onBlockDestroyed(itemstack, l, i, j, k, entityplayer);
+        	world.playAuxSFX(2001, x, y, z, bID + (md << 12));
+            world.setBlockWithNotify(x, y, z, 0);
+            onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
             return true;
         }
         else

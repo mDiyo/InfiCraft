@@ -10,6 +10,9 @@ public class InfiRecipeItems extends mod_InfiTools
 
     public static int recipeStorm()
     {
+    	ModLoader.addName(ironBucketSand, "Iron Bucket");
+    	ModLoader.addName(ironBucketGravel, "Iron Bucket");
+    	
         ModLoader.addName(woodBucketEmpty, "Wooden Bucket");
         ModLoader.addName(woodBucketWater, "Wooden Bucket");
         ModLoader.addName(woodBucketMilk, "Wooden Bucket");

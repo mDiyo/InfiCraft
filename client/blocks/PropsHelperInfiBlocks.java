@@ -51,43 +51,43 @@ public class PropsHelperInfiBlocks {
 	{
 		infiprops.accessBoolean("Automatically Resolve ID conflicts", true);
 		
-		infiprops.accessInt("Crafting Table ID", 3271);
-		infiprops.accessInt("Chest ID", 3272);
-		infiprops.accessInt("Furnace ID", 3273);
-		infiprops.accessInt("Wool Carpet ID", 3274);
+		infiprops.accessInt("Crafting Table ID", 196);
+		infiprops.accessInt("Chest ID", 197);
+		infiprops.accessInt("Furnace ID", 198);
+		infiprops.accessInt("Wool Carpet ID", 200);
 		
-		infiprops.accessInt("Magic Slab Stone ID", 3275);
-		infiprops.accessInt("Magic Slab Soil ID", 3276);
-		infiprops.accessInt("Magic Slab Wool ID", 3277);
+		infiprops.accessInt("Magic Slab Stone ID", 193);
+		infiprops.accessInt("Magic Slab Soil ID", 194);
+		infiprops.accessInt("Magic Slab Wool ID", 195);
 		
-		infiprops.accessInt("Stained Glass ID", 3279);
-		infiprops.accessInt("Stained Glass Pane ID", 3280);
-		infiprops.accessInt("Stained Glass Magic Slab ID", 3281);
+		infiprops.accessInt("Stained Glass ID", 201);
+		infiprops.accessInt("Stained Glass Pane ID", 202);
+		infiprops.accessInt("Stained Glass Magic Slab ID", 203);
 		
-		infiprops.accessInt("Storage Block ID", 3283);
-		infiprops.accessInt("Storage Block Magic Slab ID", 3284);
+		infiprops.accessInt("Storage Block ID", 204);
+		infiprops.accessInt("Storage Block Magic Slab ID", 205);
 		
-		infiprops.accessInt("Brick ID", 3286);
-		infiprops.accessInt("Brick Magic Slab ID", 3287);
+		infiprops.accessInt("Brick ID", 206);
+		infiprops.accessInt("Brick Magic Slab ID", 207);
 		
-		infiprops.accessInt("Cracked Brick ID", 3289);
-		infiprops.accessInt("Cracked Brick Magic Slab ID", 3290);
+		infiprops.accessInt("Cracked Brick ID", 208);
+		infiprops.accessInt("Cracked Brick Magic Slab ID", 209);
 		
-		infiprops.accessInt("Fancy Brick ID", 3292);
-		infiprops.accessInt("Fancy Brick Magic Slab ID", 3293);
+		infiprops.accessInt("Fancy Brick ID", 210);
+		infiprops.accessInt("Fancy Brick Magic Slab ID", 211);
 		
-		infiprops.accessInt("Runic Brick ID", 3295);
-		infiprops.accessInt("Runic Brick Magic Slab ID", 3296);
+		infiprops.accessInt("Runic Brick ID", 212);
+		infiprops.accessInt("Runic Brick Magic Slab ID", 213);
 		
-		infiprops.accessInt("Infi-Glass ID", 3298);
-		infiprops.accessInt("Infi-Glass Pane ID", 3299);
-		infiprops.accessInt("Infi-Glass Magic Slab ID", 3300);
+		infiprops.accessInt("Infi-Glass ID", 214);
+		infiprops.accessInt("Infi-Glass Pane ID", 215);
+		infiprops.accessInt("Infi-Glass Magic Slab ID", 216);
 		
-		infiprops.accessInt("Ice Brick ID", 3202);
-		infiprops.accessInt("Ice Brick Magic Slab ID", 3203);
+		infiprops.accessInt("Ice Brick ID", 189);
+		infiprops.accessInt("Ice Brick Magic Slab ID", 190);
 		
-		infiprops.accessInt("Brownstone ID", 3205);
-		infiprops.accessInt("Brownstone Magic Slab ID", 3206);		
+		infiprops.accessInt("Brownstone ID", 191);
+		infiprops.accessInt("Brownstone Magic Slab ID", 192);
 		
 		infiprops.accessInt("Crafting Gui ID", 172);
 		infiprops.accessInt("Furnace Gui ID", 173);
@@ -148,12 +148,15 @@ public class PropsHelperInfiBlocks {
 		return true;
 	}
 	
+	private static int idStart = 130;
+	
 	private static int changeID(InfiProps props, int id, String s)
 	{
 		if(Block.blocksList[id] != null) {
-			for(int i = 130; i < Block.blocksList.length; i++) {
+			for(int i = idStart; i < Block.blocksList.length; i++) {
 				if(Block.blocksList[i] == null) {
 					props.writeInt(s, i);
+					idStart = i + 1;
 					return i;
 				}
 			}

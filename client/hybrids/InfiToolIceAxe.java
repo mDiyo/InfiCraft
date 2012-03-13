@@ -18,43 +18,43 @@ public class InfiToolIceAxe extends InfiToolBase
         weaponDamage = 4 + l * 2;
     }
 
-    public boolean onBlockStartBreak(ItemStack itemstack, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
         World world = entityplayer.worldObj;
         if (world.isRemote)
         {
             return false;
         }
-        int l = world.getBlockId(i, j, k);
-        int i1 = world.getBlockMetadata(i, j, k);
+        int bID = world.getBlockId(x, y, z);
+        int md = world.getBlockMetadata(x, y, z);
         Boolean boolean1 = Boolean.valueOf(true);
         Boolean boolean2 = Boolean.valueOf(true);
         if (type1 == type2)
         {
-            boolean1 = Boolean.valueOf(powers(itemstack, l, i, j, k, world, entityplayer, i1, type1));
+            boolean1 = Boolean.valueOf(powers(itemstack, bID, x, y, z, world, entityplayer, md, type1));
         }
         else
         {
             if (random.nextInt(100) + 1 <= 80)
             {
-                boolean1 = Boolean.valueOf(powers(itemstack, l, i, j, k, world, entityplayer, i1, type1));
+                boolean1 = Boolean.valueOf(powers(itemstack, bID, x, y, z, world, entityplayer, md, type1));
             }
             if (random.nextInt(100) + 1 <= 20)
             {
-                boolean2 = Boolean.valueOf(powers(itemstack, l, i, j, k, world, entityplayer, i1, type2));
+                boolean2 = Boolean.valueOf(powers(itemstack, bID, x, y, z, world, entityplayer, md, type2));
             }
         }
-        if (!ForgeHooks.canHarvestBlock(Block.blocksList[l], entityplayer, i1))
+        if (!ForgeHooks.canHarvestBlock(Block.blocksList[bID], entityplayer, md))
         {
             boolean1 = Boolean.valueOf(false);
         }
         if (boolean1.booleanValue() && boolean2.booleanValue())
         {
-            InfiHybridPowers.iceAxeSwap(i, j, k, l, i1, world, entityplayer);
+            InfiHybridPowers.iceAxeSwap(x, y, z, bID, md, world, entityplayer);
         }
-        world.playAuxSFX(2001, i, j, k, l + i1 * 256);
-        world.setBlockWithNotify(i, j, k, 0);
-        onBlockDestroyed(itemstack, l, i, j, k, entityplayer);
+        world.playAuxSFX(2001, x, y, z, bID + (md << 12));
+        world.setBlockWithNotify(x, y, z, 0);
+        onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
         return true;
     }
 

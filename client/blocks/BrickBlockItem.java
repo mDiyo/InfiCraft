@@ -6,7 +6,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.forge.*;
 import net.minecraft.client.Minecraft;
 
-public class BrickBlockItem extends CustomItemBlockInfi
+public class BrickBlockItem extends ItemBlock
 {	
 	public static final String blockType[] =
 	{
@@ -19,7 +19,12 @@ public class BrickBlockItem extends CustomItemBlockInfi
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.brick.blockID, this);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.brick.blockID, this);
+    }
+    
+    public int getMetadata(int i)
+    {
+        return i;
     }
 
     public int getIconFromDamage(int i)

@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import net.minecraft.src.infiflora.*;
+import net.minecraft.src.inficooking.*;
 
 import java.io.File;
 import java.io.PrintStream;
@@ -400,7 +400,7 @@ public class mod_InfiCooking extends BaseModMp
 
     public String getVersion()
     {
-        return "v0.1 Infi~";
+        return "v0.1.1 Infi~";
     }
 
     public void load()

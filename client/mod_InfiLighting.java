@@ -1,3 +1,4 @@
+
 package net.minecraft.src;
 
 import net.minecraft.src.*;
@@ -14,13 +15,13 @@ public class mod_InfiLighting extends BaseModMp
 {
 	public String getVersion()
 	{
-		return "1.0 Torches";
+		return "0.1.2 Torches";
 	}
 
 	public mod_InfiLighting()
 	{
 		/*ModLoader.registerBlock(infiCraftingTable, net.minecraft.src.blocks.InfiWorkbenchItem.class);*/
-		ModLoader.registerBlock(torcha, net.minecraft.src.lighting.TorchaItem.class);
+		//ModLoader.registerBlock(torcha, net.minecraft.src.lighting.TorchaItem.class);
 		MinecraftForgeClient.preloadTexture("/infiblocks/infiblocks.png");
 		
 		//Stick recipes
@@ -57,7 +58,7 @@ public class mod_InfiLighting extends BaseModMp
 	}
 	
 	public void addNames() {
-		ModLoader.addName(torcha, "Torch");
+		//ModLoader.addName(torcha, "Torch");
 	}
 	
 	public boolean RenderWorldBlock(RenderBlocks renderblocks, 
@@ -121,13 +122,12 @@ public class mod_InfiLighting extends BaseModMp
 		File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
 				.append('/').append("mDiyo").toString() ) );
         me.mkdir();
-		//props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-				//.append('/').append("mDiyo").append('/').append("InfiLighting.cfg").toString())).getPath());
-		props = new InfiProps((new File(Minecraft.getMinecraftDir().getPath() + "/mDiyo/InfiLighting.cfg")).getPath();
+		props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
+				.append('/').append("mDiyo").append('/').append("InfiLighting.cfg").toString())).getPath());
 		props = InitProps(props);
 		getProps(props);
 		
-		torcha = new InfiBlockTorch(129, 1).setHardness(0.0F).setLightValue(0.9375F).setStepSound(Block.soundWoodFootstep).setBlockName("torcha").setRequiresSelfNotify();
+		//torcha = new InfiBlockTorch(129, 1).setHardness(0.0F).setLightValue(0.9375F).setStepSound(Block.soundWoodFootstep).setBlockName("torcha").setRequiresSelfNotify();
 		//infiCraftingTable = (new InfiWorkbenchBlock(blockCraftingID)).setHardness(0.5F).setBlockName("infiCraftingTable");
 	}
 	

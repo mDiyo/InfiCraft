@@ -58,6 +58,12 @@ public class InfiBucketIce extends Item
                     world.setBlockWithNotify(i, j, k, 0);
                     return new ItemStack(mod_InfiTools.iceBucketIce);
                 }
+                if (bID == Block.lavaMoving.blockID || bID == Block.lavaStill.blockID)
+                {
+                    world.playSoundEffect(d + 0.5D, d1 + 0.5D, d2 + 0.5D, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
+                    world.setBlockWithNotify(i, j, k, 0);
+                    return new ItemStack(Block.obsidian);
+                }
                 if (bID == Block.sand.blockID)
                 {
                     world.setBlockWithNotify(i, j, k, 0);

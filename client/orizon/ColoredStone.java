@@ -1,5 +1,6 @@
 package net.minecraft.src.orizon;
 import java.util.ArrayList;
+import java.util.Random;
 
 import net.minecraft.src.*;
 import net.minecraft.src.forge.ITextureProvider;
@@ -20,7 +21,8 @@ public class ColoredStone extends Block
         return md;
     }
     
-    public int idDropped(int i)
+    @Override
+    public int idDropped(int par1, Random par2Random, int par3)
     {
     	return mod_Orizon.cCobble.blockID;
     }

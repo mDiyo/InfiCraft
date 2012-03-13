@@ -292,80 +292,20 @@ public class InfiBlockRecipes
 		
 		DetailManager.addDamageOnCraft(mod_InfiBlocks.chiselIron);
 		
-		//Stone
-		ModLoader.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Block.stone
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 9), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Block.stoneBrick
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 9), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 9)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 3), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.fancyBrick, 1, 9)
-		});
-		
-		//Obsidian
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 0), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Block.obsidian
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 0), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 0)
-		});
-		
-		//Snow
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 1), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Block.blockSnow
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 1), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 1)
-		});
-		
-		//Sandstone
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 2), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.storageBlock, 1, 13)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 2), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 2)
-		});
-		
-		//Brick
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 11), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.storageBlock, 1, 15)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 3), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 11)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 3), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 3)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 11), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.fancyBrick, 1, 3)
-		});
-		
-		//Netherrack
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 4), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.storageBlock, 1, 12)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 4), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 4)
-		});
-		
 		//Diamond
 		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 5), new Object[] {
 			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Item.diamond
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 5), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 5)
+		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 5), new Object[] {
+			new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), Item.diamond
 		});
 		
 		//Gold
 		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 6), new Object[] {
 			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Item.ingotGold
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 6), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 6)
+		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 6), new Object[] {
+			new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), Item.ingotGold
 		});
 		
 		//Lapis
@@ -373,77 +313,43 @@ public class InfiBlockRecipes
 			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(Item.dyePowder, 1, 4),
 			new ItemStack(Item.dyePowder, 1, 4), new ItemStack(Item.dyePowder, 1, 4)
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 7), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 7)
-		});
-		
-		//Refined Stone
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 8), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.storageBlock, 1, 14)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 10), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 8)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 8), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 10)
+		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 7), new Object[] {
+			new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), new ItemStack(Item.dyePowder, 1, 4),
+			new ItemStack(Item.dyePowder, 1, 4), new ItemStack(Item.dyePowder, 1, 4)
 		});
 		
 		//Iron
 		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 12), new Object[] {
 			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Item.ingotIron
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 12), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 12)
+		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 12), new Object[] {
+			new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), Item.ingotIron
 		});
 
-		//Ice
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.iceBrick, 1, 0), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Block.ice
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.iceBrick, 1, 1), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.iceBrick, 1, 0)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.iceBrick, 1, 2), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.iceBrick, 1, 1)
-		});
-		
-		//Brownstone
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brownstone, 1, 2), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brownstone, 1, 0)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brownstone, 1, 3), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brownstone, 1, 1)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brownstone, 1, 4), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brownstone, 1, 3)
-		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brownstone, 1, 5), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brownstone, 1, 4)
-		});
-		
 		//Redstone
 		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 13), new Object[] {
 			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Item.redstone, Item.redstone,
 			Item.redstone
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 13), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 13)
+		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 13), new Object[] {
+			new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), Item.redstone, Item.redstone,
+			Item.redstone
 		});
 		
 		//Slime
 		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 14), new Object[] {
 			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Item.slimeBall, Item.slimeBall, Item.slimeBall
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 14), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 14)
+		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 14), new Object[] {
+			new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), Item.slimeBall, Item.slimeBall, Item.slimeBall
 		});
 		
-		//Slime
+		//Bone
 		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 15), new Object[] {
 			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), Item.bone, Item.bone, Item.bone
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 15), new Object[] {
-			new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), new ItemStack(mod_InfiBlocks.brick, 1, 15)
+		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 15), new Object[] {
+			new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), Item.bone, Item.bone, Item.bone
 		});
 	}
 	
@@ -536,7 +442,7 @@ public class InfiBlockRecipes
 		{
 			ModLoader.addRecipe(magicSlabSoilArray[iter], new Object[]
 			{
-				"c", "c", 'c', new ItemStack(mod_InfiBlocks.magicSlabSoil, 8, iter)
+				"c", "c", 'c', new ItemStack(mod_InfiBlocks.magicSlabSoil, 1, iter)
 			});
 		}
 		
@@ -564,35 +470,35 @@ public class InfiBlockRecipes
 		}
 		
 		for(int i = 0; i < 10; i++) {
-			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 8, i), new Object[]
+			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, i), new Object[]
 			{
 				"c", "c", 'c', new ItemStack(mod_InfiBlocks.fancyBrickMagicSlab, 1, i)
 			});
 		}
 		
 		for(int i = 11; i < 15; i++) {
-			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 8, i), new Object[]
+			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.fancyBrick, 1, i), new Object[]
 			{
 				"c", "c", 'c', new ItemStack(mod_InfiBlocks.fancyBrickMagicSlab, 1, i)
 			});
 		}
 		
 		for(int i = 0; i < 3; i++) {
-			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.infiGlass, 8, i), new Object[]
+			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.infiGlass, 1, i), new Object[]
 			{
 				"c", "c", 'c', new ItemStack(mod_InfiBlocks.infiGlassMagicSlab, 1, i)
 			});
 		}
 		
 		for(int i = 0; i < 6; i++) {
-			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.brownstone, 8, i), new Object[]
+			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.brownstone, 1, i), new Object[]
 			{
 				"c", "c", 'c', new ItemStack(mod_InfiBlocks.brownstoneMagicSlab, 1, i)
 			});
 		}
 		
 		for(int i = 0; i < 3; i++) {
-			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.iceBrickMagicSlab, 8, i), new Object[]
+			ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.iceBrickMagicSlab, 1, i), new Object[]
 			{
 				"c", "c", 'c', new ItemStack(mod_InfiBlocks.iceBrick, 1, i)
 			});

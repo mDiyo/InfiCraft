@@ -11,13 +11,13 @@ public class mod_InfiLighting extends BaseModMp
 {
 	public String getVersion()
 	{
-		return "1.0 Torches";
+		return "0.1.2 Torches";
 	}
 
 	public mod_InfiLighting()
 	{
 		/*ModLoader.registerBlock(infiCraftingTable, net.minecraft.src.blocks.InfiWorkbenchItem.class);*/
-		ModLoader.registerBlock(torcha, net.minecraft.src.lighting.TorchaItem.class);
+		//ModLoader.registerBlock(torcha, net.minecraft.src.lighting.TorchaItem.class);
 		
 		//Stick recipes
 		for (int iter = 0; iter < stickArrayShort.length; iter++)
@@ -53,7 +53,7 @@ public class mod_InfiLighting extends BaseModMp
 	}
 	
 	public void addNames() {
-		ModLoader.addName(torcha, "Torch");
+		//ModLoader.addName(torcha, "Torch");
 	}
 	public static File getMinecraftDir()
     {
@@ -108,7 +108,7 @@ public class mod_InfiLighting extends BaseModMp
 		props = InitProps(props);
 		getProps(props);
 		
-		torcha = new InfiBlockTorch(129, 1).setHardness(0.0F).setLightValue(0.9375F).setStepSound(Block.soundWoodFootstep).setBlockName("torcha").setRequiresSelfNotify();
+		//torcha = new InfiBlockTorch(129, 1).setHardness(0.0F).setLightValue(0.9375F).setStepSound(Block.soundWoodFootstep).setBlockName("torcha").setRequiresSelfNotify();
 		//infiCraftingTable = (new InfiWorkbenchBlock(blockCraftingID)).setHardness(0.5F).setBlockName("infiCraftingTable");
 	}
 	

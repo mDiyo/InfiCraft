@@ -1,9 +1,8 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.*;
 
-public class StorageBlockItem extends CustomItemBlockInfi
+public class StorageBlockItem extends ItemBlock
 {
 	public static final String blockType[] =
 	{
@@ -16,6 +15,7 @@ public class StorageBlockItem extends CustomItemBlockInfi
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.storageBlock.blockID, this);
     }
 
     public int getIconFromDamage(int i)

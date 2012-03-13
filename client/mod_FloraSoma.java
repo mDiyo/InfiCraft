@@ -12,171 +12,9 @@ import org.lwjgl.opengl.GL11;
 
 public class mod_FloraSoma extends BaseModMp
 {
-	public static Item seedBag;
-	public static Item berry;
-	public static Item barleySeed;
-	public static Item food;
-
-	public static Item waterDrop;
-	public static Item wheatFlour;
-	public static Item wheatDough;
-	public static Item floraBoat;
-	public static Item redwoodDoorItem;
-	
-	public static Block berryBush;
-	public static Block redwood;
-	public static Block floraLeaves;
-	public static Block floraCrops;
-	public static Block cloud;
-	public static Block corruptor;
-	public static Block corruptBrick;
-	public static Block floraSapling;
-	public static Block cherryLeaves;
-	public static Block saguaro;
-	
-	public static Block redwoodDoor;
-	
-	public static int seedBagID;
-	public static int berryID;
-	public static int barleySeedID;
-	public static int redwoodID;
-	public static int floraLeavesID;
-	public static int floraCropsID;
-	public static int foodID;
-	public static int ingredientsID;
-	public static int pumpkinPieID;
-	
-	public static int cloudID;
-	public static int corruptorID;
-	public static int corruptBrickID;
-	public static int floraSaplingID;
-	public static int berryBlockID;
-	public static int cherryLeavesID;
-	public static int redwoodDoorID;
-	public static int redwoodDoorItemID;
-	public static int saguaroID;
-	
-	public static boolean resolveConflicts;
-	
-	public static int berryModelID;
-	public static int saguaroModel;
-	public static int boatItemID;
-	public static int redwoodBoatID;
-	public static int bloodBoatID;
-	public static int whiteBoatID;
-	public static int eucalyptusBoatID;
-	
-	FloraCropGen genCrops;
-	BerryBushGen raspgen;
-	BerryBushGen bluegen;
-	BerryBushGen blackgen;
-	BerryBushGen geogen;
-	
-	RedwoodTreeGen genRedwood;
-	BloodTreeGen genBlood;
-	CherryTreeGen sakura;
-	WhiteTreeGen whiteSakura;
-	EucalyptusTreeGenShort eucalyptusShort;
-	
-	CloudGen smallcloud;
-	CloudGen mediumcloud;
-	CloudGen largecloud;
-	CloudGen hugecloud;
-	CloudGen smalldarkcloud;
-	CloudGen mediumdarkcloud;
-	CloudGen largedarkcloud;
-	CloudGen hugedarkcloud;
-	CloudGen tinyashcloud;
-	CloudGen smallashcloud;
-	CloudGen mediumashcloud;
-	CloudGen largeashcloud;
-	CloudGen hugeashcloud;
-	CloudGen tinysulfurcloud;
-	CloudGen smallsulfurcloud;
-	CloudGen mediumsulfurcloud;
-	CloudGen largesulfurcloud;
-	CloudGen hugesulfurcloud;
-	
-	CorruptorGen corruptred;
-	CorruptorGen corruptblue;
-	CorruptorGen corruptgreen;
-	CorruptorGen corruptamber;
-	CorruptorGen corruptmagenta;
-	CorruptorGen corruptpurple;
-	CorruptorGen corruptyellow;
-	CorruptorGen corruptsilver;
-	
-	public static boolean enableCrops;
-	public static int barleySpawnDensity;
-	public static int barleySpawnHeight;
-	
-	public static boolean enableBerryBush;
-	public static int raspSpawnDensity;
-	public static int raspSpawnHeight;
-	public static int raspSpawnRange;
-	public static int blueSpawnDensity;
-	public static int blueSpawnHeight;
-	public static int blueSpawnRange;
-	public static int blackSpawnDensity;
-	public static int blackSpawnHeight;
-	public static int blackSpawnRange;
-	public static int geoSpawnDensity;
-	public static int geoSpawnHeight;
-	public static int geoSpawnRange;
-	
-	public static boolean enableTrees;
-	public static int redwoodSpawnDensity;
-	public static int redwoodSpawnHeight;
-	public static int redwoodSpawnRange;
-	public static int bloodSpawnDensity;
-	public static int bloodSpawnHeight;
-	public static int bloodSpawnRange;
-	public static int eucalyptusShortSpawnDensity;
-	public static int eucalyptusShortSpawnHeight;
-	public static int eucalyptusShortSpawnRange;
-	public static int sakuraSpawnDensity;
-	public static int sakuraSpawnHeight;
-	public static int sakuraSpawnRange;
-	public static int whiteSpawnDensity;
-	public static int whiteSpawnHeight;
-	public static int whiteSpawnRange;
-	
-	public static boolean enableClouds;
-	public static int cloudSpawnDensity;
-	public static int cloudSpawnHeight;
-	public static int cloudSpawnRange;
-	public static int darkCloudSpawnDensity;
-	public static int darkCloudSpawnHeight;
-	public static int darkCloudSpawnRange;
-	public static int sulfurSpawnDensity;
-	public static int sulfurSpawnHeight;
-	public static int sulfurSpawnRange;
-	public static int ashSpawnDensity;
-	public static int ashSpawnHeight;
-	public static int ashSpawnRange;
-	
-	public static boolean enableCorruptor;
-	public static int corruptorSpawnDensity;
-	public static int corruptorSpawnHeight;
-	public static int corruptorSpawnRange;
-	public static int corruptorSpawnSize;
-	public static int corruptionSpeed;
-	
-	public static boolean enableSaguaro;
-	public static int saguaroSpawnDensity;
-	public static int saguaroSpawnHeight;
-	public static int saguaroSpawnRange;
-	public static int saguaroSpawnSize;
-	
-	Minecraft mc;
-	public static boolean graphicsLevel;
-	
-	public static InfiProps props;
-	public static InfiProps spawnProps;
-
 	public String getVersion()
 	{
-		return "0.3.1 CONFIG EVERYTHING";
+		return "0.3.4 Height";
 	}
 
 	public void load()
@@ -368,11 +206,16 @@ public class mod_FloraSoma extends BaseModMp
 		}
 		ModLoader.registerBlock(saguaro);
 		
-		ModLoader.registerEntityID(net.minecraft.src.flora.WoodWallEntity.class, "WoodWall", 70);
+		//ModLoader.registerEntityID(net.minecraft.src.flora.WoodWallEntity.class, "WoodWall", 70);
 		ModLoader.registerEntityID(net.minecraft.src.flora.RedwoodBoat.class, "redwoodBoat", redwoodBoatID);
 		ModLoader.registerEntityID(net.minecraft.src.flora.BloodBoat.class, "bloodBoat", bloodBoatID);
 		ModLoader.registerEntityID(net.minecraft.src.flora.WhiteWoodBoat.class, "whiteBoat", whiteBoatID);
 		ModLoader.registerEntityID(net.minecraft.src.flora.EucalyptusBoat.class, "eucalyptusBoat", eucalyptusBoatID);
+		
+		ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.RedwoodBoat.class, redwoodBoatID);
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.BloodBoat.class, bloodBoatID);
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.WhiteWoodBoat.class, whiteBoatID);
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.EucalyptusBoat.class, eucalyptusBoatID);
 		
 		addEEsupport();
 		//MinecraftForge.registerBonemealHandler(new FloraSomaBonemealHandler());
@@ -398,14 +241,18 @@ public class mod_FloraSoma extends BaseModMp
 		int xCh = xChunk + random.nextInt(16) + 8;
 		int yCh = random.nextInt(128);
 		int zCh = zChunk + random.nextInt(16) + 8;
-		if(enableCrops && random.nextInt(5) < 2)
+		
+		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(xChunk + 16, zChunk + 16);
+		if(enableCrops && random.nextInt(5) < 2 && (biome == BiomeGenBase.plains 
+				|| biome == BiomeGenBase.forest || biome == BiomeGenBase.forestHills || 
+				biome == BiomeGenBase.extremeHills || biome == BiomeGenBase.extremeHillsEdge))
 		{
 			genCrops.generate(world, random, xCh, yCh + barleySpawnHeight - 64, zCh);
 			genCrops.generate(world, random, xCh, yCh + barleySpawnHeight - 64, zCh);
 		}
 		
-		BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(xChunk + 16, zChunk + 16);
-		if (enableClouds && biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills 
+		
+		if (enableClouds && biome != BiomeGenBase.desert && biome != BiomeGenBase.desertHills 
 				&& random.nextInt(cloudSpawnDensity) == 0)
 		{
 			int xCo = random.nextInt(cloudSpawnRange) + cloudSpawnHeight;
@@ -434,7 +281,7 @@ public class mod_FloraSoma extends BaseModMp
 			zCh = zChunk + random.nextInt(16) + 8;
 			genRedwood.generate(world, random, xCh, yRw, zCh);
 		}
-		if (biomegenbase == BiomeGenBase.forest)
+		if (biome == BiomeGenBase.forest)
 		{
 			if(enableBerryBush && random.nextInt(raspSpawnDensity) == 0)
 			{
@@ -461,7 +308,7 @@ public class mod_FloraSoma extends BaseModMp
 				eucalyptusShort.generate(world, random, xCh, yDo, zCh);
 			}
 		}
-		if (biomegenbase == BiomeGenBase.plains)
+		if (biome == BiomeGenBase.plains)
 		{
 			if (enableBerryBush && random.nextInt(blueSpawnDensity) == 0)
 			{
@@ -489,7 +336,7 @@ public class mod_FloraSoma extends BaseModMp
 				eucalyptusShort.generate(world, random, xDo, yDo, zDo);
 			}
 		}
-		if (biomegenbase == BiomeGenBase.extremeHills)
+		if (biome == BiomeGenBase.extremeHills)
 		{
 			if(enableBerryBush && random.nextInt(10) == 0) {
 				int yBry = random.nextInt(raspSpawnRange) + raspSpawnHeight - 64;
@@ -514,14 +361,14 @@ public class mod_FloraSoma extends BaseModMp
 				eucalyptusShort.generate(world, random, xDo, yDo, zDo);
 			}
 		}
-		if (enableBerryBush && biomegenbase == BiomeGenBase.taiga && random.nextInt(geoSpawnDensity) == 0)
+		if (enableBerryBush && biome == BiomeGenBase.taiga && random.nextInt(geoSpawnDensity) == 0)
 		{
 			int yBry = random.nextInt(geoSpawnRange) + geoSpawnHeight - 64;
 			xCh = xChunk + random.nextInt(16) + 8;
 			zCh = zChunk + random.nextInt(16) + 8;
 			geogen.generate(world, random, xCh, yCh, zCh);
 		}
-		if (enableBerryBush && biomegenbase == BiomeGenBase.swampland)
+		if (enableBerryBush && biome == BiomeGenBase.swampland)
 		{
 			for (int iter = 0; iter < (int)(blackSpawnDensity / 5); iter++)
 			{
@@ -531,7 +378,7 @@ public class mod_FloraSoma extends BaseModMp
 				blackgen.generate(world, random, xCh, yBry, zCh);
 			}
 		}
-		if (biomegenbase == BiomeGenBase.river)
+		if (biome == BiomeGenBase.river)
 		{
 			if(enableTrees) {
 				for (int iter = 0; iter < sakuraSpawnDensity; iter++) {
@@ -553,7 +400,7 @@ public class mod_FloraSoma extends BaseModMp
 		
 		
 		//End Generation
-		if (enableClouds && biomegenbase == BiomeGenBase.sky && random.nextInt(darkCloudSpawnDensity) < darkCloudSpawnDensity / 4)
+		if (enableClouds && biome == BiomeGenBase.sky && random.nextInt(darkCloudSpawnDensity) < darkCloudSpawnDensity / 4)
 		{
 			for(int iter = 0; iter < darkCloudSpawnDensity / 4; iter++)
 			{
@@ -1155,6 +1002,168 @@ public class mod_FloraSoma extends BaseModMp
 		tessellator.draw();
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 	}
+	
+	public static Item seedBag;
+	public static Item berry;
+	public static Item barleySeed;
+	public static Item food;
+
+	public static Item waterDrop;
+	public static Item wheatFlour;
+	public static Item wheatDough;
+	public static Item floraBoat;
+	public static Item redwoodDoorItem;
+	
+	public static Block berryBush;
+	public static Block redwood;
+	public static Block floraLeaves;
+	public static Block floraCrops;
+	public static Block cloud;
+	public static Block corruptor;
+	public static Block corruptBrick;
+	public static Block floraSapling;
+	public static Block cherryLeaves;
+	public static Block saguaro;
+	
+	public static Block redwoodDoor;
+	
+	public static int seedBagID;
+	public static int berryID;
+	public static int barleySeedID;
+	public static int redwoodID;
+	public static int floraLeavesID;
+	public static int floraCropsID;
+	public static int foodID;
+	public static int ingredientsID;
+	public static int pumpkinPieID;
+	
+	public static int cloudID;
+	public static int corruptorID;
+	public static int corruptBrickID;
+	public static int floraSaplingID;
+	public static int berryBlockID;
+	public static int cherryLeavesID;
+	public static int redwoodDoorID;
+	public static int redwoodDoorItemID;
+	public static int saguaroID;
+	
+	public static boolean resolveConflicts;
+	
+	public static int berryModelID;
+	public static int saguaroModel;
+	public static int boatItemID;
+	public static int redwoodBoatID;
+	public static int bloodBoatID;
+	public static int whiteBoatID;
+	public static int eucalyptusBoatID;
+	
+	FloraCropGen genCrops;
+	BerryBushGen raspgen;
+	BerryBushGen bluegen;
+	BerryBushGen blackgen;
+	BerryBushGen geogen;
+	
+	RedwoodTreeGen genRedwood;
+	BloodTreeGen genBlood;
+	CherryTreeGen sakura;
+	WhiteTreeGen whiteSakura;
+	EucalyptusTreeGenShort eucalyptusShort;
+	
+	CloudGen smallcloud;
+	CloudGen mediumcloud;
+	CloudGen largecloud;
+	CloudGen hugecloud;
+	CloudGen smalldarkcloud;
+	CloudGen mediumdarkcloud;
+	CloudGen largedarkcloud;
+	CloudGen hugedarkcloud;
+	CloudGen tinyashcloud;
+	CloudGen smallashcloud;
+	CloudGen mediumashcloud;
+	CloudGen largeashcloud;
+	CloudGen hugeashcloud;
+	CloudGen tinysulfurcloud;
+	CloudGen smallsulfurcloud;
+	CloudGen mediumsulfurcloud;
+	CloudGen largesulfurcloud;
+	CloudGen hugesulfurcloud;
+	
+	CorruptorGen corruptred;
+	CorruptorGen corruptblue;
+	CorruptorGen corruptgreen;
+	CorruptorGen corruptamber;
+	CorruptorGen corruptmagenta;
+	CorruptorGen corruptpurple;
+	CorruptorGen corruptyellow;
+	CorruptorGen corruptsilver;
+	
+	public static boolean enableCrops;
+	public static int barleySpawnDensity;
+	public static int barleySpawnHeight;
+	
+	public static boolean enableBerryBush;
+	public static int raspSpawnDensity;
+	public static int raspSpawnHeight;
+	public static int raspSpawnRange;
+	public static int blueSpawnDensity;
+	public static int blueSpawnHeight;
+	public static int blueSpawnRange;
+	public static int blackSpawnDensity;
+	public static int blackSpawnHeight;
+	public static int blackSpawnRange;
+	public static int geoSpawnDensity;
+	public static int geoSpawnHeight;
+	public static int geoSpawnRange;
+	
+	public static boolean enableTrees;
+	public static int redwoodSpawnDensity;
+	public static int redwoodSpawnHeight;
+	public static int redwoodSpawnRange;
+	public static int bloodSpawnDensity;
+	public static int bloodSpawnHeight;
+	public static int bloodSpawnRange;
+	public static int eucalyptusShortSpawnDensity;
+	public static int eucalyptusShortSpawnHeight;
+	public static int eucalyptusShortSpawnRange;
+	public static int sakuraSpawnDensity;
+	public static int sakuraSpawnHeight;
+	public static int sakuraSpawnRange;
+	public static int whiteSpawnDensity;
+	public static int whiteSpawnHeight;
+	public static int whiteSpawnRange;
+	
+	public static boolean enableClouds;
+	public static int cloudSpawnDensity;
+	public static int cloudSpawnHeight;
+	public static int cloudSpawnRange;
+	public static int darkCloudSpawnDensity;
+	public static int darkCloudSpawnHeight;
+	public static int darkCloudSpawnRange;
+	public static int sulfurSpawnDensity;
+	public static int sulfurSpawnHeight;
+	public static int sulfurSpawnRange;
+	public static int ashSpawnDensity;
+	public static int ashSpawnHeight;
+	public static int ashSpawnRange;
+	
+	public static boolean enableCorruptor;
+	public static int corruptorSpawnDensity;
+	public static int corruptorSpawnHeight;
+	public static int corruptorSpawnRange;
+	public static int corruptorSpawnSize;
+	public static int corruptionSpeed;
+	
+	public static boolean enableSaguaro;
+	public static int saguaroSpawnDensity;
+	public static int saguaroSpawnHeight;
+	public static int saguaroSpawnRange;
+	public static int saguaroSpawnSize;
+	
+	Minecraft mc;
+	public static boolean graphicsLevel;
+	
+	public static InfiProps props;
+	public static InfiProps spawnProps;
 
 	static
 	{

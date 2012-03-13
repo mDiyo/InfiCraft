@@ -1,9 +1,8 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.*;
 
-public class StainedGlassItem extends CustomItemBlockInfi
+public class StainedGlassItem extends ItemBlock
 {
 	public static final String blockType[] =
 	    {
@@ -16,11 +15,13 @@ public class StainedGlassItem extends CustomItemBlockInfi
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.stainedGlass.blockID, this);
     }
 
-    public int getIconFromDamage(int i)
+    @Override
+    public int getMetadata(int md)
     {
-        return mod_InfiBlocks.stainedGlass.getBlockTextureFromSideAndMetadata(0, i);
+        return md;
     }
 
     public String getItemNameIS(ItemStack itemstack)

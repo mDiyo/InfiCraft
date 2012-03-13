@@ -8,7 +8,7 @@ import net.minecraft.src.mod_InfiBlocks;
 import net.minecraft.src.forge.ICustomItemRenderer;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class FurnaceItem extends CustomItemBlockInfi
+public class FurnaceItem extends ItemBlock
 {
     public static final String blockType[] =
     {
@@ -21,17 +21,12 @@ public class FurnaceItem extends CustomItemBlockInfi
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.furnace.blockID, this);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.furnace.blockID, this);
     }
 
-    public String getItemNameIS(ItemStack itemstack)
-    {
-        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("FurnaceInfi").toString();
-    }
-    
     @Override
-	public void renderInventory(RenderBlocks render, int itemID, int metadata) {
-		MinecraftForgeClient.bindTexture("/infiblocks/infimachines.png");
-		render.renderBlockAsItem(Block.blocksList[itemID], metadata, 1.0F);
-	}
+    public int getMetadata(int md)
+    {
+        return md;
+    }
 }

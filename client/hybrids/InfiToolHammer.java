@@ -24,6 +24,8 @@ public class InfiToolHammer extends InfiWeaponBase
         if (i1 >= dur)
         {
             itemstack.stackSize = 0;
+            itemstack = null;
+            return true;
         }
         if (type1 == 3 || type2 == 3 || type1 == 4 || type2 == 4 || type1 == 8 || type2 == 8)
         {
@@ -39,43 +41,43 @@ public class InfiToolHammer extends InfiWeaponBase
         return true;
     }
 
-    public boolean onBlockStartBreak(ItemStack itemstack, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
         World world = entityplayer.worldObj;
         if (world.isRemote)
         {
             return false;
         }
-        int l = world.getBlockId(i, j, k);
-        int i1 = world.getBlockMetadata(i, j, k);
+        int bID = world.getBlockId(x, y, z);
+        int md = world.getBlockMetadata(x, y, z);
         Boolean boolean1 = Boolean.valueOf(true);
         Boolean boolean2 = Boolean.valueOf(true);
         if (type1 == type2)
         {
-            boolean1 = Boolean.valueOf(powers(itemstack, l, i, j, k, world, entityplayer, i1, type1));
+            boolean1 = Boolean.valueOf(powers(itemstack, bID, x, y, z, world, entityplayer, md, type1));
         }
         else
         {
             if (random.nextInt(100) + 1 <= 80)
             {
-                boolean1 = Boolean.valueOf(powers(itemstack, l, i, j, k, world, entityplayer, i1, type1));
+                boolean1 = Boolean.valueOf(powers(itemstack, bID, x, y, z, world, entityplayer, md, type1));
             }
             if (random.nextInt(100) + 1 <= 20)
             {
-                boolean2 = Boolean.valueOf(powers(itemstack, l, i, j, k, world, entityplayer, i1, type2));
+                boolean2 = Boolean.valueOf(powers(itemstack, bID, x, y, z, world, entityplayer, md, type2));
             }
         }
-        if (!ForgeHooks.canHarvestBlock(Block.blocksList[l], entityplayer, i1))
+        if (!ForgeHooks.canHarvestBlock(Block.blocksList[bID], entityplayer, md))
         {
             boolean1 = Boolean.valueOf(false);
         }
         if (boolean1.booleanValue() && boolean2.booleanValue())
         {
-            InfiHybridPowers.bash(i, j, k, l, i1, world, entityplayer);
+            InfiHybridPowers.bash(x, y, z, bID, md, world, entityplayer);
         }
-        world.playAuxSFX(2001, i, j, k, l + i1 * 256);
-        world.setBlockWithNotify(i, j, k, 0);
-        onBlockDestroyed(itemstack, l, i, j, k, entityplayer);
+        world.playAuxSFX(2001, x, y, z, bID + (md << 12));
+        world.setBlockWithNotify(x, y, z, 0);
+        onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
         return true;
     }
 
@@ -125,40 +127,31 @@ public class InfiToolHammer extends InfiWeaponBase
     {
         switch (j1)
         {
-            case 1:
-                InfiToolPowers.splintering(j, k, l, mod_InfiTools.woodSplinters, world);
+            case 1: InfiToolPowers.splintering(j, k, l, mod_InfiTools.woodSplinters, world);
                 break;
 
-            case 2:
-                InfiToolPowers.splintering(j, k, l, mod_InfiTools.stoneShard, world);
+            case 2: InfiToolPowers.splintering(j, k, l, mod_InfiTools.stoneShard, world);
                 break;
 
-            case 7:
-                InfiToolPowers.splintering(j, k, l, mod_InfiTools.obsidianShard, world);
+            case 7: InfiToolPowers.splintering(j, k, l, mod_InfiTools.obsidianShard, world);
                 break;
 
-            case 8:
-                InfiToolPowers.splintering(j, k, l, mod_InfiTools.sandstoneShard, world);
+            case 8: InfiToolPowers.splintering(j, k, l, mod_InfiTools.sandstoneShard, world);
                 break;
 
-            case 12:
-                InfiToolPowers.splintering(j, k, l, mod_InfiTools.netherrackShard, world);
+            case 12: InfiToolPowers.splintering(j, k, l, mod_InfiTools.netherrackShard, world);
                 break;
 
-            case 13:
-                InfiToolPowers.splintering(j, k, l, Item.lightStoneDust, world);
+            case 13:InfiToolPowers.splintering(j, k, l, Item.lightStoneDust, world);
                 break;
 
-            case 14:
-                InfiHybridPowers.freezingHammer(j, k, l, i, i1, world, entityliving);
+            case 14: InfiHybridPowers.freezingHammer(j, k, l, i, i1, world, entityliving);
                 break;
 
-            case 15:
-                InfiHybridPowers.burningHammer(j, k, l, i, i1, world, entityliving);
+            case 15: InfiHybridPowers.burningHammer(j, k, l, i, i1, world, entityliving);
                 break;
 
-            case 16:
-                InfiToolPowers.slimePower(j, k, l, world);
+            case 16: InfiToolPowers.slimePower(j, k, l, world);
                 break;
         }
         return j1 != 15;

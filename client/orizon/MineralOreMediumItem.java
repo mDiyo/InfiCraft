@@ -2,7 +2,7 @@ package net.minecraft.src.orizon;
 import net.minecraft.src.forge.*;
 import net.minecraft.src.*;
 
-public class MineralOreMediumItem extends CustomItemBlockOre
+public class MineralOreMediumItem extends ItemBlock
 {
     public static final String blockType[] =
     {
@@ -15,14 +15,14 @@ public class MineralOreMediumItem extends CustomItemBlockOre
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_Orizon.mineralOreLow1.blockID, this);
     }
 
-    public int getIconFromDamage(int i)
+    @Override
+    public int getMetadata(int md)
     {
-        return mod_Orizon.mineralOreLow1.getBlockTextureFromSideAndMetadata(0, i);
+        return md;
     }
-
+    
     public String getItemNameIS(ItemStack itemstack)
     {
         return (new StringBuilder()).append("mineral").append(blockType[itemstack.getItemDamage()]).toString();

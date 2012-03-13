@@ -3,7 +3,7 @@ package net.minecraft.src.flora;
 import net.minecraft.src.*;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
-public class CloudItem extends CustomItemBlockFlora
+public class CloudItem extends ItemBlock
 {
     public static final String blockType[] =
     {
@@ -15,12 +15,13 @@ public class CloudItem extends CustomItemBlockFlora
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.cloud.blockID, this);
+        //MinecraftForgeClient.registerCustomItemRenderer(mod_FloraSoma.cloud.blockID, this);
     }
 
-    public int getIconFromDamage(int i)
+    @Override
+    public int getMetadata(int md)
     {
-        return mod_FloraSoma.cloud.getBlockTextureFromSideAndMetadata(0, i);
+        return md;
     }
 
     public String getItemNameIS(ItemStack itemstack)

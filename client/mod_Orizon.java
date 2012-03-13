@@ -91,6 +91,15 @@ public class mod_Orizon extends BaseModMp
     public static boolean genArdite;
     public static boolean genMyuvil;
     
+    public static Block slimeStill;
+    public static Block slimeFlowing;
+    
+    public static int slimePoolID;
+    
+    public static boolean genSlimePools;
+    public static int slimePoolRarity;
+    public static int slimePoolHeight;
+    
     public static int copperRarity;
     public static int copperHeight;
     public static int turquoiseRarity;
@@ -159,7 +168,9 @@ public class mod_Orizon extends BaseModMp
     public static boolean redoVanillaOres;
     public static boolean replaceOres;
     public static boolean genGems;
-    public static boolean genUniqueGems;
+    
+    public static TextureFX slimeAnimStill;
+    public static TextureFX slimeAnimFlowing;
 
     public String getVersion()
     {
@@ -202,12 +213,21 @@ public class mod_Orizon extends BaseModMp
     	ModLoader.registerBlock(marble, net.minecraft.src.orizon.MarbleItem.class);
     	ModLoader.registerBlock(replaceOre, net.minecraft.src.orizon.OreReplacementItem.class);
     	ModLoader.registerBlock(replaceMetal, net.minecraft.src.orizon.OreReplacementMetalItem.class);
+    	ModLoader.registerBlock(slimeStill);
+    	ModLoader.registerBlock(slimeFlowing);
     	
     	MinecraftForgeClient.preloadTexture("/oretex/ores.png");
     	MinecraftForgeClient.preloadTexture("/oretex/stone.png");
     	MinecraftForgeClient.preloadTexture("/oretex/gems.png");
+    	MinecraftForgeClient.preloadTexture("/oretex/slime.png");
     	
-    	addNames();
+    	Orizon.addNames();
+    	Orizon.addRecipes();
+    	
+    	slimeAnimStill = new TextureSlimeFX();
+        slimeAnimFlowing = new TextureSlimeFlowFX();
+    	ModLoader.addAnimation(slimeAnimStill);
+    	ModLoader.addAnimation(slimeAnimFlowing);
     	
     	//DimensionManager.registerDimension(7, new WorldProviderOrizon(), true);
     	
@@ -216,43 +236,22 @@ public class mod_Orizon extends BaseModMp
 		ModLoader.addRecipe(new ItemStack(warpPlank, 1), new Object[] {
 			"p ", " p", 'p', Block.planks //Planks in shears pattern
 		});*/
+    	
+    	addInfiBlockSupport();
+    }
+    
+    public void addInfiBlockSupport() {
+    	try
+        {
+    		Class class1 = Class.forName("DetailManager");
+        } catch (Throwable throwable)
+        {
+            System.out.println("InfiBlock detailing failed! Reason:");
+            System.out.println(throwable);
+        }
     }
 
     //public static Block warpPlank;
-    
-    public void addNames() {
-    	ModLoader.addLocalization("mineralCopper.name", "Copper Ore");
-    	ModLoader.addLocalization("mineralTurquoise.name", "Turquoise Ore");
-    	ModLoader.addLocalization("mineralChalcocite.name", "Chalcocite Ore");
-    	ModLoader.addLocalization("mineralCassiterite.name", "Cassiterite Ore");
-    	ModLoader.addLocalization("mineralTeallite.name", "Teallite Ore");
-    	ModLoader.addLocalization("mineralZincBloom.name", "Zinc Bloom Ore");
-    	ModLoader.addLocalization("mineralSphalerite.name", "Sphalerite Ore");
-    	ModLoader.addLocalization("mineralCerussite.name", "Cerussite Ore");
-    	ModLoader.addLocalization("mineralCobalt.name", "Cobalt Ore");
-    	ModLoader.addLocalization("mineralArdite.name", "Ardite Ore");
-    	ModLoader.addLocalization("mineralMyuvil.name", "Myuvil Ore");
-    	ModLoader.addLocalization("mineralGalena.name", "Galena Ore");
-    	ModLoader.addLocalization("mineralIvymetal.name", "Ivymetal Ore");
-    	
-    	ModLoader.addLocalization("gemRubyOre.name", "Ruby Ore");
-    	ModLoader.addLocalization("gemEmeraldOre.name", "Emerald Ore");
-    	ModLoader.addLocalization("gemSapphireOre.name", "Sapphire Ore");
-    	ModLoader.addLocalization("gemTopazOre.name", "Topaz Ore");
-    	ModLoader.addLocalization("gemAmethystOre.name", "Amethyst Ore");
-    	ModLoader.addLocalization("gemQuartzOre.name", "Quartz Ore");
-    	ModLoader.addLocalization("gemRoseQuartzOre.name", "Rose Quartz Ore");
-    	ModLoader.addLocalization("gemRockCrystalOre.name", "Rock Crystal Ore");
-    	
-    	ModLoader.addLocalization("gemRuby.name", "Ruby");
-    	ModLoader.addLocalization("gemEmerald.name", "Emerald");
-    	ModLoader.addLocalization("gemSapphire.name", "Sapphire");
-    	ModLoader.addLocalization("gemTopaz.name", "Topaz");
-    	ModLoader.addLocalization("gemAmethyst.name", "Amethyst");
-    	ModLoader.addLocalization("gemQuartz.name", "Quartz");
-    	ModLoader.addLocalization("gemRoseQuartz.name", "Rose Quartz");
-    	ModLoader.addLocalization("gemRockCrystal.name", "Rock Crystal");
-    }
     
     @Override
     public void generateSurface(World world, Random random, int chunkX, int chunkZ)
@@ -267,6 +266,8 @@ public class mod_Orizon extends BaseModMp
     		WorldGenStones.generateGems(world, random, chunkX, chunkZ);
     	if(genStratifiedStone)
     		WorldGenStones.generateStratifiedStone(world, random, chunkX, chunkZ);
+    	if(genSlimePools)
+    		WorldGenStones.generateSlimePool(world, random, chunkX, chunkZ);
         WorldGenStones.generateOres(world, random, chunkX, chunkZ);
     }
 
@@ -285,6 +286,9 @@ public class mod_Orizon extends BaseModMp
 				.append('/').append("mDiyo").append('/').append("OrizonWorldGen.cfg").toString())).getPath());
 		props = PropsHelperOrizon.InitSpawn(props);
 		PropsHelperOrizon.getSpawn(props);
+		
+		if(resolveConflicts)
+			PropsHelperOrizon.resolveIDs(props);
 		
 		cStone = new ColoredStone(cStoneID, 0).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone");
 		cCobble = new CustomBlockStone(cCobbleID, 16).setHardness(Block.cobblestone.getHardness()).setBlockName("Colored Cobblestone");
@@ -318,6 +322,9 @@ public class mod_Orizon extends BaseModMp
 
         replaceOre = new OreReplacement(replaceOreID, 208).setHardness(3F).setBlockName("Replacement Ore");
         replaceMetal = new OreReplacementMetal(replaceMetalID, 224).setHardness(3F).setBlockName("Replacement Metal Ore");
+        
+        slimeStill = new SlimeBlockStill(slimePoolID+1, 0, Material.water).setBlockName("Slime Pool");
+        slimeFlowing = new SlimeBlockFlowing(slimePoolID, 0, Material.water).setBlockName("Slime Pool Flowing");
         
     }
 }

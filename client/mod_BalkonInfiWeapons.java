@@ -1695,7 +1695,7 @@ public class mod_BalkonInfiWeapons extends BaseModMp
 
     public String getVersion()
     {
-        return "0.11 InfiTools Edition";
+        return "0.12 InfiTools Edition";
     }
 
     public void load()
@@ -1727,8 +1727,12 @@ public class mod_BalkonInfiWeapons extends BaseModMp
         BalkRecipeWarhammers.recipeStorm();
         
         ModLoader.registerEntityID(net.minecraft.src.balkon.BalkFlailEntity.class, "balkFlail", flailEntityID);
-        ModLoader.registerEntityID(net.minecraft.src.balkon.BalkFlailEntity.class, "balkSpear", 220);
-        ModLoader.registerEntityID(net.minecraft.src.balkon.BalkFlailEntity.class, "balkKnife", knifeEntityID);
+        ModLoader.registerEntityID(net.minecraft.src.balkon.BalkSpearEntity.class, "balkSpear", spearEntityID);
+        ModLoader.registerEntityID(net.minecraft.src.balkon.BalkKnifeEntity.class, "balkKnife", knifeEntityID);
+        
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkFlailEntity.class, flailEntityID);
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkSpearEntity.class, spearEntityID);
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkKnifeEntity.class, knifeEntityID);
     }
 
     @Override
