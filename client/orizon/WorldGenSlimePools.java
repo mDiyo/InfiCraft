@@ -1,5 +1,6 @@
 package net.minecraft.src.orizon;
 import net.minecraft.src.*;
+
 import java.util.Random;
 
 public class WorldGenSlimePools extends WorldGenerator
@@ -121,6 +122,27 @@ public class WorldGenSlimePools extends WorldGenerator
                             else
                             {
                                 par1World.setBlock(par3 + var8, par4 + var10 - 1, par5 + var32, Block.grass.blockID);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (Block.blocksList[this.blockIndex].blockMaterial == Material.water)
+            {
+                for (var8 = 0; var8 < 16; ++var8)
+                {
+                    for (var32 = 0; var32 < 16; ++var32)
+                    {
+                        for (var10 = 0; var10 < 8; ++var10)
+                        {
+                            var33 = !var6[(var8 * 16 + var32) * 8 + var10] && (var8 < 15 && var6[((var8 + 1) * 16 + var32) * 8 + var10] || var8 > 0 && var6[((var8 - 1) * 16 + var32) * 8 + var10] || var32 < 15 && var6[(var8 * 16 + var32 + 1) * 8 + var10] || var32 > 0 && var6[(var8 * 16 + (var32 - 1)) * 8 + var10] || var10 < 7 && var6[(var8 * 16 + var32) * 8 + var10 + 1] || var10 > 0 && var6[(var8 * 16 + var32) * 8 + (var10 - 1)]);
+
+                            if (var33 && (var10 < 4 || par2Random.nextInt(2) != 0) && 
+                            		par1World.getBlockMaterial(par3 + var8, par4 + var10, par5 + var32).isSolid() &&
+                            		par1World.getBlockMaterial(par3 + var8, par4 + var10 + 1, par5 + var32) != Material.water)
+                            {
+                                par1World.setBlock(par3 + var8, par4 + var10, par5 + var32, mod_Orizon.slimeGelBlock.blockID);
                             }
                         }
                     }

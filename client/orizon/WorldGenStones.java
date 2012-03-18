@@ -68,11 +68,15 @@ public class WorldGenStones {
 		chrysocollaSA = new OreGenStratified(12, 2, true);
 		aggregateSA = new OreGenStratified(13, 8, true);
 		
+		redoCoal = new OreGen(Block.oreCoal.blockID, 0, 16);
+		redoIron = new OreGen(Block.oreIron.blockID, 0, 8);
 		redoGold = new OreGen(Block.oreGold.blockID, 0, 8);
 		redoDiamond = new OreGen(Block.oreDiamond.blockID, 0, 7);
 		redoLapis = new OreGen(Block.oreLapis.blockID, 0, 6);
 		redoRedstone = new OreGen(Block.oreRedstone.blockID, 0, 7);
 		
+		redoCoalS = new OreGenVanilla(Block.oreCoal, mod_Orizon.replaceOre, 0, 16);
+		redoIronS = new OreGenVanilla(Block.oreIron, mod_Orizon.replaceMetal, 0, 8);
 		redoGoldS = new OreGenVanilla(Block.oreGold, mod_Orizon.replaceMetal, 4, 8);
 		redoDiamondS = new OreGenVanilla(Block.oreDiamond, mod_Orizon.replaceOre, 4, 7);
 		redoLapisS = new OreGenVanilla(Block.oreLapis, mod_Orizon.replaceOre, 8, 6);
@@ -109,7 +113,17 @@ public class WorldGenStones {
 	    roseQuartzS = new OreGenStratifiedGem(6, 7);
 	    rockCrystalS = new OreGenStratifiedGem(7, 7);
 	    
+	    bloodbite = new OreGenNether(mod_Orizon.netherOre.blockID, 0, 8);
+	    grudgestone = new OreGenNether(mod_Orizon.netherOre.blockID, 1, 4);
+	    wistful = new OreGenNether(mod_Orizon.netherOre.blockID, 2, 7);
+	    flamelash = new OreGenNether(mod_Orizon.netherOre.blockID, 3, 6);
+	    tears = new OreGenNether(mod_Orizon.netherOre.blockID, 4, 4);
+	    netherGold = new OreGenNether(mod_Orizon.netherOre.blockID, 5, 8);
+	    
 	    slimepool = new WorldGenSlimePools(mod_Orizon.slimePoolID);
+	    acidpool = new WorldGenSlimePools(mod_Orizon.acidPoolID);
+	    
+	    coloredStone = new StoneGenColor(mod_Orizon.cStone.blockID, 20);
 	}
 	
 	public static WorldGenStones getInstance() {
@@ -119,36 +133,69 @@ public class WorldGenStones {
 	public static void generateOres(World world, Random rand, int chunkX, int chunkZ)
 	{
 		if(mod_Orizon.genStratifiedStone) {
-			int copperChunk = rand.nextInt(mod_Orizon.copperRarity) + (mod_Orizon.copperRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, copperS, copperSA, copperChunk, mod_Orizon.copperHeight);
-			int turquoiseChunk = rand.nextInt(mod_Orizon.turquoiseRarity) + (mod_Orizon.turquoiseRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, turquoiseS, turquoiseSA, turquoiseChunk, mod_Orizon.turquoiseHeight);
-			int chalcociteChunk = rand.nextInt(mod_Orizon.chalcociteRarity) + (mod_Orizon.chalcociteRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, chalcociteS, chalcociteSA, chalcociteChunk, mod_Orizon.chalcociteHeight);
-			int cassiteriteChunk = rand.nextInt(mod_Orizon.cassiteriteRarity) + (mod_Orizon.cassiteriteRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, cassiteriteS, cassiteriteSA, cassiteriteChunk, mod_Orizon.cassiteriteHeight);
-			int tealliteChunk = rand.nextInt(mod_Orizon.tealliteRarity) + (mod_Orizon.tealliteRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, tealliteS, tealliteSA, tealliteChunk, mod_Orizon.tealliteHeight);
-			int zincBloomChunk = rand.nextInt(mod_Orizon.zincBloomRarity) + (mod_Orizon.zincBloomRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, zincBloomS, zincBloomSA, zincBloomChunk, mod_Orizon.zincBloomHeight);
-			int sphaleriteChunk = rand.nextInt(mod_Orizon.sphaleriteRarity) + (mod_Orizon.sphaleriteRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, sphaleriteS, sphaleriteSA, sphaleriteChunk, mod_Orizon.sphaleriteHeight);
-			int cerussiteChunk = rand.nextInt(mod_Orizon.cerussiteRarity) + (mod_Orizon.cerussiteRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, cerussiteS, cerussiteSA, cerussiteChunk, mod_Orizon.cerussiteHeight);
-			int cobaltChunk = rand.nextInt(mod_Orizon.cobaltRarity) + (mod_Orizon.cobaltRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, cobaltS, cobaltSA, cobaltChunk, mod_Orizon.cobaltHeight);
-			int arditeChunk = rand.nextInt(mod_Orizon.arditeRarity) + (mod_Orizon.arditeRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, arditeS, arditeSA, arditeChunk, mod_Orizon.arditeHeight);
-			int myuvilChunk = rand.nextInt(mod_Orizon.myuvilRarity) + (mod_Orizon.myuvilRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, myuvilS, myuvilSA, myuvilChunk, mod_Orizon.myuvilHeight);
-			int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity) + (mod_Orizon.galenaRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, galenaS, galenaSA, galenaChunk, mod_Orizon.galenaHeight);
-			int chrysocollaChunk = rand.nextInt(mod_Orizon.ivymetalRarity) + (mod_Orizon.ivymetalRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, chrysocollaS, chrysocollaSA, chrysocollaChunk, mod_Orizon.ivymetalHeight);
-			int aggregateChunk = rand.nextInt(mod_Orizon.aggregateRarity) + (mod_Orizon.aggregateRarity / 2);
-			generateStratifiedVein(world, rand, chunkX, chunkZ, aggregateS, aggregateSA, aggregateChunk, mod_Orizon.aggregateHeight);
+			if(mod_Orizon.genCopper) {
+				int copperChunk = rand.nextInt(mod_Orizon.copperRarity) + (mod_Orizon.copperRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, copperS, copperSA, copperChunk, mod_Orizon.copperHeight);
+			}
+			if(mod_Orizon.genTurquoise) {
+				int turquoiseChunk = rand.nextInt(mod_Orizon.turquoiseRarity) + (mod_Orizon.turquoiseRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, turquoiseS, turquoiseSA, turquoiseChunk, mod_Orizon.turquoiseHeight);
+			}
+			if(mod_Orizon.genChalcocite) {
+				int chalcociteChunk = rand.nextInt(mod_Orizon.chalcociteRarity) + (mod_Orizon.chalcociteRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, chalcociteS, chalcociteSA, chalcociteChunk, mod_Orizon.chalcociteHeight);
+			}
+			if(mod_Orizon.genCassiterite)
+			{
+				int cassiteriteChunk = rand.nextInt(mod_Orizon.cassiteriteRarity) + (mod_Orizon.cassiteriteRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, cassiteriteS, cassiteriteSA, cassiteriteChunk, mod_Orizon.cassiteriteHeight);
+			}
+			if(mod_Orizon.genTeallite) {
+				int tealliteChunk = rand.nextInt(mod_Orizon.tealliteRarity) + (mod_Orizon.tealliteRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, tealliteS, tealliteSA, tealliteChunk, mod_Orizon.tealliteHeight);
+			}
+			if(mod_Orizon.genZinc) {
+				int zincBloomChunk = rand.nextInt(mod_Orizon.zincBloomRarity) + (mod_Orizon.zincBloomRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, zincBloomS, zincBloomSA, zincBloomChunk, mod_Orizon.zincBloomHeight);
+			}
+			if(mod_Orizon.genSphalerite) {
+				int sphaleriteChunk = rand.nextInt(mod_Orizon.sphaleriteRarity) + (mod_Orizon.sphaleriteRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, sphaleriteS, sphaleriteSA, sphaleriteChunk, mod_Orizon.sphaleriteHeight);
+			}
+			if(mod_Orizon.genCassiterite) {
+				int cerussiteChunk = rand.nextInt(mod_Orizon.cerussiteRarity) + (mod_Orizon.cerussiteRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, cerussiteS, cerussiteSA, cerussiteChunk, mod_Orizon.cerussiteHeight);
+			}
+			if(mod_Orizon.genCobalt) {
+				int cobaltChunk = rand.nextInt(mod_Orizon.cobaltRarity) + (mod_Orizon.cobaltRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, cobaltS, cobaltSA, cobaltChunk, mod_Orizon.cobaltHeight);
+			}
+			if(mod_Orizon.genArdite) {
+				int arditeChunk = rand.nextInt(mod_Orizon.arditeRarity) + (mod_Orizon.arditeRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, arditeS, arditeSA, arditeChunk, mod_Orizon.arditeHeight);
+			}
+			if(mod_Orizon.genMyuvil) {
+				int myuvilChunk = rand.nextInt(mod_Orizon.myuvilRarity) + (mod_Orizon.myuvilRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, myuvilS, myuvilSA, myuvilChunk, mod_Orizon.myuvilHeight);
+			}
+			if(mod_Orizon.genGalena) {
+				int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity) + (mod_Orizon.galenaRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, galenaS, galenaSA, galenaChunk, mod_Orizon.galenaHeight);
+			}
+			if(mod_Orizon.genChrysocolla) {
+				int chrysocollaChunk = rand.nextInt(mod_Orizon.ivymetalRarity) + (mod_Orizon.ivymetalRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, chrysocollaS, chrysocollaSA, chrysocollaChunk, mod_Orizon.ivymetalHeight);
+			}
+			if(mod_Orizon.genAggregate) {
+				int aggregateChunk = rand.nextInt(mod_Orizon.aggregateRarity) + (mod_Orizon.aggregateRarity / 2);
+				generateStratifiedVein(world, rand, chunkX, chunkZ, aggregateS, aggregateSA, aggregateChunk, mod_Orizon.aggregateHeight);
+			}
 			
 			if(mod_Orizon.redoVanillaOres) {
+				int coalChunk = rand.nextInt(mod_Orizon.coalRarity) + (mod_Orizon.coalRarity / 2);
+				generateStratifiedVanillaVein(world, rand, chunkX, chunkZ, redoCoalS, coalChunk, mod_Orizon.coalHeight);
+				int ironChunk = rand.nextInt(mod_Orizon.ironRarity) + (mod_Orizon.ironRarity / 2);
+				generateStratifiedVanillaVein(world, rand, chunkX, chunkZ, redoIronS, ironChunk, mod_Orizon.ironHeight);
 				int goldChunk = rand.nextInt(mod_Orizon.goldRarity) + (mod_Orizon.goldRarity / 2);
 				generateStratifiedVanillaVein(world, rand, chunkX, chunkZ, redoGoldS, goldChunk, mod_Orizon.goldHeight);
 				int diamondChunk = rand.nextInt(mod_Orizon.diamondRarity) + (mod_Orizon.diamondRarity / 2 +1);
@@ -160,36 +207,68 @@ public class WorldGenStones {
 			}
 			
 		} else {
-			int copperChunk = rand.nextInt(mod_Orizon.copperRarity) + (mod_Orizon.copperRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, copper, copperA, copperChunk, mod_Orizon.copperHeight);
-			int turquoiseChunk = rand.nextInt(mod_Orizon.turquoiseRarity) + (mod_Orizon.turquoiseRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, turquoise, turquoiseA, turquoiseChunk, mod_Orizon.turquoiseHeight);
-			int chalcociteChunk = rand.nextInt(mod_Orizon.chalcociteRarity) + (mod_Orizon.chalcociteRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, chalcocite, chalcociteA, chalcociteChunk, mod_Orizon.chalcociteHeight);
-			int cassiteriteChunk = rand.nextInt(mod_Orizon.cassiteriteRarity) + (mod_Orizon.cassiteriteRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, cassiterite, cassiteriteA, cassiteriteChunk, mod_Orizon.cassiteriteHeight);
-			int tealliteChunk = rand.nextInt(mod_Orizon.tealliteRarity) + (mod_Orizon.tealliteRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, teallite, tealliteA, tealliteChunk, mod_Orizon.tealliteHeight);
-			int zincBloomChunk = rand.nextInt(mod_Orizon.zincBloomRarity) + (mod_Orizon.zincBloomRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, zincBloom, zincBloomA, zincBloomChunk, mod_Orizon.zincBloomHeight);
-			int sphaleriteChunk = rand.nextInt(mod_Orizon.sphaleriteRarity) + (mod_Orizon.sphaleriteRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, sphalerite, sphaleriteA, sphaleriteChunk, mod_Orizon.sphaleriteHeight);
-			int cerussiteChunk = rand.nextInt(mod_Orizon.cerussiteRarity) + (mod_Orizon.cerussiteRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, cerussite, cerussiteA, cerussiteChunk, mod_Orizon.cerussiteHeight);
-			int cobaltChunk = rand.nextInt(mod_Orizon.cobaltRarity) + (mod_Orizon.cobaltRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, cobalt, cobaltA, cobaltChunk, mod_Orizon.cobaltHeight);
-			int arditeChunk = rand.nextInt(mod_Orizon.arditeRarity) + (mod_Orizon.arditeRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, ardite, arditeA, arditeChunk, mod_Orizon.arditeHeight);
-			int myuvilChunk = rand.nextInt(mod_Orizon.myuvilRarity) + (mod_Orizon.myuvilRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, myuvil, myuvilA, myuvilChunk, mod_Orizon.myuvilHeight);
-			int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity) + (mod_Orizon.galenaRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, galena, galenaA, galenaChunk, mod_Orizon.galenaHeight);
-			int chrysocollaChunk = rand.nextInt(mod_Orizon.ivymetalRarity) + (mod_Orizon.ivymetalRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, chrysocolla, chrysocollaA, chrysocollaChunk, mod_Orizon.ivymetalHeight);
-			int aggregateChunk = rand.nextInt(mod_Orizon.aggregateRarity) + (mod_Orizon.aggregateRarity / 2);
-			generateVein(world, rand, chunkX, chunkZ, aggregate, aggregateA, aggregateChunk, mod_Orizon.aggregateHeight);
+			if(mod_Orizon.genCopper) {
+				int copperChunk = rand.nextInt(mod_Orizon.copperRarity) + (mod_Orizon.copperRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, copper, copperA, copperChunk, mod_Orizon.copperHeight);
+			}
+			if(mod_Orizon.genTurquoise) {
+				int turquoiseChunk = rand.nextInt(mod_Orizon.turquoiseRarity) + (mod_Orizon.turquoiseRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, turquoise, turquoiseA, turquoiseChunk, mod_Orizon.turquoiseHeight);
+			}
+			if(mod_Orizon.genChalcocite) {
+				int chalcociteChunk = rand.nextInt(mod_Orizon.chalcociteRarity) + (mod_Orizon.chalcociteRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, chalcocite, chalcociteA, chalcociteChunk, mod_Orizon.chalcociteHeight);
+			}
+			if(mod_Orizon.genCassiterite) {
+				int cassiteriteChunk = rand.nextInt(mod_Orizon.cassiteriteRarity) + (mod_Orizon.cassiteriteRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, cassiterite, cassiteriteA, cassiteriteChunk, mod_Orizon.cassiteriteHeight);
+			}
+			if(mod_Orizon.genTeallite) {
+				int tealliteChunk = rand.nextInt(mod_Orizon.tealliteRarity) + (mod_Orizon.tealliteRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, teallite, tealliteA, tealliteChunk, mod_Orizon.tealliteHeight);
+			}
+			if(mod_Orizon.genZinc) {
+				int zincBloomChunk = rand.nextInt(mod_Orizon.zincBloomRarity) + (mod_Orizon.zincBloomRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, zincBloom, zincBloomA, zincBloomChunk, mod_Orizon.zincBloomHeight);
+			}
+			if(mod_Orizon.genSphalerite) {
+				int sphaleriteChunk = rand.nextInt(mod_Orizon.sphaleriteRarity) + (mod_Orizon.sphaleriteRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, sphalerite, sphaleriteA, sphaleriteChunk, mod_Orizon.sphaleriteHeight);
+			}
+			if(mod_Orizon.genCerussite) {
+				int cerussiteChunk = rand.nextInt(mod_Orizon.cerussiteRarity) + (mod_Orizon.cerussiteRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, cerussite, cerussiteA, cerussiteChunk, mod_Orizon.cerussiteHeight);
+			}
+			if(mod_Orizon.genCobalt) {
+				int cobaltChunk = rand.nextInt(mod_Orizon.cobaltRarity) + (mod_Orizon.cobaltRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, cobalt, cobaltA, cobaltChunk, mod_Orizon.cobaltHeight);
+			}
+			if(mod_Orizon.genArdite) {
+				int arditeChunk = rand.nextInt(mod_Orizon.arditeRarity) + (mod_Orizon.arditeRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, ardite, arditeA, arditeChunk, mod_Orizon.arditeHeight);
+			}
+			if(mod_Orizon.genMyuvil) {
+				int myuvilChunk = rand.nextInt(mod_Orizon.myuvilRarity) + (mod_Orizon.myuvilRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, myuvil, myuvilA, myuvilChunk, mod_Orizon.myuvilHeight);
+			}
+			if(mod_Orizon.genGalena) {
+				int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity) + (mod_Orizon.galenaRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, galena, galenaA, galenaChunk, mod_Orizon.galenaHeight);
+			}
+			if(mod_Orizon.genChrysocolla) {
+				int chrysocollaChunk = rand.nextInt(mod_Orizon.ivymetalRarity) + (mod_Orizon.ivymetalRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, chrysocolla, chrysocollaA, chrysocollaChunk, mod_Orizon.ivymetalHeight);
+			}
+			if(mod_Orizon.genAggregate) {
+				int aggregateChunk = rand.nextInt(mod_Orizon.aggregateRarity) + (mod_Orizon.aggregateRarity / 2);
+				generateVein(world, rand, chunkX, chunkZ, aggregate, aggregateA, aggregateChunk, mod_Orizon.aggregateHeight);
+			}
 			
 			if(mod_Orizon.redoVanillaOres) {
+				int coalChunk = rand.nextInt(mod_Orizon.coalRarity) + (mod_Orizon.coalRarity / 2);
+				generateSimpleVein(world, rand, chunkX, chunkZ, redoCoal, coalChunk, mod_Orizon.coalHeight);
+				int ironChunk = rand.nextInt(mod_Orizon.ironRarity) + (mod_Orizon.ironRarity / 2);
+				generateSimpleVein(world, rand, chunkX, chunkZ, redoIron, ironChunk, mod_Orizon.ironHeight);
 				int goldChunk = rand.nextInt(mod_Orizon.goldRarity) + (mod_Orizon.goldRarity / 2);
 				generateSimpleVein(world, rand, chunkX, chunkZ, redoGold, goldChunk, mod_Orizon.goldHeight);
 				int diamondChunk = rand.nextInt(mod_Orizon.diamondRarity) + (mod_Orizon.diamondRarity / 2 +1);
@@ -212,15 +291,15 @@ public class WorldGenStones {
 	        calcite.generate(world, rand, randX, hi, randZ);
 	    }
 		
-		int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity * 5) + (mod_Orizon.galenaRarity * 5 / 2);
+		int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity * 10) + (mod_Orizon.galenaRarity * 10 / 2);
 		generateCalciteVein(world, rand, chunkX, chunkZ, galenaC, galenaChunk, mod_Orizon.galenaHeight);
-		int cassiteriteChunk = rand.nextInt(mod_Orizon.cassiteriteRarity) + (mod_Orizon.cassiteriteRarity / 2);
+		int cassiteriteChunk = rand.nextInt(mod_Orizon.cassiteriteRarity * 5) + (mod_Orizon.cassiteriteRarity * 5 / 2);
 		generateCalciteVein(world, rand, chunkX, chunkZ, cassiteriteC, cassiteriteChunk, mod_Orizon.cassiteriteHeight);
-		int zincBloomChunk = rand.nextInt(mod_Orizon.zincBloomRarity) + (mod_Orizon.zincBloomRarity / 2);
+		int zincBloomChunk = rand.nextInt(mod_Orizon.zincBloomRarity * 5) + (mod_Orizon.zincBloomRarity * 5 / 2);
 		generateCalciteVein(world, rand, chunkX, chunkZ, zincBloomC, zincBloomChunk, mod_Orizon.zincBloomHeight);
-		int sphaleriteChunk = rand.nextInt(mod_Orizon.sphaleriteRarity) + (mod_Orizon.sphaleriteRarity / 2);
+		int sphaleriteChunk = rand.nextInt(mod_Orizon.sphaleriteRarity * 5) + (mod_Orizon.sphaleriteRarity * 5 / 2);
 		generateCalciteVein(world, rand, chunkX, chunkZ, sphaleriteC, sphaleriteChunk, mod_Orizon.sphaleriteHeight);
-		int chalcociteChunk = rand.nextInt(mod_Orizon.chalcociteRarity) + (mod_Orizon.chalcociteRarity / 2);
+		int chalcociteChunk = rand.nextInt(mod_Orizon.chalcociteRarity * 5) + (mod_Orizon.chalcociteRarity * 5 / 2);
 		generateCalciteVein(world, rand, chunkX, chunkZ, chalcociteC, chalcociteChunk, mod_Orizon.chalcociteHeight);
 	}
 	
@@ -326,40 +405,93 @@ public class WorldGenStones {
 	public static void generateGems(World world, Random rand, int chunkX,
 			int chunkZ) {
 		if(mod_Orizon.genStratifiedStone) {
-			int rubyChunk = rand.nextInt(mod_Orizon.rubyRarity*2) + (mod_Orizon.rubyRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, rubyS, rubyChunk, mod_Orizon.rubyHeight);
-			int emeraldChunk = rand.nextInt(mod_Orizon.emeraldRarity*2) + (mod_Orizon.emeraldRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, emeraldS, emeraldChunk, mod_Orizon.emeraldHeight);
-			int sapphireChunk = rand.nextInt(mod_Orizon.sapphireRarity*2) + (mod_Orizon.sapphireRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, sapphireS, sapphireChunk, mod_Orizon.sapphireHeight);
-			int topazChunk = rand.nextInt(mod_Orizon.topazRarity*2) + (mod_Orizon.topazRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, topazS, topazChunk, mod_Orizon.topazHeight);
-			int amethystChunk = rand.nextInt(mod_Orizon.amethystRarity*2) + (mod_Orizon.amethystRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, amethystS, amethystChunk, mod_Orizon.amethystHeight);
-			int quartzChunk = rand.nextInt((int)(mod_Orizon.quartzRarity * 1.5)) + (mod_Orizon.quartzRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, quartzS, quartzChunk, mod_Orizon.quartzHeight);
-			int roseQuartzChunk = rand.nextInt((int)(mod_Orizon.roseQuartzRarity * 1.5)) + (mod_Orizon.roseQuartzRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, roseQuartzS, roseQuartzChunk, mod_Orizon.roseQuartzHeight);
-			int rockCrystalChunk = rand.nextInt((int)(mod_Orizon.rockCrystalRarity * 1.5)) + (mod_Orizon.rockCrystalRarity / 2);
-			generateStratifiedVeinGem(world, rand, chunkX, chunkZ, rockCrystalS, rockCrystalChunk, mod_Orizon.rockCrystalHeight);
+			if(mod_Orizon.genNonUniqueGems) {
+				if(rand.nextInt(2) == 0) {
+					int rubyChunk = rand.nextInt(mod_Orizon.rubyRarity*2) + (mod_Orizon.rubyRarity / 2);
+					generateStratifiedVeinGem(world, rand, chunkX, chunkZ, rubyS, rubyChunk, mod_Orizon.rubyHeight);
+				}
+				if(rand.nextInt(2) == 0) {
+					int emeraldChunk = rand.nextInt(mod_Orizon.emeraldRarity*2) + (mod_Orizon.emeraldRarity / 2);
+					generateStratifiedVeinGem(world, rand, chunkX, chunkZ, emeraldS, emeraldChunk, mod_Orizon.emeraldHeight);
+				} 
+				if(rand.nextInt(2) == 0) {
+					int sapphireChunk = rand.nextInt(mod_Orizon.sapphireRarity*2) + (mod_Orizon.sapphireRarity / 2);
+					generateStratifiedVeinGem(world, rand, chunkX, chunkZ, sapphireS, sapphireChunk, mod_Orizon.sapphireHeight);
+				}
+			}
+			if(rand.nextInt(2) == 0) {
+				int topazChunk = rand.nextInt(mod_Orizon.topazRarity*2) + (mod_Orizon.topazRarity / 2);
+				generateStratifiedVeinGem(world, rand, chunkX, chunkZ, topazS, topazChunk, mod_Orizon.topazHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int amethystChunk = rand.nextInt(mod_Orizon.amethystRarity*2) + (mod_Orizon.amethystRarity / 2);
+				generateStratifiedVeinGem(world, rand, chunkX, chunkZ, amethystS, amethystChunk, mod_Orizon.amethystHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int quartzChunk = rand.nextInt((int)(mod_Orizon.quartzRarity * 1.5)) + (mod_Orizon.quartzRarity / 2);
+				generateStratifiedVeinGem(world, rand, chunkX, chunkZ, quartzS, quartzChunk, mod_Orizon.quartzHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int roseQuartzChunk = rand.nextInt((int)(mod_Orizon.roseQuartzRarity * 1.5)) + (mod_Orizon.roseQuartzRarity / 2);
+				generateStratifiedVeinGem(world, rand, chunkX, chunkZ, roseQuartzS, roseQuartzChunk, mod_Orizon.roseQuartzHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int rockCrystalChunk = rand.nextInt((int)(mod_Orizon.rockCrystalRarity * 1.5)) + (mod_Orizon.rockCrystalRarity / 2);
+				generateStratifiedVeinGem(world, rand, chunkX, chunkZ, rockCrystalS, rockCrystalChunk, mod_Orizon.rockCrystalHeight);
+			}
 		} else {
-			int rubyChunk = rand.nextInt(mod_Orizon.rubyRarity*2+1) + (mod_Orizon.rubyRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, ruby, rubyChunk, mod_Orizon.rubyHeight);
-			int emeraldChunk = rand.nextInt(mod_Orizon.emeraldRarity*2+1) + (mod_Orizon.emeraldRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, emerald, emeraldChunk, mod_Orizon.emeraldHeight);
-			int sapphireChunk = rand.nextInt(mod_Orizon.sapphireRarity*2+1) + (mod_Orizon.sapphireRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, sapphire, sapphireChunk, mod_Orizon.sapphireHeight);
-			int topazChunk = rand.nextInt(mod_Orizon.topazRarity*2+1) + (mod_Orizon.topazRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, topaz, topazChunk, mod_Orizon.topazHeight);
-			int amethystChunk = rand.nextInt(mod_Orizon.amethystRarity*2+1) + (mod_Orizon.amethystRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, amethyst, amethystChunk, mod_Orizon.amethystHeight);
-			int quartzChunk = rand.nextInt(mod_Orizon.quartzRarity*2+1) + (mod_Orizon.quartzRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, quartz, quartzChunk, mod_Orizon.quartzHeight);
-			int roseQuartzChunk = rand.nextInt(mod_Orizon.roseQuartzRarity*2+1) + (mod_Orizon.roseQuartzRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, roseQuartz, roseQuartzChunk, mod_Orizon.roseQuartzHeight);
-			int rockCrystalChunk = rand.nextInt(mod_Orizon.rockCrystalRarity*2+1) + (mod_Orizon.rockCrystalRarity / 2);
-			generateSimpleVein(world, rand, chunkX, chunkZ, rockCrystal, rockCrystalChunk, mod_Orizon.rockCrystalHeight);
+			if(mod_Orizon.genNonUniqueGems) {
+				if(rand.nextInt(2) == 0) {
+					int rubyChunk = rand.nextInt(mod_Orizon.rubyRarity*2+1) + (mod_Orizon.rubyRarity / 2);
+					generateSimpleVein(world, rand, chunkX, chunkZ, ruby, rubyChunk, mod_Orizon.rubyHeight);
+				}
+				if(rand.nextInt(2) == 0) {
+					int emeraldChunk = rand.nextInt(mod_Orizon.emeraldRarity*2+1) + (mod_Orizon.emeraldRarity / 2);
+					generateSimpleVein(world, rand, chunkX, chunkZ, emerald, emeraldChunk, mod_Orizon.emeraldHeight);
+				}
+				if(rand.nextInt(2) == 0) {
+					int sapphireChunk = rand.nextInt(mod_Orizon.sapphireRarity*2+1) + (mod_Orizon.sapphireRarity / 2);
+					generateSimpleVein(world, rand, chunkX, chunkZ, sapphire, sapphireChunk, mod_Orizon.sapphireHeight);
+				}
+			}
+			if(rand.nextInt(2) == 0) {
+				int topazChunk = rand.nextInt(mod_Orizon.topazRarity*2+1) + (mod_Orizon.topazRarity / 2);
+				generateSimpleVein(world, rand, chunkX, chunkZ, topaz, topazChunk, mod_Orizon.topazHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int amethystChunk = rand.nextInt(mod_Orizon.amethystRarity*2+1) + (mod_Orizon.amethystRarity / 2);
+				generateSimpleVein(world, rand, chunkX, chunkZ, amethyst, amethystChunk, mod_Orizon.amethystHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int quartzChunk = rand.nextInt(mod_Orizon.quartzRarity*2+1) + (mod_Orizon.quartzRarity / 2);
+				generateSimpleVein(world, rand, chunkX, chunkZ, quartz, quartzChunk, mod_Orizon.quartzHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int roseQuartzChunk = rand.nextInt(mod_Orizon.roseQuartzRarity*2+1) + (mod_Orizon.roseQuartzRarity / 2);
+				generateSimpleVein(world, rand, chunkX, chunkZ, roseQuartz, roseQuartzChunk, mod_Orizon.roseQuartzHeight);
+			}
+			if(rand.nextInt(2) == 0) {
+				int rockCrystalChunk = rand.nextInt(mod_Orizon.rockCrystalRarity*2+1) + (mod_Orizon.rockCrystalRarity / 2);
+				generateSimpleVein(world, rand, chunkX, chunkZ, rockCrystal, rockCrystalChunk, mod_Orizon.rockCrystalHeight);
+			}
 		}
+	}
+	
+	public static void generateNetherOres(World world, Random rand,
+			int chunkX, int chunkZ) {
+		int bloodbiteChunk = rand.nextInt(mod_Orizon.bloodbiteRarity) + (mod_Orizon.bloodbiteRarity / 2);
+		generateNetherVein(world, rand, chunkX, chunkZ, bloodbite, bloodbiteChunk, mod_Orizon.bloodbiteHeight);
+		int grudgestoneChunk = rand.nextInt(mod_Orizon.grudgestoneRarity) + (mod_Orizon.grudgestoneRarity / 2);
+		generateNetherVein(world, rand, chunkX, chunkZ, grudgestone, grudgestoneChunk, mod_Orizon.grudgestoneHeight);
+		int wistfulChunk = rand.nextInt(mod_Orizon.wistfulRarity) + (mod_Orizon.wistfulRarity / 2);
+		generateNetherVein(world, rand, chunkX, chunkZ, wistful, wistfulChunk, mod_Orizon.wistfulHeight);
+		int flamelashChunk = rand.nextInt(mod_Orizon.flamelashRarity) + (mod_Orizon.flamelashRarity / 2);
+		generateNetherVein(world, rand, chunkX, chunkZ, flamelash, flamelashChunk, mod_Orizon.flamelashHeight);
+		int tearsChunk = rand.nextInt(mod_Orizon.tearsRarity) + (mod_Orizon.tearsRarity / 2);
+		generateNetherVein(world, rand, chunkX, chunkZ, tears, tearsChunk, mod_Orizon.tearsHeight);
+		int netherGoldChunk = rand.nextInt(mod_Orizon.netherGoldRarity) + (mod_Orizon.netherGoldRarity / 2);
+		generateNetherVein(world, rand, chunkX, chunkZ, netherGold, netherGoldChunk, mod_Orizon.netherGoldHeight);
+		
 	}
 	
 	public static boolean generateVein(World world, Random rand, int chunkX, int chunkZ, 
@@ -453,6 +585,19 @@ public class WorldGenStones {
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
 	        ore.generate(world, rand, randX, hi, randZ);
+	    }
+		return true;
+	}
+	
+	public static boolean generateNetherVein(World world, Random rand, int chunkX, int chunkZ, 
+			OreGenNether ore, int rarity, int height) 
+	{
+		for (int i = 0; i < rarity; i++)
+	    {
+			int hi = rand.nextInt(height);
+	        int randX = chunkX + rand.nextInt(16);
+	        int randZ = chunkZ + rand.nextInt(16);
+	        ore.generate(world, rand, randX, hi, randZ);
 	        if(rand.nextInt(40) == 0 && (rarity - i >= 3)) {
 	        	for(int j = 0; j < 3; j++) {
 	        		randX = chunkX + rand.nextInt(16);
@@ -514,10 +659,6 @@ public class WorldGenStones {
 	public static void replaceBlocks(World world, int x, int y, int z, int bID, int md) {
 		if(bID == Block.stone.blockID)
 			world.setBlockAndMetadata(x, y, z, mod_Orizon.cStone.blockID, md);
-		else if(bID == Block.oreIron.blockID)
-			world.setBlockAndMetadata(x, y, z, mod_Orizon.replaceMetal.blockID, md);
-		else if(bID == Block.oreCoal.blockID)
-			world.setBlockAndMetadata(x, y, z, mod_Orizon.replaceOre.blockID, md);
 		
 		if(mod_Orizon.redoVanillaOres) {
 			if(bID == Block.oreGold.blockID)
@@ -528,6 +669,10 @@ public class WorldGenStones {
 				world.setBlockAndMetadata(x, y, z, mod_Orizon.cStone.blockID, md);
 			else if(bID == Block.oreRedstone.blockID)
 				world.setBlockAndMetadata(x, y, z, mod_Orizon.cStone.blockID, md);
+			else if(bID == Block.oreIron.blockID)
+				world.setBlockAndMetadata(x, y, z, mod_Orizon.cStone.blockID, md);
+			else if(bID == Block.oreCoal.blockID)
+				world.setBlockAndMetadata(x, y, z, mod_Orizon.cStone.blockID, md);
 		} else {
 			if(bID == Block.oreGold.blockID)
 				world.setBlockAndMetadata(x, y, z, mod_Orizon.replaceMetal.blockID, md+4);
@@ -537,6 +682,10 @@ public class WorldGenStones {
 				world.setBlockAndMetadata(x, y, z, mod_Orizon.replaceOre.blockID, md+8);
 			else if(bID == Block.oreRedstone.blockID)
 				world.setBlockAndMetadata(x, y, z, mod_Orizon.replaceOre.blockID, md+12);
+			else if(bID == Block.oreIron.blockID)
+				world.setBlockAndMetadata(x, y, z, mod_Orizon.replaceMetal.blockID, md);
+			else if(bID == Block.oreCoal.blockID)
+				world.setBlockAndMetadata(x, y, z, mod_Orizon.replaceOre.blockID, md);
 		}
 	}
 	
@@ -544,8 +693,6 @@ public class WorldGenStones {
 	{
 		if(rand.nextInt(mod_Orizon.slimePoolRarity) == 0)
 		{
-			//System.out.println("Slime Pool Generated");
-			//int hi = rand.nextInt(mod_Orizon.slimePoolHeight);
 			int hi = rand.nextInt(mod_Orizon.slimePoolHeight);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
@@ -553,20 +700,64 @@ public class WorldGenStones {
 		}
 		BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(chunkX + 16, chunkZ + 16);
 		if(rand.nextInt(mod_Orizon.slimePoolRarity/4) == 0 && (biomegenbase == BiomeGenBase.swampland 
-				|| biomegenbase == BiomeGenBase.field_48416_w || biomegenbase == BiomeGenBase.field_48417_x)) {
+				|| biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills)) {
 			int hi = rand.nextInt(mod_Orizon.slimePoolHeight * 3);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
 	        slimepool.generate(world, rand, randX, hi, randZ);
 		}
 		if(rand.nextInt(mod_Orizon.slimePoolRarity/4) == 0 && 
-				(biomegenbase == BiomeGenBase.field_48416_w || biomegenbase == BiomeGenBase.field_48417_x)) {
+				(biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills)) {
 			int hi = rand.nextInt(mod_Orizon.slimePoolHeight * 2);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
 	        slimepool.generate(world, rand, randX, hi, randZ);
 		}
 	}
+	
+	public static void generateAcidPool(World world, Random rand, int chunkX, int chunkZ) 
+	{
+		if(rand.nextInt(mod_Orizon.acidPoolRarity) == 0)
+		{
+			int hi = rand.nextInt(mod_Orizon.acidPoolHeight);
+	        int randX = chunkX + rand.nextInt(16);
+	        int randZ = chunkZ + rand.nextInt(16);
+	        acidpool.generate(world, rand, randX, hi, randZ);
+		}
+	}
+	
+	public static void generateColoredStone(World world, Random rand, int chunkX, int chunkZ) {
+		for (int i = 0; i < mod_Orizon.coloredStoneChance; i++) {
+			int hi = rand.nextInt(mod_Orizon.coloredStoneHeight);
+		    int randX = chunkX + rand.nextInt(16);
+		    int randZ = chunkZ + rand.nextInt(16);
+		    coloredStone.generate(world, rand, randX, hi, randZ);
+		}
+	}
+	
+	public static void removeBedrock(World world, Random rand, int chunkX, int chunkZ) {
+		for(int x = chunkX; x < 16; x++) {
+			for(int z = chunkZ; z < 16; z++) {
+				for(int y = 1; y < 5; y++) {
+					if(world.getBlockId(x,  y, z) == Block.bedrock.blockID) {
+						if(mod_Orizon.genStratifiedStone)
+							world.setBlockAndMetadata(x, y, z, mod_Orizon.cStone.blockID, 2);
+						else
+							world.setBlock(x, y, z, Block.stone.blockID);
+					}
+				}
+			}
+		}
+	}
+	
+	public static void replaceBedrock (World world, Random rand, int chunkX, int chunkZ) {
+		for(int x = chunkX; x < 16; x++) {
+			for(int z = chunkZ; z < 16; z++) {
+				world.setBlock(x, 0, z, Block.bedrock.blockID);
+			}
+		}
+	}
+	
     static OreGen copper;
     static OreGen turquoise;
     static OreGen chalcocite;
@@ -634,11 +825,15 @@ public class WorldGenStones {
     static OreGenCalcite sphaleriteC;
     static OreGenCalcite chalcociteC;
     
+    static OreGen redoCoal;
+    static OreGen redoIron;
     static OreGen redoGold;
     static OreGen redoDiamond;
     static OreGen redoLapis;
     static OreGen redoRedstone;
     
+    static OreGenVanilla redoCoalS;
+    static OreGenVanilla redoIronS;
     static OreGenVanilla redoGoldS;
     static OreGenVanilla redoDiamondS;
     static OreGenVanilla redoLapisS;
@@ -669,6 +864,16 @@ public class WorldGenStones {
     static OreGenStratifiedGem rockCrystalS;
     
     static WorldGenSlimePools slimepool;
+    static WorldGenSlimePools acidpool;
+    
+    static OreGenNether bloodbite;
+    static OreGenNether grudgestone;
+    static OreGenNether wistful;
+    static OreGenNether flamelash;
+    static OreGenNether tears;
+    static OreGenNether netherGold;
+    
+    static StoneGenColor coloredStone;
 
 	public static void generateSilt(World world, Random random, int chunkX,
 			int chunkZ) {
