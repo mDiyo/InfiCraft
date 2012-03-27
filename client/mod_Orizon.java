@@ -12,7 +12,7 @@ public class mod_Orizon extends BaseModMp
 
     public String getVersion()
     {
-        return "v1.0";
+        return "v1.1";
     }
 
     public mod_Orizon()
@@ -22,8 +22,8 @@ public class mod_Orizon extends BaseModMp
         MinecraftForgeClient.preloadTexture("/oretex/gems.png");
         MinecraftForgeClient.preloadTexture("/oretex/slime.png");
         
-        OrizonRecipes.addNames();
         OrizonRecipes.addRecipes();
+        OrizonRecipes.addNames();
         
         slimeAnimStill = new TextureSlimeFX();
         slimeAnimFlowing = new TextureSlimeFlowFX();
@@ -90,11 +90,11 @@ public class mod_Orizon extends BaseModMp
         };
         
         int oreLevelArray[] = {
-            1, 1, 2, 1, 2, 1, 1, 2, 3, 3, 3, 2, 3, 3
+            2, 1, 2, 1, 2, 1, 1, 2, 3, 3, 3, 2, 3, 3
         };
         
         String oreNames[] = {
-                "oreCopper", "oreTurquoise", "oreChalcocte", "oreCassiterite", "oreTin", 
+                "oreCopper", "oreTurquoise", "oreChalcocite", "oreCassiterite", "oreTin", 
                 "oreZincBloom", "oreSphalerite", "oreCerussite", "oreCobalt", "oreArdite", 
                 "oreMyuvil", "oreGalena", "oreIvymetal", "oreAggregate"
         };
@@ -129,6 +129,12 @@ public class mod_Orizon extends BaseModMp
             for(int j = 0; j < oreNames.length; j++) {
                 MinecraftForge.registerOre(oreNames[j], new ItemStack(oreArray[i], 1, j));
             }
+        }
+        
+        for (int i = 0; i < 4; i++)
+        {
+        	MinecraftForge.registerOre("customCobblestone", new ItemStack(cCobble, 1, i));
+        	MinecraftForge.registerOre("customStone", new ItemStack(cStone, 1, i));
         }
         
         for(int i = 0; i< ingotNames.length; i++) {
@@ -240,7 +246,8 @@ public class mod_Orizon extends BaseModMp
     @Override
     public void generateSurface(World world, Random random, int chunkX, int chunkZ)
     {
-    	WorldGenStones.removeBedrock(world, random, chunkX, chunkZ);
+    	if(flatBedrock)
+    		WorldGenStones.removeBedrock(world, random, chunkX, chunkZ);
         if(genCalcite)
             WorldGenStones.generateCalcite(world, random, chunkX, chunkZ);
         if(genMarble)
@@ -467,6 +474,7 @@ public static InfiProps props;
     public static boolean replaceOres;
     public static boolean genGems;
     public static boolean genNonUniqueGems;
+    public static boolean flatBedrock;
     
     public static TextureFX slimeAnimStill;
     public static TextureFX slimeAnimFlowing;
@@ -565,15 +573,12 @@ public static InfiProps props;
 
     static
     {
-        File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-                .append('/').append("mDiyo").toString() ) );
+        File me = new File( Minecraft.getMinecraftDir().getPath() + "/mDiyo");
         me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-                .append('/').append("mDiyo").append('/').append("OrizonIDs.cfg").toString())).getPath());
+        props = new InfiProps(Minecraft.getMinecraftDir().getPath() + "/mDiyo/OrizonIDs.cfg");
         props = PropsHelperOrizon.InitProps(props);
         PropsHelperOrizon.getProps(props);
-        props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-                .append('/').append("mDiyo").append('/').append("OrizonWorldGen.cfg").toString())).getPath());
+        props = new InfiProps(Minecraft.getMinecraftDir().getPath() + "/mDiyo/OrizonWorldGen.cfg");
         props = PropsHelperOrizon.InitSpawn(props);
         PropsHelperOrizon.getSpawn(props);
         
