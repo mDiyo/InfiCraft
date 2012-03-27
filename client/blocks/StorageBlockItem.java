@@ -1,7 +1,6 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.ICustomItemRenderer;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class StorageBlockItem extends ItemBlock

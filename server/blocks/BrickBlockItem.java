@@ -16,17 +16,11 @@ public class BrickBlockItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.brick.blockID, this);
     }
     
-    public int getMetadata(int i)
+    public int getMetadata(int md)
     {
-        return i;
-    }
-
-    public int getIconFromDamage(int i)
-    {
-        return mod_InfiBlocks.brick.getBlockTextureFromSideAndMetadata(0, i);
+        return md;
     }
 
     public String getItemNameIS(ItemStack itemstack)

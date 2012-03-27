@@ -1,4 +1,3 @@
-
 package net.minecraft.src;
 
 import net.minecraft.src.*;
@@ -15,7 +14,7 @@ public class mod_InfiLighting extends BaseModMp
 {
 	public String getVersion()
 	{
-		return "0.1.2 Torches";
+		return "0.1.3 Torches";
 	}
 
 	public mod_InfiLighting()

@@ -20,7 +20,7 @@ public class InfiRecipeItems extends mod_InfiTools
         ModLoader.addName(woodBucketGravel, "Wooden Bucket");
         ModLoader.addRecipe(new ItemStack(woodBucketEmpty, 1), new Object[]
                 {
-                    "w w", "w w", " w ", Character.valueOf('w'), Block.planks
+                    "w w", "w w", " w ", Character.valueOf('w'), new ItemStack(Block.planks, 1, -1)
                 });
         ModLoader.addName(cactusBucketEmpty, "Cactus Bucket");
         ModLoader.addName(cactusBucketWater, "Cactus Bucket");

@@ -91,7 +91,7 @@ public class BloodBoat extends Entity
                 entityDropItem(new ItemStack(mod_FloraSoma.redwood, 1, 4), 0F);
             }
 
-            setEntityDead();
+            setDead();
         }
         return true;
     }
@@ -260,7 +260,7 @@ public class BloodBoat extends Entity
         {
             if (!worldObj.isRemote)
             {
-                setEntityDead();
+            	setDead();
                 for (int j = 0; j < 5; j++)
                 {
                 	entityDropItem(new ItemStack(mod_FloraSoma.redwood, 1, 4), 0F);

@@ -113,7 +113,7 @@ public class WorldGenSlimePools extends WorldGenerator
                     {
                         if (var6[(var8 * 16 + var32) * 8 + var10] && par1World.getBlockId(par3 + var8, par4 + var10 - 1, par5 + var32) == Block.dirt.blockID && par1World.getSavedLightValue(EnumSkyBlock.Sky, par3 + var8, par4 + var10, par5 + var32) > 0)
                         {
-                            BiomeGenBase var35 = par1World.func_48454_a(par3 + var8, par5 + var32);
+                            BiomeGenBase var35 = par1World.getBiomeGenForCoords(par3 + var8, par5 + var32);
 
                             if (var35.topBlock == Block.mycelium.blockID)
                             {

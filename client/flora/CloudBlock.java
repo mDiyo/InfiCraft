@@ -12,7 +12,7 @@ public class CloudBlock extends Block
     }
 
     @Override
-    public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity)
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
     {
         if (entity.motionY < 0.0D)
         {

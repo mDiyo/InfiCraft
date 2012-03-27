@@ -4,6 +4,7 @@ import net.minecraft.src.EEProxy;
 import net.minecraft.src.core.*;
 import net.minecraft.src.flora.CactusJuice;
 import net.minecraft.src.forge.*;
+import net.minecraft.src.orizon.OrizonRecipes;
 
 import java.io.File;
 import java.io.PrintStream;
@@ -13,6 +14,692 @@ import net.minecraft.client.Minecraft;
 
 public class mod_InfiTools extends BaseModMp
 {
+    public static InfiProps props;
+    InfiEnchantFreezing freeze = new InfiEnchantFreezing(42, 2);
+
+    public String getVersion()
+    {
+        return "v2.4 Dictionary";
+    }
+
+    public static void addEEsupport()
+    {
+        try
+        {
+            Class class1 = Class.forName("mod_EE");
+            Class class2 = Class.forName("EEProxy");
+            System.out.println("Equivalent Exchange integration for InfiTools activated");
+            EEProxy.setEMC(redstoneCrystal.shiftedIndex, 405);
+            EEProxy.setEMC(glowstoneCrystal.shiftedIndex, 3754);
+            EEProxy.setEMC(lavaCrystal.shiftedIndex, 3104);
+            EEProxy.setEMC(slimeCrystal.shiftedIndex, 88);
+            EEProxy.setEMC(blazeCrystal.shiftedIndex, 3930);
+            EEProxy.setEMC(paperDust.shiftedIndex, 928);
+            EEProxy.setEMC(obsidianCrystal.shiftedIndex, 2848);
+            EEProxy.setEMC(mossBallGiant.shiftedIndex, 145);
+            EEProxy.setEMC(mossBallCrafted.shiftedIndex, 581);
+            System.out.println("EMC values set!");
+        }
+        catch (Throwable throwable)
+        {
+            System.out.println("Equivalent Exchange integration failed! Reason:");
+            System.out.println(throwable);
+        }
+    }
+    
+    public static void oreDictionarySupport()
+    {
+        MinecraftForge.registerOreHandler(new IOreHandler()
+        {
+            public void registerOre(String ore, ItemStack itemstack)
+            {
+                if(ore.equals("customCobblestone") || ore.equals("customStone"))
+                {
+                    OrizonCoreRecipes.addStoneTools(itemstack);
+                }
+            }
+        } );
+    }
+
+    /*public void addMetallurgySupport()
+    {
+        try
+        {
+            Class class1 = Class.forName("mod_MetallurgyBase");
+            System.out.println("Metallurgy integration for InfiTools activated");
+            wLevel = 0;
+            stLevel = 1;
+            iLevel = 5;
+            dLevel = 7;
+            gLevel = 9;
+            rLevel = 7;
+            oLevel = 9;
+            saLevel = 1;
+            bLevel = 3;
+            pLevel = 1;
+            mLevel = 6;
+            nLevel = 4;
+            glLevel = 7;
+            lLevel = 11;
+            iceLevel = 0;
+            sLevel = 6;
+            cLevel = 2;
+            fLevel = 1;
+            brLevel = 2;
+            blLevel = 11;
+        }
+        catch (Throwable throwable)
+        {
+            System.out.println("Metallurgy not detected");
+        }
+        InfiRecipeSwords.recipeStorm();
+        InfiRecipePickaxes.recipeStorm();
+        InfiRecipeShovels.recipeStorm();
+        InfiRecipeAxes.recipeStorm();
+        InfiRecipeHoes.recipeStorm();
+        //InfiRecipeFryingPans.recipeStorm();
+    }*/
+
+    public mod_InfiTools()
+    {
+    	//MinecraftForge.versionDetect("InfiTools Core", 1, 4, 52);
+        InfiRecipeItems.recipeStorm();
+        InfiRecipeSwords.recipeStorm();
+        InfiRecipePickaxes.recipeStorm();
+        InfiRecipeAxes.recipeStorm();
+        InfiRecipeShovels.recipeStorm();
+        InfiRecipeHoes.recipeStorm();
+        ModLoader.addLocalization("enchantment.frost", "Frost");
+        ModLoader.registerBlock(blockMoss);
+        ModLoader.addName(paperStack, "Stack of Paper");
+        ModLoader.addRecipe(new ItemStack(paperStack, 1), new Object[]
+                {
+                    "pp", "pp", Character.valueOf('p'), Item.paper
+                });
+        ModLoader.addName(paperDust, "Paper Dust");
+        ModLoader.addRecipe(new ItemStack(paperDust, 1), new Object[]
+                {
+                    " r ", "gpg", " r ", Character.valueOf('p'), Item.paper, Character.valueOf('r'), Item.redstone, Character.valueOf('g'), Item.lightStoneDust
+                });
+        ModLoader.addRecipe(new ItemStack(paperDust, 1), new Object[]
+                {
+                    " g ", "rpr", " g ", Character.valueOf('p'), Item.paper, Character.valueOf('r'), Item.redstone, Character.valueOf('g'), Item.lightStoneDust
+                });
+        ModLoader.addName(ironChunks, "Iron Chunk");
+        ModLoader.addRecipe(new ItemStack(ironChunks, 6), new Object[]
+                {
+                    "ii", Character.valueOf('i'), Item.ingotIron
+                });
+        ModLoader.addShapelessRecipe(new ItemStack(Item.ingotIron), new Object[]
+                {
+                    ironChunks, ironChunks, ironChunks
+                });
+        ModLoader.addName(goldChunks, "Gold Chunk");
+        ModLoader.addRecipe(new ItemStack(goldChunks, 6), new Object[]
+                {
+                    "gg", Character.valueOf('g'), Item.ingotGold
+                });
+        ModLoader.addShapelessRecipe(new ItemStack(Item.ingotGold), new Object[]
+                {
+                    goldChunks, goldChunks, goldChunks
+                });
+        ModLoader.addShapelessRecipe(new ItemStack(goldChunks, 1), new Object[]
+                {
+                    Item.goldNugget, Item.goldNugget, Item.goldNugget
+                });
+        ModLoader.addRecipe(new ItemStack(Item.goldNugget, 3), new Object[]
+                {
+                    "g", Character.valueOf('g'), goldChunks
+                });
+        ModLoader.addName(mossBall, "Ball of Moss");
+        ModLoader.addRecipe(new ItemStack(mossBall, 3), new Object[]
+                {
+                    "m", Character.valueOf('m'), Block.cobblestoneMossy
+                });
+        ModLoader.addRecipe(new ItemStack(mossBall, 3), new Object[]
+                {
+                    "m", Character.valueOf('m'), new ItemStack(Block.stoneBrick, 3, 1)
+                });
+        ModLoader.addName(mossBallGiant, "Mossy Patch");
+        ModLoader.addRecipe(new ItemStack(mossBallGiant, 1), new Object[]
+                {
+                    "mm", "mm", Character.valueOf('m'), mossBall
+                });
+        ModLoader.addName(mossBallCrafted, "Moss-Infused Stone");
+        ModLoader.addRecipe(new ItemStack(mossBallCrafted, 1), new Object[]
+                {
+                    " m ", "msm", " m ", Character.valueOf('m'), mossBallGiant, Character.valueOf('s'), Block.stone
+                });
+        ModLoader.addName(redstoneCrystal, "Redstone Crystal");
+        ModLoader.addRecipe(new ItemStack(redstoneCrystal, 1), new Object[]
+                {
+                    "rrr", "rIr", Character.valueOf('r'), Item.redstone, Character.valueOf('I'), ironChunks
+                });
+        ModLoader.addRecipe(new ItemStack(redstoneCrystal, 1), new Object[]
+                {
+                    "rIr", "rrr", Character.valueOf('r'), Item.redstone, Character.valueOf('I'), ironChunks
+                });
+        ModLoader.addName(glowstoneCrystal, "Glowstone Crystal");
+        ModLoader.addRecipe(new ItemStack(glowstoneCrystal, 1), new Object[]
+                {
+                    "ggg", "gIg", "ggg", Character.valueOf('g'), Item.lightStoneDust, Character.valueOf('I'), goldChunks
+                });
+        ModLoader.addName(obsidianCrystal, "Ebony Obelisk");
+        ModLoader.addShapelessRecipe(new ItemStack(obsidianCrystal), new Object[]
+                {
+                    Block.obsidian, paperDust, paperDust, paperDust
+                });
+        ModLoader.addName(lavaCrystal, "Lava Crystal");
+        ModLoader.addRecipe(new ItemStack(lavaCrystal, 1), new Object[]
+                {
+                    " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(lavaCrystal, 1), new Object[]
+                {
+                    " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(goldBucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(lavaCrystal, 1), new Object[]
+                {
+                    " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
+                });
+        ModLoader.addName(slimeCrystal, "Slime Crystal");
+        ModLoader.addRecipe(new ItemStack(slimeCrystal, 1), new Object[]
+                {
+                    " f ", "rsr", " f ", Character.valueOf('s'), Item.slimeBall, Character.valueOf('f'), Block.plantYellow, Character.valueOf('r'), Block.plantRed
+                });
+        ModLoader.addRecipe(new ItemStack(slimeCrystal, 1), new Object[]
+                {
+                    " r ", "fsf", " r ", Character.valueOf('s'), Item.slimeBall, Character.valueOf('f'), Block.plantYellow, Character.valueOf('r'), Block.plantRed
+                });
+        ModLoader.addName(blazeCrystal, "Frozen Blaze Essence");
+        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
+                {
+                    "pwp", "ncn", "plp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('c'),
+                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
+                });
+        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
+                {
+                    "plp", "ncn", "pwp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('c'),
+                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
+                });
+        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
+                {
+                    "pwp", "ncn", "plp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(goldBucketLava, 1, -1), Character.valueOf('c'),
+                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
+                });
+        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
+                {
+                    "plp", "ncn", "pwp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(goldBucketLava, 1, -1), Character.valueOf('c'),
+                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
+                });
+        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
+                {
+                    "pwp", "ncn", "plp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('c'),
+                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
+                });
+        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
+                {
+                    "plp", "ncn", "pwp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('c'),
+                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
+                });
+        ModLoader.addName(woodSplinters, "Wood Splinters");
+        ModLoader.addName(stoneShard, "Piece of Stone");
+        ModLoader.addName(diamondShard, "Diamond Shard");
+        ModLoader.addName(redstoneFragment, "Redstone Crystal Fragment");
+        ModLoader.addName(obsidianShard, "Obsidian Shard");
+        ModLoader.addName(sandstoneShard, "Piece of Sandstone");
+        ModLoader.addName(netherrackShard, "Netherrack Shard");
+        ModLoader.addName(glowstoneFragment, "Glowstone Crystal Fragment");
+        ModLoader.addName(iceShard, "Ice Shard");
+        ModLoader.addName(lavaFragment, "Lava Crystal Fragment");
+        ModLoader.addName(slimeFragment, "Slime Crystal Fragment");
+        ModLoader.addName(glassShard, "Glass Shard");
+        ModLoader.addName(coalBits, "Piece of Coal");
+        ModLoader.addName(flintShard, "Flint Shard");
+        ModLoader.addName(miniBrick, "Miniature Brick");
+        ModLoader.addName(blazeFragment, "Fragmented Blaze Essence");
+        ModLoader.addRecipe(new ItemStack(Item.stick, 3), new Object[]
+                {
+                    "s", "s", "s", Character.valueOf('s'), woodSplinters
+                });
+        ModLoader.addRecipe(new ItemStack(redstoneFragment, 3), new Object[]
+                {
+                    "r", Character.valueOf('r'), redstoneCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(glowstoneFragment, 3), new Object[]
+                {
+                    "r", Character.valueOf('r'), glowstoneCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(lavaFragment, 3), new Object[]
+                {
+                    "r", Character.valueOf('r'), lavaCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(slimeFragment, 3), new Object[]
+                {
+                    "r", Character.valueOf('r'), slimeCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(blazeFragment, 3), new Object[]
+                {
+                    "r", Character.valueOf('r'), blazeCrystal
+                });
+        ModLoader.addName(stoneRod, "Stone Stick");
+        ModLoader.addRecipe(new ItemStack(stoneRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Block.cobblestone
+                });
+        ModLoader.addRecipe(new ItemStack(stoneRod, 1), new Object[]
+                {
+                    "X", "X", 'X', stoneShard
+                });
+        ModLoader.addName(ironRod, "Iron Rod");
+        ModLoader.addRecipe(new ItemStack(ironRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Item.ingotIron
+                });
+        ModLoader.addRecipe(new ItemStack(ironRod, 2), new Object[]
+                {
+                    "X", "X", 'X', ironChunks
+                });
+        ModLoader.addName(diamondRod, "Diamond Shaft");
+        ModLoader.addRecipe(new ItemStack(diamondRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Item.diamond
+                });
+        ModLoader.addRecipe(new ItemStack(diamondRod, 2), new Object[]
+                {
+                    "X", "X", 'X', diamondShard
+                });
+        ModLoader.addName(goldRod, "Gold Rod");
+        ModLoader.addRecipe(new ItemStack(goldRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Item.ingotGold
+                });
+        ModLoader.addRecipe(new ItemStack(goldRod, 2), new Object[]
+                {
+                    "X", "X", 'X', goldChunks
+                });
+        ModLoader.addName(redstoneRod, "Redstone Rod");
+        ModLoader.addRecipe(new ItemStack(redstoneRod, 4), new Object[]
+                {
+                    "X", "X", 'X', redstoneCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(redstoneRod, 2), new Object[]
+                {
+                    "X", "X", 'X', redstoneFragment
+                });
+        ModLoader.addName(obsidianRod, "Obsidian Shaft");
+        ModLoader.addRecipe(new ItemStack(obsidianRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Block.obsidian
+                });
+        ModLoader.addRecipe(new ItemStack(obsidianRod, 2), new Object[]
+                {
+                    "X", "X", 'X', obsidianShard
+                });
+        ModLoader.addName(sandstoneRod, "Sandstone Stick");
+        ModLoader.addRecipe(new ItemStack(sandstoneRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Block.sandStone
+                });
+        ModLoader.addRecipe(new ItemStack(sandstoneRod, 2), new Object[]
+                {
+                    "X", "X", 'X', sandstoneShard
+                });
+        ModLoader.addName(boneRod, "Bone Rod");
+        ModLoader.addRecipe(new ItemStack(boneRod, 2), new Object[]
+                {
+                    "X", "X", 'X', Item.bone
+                });
+        ModLoader.addName(paperRod, "Paper Stick");
+        ModLoader.addRecipe(new ItemStack(paperRod, 4), new Object[]
+                {
+                    "X", "X", 'X', paperStack
+                });
+        ModLoader.addRecipe(new ItemStack(paperRod, 1), new Object[]
+                {
+                    "X", "X", 'X', Item.paper
+                });
+        ModLoader.addName(mossyRod, "Mossy Stick");
+        ModLoader.addRecipe(new ItemStack(mossyRod, 1), new Object[]
+                {
+                    "X", "X", 'X', mossBallGiant
+                });
+        ModLoader.addRecipe(new ItemStack(mossyRod, 4), new Object[]
+                {
+                    "X", "X", 'X', mossBallCrafted
+                });
+        ModLoader.addName(netherrackRod, "Netherrack Rod");
+        ModLoader.addRecipe(new ItemStack(netherrackRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Block.netherrack
+                });
+        ModLoader.addRecipe(new ItemStack(netherrackRod, 2), new Object[]
+                {
+                    "X", "X", 'X', netherrackShard
+                });
+        ModLoader.addName(glowstoneRod, "Glowstone Rod");
+        ModLoader.addRecipe(new ItemStack(glowstoneRod, 4), new Object[]
+                {
+                    "X", "X", 'X', glowstoneCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(glowstoneRod, 2), new Object[]
+                {
+                    "X", "X", 'X', glowstoneFragment
+                });
+        ModLoader.addName(iceRod, "Icicle");
+        ModLoader.addRecipe(new ItemStack(iceRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Block.ice
+                });
+        ModLoader.addRecipe(new ItemStack(iceRod, 2), new Object[]
+                {
+                    "X", "X", 'X', iceShard
+                });
+        ModLoader.addName(lavaRod, "Lava Rod");
+        ModLoader.addRecipe(new ItemStack(lavaRod, 4), new Object[]
+                {
+                    "X", "X", 'X', lavaCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(lavaRod, 2), new Object[]
+                {
+                    "X", "X", 'X', lavaFragment
+                });
+        ModLoader.addName(slimeRod, "Slimy Stick");
+        ModLoader.addRecipe(new ItemStack(slimeRod, 4), new Object[]
+                {
+                    "X", "X", 'X', slimeCrystal
+                });
+        ModLoader.addRecipe(new ItemStack(slimeRod, 2), new Object[]
+                {
+                    "X", "X", 'X', slimeFragment
+                });
+        ModLoader.addName(cactusRod, "Cactus Stick");
+        ModLoader.addRecipe(new ItemStack(cactusRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Block.cactus
+                });
+        ModLoader.addRecipe(new ItemStack(cactusRod, 4), new Object[]
+                {
+                    "X", "X", 'X', new ItemStack(Item.dyePowder, 1, 2)
+                });
+        ModLoader.addName(flintRod, "Flint Rod");
+        ModLoader.addRecipe(new ItemStack(flintRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Item.flint
+                });
+        ModLoader.addName(brickRod, "Brick Rod");
+        ModLoader.addRecipe(new ItemStack(brickRod, 4), new Object[]
+                {
+                    "X", "X", 'X', Item.brick
+                });
+        ModLoader.addRecipe(new ItemStack(Item.helmetChain, 1), new Object[]
+                {
+                    "XXX", "X X", 'X', ironChunks
+                });
+        ModLoader.addRecipe(new ItemStack(Item.legsChain, 1), new Object[]
+                {
+                    "XXX", "X X", "X X", 'X', ironChunks
+                });
+        ModLoader.addRecipe(new ItemStack(Item.bootsChain, 1), new Object[]
+                {
+                    "X X", "X X", 'X', ironChunks
+                });
+        ModLoader.addRecipe(new ItemStack(Item.plateChain, 1), new Object[]
+                {
+                    "X X", "XXX", "XXX", 'X', ironChunks
+                });
+        ModLoader.addRecipe(new ItemStack(Block.torchWood), new Object[]
+                {
+                    "X", "y", 'X', coalBits, 'y', Item.stick
+                });
+        
+        ModLoader.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[]
+                {
+                    mossBallGiant, Block.cobblestone
+                });
+        ModLoader.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[]
+                {
+                    mossBallGiant, Block.stoneBrick
+                });
+        
+        Item[] stickArray = { 
+    		stoneRod, ironRod, diamondRod, goldRod, redstoneRod, obsidianRod,
+    		sandstoneRod, Item.bone, paperRod, mossyRod, netherrackRod, glowstoneRod, lavaRod, 
+    		iceRod, slimeRod, cactusRod, flintRod, brickRod, Item.blazeRod
+    	};
+        
+        Item[] shardArrayShort = {
+        	stoneShard, ironChunks, diamondShard, goldChunks, redstoneFragment, obsidianShard,
+        	sandstoneShard, netherrackShard, glowstoneFragment, iceShard, lavaFragment, slimeFragment,
+        	blazeFragment
+        };
+        
+        for (int iter = 0; iter < stickArray.length; iter++)
+		{
+        	ModLoader.addRecipe(new ItemStack(Item.bow, 1), new Object[]
+            {
+        		"s| ", "s |", "s| ", Character.valueOf('s'), Item.silk, Character.valueOf('|'), stickArray[iter]
+            });
+			ModLoader.addRecipe(new ItemStack(Block.lever, 1), new Object[]
+			{
+				"s", "c", 'c', new ItemStack(Block.cobblestone, 1, 0), 's', stickArray[iter]
+			});
+			ModLoader.addRecipe(new ItemStack(Block.rail, 16), new Object[]
+			{
+				"c c", "csc", "c c", 'c', new ItemStack(Item.ingotIron, 1, 0), 's', stickArray[iter]
+			});
+			ModLoader.addRecipe(new ItemStack(Block.railPowered, 6), new Object[]
+			{
+				"c c", "csc", "crc", 'c', new ItemStack(Item.ingotGold, 1, -1), 
+				's', stickArray[iter], 'r', new ItemStack(Item.redstone, 1, 0)
+			});
+			ModLoader.addRecipe(new ItemStack(Block.rail, 16), new Object[]
+			{
+				"c c", "csc", "c c", 'c', new ItemStack(Item.ingotIron, 1, 0), 's', stickArray[iter]
+			});
+			ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
+			{
+				" | ", "s|s", "s|s", '|', stickArray[iter], 's', Item.silk
+			});
+			ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
+			{
+				"s|s", "s|s", " | ", '|', stickArray[iter], 's', Item.silk
+			});
+		}
+        
+        ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
+    	{
+    		" | ", "s|s", "s|s", '|', Item.stick, 's', Item.silk
+    	});
+    	ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
+    	{
+    		"s|s", "s|s", " | ", '|', Item.stick, 's', Item.silk
+    	});
+        
+        for (int stickIter = 0; stickIter < stickArray.length; stickIter++)
+		{
+        	for(int shardIter = 0; shardIter < shardArrayShort.length; shardIter++) {
+        		ModLoader.addRecipe(new ItemStack(Item.arrow, 1), new Object[]
+                {
+                    "s", "|", 's', shardArrayShort[shardIter], '|', stickArray[stickIter]
+                });
+        		ModLoader.addRecipe(new ItemStack(Item.arrow, 4), new Object[]
+                {
+                    "s", "|", "f", 's', shardArrayShort[shardIter], '|', stickArray[stickIter], 'f', Item.feather
+                });
+        	}
+		}
+        
+        Item[] materialArray = { 
+        		stoneRod, ironRod, diamondRod, goldRod, redstoneRod, obsidianRod,
+        		sandstoneRod, paperRod, mossyRod, netherrackRod, glowstoneRod, lavaRod, 
+        		iceRod, slimeRod, cactusRod, flintRod, brickRod,
+        		woodSplinters, stoneShard, ironChunks, diamondShard, goldChunks, redstoneFragment,
+        		obsidianShard, sandstoneShard, netherrackShard, glowstoneFragment, iceShard,
+        		lavaFragment, slimeFragment, flintShard, miniBrick, blazeFragment,
+        		glassShard, coalBits
+        	};
+        
+        String[] stickNames = {
+        	"stoneRod", "ironRod", "diamondRod", "goldRod", "redstoneRod", "obsidianRod",
+        	"sandstoneRod", "paperRod", "mossyRod", "netherrackRod", "glowstoneRod", "lavaRod",
+        	"iceRod", "slimeRod", "cactusRod", "flintRod", "brickRod",
+        	"woodShard", "stoneShard", "ironShard", "diamondShard", "goldShard", "redstoneShard",
+        	"obsidianShard", "sandstoneShard", "netherrackShard", "glowstoneShard", "iceShard",
+        	"lavaShard", "slimeShard", "flintShard", "brickShard", "blazeShard",
+        	"glassShard", "coalShard"
+        };
+        
+        for (int stickIter = 0; stickIter < materialArray.length; stickIter++)
+		{
+        	MinecraftForge.registerOre(stickNames[stickIter], new ItemStack(materialArray[stickIter]));
+		}
+        
+        ModLoader.addRecipe(new ItemStack(Item.brewingStand, 1), new Object[]
+        {
+            "|||", " g ", "ccc", Character.valueOf('|'), ironRod, Character.valueOf('g'), Item.ingotGold, Character.valueOf('c'), Block.cobblestone
+        });
+        
+        FurnaceRecipes.smelting().addSmelting(Item.dyePowder.shiftedIndex, 2, new ItemStack(Item.coal, 1, 1));
+        
+        addEEsupport();
+        //addMetallurgySupport();
+        oreDictionarySupport();
+        MinecraftForge.registerCustomBucketHandler(new InfiBucketHandler());
+        MinecraftForge.registerEntityInteractHandler(new FreezeHandler());
+        ModLoader.setInGameHook(this, true, true);
+    }
+    
+    public static Random rand = new Random();
+    
+    @Override
+    public boolean onTickInGame(float tick, Minecraft mc)
+    {
+    	if(rand.nextInt(100) == 0) {
+    		EntityPlayer player = mc.thePlayer;
+    		InventoryPlayer inv = player.inventory;
+    		for(int i = 0; i < inv.mainInventory.length; i++) {    			
+		    	if(inv.mainInventory[i] != null) {
+		    		ItemStack is = inv.mainInventory[i];
+		    		Item item = is.getItem();
+		    		if(item instanceof InfiToolBase) {
+			    		InfiToolBase tool = (InfiToolBase)item;
+			    		if(is.getItemDamage() > 0) {
+			    			int heal = 0;
+			    			if(tool.getHeadType() == 11)
+			    				heal += 4;
+			    			if(tool.getHandleType() == 11)
+			    				heal += 1;
+			    			if(heal > 0 && rand.nextInt(5) < heal)
+			    				is.damageItem(-1, player);
+			    		}
+			    		if(tool.getHeadType() == 11 && is.getItemDamage() > 0) {
+			    			is.damageItem(-1, player);
+			    		}
+		    		}
+		    		if(item instanceof InfiWeaponBase) {
+			    		InfiWeaponBase weapon = (InfiWeaponBase)item;
+			    		if(is.getItemDamage() > 0) {
+			    			int heal = 0;
+			    			if(weapon.getHeadType() == 11)
+			    				heal += 4;
+			    			if(weapon.getHandleType() == 11)
+			    				heal += 1;
+			    			if(heal > 0 && rand.nextInt(5) < heal)
+			    				is.damageItem(-1, player);
+			    		}
+			    		if(weapon.getHeadType() == 11 && is.getItemDamage() > 0) {
+			    			is.damageItem(-1, player);
+			    		}
+		    		}
+		    	}
+    		}
+    	}
+    	return true;
+    }
+
+    public static int enchantBase(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return 15;
+
+            case 2:
+                return 5;
+
+            case 3:
+                return 14;
+
+            case 4:
+                return 10;
+
+            case 5:
+                return 22;
+
+            case 6:
+                return 18;
+
+            case 7:
+                return 14;
+
+            case 8:
+                return 5;
+
+            case 9:
+                return 13;
+
+            case 10:
+                return 5;
+
+            case 11:
+                return 22;
+
+            case 12:
+                return 8;
+
+            case 13:
+                return 12;
+
+            case 14:
+                return 18;
+
+            case 15:
+                return 13;
+
+            case 16:
+                return 15;
+
+            case 17:
+                return 14;
+
+            case 18:
+                return 10;
+
+            case 19:
+                return 8;
+
+            case 20:
+                return 27;
+        }
+        return 0;
+    }
+
+    public int addFuel(int i, int j)
+    {
+        if (i == Block.cactus.blockID)
+        {
+            return 100;
+        } else
+        if(i == coalBits.shiftedIndex)
+        {
+        	return 600;
+        } else
+        return 0;
+    }
+    
+    public void load() {}
+    
     public static int blockMossID;
     public static int rodID;
     public static int paperMaterialsID;
@@ -1803,841 +2490,6 @@ public class mod_InfiTools extends BaseModMp
     public static Item lBlazeFryingPan;
     public static Item fBlazeFryingPan;
     public static Item blBlazeFryingPan;*/
-    
-    public static InfiProps props;
-    public static boolean initialized = false;
-    InfiEnchantFreezing freeze = new InfiEnchantFreezing(42, 2);
-
-    public String getVersion()
-    {
-        return "v2.3.1 Twi";
-    }
-
-    public void load()
-    {
-    	
-    }
-
-    public static void addEEsupport()
-    {
-        try
-        {
-            Class class1 = Class.forName("mod_EE");
-            Class class2 = Class.forName("EEProxy");
-            System.out.println("Equivalent Exchange integration for InfiTools activated");
-            EEProxy.setEMC(redstoneCrystal.shiftedIndex, 405);
-            EEProxy.setEMC(glowstoneCrystal.shiftedIndex, 3754);
-            EEProxy.setEMC(lavaCrystal.shiftedIndex, 3104);
-            EEProxy.setEMC(slimeCrystal.shiftedIndex, 88);
-            EEProxy.setEMC(blazeCrystal.shiftedIndex, 3930);
-            EEProxy.setEMC(paperDust.shiftedIndex, 928);
-            EEProxy.setEMC(obsidianCrystal.shiftedIndex, 2848);
-            EEProxy.setEMC(mossBallGiant.shiftedIndex, 145);
-            EEProxy.setEMC(mossBallCrafted.shiftedIndex, 581);
-            System.out.println("EMC values set!");
-        }
-        catch (Throwable throwable)
-        {
-            System.out.println("Equivalent Exchange integration failed! Reason:");
-            System.out.println(throwable);
-        }
-    }
-
-    /*public void addMetallurgySupport()
-    {
-        try
-        {
-            Class class1 = Class.forName("mod_MetallurgyBase");
-            System.out.println("Metallurgy integration for InfiTools activated");
-            wLevel = 0;
-            stLevel = 1;
-            iLevel = 5;
-            dLevel = 7;
-            gLevel = 9;
-            rLevel = 7;
-            oLevel = 9;
-            saLevel = 1;
-            bLevel = 3;
-            pLevel = 1;
-            mLevel = 6;
-            nLevel = 4;
-            glLevel = 7;
-            lLevel = 11;
-            iceLevel = 0;
-            sLevel = 6;
-            cLevel = 2;
-            fLevel = 1;
-            brLevel = 2;
-            blLevel = 11;
-        }
-        catch (Throwable throwable)
-        {
-            System.out.println("Metallurgy not detected");
-        }
-        InfiRecipeSwords.recipeStorm();
-        InfiRecipePickaxes.recipeStorm();
-        InfiRecipeShovels.recipeStorm();
-        InfiRecipeAxes.recipeStorm();
-        InfiRecipeHoes.recipeStorm();
-        //InfiRecipeFryingPans.recipeStorm();
-    }*/
-    
-    public static boolean getInitialized()
-    {
-    	return initialized;
-    }
-
-    public static InfiProps getProps(InfiProps infiprops)
-    {
-        blockMossID = infiprops.readInt("blockMossID");
-        rodID = infiprops.readInt("rodID");
-        paperMaterialsID = infiprops.readInt("paperMaterialsID");
-        metalChunksID = infiprops.readInt("metalChunksID");
-        mossID = infiprops.readInt("mossID");
-        crystalID = infiprops.readInt("crystalID");
-        woodBucketID = infiprops.readInt("woodBucketID");
-        cactusBucketID = infiprops.readInt("cactusBucketID");
-        goldBucketID = infiprops.readInt("goldBucketID");
-        iceBucketID = infiprops.readInt("iceBucketID");
-        lavaBucketID = infiprops.readInt("lavaBucketID");
-        slimeBucketID = infiprops.readInt("slimeBucketID");
-        ironBucketID = infiprops.readInt("ironBucketID");
-        bowlID = infiprops.readInt("bowlID");
-        materialShardID = infiprops.readInt("materialShardID");
-        pumpkinPieID = infiprops.readInt("pumpkinPieID");
-        pumpkinPulpID = infiprops.readInt("pumpkinPulpID");
-        woodSwordID = infiprops.readInt("woodSwordID");
-        stoneSwordID = infiprops.readInt("stoneSwordID");
-        ironSwordID = infiprops.readInt("ironSwordID");
-        diamondSwordID = infiprops.readInt("diamondSwordID");
-        goldSwordID = infiprops.readInt("goldSwordID");
-        redstoneSwordID = infiprops.readInt("redstoneSwordID");
-        obsidianSwordID = infiprops.readInt("obsidianSwordID");
-        sandstoneSwordID = infiprops.readInt("sandstoneSwordID");
-        boneSwordID = infiprops.readInt("boneSwordID");
-        paperSwordID = infiprops.readInt("paperSwordID");
-        mossySwordID = infiprops.readInt("mossySwordID");
-        netherrackSwordID = infiprops.readInt("netherrackSwordID");
-        glowstoneSwordID = infiprops.readInt("glowstoneSwordID");
-        iceSwordID = infiprops.readInt("iceSwordID");
-        lavaSwordID = infiprops.readInt("lavaSwordID");
-        slimeSwordID = infiprops.readInt("slimeSwordID");
-        cactusSwordID = infiprops.readInt("cactusSwordID");
-        flintSwordID = infiprops.readInt("flintSwordID");
-        brickSwordID = infiprops.readInt("brickSwordID");
-        blazeSwordID = infiprops.readInt("blazeSwordID");
-        woodPickaxeID = infiprops.readInt("woodPickaxeID");
-        stonePickaxeID = infiprops.readInt("stonePickaxeID");
-        ironPickaxeID = infiprops.readInt("ironPickaxeID");
-        diamondPickaxeID = infiprops.readInt("diamondPickaxeID");
-        goldPickaxeID = infiprops.readInt("goldPickaxeID");
-        redstonePickaxeID = infiprops.readInt("redstonePickaxeID");
-        obsidianPickaxeID = infiprops.readInt("obsidianPickaxeID");
-        sandstonePickaxeID = infiprops.readInt("sandstonePickaxeID");
-        bonePickaxeID = infiprops.readInt("bonePickaxeID");
-        paperPickaxeID = infiprops.readInt("paperPickaxeID");
-        mossyPickaxeID = infiprops.readInt("mossyPickaxeID");
-        netherrackPickaxeID = infiprops.readInt("netherrackPickaxeID");
-        glowstonePickaxeID = infiprops.readInt("glowstonePickaxeID");
-        icePickaxeID = infiprops.readInt("icePickaxeID");
-        lavaPickaxeID = infiprops.readInt("lavaPickaxeID");
-        slimePickaxeID = infiprops.readInt("slimePickaxeID");
-        cactusPickaxeID = infiprops.readInt("cactusPickaxeID");
-        flintPickaxeID = infiprops.readInt("flintPickaxeID");
-        brickPickaxeID = infiprops.readInt("brickPickaxeID");
-        blazePickaxeID = infiprops.readInt("blazePickaxeID");
-        woodShovelID = infiprops.readInt("woodShovelID");
-        stoneShovelID = infiprops.readInt("stoneShovelID");
-        ironShovelID = infiprops.readInt("ironShovelID");
-        diamondShovelID = infiprops.readInt("diamondShovelID");
-        goldShovelID = infiprops.readInt("goldShovelID");
-        redstoneShovelID = infiprops.readInt("redstoneShovelID");
-        obsidianShovelID = infiprops.readInt("obsidianShovelID");
-        sandstoneShovelID = infiprops.readInt("sandstoneShovelID");
-        boneShovelID = infiprops.readInt("boneShovelID");
-        paperShovelID = infiprops.readInt("paperShovelID");
-        mossyShovelID = infiprops.readInt("mossyShovelID");
-        netherrackShovelID = infiprops.readInt("netherrackShovelID");
-        glowstoneShovelID = infiprops.readInt("glowstoneShovelID");
-        iceShovelID = infiprops.readInt("iceShovelID");
-        lavaShovelID = infiprops.readInt("lavaShovelID");
-        slimeShovelID = infiprops.readInt("slimeShovelID");
-        cactusShovelID = infiprops.readInt("cactusShovelID");
-        flintShovelID = infiprops.readInt("flintShovelID");
-        brickShovelID = infiprops.readInt("brickShovelID");
-        blazeShovelID = infiprops.readInt("blazeShovelID");
-        woodAxeID = infiprops.readInt("woodAxeID");
-        stoneAxeID = infiprops.readInt("stoneAxeID");
-        ironAxeID = infiprops.readInt("ironAxeID");
-        diamondAxeID = infiprops.readInt("diamondAxeID");
-        goldAxeID = infiprops.readInt("goldAxeID");
-        redstoneAxeID = infiprops.readInt("redstoneAxeID");
-        obsidianAxeID = infiprops.readInt("obsidianAxeID");
-        sandstoneAxeID = infiprops.readInt("sandstoneAxeID");
-        boneAxeID = infiprops.readInt("boneAxeID");
-        paperAxeID = infiprops.readInt("paperAxeID");
-        mossyAxeID = infiprops.readInt("mossyAxeID");
-        netherrackAxeID = infiprops.readInt("netherrackAxeID");
-        glowstoneAxeID = infiprops.readInt("glowstoneAxeID");
-        iceAxeID = infiprops.readInt("iceAxeID");
-        lavaAxeID = infiprops.readInt("lavaAxeID");
-        slimeAxeID = infiprops.readInt("slimeAxeID");
-        cactusAxeID = infiprops.readInt("cactusAxeID");
-        flintAxeID = infiprops.readInt("flintAxeID");
-        brickAxeID = infiprops.readInt("brickAxeID");
-        blazeAxeID = infiprops.readInt("blazeAxeID");
-        woodHoeID = infiprops.readInt("woodHoeID");
-        stoneHoeID = infiprops.readInt("stoneHoeID");
-        ironHoeID = infiprops.readInt("ironHoeID");
-        diamondHoeID = infiprops.readInt("diamondHoeID");
-        goldHoeID = infiprops.readInt("goldHoeID");
-        redstoneHoeID = infiprops.readInt("redstoneHoeID");
-        obsidianHoeID = infiprops.readInt("obsidianHoeID");
-        sandstoneHoeID = infiprops.readInt("sandstoneHoeID");
-        boneHoeID = infiprops.readInt("boneHoeID");
-        paperHoeID = infiprops.readInt("paperHoeID");
-        mossyHoeID = infiprops.readInt("mossyHoeID");
-        netherrackHoeID = infiprops.readInt("netherrackHoeID");
-        glowstoneHoeID = infiprops.readInt("glowstoneHoeID");
-        iceHoeID = infiprops.readInt("iceHoeID");
-        lavaHoeID = infiprops.readInt("lavaHoeID");
-        slimeHoeID = infiprops.readInt("slimeHoeID");
-        cactusHoeID = infiprops.readInt("cactusHoeID");
-        flintHoeID = infiprops.readInt("flintHoeID");
-        brickHoeID = infiprops.readInt("brickHoeID");
-        blazeHoeID = infiprops.readInt("blazeHoeID");
-        woodFryingPanID = infiprops.readInt("woodFryingPanID");
-        stoneFryingPanID = infiprops.readInt("stoneFryingPanID");
-        ironFryingPanID = infiprops.readInt("ironFryingPanID");
-        diamondFryingPanID = infiprops.readInt("diamondFryingPanID");
-        goldFryingPanID = infiprops.readInt("goldFryingPanID");
-        redstoneFryingPanID = infiprops.readInt("redstoneFryingPanID");
-        obsidianFryingPanID = infiprops.readInt("obsidianFryingPanID");
-        sandstoneFryingPanID = infiprops.readInt("sandstoneFryingPanID");
-        boneFryingPanID = infiprops.readInt("boneFryingPanID");
-        paperFryingPanID = infiprops.readInt("paperFryingPanID");
-        mossyFryingPanID = infiprops.readInt("mossyFryingPanID");
-        netherrackFryingPanID = infiprops.readInt("netherrackFryingPanID");
-        glowstoneFryingPanID = infiprops.readInt("glowstoneFryingPanID");
-        iceFryingPanID = infiprops.readInt("iceFryingPanID");
-        lavaFryingPanID = infiprops.readInt("lavaFryingPanID");
-        slimeFryingPanID = infiprops.readInt("slimeFryingPanID");
-        cactusFryingPanID = infiprops.readInt("cactusFryingPanID");
-        flintFryingPanID = infiprops.readInt("flintFryingPanID");
-        brickFryingPanID = infiprops.readInt("brickFryingPanID");
-        blazeFryingPanID = infiprops.readInt("blazeFryingPanID");
-        return infiprops;
-    }
-
-    public mod_InfiTools()
-    {
-    	initialized = true;
-        InfiRecipeItems.recipeStorm();
-        InfiRecipeSwords.recipeStorm();
-        InfiRecipePickaxes.recipeStorm();
-        InfiRecipeAxes.recipeStorm();
-        InfiRecipeShovels.recipeStorm();
-        InfiRecipeHoes.recipeStorm();
-        ModLoader.addLocalization("enchantment.frost", "Frost");
-        ModLoader.registerBlock(blockMoss);
-        ModLoader.addName(paperStack, "Stack of Paper");
-        ModLoader.addRecipe(new ItemStack(paperStack, 1), new Object[]
-                {
-                    "pp", "pp", Character.valueOf('p'), Item.paper
-                });
-        ModLoader.addName(paperDust, "Paper Dust");
-        ModLoader.addRecipe(new ItemStack(paperDust, 1), new Object[]
-                {
-                    " r ", "gpg", " r ", Character.valueOf('p'), Item.paper, Character.valueOf('r'), Item.redstone, Character.valueOf('g'), Item.lightStoneDust
-                });
-        ModLoader.addRecipe(new ItemStack(paperDust, 1), new Object[]
-                {
-                    " g ", "rpr", " g ", Character.valueOf('p'), Item.paper, Character.valueOf('r'), Item.redstone, Character.valueOf('g'), Item.lightStoneDust
-                });
-        ModLoader.addName(ironChunks, "Iron Chunk");
-        ModLoader.addRecipe(new ItemStack(ironChunks, 6), new Object[]
-                {
-                    "ii", Character.valueOf('i'), Item.ingotIron
-                });
-        ModLoader.addShapelessRecipe(new ItemStack(Item.ingotIron), new Object[]
-                {
-                    ironChunks, ironChunks, ironChunks
-                });
-        ModLoader.addName(goldChunks, "Gold Chunk");
-        ModLoader.addRecipe(new ItemStack(goldChunks, 6), new Object[]
-                {
-                    "gg", Character.valueOf('g'), Item.ingotGold
-                });
-        ModLoader.addShapelessRecipe(new ItemStack(Item.ingotGold), new Object[]
-                {
-                    goldChunks, goldChunks, goldChunks
-                });
-        ModLoader.addShapelessRecipe(new ItemStack(goldChunks, 1), new Object[]
-                {
-                    Item.goldNugget, Item.goldNugget, Item.goldNugget
-                });
-        ModLoader.addRecipe(new ItemStack(Item.goldNugget, 3), new Object[]
-                {
-                    "g", Character.valueOf('g'), goldChunks
-                });
-        ModLoader.addName(mossBall, "Ball of Moss");
-        ModLoader.addRecipe(new ItemStack(mossBall, 3), new Object[]
-                {
-                    "m", Character.valueOf('m'), Block.cobblestoneMossy
-                });
-        ModLoader.addRecipe(new ItemStack(mossBall, 3), new Object[]
-                {
-                    "m", Character.valueOf('m'), new ItemStack(Block.stoneBrick, 3, 1)
-                });
-        ModLoader.addName(mossBallGiant, "Mossy Patch");
-        ModLoader.addRecipe(new ItemStack(mossBallGiant, 1), new Object[]
-                {
-                    "mm", "mm", Character.valueOf('m'), mossBall
-                });
-        ModLoader.addName(mossBallCrafted, "Moss-Infused Stone");
-        ModLoader.addRecipe(new ItemStack(mossBallCrafted, 1), new Object[]
-                {
-                    " m ", "msm", " m ", Character.valueOf('m'), mossBallGiant, Character.valueOf('s'), Block.stone
-                });
-        ModLoader.addName(redstoneCrystal, "Redstone Crystal");
-        ModLoader.addRecipe(new ItemStack(redstoneCrystal, 1), new Object[]
-                {
-                    "rrr", "rIr", Character.valueOf('r'), Item.redstone, Character.valueOf('I'), ironChunks
-                });
-        ModLoader.addRecipe(new ItemStack(redstoneCrystal, 1), new Object[]
-                {
-                    "rIr", "rrr", Character.valueOf('r'), Item.redstone, Character.valueOf('I'), ironChunks
-                });
-        ModLoader.addName(glowstoneCrystal, "Glowstone Crystal");
-        ModLoader.addRecipe(new ItemStack(glowstoneCrystal, 1), new Object[]
-                {
-                    "ggg", "gIg", "ggg", Character.valueOf('g'), Item.lightStoneDust, Character.valueOf('I'), goldChunks
-                });
-        ModLoader.addName(obsidianCrystal, "Ebony Obelisk");
-        ModLoader.addShapelessRecipe(new ItemStack(obsidianCrystal), new Object[]
-                {
-                    Block.obsidian, paperDust, paperDust, paperDust
-                });
-        ModLoader.addName(lavaCrystal, "Lava Crystal");
-        ModLoader.addRecipe(new ItemStack(lavaCrystal, 1), new Object[]
-                {
-                    " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(lavaCrystal, 1), new Object[]
-                {
-                    " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(goldBucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(lavaCrystal, 1), new Object[]
-                {
-                    " l ", "lpl", " l ", Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('p'), obsidianCrystal
-                });
-        ModLoader.addName(slimeCrystal, "Slime Crystal");
-        ModLoader.addRecipe(new ItemStack(slimeCrystal, 1), new Object[]
-                {
-                    " f ", "rsr", " f ", Character.valueOf('s'), Item.slimeBall, Character.valueOf('f'), Block.plantYellow, Character.valueOf('r'), Block.plantRed
-                });
-        ModLoader.addRecipe(new ItemStack(slimeCrystal, 1), new Object[]
-                {
-                    " r ", "fsf", " r ", Character.valueOf('s'), Item.slimeBall, Character.valueOf('f'), Block.plantYellow, Character.valueOf('r'), Block.plantRed
-                });
-        ModLoader.addName(blazeCrystal, "Frozen Blaze Essence");
-        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
-                {
-                    "pwp", "ncn", "plp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('c'),
-                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
-                });
-        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
-                {
-                    "plp", "ncn", "pwp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(Item.bucketLava, 1, -1), Character.valueOf('c'),
-                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
-                });
-        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
-                {
-                    "pwp", "ncn", "plp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(goldBucketLava, 1, -1), Character.valueOf('c'),
-                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
-                });
-        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
-                {
-                    "plp", "ncn", "pwp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(goldBucketLava, 1, -1), Character.valueOf('c'),
-                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
-                });
-        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
-                {
-                    "pwp", "ncn", "plp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('c'),
-                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
-                });
-        ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
-                {
-                    "plp", "ncn", "pwp", Character.valueOf('p'), Item.blazePowder, Character.valueOf('w'), new ItemStack(Item.bucketWater, 1, -1), Character.valueOf('l'), new ItemStack(lavaBucketLava, 1, -1), Character.valueOf('c'),
-                    Item.magmaCream, Character.valueOf('n'), Block.netherrack
-                });
-        ModLoader.addName(woodSplinters, "Wood Splinters");
-        ModLoader.addName(stoneShard, "Piece of Stone");
-        ModLoader.addName(diamondShard, "Diamond Shard");
-        ModLoader.addName(redstoneFragment, "Redstone Crystal Fragment");
-        ModLoader.addName(obsidianShard, "Obsidian Shard");
-        ModLoader.addName(sandstoneShard, "Piece of Sandstone");
-        ModLoader.addName(netherrackShard, "Netherrack Shard");
-        ModLoader.addName(glowstoneFragment, "Glowstone Crystal Fragment");
-        ModLoader.addName(iceShard, "Ice Shard");
-        ModLoader.addName(lavaFragment, "Lava Crystal Fragment");
-        ModLoader.addName(slimeFragment, "Slime Crystal Fragment");
-        ModLoader.addName(glassShard, "Glass Shard");
-        ModLoader.addName(coalBits, "Piece of Coal");
-        ModLoader.addName(flintShard, "Flint Shard");
-        ModLoader.addName(miniBrick, "Miniature Brick");
-        ModLoader.addName(blazeFragment, "Fragmented Blaze Essence");
-        ModLoader.addRecipe(new ItemStack(Item.stick, 3), new Object[]
-                {
-                    "s", "s", "s", Character.valueOf('s'), woodSplinters
-                });
-        ModLoader.addRecipe(new ItemStack(redstoneFragment, 3), new Object[]
-                {
-                    "r", Character.valueOf('r'), redstoneCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(glowstoneFragment, 3), new Object[]
-                {
-                    "r", Character.valueOf('r'), glowstoneCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(lavaFragment, 3), new Object[]
-                {
-                    "r", Character.valueOf('r'), lavaCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(slimeFragment, 3), new Object[]
-                {
-                    "r", Character.valueOf('r'), slimeCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(blazeFragment, 3), new Object[]
-                {
-                    "r", Character.valueOf('r'), blazeCrystal
-                });
-        ModLoader.addName(stoneRod, "Stone Stick");
-        ModLoader.addRecipe(new ItemStack(stoneRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Block.cobblestone
-                });
-        ModLoader.addRecipe(new ItemStack(stoneRod, 1), new Object[]
-                {
-                    "X", "X", 'X', stoneShard
-                });
-        ModLoader.addName(ironRod, "Iron Rod");
-        ModLoader.addRecipe(new ItemStack(ironRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Item.ingotIron
-                });
-        ModLoader.addRecipe(new ItemStack(ironRod, 2), new Object[]
-                {
-                    "X", "X", 'X', ironChunks
-                });
-        ModLoader.addName(diamondRod, "Diamond Shaft");
-        ModLoader.addRecipe(new ItemStack(diamondRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Item.diamond
-                });
-        ModLoader.addRecipe(new ItemStack(diamondRod, 2), new Object[]
-                {
-                    "X", "X", 'X', diamondShard
-                });
-        ModLoader.addName(goldRod, "Gold Rod");
-        ModLoader.addRecipe(new ItemStack(goldRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Item.ingotGold
-                });
-        ModLoader.addRecipe(new ItemStack(goldRod, 2), new Object[]
-                {
-                    "X", "X", 'X', goldChunks
-                });
-        ModLoader.addName(redstoneRod, "Redstone Rod");
-        ModLoader.addRecipe(new ItemStack(redstoneRod, 4), new Object[]
-                {
-                    "X", "X", 'X', redstoneCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(redstoneRod, 2), new Object[]
-                {
-                    "X", "X", 'X', redstoneFragment
-                });
-        ModLoader.addName(obsidianRod, "Obsidian Shaft");
-        ModLoader.addRecipe(new ItemStack(obsidianRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Block.obsidian
-                });
-        ModLoader.addRecipe(new ItemStack(obsidianRod, 2), new Object[]
-                {
-                    "X", "X", 'X', obsidianShard
-                });
-        ModLoader.addName(sandstoneRod, "Sandstone Stick");
-        ModLoader.addRecipe(new ItemStack(sandstoneRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Block.sandStone
-                });
-        ModLoader.addRecipe(new ItemStack(sandstoneRod, 2), new Object[]
-                {
-                    "X", "X", 'X', sandstoneShard
-                });
-        ModLoader.addName(boneRod, "Bone Rod");
-        ModLoader.addRecipe(new ItemStack(boneRod, 2), new Object[]
-                {
-                    "X", "X", 'X', Item.bone
-                });
-        ModLoader.addName(paperRod, "Paper Stick");
-        ModLoader.addRecipe(new ItemStack(paperRod, 4), new Object[]
-                {
-                    "X", "X", 'X', paperStack
-                });
-        ModLoader.addRecipe(new ItemStack(paperRod, 1), new Object[]
-                {
-                    "X", "X", 'X', Item.paper
-                });
-        ModLoader.addName(mossyRod, "Mossy Stick");
-        ModLoader.addRecipe(new ItemStack(mossyRod, 1), new Object[]
-                {
-                    "X", "X", 'X', mossBallGiant
-                });
-        ModLoader.addRecipe(new ItemStack(mossyRod, 4), new Object[]
-                {
-                    "X", "X", 'X', mossBallCrafted
-                });
-        ModLoader.addName(netherrackRod, "Netherrack Rod");
-        ModLoader.addRecipe(new ItemStack(netherrackRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Block.netherrack
-                });
-        ModLoader.addRecipe(new ItemStack(netherrackRod, 2), new Object[]
-                {
-                    "X", "X", 'X', netherrackShard
-                });
-        ModLoader.addName(glowstoneRod, "Glowstone Rod");
-        ModLoader.addRecipe(new ItemStack(glowstoneRod, 4), new Object[]
-                {
-                    "X", "X", 'X', glowstoneCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(glowstoneRod, 2), new Object[]
-                {
-                    "X", "X", 'X', glowstoneFragment
-                });
-        ModLoader.addName(iceRod, "Icicle");
-        ModLoader.addRecipe(new ItemStack(iceRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Block.ice
-                });
-        ModLoader.addRecipe(new ItemStack(iceRod, 2), new Object[]
-                {
-                    "X", "X", 'X', iceShard
-                });
-        ModLoader.addName(lavaRod, "Lava Rod");
-        ModLoader.addRecipe(new ItemStack(lavaRod, 4), new Object[]
-                {
-                    "X", "X", 'X', lavaCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(lavaRod, 2), new Object[]
-                {
-                    "X", "X", 'X', lavaFragment
-                });
-        ModLoader.addName(slimeRod, "Slimy Stick");
-        ModLoader.addRecipe(new ItemStack(slimeRod, 4), new Object[]
-                {
-                    "X", "X", 'X', slimeCrystal
-                });
-        ModLoader.addRecipe(new ItemStack(slimeRod, 2), new Object[]
-                {
-                    "X", "X", 'X', slimeFragment
-                });
-        ModLoader.addName(cactusRod, "Cactus Stick");
-        ModLoader.addRecipe(new ItemStack(cactusRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Block.cactus
-                });
-        ModLoader.addRecipe(new ItemStack(cactusRod, 4), new Object[]
-                {
-                    "X", "X", 'X', new ItemStack(Item.dyePowder, 1, 2)
-                });
-        ModLoader.addName(flintRod, "Flint Rod");
-        ModLoader.addRecipe(new ItemStack(flintRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Item.flint
-                });
-        ModLoader.addName(brickRod, "Brick Rod");
-        ModLoader.addRecipe(new ItemStack(brickRod, 4), new Object[]
-                {
-                    "X", "X", 'X', Item.brick
-                });
-        ModLoader.addRecipe(new ItemStack(Item.helmetChain, 1), new Object[]
-                {
-                    "XXX", "X X", 'X', ironChunks
-                });
-        ModLoader.addRecipe(new ItemStack(Item.legsChain, 1), new Object[]
-                {
-                    "XXX", "X X", "X X", 'X', ironChunks
-                });
-        ModLoader.addRecipe(new ItemStack(Item.bootsChain, 1), new Object[]
-                {
-                    "X X", "X X", 'X', ironChunks
-                });
-        ModLoader.addRecipe(new ItemStack(Item.plateChain, 1), new Object[]
-                {
-                    "X X", "XXX", "XXX", 'X', ironChunks
-                });
-        ModLoader.addRecipe(new ItemStack(Block.torchWood), new Object[]
-                {
-                    "X", "y", 'X', coalBits, 'y', Item.stick
-                });
-        
-        addAchievements();
-        ModLoader.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[]
-                {
-                    mossBallGiant, Block.cobblestone
-                });
-        ModLoader.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[]
-                {
-                    mossBallGiant, Block.stoneBrick
-                });
-        
-        Item[] stickArray = { 
-    		stoneRod, ironRod, diamondRod, goldRod, redstoneRod, obsidianRod,
-    		sandstoneRod, Item.bone, paperRod, mossyRod, netherrackRod, glowstoneRod, lavaRod, 
-    		iceRod, slimeRod, cactusRod, flintRod, flintRod, brickRod, Item.blazeRod
-    	};
-        
-        Item[] shardArrayShort = {
-        	stoneShard, ironChunks, diamondShard, goldChunks, redstoneFragment, obsidianShard,
-        	sandstoneShard, netherrackShard, glowstoneFragment, iceShard, lavaFragment, slimeFragment,
-        	blazeFragment
-        };
-        
-        for (int iter = 0; iter < stickArray.length; iter++)
-		{
-        	ModLoader.addRecipe(new ItemStack(Item.bow, 1), new Object[]
-            {
-        		"s| ", "s |", "s| ", Character.valueOf('s'), Item.silk, Character.valueOf('|'), stickArray[iter]
-            });
-			ModLoader.addRecipe(new ItemStack(Block.lever, 1), new Object[]
-			{
-				"s", "c", 'c', new ItemStack(Block.cobblestone, 1, 0), 's', stickArray[iter]
-			});
-			ModLoader.addRecipe(new ItemStack(Block.rail, 16), new Object[]
-			{
-				"c c", "csc", "c c", 'c', new ItemStack(Item.ingotIron, 1, 0), 's', stickArray[iter]
-			});
-			ModLoader.addRecipe(new ItemStack(Block.railPowered, 6), new Object[]
-			{
-				"c c", "csc", "crc", 'c', new ItemStack(Item.ingotGold, 1, -1), 
-				's', stickArray[iter], 'r', new ItemStack(Item.redstone, 1, 0)
-			});
-			ModLoader.addRecipe(new ItemStack(Block.rail, 16), new Object[]
-			{
-				"c c", "csc", "c c", 'c', new ItemStack(Item.ingotIron, 1, 0), 's', stickArray[iter]
-			});
-			ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
-			{
-				" | ", "s|s", "s|s", '|', stickArray[iter], 's', Item.silk
-			});
-			ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
-			{
-				"s|s", "s|s", " | ", '|', stickArray[iter], 's', Item.silk
-			});
-		}
-        
-        ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
-    	{
-    		" | ", "s|s", "s|s", '|', Item.stick, 's', Item.silk
-    	});
-    	ModLoader.addRecipe(new ItemStack(Item.feather, 4), new Object[]
-    	{
-    		"s|s", "s|s", " | ", '|', Item.stick, 's', Item.silk
-    	});
-        
-        for (int stickIter = 0; stickIter < stickArray.length; stickIter++)
-		{
-        	for(int shardIter = 0; shardIter < shardArrayShort.length; shardIter++) {
-        		ModLoader.addRecipe(new ItemStack(Item.arrow, 1), new Object[]
-                {
-                    "s", "|", 's', shardArrayShort[shardIter], '|', stickArray[stickIter]
-                });
-        		ModLoader.addRecipe(new ItemStack(Item.arrow, 4), new Object[]
-                {
-                    "s", "|", "f", 's', shardArrayShort[shardIter], '|', stickArray[stickIter], 'f', Item.feather
-                });
-        	}
-		}
-        
-        ModLoader.addRecipe(new ItemStack(Item.brewingStand, 1), new Object[]
-                {
-                    "|||", " g ", "ccc", Character.valueOf('|'), ironRod, Character.valueOf('g'), Item.ingotGold, Character.valueOf('c'), Block.cobblestone
-                });
-        
-        FurnaceRecipes.smelting().addSmelting(Item.dyePowder.shiftedIndex, 2, new ItemStack(Item.coal, 1, 1));
-        
-        addEEsupport();
-        //addMetallurgySupport();
-        MinecraftForge.registerCustomBucketHandler(new InfiBucketHandler());
-        ModLoader.setInGameHook(this, true, true);
-    }
-    
-    public static Random rand = new Random();
-    
-    @Override
-    public boolean onTickInGame(float tick, Minecraft mc)
-    {
-    	if(rand.nextInt(100) == 0) {
-    		EntityPlayer player = mc.thePlayer;
-    		InventoryPlayer inv = player.inventory;
-    		for(int i = 0; i < inv.mainInventory.length; i++) {    			
-		    	if(inv.mainInventory[i] != null) {
-		    		ItemStack is = inv.mainInventory[i];
-		    		Item item = is.getItem();
-		    		if(item instanceof InfiToolBase) {
-			    		InfiToolBase tool = (InfiToolBase)item;
-			    		if(is.getItemDamage() > 0) {
-			    			int heal = 0;
-			    			if(tool.getHeadType() == 11)
-			    				heal += 4;
-			    			if(tool.getHandleType() == 11)
-			    				heal += 1;
-			    			if(heal > 0 && rand.nextInt(5) < heal)
-			    				is.damageItem(-1, player);
-			    		}
-			    		if(tool.getHeadType() == 11 && is.getItemDamage() > 0) {
-			    			is.damageItem(-1, player);
-			    		}
-		    		}
-		    		if(item instanceof InfiWeaponBase) {
-			    		InfiWeaponBase weapon = (InfiWeaponBase)item;
-			    		if(is.getItemDamage() > 0) {
-			    			int heal = 0;
-			    			if(weapon.getHeadType() == 11)
-			    				heal += 4;
-			    			if(weapon.getHandleType() == 11)
-			    				heal += 1;
-			    			if(heal > 0 && rand.nextInt(5) < heal)
-			    				is.damageItem(-1, player);
-			    		}
-			    		if(weapon.getHeadType() == 11 && is.getItemDamage() > 0) {
-			    			is.damageItem(-1, player);
-			    		}
-		    		}
-		    	}
-    		}
-    	}
-    	return true;
-    }
-
-    public static int enchantBase(int i)
-    {
-        switch (i)
-        {
-            case 1:
-                return 15;
-
-            case 2:
-                return 5;
-
-            case 3:
-                return 14;
-
-            case 4:
-                return 10;
-
-            case 5:
-                return 22;
-
-            case 6:
-                return 18;
-
-            case 7:
-                return 14;
-
-            case 8:
-                return 5;
-
-            case 9:
-                return 13;
-
-            case 10:
-                return 5;
-
-            case 11:
-                return 22;
-
-            case 12:
-                return 8;
-
-            case 13:
-                return 12;
-
-            case 14:
-                return 18;
-
-            case 15:
-                return 13;
-
-            case 16:
-                return 15;
-
-            case 17:
-                return 14;
-
-            case 18:
-                return 10;
-
-            case 19:
-                return 8;
-
-            case 20:
-                return 27;
-        }
-        return 0;
-    }
-
-    public int addFuel(int i, int j)
-    {
-        if (i == Block.cactus.blockID)
-        {
-            return 100;
-        } else
-        if(i == coalBits.shiftedIndex)
-        {
-        	return 600;
-        } else
-        return 0;
-    }
-
-    public static void addAchievements()
-    {
-        durablePickaxe = (new Achievement(1437, "durablePickaxe", 8, 2, dDiamondPickaxe, AchievementList.buildBetterPickaxe)).registerAchievement();
-        ModLoader.addAchievementDesc(durablePickaxe, "Mastering the Upgrade", "Construct the most durable Pickaxe");
-        treeSmelt = (new Achievement(1348, "treeSmelt", 8, 4, lLavaAxe, null)).registerAchievement();
-        ModLoader.addAchievementDesc(treeSmelt, "Burn to the Ground", "Create an axe out of Lava Crystals");
-        /*woodPan = (new Achievement(3149, "woodPan", -4, -4, wWoodFryingPan, AchievementList.buildHoe)).registerAchievement();
-        ModLoader.addAchievementDesc(woodPan, "Can you cook with it?", "Make a Frying Pan out of Wood");
-        ironPan = (new Achievement(1350, "woodPan", -3, -6, iIronFryingPan, woodPan)).registerAchievement();
-        ModLoader.addAchievementDesc(ironPan, "Homemade Meals", "Make a Frying Pan out of Iron");
-        lavaPan = (new Achievement(1351, "woodPan", -5, -6, lLavaFryingPan, ironPan)).registerAchievement();
-        ModLoader.addAchievementDesc(lavaPan, "Perpetual Cooking Power", "Make a Frying Pan out of Lava Crystals");*/
-    }
-
-    public void TakenFromCrafting(EntityPlayer entityplayer, ItemStack itemstack, IInventory iinventory)
-    {
-        if (itemstack.itemID == dDiamondPickaxe.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(durablePickaxe);
-        }
-        if (itemstack.itemID == dLavaAxe.shiftedIndex || itemstack.itemID == rLavaAxe.shiftedIndex || itemstack.itemID == bLavaAxe.shiftedIndex || itemstack.itemID == glLavaAxe.shiftedIndex || itemstack.itemID == lLavaAxe.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(treeSmelt);
-        }
-        /*if (itemstack.itemID == wWoodFryingPan.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(woodPan);
-        }
-        if (itemstack.itemID == wIronFryingPan.shiftedIndex || itemstack.itemID == stIronFryingPan.shiftedIndex || itemstack.itemID == iIronFryingPan.shiftedIndex || itemstack.itemID == dIronFryingPan.shiftedIndex || itemstack.itemID == rIronFryingPan.shiftedIndex || itemstack.itemID == bIronFryingPan.shiftedIndex || itemstack.itemID == glIronFryingPan.shiftedIndex || itemstack.itemID == sIronFryingPan.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(ironPan);
-        }
-        if (itemstack.itemID == dLavaFryingPan.shiftedIndex || itemstack.itemID == rLavaFryingPan.shiftedIndex || itemstack.itemID == bLavaFryingPan.shiftedIndex || itemstack.itemID == glLavaFryingPan.shiftedIndex || itemstack.itemID == lLavaFryingPan.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(lavaPan);
-        }*/
-    }
 
     static
     {
@@ -2762,12 +2614,12 @@ public class mod_InfiTools extends BaseModMp
         brType = 19;
         blType = 20;
         File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("mDiyo").toString() ) );
+        		.append("/").append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
         props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("mDiyo").append('/').append("InfiTools.cfg").toString())).getPath());
+        		.append("/").append("config").append('/').append("InfiCraft")
+        		.append("/").append("InfiTools.cfg").toString())).getPath());
         props = InfiTools.InitProps(props);
-        getProps(props);
         
         pumpkinPulp = (new PumpkinPulp(pumpkinPulpID, 2, false, 16)).setIconCoord(0, 0).setItemName("pumpkinPulp");
         

@@ -122,17 +122,17 @@ public class InfiHybridPowers
         return j;
     }
 
-    public static void bash(int i, int j, int k, int l, int i1, World world, EntityLiving entityliving)
+    public static void bash(int x, int y, int z, int bID, int md, World world, EntityLiving entityliving)
     {
-        int j1 = smash(l);
+        int j1 = smash(bID);
         boolean flag = false;
-        if (l == j1)
+        if (bID == j1)
         {
-            Block.blocksList[l].harvestBlock(world, (EntityPlayer)entityliving, i, j, k, i1);
+            Block.blocksList[bID].harvestBlock(world, (EntityPlayer)entityliving, x, y, z, md);
         }
         else
         {
-            crushSort(i, j, k, l, i1, world, entityliving);
+            crushSort(x, y, z, bID, md, world, entityliving);
         }
     }
 
@@ -269,7 +269,7 @@ public class InfiHybridPowers
     {
         if (l == Block.stone.blockID)
         {
-            System.out.println((new StringBuilder()).append("bX: ").append(i).append(" bY: ").append(j).append(" bZ: ").append(k).toString());
+            //System.out.println((new StringBuilder()).append("bX: ").append(i).append(" bY: ").append(j).append(" bZ: ").append(k).toString());
             if (random.nextInt(100) + 1 <= 75)
             {
                 spawnItem(i, j, k, world, Block.cobblestone.blockID, 1);

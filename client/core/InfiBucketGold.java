@@ -16,62 +16,51 @@ public class InfiBucketGold extends Item
         isFull = j;
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
     {
-        boolean flag = false;
-        float f = 1.0F;
-        float f1 = entityplayer.prevRotationPitch + (entityplayer.rotationPitch - entityplayer.prevRotationPitch) * f;
-        float f2 = entityplayer.prevRotationYaw + (entityplayer.rotationYaw - entityplayer.prevRotationYaw) * f;
-        double d = entityplayer.prevPosX + (entityplayer.posX - entityplayer.prevPosX) * (double)f;
-        double d1 = (entityplayer.prevPosY + (entityplayer.posY - entityplayer.prevPosY) * (double)f + 1.6200000000000001D) - (double)entityplayer.yOffset;
-        double d2 = entityplayer.prevPosZ + (entityplayer.posZ - entityplayer.prevPosZ) * (double)f;
-        Vec3D vec3d = Vec3D.createVector(d, d1, d2);
-        float f3 = MathHelper.cos(-f2 * 0.01745329F - 3.141593F);
-        float f4 = MathHelper.sin(-f2 * 0.01745329F - 3.141593F);
-        float f5 = -MathHelper.cos(-f1 * 0.01745329F);
-        float f6 = MathHelper.sin(-f1 * 0.01745329F);
-        float f7 = f4 * f5;
-        float f8 = f6;
-        float f9 = f3 * f5;
-        double d3 = 5D;
-        Vec3D vec3d1 = vec3d.addVector((double)f7 * d3, (double)f8 * d3, (double)f9 * d3);
-        MovingObjectPosition movingobjectposition = world.rayTraceBlocks_do(vec3d, vec3d1, isFull == 0);
-        if (movingobjectposition == null)
+    	float var4 = 1.0F;
+        double var5 = player.prevPosX + (player.posX - player.prevPosX) * (double)var4;
+        double var7 = player.prevPosY + (player.posY - player.prevPosY) * (double)var4 + 1.62D - (double)player.yOffset;
+        double var9 = player.prevPosZ + (player.posZ - player.prevPosZ) * (double)var4;
+        boolean var11 = this.isFull == 0;
+        MovingObjectPosition mop = this.getMovingObjectPositionFromPlayer(world, player, var11);
+
+        if (mop == null)
         {
             return itemstack;
         }
-        if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
+        if (mop.typeOfHit == EnumMovingObjectType.TILE)
         {
-            int i = movingobjectposition.blockX;
-            int j = movingobjectposition.blockY;
-            int k = movingobjectposition.blockZ;
-            if (!world.canMineBlock(entityplayer, i, j, k))
+            int x = mop.blockX;
+            int y = mop.blockY;
+            int z = mop.blockZ;
+            if (!world.canMineBlock(player, x, y, z))
             {
                 return itemstack;
             }
             if (isFull == 0)
             {
-            	int bID = world.getBlockId(i, j, k);
+            	int bID = world.getBlockId(x, y, z);
                 if ((bID == Block.waterMoving.blockID || bID == Block.waterStill.blockID)
-                		&& world.getBlockMetadata(i, j, k) == 0)
+                		&& world.getBlockMetadata(x, y, z) == 0)
                 {
-                    world.setBlockWithNotify(i, j, k, 0);
+                    world.setBlockWithNotify(x, y, z, 0);
                     return new ItemStack(mod_InfiTools.goldBucketWater);
                 }
                 if ((bID == Block.lavaMoving.blockID || bID == Block.lavaStill.blockID)
-                		&& world.getBlockMetadata(i, j, k) == 0)
+                		&& world.getBlockMetadata(x, y, z) == 0)
                 {
-                    world.setBlockWithNotify(i, j, k, 0);
+                    world.setBlockWithNotify(x, y, z, 0);
                     return new ItemStack(mod_InfiTools.goldBucketLava);
                 }
                 if (bID == Block.sand.blockID)
                 {
-                    world.setBlockWithNotify(i, j, k, 0);
+                    world.setBlockWithNotify(x, y, z, 0);
                     return new ItemStack(mod_InfiTools.goldBucketSand);
                 }
                 if (bID == Block.gravel.blockID)
                 {
-                    world.setBlockWithNotify(i, j, k, 0);
+                    world.setBlockWithNotify(x, y, z, 0);
                     return new ItemStack(mod_InfiTools.goldBucketGravel);
                 }
             }
@@ -81,49 +70,49 @@ public class InfiBucketGold extends Item
                 {
                     return new ItemStack(mod_InfiTools.goldBucketEmpty);
                 }
-                if (movingobjectposition.sideHit == 0)
+                if (mop.sideHit == 0)
                 {
-                    j--;
+                    y--;
                 }
-                if (movingobjectposition.sideHit == 1)
+                if (mop.sideHit == 1)
                 {
-                    j++;
+                    y++;
                 }
-                if (movingobjectposition.sideHit == 2)
+                if (mop.sideHit == 2)
                 {
-                    k--;
+                    z--;
                 }
-                if (movingobjectposition.sideHit == 3)
+                if (mop.sideHit == 3)
                 {
-                    k++;
+                    z++;
                 }
-                if (movingobjectposition.sideHit == 4)
+                if (mop.sideHit == 4)
                 {
-                    i--;
+                    x--;
                 }
-                if (movingobjectposition.sideHit == 5)
+                if (mop.sideHit == 5)
                 {
-                    i++;
+                    x++;
                 }
-                if (world.isAirBlock(i, j, k) || !world.getBlockMaterial(i, j, k).isSolid())
+                if (world.isAirBlock(x, y, z) || !world.getBlockMaterial(x, y, z).isSolid())
                 {
                     if (world.worldProvider.isHellWorld && isFull == Block.waterMoving.blockID)
                     {
-                        world.playSoundEffect(d + 0.5D, d1 + 0.5D, d2 + 0.5D, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
+                        world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
                         for (int l = 0; l < 8; l++)
                         {
-                            world.spawnParticle("largesmoke", (double)i + Math.random(), (double)j + Math.random(), (double)k + Math.random(), 0.0D, 0.0D, 0.0D);
+                            world.spawnParticle("largesmoke", (double)x + Math.random(), (double)y + Math.random(), (double)z + Math.random(), 0.0D, 0.0D, 0.0D);
                         }
                     }
                     else
                     {
-                        world.setBlockAndMetadataWithNotify(i, j, k, isFull, 0);
+                        world.setBlockAndMetadataWithNotify(x, y, z, isFull, 0);
                     }
                     return new ItemStack(mod_InfiTools.goldBucketEmpty);
                 }
             }
         }
-        else if (isFull == 0 && (movingobjectposition.entityHit instanceof EntityCow))
+        else if (isFull == 0 && (mop.entityHit instanceof EntityCow))
         {
             return new ItemStack(mod_InfiTools.goldBucketMilk);
         }

@@ -16,7 +16,7 @@ public class Chisel extends Item
     
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
     {
-        if((entityplayer.capabilities.depleteBuckets)) {
+        if((entityplayer.capabilities.isCreativeMode)) {
         	useItemInCreative(itemstack, world, entityplayer);
         } else {
         	entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));

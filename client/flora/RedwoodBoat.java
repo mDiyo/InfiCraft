@@ -93,10 +93,10 @@ public class RedwoodBoat extends Entity
             }
             for (int j = 0; j < 5; j++)
             {
-            	entityDropItem(new ItemStack(mod_FloraSoma.redwood, 1, md), 0F);
+            	entityDropItem(new ItemStack(mod_FloraSoma.redwood, 1, 2), 0F);
             }
 
-            setEntityDead();
+            setDead();
         }
         return true;
     }
@@ -264,10 +264,10 @@ public class RedwoodBoat extends Entity
         {
             if (!worldObj.isRemote)
             {
-                setEntityDead();
+            	setDead();
                 for (int j = 0; j < 5; j++)
                 {
-                	entityDropItem(new ItemStack(mod_FloraSoma.redwood, 1, md), 0F);
+                	entityDropItem(new ItemStack(mod_FloraSoma.redwood, 1, 2), 0F);
                 }
             }
         }

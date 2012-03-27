@@ -6,7 +6,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.forge.ITextureProvider;
 
 public class BrickIce extends BlockBreakable
-	implements ITextureProvider
+    implements ITextureProvider
 {
     public BrickIce(int i, int j)
     {
@@ -16,6 +16,12 @@ public class BrickIce extends BlockBreakable
     public int getRenderBlockPass()
     {
         return 1;
+    }
+
+    @Override
+    public int getRenderType()
+    {
+        return mod_InfiBlocks.brickModelID;
     }
     
     public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l)
@@ -54,7 +60,10 @@ public class BrickIce extends BlockBreakable
     
     public int getBlockTextureFromSideAndMetadata(int side, int md)
     {
-        return blockIndexInTexture + md;
+        if (md == 0)
+            return blockIndexInTexture;
+        else
+            return blockIndexInTexture + md + 23;
     }
     
     public void addCreativeItems(ArrayList arraylist)
@@ -66,6 +75,6 @@ public class BrickIce extends BlockBreakable
     
     public String getTextureFile()
     {
-        return "/infiblocks/infiblocks.png";
+        return "/infiblocks/bricks.png";
     }
 }

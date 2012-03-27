@@ -15,65 +15,65 @@ public class InfiRecipeHammers
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.wWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.stick
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.stick
                 });
         mod_InfiHybrids.stWoodHammer.setIconCoord(1, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.stWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
         mod_InfiHybrids.saWoodHammer.setIconCoord(2, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.saWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
         mod_InfiHybrids.bWoodHammer.setIconCoord(3, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.bWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.bWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiHybrids.pWoodHammer.setIconCoord(4, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.pWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
         mod_InfiHybrids.nWoodHammer.setIconCoord(5, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.nWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
         mod_InfiHybrids.sWoodHammer.setIconCoord(6, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.sWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
         mod_InfiHybrids.cWoodHammer.setIconCoord(7, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.cWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
         mod_InfiHybrids.fWoodHammer.setIconCoord(8, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.fWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
         mod_InfiHybrids.brWoodHammer.setIconCoord(9, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.brWoodHammer, 1), new Object[]
                 {
-                    "mm", "mm", "| ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    "mm", "mm", "| ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
         mod_InfiHybrids.wStoneHammer.setIconCoord(0, 1);
         

@@ -2,14 +2,14 @@ package net.minecraft.src;
 
 import net.minecraft.src.blocks.*;
 import net.minecraft.src.forge.*;
+
 import java.io.*;
 
 public class mod_InfiBlocks extends BaseModMp
 {
-
 	public String getVersion()
 	{
-		return "v0.7.3 Color Bricked";
+		return "v0.7.6 Color Bricked";
 	}
 
 	public void load()
@@ -17,20 +17,20 @@ public class mod_InfiBlocks extends BaseModMp
 		//checkInitialized();
 	}
 	
-	/*public void checkInitialized()
-	{
-		try
-		{
-			Class infi = Class.forName("mod_InfiTools");
-			mod_InfiTools.getInitialized();
-			//InfiBlockRecipes.addInfiToolsRecipes();
-		}
-		catch (Exception e)
-		{
-			System.out.println("mod_InfiBlocks initalization failed! Reason:");
-			System.out.println(e);
-		}
-	}*/
+	public static void oreDictionarySupport()
+    {
+        MinecraftForge.registerOreHandler(new IOreHandler()
+        {
+            public void registerOre(String ore, ItemStack stack)
+            {
+                if(ore.equals("customCobblestone"))
+                {
+                	ModLoader.addRecipe(new ItemStack(workbench, 1), new Object[]
+            	            { "##", "##", '#', stack });
+                }
+            }
+        } );
+    }
 
 	private static void setupCraftHook()
     {
@@ -99,12 +99,14 @@ public class mod_InfiBlocks extends BaseModMp
 		
 		magicSlabModel = ModLoader.getUniqueBlockModelID(this, true);
 		paneModelID = ModLoader.getUniqueBlockModelID(this, true);
+		brickModelID = ModLoader.getUniqueBlockModelID(this, true);
 		InfiBlockRecipes.recipeStorm();
 		InfiBlockRecipes.magicSlabFrenzy();
 		InfiBlockRecipes.furnaceBlaze();
 		//checkInitialized();
 		
 		setupCraftHook();
+		oreDictionarySupport();
 	}
 	
 	public static int blockCraftingID;
@@ -177,6 +179,7 @@ public class mod_InfiBlocks extends BaseModMp
 	public static int furnaceGuiID;
 	public static int magicSlabModel;
 	public static int paneModelID;
+	public static int brickModelID;
 	
 	public static boolean resolveConflicts;
 	
@@ -217,8 +220,8 @@ public class mod_InfiBlocks extends BaseModMp
 		storageBlock = new StorageBlock(storageBlockID, 0).setHardness(0.3F).setBlockName("InfiStorage Block");
 		brick = new BrickBlock(brickID, 16).setHardness(0.3F).setBlockName("InfiBrick");
 		fancyBrick = new BrickFancy(fancyBrickID, 48).setHardness(0.3F).setBlockName("InfiBrick Fancy");
-		iceBrick = new BrickIce(iceBrickID, 112).setHardness(Block.ice.getHardness()).setStepSound(Block.soundGlassFootstep).setBlockName("Ice Brick");
-		brownstone = new Brownstone(brownstoneID, 96).setHardness(Block.cobblestone.getHardness()).setBlockName("Brownstone");
+		iceBrick = new BrickIce(iceBrickID, 160).setHardness(Block.ice.getHardness()).setStepSound(Block.soundGlassFootstep).setBlockName("Ice Brick");
+		brownstone = new Brownstone(brownstoneID, 176).setHardness(Block.cobblestone.getHardness()).setBlockName("Brownstone");
 		
 		storageBlockMagicSlab = new StorageBlockMagicSlab(storageBlockMagicSlabID, 0).setHardness(0.3F).setBlockName("Storage Block Magic Slab");
 		brickMagicSlab = new BrickBlockMagicSlab(brickMagicSlabID, 16).setHardness(0.3F).setBlockName("Brick Magic Slab");

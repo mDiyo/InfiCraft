@@ -89,6 +89,7 @@ public class RedwoodBlock extends BlockLog
         }
     }
 
+    @Override
     protected int damageDropped(int i)
     {
         return i;

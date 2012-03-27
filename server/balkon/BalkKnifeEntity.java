@@ -173,7 +173,7 @@ public class BalkKnifeEntity extends Entity
             ticksInGround++;
             if (ticksInGround == 1200)
             {
-                setEntityDead();
+            	setDead();
             }
             return;
         }
@@ -225,7 +225,7 @@ public class BalkKnifeEntity extends Entity
                     currentDamage += 2;
                     if (currentDamage > maxDamage)
                     {
-                        setEntityDead();
+                    	setDead();
                     }
                     else
                     {
@@ -342,7 +342,7 @@ public class BalkKnifeEntity extends Entity
         {
             worldObj.playSoundAtEntity(this, "random.pop", 0.2F, ((rand.nextFloat() - rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.onItemPickup(this, 1);
-            setEntityDead();
+            setDead();
         }
     }
 

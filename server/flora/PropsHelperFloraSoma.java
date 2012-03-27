@@ -64,10 +64,10 @@ public class PropsHelperFloraSoma {
 		infiprops.accessInt("Redwood Door ID", 176);
 		infiprops.accessInt("Saguaro Cactus ID", 177);
 		
-		infiprops.accessInt("Redwood Boat ID", 62);
-		infiprops.accessInt("Bloodboat ID", 63);
-		infiprops.accessInt("White Boat ID", 64);
-		infiprops.accessInt("Eucalyptus Boat ID", 65);
+		infiprops.accessInt("Redwood Boat ID", 132);
+		infiprops.accessInt("Bloodboat ID", 133);
+		infiprops.accessInt("White Boat ID", 134);
+		infiprops.accessInt("Eucalyptus Boat ID", 135);
 		return infiprops;
 	}
 	

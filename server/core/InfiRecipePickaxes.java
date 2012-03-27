@@ -15,59 +15,59 @@ public class InfiRecipePickaxes
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.stWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
         mod_InfiTools.saWoodPickaxe.setIconCoord(2, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.saWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
         mod_InfiTools.bWoodPickaxe.setIconCoord(3, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiTools.pWoodPickaxe.setIconCoord(4, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.pWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
         mod_InfiTools.nWoodPickaxe.setIconCoord(5, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.nWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
         mod_InfiTools.sWoodPickaxe.setIconCoord(6, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.sWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
         mod_InfiTools.cWoodPickaxe.setIconCoord(7, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.cWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
         mod_InfiTools.fWoodPickaxe.setIconCoord(8, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.fWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
         mod_InfiTools.brWoodPickaxe.setIconCoord(9, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.brWoodPickaxe, 1), new Object[]
                 {
-                    "mmm", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    "mmm", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
         ModLoader.addRecipe(new ItemStack(Item.pickaxeStone, 1), new Object[]
                 {

@@ -10,1523 +10,1523 @@ public class BalkRecipeKnives
 
     public static int recipeStorm()
     {
-        mod_BalkonInfiWeapons.stWoodKnife.setIconCoord(1, 0);
+        mod_InfiWeapons.stWoodKnife.setIconCoord(1, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.saWoodKnife.setIconCoord(2, 0);
+        mod_InfiWeapons.saWoodKnife.setIconCoord(2, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bWoodKnife.setIconCoord(3, 0);
+        mod_InfiWeapons.bWoodKnife.setIconCoord(3, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.pWoodKnife.setIconCoord(4, 0);
+        mod_InfiWeapons.pWoodKnife.setIconCoord(4, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        mod_BalkonInfiWeapons.nWoodKnife.setIconCoord(5, 0);
+        mod_InfiWeapons.nWoodKnife.setIconCoord(5, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.sWoodKnife.setIconCoord(6, 0);
+        mod_InfiWeapons.sWoodKnife.setIconCoord(6, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cWoodKnife.setIconCoord(7, 0);
+        mod_InfiWeapons.cWoodKnife.setIconCoord(7, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fWoodKnife.setIconCoord(8, 0);
+        mod_InfiWeapons.fWoodKnife.setIconCoord(8, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brWoodKnife.setIconCoord(9, 0);
+        mod_InfiWeapons.brWoodKnife.setIconCoord(9, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brWoodKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brWoodKnife, 1), new Object[]
                 {
-                    "m|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    "m|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.stStoneKnife.setIconCoord(1, 1);
+        mod_InfiWeapons.stStoneKnife.setIconCoord(1, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.saStoneKnife.setIconCoord(2, 1);
+        mod_InfiWeapons.saStoneKnife.setIconCoord(2, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bStoneKnife.setIconCoord(3, 1);
+        mod_InfiWeapons.bStoneKnife.setIconCoord(3, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.pStoneKnife.setIconCoord(4, 1);
+        mod_InfiWeapons.pStoneKnife.setIconCoord(4, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        mod_BalkonInfiWeapons.mStoneKnife.setIconCoord(5, 1);
+        mod_InfiWeapons.mStoneKnife.setIconCoord(5, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.nStoneKnife.setIconCoord(6, 1);
+        mod_InfiWeapons.nStoneKnife.setIconCoord(6, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.iceStoneKnife.setIconCoord(7, 1);
+        mod_InfiWeapons.iceStoneKnife.setIconCoord(7, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sStoneKnife.setIconCoord(8, 1);
+        mod_InfiWeapons.sStoneKnife.setIconCoord(8, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cStoneKnife.setIconCoord(9, 1);
+        mod_InfiWeapons.cStoneKnife.setIconCoord(9, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fStoneKnife.setIconCoord(10, 1);
+        mod_InfiWeapons.fStoneKnife.setIconCoord(10, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brStoneKnife.setIconCoord(11, 1);
+        mod_InfiWeapons.brStoneKnife.setIconCoord(11, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cobblestone, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brStoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brStoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.stone, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.stIronKnife.setIconCoord(1, 2);
+        mod_InfiWeapons.stIronKnife.setIconCoord(1, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iIronKnife.setIconCoord(2, 2);
+        mod_InfiWeapons.iIronKnife.setIconCoord(2, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dIronKnife.setIconCoord(3, 2);
+        mod_InfiWeapons.dIronKnife.setIconCoord(3, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.gIronKnife.setIconCoord(4, 2);
+        mod_InfiWeapons.gIronKnife.setIconCoord(4, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.gIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.gIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.goldRod
                 });
-        mod_BalkonInfiWeapons.rIronKnife.setIconCoord(5, 2);
+        mod_InfiWeapons.rIronKnife.setIconCoord(5, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oIronKnife.setIconCoord(6, 2);
+        mod_InfiWeapons.oIronKnife.setIconCoord(6, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.bIronKnife.setIconCoord(7, 2);
+        mod_InfiWeapons.bIronKnife.setIconCoord(7, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.nIronKnife.setIconCoord(8, 2);
+        mod_InfiWeapons.nIronKnife.setIconCoord(8, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glIronKnife.setIconCoord(9, 2);
+        mod_InfiWeapons.glIronKnife.setIconCoord(9, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.iceIronKnife.setIconCoord(10, 2);
+        mod_InfiWeapons.iceIronKnife.setIconCoord(10, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sIronKnife.setIconCoord(11, 2);
+        mod_InfiWeapons.sIronKnife.setIconCoord(11, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.blIronKnife.setIconCoord(12, 2);
+        mod_InfiWeapons.blIronKnife.setIconCoord(12, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blIronKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blIronKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotIron, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.stDiamondKnife.setIconCoord(1, 3);
+        mod_InfiWeapons.stDiamondKnife.setIconCoord(1, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iDiamondKnife.setIconCoord(2, 3);
+        mod_InfiWeapons.iDiamondKnife.setIconCoord(2, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dDiamondKnife.setIconCoord(3, 3);
+        mod_InfiWeapons.dDiamondKnife.setIconCoord(3, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.gDiamondKnife.setIconCoord(4, 3);
+        mod_InfiWeapons.gDiamondKnife.setIconCoord(4, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.gDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.gDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.goldRod
                 });
-        mod_BalkonInfiWeapons.rDiamondKnife.setIconCoord(5, 3);
+        mod_InfiWeapons.rDiamondKnife.setIconCoord(5, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oDiamondKnife.setIconCoord(6, 3);
+        mod_InfiWeapons.oDiamondKnife.setIconCoord(6, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.bDiamondKnife.setIconCoord(7, 3);
+        mod_InfiWeapons.bDiamondKnife.setIconCoord(7, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.mDiamondKnife.setIconCoord(8, 3);
+        mod_InfiWeapons.mDiamondKnife.setIconCoord(8, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.nDiamondKnife.setIconCoord(9, 3);
+        mod_InfiWeapons.nDiamondKnife.setIconCoord(9, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glDiamondKnife.setIconCoord(10, 3);
+        mod_InfiWeapons.glDiamondKnife.setIconCoord(10, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.blDiamondKnife.setIconCoord(11, 3);
+        mod_InfiWeapons.blDiamondKnife.setIconCoord(11, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blDiamondKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blDiamondKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.diamond, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.stGoldKnife.setIconCoord(1, 4);
+        mod_InfiWeapons.stGoldKnife.setIconCoord(1, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.gGoldKnife.setIconCoord(2, 4);
+        mod_InfiWeapons.gGoldKnife.setIconCoord(2, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.gGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.gGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.goldRod
                 });
-        mod_BalkonInfiWeapons.oGoldKnife.setIconCoord(3, 4);
+        mod_InfiWeapons.oGoldKnife.setIconCoord(3, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.saGoldKnife.setIconCoord(4, 4);
+        mod_InfiWeapons.saGoldKnife.setIconCoord(4, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bGoldKnife.setIconCoord(5, 4);
+        mod_InfiWeapons.bGoldKnife.setIconCoord(5, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.mGoldKnife.setIconCoord(6, 4);
+        mod_InfiWeapons.mGoldKnife.setIconCoord(6, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.nGoldKnife.setIconCoord(7, 4);
+        mod_InfiWeapons.nGoldKnife.setIconCoord(7, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glGoldKnife.setIconCoord(8, 4);
+        mod_InfiWeapons.glGoldKnife.setIconCoord(8, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.iceGoldKnife.setIconCoord(9, 4);
+        mod_InfiWeapons.iceGoldKnife.setIconCoord(9, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sGoldKnife.setIconCoord(10, 4);
+        mod_InfiWeapons.sGoldKnife.setIconCoord(10, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.fGoldKnife.setIconCoord(11, 4);
+        mod_InfiWeapons.fGoldKnife.setIconCoord(11, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fGoldKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fGoldKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.ingotGold, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.wRedstoneKnife.setIconCoord(0, 5);
+        mod_InfiWeapons.wRedstoneKnife.setIconCoord(0, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stRedstoneKnife.setIconCoord(1, 5);
+        mod_InfiWeapons.stRedstoneKnife.setIconCoord(1, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iRedstoneKnife.setIconCoord(2, 5);
+        mod_InfiWeapons.iRedstoneKnife.setIconCoord(2, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dRedstoneKnife.setIconCoord(3, 5);
+        mod_InfiWeapons.dRedstoneKnife.setIconCoord(3, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.rRedstoneKnife.setIconCoord(4, 5);
+        mod_InfiWeapons.rRedstoneKnife.setIconCoord(4, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oRedstoneKnife.setIconCoord(5, 5);
+        mod_InfiWeapons.oRedstoneKnife.setIconCoord(5, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.bRedstoneKnife.setIconCoord(6, 5);
+        mod_InfiWeapons.bRedstoneKnife.setIconCoord(6, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.mRedstoneKnife.setIconCoord(7, 5);
+        mod_InfiWeapons.mRedstoneKnife.setIconCoord(7, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.glRedstoneKnife.setIconCoord(8, 5);
+        mod_InfiWeapons.glRedstoneKnife.setIconCoord(8, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.sRedstoneKnife.setIconCoord(9, 5);
+        mod_InfiWeapons.sRedstoneKnife.setIconCoord(9, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.blRedstoneKnife.setIconCoord(10, 5);
+        mod_InfiWeapons.blRedstoneKnife.setIconCoord(10, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blRedstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blRedstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.redstoneCrystal, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.wObsidianKnife.setIconCoord(0, 6);
+        mod_InfiWeapons.wObsidianKnife.setIconCoord(0, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stObsidianKnife.setIconCoord(1, 6);
+        mod_InfiWeapons.stObsidianKnife.setIconCoord(1, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iObsidianKnife.setIconCoord(2, 6);
+        mod_InfiWeapons.iObsidianKnife.setIconCoord(2, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dObsidianKnife.setIconCoord(3, 6);
+        mod_InfiWeapons.dObsidianKnife.setIconCoord(3, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.gObsidianKnife.setIconCoord(4, 6);
+        mod_InfiWeapons.gObsidianKnife.setIconCoord(4, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.gObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.gObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.goldRod
                 });
-        mod_BalkonInfiWeapons.rObsidianKnife.setIconCoord(5, 6);
+        mod_InfiWeapons.rObsidianKnife.setIconCoord(5, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oObsidianKnife.setIconCoord(6, 6);
+        mod_InfiWeapons.oObsidianKnife.setIconCoord(6, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.bObsidianKnife.setIconCoord(7, 6);
+        mod_InfiWeapons.bObsidianKnife.setIconCoord(7, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.nObsidianKnife.setIconCoord(8, 6);
+        mod_InfiWeapons.nObsidianKnife.setIconCoord(8, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glObsidianKnife.setIconCoord(9, 6);
+        mod_InfiWeapons.glObsidianKnife.setIconCoord(9, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.sObsidianKnife.setIconCoord(10, 6);
+        mod_InfiWeapons.sObsidianKnife.setIconCoord(10, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.fObsidianKnife.setIconCoord(11, 6);
+        mod_InfiWeapons.fObsidianKnife.setIconCoord(11, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.blObsidianKnife.setIconCoord(12, 6);
+        mod_InfiWeapons.blObsidianKnife.setIconCoord(12, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blObsidianKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blObsidianKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.obsidian, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.wSandstoneKnife.setIconCoord(0, 7);
+        mod_InfiWeapons.wSandstoneKnife.setIconCoord(0, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stSandstoneKnife.setIconCoord(1, 7);
+        mod_InfiWeapons.stSandstoneKnife.setIconCoord(1, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.saSandstoneKnife.setIconCoord(2, 7);
+        mod_InfiWeapons.saSandstoneKnife.setIconCoord(2, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bSandstoneKnife.setIconCoord(3, 7);
+        mod_InfiWeapons.bSandstoneKnife.setIconCoord(3, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.pSandstoneKnife.setIconCoord(4, 7);
+        mod_InfiWeapons.pSandstoneKnife.setIconCoord(4, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        mod_BalkonInfiWeapons.nSandstoneKnife.setIconCoord(5, 7);
+        mod_InfiWeapons.nSandstoneKnife.setIconCoord(5, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.iceSandstoneKnife.setIconCoord(6, 7);
+        mod_InfiWeapons.iceSandstoneKnife.setIconCoord(6, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sSandstoneKnife.setIconCoord(7, 7);
+        mod_InfiWeapons.sSandstoneKnife.setIconCoord(7, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cSandstoneKnife.setIconCoord(8, 7);
+        mod_InfiWeapons.cSandstoneKnife.setIconCoord(8, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fSandstoneKnife.setIconCoord(9, 7);
+        mod_InfiWeapons.fSandstoneKnife.setIconCoord(9, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brSandstoneKnife.setIconCoord(10, 7);
+        mod_InfiWeapons.brSandstoneKnife.setIconCoord(10, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brSandstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brSandstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.sandStone, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.wBoneKnife.setIconCoord(0, 8);
+        mod_InfiWeapons.wBoneKnife.setIconCoord(0, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stBoneKnife.setIconCoord(1, 8);
+        mod_InfiWeapons.stBoneKnife.setIconCoord(1, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iBoneKnife.setIconCoord(2, 8);
+        mod_InfiWeapons.iBoneKnife.setIconCoord(2, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dBoneKnife.setIconCoord(3, 8);
+        mod_InfiWeapons.dBoneKnife.setIconCoord(3, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.rBoneKnife.setIconCoord(4, 8);
+        mod_InfiWeapons.rBoneKnife.setIconCoord(4, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oBoneKnife.setIconCoord(5, 8);
+        mod_InfiWeapons.oBoneKnife.setIconCoord(5, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.bBoneKnife.setIconCoord(6, 8);
+        mod_InfiWeapons.bBoneKnife.setIconCoord(6, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.mBoneKnife.setIconCoord(7, 8);
+        mod_InfiWeapons.mBoneKnife.setIconCoord(7, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.nBoneKnife.setIconCoord(8, 8);
+        mod_InfiWeapons.nBoneKnife.setIconCoord(8, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glBoneKnife.setIconCoord(9, 8);
+        mod_InfiWeapons.glBoneKnife.setIconCoord(9, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.sBoneKnife.setIconCoord(10, 8);
+        mod_InfiWeapons.sBoneKnife.setIconCoord(10, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cBoneKnife.setIconCoord(11, 8);
+        mod_InfiWeapons.cBoneKnife.setIconCoord(11, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fBoneKnife.setIconCoord(12, 8);
+        mod_InfiWeapons.fBoneKnife.setIconCoord(12, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brBoneKnife.setIconCoord(13, 8);
+        mod_InfiWeapons.brBoneKnife.setIconCoord(13, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.blBoneKnife.setIconCoord(14, 8);
+        mod_InfiWeapons.blBoneKnife.setIconCoord(14, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blBoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blBoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.bone, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.wPaperKnife.setIconCoord(0, 9);
+        mod_InfiWeapons.wPaperKnife.setIconCoord(0, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.saPaperKnife.setIconCoord(1, 9);
+        mod_InfiWeapons.saPaperKnife.setIconCoord(1, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bPaperKnife.setIconCoord(2, 9);
+        mod_InfiWeapons.bPaperKnife.setIconCoord(2, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.pPaperKnife.setIconCoord(3, 9);
+        mod_InfiWeapons.pPaperKnife.setIconCoord(3, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        mod_BalkonInfiWeapons.sPaperKnife.setIconCoord(4, 9);
+        mod_InfiWeapons.sPaperKnife.setIconCoord(4, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cPaperKnife.setIconCoord(5, 9);
+        mod_InfiWeapons.cPaperKnife.setIconCoord(5, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.brPaperKnife.setIconCoord(6, 9);
+        mod_InfiWeapons.brPaperKnife.setIconCoord(6, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brPaperKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brPaperKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.paperStack, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.stMossyKnife.setIconCoord(0, 10);
+        mod_InfiWeapons.stMossyKnife.setIconCoord(0, 10);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stMossyKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stMossyKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.mossBallCrafted, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.dMossyKnife.setIconCoord(1, 10);
+        mod_InfiWeapons.dMossyKnife.setIconCoord(1, 10);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dMossyKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dMossyKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.mossBallCrafted, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.rMossyKnife.setIconCoord(2, 10);
+        mod_InfiWeapons.rMossyKnife.setIconCoord(2, 10);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rMossyKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rMossyKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.mossBallCrafted, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.bMossyKnife.setIconCoord(3, 10);
+        mod_InfiWeapons.bMossyKnife.setIconCoord(3, 10);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bMossyKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bMossyKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.mossBallCrafted, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bMossyKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bMossyKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.mossBallCrafted, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.mMossyKnife.setIconCoord(4, 10);
+        mod_InfiWeapons.mMossyKnife.setIconCoord(4, 10);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mMossyKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mMossyKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.mossBallCrafted, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.glMossyKnife.setIconCoord(5, 10);
+        mod_InfiWeapons.glMossyKnife.setIconCoord(5, 10);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glMossyKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glMossyKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.mossBallCrafted, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.wNetherrackKnife.setIconCoord(0, 11);
+        mod_InfiWeapons.wNetherrackKnife.setIconCoord(0, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stNetherrackKnife.setIconCoord(1, 11);
+        mod_InfiWeapons.stNetherrackKnife.setIconCoord(1, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iNetherrackKnife.setIconCoord(2, 11);
+        mod_InfiWeapons.iNetherrackKnife.setIconCoord(2, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.rNetherrackKnife.setIconCoord(3, 11);
+        mod_InfiWeapons.rNetherrackKnife.setIconCoord(3, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oNetherrackKnife.setIconCoord(4, 11);
+        mod_InfiWeapons.oNetherrackKnife.setIconCoord(4, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.saNetherrackKnife.setIconCoord(5, 11);
+        mod_InfiWeapons.saNetherrackKnife.setIconCoord(5, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bNetherrackKnife.setIconCoord(6, 11);
+        mod_InfiWeapons.bNetherrackKnife.setIconCoord(6, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.mNetherrackKnife.setIconCoord(7, 11);
+        mod_InfiWeapons.mNetherrackKnife.setIconCoord(7, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.nNetherrackKnife.setIconCoord(8, 11);
+        mod_InfiWeapons.nNetherrackKnife.setIconCoord(8, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glNetherrackKnife.setIconCoord(9, 11);
+        mod_InfiWeapons.glNetherrackKnife.setIconCoord(9, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.iceNetherrackKnife.setIconCoord(10, 11);
+        mod_InfiWeapons.iceNetherrackKnife.setIconCoord(10, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sNetherrackKnife.setIconCoord(11, 11);
+        mod_InfiWeapons.sNetherrackKnife.setIconCoord(11, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cNetherrackKnife.setIconCoord(12, 11);
+        mod_InfiWeapons.cNetherrackKnife.setIconCoord(12, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fNetherrackKnife.setIconCoord(13, 11);
+        mod_InfiWeapons.fNetherrackKnife.setIconCoord(13, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.brNetherrackKnife.setIconCoord(14, 11);
+        mod_InfiWeapons.brNetherrackKnife.setIconCoord(14, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.blNetherrackKnife.setIconCoord(15, 11);
+        mod_InfiWeapons.blNetherrackKnife.setIconCoord(15, 11);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blNetherrackKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blNetherrackKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.netherrack, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.wGlowstoneKnife.setIconCoord(0, 12);
+        mod_InfiWeapons.wGlowstoneKnife.setIconCoord(0, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stGlowstoneKnife.setIconCoord(1, 12);
+        mod_InfiWeapons.stGlowstoneKnife.setIconCoord(1, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iGlowstoneKnife.setIconCoord(2, 12);
+        mod_InfiWeapons.iGlowstoneKnife.setIconCoord(2, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dGlowstoneKnife.setIconCoord(3, 12);
+        mod_InfiWeapons.dGlowstoneKnife.setIconCoord(3, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.rGlowstoneKnife.setIconCoord(4, 12);
+        mod_InfiWeapons.rGlowstoneKnife.setIconCoord(4, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oGlowstoneKnife.setIconCoord(5, 12);
+        mod_InfiWeapons.oGlowstoneKnife.setIconCoord(5, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.bGlowstoneKnife.setIconCoord(6, 12);
+        mod_InfiWeapons.bGlowstoneKnife.setIconCoord(6, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.mGlowstoneKnife.setIconCoord(7, 12);
+        mod_InfiWeapons.mGlowstoneKnife.setIconCoord(7, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.nGlowstoneKnife.setIconCoord(8, 12);
+        mod_InfiWeapons.nGlowstoneKnife.setIconCoord(8, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glGlowstoneKnife.setIconCoord(9, 12);
+        mod_InfiWeapons.glGlowstoneKnife.setIconCoord(9, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.iceGlowstoneKnife.setIconCoord(10, 12);
+        mod_InfiWeapons.iceGlowstoneKnife.setIconCoord(10, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.lGlowstoneKnife.setIconCoord(11, 12);
+        mod_InfiWeapons.lGlowstoneKnife.setIconCoord(11, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.lGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.lGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.sGlowstoneKnife.setIconCoord(12, 12);
+        mod_InfiWeapons.sGlowstoneKnife.setIconCoord(12, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.blGlowstoneKnife.setIconCoord(13, 12);
+        mod_InfiWeapons.blGlowstoneKnife.setIconCoord(13, 12);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blGlowstoneKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blGlowstoneKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.glowstoneCrystal, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.wIceKnife.setIconCoord(0, 13);
+        mod_InfiWeapons.wIceKnife.setIconCoord(0, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stIceKnife.setIconCoord(1, 13);
+        mod_InfiWeapons.stIceKnife.setIconCoord(1, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iIceKnife.setIconCoord(2, 13);
+        mod_InfiWeapons.iIceKnife.setIconCoord(2, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dIceKnife.setIconCoord(3, 13);
+        mod_InfiWeapons.dIceKnife.setIconCoord(3, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.gIceKnife.setIconCoord(4, 13);
+        mod_InfiWeapons.gIceKnife.setIconCoord(4, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.gIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.gIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.goldRod
                 });
-        mod_BalkonInfiWeapons.rIceKnife.setIconCoord(5, 13);
+        mod_InfiWeapons.rIceKnife.setIconCoord(5, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oIceKnife.setIconCoord(6, 13);
+        mod_InfiWeapons.oIceKnife.setIconCoord(6, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.saIceKnife.setIconCoord(7, 13);
+        mod_InfiWeapons.saIceKnife.setIconCoord(7, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bIceKnife.setIconCoord(8, 13);
+        mod_InfiWeapons.bIceKnife.setIconCoord(8, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.glIceKnife.setIconCoord(9, 13);
+        mod_InfiWeapons.glIceKnife.setIconCoord(9, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.iceIceKnife.setIconCoord(10, 13);
+        mod_InfiWeapons.iceIceKnife.setIconCoord(10, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sIceKnife.setIconCoord(11, 13);
+        mod_InfiWeapons.sIceKnife.setIconCoord(11, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cIceKnife.setIconCoord(12, 13);
+        mod_InfiWeapons.cIceKnife.setIconCoord(12, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fIceKnife.setIconCoord(13, 13);
+        mod_InfiWeapons.fIceKnife.setIconCoord(13, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brIceKnife.setIconCoord(14, 13);
+        mod_InfiWeapons.brIceKnife.setIconCoord(14, 13);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brIceKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brIceKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.ice, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.dLavaKnife.setIconCoord(0, 14);
+        mod_InfiWeapons.dLavaKnife.setIconCoord(0, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.rLavaKnife.setIconCoord(1, 14);
+        mod_InfiWeapons.rLavaKnife.setIconCoord(1, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.bLavaKnife.setIconCoord(2, 14);
+        mod_InfiWeapons.bLavaKnife.setIconCoord(2, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.nLavaKnife.setIconCoord(3, 14);
+        mod_InfiWeapons.nLavaKnife.setIconCoord(3, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glLavaKnife.setIconCoord(4, 14);
+        mod_InfiWeapons.glLavaKnife.setIconCoord(4, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.lLavaKnife.setIconCoord(5, 14);
+        mod_InfiWeapons.lLavaKnife.setIconCoord(5, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.lLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.lLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), mod_InfiTools.lavaRod
                 });
-        mod_BalkonInfiWeapons.blLavaKnife.setIconCoord(6, 14);
+        mod_InfiWeapons.blLavaKnife.setIconCoord(6, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blLavaKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blLavaKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.lavaCrystal, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.wSlimeKnife.setIconCoord(0, 15);
+        mod_InfiWeapons.wSlimeKnife.setIconCoord(0, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stSlimeKnife.setIconCoord(1, 15);
+        mod_InfiWeapons.stSlimeKnife.setIconCoord(1, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iSlimeKnife.setIconCoord(2, 15);
+        mod_InfiWeapons.iSlimeKnife.setIconCoord(2, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.dSlimeKnife.setIconCoord(3, 15);
+        mod_InfiWeapons.dSlimeKnife.setIconCoord(3, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.gSlimeKnife.setIconCoord(4, 15);
+        mod_InfiWeapons.gSlimeKnife.setIconCoord(4, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.gSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.gSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.goldRod
                 });
-        mod_BalkonInfiWeapons.rSlimeKnife.setIconCoord(5, 15);
+        mod_InfiWeapons.rSlimeKnife.setIconCoord(5, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.oSlimeKnife.setIconCoord(6, 15);
+        mod_InfiWeapons.oSlimeKnife.setIconCoord(6, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.saSlimeKnife.setIconCoord(7, 15);
+        mod_InfiWeapons.saSlimeKnife.setIconCoord(7, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bSlimeKnife.setIconCoord(8, 15);
+        mod_InfiWeapons.bSlimeKnife.setIconCoord(8, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.pSlimeKnife.setIconCoord(9, 15);
+        mod_InfiWeapons.pSlimeKnife.setIconCoord(9, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        mod_BalkonInfiWeapons.mSlimeKnife.setIconCoord(10, 15);
+        mod_InfiWeapons.mSlimeKnife.setIconCoord(10, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.mSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.mSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.mossyRod
                 });
-        mod_BalkonInfiWeapons.nSlimeKnife.setIconCoord(11, 15);
+        mod_InfiWeapons.nSlimeKnife.setIconCoord(11, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glSlimeKnife.setIconCoord(12, 15);
+        mod_InfiWeapons.glSlimeKnife.setIconCoord(12, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.iceSlimeKnife.setIconCoord(13, 15);
+        mod_InfiWeapons.iceSlimeKnife.setIconCoord(13, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.lSlimeKnife.setIconCoord(14, 15);
+        mod_InfiWeapons.lSlimeKnife.setIconCoord(14, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.lSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.lSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.lavaRod
                 });
-        mod_BalkonInfiWeapons.sSlimeKnife.setIconCoord(15, 15);
+        mod_InfiWeapons.sSlimeKnife.setIconCoord(15, 15);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cSlimeKnife.setIconCoord(12, 14);
+        mod_InfiWeapons.cSlimeKnife.setIconCoord(12, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fSlimeKnife.setIconCoord(13, 14);
+        mod_InfiWeapons.fSlimeKnife.setIconCoord(13, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brSlimeKnife.setIconCoord(14, 14);
+        mod_InfiWeapons.brSlimeKnife.setIconCoord(14, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.blSlimeKnife.setIconCoord(15, 14);
+        mod_InfiWeapons.blSlimeKnife.setIconCoord(15, 14);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blSlimeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blSlimeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.slimeCrystal, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.wCactusKnife.setIconCoord(10, 0);
+        mod_InfiWeapons.wCactusKnife.setIconCoord(10, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stCactusKnife.setIconCoord(11, 0);
+        mod_InfiWeapons.stCactusKnife.setIconCoord(11, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.saCactusKnife.setIconCoord(12, 0);
+        mod_InfiWeapons.saCactusKnife.setIconCoord(12, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bCactusKnife.setIconCoord(13, 0);
+        mod_InfiWeapons.bCactusKnife.setIconCoord(13, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.pCactusKnife.setIconCoord(14, 0);
+        mod_InfiWeapons.pCactusKnife.setIconCoord(14, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        mod_BalkonInfiWeapons.nCactusKnife.setIconCoord(15, 0);
+        mod_InfiWeapons.nCactusKnife.setIconCoord(15, 0);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.sCactusKnife.setIconCoord(12, 1);
+        mod_InfiWeapons.sCactusKnife.setIconCoord(12, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cCactusKnife.setIconCoord(13, 1);
+        mod_InfiWeapons.cCactusKnife.setIconCoord(13, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fCactusKnife.setIconCoord(14, 1);
+        mod_InfiWeapons.fCactusKnife.setIconCoord(14, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brCactusKnife.setIconCoord(15, 1);
+        mod_InfiWeapons.brCactusKnife.setIconCoord(15, 1);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brCactusKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brCactusKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Block.cactus, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.wFlintKnife.setIconCoord(13, 2);
+        mod_InfiWeapons.wFlintKnife.setIconCoord(13, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), Item.stick
                 });
-        mod_BalkonInfiWeapons.stFlintKnife.setIconCoord(14, 2);
+        mod_InfiWeapons.stFlintKnife.setIconCoord(14, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.iFlintKnife.setIconCoord(15, 2);
+        mod_InfiWeapons.iFlintKnife.setIconCoord(15, 2);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.ironRod
                 });
-        mod_BalkonInfiWeapons.gFlintKnife.setIconCoord(12, 3);
+        mod_InfiWeapons.gFlintKnife.setIconCoord(12, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.gFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.gFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.goldRod
                 });
-        mod_BalkonInfiWeapons.oFlintKnife.setIconCoord(13, 3);
+        mod_InfiWeapons.oFlintKnife.setIconCoord(13, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.oFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.oFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.obsidianRod
                 });
-        mod_BalkonInfiWeapons.saFlintKnife.setIconCoord(14, 3);
+        mod_InfiWeapons.saFlintKnife.setIconCoord(14, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bFlintKnife.setIconCoord(15, 3);
+        mod_InfiWeapons.bFlintKnife.setIconCoord(15, 3);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.nFlintKnife.setIconCoord(12, 4);
+        mod_InfiWeapons.nFlintKnife.setIconCoord(12, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.iceFlintKnife.setIconCoord(13, 4);
+        mod_InfiWeapons.iceFlintKnife.setIconCoord(13, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sFlintKnife.setIconCoord(14, 4);
+        mod_InfiWeapons.sFlintKnife.setIconCoord(14, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cFlintKnife.setIconCoord(15, 4);
+        mod_InfiWeapons.cFlintKnife.setIconCoord(15, 4);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fFlintKnife.setIconCoord(11, 5);
+        mod_InfiWeapons.fFlintKnife.setIconCoord(11, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brFlintKnife.setIconCoord(12, 5);
+        mod_InfiWeapons.brFlintKnife.setIconCoord(12, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.blFlintKnife.setIconCoord(13, 5);
+        mod_InfiWeapons.blFlintKnife.setIconCoord(13, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blFlintKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blFlintKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.flint, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.wBrickKnife.setIconCoord(14, 5);
+        mod_InfiWeapons.wBrickKnife.setIconCoord(14, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.wBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.wBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), Item.brick
                 });
-        mod_BalkonInfiWeapons.stBrickKnife.setIconCoord(15, 5);
+        mod_InfiWeapons.stBrickKnife.setIconCoord(15, 5);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.stBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.stBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
-        mod_BalkonInfiWeapons.saBrickKnife.setIconCoord(13, 6);
+        mod_InfiWeapons.saBrickKnife.setIconCoord(13, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.saBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.saBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
-        mod_BalkonInfiWeapons.bBrickKnife.setIconCoord(14, 6);
+        mod_InfiWeapons.bBrickKnife.setIconCoord(14, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.pBrickKnife.setIconCoord(15, 6);
+        mod_InfiWeapons.pBrickKnife.setIconCoord(15, 6);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.pBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.pBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.paperRod
                 });
-        mod_BalkonInfiWeapons.nBrickKnife.setIconCoord(11, 7);
+        mod_InfiWeapons.nBrickKnife.setIconCoord(11, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.iceBrickKnife.setIconCoord(12, 7);
+        mod_InfiWeapons.iceBrickKnife.setIconCoord(12, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.iceBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.iceBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.iceRod
                 });
-        mod_BalkonInfiWeapons.sBrickKnife.setIconCoord(13, 7);
+        mod_InfiWeapons.sBrickKnife.setIconCoord(13, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.sBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.sBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
-        mod_BalkonInfiWeapons.cBrickKnife.setIconCoord(14, 7);
+        mod_InfiWeapons.cBrickKnife.setIconCoord(14, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.cBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.cBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
-        mod_BalkonInfiWeapons.fBrickKnife.setIconCoord(15, 7);
+        mod_InfiWeapons.fBrickKnife.setIconCoord(15, 7);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.flintRod
                 });
-        mod_BalkonInfiWeapons.brBrickKnife.setIconCoord(15, 8);
+        mod_InfiWeapons.brBrickKnife.setIconCoord(15, 8);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.brBrickKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.brBrickKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), Item.brick, Character.valueOf('|'), mod_InfiTools.brickRod
                 });
-        mod_BalkonInfiWeapons.dBlazeKnife.setIconCoord(7, 9);
+        mod_InfiWeapons.dBlazeKnife.setIconCoord(7, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.dBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.dBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), mod_InfiTools.diamondRod
                 });
-        mod_BalkonInfiWeapons.rBlazeKnife.setIconCoord(8, 9);
+        mod_InfiWeapons.rBlazeKnife.setIconCoord(8, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.rBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.rBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), mod_InfiTools.redstoneRod
                 });
-        mod_BalkonInfiWeapons.bBlazeKnife.setIconCoord(9, 9);
+        mod_InfiWeapons.bBlazeKnife.setIconCoord(9, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), Item.bone
                 });
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.bBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.bBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), mod_InfiTools.boneRod
                 });
-        mod_BalkonInfiWeapons.nBlazeKnife.setIconCoord(10, 9);
+        mod_InfiWeapons.nBlazeKnife.setIconCoord(10, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.nBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.nBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
-        mod_BalkonInfiWeapons.glBlazeKnife.setIconCoord(11, 9);
+        mod_InfiWeapons.glBlazeKnife.setIconCoord(11, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.glBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.glBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), mod_InfiTools.glowstoneRod
                 });
-        mod_BalkonInfiWeapons.lBlazeKnife.setIconCoord(12, 9);
+        mod_InfiWeapons.lBlazeKnife.setIconCoord(12, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.lBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.lBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.fBlazeKnife.setIconCoord(13, 9);
+        mod_InfiWeapons.fBlazeKnife.setIconCoord(13, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.fBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.fBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), Item.blazeRod
                 });
-        mod_BalkonInfiWeapons.blBlazeKnife.setIconCoord(14, 9);
+        mod_InfiWeapons.blBlazeKnife.setIconCoord(14, 9);
         
-        ModLoader.addRecipe(new ItemStack(mod_BalkonInfiWeapons.blBlazeKnife, 1), new Object[]
+        ModLoader.addRecipe(new ItemStack(mod_InfiWeapons.blBlazeKnife, 1), new Object[]
                 {
                     "m|", Character.valueOf('m'), mod_InfiTools.blazeCrystal, Character.valueOf('|'), Item.blazeRod
                 });

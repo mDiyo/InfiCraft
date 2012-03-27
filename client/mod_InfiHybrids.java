@@ -1,11 +1,229 @@
 package net.minecraft.src;
 
+import net.minecraft.src.forge.IOreHandler;
+import net.minecraft.src.forge.MinecraftForge;
 import net.minecraft.src.hybrids.*;
 import java.io.File;
 import net.minecraft.client.Minecraft;
 
 public class mod_InfiHybrids extends BaseModMp
 {
+	
+	public static void oreDictionarySupport()
+    {
+        MinecraftForge.registerOreHandler(new IOreHandler()
+        {
+            public void registerOre(String ore, ItemStack itemstack)
+            {
+                if(ore.equals("customCobblestone") || ore.equals("customStone"))
+                {
+                    OrizonHybridRecipes.addStoneTools(itemstack);
+                }
+            }
+        } );
+    }    
+
+    public String getVersion()
+    {
+        return "v1.0.8 Freedom";
+    }
+
+    public void load() {}
+
+    public static InfiProps getProps(InfiProps infiprops)
+    {
+        woodIceAxeID = infiprops.readInt("woodIceAxeID");
+        stoneIceAxeID = infiprops.readInt("stoneIceAxeID");
+        ironIceAxeID = infiprops.readInt("ironIceAxeID");
+        diamondIceAxeID = infiprops.readInt("diamondIceAxeID");
+        goldIceAxeID = infiprops.readInt("goldIceAxeID");
+        redstoneIceAxeID = infiprops.readInt("redstoneIceAxeID");
+        obsidianIceAxeID = infiprops.readInt("obsidianIceAxeID");
+        sandstoneIceAxeID = infiprops.readInt("sandstoneIceAxeID");
+        boneIceAxeID = infiprops.readInt("boneIceAxeID");
+        paperIceAxeID = infiprops.readInt("paperIceAxeID");
+        mossyIceAxeID = infiprops.readInt("mossyIceAxeID");
+        netherrackIceAxeID = infiprops.readInt("netherrackIceAxeID");
+        glowstoneIceAxeID = infiprops.readInt("glowstoneIceAxeID");
+        iceIceAxeID = infiprops.readInt("iceIceAxeID");
+        lavaIceAxeID = infiprops.readInt("lavaIceAxeID");
+        slimeIceAxeID = infiprops.readInt("slimeIceAxeID");
+        cactusIceAxeID = infiprops.readInt("cactusIceAxeID");
+        flintIceAxeID = infiprops.readInt("flintIceAxeID");
+        brickIceAxeID = infiprops.readInt("brickIceAxeID");
+        blazeIceAxeID = infiprops.readInt("blazeIceAxeID");
+        woodMattockID = infiprops.readInt("woodMattockID");
+        stoneMattockID = infiprops.readInt("stoneMattockID");
+        ironMattockID = infiprops.readInt("ironMattockID");
+        diamondMattockID = infiprops.readInt("diamondMattockID");
+        goldMattockID = infiprops.readInt("goldMattockID");
+        redstoneMattockID = infiprops.readInt("redstoneMattockID");
+        obsidianMattockID = infiprops.readInt("obsidianMattockID");
+        sandstoneMattockID = infiprops.readInt("sandstoneMattockID");
+        boneMattockID = infiprops.readInt("boneMattockID");
+        paperMattockID = infiprops.readInt("paperMattockID");
+        mossyMattockID = infiprops.readInt("mossyMattockID");
+        netherrackMattockID = infiprops.readInt("netherrackMattockID");
+        glowstoneMattockID = infiprops.readInt("glowstoneMattockID");
+        iceMattockID = infiprops.readInt("iceMattockID");
+        lavaMattockID = infiprops.readInt("lavaMattockID");
+        slimeMattockID = infiprops.readInt("slimeMattockID");
+        cactusMattockID = infiprops.readInt("cactusMattockID");
+        flintMattockID = infiprops.readInt("flintMattockID");
+        brickMattockID = infiprops.readInt("brickMattockID");
+        blazeMattockID = infiprops.readInt("blazeMattockID");
+        woodHammerID = infiprops.readInt("woodHammerID");
+        stoneHammerID = infiprops.readInt("stoneHammerID");
+        ironHammerID = infiprops.readInt("ironHammerID");
+        diamondHammerID = infiprops.readInt("diamondHammerID");
+        goldHammerID = infiprops.readInt("goldHammerID");
+        redstoneHammerID = infiprops.readInt("redstoneHammerID");
+        obsidianHammerID = infiprops.readInt("obsidianHammerID");
+        sandstoneHammerID = infiprops.readInt("sandstoneHammerID");
+        boneHammerID = infiprops.readInt("boneHammerID");
+        paperHammerID = infiprops.readInt("paperHammerID");
+        mossyHammerID = infiprops.readInt("mossyHammerID");
+        netherrackHammerID = infiprops.readInt("netherrackHammerID");
+        glowstoneHammerID = infiprops.readInt("glowstoneHammerID");
+        iceHammerID = infiprops.readInt("iceHammerID");
+        lavaHammerID = infiprops.readInt("lavaHammerID");
+        slimeHammerID = infiprops.readInt("slimeHammerID");
+        cactusHammerID = infiprops.readInt("cactusHammerID");
+        flintHammerID = infiprops.readInt("flintHammerID");
+        brickHammerID = infiprops.readInt("brickHammerID");
+        blazeHammerID = infiprops.readInt("blazeHammerID");
+        woodScytheID = infiprops.readInt("woodScytheID");
+        stoneScytheID = infiprops.readInt("stoneScytheID");
+        ironScytheID = infiprops.readInt("ironScytheID");
+        diamondScytheID = infiprops.readInt("diamondScytheID");
+        goldScytheID = infiprops.readInt("goldScytheID");
+        redstoneScytheID = infiprops.readInt("redstoneScytheID");
+        obsidianScytheID = infiprops.readInt("obsidianScytheID");
+        sandstoneScytheID = infiprops.readInt("sandstoneScytheID");
+        boneScytheID = infiprops.readInt("boneScytheID");
+        paperScytheID = infiprops.readInt("paperScytheID");
+        mossyScytheID = infiprops.readInt("mossyScytheID");
+        netherrackScytheID = infiprops.readInt("netherrackScytheID");
+        glowstoneScytheID = infiprops.readInt("glowstoneScytheID");
+        iceScytheID = infiprops.readInt("iceScytheID");
+        lavaScytheID = infiprops.readInt("lavaScytheID");
+        slimeScytheID = infiprops.readInt("slimeScytheID");
+        cactusScytheID = infiprops.readInt("cactusScytheID");
+        flintScytheID = infiprops.readInt("flintScytheID");
+        brickScytheID = infiprops.readInt("brickScytheID");
+        blazeScytheID = infiprops.readInt("blazeScytheID");
+        return infiprops;
+    }
+
+    public static InfiProps InitProps(InfiProps infiprops)
+    {
+        infiprops.accessInt("woodIceAxeID", 15901);
+        infiprops.accessInt("stoneIceAxeID", 15914);
+        infiprops.accessInt("ironIceAxeID", 15929);
+        infiprops.accessInt("diamondIceAxeID", 15945);
+        infiprops.accessInt("goldIceAxeID", 15960);
+        infiprops.accessInt("redstoneIceAxeID", 15976);
+        infiprops.accessInt("obsidianIceAxeID", 15990);
+        infiprops.accessInt("sandstoneIceAxeID", 16006);
+        infiprops.accessInt("boneIceAxeID", 16020);
+        infiprops.accessInt("paperIceAxeID", 16036);
+        infiprops.accessInt("mossyIceAxeID", 16046);
+        infiprops.accessInt("netherrackIceAxeID", 16055);
+        infiprops.accessInt("glowstoneIceAxeID", 16073);
+        infiprops.accessInt("iceIceAxeID", 16090);
+        infiprops.accessInt("lavaIceAxeID", 16108);
+        infiprops.accessInt("slimeIceAxeID", 16118);
+        infiprops.accessInt("cactusIceAxeID", 16141);
+        infiprops.accessInt("flintIceAxeID", 16154);
+        infiprops.accessInt("brickIceAxeID", 16172);
+        infiprops.accessInt("blazeIceAxeID", 16184);
+        infiprops.accessInt("woodMattockID", 16201);
+        infiprops.accessInt("stoneMattockID", 16214);
+        infiprops.accessInt("ironMattockID", 16229);
+        infiprops.accessInt("diamondMattockID", 16245);
+        infiprops.accessInt("goldMattockID", 16260);
+        infiprops.accessInt("redstoneMattockID", 16276);
+        infiprops.accessInt("obsidianMattockID", 16290);
+        infiprops.accessInt("sandstoneMattockID", 16306);
+        infiprops.accessInt("boneMattockID", 16320);
+        infiprops.accessInt("paperMattockID", 16336);
+        infiprops.accessInt("mossyMattockID", 16346);
+        infiprops.accessInt("netherrackMattockID", 16355);
+        infiprops.accessInt("glowstoneMattockID", 16373);
+        infiprops.accessInt("iceMattockID", 16390);
+        infiprops.accessInt("lavaMattockID", 16408);
+        infiprops.accessInt("slimeMattockID", 16418);
+        infiprops.accessInt("cactusMattockID", 16441);
+        infiprops.accessInt("flintMattockID", 16454);
+        infiprops.accessInt("brickMattockID", 16472);
+        infiprops.accessInt("blazeMattockID", 16484);
+        infiprops.accessInt("woodHammerID", 16501);
+        infiprops.accessInt("stoneHammerID", 16514);
+        infiprops.accessInt("ironHammerID", 16529);
+        infiprops.accessInt("diamondHammerID", 16545);
+        infiprops.accessInt("goldHammerID", 16560);
+        infiprops.accessInt("redstoneHammerID", 16576);
+        infiprops.accessInt("obsidianHammerID", 16590);
+        infiprops.accessInt("sandstoneHammerID", 16606);
+        infiprops.accessInt("boneHammerID", 16620);
+        infiprops.accessInt("paperHammerID", 16636);
+        infiprops.accessInt("mossyHammerID", 16646);
+        infiprops.accessInt("netherrackHammerID", 16655);
+        infiprops.accessInt("glowstoneHammerID", 16673);
+        infiprops.accessInt("iceHammerID", 16690);
+        infiprops.accessInt("lavaHammerID", 16708);
+        infiprops.accessInt("slimeHammerID", 16718);
+        infiprops.accessInt("cactusHammerID", 16741);
+        infiprops.accessInt("flintHammerID", 16754);
+        infiprops.accessInt("brickHammerID", 16772);
+        infiprops.accessInt("blazeHammerID", 16784);
+        infiprops.accessInt("woodScytheID", 16801);
+        infiprops.accessInt("stoneScytheID", 16814);
+        infiprops.accessInt("ironScytheID", 16829);
+        infiprops.accessInt("diamondScytheID", 16845);
+        infiprops.accessInt("goldScytheID", 16860);
+        infiprops.accessInt("redstoneScytheID", 16876);
+        infiprops.accessInt("obsidianScytheID", 16890);
+        infiprops.accessInt("sandstoneScytheID", 16906);
+        infiprops.accessInt("boneScytheID", 16920);
+        infiprops.accessInt("paperScytheID", 16936);
+        infiprops.accessInt("mossyScytheID", 16946);
+        infiprops.accessInt("netherrackScytheID", 16955);
+        infiprops.accessInt("glowstoneScytheID", 16973);
+        infiprops.accessInt("iceScytheID", 16990);
+        infiprops.accessInt("lavaScytheID", 17008);
+        infiprops.accessInt("slimeScytheID", 17018);
+        infiprops.accessInt("cactusScytheID", 17041);
+        infiprops.accessInt("flintScytheID", 17054);
+        infiprops.accessInt("brickScytheID", 17072);
+        infiprops.accessInt("blazeScytheID", 17084);
+        return infiprops;
+    }
+
+    public mod_InfiHybrids()
+    {
+        ModLoader.addName(treeRoot, "Tree Root");
+        ModLoader.addRecipe(new ItemStack(Block.sapling, 1), new Object[]
+                {
+                    "l", "r", Character.valueOf('l'), Block.leaves, Character.valueOf('r'), treeRoot
+                });
+        InfiRecipeIceAxes.recipeStorm();
+        InfiRecipeMattocks.recipeStorm();
+        InfiRecipeHammers.recipeStorm();
+        oreDictionarySupport();
+    }
+
+    public int addFuel(int i, int j)
+    {
+        if (i == treeRoot.shiftedIndex)
+        {
+            return 100;
+        } else
+        {
+        	return 0;
+        }
+    }
+    
     public static int treeRootID;
     public static int woodIceAxeID;
     public static int stoneIceAxeID;
@@ -933,250 +1151,6 @@ public class mod_InfiHybrids extends BaseModMp
     public static Item fBlazeHammer;
     public static Item blBlazeHammer;
     public static InfiProps props;
-
-    public String getVersion()
-    {
-        return "v1.0.7 Freedom";
-    }
-
-    public void load()
-    {
-    	checkInitialized();
-    }
-    
-    public void checkInitialized()
-    {
-    	try
-        {
-            Class infi = Class.forName("mod_InfiTools");
-            mod_InfiTools.getInitialized();
-        }
-    	catch (Throwable throwable)
-        {
-            System.out.println("mod_InfiHybrids initalization failed! Reason:");
-            System.out.println(throwable);
-        }
-    }
-
-    public static InfiProps getProps(InfiProps infiprops)
-    {
-        woodIceAxeID = infiprops.readInt("woodIceAxeID");
-        stoneIceAxeID = infiprops.readInt("stoneIceAxeID");
-        ironIceAxeID = infiprops.readInt("ironIceAxeID");
-        diamondIceAxeID = infiprops.readInt("diamondIceAxeID");
-        goldIceAxeID = infiprops.readInt("goldIceAxeID");
-        redstoneIceAxeID = infiprops.readInt("redstoneIceAxeID");
-        obsidianIceAxeID = infiprops.readInt("obsidianIceAxeID");
-        sandstoneIceAxeID = infiprops.readInt("sandstoneIceAxeID");
-        boneIceAxeID = infiprops.readInt("boneIceAxeID");
-        paperIceAxeID = infiprops.readInt("paperIceAxeID");
-        mossyIceAxeID = infiprops.readInt("mossyIceAxeID");
-        netherrackIceAxeID = infiprops.readInt("netherrackIceAxeID");
-        glowstoneIceAxeID = infiprops.readInt("glowstoneIceAxeID");
-        iceIceAxeID = infiprops.readInt("iceIceAxeID");
-        lavaIceAxeID = infiprops.readInt("lavaIceAxeID");
-        slimeIceAxeID = infiprops.readInt("slimeIceAxeID");
-        cactusIceAxeID = infiprops.readInt("cactusIceAxeID");
-        flintIceAxeID = infiprops.readInt("flintIceAxeID");
-        brickIceAxeID = infiprops.readInt("brickIceAxeID");
-        blazeIceAxeID = infiprops.readInt("blazeIceAxeID");
-        woodMattockID = infiprops.readInt("woodMattockID");
-        stoneMattockID = infiprops.readInt("stoneMattockID");
-        ironMattockID = infiprops.readInt("ironMattockID");
-        diamondMattockID = infiprops.readInt("diamondMattockID");
-        goldMattockID = infiprops.readInt("goldMattockID");
-        redstoneMattockID = infiprops.readInt("redstoneMattockID");
-        obsidianMattockID = infiprops.readInt("obsidianMattockID");
-        sandstoneMattockID = infiprops.readInt("sandstoneMattockID");
-        boneMattockID = infiprops.readInt("boneMattockID");
-        paperMattockID = infiprops.readInt("paperMattockID");
-        mossyMattockID = infiprops.readInt("mossyMattockID");
-        netherrackMattockID = infiprops.readInt("netherrackMattockID");
-        glowstoneMattockID = infiprops.readInt("glowstoneMattockID");
-        iceMattockID = infiprops.readInt("iceMattockID");
-        lavaMattockID = infiprops.readInt("lavaMattockID");
-        slimeMattockID = infiprops.readInt("slimeMattockID");
-        cactusMattockID = infiprops.readInt("cactusMattockID");
-        flintMattockID = infiprops.readInt("flintMattockID");
-        brickMattockID = infiprops.readInt("brickMattockID");
-        blazeMattockID = infiprops.readInt("blazeMattockID");
-        woodHammerID = infiprops.readInt("woodHammerID");
-        stoneHammerID = infiprops.readInt("stoneHammerID");
-        ironHammerID = infiprops.readInt("ironHammerID");
-        diamondHammerID = infiprops.readInt("diamondHammerID");
-        goldHammerID = infiprops.readInt("goldHammerID");
-        redstoneHammerID = infiprops.readInt("redstoneHammerID");
-        obsidianHammerID = infiprops.readInt("obsidianHammerID");
-        sandstoneHammerID = infiprops.readInt("sandstoneHammerID");
-        boneHammerID = infiprops.readInt("boneHammerID");
-        paperHammerID = infiprops.readInt("paperHammerID");
-        mossyHammerID = infiprops.readInt("mossyHammerID");
-        netherrackHammerID = infiprops.readInt("netherrackHammerID");
-        glowstoneHammerID = infiprops.readInt("glowstoneHammerID");
-        iceHammerID = infiprops.readInt("iceHammerID");
-        lavaHammerID = infiprops.readInt("lavaHammerID");
-        slimeHammerID = infiprops.readInt("slimeHammerID");
-        cactusHammerID = infiprops.readInt("cactusHammerID");
-        flintHammerID = infiprops.readInt("flintHammerID");
-        brickHammerID = infiprops.readInt("brickHammerID");
-        blazeHammerID = infiprops.readInt("blazeHammerID");
-        woodScytheID = infiprops.readInt("woodScytheID");
-        stoneScytheID = infiprops.readInt("stoneScytheID");
-        ironScytheID = infiprops.readInt("ironScytheID");
-        diamondScytheID = infiprops.readInt("diamondScytheID");
-        goldScytheID = infiprops.readInt("goldScytheID");
-        redstoneScytheID = infiprops.readInt("redstoneScytheID");
-        obsidianScytheID = infiprops.readInt("obsidianScytheID");
-        sandstoneScytheID = infiprops.readInt("sandstoneScytheID");
-        boneScytheID = infiprops.readInt("boneScytheID");
-        paperScytheID = infiprops.readInt("paperScytheID");
-        mossyScytheID = infiprops.readInt("mossyScytheID");
-        netherrackScytheID = infiprops.readInt("netherrackScytheID");
-        glowstoneScytheID = infiprops.readInt("glowstoneScytheID");
-        iceScytheID = infiprops.readInt("iceScytheID");
-        lavaScytheID = infiprops.readInt("lavaScytheID");
-        slimeScytheID = infiprops.readInt("slimeScytheID");
-        cactusScytheID = infiprops.readInt("cactusScytheID");
-        flintScytheID = infiprops.readInt("flintScytheID");
-        brickScytheID = infiprops.readInt("brickScytheID");
-        blazeScytheID = infiprops.readInt("blazeScytheID");
-        return infiprops;
-    }
-
-    public static InfiProps InitProps(InfiProps infiprops)
-    {
-        infiprops.accessInt("woodIceAxeID", 15901);
-        infiprops.accessInt("stoneIceAxeID", 15914);
-        infiprops.accessInt("ironIceAxeID", 15929);
-        infiprops.accessInt("diamondIceAxeID", 15945);
-        infiprops.accessInt("goldIceAxeID", 15960);
-        infiprops.accessInt("redstoneIceAxeID", 15976);
-        infiprops.accessInt("obsidianIceAxeID", 15990);
-        infiprops.accessInt("sandstoneIceAxeID", 16006);
-        infiprops.accessInt("boneIceAxeID", 16020);
-        infiprops.accessInt("paperIceAxeID", 16036);
-        infiprops.accessInt("mossyIceAxeID", 16046);
-        infiprops.accessInt("netherrackIceAxeID", 16055);
-        infiprops.accessInt("glowstoneIceAxeID", 16073);
-        infiprops.accessInt("iceIceAxeID", 16090);
-        infiprops.accessInt("lavaIceAxeID", 16108);
-        infiprops.accessInt("slimeIceAxeID", 16118);
-        infiprops.accessInt("cactusIceAxeID", 16141);
-        infiprops.accessInt("flintIceAxeID", 16154);
-        infiprops.accessInt("brickIceAxeID", 16172);
-        infiprops.accessInt("blazeIceAxeID", 16184);
-        infiprops.accessInt("woodMattockID", 16201);
-        infiprops.accessInt("stoneMattockID", 16214);
-        infiprops.accessInt("ironMattockID", 16229);
-        infiprops.accessInt("diamondMattockID", 16245);
-        infiprops.accessInt("goldMattockID", 16260);
-        infiprops.accessInt("redstoneMattockID", 16276);
-        infiprops.accessInt("obsidianMattockID", 16290);
-        infiprops.accessInt("sandstoneMattockID", 16306);
-        infiprops.accessInt("boneMattockID", 16320);
-        infiprops.accessInt("paperMattockID", 16336);
-        infiprops.accessInt("mossyMattockID", 16346);
-        infiprops.accessInt("netherrackMattockID", 16355);
-        infiprops.accessInt("glowstoneMattockID", 16373);
-        infiprops.accessInt("iceMattockID", 16390);
-        infiprops.accessInt("lavaMattockID", 16408);
-        infiprops.accessInt("slimeMattockID", 16418);
-        infiprops.accessInt("cactusMattockID", 16441);
-        infiprops.accessInt("flintMattockID", 16454);
-        infiprops.accessInt("brickMattockID", 16472);
-        infiprops.accessInt("blazeMattockID", 16484);
-        infiprops.accessInt("woodHammerID", 16501);
-        infiprops.accessInt("stoneHammerID", 16514);
-        infiprops.accessInt("ironHammerID", 16529);
-        infiprops.accessInt("diamondHammerID", 16545);
-        infiprops.accessInt("goldHammerID", 16560);
-        infiprops.accessInt("redstoneHammerID", 16576);
-        infiprops.accessInt("obsidianHammerID", 16590);
-        infiprops.accessInt("sandstoneHammerID", 16606);
-        infiprops.accessInt("boneHammerID", 16620);
-        infiprops.accessInt("paperHammerID", 16636);
-        infiprops.accessInt("mossyHammerID", 16646);
-        infiprops.accessInt("netherrackHammerID", 16655);
-        infiprops.accessInt("glowstoneHammerID", 16673);
-        infiprops.accessInt("iceHammerID", 16690);
-        infiprops.accessInt("lavaHammerID", 16708);
-        infiprops.accessInt("slimeHammerID", 16718);
-        infiprops.accessInt("cactusHammerID", 16741);
-        infiprops.accessInt("flintHammerID", 16754);
-        infiprops.accessInt("brickHammerID", 16772);
-        infiprops.accessInt("blazeHammerID", 16784);
-        infiprops.accessInt("woodScytheID", 16801);
-        infiprops.accessInt("stoneScytheID", 16814);
-        infiprops.accessInt("ironScytheID", 16829);
-        infiprops.accessInt("diamondScytheID", 16845);
-        infiprops.accessInt("goldScytheID", 16860);
-        infiprops.accessInt("redstoneScytheID", 16876);
-        infiprops.accessInt("obsidianScytheID", 16890);
-        infiprops.accessInt("sandstoneScytheID", 16906);
-        infiprops.accessInt("boneScytheID", 16920);
-        infiprops.accessInt("paperScytheID", 16936);
-        infiprops.accessInt("mossyScytheID", 16946);
-        infiprops.accessInt("netherrackScytheID", 16955);
-        infiprops.accessInt("glowstoneScytheID", 16973);
-        infiprops.accessInt("iceScytheID", 16990);
-        infiprops.accessInt("lavaScytheID", 17008);
-        infiprops.accessInt("slimeScytheID", 17018);
-        infiprops.accessInt("cactusScytheID", 17041);
-        infiprops.accessInt("flintScytheID", 17054);
-        infiprops.accessInt("brickScytheID", 17072);
-        infiprops.accessInt("blazeScytheID", 17084);
-        return infiprops;
-    }
-
-    public mod_InfiHybrids()
-    {
-        ModLoader.addName(treeRoot, "Tree Root");
-        ModLoader.addRecipe(new ItemStack(Block.sapling, 1), new Object[]
-                {
-                    "l", "r", Character.valueOf('l'), Block.leaves, Character.valueOf('r'), treeRoot
-                });
-        addAchievements();
-        InfiRecipeIceAxes.recipeStorm();
-        InfiRecipeMattocks.recipeStorm();
-        InfiRecipeHammers.recipeStorm();
-    }
-
-    public int addFuel(int i, int j)
-    {
-        if (i == treeRoot.shiftedIndex)
-        {
-            return 100;
-        } else
-        {
-        	return 0;
-        }
-    }
-
-    public static void addAchievements()
-    {
-        woodMattock = (new Achievement(1352, "woodMattock", -9, -3, wWoodMattock, null)).registerAchievement();
-        ModLoader.addAchievementDesc(woodMattock, "A Farmer's Best Friend", "Construct a wooden Mattock");
-        iceForever = (new Achievement(1353, "iceForever", -7, -5, iceIceIceAxe, null)).registerAchievement();
-        ModLoader.addAchievementDesc(iceForever, "Ice^Infinity", "Create an Ice Axe from Ice");
-        stoneHammer = (new Achievement(1354, "stoneHammer", -8, -4, stStoneHammer, null)).registerAchievement();
-        ModLoader.addAchievementDesc(stoneHammer, "Diggy diggy hole!", "Craft a stone Hammer");
-    }
-
-    public void TakenFromCrafting(EntityPlayer entityplayer, ItemStack itemstack, IInventory iinventory)
-    {
-        if (itemstack.itemID == wWoodMattock.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(woodMattock);
-        }
-        if (itemstack.itemID == iceIceIceAxe.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(iceForever);
-        }
-        if (itemstack.itemID == wStoneHammer.shiftedIndex || itemstack.itemID == stStoneHammer.shiftedIndex || itemstack.itemID == saStoneHammer.shiftedIndex || itemstack.itemID == bStoneHammer.shiftedIndex || itemstack.itemID == mStoneHammer.shiftedIndex || itemstack.itemID == nStoneHammer.shiftedIndex || itemstack.itemID == iceStoneHammer.shiftedIndex || itemstack.itemID == sStoneHammer.shiftedIndex || itemstack.itemID == cStoneHammer.shiftedIndex)
-        {
-            ModLoader.getMinecraftInstance().thePlayer.triggerAchievement(stoneHammer);
-        }
-    }
 
     static
     {

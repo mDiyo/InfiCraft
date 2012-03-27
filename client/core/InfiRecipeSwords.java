@@ -19,59 +19,59 @@ public class InfiRecipeSwords
         ModLoader.addName(mod_InfiTools.stWoodSword, "Stony Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.stWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
         mod_InfiTools.saWoodSword.setIconCoord(2, 0);
         ModLoader.addName(mod_InfiTools.saWoodSword, "Sandy Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.saWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
         mod_InfiTools.bWoodSword.setIconCoord(3, 0);
         ModLoader.addName(mod_InfiTools.bWoodSword, "Necrotic Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiTools.pWoodSword.setIconCoord(4, 0);
         ModLoader.addName(mod_InfiTools.pWoodSword, "Fibery Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.pWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
         mod_InfiTools.nWoodSword.setIconCoord(5, 0);
         ModLoader.addName(mod_InfiTools.nWoodSword, "Bloody Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.nWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
         mod_InfiTools.sWoodSword.setIconCoord(6, 0);
         ModLoader.addName(mod_InfiTools.sWoodSword, "Slimy Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.sWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
         mod_InfiTools.cWoodSword.setIconCoord(7, 0);
         ModLoader.addName(mod_InfiTools.cWoodSword, "Spiny Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.cWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
         mod_InfiTools.fWoodSword.setIconCoord(8, 0);
         ModLoader.addName(mod_InfiTools.fWoodSword, "Flaky Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.fWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
         mod_InfiTools.brWoodSword.setIconCoord(9, 0);
         ModLoader.addName(mod_InfiTools.brWoodSword, "Baked Wooden Sword");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.brWoodSword, 1), new Object[]
                 {
-                    "m", "m", "|", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    "m", "m", "|", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
         ModLoader.addRecipe(new ItemStack(Item.swordStone, 1), new Object[]
                 {

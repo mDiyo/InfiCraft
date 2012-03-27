@@ -150,13 +150,16 @@ public class BalkFlailEntity extends Entity
                 inGround = true;
             }
         }
-        distanceX = shootingEntity.posX - posX;
-        distanceY = shootingEntity.posY - posY;
-        distanceZ = shootingEntity.posZ - posZ;
-        distanceTotal = Math.sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
-        if (distanceTotal > 3D)
+        if (shootingEntity != null)
         {
-            returnToOwner(shootingEntity, true);
+	        distanceX = shootingEntity.posX - posX;
+	        distanceY = shootingEntity.posY - posY;
+	        distanceZ = shootingEntity.posZ - posZ;
+	        distanceTotal = Math.sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
+	        if (distanceTotal > 3D)
+	        {
+	            returnToOwner(shootingEntity, true);
+	        }
         }
         try
         {
@@ -347,7 +350,7 @@ public class BalkFlailEntity extends Entity
 
     public void pickUpByOwner()
     {
-        setEntityDead();
+        setDead();
         toolFlail.setThrown(false);
     }
 
@@ -404,7 +407,7 @@ public class BalkFlailEntity extends Entity
         distanceY = nbttagcompound.getShort("dY");
         distanceZ = nbttagcompound.getShort("dZ");
         itemID = nbttagcompound.getInteger("item");
-        setEntityDead();
+        setDead();
     }
 
     public void onCollideWithPlayer(EntityPlayer entityplayer)

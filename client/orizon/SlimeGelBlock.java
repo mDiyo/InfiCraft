@@ -16,17 +16,6 @@ public class SlimeGelBlock extends BlockBreakable
     
 	public boolean getEnableStats() {return false;}
 	
-	@Override
-	public int getRenderBlockPass()
-    {
-        return 1;
-    }
-	
-	public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int i, int j, int k, int l)
-    {
-        return super.shouldSideBeRendered(iblockaccess, i, j, k, 1 - l);
-    }
-	
 	public int getMobilityFlag()
     {
         return 0;

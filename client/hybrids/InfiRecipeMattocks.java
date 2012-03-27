@@ -14,65 +14,65 @@ public class InfiRecipeMattocks
         ModLoader.addName(mod_InfiHybrids.wWoodMattock, "Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.wWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.stick
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.stick
                 });
         mod_InfiHybrids.stWoodMattock.setIconCoord(1, 0);
         ModLoader.addName(mod_InfiHybrids.stWoodMattock, "Stony Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.stWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
         mod_InfiHybrids.saWoodMattock.setIconCoord(2, 0);
         ModLoader.addName(mod_InfiHybrids.saWoodMattock, "Sandy Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.saWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
         mod_InfiHybrids.bWoodMattock.setIconCoord(3, 0);
         ModLoader.addName(mod_InfiHybrids.bWoodMattock, "Necrotic Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.bWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.bWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiHybrids.pWoodMattock.setIconCoord(4, 0);
         ModLoader.addName(mod_InfiHybrids.pWoodMattock, "Fibery Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.pWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
         mod_InfiHybrids.nWoodMattock.setIconCoord(5, 0);
         ModLoader.addName(mod_InfiHybrids.nWoodMattock, "Bloody Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.nWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
         mod_InfiHybrids.sWoodMattock.setIconCoord(6, 0);
         ModLoader.addName(mod_InfiHybrids.sWoodMattock, "Slimy Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.sWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
         mod_InfiHybrids.cWoodMattock.setIconCoord(7, 0);
         ModLoader.addName(mod_InfiHybrids.cWoodMattock, "Spiny Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.cWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
         mod_InfiHybrids.fWoodMattock.setIconCoord(8, 0);
         ModLoader.addName(mod_InfiHybrids.fWoodMattock, "Flaky Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.fWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
         mod_InfiHybrids.brWoodMattock.setIconCoord(9, 0);
         ModLoader.addName(mod_InfiHybrids.brWoodMattock, "Baked Wooden Mattock");
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.brWoodMattock, 1), new Object[]
                 {
-                    "mmm", "m| ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    "mmm", "m| ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
         mod_InfiHybrids.wStoneMattock.setIconCoord(0, 1);
         ModLoader.addName(mod_InfiHybrids.wStoneMattock, "Stone Mattock");

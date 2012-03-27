@@ -64,7 +64,8 @@ public class InfiWeaponBase extends ItemSword
         return true;
     }
     
-    public float getStrVsBlock(ItemStack itemstack, Block block, int md)
+    @Override
+    public float getStrVsBlock(ItemStack itemstack, Block block)
 	{
 		for (int i = 0; i < materialEffectiveAgainst.length; i++)
 		{
@@ -72,11 +73,11 @@ public class InfiWeaponBase extends ItemSword
 			{
 				if (type1 == 2 || type1 == 8 || type1 == 10 || type1 == 12 || type1 == 14 || type1 == 15 || type1 == 17)
 				{
-					return efficiencyOnProperMaterial + (float)itemstack.getItemDamage() / 100F;
+					return efficiencyOnProperMaterial + (float)itemstack.getItemDamage() / 100F * 1.5F;
 				}
 				else
 				{
-					return efficiencyOnProperMaterial;
+					return efficiencyOnProperMaterial * 1.5F;
 				}
 			}
 		}

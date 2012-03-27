@@ -1,7 +1,7 @@
 package net.minecraft.src.orizon;
 import net.minecraft.src.*;
 public class OrizonRecipes {
-
+	
 	public static void addNames() {
     	ModLoader.addLocalization("mineralCopper.name", "Copper Ore");
     	ModLoader.addLocalization("mineralTurquoise.name", "Turquoise Ore");

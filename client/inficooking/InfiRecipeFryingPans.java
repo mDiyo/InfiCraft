@@ -14,65 +14,65 @@ public class InfiRecipeFryingPans
         ModLoader.addName(mod_InfiCooking.wWoodFryingPan, "Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.wWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.stick
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.stick
                 });
         mod_InfiCooking.stWoodFryingPan.setIconCoord(1, 0);
         ModLoader.addName(mod_InfiCooking.stWoodFryingPan, "Stony Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.stWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
         mod_InfiCooking.saWoodFryingPan.setIconCoord(2, 0);
         ModLoader.addName(mod_InfiCooking.saWoodFryingPan, "Sandy Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.saWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiCooking.bWoodFryingPan.setIconCoord(3, 0);
         ModLoader.addName(mod_InfiCooking.bWoodFryingPan, "Necrotic Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.bWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.bWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiCooking.pWoodFryingPan.setIconCoord(4, 0);
         ModLoader.addName(mod_InfiCooking.pWoodFryingPan, "Fibery Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.pWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
         mod_InfiCooking.nWoodFryingPan.setIconCoord(5, 0);
         ModLoader.addName(mod_InfiCooking.nWoodFryingPan, "Bloody Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.nWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
         mod_InfiCooking.sWoodFryingPan.setIconCoord(6, 0);
         ModLoader.addName(mod_InfiCooking.sWoodFryingPan, "Slimy Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.sWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
         mod_InfiCooking.cWoodFryingPan.setIconCoord(7, 0);
         ModLoader.addName(mod_InfiCooking.cWoodFryingPan, "Spiny Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.cWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
         mod_InfiCooking.fWoodFryingPan.setIconCoord(8, 0);
         ModLoader.addName(mod_InfiCooking.fWoodFryingPan, "Flaky Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.fWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
         mod_InfiCooking.brWoodFryingPan.setIconCoord(9, 0);
         ModLoader.addName(mod_InfiCooking.brWoodFryingPan, "Baked Wooden Frying Pan");
         ModLoader.addRecipe(new ItemStack(mod_InfiCooking.brWoodFryingPan, 1), new Object[]
                 {
-                    " m ", "m m", "|m ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    " m ", "m m", "|m ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
         mod_InfiCooking.wStoneFryingPan.setIconCoord(0, 1);
         ModLoader.addName(mod_InfiCooking.wStoneFryingPan, "Stone Frying Pan");

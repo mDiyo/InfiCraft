@@ -14,7 +14,7 @@ public class mod_FloraSoma extends BaseModMp
 {
 	public String getVersion()
 	{
-		return "0.3.4 Height";
+		return "0.3.5 Height";
 	}
 
 	public void load()
@@ -1206,7 +1206,7 @@ public class mod_FloraSoma extends BaseModMp
 		}
 		
 		if(enableCrops) {
-			food = (new RecipeItem(foodID, "/floratex/seeds.png")).setIconCoord(1, 3).setItemName("food");
+			food = (new MultiTexture(foodID, "/floratex/seeds.png")).setIconCoord(1, 3).setItemName("food");
 			floraCrops = (new FloraCrops(floraCropsID, 80)).setStepSound(Block.soundGrassFootstep).setBlockName("floraCrops");
 			barleySeed = (new FloraSeeds(barleySeedID, floraCrops.blockID, Block.tilledField.blockID)).setIconCoord(1, 2).setItemName("barleySeed");
 		}

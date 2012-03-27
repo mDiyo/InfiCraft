@@ -245,7 +245,8 @@ public class PropsHelperOrizon {
 	}
 
 	public static InfiProps InitSpawn(InfiProps infiprops)
-	{		
+	{	
+		mod_Orizon.flatBedrock = infiprops.accessBoolean("Make Bedrock Flat", true);
 		infiprops.accessBoolean("Generate Stratified Stone", true);
 		infiprops.accessBoolean("Generate Colored Stone", true);
 		infiprops.accessBoolean("Generate Calcite and Calcite Ores", true);

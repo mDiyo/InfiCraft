@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.blocks.*;
 import net.minecraft.src.forge.*;
+
 import java.io.*;
 
 import org.lwjgl.opengl.GL11;
@@ -12,7 +13,7 @@ public class mod_InfiBlocks extends BaseModMp
 {
 	public String getVersion()
 	{
-		return "v0.7.3 Color Bricked";
+		return "v0.7.6 Color Bricked";
 	}
 
 	public void load()
@@ -25,20 +26,20 @@ public class mod_InfiBlocks extends BaseModMp
 		return mc;
 	}
 	
-	/*public void checkInitialized()
-	{
-		try
-		{
-			Class infi = Class.forName("mod_InfiTools");
-			mod_InfiTools.getInitialized();
-			//InfiBlockRecipes.addInfiToolsRecipes();
-		}
-		catch (Exception e)
-		{
-			System.out.println("mod_InfiBlocks initalization failed! Reason:");
-			System.out.println(e);
-		}
-	}*/
+	public static void oreDictionarySupport()
+    {
+        MinecraftForge.registerOreHandler(new IOreHandler()
+        {
+            public void registerOre(String ore, ItemStack stack)
+            {
+                if(ore.equals("customCobblestone"))
+                {
+                	ModLoader.addRecipe(new ItemStack(workbench, 1), new Object[]
+            	            { "##", "##", '#', stack });
+                }
+            }
+        } );
+    }
 
 	@Override
 	public GuiScreen handleGUI(int i)
@@ -72,22 +73,32 @@ public class mod_InfiBlocks extends BaseModMp
 		if (modelID == paneModelID)
 		{
 			return InfiBlockRenders.RenderPaneInWorld(renderblocks, iblockaccess, i, j, k, (PaneBase)block);
-		}
+		} else
+		
+		if (modelID == brickModelID)
+		{
+			return InfiBlockRenders.renderBrickWorld(renderblocks, iblockaccess, i, j, k, block);
+		} else
 		{	  	
 			return false;
 		}
 	}
 	
-	public void renderInvBlock(RenderBlocks renderblocks, Block block, int i, int j)
+	public void renderInvBlock(RenderBlocks renderblocks, Block block, int i, int modelID)
 	{
-		if (j == magicSlabModel)
+		if (modelID == magicSlabModel)
 		{
 			InfiBlockRenders.RenderMagicInv(renderblocks, block, i);
 		}
 		
-		if (j == paneModelID)
+		if (modelID == paneModelID)
 		{
 			InfiBlockRenders.RenderPaneInv(renderblocks, block, i);
+		}
+		
+		if (modelID == brickModelID)
+		{
+			InfiBlockRenders.RenderBrickInv(renderblocks, block, i);
 		}
 	}
 	
@@ -113,7 +124,7 @@ public class mod_InfiBlocks extends BaseModMp
                     Integer integer = (Integer)DetailManager.damageContainer.get(Integer.valueOf(itemstack1.itemID));
                     if (integer != null)
                     {
-                        iinventory.setInventorySlotContents(i, new ItemStack(integer.intValue(), 2, 0));
+                        iinventory.setInventorySlotContents(i, new ItemStack(integer.intValue(), 1, 0));
                     }
                 }
             }
@@ -158,6 +169,7 @@ public class mod_InfiBlocks extends BaseModMp
 		
 		magicSlabModel = ModLoader.getUniqueBlockModelID(this, true);
 		paneModelID = ModLoader.getUniqueBlockModelID(this, true);
+		brickModelID = ModLoader.getUniqueBlockModelID(this, true);
 		InfiBlockRecipes.addNames();
 		InfiBlockRecipes.recipeStorm();
 		InfiBlockRecipes.magicSlabFrenzy();
@@ -165,8 +177,10 @@ public class mod_InfiBlocks extends BaseModMp
 		//checkInitialized();
 		MinecraftForgeClient.preloadTexture("/infiblocks/infiblocks.png");
 		MinecraftForgeClient.preloadTexture("/infiblocks/infimachines.png");
+		MinecraftForgeClient.preloadTexture("/infiblocks/bricks.png");
 		
 		setupCraftHook();
+		oreDictionarySupport();
 	}
 	
 	public static int blockCraftingID;
@@ -239,6 +253,7 @@ public class mod_InfiBlocks extends BaseModMp
 	public static int furnaceGuiID;
 	public static int magicSlabModel;
 	public static int paneModelID;
+	public static int brickModelID;
 	
 	public static boolean resolveConflicts;
 	
@@ -273,10 +288,10 @@ public class mod_InfiBlocks extends BaseModMp
 		infiGlassMagicSlab = new InfiGlassMagicSlab(infiGlassMagicSlabID, 160).setHardness(0.3F).setStepSound(Block.soundGlassFootstep).setBlockName("InfiGlass Magic Slab");
 
 		storageBlock = new StorageBlock(storageBlockID, 0).setHardness(0.3F).setBlockName("InfiStorage Block");
-		brick = new BrickBlock(brickID, 16).setHardness(0.3F).setBlockName("InfiBrick");
+		brick = new BrickBlock(brickID, 0).setHardness(0.3F).setBlockName("InfiBrick");
 		fancyBrick = new BrickFancy(fancyBrickID, 48).setHardness(0.3F).setStepSound(Block.soundStoneFootstep).setBlockName("InfiBrick Fancy");
-		iceBrick = new BrickIce(iceBrickID, 112).setHardness(Block.ice.getHardness()).setStepSound(Block.soundGlassFootstep).setBlockName("Ice Brick");
-		brownstone = new Brownstone(brownstoneID, 96).setHardness(Block.cobblestone.getHardness()).setBlockName("Brownstone");
+		iceBrick = new BrickIce(iceBrickID, 160).setHardness(Block.ice.getHardness()).setStepSound(Block.soundGlassFootstep).setBlockName("Ice Brick");
+		brownstone = new Brownstone(brownstoneID, 176).setHardness(Block.cobblestone.getHardness()).setBlockName("Brownstone");
 		
 		storageBlockMagicSlab = new StorageBlockMagicSlab(storageBlockMagicSlabID, 0).setHardness(0.3F).setBlockName("Storage Block Magic Slab");
 		brickMagicSlab = new BrickBlockMagicSlab(brickMagicSlabID, 16).setHardness(0.3F).setBlockName("Brick Magic Slab");

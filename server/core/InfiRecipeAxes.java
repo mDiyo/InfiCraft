@@ -14,59 +14,59 @@ public class InfiRecipeAxes
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.stWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
         mod_InfiTools.saWoodAxe.setIconCoord(2, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.saWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
         mod_InfiTools.bWoodAxe.setIconCoord(3, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiTools.pWoodAxe.setIconCoord(4, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.pWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
         mod_InfiTools.nWoodAxe.setIconCoord(5, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.nWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
         mod_InfiTools.sWoodAxe.setIconCoord(6, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.sWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
         mod_InfiTools.cWoodAxe.setIconCoord(7, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.cWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
         mod_InfiTools.fWoodAxe.setIconCoord(8, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.fWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
         mod_InfiTools.brWoodAxe.setIconCoord(9, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.brWoodAxe, 1), new Object[]
                 {
-                    "mm", "m|", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    "mm", "m|", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
         ModLoader.addRecipe(new ItemStack(Item.axeStone, 1), new Object[]
                 {

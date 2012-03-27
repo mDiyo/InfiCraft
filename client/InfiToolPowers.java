@@ -51,13 +51,13 @@ public class InfiToolPowers extends mod_InfiTools
         }
     }
     
-    public static void freezingEnchant(ItemStack itemstack, EntityLiving mob)
+    public static boolean freezingEnchant(ItemStack itemstack, EntityLiving mob)
 	{
 		int freezeCheck = 0;
 		NBTTagList nbttaglist = itemstack.getEnchantmentTagList();
         if(nbttaglist == null)
         {
-            return;
+            return false;
         }
         for(int j = 0; j < nbttaglist.tagCount(); j++)
         {
@@ -71,8 +71,9 @@ public class InfiToolPowers extends mod_InfiTools
 		if(freezeCheck > 0)
         {
             mob.freeze(freezeCheck * 60);
-			//mob.freeze();
+            return true;
         }
+		return false;
 	}
 
     public static void burning(int i, int j, int k, int l, int i1, World world, EntityLiving entityliving)

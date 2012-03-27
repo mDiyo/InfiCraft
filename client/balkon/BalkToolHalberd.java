@@ -62,9 +62,6 @@ public class BalkToolHalberd extends InfiWeaponBase
         mob.motionX *= knockback;
         mob.motionZ *= knockback;
         
-      //Freezing Enchant
-      	InfiToolPowers.freezingEnchant(itemstack, mob);
-        
         return true;
     }
 

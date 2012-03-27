@@ -102,7 +102,7 @@ public class FloraBoat extends Item
                 default: return itemstack;
                 }
             }
-            if (!entityplayer.capabilities.depleteBuckets)
+            if (!entityplayer.capabilities.isCreativeMode)
             {
                 itemstack.stackSize--;
             }

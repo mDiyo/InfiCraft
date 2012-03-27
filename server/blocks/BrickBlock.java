@@ -34,6 +34,12 @@ public class BrickBlock extends Block
     	}
     }
     
+    @Override
+    public int getRenderType()
+    {
+        return mod_InfiBlocks.brickModelID;
+    }
+    
     protected int damageDropped(int md)
     {
         return md;
@@ -41,7 +47,7 @@ public class BrickBlock extends Block
     
     public int getBlockTextureFromSideAndMetadata(int side, int md)
     {
-        return blockIndexInTexture + md;
+        return blockIndexInTexture + md * 16;
     }
     
     public void addCreativeItems(ArrayList arraylist)
@@ -66,6 +72,6 @@ public class BrickBlock extends Block
     
     public String getTextureFile()
     {
-        return "/infiblocks/infiblocks.png";
+        return "/infiblocks/bricks.png";
     }
 }

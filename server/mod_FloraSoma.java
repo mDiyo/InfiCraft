@@ -10,10 +10,9 @@ import java.util.Random;
 
 public class mod_FloraSoma extends BaseModMp
 {
-
 	public String getVersion()
 	{
-		return "0.3.4 Height";
+		return "0.3.5 Height";
 	}
 
 	public void load()

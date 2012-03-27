@@ -1,13 +1,163 @@
 package net.minecraft.src;
 
-import net.minecraft.src.infiflora.*;
+import net.minecraft.src.forge.IOreHandler;
+import net.minecraft.src.forge.MinecraftForge;
+import net.minecraft.src.inficooking.*;
 
 import java.io.File;
 import java.io.PrintStream;
 
 public class mod_InfiCooking extends BaseModMp
 {
+	
+	public static void oreDictionarySupport()
+    {
+        MinecraftForge.registerOreHandler(new IOreHandler()
+        {
+            public void registerOre(String ore, ItemStack itemstack)
+            {
+                if(ore.equals("customCobblestone") || ore.equals("customStone"))
+                {
+                    OrizonFryingPanRecipes.addStoneTools(itemstack);
+                }
+            }
+        } );
+    }
     
+
+    public String getVersion()
+    {
+        return "v0.1.3 Infi~";
+    }
+
+    public void load()
+    {
+    	//checkInitialized();
+    }
+    
+    /*public void checkInitialized()
+    {
+    	try
+        {
+            Class infi = Class.forName("mod_InfiTools");
+            mod_InfiTools.getInitialized();
+            InfiRecipeFryingPans.recipeStorm();
+            addInfiToolsRecipes();
+        }
+    	catch (Exception e)
+        {
+            System.out.println("Flora + InfiTools initalization failed! Reason:");
+            System.out.println(e);
+        }
+    }*/
+    
+    public static void addInfiToolsRecipes()
+	{
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBucketWater, 1), new Object[]
+				{
+					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.woodBucketEmpty
+				});
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBucketWater, 1), new Object[]
+				{
+					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.cactusBucketEmpty
+				});
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.goldBucketWater, 1), new Object[]
+				{
+					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.goldBucketEmpty
+				});
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.iceBucketIce, 1), new Object[]
+				{
+					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.iceBucketEmpty
+				});
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.slimeBucketWater, 1), new Object[]
+				{
+					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, 'B', mod_InfiTools.slimeBucketEmpty
+				});
+		
+		
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBowlRawPumpkinPie, 1), new Object[]
+				{
+					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), Item.bowlEmpty
+				});
+		
+		ModLoader.addSmelting(mod_InfiTools.woodBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.woodBowlPumpkinPie, 1));
+		
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBowlRawPumpkinPie, 1), new Object[]
+				{
+					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.stoneBowlEmpty
+				});
+		
+		ModLoader.addSmelting(mod_InfiTools.stoneBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.stoneBowlPumpkinPie, 1));
+		
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.goldBowlRawPumpkinPie, 1), new Object[]
+				{
+					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.goldBowlEmpty
+				});
+		
+		ModLoader.addSmelting(mod_InfiTools.goldBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.goldBowlPumpkinPie, 1));
+		
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.netherrackBowlRawPumpkinPie, 1), new Object[]
+				{
+					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.netherrackBowlEmpty
+				});
+		
+		ModLoader.addSmelting(mod_InfiTools.netherrackBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.netherrackBowlPumpkinPie, 1));
+		
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.slimeBowlRawPumpkinPie, 1), new Object[]
+				{
+					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.slimeBowlEmpty
+				});
+		
+		ModLoader.addSmelting(mod_InfiTools.slimeBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.slimeBowlPumpkinPie, 1));
+		
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBowlRawPumpkinPie, 1), new Object[]
+				{
+					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.cactusBowlEmpty
+				});
+		
+		ModLoader.addSmelting(mod_InfiTools.cactusBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.cactusBowlPumpkinPie, 1));
+		
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBowlRawPumpkinPie, 1), new Object[]
+				{
+					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.cactusBowlEmpty
+				});
+		
+		ModLoader.addSmelting(mod_InfiTools.glassBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.glassBowlPumpkinPie, 1));
+	}
+
+    
+    public static InfiProps initProps(InfiProps infiprops)
+    {
+        woodFryingPanID = infiprops.accessInt("woodFryingPanID", 15601);
+        stoneFryingPanID = infiprops.accessInt("stoneFryingPanID", 15614);
+        ironFryingPanID = infiprops.accessInt("ironFryingPanID", 15629);
+        diamondFryingPanID = infiprops.accessInt("diamondFryingPanID", 15645);
+        goldFryingPanID = infiprops.accessInt("goldFryingPanID", 15660);
+        redstoneFryingPanID = infiprops.accessInt("redstoneFryingPanID", 15676);
+        obsidianFryingPanID = infiprops.accessInt("obsidianFryingPanID", 15690);
+        sandstoneFryingPanID = infiprops.accessInt("sandstoneFryingPanID", 15706);
+        boneFryingPanID = infiprops.accessInt("boneFryingPanID", 15720);
+        paperFryingPanID = infiprops.accessInt("paperFryingPanID", 15736);
+        mossyFryingPanID = infiprops.accessInt("mossyFryingPanID", 15746);
+        netherrackFryingPanID = infiprops.accessInt("netherrackFryingPanID", 15755);
+        glowstoneFryingPanID = infiprops.accessInt("glowstoneFryingPanID", 15773);
+        iceFryingPanID = infiprops.accessInt("iceFryingPanID", 15790);
+        lavaFryingPanID = infiprops.accessInt("lavaFryingPanID", 15808);
+        slimeFryingPanID = infiprops.accessInt("slimeFryingPanID", 15818);
+        cactusFryingPanID = infiprops.accessInt("cactusFryingPanID", 15841);
+        flintFryingPanID = infiprops.accessInt("flintFryingPanID", 15854);
+        brickFryingPanID = infiprops.accessInt("brickFryingPanID", 15872);
+        blazeFryingPanID = infiprops.accessInt("blazeFryingPanID", 15884);
+        return infiprops;
+    }
+
+    public mod_InfiCooking()
+    {
+    	InfiRecipeFryingPans.recipeStorm();
+    	oreDictionarySupport();
+    }
+    
+
     public static int woodFryingPanID;
     public static int stoneFryingPanID;
     public static int ironFryingPanID;
@@ -149,7 +299,11 @@ public class mod_InfiCooking extends BaseModMp
     public static int fType;
     public static int brType;
     public static int blType;
-
+    
+    public static Achievement woodPan;
+    public static Achievement ironPan;
+    public static Achievement lavaPan;
+    
     public static Item wWoodFryingPan;
     public static Item stWoodFryingPan;
     public static Item saWoodFryingPan;
@@ -393,138 +547,6 @@ public class mod_InfiCooking extends BaseModMp
     
     public static InfiProps props;
 
-    public String getVersion()
-    {
-        return "v0.1.1 Infi~";
-    }
-
-    public void load()
-    {
-    	//checkInitialized();
-    }
-    
-    /*public void checkInitialized()
-    {
-    	try
-        {
-            Class infi = Class.forName("mod_InfiTools");
-            mod_InfiTools.getInitialized();
-            InfiRecipeFryingPans.recipeStorm();
-            addInfiToolsRecipes();
-        }
-    	catch (Exception e)
-        {
-            System.out.println("Flora + InfiTools initalization failed! Reason:");
-            System.out.println(e);
-        }
-    }*/
-    
-    public static void addInfiToolsRecipes()
-	{
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBucketWater, 1), new Object[]
-				{
-					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.woodBucketEmpty
-				});
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBucketWater, 1), new Object[]
-				{
-					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.cactusBucketEmpty
-				});
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.goldBucketWater, 1), new Object[]
-				{
-					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.goldBucketEmpty
-				});
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.iceBucketIce, 1), new Object[]
-				{
-					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, Character.valueOf('B'), mod_InfiTools.iceBucketEmpty
-				});
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.slimeBucketWater, 1), new Object[]
-				{
-					"www", "wBw", "www", 'w', mod_FloraSoma.waterDrop, 'B', mod_InfiTools.slimeBucketEmpty
-				});
-		
-		
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBowlRawPumpkinPie, 1), new Object[]
-				{
-					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), Item.bowlEmpty
-				});
-		
-		ModLoader.addSmelting(mod_InfiTools.woodBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.woodBowlPumpkinPie, 1));
-		
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.woodBowlRawPumpkinPie, 1), new Object[]
-				{
-					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.stoneBowlEmpty
-				});
-		
-		ModLoader.addSmelting(mod_InfiTools.stoneBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.stoneBowlPumpkinPie, 1));
-		
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.goldBowlRawPumpkinPie, 1), new Object[]
-				{
-					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.goldBowlEmpty
-				});
-		
-		ModLoader.addSmelting(mod_InfiTools.goldBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.goldBowlPumpkinPie, 1));
-		
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.netherrackBowlRawPumpkinPie, 1), new Object[]
-				{
-					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.netherrackBowlEmpty
-				});
-		
-		ModLoader.addSmelting(mod_InfiTools.netherrackBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.netherrackBowlPumpkinPie, 1));
-		
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.slimeBowlRawPumpkinPie, 1), new Object[]
-				{
-					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.slimeBowlEmpty
-				});
-		
-		ModLoader.addSmelting(mod_InfiTools.slimeBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.slimeBowlPumpkinPie, 1));
-		
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBowlRawPumpkinPie, 1), new Object[]
-				{
-					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.cactusBowlEmpty
-				});
-		
-		ModLoader.addSmelting(mod_InfiTools.cactusBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.cactusBowlPumpkinPie, 1));
-		
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.cactusBowlRawPumpkinPie, 1), new Object[]
-				{
-					"p", "d", "b", 'p', mod_InfiTools.pumpkinPulp, 'd', mod_FloraSoma.wheatDough, Character.valueOf('b'), mod_InfiTools.cactusBowlEmpty
-				});
-		
-		ModLoader.addSmelting(mod_InfiTools.glassBowlRawPumpkinPie.shiftedIndex, new ItemStack(mod_InfiTools.glassBowlPumpkinPie, 1));
-	}
-
-    
-    public static InfiProps getProps(InfiProps infiprops)
-    {
-        
-        woodFryingPanID = infiprops.readInt("woodFryingPanID");
-        stoneFryingPanID = infiprops.readInt("stoneFryingPanID");
-        ironFryingPanID = infiprops.readInt("ironFryingPanID");
-        diamondFryingPanID = infiprops.readInt("diamondFryingPanID");
-        goldFryingPanID = infiprops.readInt("goldFryingPanID");
-        redstoneFryingPanID = infiprops.readInt("redstoneFryingPanID");
-        obsidianFryingPanID = infiprops.readInt("obsidianFryingPanID");
-        sandstoneFryingPanID = infiprops.readInt("sandstoneFryingPanID");
-        boneFryingPanID = infiprops.readInt("boneFryingPanID");
-        paperFryingPanID = infiprops.readInt("paperFryingPanID");
-        mossyFryingPanID = infiprops.readInt("mossyFryingPanID");
-        netherrackFryingPanID = infiprops.readInt("netherrackFryingPanID");
-        glowstoneFryingPanID = infiprops.readInt("glowstoneFryingPanID");
-        iceFryingPanID = infiprops.readInt("iceFryingPanID");
-        lavaFryingPanID = infiprops.readInt("lavaFryingPanID");
-        slimeFryingPanID = infiprops.readInt("slimeFryingPanID");
-        cactusFryingPanID = infiprops.readInt("cactusFryingPanID");
-        flintFryingPanID = infiprops.readInt("flintFryingPanID");
-        brickFryingPanID = infiprops.readInt("brickFryingPanID");
-        blazeFryingPanID = infiprops.readInt("blazeFryingPanID");
-        return infiprops;
-    }
-
-    public mod_InfiCooking()
-    {
-    	InfiRecipeFryingPans.recipeStorm();
-    }
-
     public static int enchantBase(int i)
     {
         switch (i)
@@ -590,11 +612,6 @@ public class mod_InfiCooking extends BaseModMp
                 return 27;
         }
         return 0;
-    }
-
-    public static File getMinecraftDir()
-    {
-        return new File(".");
     }
 
     static
@@ -719,13 +736,10 @@ public class mod_InfiCooking extends BaseModMp
         fType = 18;
         brType = 19;
         blType = 20;
-        File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-        		.append('/').append("mDiyo").toString() ) );
+        File me = new File("./config/InfiCraft");
         me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("mDiyo").append('/').append("InfiCooking.cfg").toString())).getPath());
-        props = InfiTools.InitProps(props);
-        getProps(props);
+        props = new InfiProps("./config/InfiCraft/InfiCooking.cfg");
+        props = initProps(props);
         
         wWoodFryingPan = (new InfiToolFryingPan(woodFryingPanID + 0, (int)((float)wDur * wMod), wDam, wType, wType)).setItemName("wWoodFryingPan");
         stWoodFryingPan = (new InfiToolFryingPan(woodFryingPanID + 1, (int)((float)wDur * stMod), wDam, wType, stType)).setItemName("stWoodFryingPan");

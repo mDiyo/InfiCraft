@@ -56,7 +56,7 @@ public class FloraLeaves extends BlockLeavesBase
             {
                 for (int var10 = -1; var10 <= 1; ++var10)
                 {
-                    int var11 = iblockaccess.func_48454_a(x + var10, z + var9).func_48412_k();
+                    int var11 = iblockaccess.getBiomeGenForCoords(x + var10, z + var9).getBiomeFoliageColor();
                     var6 += (var11 & 16711680) >> 16;
                     var7 += (var11 & 65280) >> 8;
                     var8 += var11 & 255;

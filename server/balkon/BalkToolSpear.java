@@ -72,9 +72,6 @@ public class BalkToolSpear extends InfiWeaponBase
             itemstack.damageItem(1, entityliving1);
         }
         
-      //Freezing Enchant
-      	InfiToolPowers.freezingEnchant(itemstack, mob);
-        
         return true;
     }
 

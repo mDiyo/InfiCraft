@@ -17,7 +17,7 @@ public class InfiRecipeItems extends mod_InfiTools
         
         ModLoader.addRecipe(new ItemStack(woodBucketEmpty, 1), new Object[]
                 {
-                    "w w", "w w", " w ", Character.valueOf('w'), Block.planks
+                    "w w", "w w", " w ", Character.valueOf('w'), new ItemStack(Block.planks, 1, -1)
                 });
         
         

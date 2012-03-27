@@ -700,14 +700,14 @@ public class WorldGenStones {
 		}
 		BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(chunkX + 16, chunkZ + 16);
 		if(rand.nextInt(mod_Orizon.slimePoolRarity/4) == 0 && (biomegenbase == BiomeGenBase.swampland 
-				|| biomegenbase == BiomeGenBase.field_48443_w || biomegenbase == BiomeGenBase.field_48444_x)) {
+				|| biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills)) {
 			int hi = rand.nextInt(mod_Orizon.slimePoolHeight * 3);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
 	        slimepool.generate(world, rand, randX, hi, randZ);
 		}
 		if(rand.nextInt(mod_Orizon.slimePoolRarity/4) == 0 && 
-				(biomegenbase == BiomeGenBase.field_48443_w || biomegenbase == BiomeGenBase.field_48444_x)) {
+				(biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills)) {
 			int hi = rand.nextInt(mod_Orizon.slimePoolHeight * 2);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);

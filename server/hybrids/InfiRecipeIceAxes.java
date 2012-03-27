@@ -15,65 +15,65 @@ public class InfiRecipeIceAxes
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.wWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.stick, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.stick, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.stWoodIceAxe.setIconCoord(1, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.stWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.saWoodIceAxe.setIconCoord(2, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.saWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.bWoodIceAxe.setIconCoord(3, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.bWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone, Character.valueOf('s'), Item.stick
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.bWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.pWoodIceAxe.setIconCoord(4, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.pWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.nWoodIceAxe.setIconCoord(5, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.nWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.sWoodIceAxe.setIconCoord(6, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.sWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.cWoodIceAxe.setIconCoord(7, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.cWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.fWoodIceAxe.setIconCoord(8, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.fWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.brWoodIceAxe.setIconCoord(9, 0);
         
         ModLoader.addRecipe(new ItemStack(mod_InfiHybrids.brWoodIceAxe, 1), new Object[]
                 {
-                    "mms", " | ", " | ", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod, Character.valueOf('s'), Item.stick
+                    "mms", " | ", " | ", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod, Character.valueOf('s'), Item.stick
                 });
         mod_InfiHybrids.wStoneIceAxe.setIconCoord(0, 1);
         

@@ -14,59 +14,59 @@ public class InfiRecipeHoes
         ModLoader.addName(mod_InfiTools.stWoodHoe, "Stony Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.stWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.stoneRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.stoneRod
                 });
         mod_InfiTools.saWoodHoe.setIconCoord(2, 0);
         ModLoader.addName(mod_InfiTools.saWoodHoe, "Sandy Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.saWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.sandstoneRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.sandstoneRod
                 });
         mod_InfiTools.bWoodHoe.setIconCoord(3, 0);
         ModLoader.addName(mod_InfiTools.bWoodHoe, "Necrotic Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), Item.bone
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), Item.bone
                 });
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.bWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.boneRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.boneRod
                 });
         mod_InfiTools.pWoodHoe.setIconCoord(4, 0);
         ModLoader.addName(mod_InfiTools.pWoodHoe, "Fibery Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.pWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.paperRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.paperRod
                 });
         mod_InfiTools.nWoodHoe.setIconCoord(5, 0);
         ModLoader.addName(mod_InfiTools.nWoodHoe, "Bloody Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.nWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.netherrackRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.netherrackRod
                 });
         mod_InfiTools.sWoodHoe.setIconCoord(6, 0);
         ModLoader.addName(mod_InfiTools.sWoodHoe, "Slimy Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.sWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.slimeRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.slimeRod
                 });
         mod_InfiTools.cWoodHoe.setIconCoord(7, 0);
         ModLoader.addName(mod_InfiTools.cWoodHoe, "Spiny Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.cWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.cactusRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.cactusRod
                 });
         mod_InfiTools.fWoodHoe.setIconCoord(8, 0);
         ModLoader.addName(mod_InfiTools.fWoodHoe, "Flaky Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.fWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.flintRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.flintRod
                 });
         mod_InfiTools.brWoodHoe.setIconCoord(9, 0);
         ModLoader.addName(mod_InfiTools.brWoodHoe, "Baked Wooden Hoe");
         ModLoader.addRecipe(new ItemStack(mod_InfiTools.brWoodHoe, 1), new Object[]
                 {
-                    "mm", " |", " |", Character.valueOf('m'), Block.planks, Character.valueOf('|'), mod_InfiTools.brickRod
+                    "mm", " |", " |", Character.valueOf('m'), new ItemStack(Block.planks, 1, -1), Character.valueOf('|'), mod_InfiTools.brickRod
                 });
         ModLoader.addRecipe(new ItemStack(Item.hoeStone, 1), new Object[]
                 {

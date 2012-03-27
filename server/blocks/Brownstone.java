@@ -5,7 +5,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.forge.*;
 
 public class Brownstone extends Block
-	implements ITextureProvider
+    implements ITextureProvider
 {
 
     public Brownstone(int i, int j)
@@ -15,9 +15,9 @@ public class Brownstone extends Block
 
     public void onEntityWalking(World world, int i, int j, int k, Entity entity)
     {
-    	double boost = 2.2D;
-    	if(world.getBlockMetadata(i, j, k) == 2)
-    		boost = 2.65D;
+        double boost = 2.2D;
+        if(world.getBlockMetadata(i, j, k) == 2)
+            boost = 2.65D;
         double mX = Math.abs(entity.motionX);
         double mZ = Math.abs(entity.motionZ);
         if(mX < 0.3D)
@@ -37,7 +37,16 @@ public class Brownstone extends Block
     
     public int getBlockTextureFromSideAndMetadata(int side, int md)
     {
-        return blockIndexInTexture + md;
+        if (md == 3)
+            return blockIndexInTexture - 32;
+        else
+            return blockIndexInTexture + md;
+    }
+
+    @Override
+    public int getRenderType()
+    {
+        return mod_InfiBlocks.brickModelID;
     }
     
     public void addCreativeItems(ArrayList arraylist)

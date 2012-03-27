@@ -169,7 +169,7 @@ public class BalkSpearEntity extends Entity
             ticksInGround++;
             if (ticksInGround == 1200)
             {
-                setEntityDead();
+            	setDead();
             }
             return;
         }
@@ -221,7 +221,7 @@ public class BalkSpearEntity extends Entity
                     currentDamage++;
                     if (currentDamage > maxDamage)
                     {
-                        setEntityDead();
+                    	setDead();
                     }
                     else
                     {
@@ -331,7 +331,7 @@ public class BalkSpearEntity extends Entity
         {
             worldObj.playSoundAtEntity(this, "random.pop", 0.2F, ((rand.nextFloat() - rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.onItemPickup(this, 1);
-            setEntityDead();
+            setDead();
         }
     }
 
