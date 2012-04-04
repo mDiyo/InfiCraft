@@ -86,7 +86,7 @@ public class FurnaceBlock extends BlockMachineBase
         return Integer.valueOf(mod_InfiBlocks.furnaceGuiID);
     }
 
-    public BlockLogicBase getBlockEntity(int i)
+    public TileEntity getBlockEntity(int i)
     {
         return new FurnaceLogic();
     }

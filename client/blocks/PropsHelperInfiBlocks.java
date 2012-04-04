@@ -17,8 +17,8 @@ public class PropsHelperInfiBlocks {
 		mod_InfiBlocks.magicSlabWoolID = infiprops.readInt("Magic Slab Wool ID");
 		
 		mod_InfiBlocks.woolCarpetID = infiprops.readInt("Wool Carpet ID");
-		mod_InfiBlocks.craftingGuiID = infiprops.readInt("Crafting Gui ID");
-		mod_InfiBlocks.furnaceGuiID = infiprops.readInt("Furnace Gui ID");
+		mod_InfiBlocks.craftingGuiID = 1;
+		mod_InfiBlocks.furnaceGuiID = 2;
 		
 		mod_InfiBlocks.stainedGlassID = infiprops.readInt("Stained Glass ID");
 		mod_InfiBlocks.stainedGlassPaneID = infiprops.readInt("Stained Glass Pane ID");
@@ -88,9 +88,6 @@ public class PropsHelperInfiBlocks {
 		
 		infiprops.accessInt("Brownstone ID", 191);
 		infiprops.accessInt("Brownstone Magic Slab ID", 192);
-		
-		infiprops.accessInt("Crafting Gui ID", 172);
-		infiprops.accessInt("Furnace Gui ID", 173);
 		
 		infiprops.accessInt("Chisel ID", 12101);
 		return infiprops;

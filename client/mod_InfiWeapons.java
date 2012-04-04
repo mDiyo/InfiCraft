@@ -3,15 +3,17 @@ package net.minecraft.src;
 import net.minecraft.src.balkon.*;
 import net.minecraft.src.forge.IOreHandler;
 import net.minecraft.src.forge.MinecraftForge;
+import net.minecraft.src.forge.NetworkMod;
+
 import java.io.File;
 import java.util.Map;
 import net.minecraft.client.Minecraft;
 
-public class mod_InfiWeapons extends BaseModMp
+public class mod_InfiWeapons extends NetworkMod
 {
 	public String getVersion()
     {
-        return "0.12.4 InfiTools Edition";
+        return "0.12.5 InfiTools Edition";
     }
 
     public void load()
@@ -47,9 +49,16 @@ public class mod_InfiWeapons extends BaseModMp
         ModLoader.registerEntityID(net.minecraft.src.balkon.BalkSpearEntity.class, "balkSpear", spearEntityID);
         ModLoader.registerEntityID(net.minecraft.src.balkon.BalkKnifeEntity.class, "balkKnife", knifeEntityID);
         
-        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkFlailEntity.class, flailEntityID);
+        MinecraftForge.registerEntity(net.minecraft.src.balkon.BalkFlailEntity.class,
+				this, flailEntityID, 20, 3, true);
+        MinecraftForge.registerEntity(net.minecraft.src.balkon.BalkSpearEntity.class,
+				this, spearEntityID, 20, 3, true);
+        MinecraftForge.registerEntity(net.minecraft.src.balkon.BalkKnifeEntity.class,
+				this, knifeEntityID, 20, 3, true);
+        
+        /*ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkFlailEntity.class, flailEntityID);
         ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkSpearEntity.class, spearEntityID);
-        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkKnifeEntity.class, knifeEntityID);
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.balkon.BalkKnifeEntity.class, knifeEntityID);*/
     }
 
     @Override
@@ -62,9 +71,9 @@ public class mod_InfiWeapons extends BaseModMp
 
     public static InfiProps getProps(InfiProps infiprops)
     {
-    	flailEntityID = infiprops.readInt("Flail Entity ID");
-    	spearEntityID = infiprops.readInt("Spear Entity ID");
-    	knifeEntityID = infiprops.readInt("Knife Entity ID");
+    	flailEntityID = 1;
+    	spearEntityID = 2;
+    	knifeEntityID = 3;
     	
     	woodSpearID = infiprops.readInt("woodSpearID");
         stoneSpearID = infiprops.readInt("stoneSpearID");
@@ -2127,10 +2136,11 @@ public class mod_InfiWeapons extends BaseModMp
         brType = 19;
         blType = 20;
         File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-				.append('/').append("mDiyo").toString() ) );
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
         props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("mDiyo").append('/').append("BalkonInfiWeapons.cfg").toString())).getPath());
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("InfiWeapons.cfg").toString())).getPath());
         props = InitProps(props);
         getProps(props);
         wWoodSpear = (new BalkToolSpear(woodSpearID + 0, (int)((float)wDur * wMod), wDam, wType, wType)).setItemName("wWoodSpear");
@@ -3556,4 +3566,14 @@ public class mod_InfiWeapons extends BaseModMp
         fBlazeFlail = (new BalkToolFlail(blazeFlailID + 6, (int)((float)blDur * fMod), blDam, blType, fType)).setItemName("fBlazeFlail");
         blBlazeFlail = (new BalkToolFlail(blazeFlailID + 7, (int)((float)blDur * bMod), blDam, blType, bType)).setItemName("blBlazeFlail");
     }
+
+	@Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
+	}
 }

@@ -15,7 +15,6 @@ public class StorageBlockMagicSlabItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.storageBlockMagicSlab.blockID, this);
     }
     
     public int getMetadata(int i)

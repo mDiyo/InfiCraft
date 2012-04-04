@@ -2,11 +2,12 @@ package net.minecraft.src;
 
 import net.minecraft.src.forge.IOreHandler;
 import net.minecraft.src.forge.MinecraftForge;
+import net.minecraft.src.forge.NetworkMod;
 import net.minecraft.src.hybrids.*;
 import java.io.File;
 import net.minecraft.client.Minecraft;
 
-public class mod_InfiHybrids extends BaseModMp
+public class mod_InfiHybrids extends NetworkMod
 {
 	
 	public static void oreDictionarySupport()
@@ -25,7 +26,7 @@ public class mod_InfiHybrids extends BaseModMp
 
     public String getVersion()
     {
-        return "v1.0.8 Freedom";
+        return "v1.0.9 Freedom";
     }
 
     public void load() {}
@@ -1277,10 +1278,11 @@ public class mod_InfiHybrids extends BaseModMp
         blType = 20;
         
         File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("mDiyo").toString() ) );
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
         props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("mDiyo").append('/').append("InfiHybrids.cfg").toString())).getPath());
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("InfiHybrids.cfg").toString())).getPath());
         props = InitProps(props);
         getProps(props);
         treeRoot = (new InfiTexture(treeRootID, "/infitools/infitems.png")).setIconCoord(6, 1).setItemName("treeRoot");
@@ -1996,4 +1998,14 @@ public class mod_InfiHybrids extends BaseModMp
         fBlazeHammer = (new InfiToolHammer(blazeHammerID + 6, blLevel, (int)((float)blDur * fMod), blSpeed, blDam, blType, fType)).setItemName("fBlazeHammer");
         blBlazeHammer = (new InfiToolHammer(blazeHammerID + 7, blLevel, (int)((float)blDur * bMod), blSpeed, blDam, blType, bType)).setItemName("blBlazeHammer");
     }
+
+	@Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
+	}
 }

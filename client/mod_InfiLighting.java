@@ -10,11 +10,11 @@ import java.lang.reflect.*;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.Minecraft;
 
-public class mod_InfiLighting extends BaseModMp
+public class mod_InfiLighting extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "0.1.3 Torches";
+		return "0.1.4 Torches";
 	}
 
 	public mod_InfiLighting()
@@ -119,10 +119,11 @@ public class mod_InfiLighting extends BaseModMp
 	static
 	{
 		File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-				.append('/').append("mDiyo").toString() ) );
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
-		props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-				.append('/').append("mDiyo").append('/').append("InfiLighting.cfg").toString())).getPath());
+        props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("InfiLighting.cfg").toString())).getPath());
 		props = InitProps(props);
 		getProps(props);
 		
@@ -132,5 +133,15 @@ public class mod_InfiLighting extends BaseModMp
 	
 	public void load()
 	{
+	}
+
+	@Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return true;
 	}
 }

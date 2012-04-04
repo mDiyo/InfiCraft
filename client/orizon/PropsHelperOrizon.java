@@ -316,15 +316,15 @@ public class PropsHelperOrizon {
 	    infiprops.accessInt("Redstone Rarity", 6);
 	    infiprops.accessInt("Redstone Height", 64);
 	    
-	    infiprops.accessInt("Ruby Rarity", 1);
+	    infiprops.accessInt("Ruby Rarity", 2);
 	    infiprops.accessInt("Ruby Height", 64);
-	    infiprops.accessInt("Sapphire Rarity", 1);
+	    infiprops.accessInt("Sapphire Rarity", 2);
 	    infiprops.accessInt("Sapphire Height", 64);
-	    infiprops.accessInt("Emerald Rarity", 1);
+	    infiprops.accessInt("Emerald Rarity", 2);
 	    infiprops.accessInt("Emerald Height", 64);
-	    infiprops.accessInt("Topaz Rarity", 1);
+	    infiprops.accessInt("Topaz Rarity", 2);
 	    infiprops.accessInt("Topaz Height", 64);
-	    infiprops.accessInt("Amethyst Rarity", 1);
+	    infiprops.accessInt("Amethyst Rarity", 2);
 	    infiprops.accessInt("Amethyst Height", 64);
 	    infiprops.accessInt("Quartz Rarity", 2);
 	    infiprops.accessInt("Quartz Height", 64);

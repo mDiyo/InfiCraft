@@ -1,11 +1,6 @@
 package net.minecraft.src.blocks;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.ItemBlock;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.RenderBlocks;
-import net.minecraft.src.mod_InfiBlocks;
-import net.minecraft.src.forge.MinecraftForgeClient;
+import net.minecraft.src.*;
 
 public class FurnaceItem extends ItemBlock
 {
@@ -20,12 +15,16 @@ public class FurnaceItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.furnace.blockID, this);
     }
 
     @Override
     public int getMetadata(int md)
     {
         return md;
+    }
+    
+    public String getItemNameIS(ItemStack itemstack)
+    {
+        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("FurnaceInfi").toString();
     }
 }

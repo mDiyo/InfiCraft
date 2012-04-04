@@ -1,7 +1,6 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class MagicSlabWoolItem extends ItemBlock
 {
@@ -16,7 +15,6 @@ public class MagicSlabWoolItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.magicSlabWool.blockID, this);
     }
 
     @Override

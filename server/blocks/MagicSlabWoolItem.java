@@ -15,7 +15,6 @@ public class MagicSlabWoolItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.magicSlabWool.blockID, this);
     }
 
     @Override

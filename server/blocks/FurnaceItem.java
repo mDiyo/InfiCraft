@@ -15,12 +15,16 @@ public class FurnaceItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.furnace.blockID, this);
     }
 
     @Override
     public int getMetadata(int md)
     {
         return md;
+    }
+    
+    public String getItemNameIS(ItemStack itemstack)
+    {
+        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("FurnaceInfi").toString();
     }
 }

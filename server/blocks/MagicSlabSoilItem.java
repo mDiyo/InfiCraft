@@ -15,7 +15,6 @@ public class MagicSlabSoilItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.magicSlabSoil.blockID, this);
     }
 
     @Override

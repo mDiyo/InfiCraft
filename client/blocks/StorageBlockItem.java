@@ -1,7 +1,6 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class StorageBlockItem extends ItemBlock
 {
@@ -16,12 +15,6 @@ public class StorageBlockItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.storageBlock.blockID, this);
-    }
-
-    public int getIconFromDamage(int i)
-    {
-        return mod_InfiBlocks.storageBlock.getBlockTextureFromSideAndMetadata(0, i);
     }
 
     public int getMetadata(int i)

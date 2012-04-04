@@ -10,33 +10,21 @@ public abstract class BlockMachineBase extends BlockContainer
         super(i, material);
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player)
     {
-        if (entityplayer.isSneaking())
+        if (player.isSneaking())
         {
             return false;
         }
-        Integer integer = getGui(world, i, j, k, entityplayer);
+        Integer integer = getGui(world, x, y, z, player);
         if (integer == null)
         {
             return false;
         }
         else
         {
-            return openGui(entityplayer, world.getBlockTileEntity(i, j, k), integer);
-        }
-    }
-
-    public static boolean openGui(EntityPlayer entityplayer, TileEntity tileentity, Integer integer)
-    {
-        if(tileentity instanceof IInventory)
-        {
-            ModLoader.openGUI(entityplayer, mod_InfiBlocks.furnaceGuiID, entityplayer.inventory, 
-				new FurnaceContainer(entityplayer.inventory, (FurnaceLogic)tileentity));
+        	player.openGui(mod_InfiBlocks.getInstance(), integer, world, x, y, z);
             return true;
-        } else
-        {
-            return false;
         }
     }
     
@@ -66,8 +54,6 @@ public abstract class BlockMachineBase extends BlockContainer
     {
         return null;
     }
-
-    public abstract BlockLogicBase getBlockEntity(int i);
 
     public void onBlockAdded(World world, int i, int j, int k)
     {

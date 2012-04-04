@@ -11,7 +11,7 @@ public class InfiBlockRecipes
 		new ItemStack(Item.ingotIron),
 		new ItemStack(Item.redstone),
 		new ItemStack(Item.bone),
-		new ItemStack(Block.sandStone),
+		new ItemStack(Block.sandStone, 1, 2),
 		new ItemStack(Item.dyePowder, 1, 4),
 		new ItemStack(Block.obsidian),
 		new ItemStack(Block.cactus),
@@ -76,6 +76,8 @@ public class InfiBlockRecipes
 
 	public static void recipeStorm()
 	{
+		redoVanillaRecipes();
+		
 		for (int iter = 0; iter < workbenchArray.length; iter++)
 		{
 		ModLoader.addRecipe(new ItemStack(mod_InfiBlocks.workbench, 1, iter), new Object[]
@@ -227,66 +229,6 @@ public class InfiBlockRecipes
 				"x", 'x', new ItemStack(mod_InfiBlocks.storageBlock, 1, iter)
 			});
 		}
-		
-		//Override vanilla slab and stairs recipes
-		removeRecipe(new ItemStack(Block.stairSingle, 3, 3));
-		removeRecipe(new ItemStack(Block.stairSingle, 3, 0));
-		removeRecipe(new ItemStack(Block.stairSingle, 3, 1));
-		removeRecipe(new ItemStack(Block.stairSingle, 3, 2));
-		removeRecipe(new ItemStack(Block.stairSingle, 3, 4));
-		removeRecipe(new ItemStack(Block.stairSingle, 3, 5));
-		
-		removeRecipe(new ItemStack(Block.stairCompactPlanks, 4));
-		removeRecipe(new ItemStack(Block.stairCompactCobblestone, 4));
-		removeRecipe(new ItemStack(Block.stairsBrick, 4));
-		removeRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 4));
-		removeRecipe(new ItemStack(Block.stairsNetherBrick, 4));
-		
-		ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 3), new Object[]
-		{	
-			"###", '#', Block.cobblestone
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 0), new Object[]
-		{
-			"###", '#', Block.stone
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 1), new Object[]
-		{
-			"###", '#', Block.sandStone
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 2), new Object[]
-		{
-			"###", '#', Block.planks
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 4), new Object[]
-		{
-			"###", '#', Block.brick
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 5), new Object[]
-		{
-			"###", '#', Block.stoneBrick
-		});
-			
-		ModLoader.addRecipe(new ItemStack(Block.stairCompactPlanks, 6), new Object[]
-		{
-			"#  ", "## ", "###", '#', Block.planks
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairCompactCobblestone, 6), new Object[]
-		{
-			"#  ", "## ", "###", '#', Block.cobblestone
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairsBrick, 6), new Object[]
-		{
-			"#  ", "## ", "###", '#', Block.brick
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 6), new Object[]
-		{
-			"#  ", "## ", "###", '#', Block.stoneBrick
-		});
-		ModLoader.addRecipe(new ItemStack(Block.stairsNetherBrick, 6), new Object[]
-		{
-			"#  ", "## ", "###", '#', Block.netherBrick
-		});
 		
 		/* Chisel Recipes */
 		
@@ -540,6 +482,73 @@ public class InfiBlockRecipes
 					new ItemStack(Item.dyePowder, 1, 15-i)
 			});
 		}
+	}
+	
+	public static void redoVanillaRecipes()
+	{
+		//Override vanilla slab and stairs recipes
+				/*removeRecipe(new ItemStack(Block.stairSingle, 3, 3));
+				removeRecipe(new ItemStack(Block.stairSingle, 3, 0));
+				removeRecipe(new ItemStack(Block.stairSingle, 3, 1));
+				removeRecipe(new ItemStack(Block.stairSingle, 3, 2));
+				removeRecipe(new ItemStack(Block.stairSingle, 3, 4));
+				removeRecipe(new ItemStack(Block.stairSingle, 3, 5));*/
+				
+				removeRecipe(new ItemStack(Block.stairCompactPlanks, 4));
+				removeRecipe(new ItemStack(Block.stairCompactCobblestone, 4));
+				removeRecipe(new ItemStack(Block.stairsBrick, 4));
+				removeRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 4));
+				removeRecipe(new ItemStack(Block.stairsNetherBrick, 4));
+				
+				removeRecipe(new ItemStack(Block.sandStone, 4, 2));
+				ModLoader.addRecipe(new ItemStack(Block.sandStone, 4, 2), new Object[]
+				    { "##", "##", '#', new ItemStack(Block.sandStone, 4, 0) });
+				
+				/*ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 3), new Object[]
+				{	
+					"###", '#', Block.cobblestone
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 0), new Object[]
+				{
+					"###", '#', Block.stone
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 1), new Object[]
+				{
+					"###", '#', Block.sandStone
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 2), new Object[]
+				{
+					"###", '#', Block.planks
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 4), new Object[]
+				{
+					"###", '#', Block.brick
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairSingle, 6, 5), new Object[]
+				{
+					"###", '#', Block.stoneBrick
+				});*/
+					
+				ModLoader.addRecipe(new ItemStack(Block.stairCompactPlanks, 6), new Object[]
+				{
+					"#  ", "## ", "###", '#', Block.planks
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairCompactCobblestone, 6), new Object[]
+				{
+					"#  ", "## ", "###", '#', Block.cobblestone
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairsBrick, 6), new Object[]
+				{
+					"#  ", "## ", "###", '#', Block.brick
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 6), new Object[]
+				{
+					"#  ", "## ", "###", '#', Block.stoneBrick
+				});
+				ModLoader.addRecipe(new ItemStack(Block.stairsNetherBrick, 6), new Object[]
+				{
+					"#  ", "## ", "###", '#', Block.netherBrick
+				});
 	}
 	
 	public static void furnaceBlaze()

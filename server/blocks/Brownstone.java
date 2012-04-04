@@ -61,6 +61,6 @@ public class Brownstone extends Block
     
     public String getTextureFile()
     {
-        return "/infiblocks/infiblocks.png";
+        return "/infiblocks/bricks.png";
     }
 }

@@ -15,7 +15,6 @@ public class BrickBlockMagicSlabItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.brickMagicSlab.blockID, this);
     }
 
     @Override

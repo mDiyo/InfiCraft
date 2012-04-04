@@ -5,11 +5,11 @@ import net.minecraft.src.forge.*;
 
 import java.io.*;
 
-public class mod_InfiBlocks extends BaseModMp
+public class mod_InfiBlocks extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "v0.7.6 Color Bricked";
+		return "v0.7.7 Color Bricked";
 	}
 
 	public void load()
@@ -62,12 +62,47 @@ public class mod_InfiBlocks extends BaseModMp
         
         MinecraftForge.registerCraftingHandler(icraftinghandler);
     }
+	
+	public void registerGuiHandler()
+	{
+		MinecraftForge.setGuiHandler(this, guiHandler);
+	}
+	
+	private static IGuiHandler guiHandler;
+	
+	public static IGuiHandler getGuiHandler()
+	{
+		return guiHandler;
+	}
+	
+	private static mod_InfiBlocks instance;
+	
+	public static mod_InfiBlocks getInstance()
+	{
+		return instance;
+	}
 
 	public mod_InfiBlocks()
 	{
-		//InfiBlockRecipes.recipeStorm();
-		/*ModLoaderMp.RegisterGUI(this, craftingGuiID);
-		ModLoaderMp.RegisterGUI(this, furnaceGuiID);*/
+		instance = this;
+		guiHandler = new IGuiHandler()
+		{
+			public Container getGuiContainer(int ID, EntityPlayerMP player,
+					World world, int x, int y, int z) 
+			{
+				if (ID == craftingGuiID)
+				{
+					return new WorkbenchContainer(player.inventory, world);
+				}
+				if (ID == furnaceGuiID)
+				{
+					TileEntity tile = world.getBlockTileEntity(x, y, z);
+					if (tile instanceof FurnaceLogic)
+						return ((FurnaceLogic)tile).getGuiContainer(player.inventory);
+				}
+				return null;
+			}
+		};
 		
 		ModLoader.registerBlock(workbench, net.minecraft.src.blocks.WorkbenchItem.class);
 		ModLoader.registerBlock(woolCarpet, net.minecraft.src.blocks.CarpetItem.class);
@@ -107,6 +142,7 @@ public class mod_InfiBlocks extends BaseModMp
 		
 		setupCraftHook();
 		oreDictionarySupport();
+		registerGuiHandler();
 	}
 	
 	public static int blockCraftingID;
@@ -193,10 +229,11 @@ public class mod_InfiBlocks extends BaseModMp
 	static
 	{
 		File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-				.append('/').append("mDiyo").toString() ) );
+				.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
 		props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-				.append('/').append("mDiyo").append('/').append("InfiBlocks.cfg").toString())).getPath());
+				.append('/').append("config").append('/').append("InfiCraft")
+				.append('/').append("InfiBlocks.cfg").toString())).getPath());
 		props = PropsHelperInfiBlocks.InitProps(props);
 		PropsHelperInfiBlocks.getProps(props);
 		
@@ -234,5 +271,15 @@ public class mod_InfiBlocks extends BaseModMp
 		/*crackedBrick = new BrickBlock(crackedBrickID, 176).setHardness(0.3F).setBlockName("Infi-Brick Cracked");
 		*/
 		//runeBrick = new BrickBlock(brickID, 208).setHardness(0.3F).setBlockName("Infi-Brick Rune");
+	}
+
+	@Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
 	}
 }

@@ -2,10 +2,11 @@ package net.minecraft.src;
 
 import net.minecraft.src.forge.IOreHandler;
 import net.minecraft.src.forge.MinecraftForge;
+import net.minecraft.src.forge.NetworkMod;
 import net.minecraft.src.hybrids.*;
 import java.io.File;
 
-public class mod_InfiHybrids extends BaseModMp
+public class mod_InfiHybrids extends NetworkMod
 {
 	
 	public static void oreDictionarySupport()
@@ -24,7 +25,7 @@ public class mod_InfiHybrids extends BaseModMp
 
     public String getVersion()
     {
-        return "v1.0.8 Freedom";
+        return "v1.0.9 Freedom";
     }
 
     public void load() {}
@@ -1149,6 +1150,11 @@ public class mod_InfiHybrids extends BaseModMp
     public static Item fBlazeHammer;
     public static Item blBlazeHammer;
     public static InfiProps props;
+    
+    public static File getMinecraftDir()
+    {
+        return new File(".");
+    }
 
     static
     {
@@ -1274,9 +1280,14 @@ public class mod_InfiHybrids extends BaseModMp
         brType = 19;
         blType = 20;
         
-        File me = new File("./config/InfiCraft");
+        File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
-        props = new InfiProps("./config/InfiCraft/Hybrids.cfg");
+        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("InfiHybrids.cfg").toString())).getPath());
+        props = InitProps(props);
+        InitProps(props);
         getProps(props);
         treeRoot = (new InfiTexture(treeRootID, "/infitools/infitems.png")).setIconCoord(6, 1).setItemName("treeRoot");
         wWoodIceAxe = (new InfiToolIceAxe(woodIceAxeID + 0, wLevel, (int)((float)wDur * wMod), wSpeed, wDam, wType, wType)).setItemName("wWoodIceAxe");
@@ -1991,4 +2002,14 @@ public class mod_InfiHybrids extends BaseModMp
         fBlazeHammer = (new InfiToolHammer(blazeHammerID + 6, blLevel, (int)((float)blDur * fMod), blSpeed, blDam, blType, fType)).setItemName("fBlazeHammer");
         blBlazeHammer = (new InfiToolHammer(blazeHammerID + 7, blLevel, (int)((float)blDur * bMod), blSpeed, blDam, blType, bType)).setItemName("blBlazeHammer");
     }
+    
+    @Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
+	}
 }

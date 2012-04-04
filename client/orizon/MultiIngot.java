@@ -10,7 +10,7 @@ public class MultiIngot extends Item
     public static final String blockType[] =
     {
         "copper", "tin", "zinc", "cobalt", "ardite", "ivymetal", "bronze", "brass", 
-        "cordite", "rootedCobalt", "manyullyn", "refinedIron", "steel"
+        "cordite", "rootedCobalt", "manyullyn", "refinedIron", "steel", "lead"
     };
 
     public MultiIngot(int i)

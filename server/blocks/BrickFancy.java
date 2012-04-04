@@ -5,7 +5,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.forge.ITextureProvider;
 
 public class BrickFancy extends Block
-	//implements ITextureProvider
+	implements ITextureProvider
 {
     public BrickFancy(int i, int j)
     {
@@ -33,11 +33,6 @@ public class BrickFancy extends Block
         default: return 0;
     	}
     }
-    
-    /*public int getRenderBlockPass()
-    {
-        return 1;
-    }*/
     
     protected int damageDropped(int md)
     {
@@ -68,8 +63,8 @@ public class BrickFancy extends Block
         //arraylist.add(new ItemStack(mod_InfiBlocks.fancyBrick, 1, 15));
     }
     
-    /*public String getTextureFile()
+    public String getTextureFile()
     {
         return "/infiblocks/infiblocks.png";
-    }*/
+    }
 }

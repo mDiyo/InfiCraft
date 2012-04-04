@@ -1,7 +1,6 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class BrickFancyMagicSlabItem extends ItemBlock
 {
@@ -16,7 +15,6 @@ public class BrickFancyMagicSlabItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.fancyBrickMagicSlab.blockID, this);
     }
 
     @Override

@@ -1,4 +1,5 @@
 package net.minecraft.src.orizon;
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.src.forge.*;
@@ -30,5 +31,23 @@ public class MineralOreAlt extends Block
     public String getTextureFile()
     {
         return "/oretex/ores.png";
+    }
+    
+    public void addCreativeItems(ArrayList arraylist)
+    {
+    	arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 0));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 1));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 2));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 3));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 4));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 5));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 6));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 7));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 8));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 9));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 10));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 11));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 12));
+        arraylist.add(new ItemStack(mod_Orizon.mineralOreAlt, 1, 13));
     }
 }

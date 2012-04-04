@@ -6,15 +6,12 @@ import net.minecraft.src.*;
 public class FurnaceContainer extends Container
 {
     public FurnaceLogic tileentity;
-    public short progress;
-    public short fuel;
-    public short fuelGague;
+    public short progress = 0;
+    public short fuel = 0;
+    public short fuelGague = 0;
 
     public FurnaceContainer(InventoryPlayer inventoryplayer, FurnaceLogic infifurnacelogic)
     {
-        progress = 0;
-        fuel = 0;
-        fuelGague = 0;
         tileentity = infifurnacelogic;
         addSlot(new Slot(infifurnacelogic, 0, 56, 17));
         addSlot(new Slot(infifurnacelogic, 1, 56, 53));

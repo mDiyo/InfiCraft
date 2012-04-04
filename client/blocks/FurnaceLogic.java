@@ -1,7 +1,6 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.forge.ISidedInventory;
-import java.util.Random;
 import net.minecraft.src.*;
 
 public class FurnaceLogic extends BlockLogicMachine
@@ -10,7 +9,6 @@ public class FurnaceLogic extends BlockLogicMachine
     public short fuel;
     public short fuelGague;
     public short progress;
-    public Random rand;
 
     public FurnaceLogic()
     {
@@ -18,7 +16,6 @@ public class FurnaceLogic extends BlockLogicMachine
         fuel = 0;
         fuelGague = 0;
         progress = 0;
-        rand = new Random();
     }
 
     public void readFromNBT(NBTTagCompound nbttagcompound)
@@ -26,7 +23,6 @@ public class FurnaceLogic extends BlockLogicMachine
         super.readFromNBT(nbttagcompound);
         fuel = nbttagcompound.getShort("fuel");
         fuelGague = nbttagcompound.getShort("fuelGague");
-        progress = nbttagcompound.getShort("progress");
     }
 
     public void writeToNBT(NBTTagCompound nbttagcompound)
@@ -34,7 +30,6 @@ public class FurnaceLogic extends BlockLogicMachine
         super.writeToNBT(nbttagcompound);
         nbttagcompound.setShort("fuel", fuel);
         nbttagcompound.setShort("fuelGague", fuelGague);
-        nbttagcompound.setShort("progress", progress);
     }
 
     public int gaugeProgressScaled(int i)
@@ -208,7 +203,7 @@ public class FurnaceLogic extends BlockLogicMachine
 
     public String getInvName()
     {
-        return "Steam Furnace";
+        return "InfiFurnace";
     }
 
     public Container getGuiContainer(InventoryPlayer inventoryplayer)

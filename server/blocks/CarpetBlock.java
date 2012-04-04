@@ -64,7 +64,6 @@ public class CarpetBlock extends Block
             return true;
         }
     }
-
     protected int damageDropped(int i)
     {
         return i;

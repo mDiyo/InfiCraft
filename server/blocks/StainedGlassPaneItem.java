@@ -21,11 +21,6 @@ public class StainedGlassPaneItem extends ItemBlock
     {
         return i;
     }
-    
-    public int getIconFromDamage(int i)
-    {
-    	return iconIndex + i;
-    }
 
     public String getItemNameIS(ItemStack itemstack)
     {

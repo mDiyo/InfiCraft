@@ -7,12 +7,12 @@ import java.io.File;
 import java.util.*;
 import net.minecraft.client.Minecraft;
 
-public class mod_Orizon extends BaseModMp
+public class mod_Orizon extends NetworkMod
 {
 
     public String getVersion()
     {
-        return "v1.1";
+        return "v1.0.4";
     }
 
     public mod_Orizon()
@@ -152,6 +152,24 @@ public class mod_Orizon extends BaseModMp
         for(int i = 0; i < gemNames.length; i++) {
         	MinecraftForge.registerOre(gemNames[i], new ItemStack(gems, 1, i));
         }
+        
+        int replacementOreLevels[] = {
+            0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2	
+        };
+           
+        int replacementMetalLevels[] = {
+        	1, 1, 1, 1, 2, 2, 2, 2
+        };
+        
+        for (int i = 0; i < replacementOreLevels.length; i++)
+        {
+        	MinecraftForge.setBlockHarvestLevel(replaceOre, i, "pickaxe", replacementOreLevels[i]);
+        }
+        
+        for (int i = 0; i < replacementMetalLevels.length; i++)
+        {
+        	MinecraftForge.setBlockHarvestLevel(replaceMetal, i, "pickaxe", replacementMetalLevels[i]);
+        }
     }
     
     public static void registerTools() {
@@ -277,7 +295,8 @@ public class mod_Orizon extends BaseModMp
 
     public void load() {}
     
-public static InfiProps props;
+    public static InfiProps props;
+    public static InfiProps spawnProps;
     
     public static Block mineralOre;
     public static Block mineralOreHigh;
@@ -573,13 +592,18 @@ public static InfiProps props;
 
     static
     {
-        File me = new File( Minecraft.getMinecraftDir().getPath() + "/mDiyo");
+    	File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
-        props = new InfiProps(Minecraft.getMinecraftDir().getPath() + "/mDiyo/OrizonIDs.cfg");
+        props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("OrizonIDs.cfg").toString())).getPath());
         props = PropsHelperOrizon.InitProps(props);
         PropsHelperOrizon.getProps(props);
-        props = new InfiProps(Minecraft.getMinecraftDir().getPath() + "/mDiyo/OrizonWorldGen.cfg");
-        props = PropsHelperOrizon.InitSpawn(props);
+        spawnProps = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("OrizonWorldGen.cfg").toString())).getPath());
+        spawnProps = PropsHelperOrizon.InitSpawn(props);
         PropsHelperOrizon.getSpawn(props);
         
         if(resolveConflicts)
@@ -671,4 +695,14 @@ public static InfiProps props;
         manyullynAxe = new OrizonToolAxe(manyullynAxeID, materialManyullyn).setIconCoord(6, 6).setItemName("manyullynAxe");
         manyullynHoe = new OrizonToolHoe(manyullynHoeID, materialManyullyn).setIconCoord(6, 7).setItemName("manyullynHoe");
     }
+    
+    @Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
+	}
 }

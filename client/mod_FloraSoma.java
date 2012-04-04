@@ -2,7 +2,6 @@ package net.minecraft.src;
 
 import net.minecraft.src.flora.*;
 import net.minecraft.src.forge.*;
-import net.minecraft.src.core.*;
 
 import java.io.File;
 import java.util.Map;
@@ -10,11 +9,11 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 
-public class mod_FloraSoma extends BaseModMp
+public class mod_FloraSoma extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "0.3.5 Height";
+		return "0.3.6 Height";
 	}
 
 	public void load()
@@ -212,10 +211,19 @@ public class mod_FloraSoma extends BaseModMp
 		ModLoader.registerEntityID(net.minecraft.src.flora.WhiteWoodBoat.class, "whiteBoat", whiteBoatID);
 		ModLoader.registerEntityID(net.minecraft.src.flora.EucalyptusBoat.class, "eucalyptusBoat", eucalyptusBoatID);
 		
-		ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.RedwoodBoat.class, redwoodBoatID);
+		MinecraftForge.registerEntity(net.minecraft.src.flora.RedwoodBoat.class,
+				this, redwoodBoatID, 20, 5, true);
+		MinecraftForge.registerEntity(net.minecraft.src.flora.BloodBoat.class,
+				this, bloodBoatID, 20, 5, true);
+		MinecraftForge.registerEntity(net.minecraft.src.flora.WhiteWoodBoat.class,
+				this, whiteBoatID, 20, 5, true);
+		MinecraftForge.registerEntity(net.minecraft.src.flora.EucalyptusBoat.class,
+				this, eucalyptusBoatID, 20, 5, true);
+		
+		/*ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.RedwoodBoat.class, redwoodBoatID);
         ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.BloodBoat.class, bloodBoatID);
         ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.WhiteWoodBoat.class, whiteBoatID);
-        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.EucalyptusBoat.class, eucalyptusBoatID);
+        ModLoaderMp.registerNetClientHandlerEntity(net.minecraft.src.flora.EucalyptusBoat.class, eucalyptusBoatID);*/
 		
 		addEEsupport();
 		//MinecraftForge.registerBonemealHandler(new FloraSomaBonemealHandler());
@@ -1168,14 +1176,16 @@ public class mod_FloraSoma extends BaseModMp
 	static
 	{
 		File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-				.append('/').append("mDiyo").toString() ) );
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
-		props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-				.append('/').append("mDiyo").append('/').append("FloraSomaIDs.cfg").toString())).getPath());
+        props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("FloraSomaIDs.cfg").toString())).getPath());
 		props = PropsHelperFloraSoma.InitIDs(props);
 		PropsHelperFloraSoma.getIDs(props);
 		spawnProps = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-				.append('/').append("mDiyo").append('/').append("FloraSomaSpawn.cfg").toString())).getPath());
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("FloraSomaSpawns.cfg").toString())).getPath());
 		spawnProps = PropsHelperFloraSoma.InitSpawnRate(spawnProps);
 		PropsHelperFloraSoma.getSpawnRate(spawnProps);
 		
@@ -1217,5 +1227,15 @@ public class mod_FloraSoma extends BaseModMp
 		
 		if(enableSaguaro)
 			saguaro = new SaguaroBlock(saguaroID, 149).setHardness(0.8F).setBlockName("Saguaro");
+	}
+
+	@Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
 	}
 }

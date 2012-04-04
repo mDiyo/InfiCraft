@@ -1,6 +1,7 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.forge.ITextureProvider;
+import net.minecraft.src.forge.MinecraftForge;
 import net.minecraft.src.*;
 
 public class WorkbenchBlock extends Block
@@ -31,7 +32,7 @@ public class WorkbenchBlock extends Block
         }
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player)
     {
         if (world.isRemote)
         {
@@ -39,8 +40,7 @@ public class WorkbenchBlock extends Block
         }
         else
         {
-        	ModLoader.openGUI(entityplayer, mod_InfiBlocks.craftingGuiID, entityplayer.inventory, 
-    				new WorkbenchContainer(entityplayer.inventory, world));
+        	player.openGui(mod_InfiBlocks.getInstance(), mod_InfiBlocks.craftingGuiID, world, x, y, z);
             return true;
         }
     }

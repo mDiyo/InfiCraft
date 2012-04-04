@@ -1,9 +1,11 @@
 package net.minecraft.src.blocks;
 
+import net.minecraft.src.Container;
+import net.minecraft.src.InventoryPlayer;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
 
-public class BlockLogicBase extends TileEntity
+public abstract class BlockLogicBase extends TileEntity
 {
     protected boolean created;
     private boolean active;
@@ -57,4 +59,6 @@ public class BlockLogicBase extends TileEntity
     {
         facing = word0;
     }
+    
+    public abstract Container getGuiContainer(InventoryPlayer inventoryplayer);
 }

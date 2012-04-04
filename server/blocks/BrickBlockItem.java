@@ -18,9 +18,9 @@ public class BrickBlockItem extends ItemBlock
         setHasSubtypes(true);
     }
     
-    public int getMetadata(int md)
+    public int getMetadata(int i)
     {
-        return md;
+        return i;
     }
 
     public String getItemNameIS(ItemStack itemstack)

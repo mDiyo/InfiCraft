@@ -14,7 +14,6 @@ public class BrownstoneItem extends ItemBlock
         super(i);
         setMaxDamage(0);
         setHasSubtypes(true);
-        //MinecraftForgeClient.registerCustomItemRenderer(mod_InfiBlocks.brownstone.blockID, this);
     }
 
     @Override

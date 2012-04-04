@@ -11,15 +11,14 @@ import java.io.File;
 import java.io.PrintStream;
 import java.util.Random;
 
-
-public class mod_InfiTools extends BaseModMp
+public class mod_InfiTools extends NetworkMod
 {
     public static InfiProps props;
     InfiEnchantFreezing freeze = new InfiEnchantFreezing(42, 2);
 
     public String getVersion()
     {
-        return "v2.4 Dictionary";
+        return "v2.4.2 Dictionary";
     }
 
     public static void addEEsupport()
@@ -536,7 +535,8 @@ public class mod_InfiTools extends BaseModMp
         		woodSplinters, stoneShard, ironChunks, diamondShard, goldChunks, redstoneFragment,
         		obsidianShard, sandstoneShard, netherrackShard, glowstoneFragment, iceShard,
         		lavaFragment, slimeFragment, flintShard, miniBrick, blazeFragment,
-        		glassShard, coalBits
+        		glassShard, coalBits, redstoneCrystal, glowstoneCrystal, lavaCrystal, blazeCrystal,
+        		slimeCrystal
         	};
         
         String[] stickNames = {
@@ -546,7 +546,8 @@ public class mod_InfiTools extends BaseModMp
         	"woodShard", "stoneShard", "ironShard", "diamondShard", "goldShard", "redstoneShard",
         	"obsidianShard", "sandstoneShard", "netherrackShard", "glowstoneShard", "iceShard",
         	"lavaShard", "slimeShard", "flintShard", "brickShard", "blazeShard",
-        	"glassShard", "coalShard"
+        	"glassShard", "coalShard", "redstoneCrystal", "glowstoneCrystal", "lavaCrystal", "blazeCrystal",
+        	"slimeCrystal"
         };
         
         for (int stickIter = 0; stickIter < materialArray.length; stickIter++)
@@ -2489,6 +2490,11 @@ public class mod_InfiTools extends BaseModMp
     public static Item lBlazeFryingPan;
     public static Item fBlazeFryingPan;
     public static Item blBlazeFryingPan;*/
+    
+    public static File getMinecraftDir()
+    {
+    	return new File(".");
+    }
 
     static
     {
@@ -2612,9 +2618,12 @@ public class mod_InfiTools extends BaseModMp
         fType = 18;
         brType = 19;
         blType = 20;
-        File me = new File("./config/InfiCraft");
+        File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
-        props = new InfiProps("./config/InfiCraft/InfiTools.cfg");
+        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("InfiTools.cfg").toString())).getPath());
         props = InfiTools.InitProps(props);
         
         pumpkinPulp = (new PumpkinPulp(pumpkinPulpID, 2, false, 16)).setIconCoord(0, 0).setItemName("pumpkinPulp");
@@ -4124,4 +4133,13 @@ public class mod_InfiTools extends BaseModMp
         fBlazeFryingPan = (new InfiToolFryingPan(blazeFryingPanID + 6, (int)((float)blDur * fMod), blDam, blType, fType)).setItemName("fBlazeFryingPan");
         blBlazeFryingPan = (new InfiToolFryingPan(blazeFryingPanID + 7, (int)((float)blDur * bMod), blDam, blType, bType)).setItemName("blBlazeFryingPan");*/
     }
+	@Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
+	}
 }

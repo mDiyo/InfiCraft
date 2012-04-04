@@ -32,10 +32,10 @@ public class PropsHelperFloraSoma {
 		mod_FloraSoma.redwoodDoorID = infiprops.readInt("Redwood Door ID");
 		mod_FloraSoma.saguaroID = infiprops.readInt("Saguaro Cactus ID");
 		
-		mod_FloraSoma.redwoodBoatID = infiprops.readInt("Redwood Boat ID");
-		mod_FloraSoma.bloodBoatID = infiprops.readInt("Bloodboat ID");
-		mod_FloraSoma.whiteBoatID = infiprops.readInt("White Boat ID");
-		mod_FloraSoma.eucalyptusBoatID = infiprops.readInt("Eucalyptus Boat ID");
+		mod_FloraSoma.redwoodBoatID = 1;
+		mod_FloraSoma.bloodBoatID = 2;
+		mod_FloraSoma.whiteBoatID = 3;
+		mod_FloraSoma.eucalyptusBoatID = 4;
 		return infiprops;
 	}
 
@@ -63,11 +63,6 @@ public class PropsHelperFloraSoma {
 		infiprops.accessInt("Cherry Leaves ID", 175);
 		infiprops.accessInt("Redwood Door ID", 176);
 		infiprops.accessInt("Saguaro Cactus ID", 177);
-		
-		infiprops.accessInt("Redwood Boat ID", 132);
-		infiprops.accessInt("Bloodboat ID", 133);
-		infiprops.accessInt("White Boat ID", 134);
-		infiprops.accessInt("Eucalyptus Boat ID", 135);
 		return infiprops;
 	}
 	

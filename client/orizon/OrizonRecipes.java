@@ -50,6 +50,7 @@ public class OrizonRecipes {
     	ModLoader.addLocalization("manyullynIngot.name", "Manyullyn Ingot");
     	ModLoader.addLocalization("refinedIronIngot.name", "Worked Iron Ingot");
     	ModLoader.addLocalization("steelIngot.name", "Carbon Steel Ingot");
+    	ModLoader.addLocalization("leadIngot.name", "Lead Ingot");
     	
     	ModLoader.addLocalization("calciteCalcite.name", "Calcite");
     	ModLoader.addLocalization("calciteGalena.name", "Galena Ore");
@@ -203,6 +204,7 @@ public class OrizonRecipes {
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 8, new ItemStack(mod_Orizon.ingots, 1, 3));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 9, new ItemStack(mod_Orizon.ingots, 1, 4));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 12, new ItemStack(mod_Orizon.ingots, 1, 5));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 7, new ItemStack(mod_Orizon.ingots, 1, 13));
         
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 0, new ItemStack(mod_Orizon.ingots, 1, 0));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 4, new ItemStack(mod_Orizon.ingots, 1, 1));
@@ -210,6 +212,7 @@ public class OrizonRecipes {
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 8, new ItemStack(mod_Orizon.ingots, 1, 3));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 9, new ItemStack(mod_Orizon.ingots, 1, 4));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 12, new ItemStack(mod_Orizon.ingots, 1, 5));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 7, new ItemStack(mod_Orizon.ingots, 1, 13));
 	}
 	
 	public static void addCopperTools(ItemStack stack) {

@@ -47,7 +47,10 @@ public class BrickBlock extends Block
     
     public int getBlockTextureFromSideAndMetadata(int side, int md)
     {
-        return blockIndexInTexture + md * 16;
+    	if(md >= 9 && md < 12)
+    		return 176 + md + 1;
+    	else
+    		return blockIndexInTexture + md * 16;
     }
     
     public void addCreativeItems(ArrayList arraylist)

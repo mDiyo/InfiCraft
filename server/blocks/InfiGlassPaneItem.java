@@ -21,11 +21,6 @@ public class InfiGlassPaneItem extends ItemBlock
         return i;
     }
 
-    public int getIconFromDamage(int i)
-    {
-        return iconIndex + i;
-    }
-
     public String getItemNameIS(ItemStack itemstack)
     {
         return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("GlassPane").toString();

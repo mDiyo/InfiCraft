@@ -33,7 +33,7 @@ public class FurnaceGui extends GuiContainer
             int j1 = furnacelogic.gaugeFuelScaled(12);
             drawTexturedModalRect(l + 56, (i1 + 36 + 12) - j1, 176, 12 - j1, 14, j1 + 2);
         }
-        int k1 = furnacelogic.gaugeProgressScaled(15);
+        int k1 = furnacelogic.gaugeProgressScaled(24);
         drawTexturedModalRect(l + 79, i1 + 34, 176, 14, k1, 16);
     }
 }

@@ -87,7 +87,7 @@ public class OreReplacement extends Block
     private void glow(World world, int i, int j, int k)
     {
     	if(world.getBlockMetadata(i, j, k) > 11)
-        	sparkle(world, i, j, k);
+    		sparkle(world, i, j, k);
         /*if (blockID == Block.oreRedstone.blockID)
         {
             world.setBlockWithNotify(i, j, k, Block.oreRedstoneGlowing.blockID);

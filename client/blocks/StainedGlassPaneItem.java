@@ -1,7 +1,6 @@
 package net.minecraft.src.blocks;
 
 import net.minecraft.src.*;
-import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class StainedGlassPaneItem extends ItemBlock
 {
@@ -21,11 +20,6 @@ public class StainedGlassPaneItem extends ItemBlock
     public int getMetadata(int i)
     {
         return i;
-    }
-    
-    public int getIconFromDamage(int i)
-    {
-    	return iconIndex + i;
     }
 
     public String getItemNameIS(ItemStack itemstack)

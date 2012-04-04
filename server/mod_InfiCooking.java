@@ -2,12 +2,13 @@ package net.minecraft.src;
 
 import net.minecraft.src.forge.IOreHandler;
 import net.minecraft.src.forge.MinecraftForge;
-import net.minecraft.src.inficooking.*;
+import net.minecraft.src.forge.NetworkMod;
+import net.minecraft.src.fryingpans.*;
 
 import java.io.File;
 import java.io.PrintStream;
 
-public class mod_InfiCooking extends BaseModMp
+public class mod_InfiCooking extends NetworkMod
 {
 	
 	public static void oreDictionarySupport()
@@ -27,7 +28,7 @@ public class mod_InfiCooking extends BaseModMp
 
     public String getVersion()
     {
-        return "v0.1.3 Infi~";
+        return "v0.1.5 Infi~";
     }
 
     public void load()
@@ -613,6 +614,11 @@ public class mod_InfiCooking extends BaseModMp
         }
         return 0;
     }
+    
+    public static File getMinecraftDir()
+    {
+    	return new File(".");
+    }
 
     static
     {
@@ -736,9 +742,12 @@ public class mod_InfiCooking extends BaseModMp
         fType = 18;
         brType = 19;
         blType = 20;
-        File me = new File("./config/InfiCraft");
+        File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
-        props = new InfiProps("./config/InfiCraft/InfiCooking.cfg");
+        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("InfiCooking.cfg").toString())).getPath());
         props = initProps(props);
         
         wWoodFryingPan = (new InfiToolFryingPan(woodFryingPanID + 0, (int)((float)wDur * wMod), wDam, wType, wType)).setItemName("wWoodFryingPan");
@@ -979,4 +988,14 @@ public class mod_InfiCooking extends BaseModMp
         fBlazeFryingPan = (new InfiToolFryingPan(blazeFryingPanID + 6, (int)((float)blDur * fMod), blDam, blType, fType)).setItemName("fBlazeFryingPan");
         blBlazeFryingPan = (new InfiToolFryingPan(blazeFryingPanID + 7, (int)((float)blDur * bMod), blDam, blType, bType)).setItemName("blBlazeFryingPan");
     }
+    
+    @Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
+	}
 }

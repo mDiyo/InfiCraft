@@ -67,7 +67,7 @@ public class Chisel extends Item
             
             boolean damageItem = DetailManager.getInstance().detail(world, x, y, z, bID, md);
             if(damageItem) {
-            	world.playAuxSFX(2001, x, y, z, bID + md * 256);
+            	world.playAuxSFX(2001, x, y, z, bID + (md << 12));
             	entityplayer.swingItem();
             }
         }
