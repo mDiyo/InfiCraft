@@ -1,8 +1,9 @@
 package net.minecraft.src.blocks;
 
-import net.minecraft.src.forge.ISidedInventory;
-import java.util.Random;
 import net.minecraft.src.*;
+import net.minecraft.src.forge.ISidedInventory;
+
+import java.util.Random;
 
 public class InfiFurnaceLogic extends BlockLogicMachine
     implements ISidedInventory
@@ -234,9 +235,10 @@ public class InfiFurnaceLogic extends BlockLogicMachine
         return 1;
     }
 
-	@Override
-	public ItemStack func_48081_b(int var1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
+    @Override
+    public ItemStack getStackInSlotOnClosing(int var1) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

@@ -1,8 +1,6 @@
 package net.minecraft.src.blocks;
 import net.minecraft.src.*;
 
-import java.util.Random;
-
 public class ChestLogic extends TileEntity
     implements IInventory
 {
@@ -261,8 +259,7 @@ public class ChestLogic extends TileEntity
     }
 
 	@Override
-	public ItemStack func_48081_b(int var1) {
-		// TODO Auto-generated method stub
+	public ItemStack getStackInSlotOnClosing(int var1) {
 		return null;
 	}
 }
