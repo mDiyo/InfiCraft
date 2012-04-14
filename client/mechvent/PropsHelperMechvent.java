@@ -16,9 +16,9 @@ public class PropsHelperMechvent {
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
 
-        File file = new File(Minecraft.getMinecraftDir() + "/config/HelloWorld");
+        File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/HelloWorld/HelloWorld.cfg");
+        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/Mechvent.cfg");
 
         /* Some basic debugging will go a long way */
         try
@@ -47,6 +47,7 @@ public class PropsHelperMechvent {
         smallChunkID = config.getOrCreateIntProperty("Small Chunk", "item", 7343).getInt(7343);
         oreDustID = config.getOrCreateIntProperty("Ore Dust", "item", 7344).getInt(7344);
         oreDustSmallID = config.getOrCreateIntProperty("Small Ore Dust", "item", 7345).getInt(7345);
+        oreDustAlloyID = config.getOrCreateIntProperty("Alloy Ore Dust", "item", 7346).getInt(7346);
 
         /* Save the configuration file */
         config.save();
@@ -60,4 +61,5 @@ public class PropsHelperMechvent {
 	public static int smallChunkID;
 	public static int oreDustID;
 	public static int oreDustSmallID;
+	public static int oreDustAlloyID;
 }

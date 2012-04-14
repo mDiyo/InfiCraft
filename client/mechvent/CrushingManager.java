@@ -153,7 +153,7 @@ public class CrushingManager
 
     public List findMatchingGrinderRecipe(ItemStack stack)
     {
-    	for (int i = 0; i < this.crushRecipes.size(); ++i)
+    	for (int i = 0; i < this.grindRecipes.size(); ++i)
         {
             IRecipeReverse irecipe = (IRecipeReverse)this.grindRecipes.get(i);
 
@@ -167,7 +167,7 @@ public class CrushingManager
     
     public int[] findGrinderRecipeChances(ItemStack stack)
     {
-    	for (int i = 0; i < this.crushRecipes.size(); ++i)
+    	for (int i = 0; i < this.grindRecipes.size(); ++i)
         {
             IRecipeReverse irecipe = (IRecipeReverse)this.grindRecipes.get(i);
 

@@ -1,10 +1,8 @@
 package net.minecraft.src.mechvent;
 
 import net.minecraft.src.forge.ISidedInventory;
-import net.minecraft.src.skilllevels.SkillType;
 
 import java.util.*;
-
 import net.minecraft.src.*;
 
 public class GrinderLogic extends BlockLogicPrototype
@@ -83,10 +81,8 @@ public class GrinderLogic extends BlockLogicPrototype
                 flag1 = true;
             }
         }
-        //System.out.println("isBurning: " + isBurning() + " canOperate: " + canOperate());
         if (isBurning() && canOperate())
         {
-        	//System.out.println("Progress: " + progress);
             progress++;
             if (progress >= 200)
             {
@@ -199,27 +195,35 @@ public class GrinderLogic extends BlockLogicPrototype
     	List compactItems = condenseItems(items);
     	byte number = (byte)compactItems.size();
     	byte openSlots = 0;
-    	for (int i = 10; i <= 18; i++)
+    	byte nullSlots = 0;
+    	for (int slot = 10; slot <= 18; slot++)
     	{
-    		if (this.inventory[i] == null)
+    		if (this.inventory[slot] == null)
     		{
-    			openSlots++;
-    		}
-    		else
-    		{
-	    		for (int j = 0; j < number; j++)
-	    		{
-	    			ItemStack stack = (ItemStack) compactItems.get(j);
-	    			if (inventory[i].isItemEqual(stack) && 
-	    					inventory[i].stackSize + stack.stackSize <= inventory[i].getMaxStackSize())
-	    			{
-	    				openSlots++;
-	    			}
-	    		}
+    			nullSlots++;
     		}
     	}
-    	
-    	if (openSlots < number)
+    	for (int j = 0; j < number; j++)
+    	{
+    		boolean openSlot = false;
+    		for (int slot = 10; slot <= 18; slot++)
+	    	{
+    			if (this.inventory[slot] != null)
+        		{
+			    	ItemStack stack = (ItemStack) compactItems.get(j);
+			    	if (compareItems(inventory[slot], stack) && 
+			    			inventory[slot].stackSize + stack.stackSize <= inventory[slot].getMaxStackSize())
+			    	{
+			    		openSlot = true;
+			    	}
+        		}
+	    	}
+	    	if (openSlot)
+	    	{
+	    		openSlots++;
+	    	}
+    	}
+    	if (openSlots + nullSlots < number)
     	{
     		return true;
     	}

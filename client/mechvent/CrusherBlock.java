@@ -202,7 +202,7 @@ public class CrusherBlock extends BlockPrototypeBase
     
     public void onBlockRemoval(World world, int i, int j, int k)
     {
-            CrusherLogic furnaceLogic = (CrusherLogic)world.getBlockTileEntity(i, j, k);
+            BlockLogicPrototype furnaceLogic = (BlockLogicPrototype)world.getBlockTileEntity(i, j, k);
             if (furnaceLogic != null)
             {
                 label0:

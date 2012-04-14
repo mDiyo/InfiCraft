@@ -14,7 +14,7 @@ public class OrizonCoreRecipes {
 		addStonePickaxes(stack);
 		addStoneShovels(stack);
 		addStoneHoes(stack);
-		ModLoader.addRecipe(new ItemStack(mod_InfiTools.stoneRod, 2), new Object[]
+		ModLoader.addRecipe(new ItemStack(mod_InfiTools.stoneRod, 4), new Object[]
 	            { "m", "m", 'm', stack });
 	}
 	

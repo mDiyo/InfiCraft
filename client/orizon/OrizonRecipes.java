@@ -51,6 +51,7 @@ public class OrizonRecipes {
     	ModLoader.addLocalization("refinedIronIngot.name", "Worked Iron Ingot");
     	ModLoader.addLocalization("steelIngot.name", "Carbon Steel Ingot");
     	ModLoader.addLocalization("leadIngot.name", "Lead Ingot");
+    	ModLoader.addLocalization("electrumIngot.name", "Electrum Ingot");
     	
     	ModLoader.addLocalization("calciteCalcite.name", "Calcite");
     	ModLoader.addLocalization("calciteGalena.name", "Galena Ore");

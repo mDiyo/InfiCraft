@@ -135,29 +135,15 @@ public class GrinderContainer extends Container
         {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
-            if (slotID == 2)
+            if (slotID < 19)
             {
             	//stack, # of slots, # of total slots, ?
-                if (!mergeItemStack(itemstack1, 3, 39, false))
+                if (!mergeItemStack(itemstack1, 19, 55, false))
                 {
                     return null;
                 }
             }
-            else if (slotID >= 3 && slotID < 30)
-            {
-                if (!mergeItemStack(itemstack1, 30, 39, false))
-                {
-                    return null;
-                }
-            }
-            else if (slotID >= 30 && slotID < 39)
-            {
-                if (!mergeItemStack(itemstack1, 3, 30, false))
-                {
-                    return null;
-                }
-            }
-            else if (!mergeItemStack(itemstack1, 3, 39, false))
+            else if (!this.mergeItemStack(itemstack1, 0, 19, false))
             {
                 return null;
             }
