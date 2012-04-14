@@ -1,14 +1,10 @@
 package net.minecraft.src;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.src.blocks.*;
 import net.minecraft.src.forge.*;
-import net.minecraft.src.mechvent.CrusherLogic;
 
-import java.io.*;
-
-import org.lwjgl.opengl.GL11;
-
-import net.minecraft.client.Minecraft;
+import java.io.File;
 
 public class mod_InfiBlocks extends NetworkMod
 {
@@ -141,22 +137,22 @@ public class mod_InfiBlocks extends NetworkMod
 		
 		guiHandler = new IGuiHandler()
 		{
-			public GuiScreen getGuiScreen(int ID, EntityPlayerSP player, World world, int x, int y, int z)
-			{
-				if (ID == craftingGuiID)
-				{
-					return new WorkbenchGui(player.inventory, world);
-				}
-				if (ID == furnaceGuiID)
-				{
-					return new FurnaceGui(player.inventory, (FurnaceLogic)world.getBlockTileEntity(x, y, z));
-				}
-				else
-				{
-					return null;
-				}
-			}
-		};
+            @Override
+            public Object getGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+                if (ID == craftingGuiID)
+                {
+                    return new WorkbenchGui(player.inventory, world);
+                }
+                if (ID == furnaceGuiID)
+                {
+                    return new FurnaceGui(player.inventory, (FurnaceLogic)world.getBlockTileEntity(x, y, z));
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        };
 		
 		ModLoader.registerBlock(workbench, net.minecraft.src.blocks.WorkbenchItem.class);
 		ModLoader.registerBlock(woolCarpet, net.minecraft.src.blocks.CarpetItem.class);
