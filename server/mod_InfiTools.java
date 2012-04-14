@@ -2618,12 +2618,9 @@ public class mod_InfiTools extends NetworkMod
         fType = 18;
         brType = 19;
         blType = 20;
-        File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
+        File me = new File( "./config/InfiCraft" );
         me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("InfiTools.cfg").toString())).getPath());
+        props = new InfiProps( "./config/InfiCraft/InfiTools.cfg" );
         props = InfiTools.InitProps(props);
         
         pumpkinPulp = (new PumpkinPulp(pumpkinPulpID, 2, false, 16)).setIconCoord(0, 0).setItemName("pumpkinPulp");

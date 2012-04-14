@@ -6,19 +6,20 @@ import net.minecraft.src.orizon.*;
 import java.io.File;
 import java.util.*;
 
-public class mod_Orizon extends BaseModMp
+public class mod_Orizon extends NetworkMod
 {
 
     public String getVersion()
     {
-        return "v1.1";
+        return "v1.0.4";
     }
 
     public mod_Orizon()
-    {
-        OrizonRecipes.addNames();
+    {        
+
         OrizonRecipes.addRecipes();
-        
+        OrizonRecipes.addNames();
+
         //DimensionManager.registerDimension(7, new WorldProviderOrizon(), true);
         
         /*ModLoader.registerBlock(warpPlank);
@@ -92,7 +93,7 @@ public class mod_Orizon extends BaseModMp
             {
                 "ingotCopper", "ingotTin", "ingotZinc", "ingotCobalt", "ingotArdite", "ingotIvymetal",
                 "ingotBronze", "ingotBrass", "ingotCordite", "ingotRootedCobalt", "ingotManyullyn",
-                "ingotRefinedIron", "ingotSteel"
+                "ingotRefinedIron", "ingotSteel", "ingotLead", "ingotElectrum"
             };
         
         String netherOreNames[] = {
@@ -140,6 +141,24 @@ public class mod_Orizon extends BaseModMp
         
         for(int i = 0; i < gemNames.length; i++) {
         	MinecraftForge.registerOre(gemNames[i], new ItemStack(gems, 1, i));
+        }
+        
+        int replacementOreLevels[] = {
+            0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2	
+        };
+           
+        int replacementMetalLevels[] = {
+        	1, 1, 1, 1, 2, 2, 2, 2
+        };
+        
+        for (int i = 0; i < replacementOreLevels.length; i++)
+        {
+        	MinecraftForge.setBlockHarvestLevel(replaceOre, i, "pickaxe", replacementOreLevels[i]);
+        }
+        
+        for (int i = 0; i < replacementMetalLevels.length; i++)
+        {
+        	MinecraftForge.setBlockHarvestLevel(replaceMetal, i, "pickaxe", replacementMetalLevels[i]);
         }
     }
     
@@ -266,7 +285,8 @@ public class mod_Orizon extends BaseModMp
 
     public void load() {}
     
-public static InfiProps props;
+    public static InfiProps props;
+    public static InfiProps spawnProps;
     
     public static Block mineralOre;
     public static Block mineralOreHigh;
@@ -557,19 +577,29 @@ public static InfiProps props;
     static EnumToolMaterial materialArdite = EnumHelper.addToolMaterial("ORIZONARDITE", 4, 800, 8.0F, 3, 12);
     static EnumToolMaterial materialManyullyn = EnumHelper.addToolMaterial("ORIZONMANYULLYN", 5, 1200, 10.0F, 3, 12);
 
+    public static File getMinecraftDir()
+    {
+        return new File(".");
+    }
+    
     static
     {
-        File me = new File("./mDiyo");
+    	File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
         me.mkdir();
-        props = new InfiProps("./mDiyo/OrizonIDs.cfg");
+        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("OrizonIDs.cfg").toString())).getPath());
         props = PropsHelperOrizon.InitProps(props);
         PropsHelperOrizon.getProps(props);
-        props = new InfiProps("./mDiyo/OrizonWorldGen.cfg");
-        props = PropsHelperOrizon.InitSpawn(props);
+        spawnProps = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
+        		.append('/').append("config").append('/').append("InfiCraft")
+        		.append('/').append("OrizonWorldGen.cfg").toString())).getPath());
+        spawnProps = PropsHelperOrizon.InitSpawn(props);
         PropsHelperOrizon.getSpawn(props);
         
-        if(resolveConflicts)
-            PropsHelperOrizon.resolveIDs(props);
+        /*if(resolveConflicts)
+            PropsHelperOrizon.resolveIDs(props);*/
         
         cStone = new ColoredStone(cStoneID, 0).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone");
         cCobble = new CustomBlockStone(cCobbleID, 16).setHardness(Block.cobblestone.getHardness()).setBlockName("Colored Cobblestone");
@@ -657,4 +687,14 @@ public static InfiProps props;
         manyullynAxe = new OrizonToolAxe(manyullynAxeID, materialManyullyn).setIconCoord(6, 6).setItemName("manyullynAxe");
         manyullynHoe = new OrizonToolHoe(manyullynHoeID, materialManyullyn).setIconCoord(6, 7).setItemName("manyullynHoe");
     }
+    
+    @Override
+	public boolean clientSideRequired() {
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() {
+		return false;
+	}
 }

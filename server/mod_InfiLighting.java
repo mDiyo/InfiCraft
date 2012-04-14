@@ -100,12 +100,9 @@ public class mod_InfiLighting extends NetworkMod
 	
 	static
 	{
-		File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
+		File me = new File( "./config/InfiCraft" );
         me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("InfiLighting.cfg").toString())).getPath());
+        props = new InfiProps( "./config/InfiCraft/InfiLighting.cfg" );
 		props = InitProps(props);
 		getProps(props);
 		

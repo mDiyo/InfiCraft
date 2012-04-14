@@ -26,13 +26,13 @@ public class DetailManager {
 	public void addDetailing(DetailInput detailinput)
 	{
 		detailing.add(detailinput);
-		ModLoader.addShapelessRecipe(new ItemStack(detailinput.getBlockID(), 1, detailinput.getMetadata()), 
+		ModLoader.addShapelessRecipe(new ItemStack(detailinput.getReplacementID(), 1, detailinput.getReplacementMetadata()), 
 				new Object[] { new ItemStack(mod_InfiBlocks.chiselIron, 1, -1), 
-			new ItemStack(detailinput.getReplacementID(), 1, detailinput.getReplacementMetadata())
+			new ItemStack(detailinput.getBlockID(), 1, detailinput.getMetadata())
 		});
-		ModLoader.addShapelessRecipe(new ItemStack(detailinput.getBlockID(), 1, detailinput.getMetadata()), 
+		ModLoader.addShapelessRecipe(new ItemStack(detailinput.getReplacementID(), 1, detailinput.getReplacementMetadata()), 
 				new Object[] { new ItemStack(mod_InfiBlocks.chiselDiamond, 1, -1), 
-			new ItemStack(detailinput.getReplacementID(), 1, detailinput.getReplacementMetadata())
+			new ItemStack(detailinput.getBlockID(), 1, detailinput.getMetadata())
 		});
 	}
 	

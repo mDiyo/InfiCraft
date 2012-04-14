@@ -896,17 +896,12 @@ public class mod_FloraSoma extends NetworkMod
 
 	static
 	{
-		File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
+		File me = new File( "./config/InfiCraft" );
         me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("FloraSomaIDs.cfg").toString())).getPath());
+        props = new InfiProps( "./config/InfiCraft/FloraSomaIDs.cfg" );
 		props = PropsHelperFloraSoma.InitIDs(props);
 		PropsHelperFloraSoma.getIDs(props);
-		spawnProps = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("FloraSomaSpawns.cfg").toString())).getPath());
+		spawnProps = new InfiProps( "./config/InfiCraft/FloraSomaSpawns.cfg" );
 		spawnProps = PropsHelperFloraSoma.InitSpawnRate(spawnProps);
 		PropsHelperFloraSoma.getSpawnRate(spawnProps);
 		

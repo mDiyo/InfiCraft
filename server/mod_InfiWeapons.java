@@ -2134,13 +2134,9 @@ public class mod_InfiWeapons extends NetworkMod
         fType = 18;
         brType = 19;
         blType = 20;
-        File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
+        File me = new File( "./config/InfiCraft" );
         me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("InfiWeapons.cfg").toString())).getPath());
-        		
+        props = new InfiProps( "./config/InfiCraft/InfiWeapons.cfg" );        		
         props = InitProps(props);
         getProps(props);
         wWoodSpear = (new BalkToolSpear(woodSpearID + 0, (int)((float)wDur * wMod), wDam, wType, wType)).setItemName("wWoodSpear");

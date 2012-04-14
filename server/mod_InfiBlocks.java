@@ -9,7 +9,7 @@ public class mod_InfiBlocks extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "v0.7.7 Color Bricked";
+		return "v0.7.8 Color Bricked";
 	}
 
 	public void load()
@@ -87,7 +87,7 @@ public class mod_InfiBlocks extends NetworkMod
 		instance = this;
 		guiHandler = new IGuiHandler()
 		{
-			public Container getGuiContainer(int ID, EntityPlayerMP player,
+			public Object getGuiElement(int ID, EntityPlayer player,
 					World world, int x, int y, int z) 
 			{
 				if (ID == craftingGuiID)
@@ -228,12 +228,9 @@ public class mod_InfiBlocks extends NetworkMod
 
 	static
 	{
-		File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-				.append('/').append("config").append('/').append("InfiCraft").toString() ) );
+		File me = new File( "./config/InfiCraft" );
         me.mkdir();
-		props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-				.append('/').append("config").append('/').append("InfiCraft")
-				.append('/').append("InfiBlocks.cfg").toString())).getPath());
+        props = new InfiProps( "./config/InfiCraft/InfiBlocks.cfg" );
 		props = PropsHelperInfiBlocks.InitProps(props);
 		PropsHelperInfiBlocks.getProps(props);
 		
