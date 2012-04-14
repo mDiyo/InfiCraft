@@ -7,6 +7,7 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.mod_InfiMetals;
 import net.minecraft.src.mod_InfiTools;
+import net.minecraft.src.forge.MinecraftForge;
 
 public class MetalPickaxes 
 {
@@ -42,6 +43,14 @@ public class MetalPickaxes
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperPickaxe");
             copperCopperPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.copperPickaxeID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperPickaxe");
+            
+        	MinecraftForge.setToolClass(stoneCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(flintCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableBronzeTools)
@@ -62,6 +71,15 @@ public class MetalPickaxes
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzePickaxe");
             bronzeBronzePickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.bronzePickaxeID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzePickaxe");
+            
+            MinecraftForge.setToolClass(stoneBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(copperBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableWorkedIronTools)
@@ -106,6 +124,27 @@ public class MetalPickaxes
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ardite, "arditeWorkedIronPickaxe");
             uraniumWorkedIronPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.workedIronPickaxeID+19, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronPickaxe");
+            
+            MinecraftForge.setToolClass(stoneWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(goldWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(iceWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(steelWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableSteelTools)
@@ -150,6 +189,27 @@ public class MetalPickaxes
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelPickaxe");
             uraniumSteelPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.steelPickaxeID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelPickaxe");
+
+            MinecraftForge.setToolClass(stoneSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(ironSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(goldSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(copperSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableCobaltTools)
@@ -188,6 +248,24 @@ public class MetalPickaxes
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltPickaxe");
             uraniumCobaltPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.cobaltPickaxeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltPickaxe");
+            
+            MinecraftForge.setToolClass(stoneCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(ironCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(workedCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(steelCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableArditeTools)
@@ -226,6 +304,24 @@ public class MetalPickaxes
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditePickaxe");
             uraniumArditePickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.arditePickaxeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditePickaxe");
+            
+            MinecraftForge.setToolClass(stoneArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(ironArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(boneArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(copperArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(workedArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(steelArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableManyullynTools)
@@ -262,8 +358,26 @@ public class MetalPickaxes
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynPickaxe");
             manyullynManyullynPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.manyullynPickaxeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynPickaxe");
-            uraniumManyullynPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.manyullynPickaxeID+17, 
+            uraniumManyullynPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.manyullynPickaxeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynPickaxe");
+            
+            MinecraftForge.setToolClass(stoneManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(ironManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(boneManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(copperManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(workedManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(steelManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableUraniumTools)
@@ -288,12 +402,25 @@ public class MetalPickaxes
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumPickaxe");
             uraniumUraniumPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.uraniumPickaxeID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumPickaxe");
+            
+            MinecraftForge.setToolClass(diamondUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(boneUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableStoneTools)
         {
             copperStonePickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.stonePickaxeID+0, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Copper, "copperStonePickaxe");
+            
+            MinecraftForge.setToolClass(copperStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableIronTools)
@@ -304,6 +431,10 @@ public class MetalPickaxes
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronPickaxe");
             workedIronPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.ironPickaxeID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.WorkedIron, "workedIronPickaxe");
+            
+            MinecraftForge.setToolClass(copperIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableDiamondTools)
@@ -324,6 +455,15 @@ public class MetalPickaxes
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondPickaxe");
             uraniumDiamondPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.diamondPickaxeID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondPickaxe");
+            
+            MinecraftForge.setToolClass(copperDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(workedDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(steelDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableRedstoneTools)
@@ -334,6 +474,10 @@ public class MetalPickaxes
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstonePickaxe");
             workedRedstonePickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.redstonePickaxeID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstonePickaxe");
+            
+            MinecraftForge.setToolClass(copperRedstonePickaxe, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeRedstonePickaxe, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedRedstonePickaxe, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableMossyTools)
@@ -344,12 +488,18 @@ public class MetalPickaxes
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Ardite, "arditeMossyPickaxe");
             manyullynMossyPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.mossyPickaxeID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyPickaxe");
+            
+            MinecraftForge.setToolClass(cobaltMossyPickaxe, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeMossyPickaxe, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynMossyPickaxe, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableNetherrackTools)
         {
             copperNetherrackPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.netherrackPickaxeID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackPickaxe");
+            
+            MinecraftForge.setToolClass(copperNetherrackPickaxe, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableGlowstoneTools)
@@ -362,6 +512,11 @@ public class MetalPickaxes
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.WorkedIron, "workedGlowstonePickaxe");
             steelGlowstonePickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.glowstonePickaxeID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Steel, "steelGlowstonePickaxe");
+            
+            MinecraftForge.setToolClass(copperGlowstonePickaxe, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeGlowstonePickaxe, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedGlowstonePickaxe, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(steelGlowstonePickaxe, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableLavaTools)
@@ -374,6 +529,11 @@ public class MetalPickaxes
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaPickaxe");
             uraniumLavaPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.lavaPickaxeID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaPickaxe");
+            
+            MinecraftForge.setToolClass(cobaltLavaPickaxe, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeLavaPickaxe, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynLavaPickaxe, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumLavaPickaxe, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableSlimeTools)
@@ -394,6 +554,15 @@ public class MetalPickaxes
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Manyullyn, "manyullynSlimePickaxe");
             uraniumSlimePickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.slimePickaxeID+7, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Uranium, "uraniumSlimePickaxe");
+            
+            MinecraftForge.setToolClass(copperSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableFlintTools)
@@ -402,6 +571,9 @@ public class MetalPickaxes
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintPickaxe");
             bronzeFlintPickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.flintPickaxeID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintPickaxe");
+            
+            MinecraftForge.setToolClass(copperFlintPickaxe, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeFlintPickaxe, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableBlazeTools)
@@ -414,6 +586,11 @@ public class MetalPickaxes
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazePickaxe");
             uraniumBlazePickaxe = new MetalToolPickaxe(PropsHelperInfiMetals.blazePickaxeID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazePickaxe");
+            
+            MinecraftForge.setToolClass(cobaltBlazePickaxe, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeBlazePickaxe, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynBlazePickaxe, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumBlazePickaxe, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     }
     

@@ -7,6 +7,7 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.mod_InfiMetals;
 import net.minecraft.src.mod_InfiTools;
+import net.minecraft.src.forge.MinecraftForge;
 
 public class MetalAxes 
 {
@@ -42,6 +43,14 @@ public class MetalAxes
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperAxe");
             copperCopperAxe = new MetalToolAxe(PropsHelperInfiMetals.copperAxeID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperAxe");
+            
+        	MinecraftForge.setToolClass(stoneCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(flintCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableBronzeTools)
@@ -62,6 +71,15 @@ public class MetalAxes
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeAxe");
             bronzeBronzeAxe = new MetalToolAxe(PropsHelperInfiMetals.bronzeAxeID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeAxe");
+            
+            MinecraftForge.setToolClass(stoneBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(copperBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableWorkedIronTools)
@@ -106,6 +124,27 @@ public class MetalAxes
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ardite, "arditeWorkedIronAxe");
             uraniumWorkedIronAxe = new MetalToolAxe(PropsHelperInfiMetals.workedIronAxeID+19, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronAxe");
+            
+            MinecraftForge.setToolClass(stoneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(goldWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(iceWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(steelWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableSteelTools)
@@ -150,6 +189,27 @@ public class MetalAxes
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelAxe");
             uraniumSteelAxe = new MetalToolAxe(PropsHelperInfiMetals.steelAxeID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelAxe");
+
+            MinecraftForge.setToolClass(stoneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(ironSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(goldSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(copperSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableCobaltTools)
@@ -188,6 +248,24 @@ public class MetalAxes
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltAxe");
             uraniumCobaltAxe = new MetalToolAxe(PropsHelperInfiMetals.cobaltAxeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltAxe");
+            
+            MinecraftForge.setToolClass(stoneCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(ironCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(workedCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(steelCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableArditeTools)
@@ -226,6 +304,24 @@ public class MetalAxes
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeAxe");
             uraniumArditeAxe = new MetalToolAxe(PropsHelperInfiMetals.arditeAxeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeAxe");
+            
+            MinecraftForge.setToolClass(stoneArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(ironArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(boneArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(copperArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(workedArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(steelArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableManyullynTools)
@@ -262,8 +358,26 @@ public class MetalAxes
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynAxe");
             manyullynManyullynAxe = new MetalToolAxe(PropsHelperInfiMetals.manyullynAxeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynAxe");
-            uraniumManyullynAxe = new MetalToolAxe(PropsHelperInfiMetals.manyullynAxeID+17, 
+            uraniumManyullynAxe = new MetalToolAxe(PropsHelperInfiMetals.manyullynAxeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynAxe");
+            
+            MinecraftForge.setToolClass(stoneManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(ironManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(boneManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(copperManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(workedManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(steelManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableUraniumTools)
@@ -288,12 +402,25 @@ public class MetalAxes
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumAxe");
             uraniumUraniumAxe = new MetalToolAxe(PropsHelperInfiMetals.uraniumAxeID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumAxe");
+            
+            MinecraftForge.setToolClass(diamondUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(boneUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableStoneTools)
         {
             copperStoneAxe = new MetalToolAxe(PropsHelperInfiMetals.stoneAxeID+0, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Copper, "copperStoneAxe");
+            
+            MinecraftForge.setToolClass(copperStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableIronTools)
@@ -304,6 +431,10 @@ public class MetalAxes
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronAxe");
             workedIronAxe = new MetalToolAxe(PropsHelperInfiMetals.ironAxeID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.WorkedIron, "workedIronAxe");
+            
+            MinecraftForge.setToolClass(copperIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableDiamondTools)
@@ -324,6 +455,15 @@ public class MetalAxes
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondAxe");
             uraniumDiamondAxe = new MetalToolAxe(PropsHelperInfiMetals.diamondAxeID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondAxe");
+            
+            MinecraftForge.setToolClass(copperDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(workedDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(steelDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableRedstoneTools)
@@ -334,6 +474,10 @@ public class MetalAxes
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstoneAxe");
             workedRedstoneAxe = new MetalToolAxe(PropsHelperInfiMetals.redstoneAxeID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneAxe");
+            
+            MinecraftForge.setToolClass(copperRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableMossyTools)
@@ -344,12 +488,18 @@ public class MetalAxes
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Ardite, "arditeMossyAxe");
             manyullynMossyAxe = new MetalToolAxe(PropsHelperInfiMetals.mossyAxeID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyAxe");
+            
+            MinecraftForge.setToolClass(cobaltMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableNetherrackTools)
         {
             copperNetherrackAxe = new MetalToolAxe(PropsHelperInfiMetals.netherrackAxeID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackAxe");
+            
+            MinecraftForge.setToolClass(copperNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableGlowstoneTools)
@@ -362,6 +512,11 @@ public class MetalAxes
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.WorkedIron, "workedGlowstoneAxe");
             steelGlowstoneAxe = new MetalToolAxe(PropsHelperInfiMetals.glowstoneAxeID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Steel, "steelGlowstoneAxe");
+            
+            MinecraftForge.setToolClass(copperGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(steelGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableLavaTools)
@@ -374,6 +529,11 @@ public class MetalAxes
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaAxe");
             uraniumLavaAxe = new MetalToolAxe(PropsHelperInfiMetals.lavaAxeID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaAxe");
+            
+            MinecraftForge.setToolClass(cobaltLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableSlimeTools)
@@ -394,6 +554,15 @@ public class MetalAxes
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Manyullyn, "manyullynSlimeAxe");
             uraniumSlimeAxe = new MetalToolAxe(PropsHelperInfiMetals.slimeAxeID+7, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Uranium, "uraniumSlimeAxe");
+            
+            MinecraftForge.setToolClass(copperSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableFlintTools)
@@ -402,6 +571,9 @@ public class MetalAxes
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintAxe");
             bronzeFlintAxe = new MetalToolAxe(PropsHelperInfiMetals.flintAxeID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintAxe");
+            
+            MinecraftForge.setToolClass(copperFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableBlazeTools)
@@ -414,6 +586,11 @@ public class MetalAxes
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeAxe");
             uraniumBlazeAxe = new MetalToolAxe(PropsHelperInfiMetals.blazeAxeID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeAxe");
+            
+            MinecraftForge.setToolClass(cobaltBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     }
     

@@ -48,6 +48,16 @@ public class MetalToolMallet extends InfiToolCore
         
         return itemstack;
     }
+    
+    public int getMaxItemUseDuration(ItemStack itemstack)
+    {
+        return 25;
+    }
+    
+    public EnumAction getItemUseAction(ItemStack itemstack)
+    {
+        return EnumAction.bow;
+    }
 
     public String getTextureFile()
     {

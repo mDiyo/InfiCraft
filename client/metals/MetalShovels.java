@@ -7,6 +7,7 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.mod_InfiMetals;
 import net.minecraft.src.mod_InfiTools;
+import net.minecraft.src.forge.MinecraftForge;
 
 public class MetalShovels 
 {
@@ -42,6 +43,14 @@ public class MetalShovels
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperShovel");
             copperCopperShovel = new MetalToolShovel(PropsHelperInfiMetals.copperShovelID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperShovel");
+            
+        	MinecraftForge.setToolClass(stoneCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(flintCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableBronzeTools)
@@ -62,6 +71,15 @@ public class MetalShovels
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeShovel");
             bronzeBronzeShovel = new MetalToolShovel(PropsHelperInfiMetals.bronzeShovelID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeShovel");
+            
+            MinecraftForge.setToolClass(stoneBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(copperBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableWorkedIronTools)
@@ -106,6 +124,27 @@ public class MetalShovels
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ardite, "arditeWorkedIronShovel");
             uraniumWorkedIronShovel = new MetalToolShovel(PropsHelperInfiMetals.workedIronShovelID+19, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronShovel");
+            
+            MinecraftForge.setToolClass(stoneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(goldWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(iceWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(steelWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableSteelTools)
@@ -150,6 +189,27 @@ public class MetalShovels
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelShovel");
             uraniumSteelShovel = new MetalToolShovel(PropsHelperInfiMetals.steelShovelID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelShovel");
+
+            MinecraftForge.setToolClass(stoneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(ironSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(goldSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(copperSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableCobaltTools)
@@ -188,6 +248,24 @@ public class MetalShovels
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltShovel");
             uraniumCobaltShovel = new MetalToolShovel(PropsHelperInfiMetals.cobaltShovelID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltShovel");
+            
+            MinecraftForge.setToolClass(stoneCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(ironCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(workedCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(steelCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableArditeTools)
@@ -226,6 +304,24 @@ public class MetalShovels
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeShovel");
             uraniumArditeShovel = new MetalToolShovel(PropsHelperInfiMetals.arditeShovelID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeShovel");
+            
+            MinecraftForge.setToolClass(stoneArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(ironArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(boneArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(copperArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(workedArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(steelArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableManyullynTools)
@@ -262,8 +358,26 @@ public class MetalShovels
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynShovel");
             manyullynManyullynShovel = new MetalToolShovel(PropsHelperInfiMetals.manyullynShovelID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynShovel");
-            uraniumManyullynShovel = new MetalToolShovel(PropsHelperInfiMetals.manyullynShovelID+17, 
+            uraniumManyullynShovel = new MetalToolShovel(PropsHelperInfiMetals.manyullynShovelID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynShovel");
+            
+            MinecraftForge.setToolClass(stoneManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(ironManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(boneManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(copperManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(workedManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(steelManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableUraniumTools)
@@ -288,12 +402,25 @@ public class MetalShovels
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumShovel");
             uraniumUraniumShovel = new MetalToolShovel(PropsHelperInfiMetals.uraniumShovelID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumShovel");
+            
+            MinecraftForge.setToolClass(diamondUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(boneUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableStoneTools)
         {
             copperStoneShovel = new MetalToolShovel(PropsHelperInfiMetals.stoneShovelID+0, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Copper, "copperStoneShovel");
+            
+            MinecraftForge.setToolClass(copperStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableIronTools)
@@ -304,6 +431,10 @@ public class MetalShovels
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronShovel");
             workedIronShovel = new MetalToolShovel(PropsHelperInfiMetals.ironShovelID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.WorkedIron, "workedIronShovel");
+            
+            MinecraftForge.setToolClass(copperIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableDiamondTools)
@@ -324,6 +455,15 @@ public class MetalShovels
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondShovel");
             uraniumDiamondShovel = new MetalToolShovel(PropsHelperInfiMetals.diamondShovelID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondShovel");
+            
+            MinecraftForge.setToolClass(copperDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(workedDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(steelDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableRedstoneTools)
@@ -334,6 +474,10 @@ public class MetalShovels
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstoneShovel");
             workedRedstoneShovel = new MetalToolShovel(PropsHelperInfiMetals.redstoneShovelID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneShovel");
+            
+            MinecraftForge.setToolClass(copperRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableMossyTools)
@@ -344,12 +488,18 @@ public class MetalShovels
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Ardite, "arditeMossyShovel");
             manyullynMossyShovel = new MetalToolShovel(PropsHelperInfiMetals.mossyShovelID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyShovel");
+            
+            MinecraftForge.setToolClass(cobaltMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableNetherrackTools)
         {
             copperNetherrackShovel = new MetalToolShovel(PropsHelperInfiMetals.netherrackShovelID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackShovel");
+            
+            MinecraftForge.setToolClass(copperNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableGlowstoneTools)
@@ -362,6 +512,11 @@ public class MetalShovels
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.WorkedIron, "workedGlowstoneShovel");
             steelGlowstoneShovel = new MetalToolShovel(PropsHelperInfiMetals.glowstoneShovelID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Steel, "steelGlowstoneShovel");
+            
+            MinecraftForge.setToolClass(copperGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(steelGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableLavaTools)
@@ -374,6 +529,11 @@ public class MetalShovels
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaShovel");
             uraniumLavaShovel = new MetalToolShovel(PropsHelperInfiMetals.lavaShovelID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaShovel");
+            
+            MinecraftForge.setToolClass(cobaltLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableSlimeTools)
@@ -394,6 +554,15 @@ public class MetalShovels
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Manyullyn, "manyullynSlimeShovel");
             uraniumSlimeShovel = new MetalToolShovel(PropsHelperInfiMetals.slimeShovelID+7, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Uranium, "uraniumSlimeShovel");
+            
+            MinecraftForge.setToolClass(copperSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableFlintTools)
@@ -402,6 +571,9 @@ public class MetalShovels
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintShovel");
             bronzeFlintShovel = new MetalToolShovel(PropsHelperInfiMetals.flintShovelID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintShovel");
+            
+            MinecraftForge.setToolClass(copperFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
         if(PropsHelperInfiMetals.enableBlazeTools)
@@ -414,6 +586,11 @@ public class MetalShovels
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeShovel");
             uraniumBlazeShovel = new MetalToolShovel(PropsHelperInfiMetals.blazeShovelID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeShovel");
+            
+            MinecraftForge.setToolClass(cobaltBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     }
     
