@@ -13,25 +13,25 @@ public class mod_Mechvent extends NetworkMod
 		
 		guiHandler = new IGuiHandler()
 		{
-			public GuiScreen getGuiScreen(int ID, EntityPlayerSP player, World world, int x, int y, int z)
-			{
-				if (ID == 1)
-				{
-					
-					return new CrusherGui(player.inventory, (CrusherLogic)world.getBlockTileEntity(x, y, z));
-				}
-				if (ID == 2)
-				{
-					return new GrinderGui(player.inventory, (GrinderLogic)world.getBlockTileEntity(x, y, z));
-				}
-				else
-				{
-					return null;
-				}
-			}
-		};
+            @Override
+            public Object getGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+                if (ID == 1)
+                {
+
+                    return new CrusherGui(player.inventory, (CrusherLogic)world.getBlockTileEntity(x, y, z));
+                }
+                if (ID == 2)
+                {
+                    return new GrinderGui(player.inventory, (GrinderLogic)world.getBlockTileEntity(x, y, z));
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        };
 		
-		//ModLoader.registerBlock(protoCrusher, net.minecraft.src.prototype.FurnaceItem.class);
+//		ModLoader.registerBlock(protoCrusher, net.minecraft.src.prototype.FurnaceItem.class);
 		MinecraftForge.setGuiHandler(this, guiHandler);
 		ModLoader.registerBlock(protoCrusher, net.minecraft.src.mechvent.CrusherItem.class);
 		ModLoader.registerTileEntity(net.minecraft.src.mechvent.CrusherLogic.class, "Prototype Crusher");
