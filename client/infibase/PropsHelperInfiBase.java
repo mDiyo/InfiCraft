@@ -18,7 +18,7 @@ public class PropsHelperInfiBase {
 
         File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/InfiBase.cfg");
+        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/InfiBase.txt");
 
         /* Some basic debugging will go a long way */
         try
@@ -43,64 +43,78 @@ public class PropsHelperInfiBase {
          */
         //enableCopperTools = config.getOrCreateBooleanProperty("Enable Copper Tools", "general", true).getBoolean(true);
         
-        mossBlockID = config.getOrCreateBlockIdProperty("Moss Block", 252).getInt();
+        mossBlockID = config.getOrCreateBlockIdProperty("Moss Block", 252).getInt(252);
+        slimeSandID = config.getOrCreateBlockIdProperty("Slime Sand", 253).getInt(253);
+        treeRootID = config.getOrCreateIntProperty("Tree Root", "item", 14000).getInt(14000);
         
-        stoneRodID = config.getOrCreateIntProperty("Stone Rod", "item", 13891).getInt();
-        ironRodID = config.getOrCreateIntProperty("Iron Rod", "item", 13892).getInt();
-        diamondRodID = config.getOrCreateIntProperty("Diamond Rod", "item", 13893).getInt();
+        mossBallID = config.getOrCreateIntProperty("Moss Ball", "item", 13951).getInt(13951);
+        mossyPatchID = config.getOrCreateIntProperty("Mossy Patch", "item", 13952).getInt(13952);
+        mossyStoneID = config.getOrCreateIntProperty("Moss infused Stone", "item", 13953).getInt(13953);
         
-        redstoneRodID = config.getOrCreateIntProperty("Redstone Rod", "item", 13895).getInt();
-        obsidianRodID = config.getOrCreateIntProperty("Obsidian Rod", "item", 13896).getInt();
-        sandstoneRodID = config.getOrCreateIntProperty("Sandstone Rod", "item", 13897).getInt();
-        boneRodID = config.getOrCreateIntProperty("Bone Rod", "item", 13898).getInt();
-        paperRodID = config.getOrCreateIntProperty("Paper Rod", "item", 13899).getInt();
-        mossyRodID = config.getOrCreateIntProperty("Mossy Rod", "item", 13900).getInt();
-        netherrackRodID = config.getOrCreateIntProperty("Netherrack Rod", "item", 13901).getInt();
-        glowstoneRodID = config.getOrCreateIntProperty("Glowstone Rod", "item", 13902).getInt();
-        iceRodID = config.getOrCreateIntProperty("Ice Rod", "item", 13903).getInt();
-        lavaRodID = config.getOrCreateIntProperty("Lava Rod", "item", 13904).getInt();
-        slimeRodID = config.getOrCreateIntProperty("Slime Rod", "item", 13905).getInt();
-        cactusRodID = config.getOrCreateIntProperty("Cactus Rod", "item", 13906).getInt();
-        flintRodID = config.getOrCreateIntProperty("Flint Rod", "item", 13907).getInt();
-        brickRodID = config.getOrCreateIntProperty("Brick Rod", "item", 13908).getInt();
+        redstoneCrystalID = config.getOrCreateIntProperty("Redstone Crystal", "item", 13945).getInt(13945);
+        glowstoneCrystalID = config.getOrCreateIntProperty("Glowstone Crystal", "item", 13946).getInt(13946);
+        obsidianCrystalID = config.getOrCreateIntProperty("Obsidian Crystal", "item", 13947).getInt(13947);
+        lavaCrystalID = config.getOrCreateIntProperty("Lava Crystal", "item", 13948).getInt(13948);
+        slimeCrystalID = config.getOrCreateIntProperty("Slime Crystal", "item", 13949).getInt(13949);
+        blazeCrystalID = config.getOrCreateIntProperty("Blaze Crystal", "item", 13950).getInt(13950);
         
-        copperRodID = config.getOrCreateIntProperty("Copper Rod", "item", 13881).getInt();
-        bronzeRodID = config.getOrCreateIntProperty("Bronze Rod", "item", 13882).getInt();
-        workedIronRodID = config.getOrCreateIntProperty("Worked Iron Rod", "item", 13883).getInt();
-        steelRodID = config.getOrCreateIntProperty("Steel Rod", "item", 13884).getInt();
-        cobaltRodID = config.getOrCreateIntProperty("Cobalt Rod", "item", 13885).getInt();
-        arditeRodID = config.getOrCreateIntProperty("Ardite Rod", "item", 13886).getInt();
-        manyullynRodID = config.getOrCreateIntProperty("Manyullyn Rod", "item", 13887).getInt();
-        uraniumRodID = config.getOrCreateIntProperty("Uranium Rod", "item", 13888).getInt();
+        stoneRodID = config.getOrCreateIntProperty("Stone Rod", "item", 13891).getInt(13891);
+        ironRodID = config.getOrCreateIntProperty("Iron Rod", "item", 13892).getInt(13892);
+        diamondRodID = config.getOrCreateIntProperty("Diamond Rod", "item", 13893).getInt(13893);
         
-        paperStackID = config.getOrCreateIntProperty("Stack of Paper", "item", 13917).getInt();
-        paperDustID = config.getOrCreateIntProperty("Paper-filled Dust", "item", 13918).getInt();
+        redstoneRodID = config.getOrCreateIntProperty("Redstone Rod", "item", 13895).getInt(13895);
+        obsidianRodID = config.getOrCreateIntProperty("Obsidian Rod", "item", 13896).getInt(13896);
+        sandstoneRodID = config.getOrCreateIntProperty("Sandstone Rod", "item", 13897).getInt(13897);
+        boneRodID = config.getOrCreateIntProperty("Bone Rod", "item", 13898).getInt(13898);
+        paperRodID = config.getOrCreateIntProperty("Paper Rod", "item", 13899).getInt(13899);
+        mossyRodID = config.getOrCreateIntProperty("Mossy Rod", "item", 13900).getInt(13900);
+        netherrackRodID = config.getOrCreateIntProperty("Netherrack Rod", "item", 13901).getInt(13901);
+        glowstoneRodID = config.getOrCreateIntProperty("Glowstone Rod", "item", 13902).getInt(13902);
+        iceRodID = config.getOrCreateIntProperty("Ice Rod", "item", 13903).getInt(13903);
+        lavaRodID = config.getOrCreateIntProperty("Lava Rod", "item", 13904).getInt(13904);
+        slimeRodID = config.getOrCreateIntProperty("Slime Rod", "item", 13905).getInt(13905);
+        cactusRodID = config.getOrCreateIntProperty("Cactus Rod", "item", 13906).getInt(13906);
+        flintRodID = config.getOrCreateIntProperty("Flint Rod", "item", 13907).getInt(13907);
         
-        woodSplintersID = config.getOrCreateIntProperty("Wood Splinters", "item", 14001).getInt();
-        stoneShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14002).getInt();
-        ironChunkID = config.getOrCreateIntProperty("Wood Splinters", "item", 14003).getInt();
-        diamondShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14004).getInt();
-        redstoneFragmentID = config.getOrCreateIntProperty("Wood Splinters", "item", 14006).getInt();
-        obsidianShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14007).getInt();
-        sandstoneShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14008).getInt();
-        netherrackShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14009).getInt();
-        glowstoneFragmentID = config.getOrCreateIntProperty("Wood Splinters", "item", 140010).getInt();
-        iceShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14011).getInt();
-        lavaFragmentID = config.getOrCreateIntProperty("Wood Splinters", "item", 14012).getInt();
-        slimeFragmentID = config.getOrCreateIntProperty("Wood Splinters", "item", 14013).getInt();
-        flintShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14014).getInt();
+        copperRodID = config.getOrCreateIntProperty("Copper Rod", "item", 13881).getInt(13881);
+        bronzeRodID = config.getOrCreateIntProperty("Bronze Rod", "item", 13882).getInt(13882);
+        workedIronRodID = config.getOrCreateIntProperty("Worked Iron Rod", "item", 13883).getInt(13883);
+        steelRodID = config.getOrCreateIntProperty("Steel Rod", "item", 13884).getInt(13884);
+        cobaltRodID = config.getOrCreateIntProperty("Cobalt Rod", "item", 13885).getInt(13885);
+        arditeRodID = config.getOrCreateIntProperty("Ardite Rod", "item", 13886).getInt(13886);
+        manyullynRodID = config.getOrCreateIntProperty("Manyullyn Rod", "item", 13887).getInt(13887);
+        uraniumRodID = config.getOrCreateIntProperty("Uranium Rod", "item", 13888).getInt(13888);
         
-        miniBrickID = config.getOrCreateIntProperty("Wood Splinters", "item", 14015).getInt();
-        blazeFragmentID = config.getOrCreateIntProperty("Wood Splinters", "item", 14016).getInt();
+        paperStackID = config.getOrCreateIntProperty("Stack of Paper", "item", 13917).getInt(13917);
+        paperDustID = config.getOrCreateIntProperty("Paper filled Dust", "item", 13918).getInt(13918);
         
-        copperShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14017).getInt();
-        bronzeShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14018).getInt();
-        workedIronShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14019).getInt();
-        steelShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14020).getInt();
-        cobaltShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14021).getInt();
-        arditeShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14022).getInt();
-        manyullynShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14023).getInt();
-        uraniumShardID = config.getOrCreateIntProperty("Wood Splinters", "item", 14024).getInt();
+        woodSplintersID = config.getOrCreateIntProperty("Wood Splinters", "item", 13919).getInt(13919);
+        stoneShardID = config.getOrCreateIntProperty("Stone Shard", "item", 13920).getInt(13920);
+        ironChunkID = config.getOrCreateIntProperty("Iron Chunk", "item", 13921).getInt(13921);
+        diamondShardID = config.getOrCreateIntProperty("Diamond Shard", "item", 13922).getInt(13922);
+        redstoneFragmentID = config.getOrCreateIntProperty("Redstone Crystal Fragment", "item", 13923).getInt(13923);
+        obsidianShardID = config.getOrCreateIntProperty("Obsidian Shard", "item", 13924).getInt(13924);
+        sandstoneShardID = config.getOrCreateIntProperty("Sandstone Shard", "item", 13925).getInt(13925);
+        netherrackShardID = config.getOrCreateIntProperty("Netherrack Shard", "item", 13926).getInt(13926);
+        glowstoneFragmentID = config.getOrCreateIntProperty("Glowstone Crystal Fragment", "item", 13927).getInt(13927);
+        iceShardID = config.getOrCreateIntProperty("Ice Shard", "item", 13928).getInt(13928);
+        lavaFragmentID = config.getOrCreateIntProperty("Lava Crystal Fragment", "item", 13929).getInt(13929);
+        slimeFragmentID = config.getOrCreateIntProperty("Slime Crystal Fragment", "item", 13930).getInt(13930);
+        cactusShardID = config.getOrCreateIntProperty("Cactus Spine", "item", 13931).getInt(13931);
+        flintShardID = config.getOrCreateIntProperty("Flint Shard", "item", 13932).getInt(13932);
+        blazeFragmentID = config.getOrCreateIntProperty("Fragmented Blaze Essence", "item", 13933).getInt(13933);
+        
+        copperChunkID = config.getOrCreateIntProperty("Copper Chunk", "item", 13934).getInt(13934);
+        bronzeChunkID = config.getOrCreateIntProperty("Bronze Chunk", "item", 13935).getInt(13935);
+        workedIronChunkID = config.getOrCreateIntProperty("Worked Iron Chunk", "item", 13936).getInt(13936);
+        steelChunkID = config.getOrCreateIntProperty("Steel Chunk", "item", 13937).getInt(13937);
+        cobaltChunkID = config.getOrCreateIntProperty("Cobalt Chunk", "item", 13938).getInt(13938);
+        arditeChunkID = config.getOrCreateIntProperty("Ardite Chunk", "item", 13939).getInt(13939);
+        manyullynChunkID = config.getOrCreateIntProperty("Manyullyn Chunk", "item", 13940).getInt(13940);
+        uraniumChunkID = config.getOrCreateIntProperty("Uranium Fragment", "item", 13941).getInt(13941);
+        
+        glassShardID = config.getOrCreateIntProperty("Glass Shard", "item", 13942).getInt(13942);
+        coalBitID = config.getOrCreateIntProperty("Coal Bits", "item", 13943).getInt(13943);
 
         /* Save the configuration file */
         config.save();
@@ -109,6 +123,8 @@ public class PropsHelperInfiBase {
     /* Prototype fields, used elsewhere */
     
     public static int mossBlockID;
+    public static int slimeSandID;
+    public static int treeRootID;
     
     public static int stoneRodID;
     public static int ironRodID;
@@ -127,7 +143,6 @@ public class PropsHelperInfiBase {
     public static int slimeRodID;
     public static int cactusRodID;
     public static int flintRodID;
-    public static int brickRodID;
     
     public static int copperRodID;
     public static int bronzeRodID;
@@ -151,18 +166,19 @@ public class PropsHelperInfiBase {
     public static int iceShardID;
     public static int lavaFragmentID;
     public static int slimeFragmentID;
+    public static int cactusShardID;
     public static int flintShardID;
     public static int miniBrickID;
     public static int blazeFragmentID;
     
-    public static int copperShardID;
-    public static int bronzeShardID;
-    public static int workedIronShardID;
-    public static int steelShardID;
-    public static int cobaltShardID;
-    public static int arditeShardID;
-    public static int manyullynShardID;
-    public static int uraniumShardID;
+    public static int copperChunkID;
+    public static int bronzeChunkID;
+    public static int workedIronChunkID;
+    public static int steelChunkID;
+    public static int cobaltChunkID;
+    public static int arditeChunkID;
+    public static int manyullynChunkID;
+    public static int uraniumChunkID;
     
     public static int glassShardID;
     public static int coalBitID;

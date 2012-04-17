@@ -11,47 +11,47 @@ public abstract class InfiToolCore extends ItemTool
 	implements ITextureProvider
 {
     private static Random random = new Random();
-    protected static InfiMaterialEnum headMaterial;
-    protected static InfiMaterialEnum handleMaterial;
     protected int secondIconIndex;
     
     private String[] namePrefix = {
-    	"", "Stony ", "Hard ", "Jeweled ", "Expensive ", "Red ", "Glassy ", "Sandy ", "Occult ", "Fibery ",
-    	"Mossy ", "Bloody ", "Glowing ", "Cold ", "Fiery ", "Slimy ", "Spiny ", "Rough ", "Baked ", "Hot ",
-    	"Cupric ", "Bronzed ", "Worked ", "Forged ", "Blue ", "Rustic ", "Exotic ", "", "", "", "", "Poisonous"
-    };
-    
-    private String[] nameSuffix = {
-    	"Wooden", "Stone", "Iron", "Diamond", "Gold", "Redstone", "Obsidian", "Sandstone", "Bone", "Paper",
-    	"Mossy", "Netherrack", "Glowstone", "Ice", "Lava", "Slime", "Cactus", "Flint", "Brick", "Blaze",
-    	"Copper", "Bronze", "Worked Iron", "Steel", "Cobalt", "Ardite", "Manyullyn", "", "", "", "", "Uranium"
-    };
+        	"", "Stony ", "Hard ", "Jeweled ", "Red ", "Glassy ", "Sandy ", "Occult ", "Fibery ",
+        	"Mossy ", "Bloody ", "Glowing ", "Cold ", "Fiery ", "Slimy ", "Spiny ", "Rough ", "Hot ",
+        	"Cupric ", "Bronzed ", "Worked ", "Forged ", "Blue ", "Rustic ", "Exotic ", "Poisonous"
+        };
+        
+        private String[] nameSuffix = {
+        	"Wooden", "Stone", "Iron", "Diamond", "Redstone", "Obsidian", "Sandstone", "Bone", "Paper",
+        	"Mossy", "Netherrack", "Glowstone", "Ice", "Lava", "Slime", "Cactus", "Flint", "Blaze",
+        	"Copper", "Bronze", "Worked Iron", "Steel", "Cobalt", "Ardite", "Manyullyn", "Uranium"
+        };
 	
-	public InfiToolCore(int itemID, int damageBase, InfiMaterialEnum head, InfiMaterialEnum handle, Material[] material, String internalName)
+	public InfiToolCore(int itemID, int damageBase, InfiMaterialEnum head, InfiMaterialEnum handle, String internalName)
 	{
 		super(itemID, damageBase, EnumToolMaterial.WOOD, null);
-				
-		this.materialEffectiveAgainst = material;
+
 		this.toolHarvestLevel = head.getHarvestLevel();
 		this.maxStackSize = 1;		
         this.efficiencyOnProperMaterial = head.getSpeed();
-        this.damageVsEntity = damageBase + head.getDamage();
-        this.durability = (int)(head.getDurability() * handle.getDurabilityBonus());
-        this.headMaterial = head;
-        this.handleMaterial = handle;
+        this.toolDamage = damageBase + head.getDamage();
+        this.durability = (int)(head.getDurability() * handle.getDurabilityBonus());        
         setMaxDamage(durability);
-        int handleMaterial = handle.getMaterialType();
-        int headMaterial = head.getMaterialType();
-        this.setIconIndex(handleMaterial - 1);
-        this.setSecondIconIndex(headMaterial + 127);
+        this.headType = head.getMaterialType();
+        this.handleType = handle.getMaterialType();
+        this.enchantibility = (head.getEnchantability() + handle.getEnchantability()) / 2;
+        this.headUnbreaking = head.getUnbreakingLevel();
+        this.handleUnbreaking = handle.getUnbreakingLevel();
+        this.headShoddy = head.getShoddy();
+        this.handleShoddy = handle.getShoddy();
+        this.setIconIndex(handleType - 1);
+        this.setSecondIconIndex(headType + 127);
         this.setItemName(internalName);
-        if(headMaterial != handleMaterial)
+        if(headType != handleType)
         {
-        	ModLoader.addName(this, namePrefix[handleMaterial - 1] + nameSuffix[headMaterial-1] + " " + getInvName());
+        	ModLoader.addName(this, namePrefix[handleType - 1] + nameSuffix[headType-1] + " " + getInvName());
         }
 	}
 	
-	public abstract String getInvName(); 
+	public abstract String getInvName();
 
     public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
@@ -64,19 +64,19 @@ public abstract class InfiToolCore extends ItemTool
         int md = world.getBlockMetadata(x, y, z);
         boolean flag = true;
         boolean flag1 = true;
-        if (headMaterial.getMaterialType() == handleMaterial.getMaterialType())
+        if (headType == handleType)
         {
-            flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headMaterial.getMaterialType());
+            flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headType);
         }
         else
         {
             if (random.nextInt(100) + 1 <= 80)
             {
-                flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headMaterial.getMaterialType());
+                flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headType);
             }
             if (random.nextInt(100) + 1 <= 20)
             {
-                flag1 = powers(itemstack, bID, x, y, z, world, entityplayer, md, handleMaterial.getMaterialType());
+                flag1 = powers(itemstack, bID, x, y, z, world, entityplayer, md, handleType);
             }
         }
         if (!ForgeHooks.canHarvestBlock(Block.blocksList[bID], entityplayer, md))
@@ -103,12 +103,12 @@ public abstract class InfiToolCore extends ItemTool
         {
             itemstack.stackSize = 0;
         }
-        int unbreaking = headMaterial.getUnbreakingLevel();
-        if (handleMaterial.getUnbreakingLevel() > unbreaking)
-        	unbreaking = handleMaterial.getUnbreakingLevel();
+        int unbreaking = headUnbreaking;
+        if (handleUnbreaking > unbreaking)
+        	unbreaking = handleUnbreaking;
         if (random.nextInt(100) + 1 <= 100 - (unbreaking * 10))
         {
-            itemstack.damageItem(1, entityliving);
+            itemstack.damageItem(2, entityliving);
         }
         if (i >= durability)
         {
@@ -121,30 +121,28 @@ public abstract class InfiToolCore extends ItemTool
     public boolean hitEntity(ItemStack itemstack, EntityLiving entityliving, EntityLiving entityliving1)
     {
         World world = entityliving1.worldObj;
-        int type1 = headMaterial.getMaterialType();
-        int type2 = handleMaterial.getMaterialType();
-        if (type1 == type2)
+        if (headType == handleType)
         {
-            attacks(itemstack, world, entityliving1, entityliving, type1);
+            attacks(itemstack, world, entityliving1, entityliving, headType);
         }
         else
         {
             if (random.nextInt(100) + 1 <= 80)
             {
-                attacks(itemstack, world, entityliving1, entityliving, type1);
+                attacks(itemstack, world, entityliving1, entityliving, headType);
             }
             if (random.nextInt(100) + 1 <= 20)
             {
-                attacks(itemstack, world, entityliving1, entityliving, type2);
+                attacks(itemstack, world, entityliving1, entityliving, handleType);
             }
         }
         
-        int unbreaking = headMaterial.getUnbreakingLevel();
-        if (handleMaterial.getUnbreakingLevel() > unbreaking)
-        	unbreaking = handleMaterial.getUnbreakingLevel();
+        int unbreaking = headUnbreaking;
+        if (handleUnbreaking > unbreaking)
+        	unbreaking = handleUnbreaking;
         if (random.nextInt(100) + 1 <= 100 - (unbreaking * 10))
         {
-            itemstack.damageItem(2, entityliving);
+            itemstack.damageItem(1, entityliving);
         }
         int i = itemstack.getItemDamage();
         if (i >= durability)
@@ -160,110 +158,38 @@ public abstract class InfiToolCore extends ItemTool
     {
         switch (materialType)
         {
-            case 1:
-                InfiToolPowers.splintering(x, y, z, mod_InfiTools.woodSplinters, world);
-                break;
-
-            case 2:
-                InfiToolPowers.splintering(x, y, z, mod_InfiTools.stoneShard, world);
-                break;
-
-            case 7:
-                InfiToolPowers.splintering(x, y, z, mod_InfiTools.obsidianShard, world);
-                break;
-
-            case 8:
-                InfiToolPowers.splintering(x, y, z, mod_InfiTools.sandstoneShard, world);
-                break;
-
-            case 12:
-                InfiToolPowers.splintering(x, y, z, mod_InfiTools.netherrackShard, world);
-                break;
-
-            case 13:
-                InfiToolPowers.splintering(x, y, z, Item.lightStoneDust, world);
-                break;
-
-            case 14:
-                InfiToolPowers.freezing(x, y, z, blockID, metadata, world, entityliving);
-                break;
-
-            case 15:
-                InfiToolPowers.burning(x, y, z, blockID, metadata, world, entityliving);
-                break;
-
-            case 16:
-                InfiToolPowers.slimePower(x, y, z, world);
-                break;
+            case 1: InfiToolPowers.splintering(x, y, z, mod_InfiBase.woodSplinters, world); break;
+            case 2: InfiToolPowers.splintering(x, y, z, mod_InfiBase.stoneShard, world); break;
+            case 6: InfiToolPowers.splintering(x, y, z, mod_InfiBase.obsidianShard, world); break;
+            case 7: InfiToolPowers.splintering(x, y, z, mod_InfiBase.sandstoneShard, world); break;
+            case 11: InfiToolPowers.splintering(x, y, z, mod_InfiBase.netherrackShard, world); break;
+            case 12: InfiToolPowers.splintering(x, y, z, Item.lightStoneDust, world); break;
+            case 13: InfiToolPowers.freezing(x, y, z, blockID, metadata, world, entityliving); break;
+            case 14: InfiToolPowers.burning(x, y, z, blockID, metadata, world, entityliving); break;
+            case 15: InfiToolPowers.slimePower(x, y, z, world); break;
         }
-        return materialType != 14 && materialType != 15;
+        return materialType != 13 && materialType != 14;
     }
 
-    public void attacks(ItemStack itemstack, World world, EntityLiving entityliving, EntityLiving entityliving1, int i)
+    public void attacks(ItemStack itemstack, World world, EntityLiving entityliving, EntityLiving entityliving1, int materialType)
     {
-        switch (i)
+        switch (materialType)
         {
-            case 1:
-                InfiToolPowers.splinterAttack(entityliving, mod_InfiTools.woodSplinters, world);
-                break;
-
-            case 2:
-                InfiToolPowers.splinterAttack(entityliving, mod_InfiTools.stoneShard, world);
-                break;
-
-            case 7:
-                InfiToolPowers.splinterAttack(entityliving, mod_InfiTools.obsidianShard, world);
-                break;
-
-            case 8:
-                InfiToolPowers.splinterAttack(entityliving, mod_InfiTools.sandstoneShard, world);
-                break;
-
-            case 12:
-                InfiToolPowers.splinterAttack(entityliving, mod_InfiTools.netherrackShard, world);
-                break;
-
-            case 13:
-                InfiToolPowers.splinterAttack(entityliving, Item.lightStoneDust, world);
-                break;
-
-            case 14:
-                entityliving1.freeze();
-                break;
-
-            case 15:
-                entityliving1.setFire(100);
-                break;
-
-            case 20:
-                entityliving1.setFire(100);
-                break;
+            case 1: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.woodSplinters, world); break;
+            case 2: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.stoneShard, world); break;
+            case 6: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.obsidianShard, world); break;
+            case 7: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.sandstoneShard, world); break;
+            case 11: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.netherrackShard, world); break;
+            case 12: InfiToolPowers.splinterAttack(entityliving, Item.lightStoneDust, world); break;
+            case 13: entityliving1.freeze(); break;
+            case 14: entityliving1.setFire(100); break;
+            case 18: entityliving1.setFire(100); break;
         }
     }
-    
-    public float getStrVsBlock(ItemStack itemstack, Block block, int md)
-	{
-		for (int i = 0; i < materialEffectiveAgainst.length; i++)
-		{
-			if (materialEffectiveAgainst[i] == block.blockMaterial)
-			{
-				if (headMaterial.getShoddy() || handleMaterial.getShoddy())
-				{
-					return efficiencyOnProperMaterial + (float)itemstack.getItemDamage() / 100F;
-				}
-				else
-				{
-					return efficiencyOnProperMaterial;
-				}
-			}
-		}
-
-		return 1.0F;
-	}
 
     public int getDamageVsEntity(Entity entity)
     {
-        return damageVsEntity;
+        return toolDamage;
     }
 
     public boolean isFull3D()
@@ -315,21 +241,26 @@ public abstract class InfiToolCore extends ItemTool
 
     public int getItemEnchantability()
     {
-        return headMaterial.getEnchantability();
+        return enchantibility;
     }
     
     public int getHeadType() {
-    	return headMaterial.getMaterialType();
+    	return headType;
     }
     
     public int getHandleType() {
-    	return handleMaterial.getMaterialType();
+    	return handleType;
     }
 
-    private static Material materialEffectiveAgainst[];
-    public float efficiencyOnProperMaterial;
-    public int toolHarvestLevel;
-    public boolean toolIsPick;
-    private int damageVsEntity;
-	public int durability;
+    protected float efficiencyOnProperMaterial;
+    protected int toolHarvestLevel;
+    protected int toolDamage;
+    protected int durability;
+	protected int enchantibility;
+	protected int headType;
+	protected int handleType;
+	protected int headUnbreaking;
+	protected int handleUnbreaking;
+	protected boolean headShoddy;
+	protected boolean handleShoddy;
 }
