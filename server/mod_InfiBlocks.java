@@ -9,7 +9,7 @@ public class mod_InfiBlocks extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "v0.7.8 Color Bricked";
+		return "v0.7.9 Color Bricked";
 	}
 
 	public void load()

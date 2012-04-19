@@ -178,7 +178,7 @@ public class PropsHelperInfiHybrids {
         workedIronMacheteID = config.getOrCreateIntProperty("Worked Iron Machetes", "item", 16596).getInt(16596);
         steelMacheteID = config.getOrCreateIntProperty("Steel Machetes", "item", 16614).getInt(16614);
         cobaltMacheteID = config.getOrCreateIntProperty("Cobalt Machetes", "item", 16634).getInt(16634);
-        arditeMacheteID = config.getOrCreateIntProperty("Ardite Machetes", "item", 16667).getInt(16667);
+        arditeMacheteID = config.getOrCreateIntProperty("Ardite Machetes", "item", 16652).getInt(16652);
         manyullynMacheteID = config.getOrCreateIntProperty("Manyullyn Machetes", "item", 16670).getInt(16670);
         uraniumMacheteID = config.getOrCreateIntProperty("Uranium Machetes", "item", 16688).getInt(16688);
         

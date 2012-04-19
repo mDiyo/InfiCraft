@@ -83,8 +83,8 @@ public class PropsHelperInfi2x2 {
         netherrackHandpickID = config.getOrCreateIntProperty("Netherrack Handpicks", "item", 17112).getInt(17112);
         glowstoneHandpickID = config.getOrCreateIntProperty("Glowstone Handpicks", "item", 17125).getInt(17125);
         iceHandpickID = config.getOrCreateIntProperty("Ice Handpicks", "item", 17134).getInt(17134);
-        lavaHandpickID = config.getOrCreateIntProperty("Lava Handpicks", "item", 17170).getInt(17170);
-        slimeHandpickID = config.getOrCreateIntProperty("Slime Handpicks", "item", 17178).getInt(17178);
+        lavaHandpickID = config.getOrCreateIntProperty("Lava Handpicks", "item", 17140).getInt(17140);
+        slimeHandpickID = config.getOrCreateIntProperty("Slime Handpicks", "item", 17148).getInt(17148);
         cactusHandpickID = config.getOrCreateIntProperty("Cactus Handpicks", "item", 17154).getInt(17154);
         flintHandpickID = config.getOrCreateIntProperty("Flint Handpicks", "item", 17161).getInt(17161);
         blazeHandpickID = config.getOrCreateIntProperty("Blaze Handpicks", "item", 17171).getInt(17171);

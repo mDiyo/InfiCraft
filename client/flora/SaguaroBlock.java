@@ -45,7 +45,7 @@ public class SaguaroBlock extends Block
         float f = 0.125F;
         float height = 0.0125F;
         float base = 0F;
-        if(world.getBlockId(i, j+1, k) == mod_FloraSoma.saguaro.blockID)
+        //if(world.getBlockId(i, j+1, k) == mod_FloraSoma.saguaro.blockID)
         	height = 0F;
         if(world.getBlockId(i, j-1, k) == 0)
         	base = 0.125F;
@@ -126,7 +126,8 @@ public class SaguaroBlock extends Block
         else*/
         {
             int l = world.getBlockId(i, j - 1, k);
-            return l == mod_FloraSoma.saguaro.blockID || l == Block.sand.blockID || l == 0;
+            return false;
+            //return l == mod_FloraSoma.saguaro.blockID || l == Block.sand.blockID || l == 0;
         }
     }
 

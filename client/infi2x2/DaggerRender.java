@@ -37,8 +37,15 @@ public class DaggerRender extends InfiRenderBase
         float f9 = 0.0625F;
         GL11.glTranslatef(-0.5F, 0.0F, -0.5F);
         renderItem(tessellator, f4, f5, f6, f7, f8, f9);
+        i = dagger.tex2ID;
+        f4 = ((float)((i % 16) * 16) + 0.0F) / 256F;
+        f5 = ((float)((i % 16) * 16) + 15.99F) / 256F;
+        f6 = ((float)((i / 16) * 16) + 0.0F) / 256F;
+        f7 = ((float)((i / 16) * 16) + 15.99F) / 256F;
+        renderItem(tessellator, f4, f5, f6, f7, f8, f9);
         GL11.glDisable(32826 /*GL_RESCALE_NORMAL_EXT*/);
         GL11.glPopMatrix();
+        
     }
 
     public void doRender(Entity entity, double d, double d1, double d2, 

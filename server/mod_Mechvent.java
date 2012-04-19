@@ -39,14 +39,6 @@ public class mod_Mechvent extends NetworkMod
         ModLoader.registerBlock(protoCrusher, net.minecraft.src.mechvent.CrusherItem.class);
         ModLoader.registerTileEntity(net.minecraft.src.mechvent.CrusherLogic.class, "Prototype Crusher");
         ModLoader.registerTileEntity(net.minecraft.src.mechvent.GrinderLogic.class, "Prototype Grinder");
-        
-        addCrushingRecipes();
-        addGrindingRecipes();
-        addCraftingRecipes();
-        addSmeltingRecipes();
-        addNames();
-        
-        oreDictionarySupport();
     }
     
     public static mod_Mechvent getInstance()
@@ -86,17 +78,24 @@ public class mod_Mechvent extends NetworkMod
 
     @Override
     public String getVersion() {
-        return "0.0.2 Prototype";
+        return "0.0.3 Prototype";
     }
 
     @Override
     public void load() 
     {
-        /*addCrushingRecipes();
+        addCrushingRecipes();
         addGrindingRecipes();
         addCraftingRecipes();
         addSmeltingRecipes();
-        addNames();*/
+        addNames();
+        
+        oreDictionarySupport();
+    }
+    
+    public String getPriorities()
+    {
+        return "after:mod_Orizon";
     }
     
     private void addCrushingRecipes()
@@ -129,7 +128,7 @@ public class mod_Mechvent extends NetworkMod
             new ItemStack(oreDustSmall, 1, 15)});
         
         //Orizon Ores
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 2; i++)
         {
             addCrushingRecipe(new ItemStack(mod_Orizon.mineralOre, 1, i), 
                     new int[] { 50, 40, 40, 50, 50, 25, 25 }, new Object[]
@@ -390,7 +389,7 @@ public class mod_Mechvent extends NetworkMod
         FurnaceRecipes.smelting().addSmelting(oreDust.shiftedIndex, 9, new ItemStack(mod_Orizon.ingots, 1, 13));
         FurnaceRecipes.smelting().addSmelting(oreDust.shiftedIndex, 10, new ItemStack(mod_Orizon.ingots, 1, 3));
         FurnaceRecipes.smelting().addSmelting(oreDust.shiftedIndex, 11, new ItemStack(mod_Orizon.ingots, 1, 4));
-        FurnaceRecipes.smelting().addSmelting(oreDust.shiftedIndex, 14, new ItemStack(mod_Orizon.ingots, 1, 5));
+        FurnaceRecipes.smelting().addSmelting(oreDust.shiftedIndex, 14, new ItemStack(mod_Orizon.ingots, 1, 10));
         FurnaceRecipes.smelting().addSmelting(oreDust.shiftedIndex, 15, new ItemStack(Block.stone, 1));
         
         FurnaceRecipes.smelting().addSmelting(oreDustAlloy.shiftedIndex, 0, new ItemStack(mod_Orizon.ingots, 1, 6));
@@ -411,6 +410,63 @@ public class mod_Mechvent extends NetworkMod
     
     private void addNames()
     {
+        String dustType[] =
+        {
+            "iron", "gold", "copper", "turquoise", "chalcocite", "cassiterite", 
+            "teallite", "zincBloom", "sphalerite", "cerussite", "cobalt", "ardite", "myuvil"
+        };
+        
+        String dustNameArray[] = {
+            "Iron", "Gold", "Copper", "Turquoise", "Chalcocite", "Cassiterite",
+            "Teallite", "Zinc Bloom", "Sphalerite", "Cerussite", "Cobalt", "Ardite", "Myuvil"
+        };
+        
+        String smallNameArray[] = {
+            "Iron Nugget", "Gold Nugget (Fake)", "Copper Nugget",
+            "Turquoise Pebble", "Small Chalcocite Chunk", "Cassiterite Crystal",
+            "Teallite Pebble", "Zinc Bloom Fragment", "Sphalerite Pebble",
+            "Cerussite Crystal", "Cobalt Nugget", "Ardite Nugget",
+            "Myuvil Nugget"
+        };
+        
+        String alloyDustArray[] = {
+        		"coppercassiterite", "copperteallite", "turquoisecassiterite", "turqouiseteallite",
+        "chalcocitecassiterite", "chalcociteteallite", "copperzinc", "coppersphalerite",
+        "turquoisezinc", "turqouiseteallite", "chalcocitezinc", "chalcocitesphalerite",
+        "cobaltardite", "coppergold", "copperlead"
+        };
+        
+        String alloyNameArray[] = {
+        	"Raw Bronze", "Mixed Bronze", "Colored Bronze", "Rough Bronze",
+        	"Chalky Bronze", "Grainy Bronze", "Raw Brass", "Mixed Brass",
+        	"Colored Brass", "Rough Brass", "Chalky Brass", "Grainy Brass",
+        	"Raw Cordite", "Mixed Electrum", "Unrefined Molychalkos"
+        };
+        
+        for (int i = 0; i < dustType.length; i++)
+        {
+            ModLoader.addLocalization(dustType[i] + "ChunkLarge.name", "Large " + dustNameArray[i] + " Chunk");
+            ModLoader.addLocalization(dustType[i] + "ChunkMedium.name", "Medium " + dustNameArray[i] + " Chunk");
+            ModLoader.addLocalization(dustType[i] + "ChunkSmall.name", smallNameArray[i]);
+            ModLoader.addLocalization(dustType[i] + "DustLarge.name", dustNameArray[i] + " Dust");
+            ModLoader.addLocalization(dustType[i] + "DustSmall.name", "Small " + dustNameArray[i] + " Dust");
+        }
+        
+        for (int i = 0; i < alloyDustArray.length; i++)
+        {
+        	ModLoader.addLocalization(alloyDustArray[i] + "DustAlloy.name", alloyNameArray[i] + " Dust");
+        }
+        
+        //Other chunks
+        ModLoader.addLocalization("stoneChunkLarge.name", "Pebbles");
+        ModLoader.addLocalization("manyullynDustLarge.name", "Manyullyn Dust");
+        ModLoader.addLocalization("manyullynDustSmall.name", "Small Manyullyn Dust");
+        ModLoader.addLocalization("stoneDustLarge.name", "Stone Dust");
+        ModLoader.addLocalization("stoneDustSmall.name", "Small Stone Dust");
+        
+        //Blocks
+        ModLoader.addLocalization("crusherPrototype.name", "Prototype Crusher");
+        ModLoader.addLocalization("grinderPrototype.name", "Prototype Grinder");
         
     }
     
@@ -422,9 +478,6 @@ public class mod_Mechvent extends NetworkMod
             {
                 if(ore.equals("oreCopper"))
                 {
-                    ModLoader.addRecipe(new ItemStack(protoCrusher, 1, 0), new Object[] 
-                        { "###", "m m", "###", '#', itemstack, 'm', Block.stone });
-                    
                     if(itemstack.itemID != mod_Orizon.mineralOre.blockID && 
                             itemstack.itemID != mod_Orizon.mineralOreAlt.blockID)
                     {
@@ -435,11 +488,13 @@ public class mod_Mechvent extends NetworkMod
                         new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });
                     }
                 }
+                if(ore.equals("ingotCopper"))
+                {
+                    ModLoader.addRecipe(new ItemStack(protoCrusher, 1, 0), new Object[] 
+                        { "###", "m m", "###", '#', itemstack, 'm', Block.stone });
+                }
                 if(ore.equals("oreTin"))
                 {
-                    ModLoader.addRecipe(new ItemStack(protoCrusher, 1, 1), new Object[] 
-                        { "###", "m m", "###", '#', itemstack, 'm', Block.stone });
-                    
                     if (itemstack.itemID != mod_Orizon.mineralOre.blockID && 
                             itemstack.itemID != mod_Orizon.mineralOreAlt.blockID)
                     {
@@ -449,7 +504,12 @@ public class mod_Mechvent extends NetworkMod
                         new ItemStack(smallChunk, 1, 6), new ItemStack(smallChunk, 1, 6),
                         new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });
                     }
-                }                
+                }
+                if(ore.equals("ingotTin"))
+                {
+                    ModLoader.addRecipe(new ItemStack(protoCrusher, 1, 1), new Object[] 
+                        { "###", "m m", "###", '#', itemstack, 'm', Block.stone });
+                }
             }
         } );
     }
@@ -475,13 +535,7 @@ public class mod_Mechvent extends NetworkMod
             }
         }
     }
-    
-    @Override
-    public String getPriorities()
-    {
-        return "require-after:*";
-    }
-    
+
     public static Block protoCrusher;
     
     public static Item largeChunk;

@@ -15,6 +15,7 @@ public class MossBlock extends Block
         this.setHardness(0.2F);
         this.setStepSound(Block.soundGrassFootstep);
         this.setBlockName("mossBlock");
+        ModLoader.addName(this, "Block of Moss");
     }
 
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k)
@@ -128,6 +129,6 @@ public class MossBlock extends Block
 
 	@Override
 	public String getTextureFile() {
-		return "/infitools/infitems.png";
+		return "/infibase/items.png";
 	}
 }

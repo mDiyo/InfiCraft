@@ -4,6 +4,7 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
 import net.minecraft.src.forge.MinecraftForge;
 
@@ -20,9 +21,46 @@ public class Mallets
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+        if(mod_Infi2x2.infitoolsPresent)
+        {
+        	createTools();
+            addNames();
+        	registerInfiToolsRecipes();
+        }
+        else
+        {
+        	createVanillaTools();
+        	registerVanillaRecipes();
+        }
+    }
+    
+    private static void createVanillaTools()
+    {
+    	woodWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+0, 
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMallet");
+    	woodStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+0, 
+                InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMallet");
+    	woodIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+0, 
+                InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronMallet");
+    	woodDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+0, 
+                InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMallet");
+    	
+    	MinecraftForge.setToolClass(woodWoodMallet, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodStoneMallet, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodIronMallet, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodDiamondMallet, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+    }
+    
+    private static void registerVanillaRecipes()
+    {
+    	ModLoader.addRecipe(new ItemStack(woodWoodMallet), new Object[] 
+                { recipe, '#', Block.planks, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodStoneMallet), new Object[] 
+                { recipe, '#', Block.cobblestone, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodIronMallet), new Object[] 
+                { recipe, '#', Item.ingotIron, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodDiamondMallet), new Object[] 
+                { recipe, '#', Item.diamond, '|', Item.stick, });
     }
     
     private static void createTools()
@@ -30,7 +68,7 @@ public class Mallets
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMallet");
     		sandstoneWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMallet");
     		boneWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+2, 
@@ -1053,7 +1091,7 @@ public class Mallets
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodMallet, "Wood Mallet");
+    	ModLoader.addName(woodWoodMallet, "Wooden Mallet");
     	ModLoader.addName(stoneStoneMallet, "Heavy Mallet");
     	ModLoader.addName(ironIronMallet, "Ironic Mallet");
     	ModLoader.addName(diamondDiamondMallet, "Diamondium Mallet");
@@ -1063,7 +1101,7 @@ public class Mallets
     	ModLoader.addName(boneBoneMallet, "Necrotic Mallet");
     	ModLoader.addName(paperPaperMallet, "Soft Mallet");
     	ModLoader.addName(mossyMossyMallet, "Living Mallet");
-    	ModLoader.addName(netherrackNetherrackMallet, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackMallet, "Blood Mallet");
     	ModLoader.addName(glowstoneGlowstoneMallet, "Bright Mallet");
     	ModLoader.addName(iceIceMallet, "Freezing Mallet");
     	ModLoader.addName(lavaLavaMallet, "Burning Mallet");

@@ -57,7 +57,7 @@ public class StoneGen extends WorldGenerator
                         double d14 = (((double)zGen + 0.5D) - d8) / (d10 / 2D);
                         //int blID = world.getBlockId(xGen, yGen, zGen);
                         if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D && 
-                        		world.getBlockMaterial(xGen, yGen, zGen) == Material.rock)
+                        		world.getBlockMaterial(xGen, yGen, zGen) == Material.rock && yGen > 0)
                         {
                             world.setBlockAndMetadata(xGen, yGen, zGen, bID, md);
                         }

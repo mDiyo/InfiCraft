@@ -4,6 +4,7 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
 import net.minecraft.src.forge.MinecraftForge;
 
@@ -20,9 +21,51 @@ public class Mattocks
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+        if(mod_Infi2x2.infitoolsPresent)
+        {
+        	createTools();
+            addNames();
+        	registerInfiToolsRecipes();
+        }
+        else
+        {
+        	createVanillaTools();
+        	registerVanillaRecipes();
+        }
+    }
+    
+    private static void createVanillaTools()
+    {
+    	woodWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+0, 
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMattock");
+    	woodStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+0, 
+                InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMattock");
+    	woodIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+0, 
+                InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronMattock");
+    	woodDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+0, 
+                InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMattock");
+    	
+    	MinecraftForge.setToolClass(woodWoodMattock, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodStoneMattock, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodIronMattock, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodDiamondMattock, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+    	
+    	MinecraftForge.setToolClass(woodWoodMattock, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodStoneMattock, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodIronMattock, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodDiamondMattock, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+    }
+    
+    private static void registerVanillaRecipes()
+    {
+    	ModLoader.addRecipe(new ItemStack(woodWoodMattock), new Object[] 
+                { recipe, '#', Block.planks, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
+                { recipe, '#', Block.cobblestone, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodIronMattock), new Object[] 
+                { recipe, '#', Item.ingotIron, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodDiamondMattock), new Object[] 
+                { recipe, '#', Item.diamond, '|', Item.stick, });
     }
     
     private static void createTools()
@@ -30,7 +73,7 @@ public class Mattocks
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMattock");
     		sandstoneWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMattock");
     		boneWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+2, 
@@ -1375,7 +1418,7 @@ public class Mattocks
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodMattock, "Wood Mattock");
+    	ModLoader.addName(woodWoodMattock, "Wooden Mattock");
     	ModLoader.addName(stoneStoneMattock, "Heavy Mattock");
     	ModLoader.addName(ironIronMattock, "Ironic Mattock");
     	ModLoader.addName(diamondDiamondMattock, "Diamondium Mattock");
@@ -1385,7 +1428,7 @@ public class Mattocks
     	ModLoader.addName(boneBoneMattock, "Necrotic Mattock");
     	ModLoader.addName(paperPaperMattock, "Soft Mattock");
     	ModLoader.addName(mossyMossyMattock, "Living Mattock");
-    	ModLoader.addName(netherrackNetherrackMattock, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackMattock, "Blood Mattock");
     	ModLoader.addName(glowstoneGlowstoneMattock, "Bright Mattock");
     	ModLoader.addName(iceIceMattock, "Freezing Mattock");
     	ModLoader.addName(lavaLavaMattock, "Burning Mattock");

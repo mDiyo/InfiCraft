@@ -233,6 +233,7 @@ public class InfiBlockRecipes
 		/* Chisel Recipes */
 		
 		DetailManager.addDamageOnCraft(mod_InfiBlocks.chiselIron);
+		DetailManager.addDamageOnCraft(mod_InfiBlocks.chiselDiamond);
 		
 		//Diamond
 		ModLoader.addShapelessRecipe(new ItemStack(mod_InfiBlocks.brick, 1, 5), new Object[] {

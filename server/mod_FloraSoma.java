@@ -2,7 +2,6 @@ package net.minecraft.src;
 
 import net.minecraft.src.flora.*;
 import net.minecraft.src.forge.*;
-import net.minecraft.src.core.*;
 
 import java.io.File;
 import java.util.Map;
@@ -12,7 +11,7 @@ public class mod_FloraSoma extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "0.3.6 Height";
+		return "0.3.8 Height";
 	}
 
 	public void load()
@@ -67,7 +66,7 @@ public class mod_FloraSoma extends NetworkMod
 	            EEProxy.setEMC(new ItemStack(cloud, 1, 2), 48);
 	            EEProxy.setEMC(new ItemStack(cloud, 1, 3), 8);
             }
-            EEProxy.setEMC(saguaro.blockID, 8);
+            //EEProxy.setEMC(saguaro.blockID, 8);
             
             if(enableCorruptor) {
 	            int corr = 64;
@@ -188,7 +187,7 @@ public class mod_FloraSoma extends NetworkMod
 			ModLoader.registerBlock(corruptor, net.minecraft.src.flora.CorruptorItem.class);
 			ModLoader.registerBlock(corruptBrick, net.minecraft.src.flora.CorruptBrickItem.class);
 		}
-		ModLoader.registerBlock(saguaro);
+		//ModLoader.registerBlock(saguaro);
 		
 		ModLoader.registerEntityID(net.minecraft.src.flora.RedwoodBoat.class, "redwoodBoat", redwoodBoatID);
 		ModLoader.registerEntityID(net.minecraft.src.flora.BloodBoat.class, "bloodBoat", bloodBoatID);
@@ -414,7 +413,8 @@ public class mod_FloraSoma extends NetworkMod
 		}
 	}
 
-	public void GenerateNether(World world, Random random, int i, int j)
+	@Override
+	public void generateNether(World world, Random random, int i, int j)
 	{
 		int xCor = i + random.nextInt(16) + 8;
 		int yCor = random.nextInt(bloodSpawnRange) + bloodSpawnHeight;
@@ -750,7 +750,7 @@ public class mod_FloraSoma extends NetworkMod
 	public static Block corruptBrick;
 	public static Block floraSapling;
 	public static Block cherryLeaves;
-	public static Block saguaro;
+	//public static Block saguaro;
 	
 	public static Block redwoodDoor;
 	
@@ -896,17 +896,7 @@ public class mod_FloraSoma extends NetworkMod
 
 	static
 	{
-		File me = new File( "./config/InfiCraft" );
-        me.mkdir();
-        props = new InfiProps( "./config/InfiCraft/FloraSomaIDs.cfg" );
-		props = PropsHelperFloraSoma.InitIDs(props);
-		PropsHelperFloraSoma.getIDs(props);
-		spawnProps = new InfiProps( "./config/InfiCraft/FloraSomaSpawns.cfg" );
-		spawnProps = PropsHelperFloraSoma.InitSpawnRate(spawnProps);
-		PropsHelperFloraSoma.getSpawnRate(spawnProps);
-		
-		if(resolveConflicts)
-			PropsHelperFloraSoma.resolveIDs(props);
+		PropsHelperFloraSoma.initProps();
 		
 		seedBag = (new SeedBag(seedBagID)).setItemName("seedBag");
 		
@@ -938,11 +928,11 @@ public class mod_FloraSoma extends NetworkMod
 		}
 		waterDrop = (new CactusJuice(ingredientsID + 0, 2, false, 16)).setIconCoord(3, 0).setItemName("waterDrop");
 		
-		wheatFlour = (new InfiTexture(ingredientsID + 2, "/floratex/infifood.png")).setIconCoord(1, 0).setItemName("wheatFlour");
-		wheatDough = (new InfiTexture(ingredientsID + 3, "/floratex/infifood.png")).setIconCoord(2, 0).setItemName("wheatDough");
+		wheatFlour = new InfiTexturedItem(ingredientsID + 2, "/floratex/infifood.png", "Wheat Flour").setIconCoord(1, 0);
+		wheatDough = new InfiTexturedItem(ingredientsID + 3, "/floratex/infifood.png", "Wheat Dough").setIconCoord(2, 0);
 		
-		if(enableSaguaro)
-			saguaro = new SaguaroBlock(saguaroID, 149).setHardness(0.8F).setBlockName("Saguaro");
+		/*if(enableSaguaro)
+			saguaro = new SaguaroBlock(saguaroID, 149).setHardness(0.8F).setBlockName("Saguaro");*/
 	}
 
 	@Override

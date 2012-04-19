@@ -29,8 +29,8 @@ public class Hoes
     {
     	if(PropsHelperInfiTools.enableWoodTools)
     	{
-    		woodWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+    		woodWoodHoe = new InfiToolHoe(34, 
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodHoe");
     		sandstoneWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodHoe");
     		boneWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+2, 
@@ -43,19 +43,11 @@ public class Hoes
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodHoe");
     		cactusWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodHoe");
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
     	}
 
         if(PropsHelperInfiTools.enableStoneTools)
         {
-        	woodStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+0, 
+        	woodStoneHoe = new InfiToolHoe(35, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneHoe");
         	stoneStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneHoe");
@@ -72,22 +64,12 @@ public class Hoes
         	cactusStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+7, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneHoe");
         	flintStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+8, 
-                    InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneHoe");            
         }
         
         if(PropsHelperInfiTools.enableIronTools)
         {
-        	woodIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+0, 
+        	woodIronHoe = new InfiToolHoe(36, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronHoe");
         	stoneIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronHoe");
@@ -105,21 +87,11 @@ public class Hoes
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronHoe");
         	bronzeIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableDiamondTools)
         {
-        	woodDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+0, 
+        	woodDiamondHoe = new InfiToolHoe(37, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondHoe");
         	stoneDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondHoe");
@@ -163,29 +135,6 @@ public class Hoes
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondHoe");
             uraniumDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableRedstoneTools)
@@ -1053,7 +1002,7 @@ public class Hoes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodHoe, "Wood Hoe");
+    	ModLoader.addName(woodWoodHoe, "Wooden Hoe");
     	ModLoader.addName(stoneStoneHoe, "Heavy Hoe");
     	ModLoader.addName(ironIronHoe, "Ironic Hoe");
     	ModLoader.addName(diamondDiamondHoe, "Diamondium Hoe");
@@ -1063,7 +1012,7 @@ public class Hoes
     	ModLoader.addName(boneBoneHoe, "Necrotic Hoe");
     	ModLoader.addName(paperPaperHoe, "Soft Hoe");
     	ModLoader.addName(mossyMossyHoe, "Living Hoe");
-    	ModLoader.addName(netherrackNetherrackHoe, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackHoe, "Blood Hoe");
     	ModLoader.addName(glowstoneGlowstoneHoe, "Bright Hoe");
     	ModLoader.addName(iceIceHoe, "Freezing Hoe");
     	ModLoader.addName(lavaLavaHoe, "Burning Hoe");
@@ -1076,7 +1025,7 @@ public class Hoes
         ModLoader.addName(workedWorkedIronHoe, "Reworked Iron Hoe");
         ModLoader.addName(steelSteelHoe, "Forge-Wrought Hoe");
         ModLoader.addName(cobaltCobaltHoe, "Beautiful Hoe");
-        ModLoader.addName(arditeArditeHoe, "Rustic StoneDigger");
+        ModLoader.addName(arditeArditeHoe, "Rustic Hoe");
         ModLoader.addName(manyullynManyullynHoe, "False-Prophetic Hoe");
         ModLoader.addName(uraniumUraniumHoe, "Cancerous Hoe");
     }

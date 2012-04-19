@@ -29,8 +29,8 @@ public class Pickaxes
     {
     	if(PropsHelperInfiTools.enableWoodTools)
     	{
-    		woodWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+    		woodWoodPickaxe = new InfiToolPickaxe(14, 
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodPickaxe");
     		sandstoneWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodPickaxe");
     		boneWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+2, 
@@ -55,7 +55,7 @@ public class Pickaxes
 
         if(PropsHelperInfiTools.enableStoneTools)
         {
-        	woodStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+0, 
+        	woodStonePickaxe = new InfiToolPickaxe(18, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStonePickaxe");
         	stoneStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStonePickaxe");
@@ -87,7 +87,7 @@ public class Pickaxes
         
         if(PropsHelperInfiTools.enableIronTools)
         {
-        	woodIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+0, 
+        	woodIronPickaxe = new InfiToolPickaxe(1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronPickaxe");
         	stoneIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronPickaxe");
@@ -119,7 +119,7 @@ public class Pickaxes
         
         if(PropsHelperInfiTools.enableDiamondTools)
         {
-        	woodDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+0, 
+        	woodDiamondPickaxe = new InfiToolPickaxe(22, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondPickaxe");
         	stoneDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondPickaxe");
@@ -1053,7 +1053,7 @@ public class Pickaxes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodPickaxe, "Wood Pickaxe");
+    	ModLoader.addName(woodWoodPickaxe, "Wooden Pickaxe");
     	ModLoader.addName(stoneStonePickaxe, "Heavy Pickaxe");
     	ModLoader.addName(ironIronPickaxe, "Ironic Pickaxe");
     	ModLoader.addName(diamondDiamondPickaxe, "Diamondium Pickaxe");
@@ -1076,7 +1076,7 @@ public class Pickaxes
         ModLoader.addName(workedWorkedIronPickaxe, "Reworked Iron Pickaxe");
         ModLoader.addName(steelSteelPickaxe, "Forge-Wrought Pickaxe");
         ModLoader.addName(cobaltCobaltPickaxe, "Beautiful Pickaxe");
-        ModLoader.addName(arditeArditePickaxe, "Rustic StoneDigger");
+        ModLoader.addName(arditeArditePickaxe, "Rustic Pickaxe");
         ModLoader.addName(manyullynManyullynPickaxe, "False-Prophetic Pickaxe");
         ModLoader.addName(uraniumUraniumPickaxe, "Cancerous Pickaxe");
     }

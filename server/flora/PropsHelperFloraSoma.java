@@ -1,235 +1,124 @@
 package net.minecraft.src.flora;
-import net.minecraft.src.*;
+import java.io.File;
+import java.io.IOException;
+
+import net.minecraft.src.Item;
+import net.minecraft.src.forge.Configuration;
+import net.minecraft.src.mod_FloraSoma;
 
 public class PropsHelperFloraSoma {
-	
-	PropsHelperFloraSoma()
-	{
-	}
-	
-	public static InfiProps getIDs(InfiProps infiprops)
-	{
-		mod_FloraSoma.resolveConflicts = infiprops.readBoolean("Automatically Resolve ID conflicts");
-		
-		mod_FloraSoma.seedBagID = infiprops.readInt("Seed Bag ID");
-		mod_FloraSoma.berryID = infiprops.readInt("Berry Food ID");
-		mod_FloraSoma.barleySeedID = infiprops.readInt("Barley Seed ID");
-		mod_FloraSoma.foodID = infiprops.readInt("Food Items ID");
-		mod_FloraSoma.ingredientsID = infiprops.readInt("ingredientsID");
-		mod_FloraSoma.pumpkinPieID = infiprops.readInt("Pumpkin Pie ID");
-		mod_FloraSoma.boatItemID = infiprops.readInt("Boat Item ID");
-		mod_FloraSoma.redwoodDoorItemID = infiprops.readInt("Redwood Door Item ID");
-		
-		mod_FloraSoma.berryBlockID = infiprops.readInt("Berry Bush ID");
-		mod_FloraSoma.redwoodID = infiprops.readInt("Wood ID");
-		mod_FloraSoma.floraLeavesID = infiprops.readInt("Leaves ID");
-		mod_FloraSoma.floraCropsID = infiprops.readInt("Crops ID");
-		mod_FloraSoma.cloudID = infiprops.readInt("Cloud ID");
-		mod_FloraSoma.corruptorID = infiprops.readInt("Corruptor ID");
-		mod_FloraSoma.corruptBrickID = infiprops.readInt("Corrupt Brick ID");
-		mod_FloraSoma.floraSaplingID = infiprops.readInt("Sapling ID");
-		mod_FloraSoma.cherryLeavesID = infiprops.readInt("Cherry Leaves ID");
-		mod_FloraSoma.redwoodDoorID = infiprops.readInt("Redwood Door ID");
-		mod_FloraSoma.saguaroID = infiprops.readInt("Saguaro Cactus ID");
-		
-		mod_FloraSoma.redwoodBoatID = 1;
-		mod_FloraSoma.bloodBoatID = 2;
-		mod_FloraSoma.whiteBoatID = 3;
-		mod_FloraSoma.eucalyptusBoatID = 4;
-		return infiprops;
-	}
 
-	public static InfiProps InitIDs(InfiProps infiprops)
-	{
-		infiprops.accessBoolean("Automatically Resolve ID conflicts", true);
-		
-		infiprops.accessInt("Seed Bag ID", 12401);
-		infiprops.accessInt("Berry Food ID", 12402);
-		infiprops.accessInt("Barley Seed ID", 12403);
-		infiprops.accessInt("Food Items ID", 12404);
-		infiprops.accessInt("Boat Item ID", 12405);
-		infiprops.accessInt("Redwood Door Item ID", 12406);
+    public static void initProps()
+    {
+        /* Here we will set up the config file for the mod 
+         * First: Create a folder inside the config folder
+         * Second: Create the actual config file
+         * Note: Configs are a pain, but absolutely necessary for every mod.
+         */
 
-		infiprops.accessInt("ingredientsID", 14033);
-		
-		infiprops.accessInt("Berry Bush ID", 167);
-		infiprops.accessInt("Wood ID", 168);
-		infiprops.accessInt("Leaves ID", 169);
-		infiprops.accessInt("Crops ID", 170);
-		infiprops.accessInt("Cloud ID", 171);
-		infiprops.accessInt("Corruptor ID", 172);
-		infiprops.accessInt("Corrupt Brick ID", 173);
-		infiprops.accessInt("Sapling ID", 174);
-		infiprops.accessInt("Cherry Leaves ID", 175);
-		infiprops.accessInt("Redwood Door ID", 176);
-		infiprops.accessInt("Saguaro Cactus ID", 177);
-		return infiprops;
-	}
-	
-	private static int idStart = 130;
-	
-	public static int changeID(InfiProps props, int id, String s)
-	{
-		if(Block.blocksList[id] != null) {
-			for(int i = idStart; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					props.writeInt(s, i);
-					idStart = i + 1;
-					return i;
-				}
-			}
-		}
-		return id;
-	}
-	
-	public static boolean resolveIDs(InfiProps props)
-	{
-		mod_FloraSoma.berryBlockID = changeID(props, mod_FloraSoma.berryBlockID, "Berry Bush ID");
-		mod_FloraSoma.redwoodID = changeID(props, mod_FloraSoma.redwoodID, "Wood ID");
-		mod_FloraSoma.floraLeavesID = changeID(props, mod_FloraSoma.floraLeavesID, "Leaves ID");
-		mod_FloraSoma.cherryLeavesID = changeID(props, mod_FloraSoma.cherryLeavesID, "Cherry Leaves ID");
-		mod_FloraSoma.cloudID = changeID(props, mod_FloraSoma.cloudID, "Cloud ID");
-		mod_FloraSoma.corruptorID = changeID(props, mod_FloraSoma.corruptorID, "Corruptor ID");
-		mod_FloraSoma.corruptBrickID = changeID(props, mod_FloraSoma.corruptBrickID, "Corrupt Brick ID");
-		mod_FloraSoma.redwoodDoorID = changeID(props, mod_FloraSoma.redwoodDoorID, "Redwood Door ID");
-		mod_FloraSoma.saguaroID = changeID(props, mod_FloraSoma.saguaroID, "Saguaro Cactus ID");
-			
-		props.writeBoolean("Automatically Resolve ID conflicts", false);
-		return true;
-	}
+        File file = new File("./config/InfiCraft");
+        file.mkdir();
+        File newFile = new File("./config/InfiCraft/FloraSoma.txt");
 
-	public static InfiProps InitSpawnRate(InfiProps spawnProps) {
-		spawnProps.accessBoolean("Enable Crops", true);
-		spawnProps.accessBoolean("Enable Berry Bushes", true);
-		spawnProps.accessBoolean("Enable Trees", true);
-		spawnProps.accessBoolean("Enable Clouds", true);
-		spawnProps.accessBoolean("Enable Corruptor", true);
-		spawnProps.accessBoolean("Enable Saguaro Cactus", true);
-		
-		spawnProps.accessInt("Barley Spawn Density", 64);
-		spawnProps.accessInt("Barley Spawn Height", 64);
-		
-		spawnProps.accessInt("Raspberry Spawn Density", 14);
-		spawnProps.accessInt("Raspberry Spawn Height", 64);
-		spawnProps.accessInt("Raspberry Spawn Range", 128);
-		spawnProps.accessInt("Blueberry Spawn Density", 12);
-		spawnProps.accessInt("Blueberry Spawn Height", 64);
-		spawnProps.accessInt("Blueberry Spawn Range", 128);
-		spawnProps.accessInt("Blackberry Spawn Density", 10);
-		spawnProps.accessInt("Blackberry Spawn Height", 64);
-		spawnProps.accessInt("Blackberry Spawn Range", 128);
-		spawnProps.accessInt("Geoberry Spawn Density", 14);
-		spawnProps.accessInt("Geoberry Spawn Height", 64);
-		spawnProps.accessInt("Geoberry Spawn Range", 128);
-		
-		spawnProps.accessInt("Redwood Tree Spawn Density", 6);
-		spawnProps.accessInt("Redwood Tree Spawn Height", 64);
-		spawnProps.accessInt("Redwood Tree Spawn Range", 32);
-		spawnProps.accessInt("Bloodwood Tree Spawn Density", 5);
-		spawnProps.accessInt("Bloodwood Tree Spawn Height", 32);
-		spawnProps.accessInt("Bloodwood Tree Spawn Range", 64);
-		spawnProps.accessInt("Small Eucalyptus Tree Spawn Density", 25);
-		spawnProps.accessInt("Small Eucalyptus Tree Spawn Height", 64);
-		spawnProps.accessInt("Small Eucalyptus Tree Spawn Range", 32);
-		spawnProps.accessInt("Sakura Tree Spawn Density", 10);
-		spawnProps.accessInt("Sakura Tree Spawn Height", 64);
-		spawnProps.accessInt("Sakura Tree Spawn Range", 32);
-		spawnProps.accessInt("Ghost Tree Spawn Density", 25);
-		spawnProps.accessInt("Ghost Tree Spawn Height", 16);
-		spawnProps.accessInt("Ghost Tree Spawn Range", 80);
-		
-		spawnProps.accessInt("Cloud Spawn Density", 10);
-		spawnProps.accessInt("Cloud Spawn Height", 192);
-		spawnProps.accessInt("Cloud Spawn Range", 48);
-		spawnProps.accessInt("Dark Cloud Spawn Density", 10);
-		spawnProps.accessInt("Dark Cloud Spawn Height", 64);
-		spawnProps.accessInt("Dark Cloud Spawn Range", 128);
-		spawnProps.accessInt("Sulfur Cloud Spawn Density", 20);
-		spawnProps.accessInt("Sulfur Cloud Spawn Height", 40);
-		spawnProps.accessInt("Sulfur Cloud Spawn Range", 78);
-		spawnProps.accessInt("Ash Cloud Spawn Density", 20);
-		spawnProps.accessInt("Ash Cloud Spawn Height", 40);
-		spawnProps.accessInt("Ash Cloud Spawn Range", 78);
-		
-		spawnProps.accessInt("Corruptor Spawn Density", 1);
-		spawnProps.accessInt("Corruptor Spawn Height", 0);
-		spawnProps.accessInt("Corruptor Spawn Range", 128);
-		spawnProps.accessInt("Corruptor Spawn Size", 8);
-		spawnProps.accessInt("Corruption Speed", 5);
-		
-		spawnProps.accessInt("Saguaro Cactus Spawn Density", 1);
-		spawnProps.accessInt("Saguaro Cactus Spawn Height", 0);
-		spawnProps.accessInt("Saguaro Cactus Spawn Range", 128);
-		spawnProps.accessInt("Saguaro Cactus Spawn Size", 8);
-		
-		return spawnProps;
-	}
+        /* Some basic debugging will go a long way */
+        try
+        {
+            newFile.createNewFile();
+            System.out.println("Successfully created/read configuration file");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Could not create configuration file for mod_FloraSoma. Reason:");
+            System.out.println(e);
+        }
 
-	public static InfiProps getSpawnRate(InfiProps spawnProps) {
-		mod_FloraSoma.enableCrops = spawnProps.readBoolean("Enable Crops");
-		mod_FloraSoma.enableBerryBush = spawnProps.readBoolean("Enable Berry Bushes");
-		mod_FloraSoma.enableTrees = spawnProps.readBoolean("Enable Trees");
-		mod_FloraSoma.enableClouds = spawnProps.readBoolean("Enable Clouds");
-		mod_FloraSoma.enableCorruptor = spawnProps.readBoolean("Enable Corruptor");
-		mod_FloraSoma.enableSaguaro = spawnProps.readBoolean("Enable Saguaro Cactus");
-		
-		mod_FloraSoma.barleySpawnDensity = spawnProps.readInt("Barley Spawn Density");
-		mod_FloraSoma.barleySpawnHeight = spawnProps.readInt("Barley Spawn Height");
-		
-		mod_FloraSoma.raspSpawnDensity = spawnProps.readInt("Raspberry Spawn Density");
-		mod_FloraSoma.raspSpawnHeight = spawnProps.readInt("Raspberry Spawn Height");
-		mod_FloraSoma.raspSpawnRange = spawnProps.readInt("Raspberry Spawn Range");
-		mod_FloraSoma.blueSpawnDensity = spawnProps.readInt("Blueberry Spawn Density");
-		mod_FloraSoma.blueSpawnHeight = spawnProps.readInt("Blueberry Spawn Height");
-		mod_FloraSoma.blueSpawnRange = spawnProps.readInt("Blueberry Spawn Range");
-		mod_FloraSoma.blackSpawnDensity = spawnProps.readInt("Blackberry Spawn Density");
-		mod_FloraSoma.blackSpawnHeight = spawnProps.readInt("Blackberry Spawn Height");
-		mod_FloraSoma.blackSpawnRange = spawnProps.readInt("Blackberry Spawn Range");
-		mod_FloraSoma.geoSpawnDensity = spawnProps.readInt("Geoberry Spawn Density");
-		mod_FloraSoma.geoSpawnHeight = spawnProps.readInt("Geoberry Spawn Height");
-		mod_FloraSoma.geoSpawnRange = spawnProps.readInt("Geoberry Spawn Range");
-		
-		mod_FloraSoma.redwoodSpawnDensity = spawnProps.readInt("Redwood Tree Spawn Density");
-		mod_FloraSoma.redwoodSpawnHeight = spawnProps.readInt("Redwood Tree Spawn Height");
-		mod_FloraSoma.redwoodSpawnRange = spawnProps.readInt("Redwood Tree Spawn Range");
-		mod_FloraSoma.bloodSpawnDensity = spawnProps.readInt("Bloodwood Tree Spawn Density");
-		mod_FloraSoma.bloodSpawnHeight = spawnProps.readInt("Bloodwood Tree Spawn Height");
-		mod_FloraSoma.bloodSpawnRange = spawnProps.readInt("Bloodwood Tree Spawn Range");
-		mod_FloraSoma.eucalyptusShortSpawnDensity = spawnProps.readInt("Small Eucalyptus Tree Spawn Density");
-		mod_FloraSoma.eucalyptusShortSpawnHeight = spawnProps.readInt("Small Eucalyptus Tree Spawn Height");
-		mod_FloraSoma.eucalyptusShortSpawnRange = spawnProps.readInt("Small Eucalyptus Tree Spawn Range");
-		mod_FloraSoma.sakuraSpawnDensity = spawnProps.readInt("Sakura Tree Spawn Density");
-		mod_FloraSoma.sakuraSpawnHeight = spawnProps.readInt("Sakura Tree Spawn Height");
-		mod_FloraSoma.sakuraSpawnRange = spawnProps.readInt("Sakura Tree Spawn Range");
-		mod_FloraSoma.whiteSpawnDensity = spawnProps.readInt("Ghost Tree Spawn Density");
-		mod_FloraSoma.whiteSpawnHeight = spawnProps.readInt("Ghost Tree Spawn Height");
-		mod_FloraSoma.whiteSpawnRange = spawnProps.readInt("Ghost Tree Spawn Range");
-		
-		mod_FloraSoma.cloudSpawnDensity = spawnProps.readInt("Cloud Spawn Density");
-		mod_FloraSoma.cloudSpawnHeight = spawnProps.readInt("Cloud Spawn Height");
-		mod_FloraSoma.cloudSpawnRange = spawnProps.readInt("Cloud Spawn Range");
-		mod_FloraSoma.darkCloudSpawnDensity = spawnProps.readInt("Dark Cloud Spawn Density");
-		mod_FloraSoma.darkCloudSpawnHeight = spawnProps.readInt("Dark Cloud Spawn Height");
-		mod_FloraSoma.darkCloudSpawnRange = spawnProps.readInt("Dark Cloud Spawn Range");
-		mod_FloraSoma.sulfurSpawnDensity = spawnProps.readInt("Sulfur Cloud Spawn Density");
-		mod_FloraSoma.sulfurSpawnHeight = spawnProps.readInt("Sulfur Cloud Spawn Height");
-		mod_FloraSoma.sulfurSpawnRange = spawnProps.readInt("Sulfur Cloud Spawn Range");
-		mod_FloraSoma.ashSpawnDensity = spawnProps.readInt("Ash Cloud Spawn Density");
-		mod_FloraSoma.ashSpawnHeight = spawnProps.readInt("Ash Cloud Spawn Height");
-		mod_FloraSoma.ashSpawnRange = spawnProps.readInt("Ash Cloud Spawn Range");
-		
-		mod_FloraSoma.corruptorSpawnDensity = spawnProps.readInt("Corruptor Spawn Density");
-		mod_FloraSoma.corruptorSpawnHeight = spawnProps.readInt("Corruptor Spawn Height");
-		mod_FloraSoma.corruptorSpawnRange = spawnProps.readInt("Corruptor Spawn Range");
-		mod_FloraSoma.corruptorSpawnSize = spawnProps.readInt("Corruptor Spawn Size");
-		mod_FloraSoma.corruptionSpeed = spawnProps.readInt("Corruption Speed");
-		
-		mod_FloraSoma.saguaroSpawnDensity = spawnProps.readInt("Saguaro Cactus Spawn Density");
-		mod_FloraSoma.saguaroSpawnHeight = spawnProps.readInt("Saguaro Cactus Spawn Height");
-		mod_FloraSoma.saguaroSpawnRange = spawnProps.readInt("Saguaro Cactus Spawn Range");
-		mod_FloraSoma.saguaroSpawnSize = spawnProps.readInt("Saguaro Cactus Spawn Size");
-		
-		return spawnProps;
-	}
+        /* [Forge] Configuration class, used as config method */
+        Configuration config = new Configuration(newFile);
 
+        /* Load the configuration file */
+        config.load();
+
+        /* Define the mod's IDs. 
+         * Avoid values below 4096 for items and in the 250-450 range for blocks
+         */
+        
+        mod_FloraSoma.redwoodID = config.getOrCreateBlockIdProperty("Wood Block", 168).getInt(168);
+        mod_FloraSoma.redwoodDoorID = config.getOrCreateBlockIdProperty("Redwood Door", 176).getInt(176);
+        mod_FloraSoma.cloudID = config.getOrCreateBlockIdProperty("Cloud Block", 171).getInt(171);
+        mod_FloraSoma.corruptorID = config.getOrCreateBlockIdProperty("Corruptor", 172).getInt(172);
+        mod_FloraSoma.corruptBrickID = config.getOrCreateBlockIdProperty("Corrupt Brick", 173).getInt(173);
+        mod_FloraSoma.floraSaplingID = config.getOrCreateBlockIdProperty("Sapling", 174).getInt(174);
+        mod_FloraSoma.berryBlockID = config.getOrCreateBlockIdProperty("Berry Bush", 167).getInt(167);
+        mod_FloraSoma.cherryLeavesID = config.getOrCreateBlockIdProperty("Sakura Leaves", 175).getInt(175);        
+        mod_FloraSoma.floraLeavesID = config.getOrCreateBlockIdProperty("Flora Leaves", 171).getInt(171); 
+        mod_FloraSoma.floraCropsID = config.getOrCreateBlockIdProperty("Crops", 170).getInt(170); 
+        //saguaroID = config.getOrCreateBlockIdProperty("Cloud Block", 171).getInt(171);
+        
+        mod_FloraSoma.seedBagID = config.getOrCreateIntProperty("Seed Bag", "item", 12401).getInt(12401);
+        mod_FloraSoma.berryID = config.getOrCreateIntProperty("Berry Food", "item", 12402).getInt(12402);
+        mod_FloraSoma.barleySeedID = config.getOrCreateIntProperty("Barley Seed", "item", 12403).getInt(12403);
+        mod_FloraSoma.foodID = config.getOrCreateIntProperty("Food Items", "item", 12404).getInt(12404);
+        mod_FloraSoma.boatItemID = config.getOrCreateIntProperty("Boat Item", "item", 12405).getInt(12405);
+        mod_FloraSoma.ingredientsID = config.getOrCreateIntProperty("Ingredients", "item", 12407).getInt(12407);
+        mod_FloraSoma.redwoodDoorItemID = config.getOrCreateIntProperty("Redwood Door", "item", 12406).getInt(12406);
+
+        mod_FloraSoma.enableCrops = config.getOrCreateBooleanProperty("Enable Crops", "general", true).getBoolean(true);
+        mod_FloraSoma.barleySpawnDensity = config.getOrCreateIntProperty("Barley Spawn Density", "general", 64).getInt(64);
+        mod_FloraSoma.barleySpawnHeight = config.getOrCreateIntProperty("Barley Spawn Height", "general", 64).getInt(64);
+        
+        mod_FloraSoma.enableBerryBush = config.getOrCreateBooleanProperty("Enable Berry Bushes", "general", true).getBoolean(true);
+        mod_FloraSoma.raspSpawnDensity = config.getOrCreateIntProperty("Raspberry Spawn Density", "general", 14).getInt(14);
+        mod_FloraSoma.raspSpawnHeight = config.getOrCreateIntProperty("Raspberry Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.raspSpawnRange = config.getOrCreateIntProperty("Raspberry Spawn Range", "general", 128).getInt(128);
+        mod_FloraSoma.blueSpawnDensity = config.getOrCreateIntProperty("Blueberry Spawn Density", "general", 12).getInt(12);
+        mod_FloraSoma.blueSpawnHeight = config.getOrCreateIntProperty("Blueberry Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.blueSpawnRange = config.getOrCreateIntProperty("Blueberry Spawn Range", "general", 128).getInt(128);
+        mod_FloraSoma.blackSpawnDensity = config.getOrCreateIntProperty("Blackberry Spawn Density", "general", 10).getInt(10);
+        mod_FloraSoma.blackSpawnHeight = config.getOrCreateIntProperty("Blackberry Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.blackSpawnRange = config.getOrCreateIntProperty("Blackberry Spawn Range", "general", 128).getInt(128);
+        mod_FloraSoma.geoSpawnDensity = config.getOrCreateIntProperty("Geoberry Spawn Density", "general", 14).getInt(14);
+        mod_FloraSoma.geoSpawnHeight = config.getOrCreateIntProperty("Geoberry Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.geoSpawnRange = config.getOrCreateIntProperty("Geoberry Spawn Range", "general", 128).getInt(128);
+        
+        mod_FloraSoma.enableTrees = config.getOrCreateBooleanProperty("Enable Trees", "general", true).getBoolean(true);
+        mod_FloraSoma.redwoodSpawnDensity = config.getOrCreateIntProperty("Redwood Tree Spawn Density", "general", 6).getInt(6);
+        mod_FloraSoma.redwoodSpawnHeight = config.getOrCreateIntProperty("Redwood Tree Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.redwoodSpawnRange = config.getOrCreateIntProperty("Redwood Tree Spawn Range", "general", 32).getInt(32);
+        mod_FloraSoma.bloodSpawnDensity = config.getOrCreateIntProperty("Bloodwood Tree Spawn Density", "general", 5).getInt(5);
+        mod_FloraSoma.bloodSpawnHeight = config.getOrCreateIntProperty("Bloodwood Tree Spawn Height", "general", 32).getInt(32);
+        mod_FloraSoma.bloodSpawnRange = config.getOrCreateIntProperty("Bloodwood Tree Spawn Range", "general", 64).getInt(64);
+        mod_FloraSoma.eucalyptusShortSpawnDensity = config.getOrCreateIntProperty("Small Eucalyptus Tree Spawn Density", "general", 25).getInt(25);
+        mod_FloraSoma.eucalyptusShortSpawnHeight = config.getOrCreateIntProperty("Small Eucalyptus Tree Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.eucalyptusShortSpawnRange = config.getOrCreateIntProperty("Small Eucalyptus Tree Spawn Range", "general", 32).getInt(32);
+        mod_FloraSoma.sakuraSpawnDensity = config.getOrCreateIntProperty("Sakura Tree Spawn Density", "general", 10).getInt(10);
+        mod_FloraSoma.sakuraSpawnHeight = config.getOrCreateIntProperty("Sakura Tree Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.sakuraSpawnRange = config.getOrCreateIntProperty("Sakura Tree Spawn Range", "general", 32).getInt(32);
+        mod_FloraSoma.whiteSpawnDensity = config.getOrCreateIntProperty("Ghost Tree Spawn Density", "general", 25).getInt(25);
+        mod_FloraSoma.whiteSpawnHeight = config.getOrCreateIntProperty("Ghost Tree Spawn Height", "general", 16).getInt(16);
+        mod_FloraSoma.whiteSpawnRange  = config.getOrCreateIntProperty("Ghost Tree Spawn Range", "general", 80).getInt(80);
+        
+        mod_FloraSoma.enableClouds = config.getOrCreateBooleanProperty("Enable Clouds", "general", true).getBoolean(true);
+        mod_FloraSoma.cloudSpawnDensity = config.getOrCreateIntProperty("Cloud Spawn Density", "general", 10).getInt(10);
+        mod_FloraSoma.cloudSpawnHeight = config.getOrCreateIntProperty("Cloud Spawn Height", "general", 192).getInt(192);
+        mod_FloraSoma.cloudSpawnRange = config.getOrCreateIntProperty("Cloud Spawn Range", "general", 48).getInt(48);
+        mod_FloraSoma.darkCloudSpawnDensity = config.getOrCreateIntProperty("Dark Cloud Spawn Density", "general", 10).getInt(10);
+        mod_FloraSoma.darkCloudSpawnHeight = config.getOrCreateIntProperty("Dark Cloud Spawn Height", "general", 64).getInt(64);
+        mod_FloraSoma.darkCloudSpawnRange = config.getOrCreateIntProperty("Dark Cloud Spawn Range", "general", 128).getInt(128);
+        mod_FloraSoma.sulfurSpawnDensity = config.getOrCreateIntProperty("Sulfur Cloud Spawn Density", "general", 20).getInt(20);
+        mod_FloraSoma.sulfurSpawnHeight = config.getOrCreateIntProperty("Sulfur Cloud Spawn Height", "general", 40).getInt(40);
+        mod_FloraSoma.sulfurSpawnRange = config.getOrCreateIntProperty("Sulfur Cloud Spawn Range", "general", 78).getInt(78);
+        mod_FloraSoma.ashSpawnDensity = config.getOrCreateIntProperty("Ash Cloud Spawn Density", "general", 20).getInt(20);
+        mod_FloraSoma.ashSpawnHeight = config.getOrCreateIntProperty("Ash Cloud Spawn Height", "general", 40).getInt(40);
+        mod_FloraSoma.ashSpawnRange = config.getOrCreateIntProperty("Ash Cloud Spawn Range", "general", 78).getInt(78);
+        
+        mod_FloraSoma.enableCorruptor = config.getOrCreateBooleanProperty("Enable Clouds", "general", true).getBoolean(true);
+        mod_FloraSoma.corruptorSpawnDensity = config.getOrCreateIntProperty("Corruptor Spawn Density", "general", 1).getInt(1);
+        mod_FloraSoma.corruptorSpawnHeight = config.getOrCreateIntProperty("Corruptor Spawn Height", "general", 0).getInt(0);
+        mod_FloraSoma.corruptorSpawnRange = config.getOrCreateIntProperty("Corruptor Spawn Range", "general", 128).getInt(128);
+        mod_FloraSoma.corruptorSpawnSize = config.getOrCreateIntProperty("Corruptor Spawn Slize", "general", 8).getInt(8);
+        mod_FloraSoma.corruptionSpeed = config.getOrCreateIntProperty("Corruption Speed", "general", 5).getInt(5);
+
+        /* Save the configuration file */
+        config.save();
+    }
 }

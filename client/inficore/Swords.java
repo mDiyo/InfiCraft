@@ -29,8 +29,8 @@ public class Swords
     {
     	if(PropsHelperInfiTools.enableWoodTools)
     	{
-    		woodWoodSword = new InfiToolSword(PropsHelperInfiTools.woodSwordID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+    		woodWoodSword = new InfiToolSword(12, 
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodSword");
     		sandstoneWoodSword = new InfiToolSword(PropsHelperInfiTools.woodSwordID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodSword");
     		boneWoodSword = new InfiToolSword(PropsHelperInfiTools.woodSwordID+2, 
@@ -43,19 +43,11 @@ public class Swords
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodSword");
     		cactusWoodSword = new InfiToolSword(PropsHelperInfiTools.woodSwordID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodSword");
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
     	}
 
         if(PropsHelperInfiTools.enableStoneTools)
         {
-        	woodStoneSword = new InfiToolSword(PropsHelperInfiTools.stoneSwordID+0, 
+        	woodStoneSword = new InfiToolSword(16, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneSword");
         	stoneStoneSword = new InfiToolSword(PropsHelperInfiTools.stoneSwordID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneSword");
@@ -73,21 +65,11 @@ public class Swords
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneSword");
         	flintStoneSword = new InfiToolSword(PropsHelperInfiTools.stoneSwordID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneSword");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableIronTools)
         {
-        	woodIronSword = new InfiToolSword(PropsHelperInfiTools.ironSwordID+0, 
+        	woodIronSword = new InfiToolSword(11, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronSword");
         	stoneIronSword = new InfiToolSword(PropsHelperInfiTools.ironSwordID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronSword");
@@ -105,21 +87,11 @@ public class Swords
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronSword");
         	bronzeIronSword = new InfiToolSword(PropsHelperInfiTools.ironSwordID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronSword");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableDiamondTools)
         {
-        	woodDiamondSword = new InfiToolSword(PropsHelperInfiTools.diamondSwordID+0, 
+        	woodDiamondSword = new InfiToolSword(20, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondSword");
         	stoneDiamondSword = new InfiToolSword(PropsHelperInfiTools.diamondSwordID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondSword");
@@ -163,29 +135,6 @@ public class Swords
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondSword");
             uraniumDiamondSword = new InfiToolSword(PropsHelperInfiTools.diamondSwordID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondSword");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableRedstoneTools)
@@ -1053,7 +1002,7 @@ public class Swords
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodSword, "Wood Sword");
+    	ModLoader.addName(woodWoodSword, "Wooden Sword");
     	ModLoader.addName(stoneStoneSword, "Heavy Sword");
     	ModLoader.addName(ironIronSword, "Ironic Sword");
     	ModLoader.addName(diamondDiamondSword, "Diamondium Sword");
@@ -1063,7 +1012,7 @@ public class Swords
     	ModLoader.addName(boneBoneSword, "Necrotic Sword");
     	ModLoader.addName(paperPaperSword, "Soft Sword");
     	ModLoader.addName(mossyMossySword, "Living Sword");
-    	ModLoader.addName(netherrackNetherrackSword, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackSword, "Blood Sword");
     	ModLoader.addName(glowstoneGlowstoneSword, "Bright Sword");
     	ModLoader.addName(iceIceSword, "Freezing Sword");
     	ModLoader.addName(lavaLavaSword, "Burning Sword");
@@ -1076,7 +1025,7 @@ public class Swords
         ModLoader.addName(workedWorkedIronSword, "Reworked Iron Sword");
         ModLoader.addName(steelSteelSword, "Forge-Wrought Sword");
         ModLoader.addName(cobaltCobaltSword, "Beautiful Sword");
-        ModLoader.addName(arditeArditeSword, "Rustic StoneDigger");
+        ModLoader.addName(arditeArditeSword, "Rustic Sword");
         ModLoader.addName(manyullynManyullynSword, "False-Prophetic Sword");
         ModLoader.addName(uraniumUraniumSword, "Cancerous Sword");
     }

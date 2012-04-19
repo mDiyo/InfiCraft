@@ -1,33 +1,34 @@
 package net.minecraft.src;
+import java.util.List;
+
 import net.minecraft.src.forge.*;
 import net.minecraft.src.inficore.*;
+import net.minecraft.src.inficore.buckets.*;
 
 public class mod_InfiTools extends BaseMod
 {
-	
-	public mod_InfiTools()
-	{
-		
-	}
-
 	@Override
 	public String getVersion() 
 	{
-		return "2.9.1";
+		return "3.0.1";
 	}
 
 	@Override
 	public void load() 
 	{
 		PropsHelperInfiTools.initProps();
+		removeVanillaRecipes();
 		Pickaxes.init();
 		Swords.init();
 		Shovels.init();
 		Axes.init();
 		Hoes.init();
+		Items.init();
 		oreDictionarySupport();
+		MinecraftForge.registerCustomBucketHandler(new InfiBucketHandler());
+        MinecraftForge.registerEntityInteractHandler(new BucketInteractHandler());
 	}
-	
+
 	private void oreDictionarySupport()
 	{
 	    MinecraftForge.registerOreHandler(new IOreHandler()
@@ -60,7 +61,6 @@ public class mod_InfiTools extends BaseMod
 	            }
 	            if(PropsHelperInfiTools.enableSteelTools && ore.equals("ingotSteel"))
 	            {
-	            	System.out.println("Adding steel tools");
 		            Pickaxes.addSteelTools(itemstack);
 		            Swords.addSteelTools(itemstack);
 		            Shovels.addSteelTools(itemstack);
@@ -107,8 +107,56 @@ public class mod_InfiTools extends BaseMod
 		            Axes.addStoneTools(itemstack);
 		            Hoes.addStoneTools(itemstack);
 	            }
+	            if(ore.equals("customCobblestone"))
+	            {
+	            	Items.addStoneBowl(itemstack);
+	            }
 	        }
 	    } );
+	}
+	
+	private void removeVanillaRecipes()
+	{
+		System.out.println("Note: Some conflicts here are supposed to happen.");
+		ItemStack[] vanillaTools = {
+			new ItemStack(Item.axeWood), new ItemStack(Item.pickaxeWood), new ItemStack(Item.shovelWood), 
+			new ItemStack(Item.swordWood),new ItemStack(Item.hoeWood),
+			
+			new ItemStack(Item.axeStone), new ItemStack(Item.pickaxeStone), new ItemStack(Item.shovelStone), 
+			new ItemStack(Item.swordStone),new ItemStack(Item.hoeStone),
+			
+			new ItemStack(Item.axeSteel), new ItemStack(Item.pickaxeSteel), new ItemStack(Item.shovelSteel), 
+			new ItemStack(Item.swordSteel),new ItemStack(Item.hoeSteel),
+			
+			new ItemStack(Item.axeDiamond), new ItemStack(Item.pickaxeDiamond), new ItemStack(Item.shovelDiamond), 
+			new ItemStack(Item.swordDiamond),new ItemStack(Item.hoeDiamond),
+			
+			new ItemStack(Item.axeGold), new ItemStack(Item.pickaxeGold), new ItemStack(Item.shovelGold), 
+			new ItemStack(Item.swordGold),new ItemStack(Item.hoeGold),
+			
+			new ItemStack(Item.bucketEmpty)
+		};
+		
+		for (int i = 0; i < vanillaTools.length; i++)
+		{
+			removeRecipe(vanillaTools[i]);
+		}		
+	}
+	
+	private void removeRecipe(ItemStack resultItem) {
+		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
+		for (int i = 0; i < recipes.size(); i++) 
+		{
+			IRecipe tmpRecipe = recipes.get(i);
+			if (tmpRecipe instanceof ShapedRecipes) {
+				ShapedRecipes recipe = (ShapedRecipes)tmpRecipe;
+				ItemStack recipeResult = recipe.getRecipeOutput();
+			
+				if (ItemStack.areItemStacksEqual(resultItem, recipeResult)) {
+					recipes.remove(i--);
+				}
+			}
+		}
 	}
 
 }

@@ -102,8 +102,8 @@ public class SaguaroGen extends WorldGenerator
     }
     
     private void genBlock(World world, int x, int y, int z) {
-    	if(!Block.opaqueCubeLookup[world.getBlockId(x, y, z)] )
-    		world.setBlock(x, y, z, mod_FloraSoma.saguaro.blockID);
+    	/*if(!Block.opaqueCubeLookup[world.getBlockId(x, y, z)] )
+    		world.setBlock(x, y, z, mod_FloraSoma.saguaro.blockID);*/
     }
     
     int findGround(World world, int i, int j, int k)

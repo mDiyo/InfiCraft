@@ -16,7 +16,14 @@ import java.util.*;
 public class mod_InfiBase extends BaseMod
 {
 	Random rand = new Random();
+	InfiEnchantPoison poison = new InfiEnchantPoison(41, 2);
 	InfiEnchantFreezing freeze = new InfiEnchantFreezing(42, 2);
+	
+	@Override
+	public String getVersion() 
+	{
+		return "1.0.2 for 1.2.5";
+	}
 	
 	public mod_InfiBase()
 	{
@@ -24,13 +31,15 @@ public class mod_InfiBase extends BaseMod
 		ModLoader.registerBlock(blockMoss);
 		ModLoader.registerBlock(slimeSand);
 		ModLoader.addLocalization("enchantment.frost", "Frost");
+		ModLoader.addLocalization("enchantment.poison", "Poison");
 		this.addBaseRecipes();
 		this.addMaterialRecipes();
 		this.oreDictionarySupport();
 		this.addEEsupport();
+        MinecraftForge.registerEntityInteractHandler(new EnchantHandler());
 	}
 	
-	public void addCustomName(ItemStack stack, Enchantment par1Enchantment, String name)
+	public void addCustomName(ItemStack stack, String name)
     {
         if (stack.stackTagCompound == null)
         {
@@ -56,16 +65,20 @@ public class mod_InfiBase extends BaseMod
 		        { " # ", "#m#", " # ", '#', Item.lightStoneDust, 'm', ironChunk });
 		ModLoader.addShapelessRecipe(new ItemStack(lavaCrystal, 1), new Object[]
 		        { this.obsidianCrystal, Item.bucketLava, Item.bucketLava, Item.bucketLava });
+		ModLoader.addShapelessRecipe(new ItemStack(slimeSand, 1), new Object[]
+		        { Item.slimeBall, Block.sand });		
+		ModLoader.addShapelessRecipe(new ItemStack(slimeSand, 1, 1), new Object[]
+		        { new ItemStack(slimeSand, 1, 0), Block.sand, Block.sand, Block.sand });
 		FurnaceRecipes.smelting().addSmelting(slimeSand.blockID, new ItemStack(slimeCrystal, 1));
 		ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
                 { "pwp", "ncn", "plp", 'p', Item.blazePowder, 'w', new ItemStack(Item.bucketWater, 1, -1), 
-			'l', new ItemStack(Item.bucketLava, 1, -1), 'c', Item.magmaCream, 'n', Block.netherrack  });
+			'l', new ItemStack(Item.bucketLava, 1, -1), 'c', Item.magmaCream, 'n', Block.netherrack });
 		ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
                 { "plp", "ncn", "pwp", 'p', Item.blazePowder, 'w', new ItemStack(Item.bucketWater, 1, -1), 
-			'l', new ItemStack(Item.bucketLava, 1, -1), 'c', Item.magmaCream, 'n', Block.netherrack  });
+			'l', new ItemStack(Item.bucketLava, 1, -1), 'c', Item.magmaCream, 'n', Block.netherrack });
 		ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
                 { "pnp", "lcw", "pnp", 'p', Item.blazePowder, 'w', new ItemStack(Item.bucketWater, 1, -1), 
-			'l', new ItemStack(Item.bucketLava, 1, -1), 'c', Item.magmaCream, 'n', Block.netherrack  });
+			'l', new ItemStack(Item.bucketLava, 1, -1), 'c', Item.magmaCream, 'n', Block.netherrack });
 		
 		//Chainmail
 		ModLoader.addRecipe(new ItemStack(Item.helmetChain, 1), new Object[] {"###", "# #", '#', this.ironChunk});
@@ -74,7 +87,7 @@ public class mod_InfiBase extends BaseMod
 		ModLoader.addRecipe(new ItemStack(Item.bootsChain, 1), new Object[] {"# #", "# #", '#', this.ironChunk});
 		
 		//Brewing stand
-		ModLoader.addRecipe(new ItemStack(Item.brewingStand, 1), new Object[]
+		ModLoader.addRecipe(new ItemStack(this.paperStack, 1), new Object[]
 		        { "##", "##", '#', Item.paper });
 		      
 		//Cactus greens to charcoal
@@ -339,45 +352,75 @@ public class mod_InfiBase extends BaseMod
 			    		InfiToolCore tool = (InfiToolCore)item;
 			    		if(is.getItemDamage() > 0) {
 			    			int heal = 0;
-			    			if(tool.getHeadType() == 11)
+			    			if(tool.getHeadType() == 10)
 			    				heal += 4;
-			    			if(tool.getHandleType() == 11)
+			    			if(tool.getHandleType() == 10)
 			    				heal += 1;
 			    			if(heal > 0 && rand.nextInt(5) < heal)
 			    				is.damageItem(-1, player);
 			    		}
-			    		if(tool.getHeadType() == 11 && is.getItemDamage() > 0) {
-			    			is.damageItem(-1, player);
+			    		int poison = 0;
+			    		if(tool.getHeadType() == 26)
+			    		{
+			    			poison += 20;
+			    		}
+			    		if(tool.getHandleType() == 26)
+			    		{
+			    			poison += 5;
+			    		}
+			    		if (poison > 0 && rand.nextInt(4) == 0)
+			    		{
+			    			player.addPotionEffect(new PotionEffect(Potion.poison.id, poison, 0));
 			    		}
 		    		}
 		    		if(item instanceof InfiWeaponCore) {
 			    		InfiWeaponCore weapon = (InfiWeaponCore)item;
 			    		if(is.getItemDamage() > 0) {
 			    			int heal = 0;
-			    			if(weapon.getHeadType() == 11)
+			    			if(weapon.getHeadType() == 10)
 			    				heal += 4;
-			    			if(weapon.getHandleType() == 11)
+			    			if(weapon.getHandleType() == 10)
 			    				heal += 1;
 			    			if(heal > 0 && rand.nextInt(5) < heal)
 			    				is.damageItem(-1, player);
 			    		}
-			    		if(weapon.getHeadType() == 11 && is.getItemDamage() > 0) {
-			    			is.damageItem(-1, player);
+			    		int poison = 0;
+			    		if(weapon.getHeadType() == 26)
+			    		{
+			    			poison += 20;
+			    		}
+			    		if(weapon.getHandleType() == 26)
+			    		{
+			    			poison += 5;
+			    		}
+			    		if (poison > 0 && rand.nextInt(4) == 0)
+			    		{
+			    			player.addPotionEffect(new PotionEffect(Potion.poison.id, poison, 0));
 			    		}
 		    		}
 		    		if(item instanceof InfiHoeCore) {
-		    			InfiHoeCore weapon = (InfiHoeCore)item;
+		    			InfiHoeCore hoe = (InfiHoeCore)item;
 			    		if(is.getItemDamage() > 0) {
 			    			int heal = 0;
-			    			if(weapon.getHeadType() == 11)
+			    			if(hoe.getHeadType() == 10)
 			    				heal += 4;
-			    			if(weapon.getHandleType() == 11)
+			    			if(hoe.getHandleType() == 10)
 			    				heal += 1;
 			    			if(heal > 0 && rand.nextInt(5) < heal)
 			    				is.damageItem(-1, player);
 			    		}
-			    		if(weapon.getHeadType() == 11 && is.getItemDamage() > 0) {
-			    			is.damageItem(-1, player);
+			    		int poison = 0;
+			    		if(hoe.getHeadType() == 26)
+			    		{
+			    			poison += 20;
+			    		}
+			    		if(hoe.getHandleType() == 26)
+			    		{
+			    			poison += 5;
+			    		}
+			    		if (poison > 0 && rand.nextInt(4) == 0)
+			    		{
+			    			player.addPotionEffect(new PotionEffect(Potion.poison.id, poison, 0));
 			    		}
 		    		}
 		    	}
@@ -389,7 +432,7 @@ public class mod_InfiBase extends BaseMod
 	@Override
     public void takenFromCrafting(EntityPlayer player, ItemStack stack, IInventory iinventory) 
     {
-    	if (stack.getItem() instanceof InfiToolCore && ((InfiToolCore)stack.getItem()).getHeadType() == 10)
+    	if (stack.getItem() instanceof InfiToolCore && ((InfiToolCore)stack.getItem()).getHeadType() == 9)
     	{
     		stack.addEnchantment(Enchantment.silkTouch, 1);
     	}
@@ -433,12 +476,6 @@ public class mod_InfiBase extends BaseMod
             System.out.println(throwable);
         }
     }
-
-	@Override
-	public String getVersion() 
-	{
-		return "1.2.5";
-	}
 
 	@Override
 	public void load() {}
@@ -525,12 +562,12 @@ public class mod_InfiBase extends BaseMod
     			"/infibase/items.png", "Tree Root").setIconCoord(3, 4);
     	
         paperStack = new InfiTexturedItem(PropsHelperInfiBase.paperStackID, 
-        		"/infibase/items.png", "Stack of Paper").setIconCoord(4, 0);
+        		"/infibase/items.png", "Stack of Paper").setIconCoord(0, 4);
         paperDust = new InfiTexturedItem(PropsHelperInfiBase.paperDustID, 
-        		"/infibase/items.png", "Dust-filled Paper").setIconCoord(4, 1);
+        		"/infibase/items.png", "Dust-filled Paper").setIconCoord(1, 4);
         
         mossBall = new InfiTexturedItem(PropsHelperInfiBase.mossBallID, 
-        		"/infibase/items.png", "Ball of Moss").setIconCoord(4, 2);
+        		"/infibase/items.png", "Ball of Moss").setIconCoord(2, 4);
         mossyPatch = new MossPatchItem(PropsHelperInfiBase.mossyPatchID).setIconCoord(9, 6);
         mossyStone = new InfiTexturedItem(PropsHelperInfiBase.mossyStoneID, 
         		"/infibase/items.png", "Moss-infused Stone").setIconCoord(5, 3);
@@ -546,7 +583,7 @@ public class mod_InfiBase extends BaseMod
         slimeCrystal = new InfiTexturedItem(PropsHelperInfiBase.slimeCrystalID, 
         		"/infibase/items.png", "Slime Crystal").setIconCoord(3, 3);
         blazeCrystal = new InfiTexturedItem(PropsHelperInfiBase.blazeCrystalID, 
-        		"/gui/items.png", "Frozen Blaze Essence").setIconCoord(6, 3);
+        		"/infibase/items.png", "Frozen Blaze Essence").setIconCoord(6, 3);
         
         woodSplinters = new InfiTexturedItem(PropsHelperInfiBase.woodSplintersID, 
         		"/infibase/items.png", "Wood Splinters").setIconCoord(0, 6);
@@ -637,21 +674,21 @@ public class mod_InfiBase extends BaseMod
         		"/infibase/items.png", "Flint Rod").setIconCoord(0, 1);
         
         copperRod = new InfiTexturedItem(PropsHelperInfiBase.copperRodID, 
-        		"/metaltex/rods.png", "Copper Rod").setIconCoord(2, 1);
+        		"/infibase/items.png", "Copper Rod").setIconCoord(2, 1);
 		bronzeRod = new InfiTexturedItem(PropsHelperInfiBase.bronzeRodID, 
-				"/metaltex/rods.png", "Bronze Rod").setIconCoord(3, 1);
+				"/infibase/items.png", "Bronze Rod").setIconCoord(3, 1);
 		workedIronRod = new InfiTexturedItem(PropsHelperInfiBase.workedIronRodID, 
-				"/metaltex/rods.png", "Worked Iron Rod").setIconCoord(4, 1);
+				"/infibase/items.png", "Worked Iron Rod").setIconCoord(4, 1);
 		steelRod = new InfiTexturedItem(PropsHelperInfiBase.steelRodID, 
-				"/metaltex/rods.png", "Steel Rod").setIconCoord(5, 1);
+				"/infibase/items.png", "Steel Rod").setIconCoord(5, 1);
 		cobaltRod = new InfiTexturedItem(PropsHelperInfiBase.cobaltRodID, 
-				"/metaltex/rods.png", "Cobalt Rod").setIconCoord(6, 1);
+				"/infibase/items.png", "Cobalt Rod").setIconCoord(6, 1);
 		arditeRod = new InfiTexturedItem(PropsHelperInfiBase.arditeRodID, 
-				"/metaltex/rods.png", "Ardite Rod").setIconCoord(7, 1);
+				"/infibase/items.png", "Ardite Rod").setIconCoord(7, 1);
 		manyullynRod = new InfiTexturedItem(PropsHelperInfiBase.manyullynRodID, 
-				"/metaltex/rods.png", "Manyullyn Rod").setIconCoord(8, 1);
+				"/infibase/items.png", "Manyullyn Rod").setIconCoord(8, 1);
 		uraniumRod = new InfiTexturedItem(PropsHelperInfiBase.uraniumRodID, 
-				"/metaltex/rods.png", "Uranium Rod").setIconCoord(9, 1);
+				"/infibase/items.png", "Uranium Rod").setIconCoord(9, 1);
     }
 
 }

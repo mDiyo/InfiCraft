@@ -4,6 +4,7 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
 import net.minecraft.src.forge.MinecraftForge;
 
@@ -20,9 +21,41 @@ public class Scythes
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+        if(mod_Infi2x2.infitoolsPresent)
+        {
+        	createTools();
+            addNames();
+        	registerInfiToolsRecipes();
+        }
+        else
+        {
+        	createVanillaTools();
+        	registerVanillaRecipes();
+        }
+    }
+    
+    private static void createVanillaTools()
+    {
+    	woodWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+0, 
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodScythe");
+    	woodStoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.stoneScytheID+0, 
+                InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneScythe");
+    	woodIronScythe = new InfiToolScythe(PropsHelperInfiHybrids.ironScytheID+0, 
+                InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronScythe");
+    	woodDiamondScythe = new InfiToolScythe(PropsHelperInfiHybrids.diamondScytheID+0, 
+                InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondScythe");
+    }
+    
+    private static void registerVanillaRecipes()
+    {
+    	ModLoader.addRecipe(new ItemStack(woodWoodScythe), new Object[] 
+                { recipe, '#', Block.planks, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodStoneScythe), new Object[] 
+                { recipe, '#', Block.cobblestone, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodIronScythe), new Object[] 
+                { recipe, '#', Item.ingotIron, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodDiamondScythe), new Object[] 
+                { recipe, '#', Item.diamond, '|', Item.stick, });
     }
     
     private static void createTools()
@@ -30,7 +63,7 @@ public class Scythes
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodScythe");
     		sandstoneWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodScythe");
     		boneWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+2, 
@@ -43,14 +76,6 @@ public class Scythes
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodScythe");
     		cactusWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodScythe");
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
     	}
 
         if(PropsHelperInfiHybrids.enableStoneTools)
@@ -1053,7 +1078,7 @@ public class Scythes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodScythe, "Wood Scythe");
+    	ModLoader.addName(woodWoodScythe, "Wooden Scythe");
     	ModLoader.addName(stoneStoneScythe, "Heavy Scythe");
     	ModLoader.addName(ironIronScythe, "Ironic Scythe");
     	ModLoader.addName(diamondDiamondScythe, "Diamondium Scythe");
@@ -1063,7 +1088,7 @@ public class Scythes
     	ModLoader.addName(boneBoneScythe, "Necrotic Scythe");
     	ModLoader.addName(paperPaperScythe, "Soft Scythe");
     	ModLoader.addName(mossyMossyScythe, "Living Scythe");
-    	ModLoader.addName(netherrackNetherrackScythe, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackScythe, "Blood Scythe");
     	ModLoader.addName(glowstoneGlowstoneScythe, "Bright Scythe");
     	ModLoader.addName(iceIceScythe, "Freezing Scythe");
     	ModLoader.addName(lavaLavaScythe, "Burning Scythe");

@@ -39,7 +39,7 @@ public class PropsHelperInfiTools {
         config.load();
 
         /* Define the mod's IDs. 
-         * Avoid values below 4096 for items and in the 250-600 range for blocks
+         * Avoid values below 4096 for items and in the 256-385 range for blocks
          */
         
         enableWoodTools = config.getOrCreateBooleanProperty("Enable Wooden Tools", "general", true).getBoolean(true);
@@ -69,6 +69,18 @@ public class PropsHelperInfiTools {
         enableArditeTools = config.getOrCreateBooleanProperty("Enable Ardite Tools", "general", true).getBoolean(true);
         enableManyullynTools = config.getOrCreateBooleanProperty("Enable Manyullyn Tools", "general", true).getBoolean(true);
         enableUraniumTools = config.getOrCreateBooleanProperty("Enable Uranium Tools", "general", true).getBoolean(true);
+        
+        woodBucketID = config.getOrCreateIntProperty("Wooden Bucket", "item", 13954).getInt(13954);
+        cactusBucketID = config.getOrCreateIntProperty("Cactus Bucket", "item", 13959).getInt(13959);
+        goldBucketID = config.getOrCreateIntProperty("Gold Bucket", "item", 13964).getInt(13964);
+        iceBucketID = config.getOrCreateIntProperty("Ice Bucket", "item", 13970).getInt(13970);
+        lavaBucketID = config.getOrCreateIntProperty("Lava Bucket", "item", 13975).getInt(13975);
+        slimeBucketID = config.getOrCreateIntProperty("Slime Bucket", "item", 13979).getInt(13979);
+        ironBucketID = config.getOrCreateIntProperty("Iron Bucket", "item", 13984).getInt(13984);
+        obsidianBucketID = config.getOrCreateIntProperty("Obsidian Bucket", "item", 13986).getInt(13986);
+        
+        bowlID = config.getOrCreateIntProperty("Bowls", "item", 13992).getInt(13992);
+        soupBowlID = config.getOrCreateIntProperty("Soup Bowls", "item", 13993).getInt(13993);
         
         woodPickaxeID = config.getOrCreateIntProperty("Wooden Pickaxes", "item", 14001).getInt(14001);
         stonePickaxeID = config.getOrCreateIntProperty("Stone Pickaxes", "item", 14008).getInt(14008);
@@ -383,4 +395,16 @@ public class PropsHelperInfiTools {
     public static int arditeHoeID;
     public static int manyullynHoeID;
     public static int uraniumHoeID;
+    
+    public static int woodBucketID;
+    public static int cactusBucketID;
+    public static int goldBucketID;
+    public static int iceBucketID;
+    public static int lavaBucketID;
+    public static int slimeBucketID;
+    public static int ironBucketID;
+    public static int obsidianBucketID;
+    
+    public static int bowlID;
+    public static int soupBowlID;
 }

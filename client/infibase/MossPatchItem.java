@@ -40,6 +40,6 @@ public class MossPatchItem extends Item
 
     public String getTextureFile()
     {
-        return "/inifbase/items.png";
+        return "/infibase/items.png";
     }
 }

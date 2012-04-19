@@ -1,449 +1,220 @@
 package net.minecraft.src.orizon;
-import net.minecraft.src.*;
+import java.io.File;
+import java.io.IOException;
+
+import net.minecraft.src.Item;
+import net.minecraft.src.forge.Configuration;
+import net.minecraft.src.mod_Orizon;
 
 public class PropsHelperOrizon {
 
-	public PropsHelperOrizon() { }
-	
-	public static InfiProps getProps(InfiProps infiprops)
-	{
-		mod_Orizon.resolveConflicts = infiprops.readBoolean("Automatically Resolve ID conflicts");
-		
-		mod_Orizon.mineralOreID = infiprops.readInt("Mineral Ore ID");
-		mod_Orizon.mineralOreHighID = infiprops.readInt("Mineral Ore High ID");
-		mod_Orizon.mineralOreLow1ID = infiprops.readInt("Mineral Ore Medium ID");
-		mod_Orizon.mineralOreLow2ID = infiprops.readInt("Mineral Ore Low ID");
-		mod_Orizon.mineralOreLow3ID = infiprops.readInt("Mineral Ore Dark ID");
-		
-		mod_Orizon.mineralOreAltID = infiprops.readInt("Mineral Ore Alt ID");
-		mod_Orizon.mineralOreAltHighID = infiprops.readInt("Mineral Ore Alt High ID");
-		mod_Orizon.mineralOreAltLow1ID = infiprops.readInt("Mineral Ore Alt Medium ID");
-		mod_Orizon.mineralOreAltLow2ID = infiprops.readInt("Mineral Ore Alt Low ID");
-		mod_Orizon.mineralOreAltLow3ID = infiprops.readInt("Mineral Ore Alt Dark ID");
-		
-		mod_Orizon.gemOreID = infiprops.readInt("Gem Ore ID");
-		mod_Orizon.gemOreHighID = infiprops.readInt("Gem Ore High ID");
-		mod_Orizon.gemOreLow1ID = infiprops.readInt("Gem Ore Medium ID");
-		mod_Orizon.gemOreLow2ID = infiprops.readInt("Gem Ore Low ID");
-		mod_Orizon.gemOreLow3ID = infiprops.readInt("Gem Ore Dark ID");
-		
-		mod_Orizon.cStoneID = infiprops.readInt("Colored Stone ID");
-		mod_Orizon.cCobbleID = infiprops.readInt("Colored Cobblestone ID");
-		mod_Orizon.cBrickID = infiprops.readInt("Colored Brick ID");
-		mod_Orizon.cMossyID = infiprops.readInt("Colored Mossy Brick ID");
-		mod_Orizon.cCrackedID = infiprops.readInt("Colored Cracked Brick ID");
-		mod_Orizon.cTileID = infiprops.readInt("Colored Brick Tile ID");
-		mod_Orizon.cFancyID = infiprops.readInt("Colored Fancy Brick ID");
-		mod_Orizon.cSquareID = infiprops.readInt("Colored Square Brick ID");
-		
-		mod_Orizon.calciteOreID = infiprops.readInt("Calcite Ore ID");
-		mod_Orizon.netherOreID = infiprops.readInt("Nether Ore ID");
-		
-		mod_Orizon.replaceOreID = infiprops.readInt("Replacement Ore ID");
-		mod_Orizon.replaceMetalID = infiprops.readInt("Replacement Metal Ore ID");
-		
-		mod_Orizon.marbleID = infiprops.readInt("Marble ID");
-		
-		mod_Orizon.slimePoolID = infiprops.readInt("Slime Pool IDs");
-		mod_Orizon.slimeGelID = infiprops.readInt("Slime Gel ID");
-		//mod_Orizon.acidPoolID = infiprops.readInt("Acid Pool IDs");
-		
-		/*mod_Orizon.siltID = infiprops.readInt("Silt ID");
-		mod_Orizon.siltstoneID = infiprops.readInt("Siltstone ID");*/
-		
-		mod_Orizon.ingotsID = infiprops.accessInt("Ingots ID", 10998);
-	    mod_Orizon.netherIngotsID = infiprops.accessInt("Nether Ingots ID", 10999);
-	    mod_Orizon.gemsID = infiprops.accessInt("Gems ID", 11000);
-		
-		mod_Orizon.copperSwordID = infiprops.accessInt("Copper Sword", 11001);
-	    mod_Orizon.copperPickaxeID = infiprops.accessInt("Copper Pickaxe", 11002);
-	    mod_Orizon.copperAxeID = infiprops.accessInt("Copper Axe", 11003);
-	    mod_Orizon.copperShovelID = infiprops.accessInt("Copper Shovel", 11004);
-	    mod_Orizon.copperHoeID = infiprops.accessInt("Copper Hoe", 11005);
-	    mod_Orizon.bronzeSwordID = infiprops.accessInt("Bronze Sword", 11006);
-	    mod_Orizon.bronzePickaxeID = infiprops.accessInt("Bronze Pickaxe", 11007);
-	    mod_Orizon.bronzeAxeID = infiprops.accessInt("Bronze Axe", 11008);
-	    mod_Orizon.bronzeShovelID = infiprops.accessInt("Bronze Shovel", 11009);
-	    mod_Orizon.bronzeHoeID = infiprops.accessInt("Bronze Hoe", 11010);
-	    mod_Orizon.refinedIronSwordID = infiprops.accessInt("Refined Iron Sword", 11011);
-	    mod_Orizon.refinedIronPickaxeID = infiprops.accessInt("Refined Iron Pickaxe", 11012);
-	    mod_Orizon.refinedIronAxeID = infiprops.accessInt("Refined Iron Axe", 11013);
-	    mod_Orizon.refinedIronShovelID = infiprops.accessInt("Refined Iron Shovel", 11014);
-	    mod_Orizon.refinedIronHoeID = infiprops.accessInt("Refined Iron Hoe", 11015);
-	    mod_Orizon.steelSwordID = infiprops.accessInt("Steel Sword", 11016);
-	    mod_Orizon.steelPickaxeID = infiprops.accessInt("Steel Pickaxe", 11017);
-	    mod_Orizon.steelAxeID = infiprops.accessInt("Steel Axe", 11018);
-	    mod_Orizon.steelShovelID = infiprops.accessInt("Steel Shovel", 11019);
-	    mod_Orizon.steelHoeID = infiprops.accessInt("Steel Hoe", 11020);
-	    mod_Orizon.cobaltSwordID = infiprops.accessInt("Cobalt Sword", 11021);
-	    mod_Orizon.cobaltPickaxeID = infiprops.accessInt("Cobalt Pickaxe", 11022);
-	    mod_Orizon.cobaltAxeID = infiprops.accessInt("Cobalt Axe", 11023);
-	    mod_Orizon.cobaltShovelID = infiprops.accessInt("Cobalt Shovel", 11024);
-	    mod_Orizon.cobaltHoeID = infiprops.accessInt("Cobalt Hoe", 11025);
-	    mod_Orizon.arditeSwordID = infiprops.accessInt("Ardite Sword", 11026);
-	    mod_Orizon.arditePickaxeID = infiprops.accessInt("Ardite Pickaxe", 11027);
-	    mod_Orizon.arditeAxeID = infiprops.accessInt("Ardite Axe", 11028);
-	    mod_Orizon.arditeShovelID = infiprops.accessInt("Ardite Shovel", 11029);
-	    mod_Orizon.arditeHoeID = infiprops.accessInt("Ardite Hoe", 11030);
-	    mod_Orizon.manyullynSwordID = infiprops.accessInt("Manyullyn Sword", 11031);
-	    mod_Orizon.manyullynPickaxeID = infiprops.accessInt("Manyullyn Pickaxe", 11032);
-	    mod_Orizon.manyullynAxeID = infiprops.accessInt("Manyullyn Axe", 11033);
-	    mod_Orizon.manyullynShovelID = infiprops.accessInt("Manyullyn Shovel", 11034);
-	    mod_Orizon.manyullynHoeID = infiprops.accessInt("Manyullyn Hoe", 11035);
-	    
-		return infiprops;
-	}
+    public static void initProps()
+    {
+        /* Here we will set up the config file for the mod 
+         * First: Create a folder inside the config folder
+         * Second: Create the actual config file
+         * Note: Configs are a pain, but absolutely necessary for every mod.
+         */
 
-	public static InfiProps InitProps(InfiProps infiprops)
-	{
-		infiprops.accessBoolean("Automatically Resolve ID conflicts", true);
-		
-		infiprops.accessInt("Mineral Ore ID", 131);
-		infiprops.accessInt("Mineral Ore High ID", 132);
-		infiprops.accessInt("Mineral Ore Medium ID", 133);
-		infiprops.accessInt("Mineral Ore Low ID", 134);
-		infiprops.accessInt("Mineral Ore Dark ID", 135);
-		
-		infiprops.accessInt("Mineral Ore Alt ID", 136);
-		infiprops.accessInt("Mineral Ore Alt High ID", 137);
-		infiprops.accessInt("Mineral Ore Alt Medium ID", 138);
-		infiprops.accessInt("Mineral Ore Alt Low ID", 139);
-		infiprops.accessInt("Mineral Ore Alt Dark ID", 140);
-		
-		infiprops.accessInt("Gem Ore ID", 141);
-		infiprops.accessInt("Gem Ore High ID", 142);
-		infiprops.accessInt("Gem Ore Medium ID", 143);
-		infiprops.accessInt("Gem Ore Low ID", 144);
-		infiprops.accessInt("Gem Ore Dark ID", 145);
-		
-		infiprops.accessInt("Colored Stone ID", 146);
-		infiprops.accessInt("Colored Cobblestone ID", 147);
-		infiprops.accessInt("Colored Brick ID", 148);
-		infiprops.accessInt("Colored Mossy Brick ID", 149);
-		infiprops.accessInt("Colored Cracked Brick ID", 150);
-		infiprops.accessInt("Colored Brick Tile ID", 151);
-		infiprops.accessInt("Colored Fancy Brick ID", 152);
-		infiprops.accessInt("Colored Square Brick ID", 153);
-		
-		infiprops.accessInt("Replacement Ore ID", 154);
-		infiprops.accessInt("Replacement Metal Ore ID", 155);
-		
-		infiprops.accessInt("Calcite Ore ID", 156);
-		infiprops.accessInt("Nether Ore ID", 157);
-		infiprops.accessInt("Marble ID", 158);
-		
-		infiprops.accessInt("Slime Pool IDs", 159);
-		infiprops.accessInt("Slime Gel ID", 161);
-		infiprops.accessInt("Acid Pool IDs", 162);
-		
-		/*infiprops.accessInt("Silt ID", 164);
-		infiprops.accessInt("Siltstone ID", 165);*/
-		
-		return infiprops;
-	}
-	
-	public static InfiProps getSpawn(InfiProps infiprops)
-	{
-		mod_Orizon.genStratifiedStone = infiprops.readBoolean("Generate Stratified Stone");
-		mod_Orizon.genColoredStone = infiprops.readBoolean("Generate Colored Stone");
-		mod_Orizon.genCalcite = infiprops.readBoolean("Generate Calcite and Calcite Ores");
-		mod_Orizon.genMarble = infiprops.readBoolean("Generate Marble");
-		mod_Orizon.genNetherOre = infiprops.readBoolean("Generate Nether Ores");
-		mod_Orizon.genSilt = infiprops.readBoolean("Generate Silt");
-		mod_Orizon.redoVanillaOres = infiprops.readBoolean("Metallurgy Style Spawn");
-		mod_Orizon.replaceOres = infiprops.readBoolean("Replace Vanilla Ores");
-		mod_Orizon.genGems = infiprops.readBoolean("Generate Gemstones");
-		mod_Orizon.genNonUniqueGems = infiprops.readBoolean("Generate Ruby, Emerald, and Sapphire Gems");
-		mod_Orizon.genSlimePools = infiprops.readBoolean("Generate Slime Pools");
-		mod_Orizon.genAcidPools = infiprops.readBoolean("Generate Acid Pools");
-		
-		mod_Orizon.copperRarity = infiprops.readInt("Copper Rarity");
-	    mod_Orizon.copperHeight = infiprops.readInt("Copper Height");
-	    mod_Orizon.turquoiseRarity = infiprops.readInt("Turquoise Rarity");
-	    mod_Orizon.turquoiseHeight = infiprops.readInt("Turquoise Height");
-	    mod_Orizon.chalcociteRarity = infiprops.readInt("Chalcocite Rarity");
-	    mod_Orizon.chalcociteHeight = infiprops.readInt("Chalcocite Height");
-	    mod_Orizon.cassiteriteRarity = infiprops.readInt("Cassiterite Rarity");
-	    mod_Orizon.cassiteriteHeight = infiprops.readInt("Cassiterite Height");
-	    mod_Orizon.tealliteRarity = infiprops.readInt("Teallite Rarity");
-	    mod_Orizon.tealliteHeight = infiprops.readInt("Teallite Height");
-	    mod_Orizon.zincBloomRarity = infiprops.readInt("Zinc Bloom Rarity");
-	    mod_Orizon.zincBloomHeight = infiprops.readInt("Zinc Bloom Height");
-	    mod_Orizon.sphaleriteRarity = infiprops.readInt("Sphalerite Rarity");
-	    mod_Orizon.sphaleriteHeight = infiprops.readInt("Sphalerite Height");
-	    mod_Orizon.cerussiteRarity = infiprops.readInt("Cerussite Rarity");
-	    mod_Orizon.cerussiteHeight = infiprops.readInt("Cerussite Height");
-	    mod_Orizon.cobaltRarity = infiprops.readInt("Cobalt Rarity");
-	    mod_Orizon.cobaltHeight = infiprops.readInt("Cobalt Height");
-	    mod_Orizon.arditeRarity = infiprops.readInt("Ardite Rarity");
-	    mod_Orizon.arditeHeight = infiprops.readInt("Ardite Height");
-	    mod_Orizon.myuvilRarity = infiprops.readInt("Myuvil Rarity");
-	    mod_Orizon.myuvilHeight = infiprops.readInt("Myuvil Height");
-	    mod_Orizon.galenaRarity = infiprops.readInt("Galena Rarity");
-	    mod_Orizon.galenaHeight = infiprops.readInt("Galena Height");
-	    mod_Orizon.ivymetalRarity = infiprops.readInt("Ivymetal Rarity");
-	    mod_Orizon.ivymetalHeight = infiprops.readInt("Ivymetal Height");
-	    mod_Orizon.aggregateRarity = infiprops.readInt("Aggregate Rarity");
-	    mod_Orizon.aggregateHeight = infiprops.readInt("Aggregate Height");
-	    
-	    mod_Orizon.coalRarity = infiprops.readInt("Coal Rarity");
-	    mod_Orizon.coalHeight = infiprops.readInt("Coal Height"); 
-	    mod_Orizon.ironRarity = infiprops.readInt("Iron Rarity");
-	    mod_Orizon.ironHeight = infiprops.readInt("Iron Height"); 
-	    mod_Orizon.goldRarity = infiprops.readInt("Gold Rarity");
-	    mod_Orizon.goldHeight = infiprops.readInt("Gold Height"); 
-	    mod_Orizon.diamondRarity = infiprops.readInt("Diamond Rarity");
-	    mod_Orizon.diamondHeight = infiprops.readInt("Diamond Height"); 
-	    mod_Orizon.lapisRarity = infiprops.readInt("Lapis Rarity");
-	    mod_Orizon.lapisHeight = infiprops.readInt("Lapis Height"); 
-	    mod_Orizon.redstoneRarity = infiprops.readInt("Redstone Rarity");
-	    mod_Orizon.redstoneHeight = infiprops.readInt("Redstone Height");
-	    
-	    mod_Orizon.bloodbiteRarity = infiprops.readInt("Bloodbite Rarity");
-	    mod_Orizon.bloodbiteHeight = infiprops.readInt("Bloodbite Height");
-	    mod_Orizon.grudgestoneRarity = infiprops.readInt("Grudgestone Rarity");
-	    mod_Orizon.grudgestoneHeight = infiprops.readInt("Grudgestone Height");
-	    mod_Orizon.wistfulRarity = infiprops.readInt("Wistful Ore Rarity");
-	    mod_Orizon.wistfulHeight = infiprops.readInt("Wistful Ore Height");
-	    mod_Orizon.flamelashRarity = infiprops.readInt("Flamelash Rarity");
-	    mod_Orizon.flamelashHeight = infiprops.readInt("Flamelash Height");
-	    mod_Orizon.tearsRarity = infiprops.readInt("Hardened Teardrop Rarity");
-	    mod_Orizon.tearsHeight = infiprops.readInt("Hardened Teardrop Height");
-	    mod_Orizon.netherGoldRarity = infiprops.readInt("Nether Gold Rarity");
-	    mod_Orizon.netherGoldHeight = infiprops.readInt("Nether Gold Height");
-	    
-	    mod_Orizon.rubyRarity = infiprops.readInt("Ruby Rarity");
-	    mod_Orizon.rubyHeight = infiprops.readInt("Ruby Height");
-	    mod_Orizon.emeraldRarity = infiprops.readInt("Emerald Rarity");
-	    mod_Orizon.emeraldHeight = infiprops.readInt("Emerald Height");
-	    mod_Orizon.sapphireRarity = infiprops.readInt("Sapphire Rarity");
-	    mod_Orizon.sapphireHeight = infiprops.readInt("Sapphire Height");
-	    mod_Orizon.topazRarity = infiprops.readInt("Topaz Rarity");
-	    mod_Orizon.topazHeight = infiprops.readInt("Topaz Height");
-	    mod_Orizon.amethystRarity = infiprops.readInt("Amethyst Rarity");
-	    mod_Orizon.amethystHeight = infiprops.readInt("Amethyst Height");
-	    mod_Orizon.quartzRarity = infiprops.readInt("Quartz Rarity");
-	    mod_Orizon.quartzHeight = infiprops.readInt("Quartz Height");
-	    mod_Orizon.roseQuartzRarity = infiprops.readInt("Rose Quartz Rarity");
-	    mod_Orizon.roseQuartzHeight = infiprops.readInt("Rose Quartz Height");
-	    mod_Orizon.rockCrystalRarity = infiprops.readInt("Rock Crystal Rarity");
-	    mod_Orizon.rockCrystalHeight = infiprops.readInt("Rock Crystal Height");
-	    
-	    mod_Orizon.marbleRarity = infiprops.readInt("Marble Rarity");
-	    mod_Orizon.marbleHeight = infiprops.readInt("Marble Height");
-	    mod_Orizon.siltRarity = infiprops.readInt("Silt Rarity");
-	    mod_Orizon.siltHeight = infiprops.readInt("Silt Height");
-	    mod_Orizon.siltstoneRarity = infiprops.readInt("Siltstone Rarity");
-	    mod_Orizon.siltstoneHeight = infiprops.readInt("Siltstone Height");
-	    
-	    mod_Orizon.slimePoolRarity = infiprops.readInt("Slime Pool Rarity");
-	    mod_Orizon.slimePoolHeight = infiprops.readInt("Slime Pool Height");
-	    /*mod_Orizon.acidPoolRarity = infiprops.readInt("Acid Pool Rarity");
-	    mod_Orizon.acidPoolHeight = infiprops.readInt("Acid Pool Height");*/
-		
-		return infiprops;
-	}
+        File file = new File("./config/InfiCraft");
+        file.mkdir();
+        File newFile = new File("./config/InfiCraft/Orizon.txt");
 
-	public static InfiProps InitSpawn(InfiProps infiprops)
-	{	
-		mod_Orizon.flatBedrock = infiprops.accessBoolean("Make Bedrock Flat", true);
-		infiprops.accessBoolean("Generate Stratified Stone", true);
-		infiprops.accessBoolean("Generate Colored Stone", true);
-		infiprops.accessBoolean("Generate Calcite and Calcite Ores", true);
-		infiprops.accessBoolean("Generate Marble", true);
-		infiprops.accessBoolean("Generate Nether Ores", true);
-		infiprops.accessBoolean("Generate Silt", true);
-		infiprops.accessBoolean("Metallurgy Style Spawn", true);
-		infiprops.accessBoolean("Replace Vanilla Ores", true);
-		infiprops.accessBoolean("Generate Gemstones", true);
-		infiprops.accessBoolean("Generate Ruby, Emerald, and Sapphire Gems", true);
-		infiprops.accessBoolean("Generate Slime Pools", true);
-		infiprops.accessBoolean("Generate Acid Pools", true);
+        /* Some basic debugging will go a long way */
+        try
+        {
+            newFile.createNewFile();
+            System.out.println("Successfully created/read configuration file");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Could not create configuration file for mod_Orizon. Reason:");
+            System.out.println(e);
+        }
+
+        /* [Forge] Configuration class, used as config method */
+        Configuration config = new Configuration(newFile);
+
+        /* Load the configuration file */
+        config.load();
+
+        /* Define the mod's IDs. 
+         * Avoid values below 4096 for items and in the 250-450 range for blocks
+         */
+        
+        mod_Orizon.mineralOreID = config.getOrCreateBlockIdProperty("Mineral Ore", 131).getInt(131);
+        mod_Orizon.mineralOreHighID = config.getOrCreateBlockIdProperty("Mineral Ore High", 132).getInt(132);
+        mod_Orizon.mineralOreLow1ID = config.getOrCreateBlockIdProperty("Mineral Ore Medium", 133).getInt(133);
+        mod_Orizon.mineralOreLow2ID = config.getOrCreateBlockIdProperty("Mineral Ore Low", 134).getInt(134);
+        mod_Orizon.mineralOreLow3ID = config.getOrCreateBlockIdProperty("Mineral Ore Dark", 135).getInt(135);
+        
+        mod_Orizon.mineralOreAltID = config.getOrCreateBlockIdProperty("Mineral Ore Alt", 136).getInt(136);
+        mod_Orizon.mineralOreAltHighID = config.getOrCreateBlockIdProperty("Mineral Ore Alt High", 137).getInt(137);
+        mod_Orizon.mineralOreAltLow1ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Medium", 138).getInt(138);
+        mod_Orizon.mineralOreAltLow2ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Low", 139).getInt(139);
+        mod_Orizon.mineralOreAltLow3ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Dark", 140).getInt(140);
+        
+        mod_Orizon.gemOreID = config.getOrCreateBlockIdProperty("Gem Ore", 141).getInt(141);
+        mod_Orizon.gemOreHighID = config.getOrCreateBlockIdProperty("Gem Ore High", 142).getInt(142);
+        mod_Orizon.gemOreLow1ID = config.getOrCreateBlockIdProperty("Gem Ore Medium", 143).getInt(143);
+        mod_Orizon.gemOreLow2ID = config.getOrCreateBlockIdProperty("Gem Ore Low", 144).getInt(144);
+        mod_Orizon.gemOreLow3ID = config.getOrCreateBlockIdProperty("Gem Ore Dark", 145).getInt(145);
+        
+        mod_Orizon.cStoneID = config.getOrCreateBlockIdProperty("Colored Stone", 146).getInt(146);
+        mod_Orizon.cCobbleID = config.getOrCreateBlockIdProperty("Colored Cobblestone", 147).getInt(147);
+        mod_Orizon.cBrickID = config.getOrCreateBlockIdProperty("Colored Stone Brick", 148).getInt(148);
+        mod_Orizon.cMossyID = config.getOrCreateBlockIdProperty("Colored Mossy Brick", 149).getInt(149);
+        mod_Orizon.cCrackedID = config.getOrCreateBlockIdProperty("Colored Cracked Brick", 150).getInt(150);
+        mod_Orizon.cTileID = config.getOrCreateBlockIdProperty("Colored Tiled Brick", 151).getInt(151);
+        mod_Orizon.cFancyID = config.getOrCreateBlockIdProperty("Colored Fancy Brick", 152).getInt(152);
+        mod_Orizon.cSquareID = config.getOrCreateBlockIdProperty("Colored Square Brick", 153).getInt(153);
+        
+        mod_Orizon.replaceOreID = config.getOrCreateBlockIdProperty("Replacement Ore", 154).getInt(154);
+        mod_Orizon.replaceMetalID = config.getOrCreateBlockIdProperty("Replacement Metal Ore", 155).getInt(155);
+        mod_Orizon.calciteOreID = config.getOrCreateBlockIdProperty("Calcite Ore", 156).getInt(156);
+        mod_Orizon.netherOreID = config.getOrCreateBlockIdProperty("Nether Ore", 157).getInt(157);
+        mod_Orizon.marbleID = config.getOrCreateBlockIdProperty("Marble", 158).getInt(158);
+        mod_Orizon.slimePoolID = config.getOrCreateBlockIdProperty("Slime Pool IDs", 159).getInt(159);        
+        mod_Orizon.slimeGelID = config.getOrCreateBlockIdProperty("Slime Gel", 161).getInt(161);
+        
+        mod_Orizon.ingotsID = config.getOrCreateIntProperty("Ingots", "item", 10998).getInt(10998);
+        mod_Orizon.netherIngotsID = config.getOrCreateIntProperty("Nether Ingots", "item", 10999).getInt(10999);
+        mod_Orizon.gemsID = config.getOrCreateIntProperty("Gems", "item", 11000).getInt(11000);
+        
+        mod_Orizon.copperSwordID = config.getOrCreateIntProperty("Copper Sword", "item", 11001).getInt(11001);
+	    mod_Orizon.copperPickaxeID = config.getOrCreateIntProperty("Copper Pickaxe", "item", 11002).getInt(11002);
+	    mod_Orizon.copperAxeID = config.getOrCreateIntProperty("Copper Axe", "item", 11003).getInt(11003);
+	    mod_Orizon.copperShovelID = config.getOrCreateIntProperty("Copper Shovel", "item", 11004).getInt(11004);
+	    mod_Orizon.copperHoeID = config.getOrCreateIntProperty("Copper Hoe", "item", 11005).getInt(11005);
+	    mod_Orizon.bronzeSwordID = config.getOrCreateIntProperty("Bronze Sword", "item", 11006).getInt(11006);
+	    mod_Orizon.bronzePickaxeID = config.getOrCreateIntProperty("Bronze Pickaxe", "item", 11007).getInt(11007);
+	    mod_Orizon.bronzeAxeID = config.getOrCreateIntProperty("Bronze Axe", "item", 11008).getInt(11008);
+	    mod_Orizon.bronzeShovelID = config.getOrCreateIntProperty("Bronze Shovel", "item", 11009).getInt(11009);
+	    mod_Orizon.bronzeHoeID = config.getOrCreateIntProperty("Bronze Hoe", "item", 11010).getInt(11010);
+	    mod_Orizon.refinedIronSwordID = config.getOrCreateIntProperty("Worked Iron Sword", "item", 11011).getInt(11011);
+	    mod_Orizon.refinedIronPickaxeID = config.getOrCreateIntProperty("Worked Iron Pickaxe", "item", 11012).getInt(11012);
+	    mod_Orizon.refinedIronAxeID = config.getOrCreateIntProperty("Worked Iron Axe", "item", 11013).getInt(11013);
+	    mod_Orizon.refinedIronShovelID = config.getOrCreateIntProperty("Worked Iron Shovel", "item", 11014).getInt(11014);
+	    mod_Orizon.refinedIronHoeID = config.getOrCreateIntProperty("Worked Iron Hoe", "item", 11015).getInt(11015);
+	    mod_Orizon.steelSwordID = config.getOrCreateIntProperty("Steel Sword", "item", 11016).getInt(11016);
+	    mod_Orizon.steelPickaxeID = config.getOrCreateIntProperty("Steel Pickaxe", "item", 11017).getInt(11017);
+	    mod_Orizon.steelAxeID = config.getOrCreateIntProperty("Steel Axe", "item", 11018).getInt(11018);
+	    mod_Orizon.steelShovelID = config.getOrCreateIntProperty("Steel Shovel", "item", 11019).getInt(11019);
+	    mod_Orizon.steelHoeID = config.getOrCreateIntProperty("Steel Hoe", "item", 11020).getInt(11020);
+	    mod_Orizon.cobaltSwordID = config.getOrCreateIntProperty("Cobalt Sword", "item", 11021).getInt(11021);
+	    mod_Orizon.cobaltPickaxeID = config.getOrCreateIntProperty("Cobalt Pickaxe", "item", 11022).getInt(11022);
+	    mod_Orizon.cobaltAxeID = config.getOrCreateIntProperty("Cobalt Axe", "item", 11023).getInt(11023);
+	    mod_Orizon.cobaltShovelID = config.getOrCreateIntProperty("Cobalt Shovel", "item", 11024).getInt(11024);
+	    mod_Orizon.cobaltHoeID = config.getOrCreateIntProperty("Cobalt Hoe", "item", 11025).getInt(11025);
+	    mod_Orizon.arditeSwordID = config.getOrCreateIntProperty("Ardite Sword", "item", 11026).getInt(11026);
+	    mod_Orizon.arditePickaxeID = config.getOrCreateIntProperty("Ardite Pickaxe", "item", 11027).getInt(11027);
+	    mod_Orizon.arditeAxeID = config.getOrCreateIntProperty("Ardite Axe", "item", 11028).getInt(11028);
+	    mod_Orizon.arditeShovelID = config.getOrCreateIntProperty("Ardite Shovel", "item", 11029).getInt(11029);
+	    mod_Orizon.arditeHoeID = config.getOrCreateIntProperty("Ardite Hoe", "item", 11030).getInt(11030);
+	    mod_Orizon.manyullynSwordID = config.getOrCreateIntProperty("Manyullyn Sword", "item", 11031).getInt(11031);
+	    mod_Orizon.manyullynPickaxeID = config.getOrCreateIntProperty("Manyullyn Pickaxe", "item", 11032).getInt(11032);
+	    mod_Orizon.manyullynAxeID = config.getOrCreateIntProperty("Manyullyn Axe", "item", 11033).getInt(11033);
+	    mod_Orizon.manyullynShovelID = config.getOrCreateIntProperty("Manyullyn Shovel", "item", 11034).getInt(11034);
+	    mod_Orizon.manyullynHoeID = config.getOrCreateIntProperty("Manyullyn Hoe", "item", 11035).getInt(11035);
+        
+	    mod_Orizon.genStratifiedStone = config.getOrCreateBooleanProperty("Generate Stratified Stone", "general", true).getBoolean(true);
+		mod_Orizon.genColoredStone = config.getOrCreateBooleanProperty("Generate Colored Stone", "general", true).getBoolean(true);
+		mod_Orizon.genCalcite = config.getOrCreateBooleanProperty("Generate Calcite and Calcite Ores", "general", true).getBoolean(true);
+		mod_Orizon.genMarble = config.getOrCreateBooleanProperty("Generate Marble", "general", true).getBoolean(true);
+		mod_Orizon.genNetherOre = config.getOrCreateBooleanProperty("Generate Nether Ores", "general", true).getBoolean(true);
+		mod_Orizon.genSilt = config.getOrCreateBooleanProperty("Generate Silt", "general", true).getBoolean(true);
+		mod_Orizon.redoVanillaOres = config.getOrCreateBooleanProperty("Metallurgy Style Spawn", "general", true).getBoolean(true);
+		mod_Orizon.replaceOres = config.getOrCreateBooleanProperty("Replace Vanilla Ores", "general", true).getBoolean(true);
+		mod_Orizon.genGems = config.getOrCreateBooleanProperty("Generate Gemstones", "general", true).getBoolean(true);
+		mod_Orizon.genNonUniqueGems = config.getOrCreateBooleanProperty("Generate Ruby Emerald and Sapphire Gems", "general", true).getBoolean(true);
+		mod_Orizon.genSlimePools = config.getOrCreateBooleanProperty("Generate Slime Pools", "general", true).getBoolean(true);
+		mod_Orizon.genAcidPools = config.getOrCreateBooleanProperty("Generate Acid Pools", "general", true).getBoolean(true);
 		
-		mod_Orizon.genCopper = infiprops.accessBoolean("Generate Copper Ore", true);
-		mod_Orizon.genTurquoise = infiprops.accessBoolean("Generate Turquoise Ore", true);
-		mod_Orizon.genChalcocite = infiprops.accessBoolean("Generate Chalcocite Ore", true);
-		mod_Orizon.genCassiterite = infiprops.accessBoolean("Generate Cassiterite Ore", true);
-		mod_Orizon.genTeallite = infiprops.accessBoolean("Generate Teallite Ore", true);
-		mod_Orizon.genZinc = infiprops.accessBoolean("Generate Zinc Bloom Ore", true);
-		mod_Orizon.genSphalerite = infiprops.accessBoolean("Generate Sphalerite Ore", true);
-		mod_Orizon.genCerussite = infiprops.accessBoolean("Generate Cerussite Ore", true);
-		mod_Orizon.genCobalt = infiprops.accessBoolean("Generate Cobalt Ore", true);
-		mod_Orizon.genArdite = infiprops.accessBoolean("Generate Ardite Ore", true);
-		mod_Orizon.genMyuvil = infiprops.accessBoolean("Generate Myuvil Ore", true);
-		//mod_Orizon.genIvymetal = infiprops.accessBoolean("Generate Ivymetal Ore", true);
-		mod_Orizon.genAggregate = infiprops.accessBoolean("Generate Aggregate Ore", true);
-		
-		infiprops.accessInt("Copper Rarity", 6);
-	    infiprops.accessInt("Copper Height", 64);
-	    infiprops.accessInt("Turquoise Rarity", 7);
-	    infiprops.accessInt("Turquoise Height", 64);
-	    infiprops.accessInt("Chalcocite Rarity", 3);
-	    infiprops.accessInt("Chalcocite Height", 64);
-	    infiprops.accessInt("Cassiterite Rarity", 6);
-	    infiprops.accessInt("Cassiterite Height", 64);
-	    infiprops.accessInt("Teallite Rarity", 6);
-	    infiprops.accessInt("Teallite Height", 64);
-	    infiprops.accessInt("Zinc Bloom Rarity", 6);
-	    infiprops.accessInt("Zinc Bloom Height", 64);
-	    infiprops.accessInt("Sphalerite Rarity", 5);
-	    infiprops.accessInt("Sphalerite Height", 64);
-	    infiprops.accessInt("Cerussite Rarity", 2);
-	    infiprops.accessInt("Cerussite Height", 64);
-	    infiprops.accessInt("Cobalt Rarity", 3);
-	    infiprops.accessInt("Cobalt Height", 64);
-	    infiprops.accessInt("Ardite Rarity", 3);
-	    infiprops.accessInt("Ardite Height", 64);
-	    infiprops.accessInt("Myuvil Rarity", 2);
-	    infiprops.accessInt("Myuvil Height", 64);
-	    infiprops.accessInt("Galena Rarity", 2);
-	    infiprops.accessInt("Galena Height", 64);
-	    infiprops.accessInt("Ivymetal Rarity", 1);
-	    infiprops.accessInt("Ivymetal Height", 64);
-	    infiprops.accessInt("Aggregate Rarity", 2);
-	    infiprops.accessInt("Aggregate Height", 64);
+		mod_Orizon.copperRarity = config.getOrCreateIntProperty("Copper Rarity", "general", 6).getInt(6);
+	    mod_Orizon.copperHeight = config.getOrCreateIntProperty("Copper Height", "general", 64).getInt(64);
+	    mod_Orizon.turquoiseRarity = config.getOrCreateIntProperty("Turquoise Rarity", "general", 7).getInt(7);
+	    mod_Orizon.turquoiseHeight = config.getOrCreateIntProperty("Turquoise Height", "general", 64).getInt(64);
+	    mod_Orizon.chalcociteRarity = config.getOrCreateIntProperty("Chalcocite Rarity", "general", 3).getInt(3);
+	    mod_Orizon.chalcociteHeight = config.getOrCreateIntProperty("Chalcocite Height", "general", 64).getInt(64);
+	    mod_Orizon.cassiteriteRarity = config.getOrCreateIntProperty("Cassiterite Rarity", "general", 6).getInt(6);
+	    mod_Orizon.cassiteriteHeight = config.getOrCreateIntProperty("Cassiterite Height", "general", 64).getInt(6);
+	    mod_Orizon.tealliteRarity = config.getOrCreateIntProperty("Teallite Rarity", "general", 7).getInt(7);
+	    mod_Orizon.tealliteHeight = config.getOrCreateIntProperty("Teallite Height", "general", 64).getInt(64);
+	    mod_Orizon.zincBloomRarity = config.getOrCreateIntProperty("Zinc Bloom Rarity", "general", 6).getInt(6);
+	    mod_Orizon.zincBloomHeight = config.getOrCreateIntProperty("Zinc Bloom Height", "general", 64).getInt(64);
+	    mod_Orizon.sphaleriteRarity = config.getOrCreateIntProperty("Sphalerite Rarity", "general", 5).getInt(5);
+	    mod_Orizon.sphaleriteHeight = config.getOrCreateIntProperty("Sphalerite Height", "general", 64).getInt(64);
+	    mod_Orizon.cerussiteRarity = config.getOrCreateIntProperty("Cerussite Rarity", "general", 4).getInt(4);
+	    mod_Orizon.cerussiteHeight = config.getOrCreateIntProperty("Cerussite Height", "general", 64).getInt(64);
+	    mod_Orizon.cobaltRarity = config.getOrCreateIntProperty("Cobalt Rarity", "general", 3).getInt(3);
+	    mod_Orizon.cobaltHeight = config.getOrCreateIntProperty("Cobalt Height", "general", 64).getInt(64);
+	    mod_Orizon.arditeRarity = config.getOrCreateIntProperty("Ardite Rarity", "general", 3).getInt(3);
+	    mod_Orizon.arditeHeight = config.getOrCreateIntProperty("Ardite Height", "general", 64).getInt(64);
+	    mod_Orizon.myuvilRarity = config.getOrCreateIntProperty("Myuvil Rarity", "general", 2).getInt(2);
+	    mod_Orizon.myuvilHeight = config.getOrCreateIntProperty("Myuvil Height", "general", 64).getInt(64);
+	    mod_Orizon.galenaRarity = config.getOrCreateIntProperty("Galena Rarity", "general", 2).getInt(2);
+	    mod_Orizon.galenaHeight = config.getOrCreateIntProperty("Galena Height", "general", 64).getInt(64);
+	    mod_Orizon.ivymetalRarity = config.getOrCreateIntProperty("Ivymetal Rarity", "general", 1).getInt(1);
+	    mod_Orizon.ivymetalHeight = config.getOrCreateIntProperty("Ivymetal Height", "general", 64).getInt(64);
+	    mod_Orizon.aggregateRarity = config.getOrCreateIntProperty("Aggregate Rarity", "general", 2).getInt(2);
+	    mod_Orizon.aggregateHeight = config.getOrCreateIntProperty("Aggregate Height", "general", 64).getInt(64);
 	    
-	    infiprops.accessInt("Coal Rarity", 12);
-	    infiprops.accessInt("Coal Height", 128);
-	    infiprops.accessInt("Iron Rarity", 12);
-	    infiprops.accessInt("Iron Height", 64);
-	    infiprops.accessInt("Gold Rarity", 3);
-	    infiprops.accessInt("Gold Height", 64);
-	    infiprops.accessInt("Diamond Rarity", 1);
-	    infiprops.accessInt("Diamond Height", 64);
-	    infiprops.accessInt("Lapis Rarity", 2);
-	    infiprops.accessInt("Lapis Height", 64);
-	    infiprops.accessInt("Redstone Rarity", 6);
-	    infiprops.accessInt("Redstone Height", 64);
+	    mod_Orizon.coalRarity = config.getOrCreateIntProperty("Coal Rarity", "general", 12).getInt(12);
+	    mod_Orizon.coalHeight = config.getOrCreateIntProperty("Coal Height", "general", 64).getInt(64); 
+	    mod_Orizon.ironRarity = config.getOrCreateIntProperty("Iron Rarity", "general", 12).getInt(12);
+	    mod_Orizon.ironHeight = config.getOrCreateIntProperty("Iron Height", "general", 64).getInt(64); 
+	    mod_Orizon.goldRarity = config.getOrCreateIntProperty("Gold Rarity", "general", 3).getInt(3);
+	    mod_Orizon.goldHeight = config.getOrCreateIntProperty("Gold Height", "general", 64).getInt(64); 
+	    mod_Orizon.diamondRarity = config.getOrCreateIntProperty("Diamond Rarity", "general", 1).getInt(1);
+	    mod_Orizon.diamondHeight = config.getOrCreateIntProperty("Diamond Height", "general", 64).getInt(64); 
+	    mod_Orizon.lapisRarity = config.getOrCreateIntProperty("Lapis Rarity", "general", 2).getInt(2);
+	    mod_Orizon.lapisHeight = config.getOrCreateIntProperty("Lapis Height", "general", 64).getInt(64); 
+	    mod_Orizon.redstoneRarity = config.getOrCreateIntProperty("Redstone Rarity", "general", 4).getInt(4);
+	    mod_Orizon.redstoneHeight = config.getOrCreateIntProperty("Redstone Height", "general", 64).getInt(64);
 	    
-	    infiprops.accessInt("Ruby Rarity", 2);
-	    infiprops.accessInt("Ruby Height", 64);
-	    infiprops.accessInt("Sapphire Rarity", 2);
-	    infiprops.accessInt("Sapphire Height", 64);
-	    infiprops.accessInt("Emerald Rarity", 2);
-	    infiprops.accessInt("Emerald Height", 64);
-	    infiprops.accessInt("Topaz Rarity", 2);
-	    infiprops.accessInt("Topaz Height", 64);
-	    infiprops.accessInt("Amethyst Rarity", 2);
-	    infiprops.accessInt("Amethyst Height", 64);
-	    infiprops.accessInt("Quartz Rarity", 2);
-	    infiprops.accessInt("Quartz Height", 64);
-	    infiprops.accessInt("Rose Quartz Rarity", 2);
-	    infiprops.accessInt("Rose Quartz Height", 64);
-	    infiprops.accessInt("Rock Crystal Rarity", 2);
-	    infiprops.accessInt("Rock Crystal Height", 64);
+	    mod_Orizon.bloodbiteRarity = config.getOrCreateIntProperty("Bloodbite Rarity", "general", 13).getInt(13);
+	    mod_Orizon.bloodbiteHeight = config.getOrCreateIntProperty("Bloodbite Height", "general", 64).getInt(64);
+	    mod_Orizon.grudgestoneRarity = config.getOrCreateIntProperty("Grudgestone Rarity", "general", 12).getInt(12);
+	    mod_Orizon.grudgestoneHeight = config.getOrCreateIntProperty("Grudgestone Height", "general", 64).getInt(64);
+	    mod_Orizon.wistfulRarity = config.getOrCreateIntProperty("Wistful Ore Rarity", "general", 10).getInt(10);
+	    mod_Orizon.wistfulHeight = config.getOrCreateIntProperty("Wistful Ore Height", "general", 64).getInt(64);
+	    mod_Orizon.flamelashRarity = config.getOrCreateIntProperty("Flamelash Rarity", "general", 7).getInt(7);
+	    mod_Orizon.flamelashHeight = config.getOrCreateIntProperty("Flamelash Height", "general", 64).getInt(64);
+	    mod_Orizon.tearsRarity = config.getOrCreateIntProperty("Hardened Teardrop Rarity", "general", 8).getInt(8);
+	    mod_Orizon.tearsHeight = config.getOrCreateIntProperty("Hardened Teardrop Height", "general", 64).getInt(64);
+	    mod_Orizon.netherGoldRarity = config.getOrCreateIntProperty("Nether Gold Rarity", "general", 10).getInt(10);
+	    mod_Orizon.netherGoldHeight = config.getOrCreateIntProperty("Nether Gold Height", "general", 64).getInt(64);
 	    
-	    infiprops.accessInt("Bloodbite Rarity", 13);
-	    infiprops.accessInt("Bloodbite Height", 128);
-	    infiprops.accessInt("Grudgestone Rarity", 12);
-	    infiprops.accessInt("Grudgestone Height", 128);
-	    infiprops.accessInt("Wistful Ore Rarity", 10);
-	    infiprops.accessInt("Wistful Ore Height", 128);
-	    infiprops.accessInt("Flamelash Rarity", 7);
-	    infiprops.accessInt("Flamelash Height", 128);
-	    infiprops.accessInt("Hardened Teardrop Rarity", 8);
-	    infiprops.accessInt("Hardened Teardrop Height", 128);
-	    infiprops.accessInt("Nether Gold Rarity", 10);
-	    infiprops.accessInt("Nether Gold Height", 128);
+	    mod_Orizon.rubyRarity = config.getOrCreateIntProperty("Ruby Rarity", "general", 2).getInt(2);
+	    mod_Orizon.rubyHeight = config.getOrCreateIntProperty("Ruby Height", "general", 64).getInt(64);
+	    mod_Orizon.emeraldRarity = config.getOrCreateIntProperty("Emerald Rarity", "general", 2).getInt(2);
+	    mod_Orizon.emeraldHeight = config.getOrCreateIntProperty("Emerald Height", "general", 64).getInt(64);
+	    mod_Orizon.sapphireRarity = config.getOrCreateIntProperty("Sapphire Rarity", "general", 2).getInt(2);
+	    mod_Orizon.sapphireHeight = config.getOrCreateIntProperty("Sapphire Height", "general", 64).getInt(64);
+	    mod_Orizon.topazRarity = config.getOrCreateIntProperty("Topaz Rarity", "general", 2).getInt(2);
+	    mod_Orizon.topazHeight = config.getOrCreateIntProperty("Topaz Height", "general", 64).getInt(64);
+	    mod_Orizon.amethystRarity = config.getOrCreateIntProperty("Amethyst Rarity", "general", 2).getInt(2);
+	    mod_Orizon.amethystHeight = config.getOrCreateIntProperty("Amethyst Height", "general", 64).getInt(64);
+	    mod_Orizon.quartzRarity = config.getOrCreateIntProperty("Quartz Rarity", "general", 2).getInt(2);
+	    mod_Orizon.quartzHeight = config.getOrCreateIntProperty("Quartz Height", "general", 64).getInt(64);
+	    mod_Orizon.roseQuartzRarity = config.getOrCreateIntProperty("Rose Quartz Rarity", "general", 2).getInt(2);
+	    mod_Orizon.roseQuartzHeight = config.getOrCreateIntProperty("Rose Quartz Height", "general", 64).getInt(64);
+	    mod_Orizon.rockCrystalRarity = config.getOrCreateIntProperty("Rock Crystal Rarity", "general", 2).getInt(2);
+	    mod_Orizon.rockCrystalHeight = config.getOrCreateIntProperty("Rock Crystal Height", "general", 64).getInt(64);
 	    
-	    infiprops.accessInt("Marble Rarity", 22);
-	    infiprops.accessInt("Marble Height", 64);
-	    infiprops.accessInt("Silt Rarity", 22);
-	    infiprops.accessInt("Silt Height", 64);
-	    infiprops.accessInt("Siltstone Rarity", 22);
-	    infiprops.accessInt("Siltstone Height", 64);
+	    mod_Orizon.marbleRarity = config.getOrCreateIntProperty("Marble Rarity", "general", 22).getInt(22);
+	    mod_Orizon.marbleHeight = config.getOrCreateIntProperty("Marble Height", "general", 64).getInt(64);
+	    mod_Orizon.siltRarity = config.getOrCreateIntProperty("Silt Rarity", "general", 22).getInt(22);
+	    mod_Orizon.siltHeight = config.getOrCreateIntProperty("Silt Height", "general", 64).getInt(64);
+	    mod_Orizon.siltstoneRarity = config.getOrCreateIntProperty("Siltstone Rarity", "general", 22).getInt(22);
+	    mod_Orizon.siltstoneHeight = config.getOrCreateIntProperty("Siltstone Height", "general", 64).getInt(64);
 	    
-	    infiprops.accessInt("Slime Pool Rarity", 30);
-	    infiprops.accessInt("Slime Pool Height", 40);
-	    infiprops.accessInt("Acid Pool Rarity", 30);
-	    infiprops.accessInt("Acid Pool Height", 128);
-	    
-	    mod_Orizon.coloredStoneChance = infiprops.accessInt("Colored Stone Chance", 7);
-	    mod_Orizon.coloredStoneHeight = infiprops.accessInt("Colored Stone Height", 80);
-	    
-		return infiprops;
-	}
-	
-	public static boolean resolveIDs(InfiProps props)
-	{
-		mod_Orizon.mineralOreID = changeID(props, mod_Orizon.mineralOreID, 
-				"Mineral Ore ID");
-		mod_Orizon.mineralOreHighID = changeID(props, mod_Orizon.mineralOreHighID, 
-				"Mineral Ore High ID");
-		mod_Orizon.mineralOreLow1ID = changeID(props, mod_Orizon.mineralOreLow1ID, 
-				"Mineral Ore Medium ID");
-		mod_Orizon.mineralOreLow2ID = changeID(props, mod_Orizon.mineralOreLow2ID, 
-				"Mineral Ore Low ID");
-		mod_Orizon.mineralOreLow3ID = changeID(props, mod_Orizon.mineralOreLow3ID, 
-				"Mineral Ore Dark ID");
-		
-		mod_Orizon.mineralOreAltID = changeID(props, mod_Orizon.mineralOreAltID, 
-				"Mineral Ore Alt ID");
-		mod_Orizon.mineralOreAltHighID = changeID(props, mod_Orizon.mineralOreAltHighID, 
-				"Mineral Ore Alt High ID");
-		mod_Orizon.mineralOreAltLow1ID = changeID(props, mod_Orizon.mineralOreAltLow1ID, 
-				"Mineral Ore Alt Medium ID");
-		mod_Orizon.mineralOreAltLow2ID = changeID(props, mod_Orizon.mineralOreAltLow2ID, 
-				"Mineral Ore Alt Low ID");
-		mod_Orizon.mineralOreAltLow3ID = changeID(props, mod_Orizon.mineralOreAltLow3ID, 
-				"Mineral Ore Alt Dark ID");
-		
-		mod_Orizon.gemOreID = changeID(props, mod_Orizon.gemOreID, 
-				"Gem Ore ID");
-		mod_Orizon.gemOreHighID = changeID(props, mod_Orizon.gemOreHighID, 
-				"Gem Ore High ID");
-		mod_Orizon.gemOreLow1ID = changeID(props, mod_Orizon.gemOreLow1ID, 
-				"Gem Ore Medium ID");
-		mod_Orizon.gemOreLow2ID = changeID(props, mod_Orizon.gemOreLow2ID, 
-				"Gem Ore Low ID");
-		mod_Orizon.gemOreLow3ID = changeID(props, mod_Orizon.gemOreLow3ID, 
-				"Gem Ore Dark ID");
-		
-		mod_Orizon.marbleID = changeID(props, mod_Orizon.marbleID, 
-				"Marble ID");
-		mod_Orizon.calciteOreID = changeID(props, mod_Orizon.calciteOreID, 
-				"Calcite Ore ID");
-		mod_Orizon.netherOreID = changeID(props, mod_Orizon.netherOreID, 
-				"Nether Ore ID");
-		mod_Orizon.replaceOreID = changeID(props, mod_Orizon.replaceOreID, 
-				"Replacement Ore ID");
-		mod_Orizon.replaceMetalID = changeID(props, mod_Orizon.replaceMetalID, 
-				"Replacement Metal Ore ID");
-		
-		mod_Orizon.cStoneID = changeID(props, mod_Orizon.cStoneID, 
-				"Colored Stone ID");
-		mod_Orizon.cCobbleID = changeID(props, mod_Orizon.cCobbleID, 
-				"Colored Cobblestone ID");
-		mod_Orizon.cBrickID = changeID(props, mod_Orizon.cBrickID, 
-				"Colored Brick ID");
-		mod_Orizon.cMossyID = changeID(props, mod_Orizon.cMossyID, 
-				"Colored Mossy Brick ID");
-		mod_Orizon.cCrackedID = changeID(props, mod_Orizon.cCrackedID, 
-				"Colored Cracked Brick ID");
-		mod_Orizon.cTileID = changeID(props, mod_Orizon.cTileID, 
-				"Colored Brick Tile ID");
-		mod_Orizon.cFancyID = changeID(props, mod_Orizon.cFancyID, 
-				"Colored Fancy Brick ID");
-		mod_Orizon.cSquareID = changeID(props, mod_Orizon.cSquareID, 
-				"Colored Square Brick ID");
-		
-		props.writeBoolean("Automatically Resolve ID conflicts", false);
-		return true;
-	}
-	
-	private static int idStart = 130;
-	
-	public static int changeID(InfiProps props, int id, String s)
-	{
-		if(Block.blocksList[id] != null) {
-			for(int i = idStart; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					props.writeInt(s, i);
-					idStart = i + 1;
-					return i;
-				}
-			}
-		}
-		return id;
-	}
+	    mod_Orizon.slimePoolRarity = config.getOrCreateIntProperty("Slime Pool Rarity", "general", 30).getInt(30);
+	    mod_Orizon.slimePoolHeight = config.getOrCreateIntProperty("Slime Pool Height", "general", 64).getInt(64);
+        
+        //mod_Orizon.corruptionSpeed = config.getOrCreateIntProperty("Corruption Speed", "general", 5).getInt(5);
+
+        /* Save the configuration file */
+        config.save();
+    }
 }

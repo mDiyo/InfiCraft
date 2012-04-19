@@ -4,6 +4,7 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
 import net.minecraft.src.forge.MinecraftForge;
 
@@ -20,9 +21,41 @@ public class Machetes
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+        if(mod_Infi2x2.infitoolsPresent)
+        {
+        	createTools();
+            addNames();
+        	registerInfiToolsRecipes();
+        }
+        else
+        {
+        	createVanillaTools();
+        	registerVanillaRecipes();
+        }
+    }
+    
+    private static void createVanillaTools()
+    {
+    	woodWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+0, 
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMachete");
+    	woodStoneMachete = new InfiToolMachete(PropsHelperInfiHybrids.stoneMacheteID+0, 
+                InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMachete");
+    	woodIronMachete = new InfiToolMachete(PropsHelperInfiHybrids.ironMacheteID+0, 
+                InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronMachete");
+    	woodDiamondMachete = new InfiToolMachete(PropsHelperInfiHybrids.diamondMacheteID+0, 
+                InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMachete");
+    }
+    
+    private static void registerVanillaRecipes()
+    {
+    	ModLoader.addRecipe(new ItemStack(woodWoodMachete), new Object[] 
+                { recipe, '#', Block.planks, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodStoneMachete), new Object[] 
+                { recipe, '#', Block.cobblestone, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodIronMachete), new Object[] 
+                { recipe, '#', Item.ingotIron, '|', Item.stick, });
+		ModLoader.addRecipe(new ItemStack(woodDiamondMachete), new Object[] 
+                { recipe, '#', Item.diamond, '|', Item.stick, });
     }
     
     private static void createTools()
@@ -30,7 +63,7 @@ public class Machetes
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMachete");
     		sandstoneWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMachete");
     		boneWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+2, 
@@ -43,14 +76,6 @@ public class Machetes
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodMachete");
     		cactusWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodMachete");
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
     	}
 
         if(PropsHelperInfiHybrids.enableStoneTools)
@@ -73,16 +98,6 @@ public class Machetes
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneMachete");
         	flintStoneMachete = new InfiToolMachete(PropsHelperInfiHybrids.stoneMacheteID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableIronTools)
@@ -105,16 +120,6 @@ public class Machetes
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronMachete");
         	bronzeIronMachete = new InfiToolMachete(PropsHelperInfiHybrids.ironMacheteID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableDiamondTools)
@@ -163,29 +168,6 @@ public class Machetes
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondMachete");
             uraniumDiamondMachete = new InfiToolMachete(PropsHelperInfiHybrids.diamondMacheteID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableRedstoneTools)
@@ -230,27 +212,6 @@ public class Machetes
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneMachete");
         	uraniumRedstoneMachete = new InfiToolMachete(PropsHelperInfiHybrids.redstoneMacheteID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableObsidianTools)
@@ -275,17 +236,6 @@ public class Machetes
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianMachete");
         	cactusObsidianMachete = new InfiToolMachete(PropsHelperInfiHybrids.obsidianMacheteID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableSandstoneTools)
@@ -306,15 +256,6 @@ public class Machetes
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneMachete");
         	flintSandstoneMachete = new InfiToolMachete(PropsHelperInfiHybrids.sandstoneMacheteID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableBoneTools)
@@ -337,16 +278,6 @@ public class Machetes
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneMachete");
         	flintBoneMachete = new InfiToolMachete(PropsHelperInfiHybrids.boneMacheteID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enablePaperTools)
@@ -361,12 +292,6 @@ public class Machetes
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperMachete");
         	cactusPaperMachete = new InfiToolMachete(PropsHelperInfiHybrids.paperMacheteID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperMachete");
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableMossyTools)
@@ -395,19 +320,6 @@ public class Machetes
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyMachete");
         	uraniumMossyMachete = new InfiToolMachete(PropsHelperInfiHybrids.mossyMacheteID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableNetherrackTools)
@@ -438,20 +350,6 @@ public class Machetes
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackMachete");
         	bronzeNetherrackMachete = new InfiToolMachete(PropsHelperInfiHybrids.netherrackMacheteID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableGlowstoneTools)
@@ -474,17 +372,6 @@ public class Machetes
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Slime, "slimeGlowstoneMachete");
         	cactusGlowstoneMachete = new InfiToolMachete(PropsHelperInfiHybrids.glowstoneMacheteID+8, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableIceTools)
@@ -501,14 +388,6 @@ public class Machetes
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Slime, "slimeIceMachete");
         	cactusIceMachete = new InfiToolMachete(PropsHelperInfiHybrids.iceMacheteID+5, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceMachete");
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableLavaTools)
@@ -529,15 +408,6 @@ public class Machetes
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaMachete");
             uraniumLavaMachete = new InfiToolMachete(PropsHelperInfiHybrids.lavaMacheteID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaMachete");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableSlimeTools)
@@ -554,13 +424,6 @@ public class Machetes
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Slime, "slimeSlimeMachete");
         	cactusSlimeMachete = new InfiToolMachete(PropsHelperInfiHybrids.slimeMacheteID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeMachete");
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableCactusTools)
@@ -1053,7 +916,7 @@ public class Machetes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodMachete, "Wood Machete");
+    	ModLoader.addName(woodWoodMachete, "Wooden Machete");
     	ModLoader.addName(stoneStoneMachete, "Heavy Machete");
     	ModLoader.addName(ironIronMachete, "Ironic Machete");
     	ModLoader.addName(diamondDiamondMachete, "Diamondium Machete");
@@ -1063,7 +926,7 @@ public class Machetes
     	ModLoader.addName(boneBoneMachete, "Necrotic Machete");
     	ModLoader.addName(paperPaperMachete, "Soft Machete");
     	ModLoader.addName(mossyMossyMachete, "Living Machete");
-    	ModLoader.addName(netherrackNetherrackMachete, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackMachete, "Blood Machete");
     	ModLoader.addName(glowstoneGlowstoneMachete, "Bright Machete");
     	ModLoader.addName(iceIceMachete, "Freezing Machete");
     	ModLoader.addName(lavaLavaMachete, "Burning Machete");

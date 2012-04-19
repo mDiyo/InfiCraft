@@ -13,7 +13,7 @@ public class mod_FloraSoma extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "0.3.6 Height";
+		return "0.3.8 Height";
 	}
 
 	public void load()
@@ -68,7 +68,7 @@ public class mod_FloraSoma extends NetworkMod
 	            EEProxy.setEMC(new ItemStack(cloud, 1, 2), 48);
 	            EEProxy.setEMC(new ItemStack(cloud, 1, 3), 8);
             }
-            EEProxy.setEMC(saguaro.blockID, 8);
+            //EEProxy.setEMC(saguaro.blockID, 8);
             
             if(enableCorruptor) {
 	            int corr = 64;
@@ -203,7 +203,7 @@ public class mod_FloraSoma extends NetworkMod
 			ModLoader.registerBlock(corruptor, net.minecraft.src.flora.CorruptorItem.class);
 			ModLoader.registerBlock(corruptBrick, net.minecraft.src.flora.CorruptBrickItem.class);
 		}
-		ModLoader.registerBlock(saguaro);
+		//ModLoader.registerBlock(saguaro);
 		
 		//ModLoader.registerEntityID(net.minecraft.src.flora.WoodWallEntity.class, "WoodWall", 70);
 		ModLoader.registerEntityID(net.minecraft.src.flora.RedwoodBoat.class, "redwoodBoat", redwoodBoatID);
@@ -433,7 +433,8 @@ public class mod_FloraSoma extends NetworkMod
 		}
 	}
 
-	public void GenerateNether(World world, Random random, int i, int j)
+	@Override
+	public void generateNether(World world, Random random, int i, int j)
 	{
 		int xCor = i + random.nextInt(16) + 8;
 		int yCor = random.nextInt(bloodSpawnRange) + bloodSpawnHeight;
@@ -599,7 +600,7 @@ public class mod_FloraSoma extends NetworkMod
 					"X", 'X', Block.cactus
 				});
 		
-		ModLoader.addName(wheatFlour, "Flour");
+		/*ModLoader.addName(wheatFlour, "Flour");
 		ModLoader.addRecipe(new ItemStack(wheatFlour, 1), new Object[]
 				{
 					"X", 'X', Item.wheat
@@ -623,7 +624,7 @@ public class mod_FloraSoma extends NetworkMod
 		ModLoader.addRecipe(new ItemStack(Item.bucketWater, 1), new Object[]
 				{
 					"www", "wBw", "www", 'w', waterDrop, Character.valueOf('B'), Item.bucketEmpty
-				});
+				});*/
 		
 	}
 	
@@ -762,7 +763,6 @@ public class mod_FloraSoma extends NetworkMod
 			ModLoader.addName(cherryLeaves, "Blossoms");
 			ModLoader.addName(redwoodDoorItem, "Redwood Door");
 		}
-		ModLoader.addName(saguaro, "Saguaro Cactus");
 		
 		ModLoader.addLocalization("barkRedwood.name", "Redwood Bark");
 		ModLoader.addLocalization("heartRedwood.name", "Redwood");
@@ -885,8 +885,8 @@ public class mod_FloraSoma extends NetworkMod
 		
 		if(airBelow == 0)
 			bY = offset;
-		if(cactusAbove == saguaro.blockID)
-			tY = 1.0F;
+		/*if(cactusAbove == saguaro.blockID)
+			tY = 1.0F;*/
 		
 		cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
 		renderblocks.renderStandardBlock(cactus, x, y, z);
@@ -1031,7 +1031,7 @@ public class mod_FloraSoma extends NetworkMod
 	public static Block corruptBrick;
 	public static Block floraSapling;
 	public static Block cherryLeaves;
-	public static Block saguaro;
+	//public static Block saguaro;
 	
 	public static Block redwoodDoor;
 	
@@ -1043,7 +1043,7 @@ public class mod_FloraSoma extends NetworkMod
 	public static int floraCropsID;
 	public static int foodID;
 	public static int ingredientsID;
-	public static int pumpkinPieID;
+	//public static int pumpkinPieID;
 	
 	public static int cloudID;
 	public static int corruptorID;
@@ -1175,22 +1175,7 @@ public class mod_FloraSoma extends NetworkMod
 
 	static
 	{
-		File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
-        me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("FloraSomaIDs.cfg").toString())).getPath());
-		props = PropsHelperFloraSoma.InitIDs(props);
-		PropsHelperFloraSoma.getIDs(props);
-		spawnProps = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("FloraSomaSpawns.cfg").toString())).getPath());
-		spawnProps = PropsHelperFloraSoma.InitSpawnRate(spawnProps);
-		PropsHelperFloraSoma.getSpawnRate(spawnProps);
-		
-		if(resolveConflicts)
-			PropsHelperFloraSoma.resolveIDs(props);
+		PropsHelperFloraSoma.initProps();
 		
 		seedBag = (new SeedBag(seedBagID)).setItemName("seedBag");
 		
@@ -1222,11 +1207,11 @@ public class mod_FloraSoma extends NetworkMod
 		}
 		waterDrop = (new CactusJuice(ingredientsID + 0, 2, false, 16)).setIconCoord(3, 0).setItemName("waterDrop");
 		
-		wheatFlour = (new InfiTexture(ingredientsID + 2, "/floratex/infifood.png")).setIconCoord(1, 0).setItemName("wheatFlour");
-		wheatDough = (new InfiTexture(ingredientsID + 3, "/floratex/infifood.png")).setIconCoord(2, 0).setItemName("wheatDough");
+		wheatFlour = new InfiTexturedItem(ingredientsID + 2, "/floratex/infifood.png", "Wheat Flour").setIconCoord(1, 0);
+		wheatDough = new InfiTexturedItem(ingredientsID + 3, "/floratex/infifood.png", "Wheat Dough").setIconCoord(2, 0);
 		
-		if(enableSaguaro)
-			saguaro = new SaguaroBlock(saguaroID, 149).setHardness(0.8F).setBlockName("Saguaro");
+		/*if(enableSaguaro)
+			saguaro = new SaguaroBlock(saguaroID, 149).setHardness(0.8F).setBlockName("Saguaro");*/
 	}
 
 	@Override

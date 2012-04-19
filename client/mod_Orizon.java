@@ -12,7 +12,7 @@ public class mod_Orizon extends NetworkMod
 
     public String getVersion()
     {
-        return "v1.0.4";
+        return "v1.0.5";
     }
 
     public mod_Orizon()
@@ -103,7 +103,7 @@ public class mod_Orizon extends NetworkMod
             {
                 "ingotCopper", "ingotTin", "ingotZinc", "ingotCobalt", "ingotArdite", "ingotIvymetal",
                 "ingotBronze", "ingotBrass", "ingotCordite", "ingotRootedCobalt", "ingotManyullyn",
-                "ingotRefinedIron", "ingotSteel"
+                "ingotRefinedIron", "ingotSteel", "ingotLead", "ingotElectrum"
             };
         
         String netherOreNames[] = {
@@ -583,8 +583,8 @@ public class mod_Orizon extends NetworkMod
     public static int coloredStoneHeight;
     
     static EnumToolMaterial materialCopper = EnumHelper.addToolMaterial("ORIZONCOPPER", 1, 180, 5.0F, 1, 7);
-    static EnumToolMaterial materialBronze = EnumHelper.addToolMaterial("ORIZONBRONZE", 1, 350, 5.5F, 1, 8);
-    static EnumToolMaterial materialRefinedIron = EnumHelper.addToolMaterial("ORIZONREFINEDIRON", 2, 350, 6.0F, 2, 14);
+    static EnumToolMaterial materialBronze = EnumHelper.addToolMaterial("ORIZONBRONZE", 2, 350, 5.5F, 1, 8);
+    static EnumToolMaterial materialRefinedIron = EnumHelper.addToolMaterial("ORIZONREFINEDIRON", 2, 400, 6.0F, 2, 14);
     static EnumToolMaterial materialSteel = EnumHelper.addToolMaterial("ORIZONSTEEL", 3, 550, 7.0F, 2, 14);
     static EnumToolMaterial materialCobalt = EnumHelper.addToolMaterial("ORIZONCOBALT", 4, 800, 8.0F, 3, 12);
     static EnumToolMaterial materialArdite = EnumHelper.addToolMaterial("ORIZONARDITE", 4, 800, 8.0F, 3, 12);
@@ -592,22 +592,7 @@ public class mod_Orizon extends NetworkMod
 
     static
     {
-    	File me = new File( (new StringBuilder().append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
-        me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("OrizonIDs.cfg").toString())).getPath());
-        props = PropsHelperOrizon.InitProps(props);
-        PropsHelperOrizon.getProps(props);
-        spawnProps = new InfiProps((new File((new StringBuilder()).append(Minecraft.getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("OrizonWorldGen.cfg").toString())).getPath());
-        spawnProps = PropsHelperOrizon.InitSpawn(props);
-        PropsHelperOrizon.getSpawn(props);
-        
-        if(resolveConflicts)
-            PropsHelperOrizon.resolveIDs(props);
+    	PropsHelperOrizon.initProps();
         
         cStone = new ColoredStone(cStoneID, 0).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone");
         cCobble = new CustomBlockStone(cCobbleID, 16).setHardness(Block.cobblestone.getHardness()).setBlockName("Colored Cobblestone");

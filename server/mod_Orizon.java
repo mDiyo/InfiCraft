@@ -11,15 +11,13 @@ public class mod_Orizon extends NetworkMod
 
     public String getVersion()
     {
-        return "v1.0.4";
+        return "v1.0.5";
     }
 
     public mod_Orizon()
-    {        
-
-        OrizonRecipes.addRecipes();
+    {
+    	OrizonRecipes.addRecipes();
         OrizonRecipes.addNames();
-
         //DimensionManager.registerDimension(7, new WorldProviderOrizon(), true);
         
         /*ModLoader.registerBlock(warpPlank);
@@ -584,19 +582,7 @@ public class mod_Orizon extends NetworkMod
     
     static
     {
-    	File me = new File( (new StringBuilder().append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft").toString() ) );
-        me.mkdir();
-        props = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("OrizonIDs.cfg").toString())).getPath());
-        props = PropsHelperOrizon.InitProps(props);
-        PropsHelperOrizon.getProps(props);
-        spawnProps = new InfiProps((new File((new StringBuilder()).append(getMinecraftDir().getPath())
-        		.append('/').append("config").append('/').append("InfiCraft")
-        		.append('/').append("OrizonWorldGen.cfg").toString())).getPath());
-        spawnProps = PropsHelperOrizon.InitSpawn(props);
-        PropsHelperOrizon.getSpawn(props);
+    	PropsHelperOrizon.initProps();
         
         /*if(resolveConflicts)
             PropsHelperOrizon.resolveIDs(props);*/

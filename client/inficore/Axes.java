@@ -29,8 +29,8 @@ public class Axes
     {
     	if(PropsHelperInfiTools.enableWoodTools)
     	{
-    		woodWoodAxe = new InfiToolAxe(PropsHelperInfiTools.woodAxeID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+    		woodWoodAxe = new InfiToolAxe(15, 
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodAxe");
     		sandstoneWoodAxe = new InfiToolAxe(PropsHelperInfiTools.woodAxeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodAxe");
     		boneWoodAxe = new InfiToolAxe(PropsHelperInfiTools.woodAxeID+2, 
@@ -55,7 +55,7 @@ public class Axes
 
         if(PropsHelperInfiTools.enableStoneTools)
         {
-        	woodStoneAxe = new InfiToolAxe(PropsHelperInfiTools.stoneAxeID+0, 
+        	woodStoneAxe = new InfiToolAxe(19, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneAxe");
         	stoneStoneAxe = new InfiToolAxe(PropsHelperInfiTools.stoneAxeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneAxe");
@@ -87,7 +87,7 @@ public class Axes
         
         if(PropsHelperInfiTools.enableIronTools)
         {
-        	woodIronAxe = new InfiToolAxe(PropsHelperInfiTools.ironAxeID+0, 
+        	woodIronAxe = new InfiToolAxe(2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronAxe");
         	stoneIronAxe = new InfiToolAxe(PropsHelperInfiTools.ironAxeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronAxe");
@@ -119,7 +119,7 @@ public class Axes
         
         if(PropsHelperInfiTools.enableDiamondTools)
         {
-        	woodDiamondAxe = new InfiToolAxe(PropsHelperInfiTools.diamondAxeID+0, 
+        	woodDiamondAxe = new InfiToolAxe(23, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondAxe");
         	stoneDiamondAxe = new InfiToolAxe(PropsHelperInfiTools.diamondAxeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondAxe");
@@ -1053,7 +1053,7 @@ public class Axes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodAxe, "Wood Axe");
+    	ModLoader.addName(woodWoodAxe, "Wooden Axe");
     	ModLoader.addName(stoneStoneAxe, "Heavy Axe");
     	ModLoader.addName(ironIronAxe, "Ironic Axe");
     	ModLoader.addName(diamondDiamondAxe, "Diamondium Axe");
@@ -1063,7 +1063,7 @@ public class Axes
     	ModLoader.addName(boneBoneAxe, "Necrotic Axe");
     	ModLoader.addName(paperPaperAxe, "Soft Axe");
     	ModLoader.addName(mossyMossyAxe, "Living Axe");
-    	ModLoader.addName(netherrackNetherrackAxe, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackAxe, "Blood Axe");
     	ModLoader.addName(glowstoneGlowstoneAxe, "Bright Axe");
     	ModLoader.addName(iceIceAxe, "Freezing Axe");
     	ModLoader.addName(lavaLavaAxe, "Burning Axe");
@@ -1076,7 +1076,7 @@ public class Axes
         ModLoader.addName(workedWorkedIronAxe, "Reworked Iron Axe");
         ModLoader.addName(steelSteelAxe, "Forge-Wrought Axe");
         ModLoader.addName(cobaltCobaltAxe, "Beautiful Axe");
-        ModLoader.addName(arditeArditeAxe, "Rustic StoneDigger");
+        ModLoader.addName(arditeArditeAxe, "Rustic Axe");
         ModLoader.addName(manyullynManyullynAxe, "False-Prophetic Axe");
         ModLoader.addName(uraniumUraniumAxe, "Cancerous Axe");
     }

@@ -29,8 +29,8 @@ public class Shovels
     {
     	if(PropsHelperInfiTools.enableWoodTools)
     	{
-    		woodWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+    		woodWoodShovel = new InfiToolShovel(13, 
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodShovel");
     		sandstoneWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodShovel");
     		boneWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+2, 
@@ -55,7 +55,7 @@ public class Shovels
 
         if(PropsHelperInfiTools.enableStoneTools)
         {
-        	woodStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+0, 
+        	woodStoneShovel = new InfiToolShovel(17, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneShovel");
         	stoneStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneShovel");
@@ -87,7 +87,7 @@ public class Shovels
         
         if(PropsHelperInfiTools.enableIronTools)
         {
-        	woodIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+0, 
+        	woodIronShovel = new InfiToolShovel(0, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronShovel");
         	stoneIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronShovel");
@@ -119,7 +119,7 @@ public class Shovels
         
         if(PropsHelperInfiTools.enableDiamondTools)
         {
-        	woodDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+0, 
+        	woodDiamondShovel = new InfiToolShovel(21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondShovel");
         	stoneDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondShovel");
@@ -1053,7 +1053,7 @@ public class Shovels
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodShovel, "Wood Shovel");
+    	ModLoader.addName(woodWoodShovel, "Wooden Shovel");
     	ModLoader.addName(stoneStoneShovel, "Heavy Shovel");
     	ModLoader.addName(ironIronShovel, "Ironic Shovel");
     	ModLoader.addName(diamondDiamondShovel, "Diamondium Shovel");
@@ -1063,7 +1063,7 @@ public class Shovels
     	ModLoader.addName(boneBoneShovel, "Necrotic Shovel");
     	ModLoader.addName(paperPaperShovel, "Soft Shovel");
     	ModLoader.addName(mossyMossyShovel, "Living Shovel");
-    	ModLoader.addName(netherrackNetherrackShovel, "Blood Pick");
+    	ModLoader.addName(netherrackNetherrackShovel, "Blood Shovel");
     	ModLoader.addName(glowstoneGlowstoneShovel, "Bright Shovel");
     	ModLoader.addName(iceIceShovel, "Freezing Shovel");
     	ModLoader.addName(lavaLavaShovel, "Burning Shovel");
@@ -1076,7 +1076,7 @@ public class Shovels
         ModLoader.addName(workedWorkedIronShovel, "Reworked Iron Shovel");
         ModLoader.addName(steelSteelShovel, "Forge-Wrought Shovel");
         ModLoader.addName(cobaltCobaltShovel, "Beautiful Shovel");
-        ModLoader.addName(arditeArditeShovel, "Rustic StoneDigger");
+        ModLoader.addName(arditeArditeShovel, "Rustic Shovel");
         ModLoader.addName(manyullynManyullynShovel, "False-Prophetic Shovel");
         ModLoader.addName(uraniumUraniumShovel, "Cancerous Shovel");
     }

@@ -1,10 +1,121 @@
 package net.minecraft.src;
 import java.util.*;
+
+import net.minecraft.src.forge.IOreHandler;
+import net.minecraft.src.forge.MinecraftForge;
 import net.minecraft.src.infi2x2.*;
 
 public class mod_Infi2x2 extends BaseMod
 {
 	public static Random rand = new Random();
+	public static boolean infitoolsPresent;
+	
+	@Override
+	public String getVersion() 
+	{
+		return "1.0.1";
+	}
+	
+	@Override
+	public void load() 
+	{
+		PropsHelperInfi2x2.initProps();
+		checkForInfiTools();
+		Handpicks.init();
+		Hatchets.init();
+		Trowels.init();
+		Daggers.init();
+		oreDictionarySupport();
+	}
+	
+	public static void checkForInfiTools()
+    {
+        try
+        {
+        	Class class1 = Class.forName("mod_InfiTools");
+        	infitoolsPresent = true;
+        }
+        catch (Throwable throwable)
+        {
+        	infitoolsPresent = false;
+        }
+    }
+	
+	private void oreDictionarySupport()
+	{
+		if (infitoolsPresent)
+		{
+		    MinecraftForge.registerOreHandler(new IOreHandler()
+		    {
+		        public void registerOre(String ore, ItemStack itemstack)
+		        {
+		            if(PropsHelperInfi2x2.enableCopperTools && ore.equals("ingotCopper"))
+		            {
+		            	Handpicks.addCopperTools(itemstack);
+		            	Hatchets.addCopperTools(itemstack);
+		            	Trowels.addCopperTools(itemstack);
+		            	Daggers.addCopperTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableBronzeTools && ore.equals("ingotBronze"))
+		            {
+			            Handpicks.addBronzeTools(itemstack);
+			            Hatchets.addBronzeTools(itemstack);
+			            Trowels.addBronzeTools(itemstack);
+			            Daggers.addBronzeTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableWorkedIronTools && ore.equals("ingotRefinedIron"))
+		            {
+			            Handpicks.addWorkedIronTools(itemstack);
+			            Hatchets.addWorkedIronTools(itemstack);
+			            Trowels.addWorkedIronTools(itemstack);
+			            Daggers.addWorkedIronTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableSteelTools && ore.equals("ingotSteel"))
+		            {
+			            Handpicks.addSteelTools(itemstack);
+			            Hatchets.addSteelTools(itemstack);
+			            Trowels.addSteelTools(itemstack);
+			            Daggers.addSteelTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableCobaltTools && ore.equals("ingotCobalt"))
+		            {
+			            Handpicks.addCobaltTools(itemstack);
+			            Hatchets.addCobaltTools(itemstack);
+			            Trowels.addCobaltTools(itemstack);
+			            Daggers.addCobaltTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableArditeTools && ore.equals("ingotArdite"))
+		            {
+			            Handpicks.addArditeTools(itemstack);
+			            Hatchets.addArditeTools(itemstack);
+			            Trowels.addArditeTools(itemstack);
+			            Daggers.addArditeTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableManyullynTools && ore.equals("ingotManyullyn"))
+		            {
+		            	Handpicks.addManyullynTools(itemstack);
+		            	Hatchets.addManyullynTools(itemstack);
+		            	Trowels.addManyullynTools(itemstack);
+		            	Daggers.addManyullynTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableUraniumTools && ore.equals("ingotUranium"))
+		            {
+			            Handpicks.addUraniumTools(itemstack);
+			            Hatchets.addUraniumTools(itemstack);
+			            Trowels.addUraniumTools(itemstack);
+			            Daggers.addUraniumTools(itemstack);
+		            }
+		            if(PropsHelperInfi2x2.enableStoneTools && (ore.equals("customCobblestone") || ore.equals("customStone")))
+		            {
+			            Handpicks.addStoneTools(itemstack);
+			            Hatchets.addStoneTools(itemstack);
+			            Trowels.addStoneTools(itemstack);
+			            Daggers.addStoneTools(itemstack);
+		            }
+		        }
+		    } );
+		}
+	}
 	
 	public static void forceAddToInv(EntityPlayer entityplayer, ItemStack itemstack, int i, boolean flag)
     {
@@ -71,17 +182,4 @@ public class mod_Infi2x2 extends BaseMod
     {
         map.put(net.minecraft.src.infi2x2.DaggerEntity.class, new DaggerRender(0.25));
     }
-
-	@Override
-	public String getVersion() 
-	{
-		return "1.0pre";
-	}
-
-	@Override
-	public void load() 
-	{
-		PropsHelperInfi2x2.initProps();
-		Daggers.init();		
-	}
 }
