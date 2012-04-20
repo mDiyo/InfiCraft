@@ -4,8 +4,8 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
+import net.minecraft.src.mod_InfiHybrids;
 import net.minecraft.src.forge.MinecraftForge;
 
 public class Mattocks 
@@ -21,7 +21,7 @@ public class Mattocks
 
     public static void init()
     {
-        if(mod_Infi2x2.infitoolsPresent)
+        if(mod_InfiHybrids.infitoolsPresent)
         {
         	createTools();
             addNames();
@@ -37,7 +37,7 @@ public class Mattocks
     private static void createVanillaTools()
     {
     	woodWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+0, 
-                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMattock");
     	woodStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+0, 
                 InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMattock");
     	woodIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+0, 
@@ -73,7 +73,7 @@ public class Mattocks
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMattock");
     		sandstoneWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMattock");
     		boneWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+2, 

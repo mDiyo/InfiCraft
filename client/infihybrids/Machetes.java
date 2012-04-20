@@ -4,8 +4,8 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
+import net.minecraft.src.mod_InfiHybrids;
 import net.minecraft.src.forge.MinecraftForge;
 
 public class Machetes 
@@ -21,7 +21,7 @@ public class Machetes
 
     public static void init()
     {
-        if(mod_Infi2x2.infitoolsPresent)
+        if(mod_InfiHybrids.infitoolsPresent)
         {
         	createTools();
             addNames();

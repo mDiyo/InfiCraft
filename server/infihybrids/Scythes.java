@@ -4,8 +4,8 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
+import net.minecraft.src.mod_InfiHybrids;
 import net.minecraft.src.forge.MinecraftForge;
 
 public class Scythes 
@@ -21,7 +21,7 @@ public class Scythes
 
     public static void init()
     {
-        if(mod_Infi2x2.infitoolsPresent)
+        if(mod_InfiHybrids.infitoolsPresent)
         {
         	createTools();
             addNames();
@@ -37,7 +37,7 @@ public class Scythes
     private static void createVanillaTools()
     {
     	woodWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+0, 
-                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodScythe");
     	woodStoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.stoneScytheID+0, 
                 InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneScythe");
     	woodIronScythe = new InfiToolScythe(PropsHelperInfiHybrids.ironScytheID+0, 
@@ -63,7 +63,7 @@ public class Scythes
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodScythe");
     		sandstoneWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodScythe");
     		boneWoodScythe = new InfiToolScythe(PropsHelperInfiHybrids.woodScytheID+2, 

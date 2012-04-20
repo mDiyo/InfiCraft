@@ -4,8 +4,8 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
+import net.minecraft.src.mod_InfiHybrids;
 import net.minecraft.src.forge.MinecraftForge;
 
 public class Mallets 
@@ -21,7 +21,7 @@ public class Mallets
 
     public static void init()
     {
-        if(mod_Infi2x2.infitoolsPresent)
+        if(mod_InfiHybrids.infitoolsPresent)
         {
         	createTools();
             addNames();
@@ -37,7 +37,7 @@ public class Mallets
     private static void createVanillaTools()
     {
     	woodWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+0, 
-                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMallet");
     	woodStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+0, 
                 InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMallet");
     	woodIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+0, 
@@ -68,7 +68,7 @@ public class Mallets
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMallet");
     		sandstoneWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMallet");
     		boneWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+2, 

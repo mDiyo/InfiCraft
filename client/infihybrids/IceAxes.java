@@ -4,7 +4,6 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
 import net.minecraft.src.mod_InfiHybrids;
 import net.minecraft.src.forge.MinecraftForge;

@@ -4,7 +4,6 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
 import net.minecraft.src.mod_InfiHybrids;
 import net.minecraft.src.forge.MinecraftForge;
@@ -38,7 +37,7 @@ public class IceAxes
     private static void createVanillaTools()
     {
     	woodWoodIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.woodIceAxeID+0, 
-                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodIceAxe");
     	woodStoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.stoneIceAxeID+0, 
                 InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneIceAxe");
     	woodIronIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.ironIceAxeID+0, 
@@ -69,7 +68,7 @@ public class IceAxes
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.woodIceAxeID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodIceAxe");
     		sandstoneWoodIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.woodIceAxeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodIceAxe");
     		boneWoodIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.woodIceAxeID+2, 

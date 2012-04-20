@@ -4,8 +4,8 @@ import net.minecraft.src.InfiMaterialEnum;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.mod_InfiBase;
+import net.minecraft.src.mod_InfiHybrids;
 import net.minecraft.src.forge.MinecraftForge;
 
 public class Machetes 
@@ -21,7 +21,7 @@ public class Machetes
 
     public static void init()
     {
-        if(mod_Infi2x2.infitoolsPresent)
+        if(mod_InfiHybrids.infitoolsPresent)
         {
         	createTools();
             addNames();
@@ -37,7 +37,7 @@ public class Machetes
     private static void createVanillaTools()
     {
     	woodWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+0, 
-                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMachete");
     	woodStoneMachete = new InfiToolMachete(PropsHelperInfiHybrids.stoneMacheteID+0, 
                 InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMachete");
     	woodIronMachete = new InfiToolMachete(PropsHelperInfiHybrids.ironMacheteID+0, 
@@ -63,7 +63,7 @@ public class Machetes
     	if(PropsHelperInfiHybrids.enableWoodTools)
     	{
     		woodWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+0, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMachete");
     		sandstoneWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMachete");
     		boneWoodMachete = new InfiToolMachete(PropsHelperInfiHybrids.woodMacheteID+2, 
