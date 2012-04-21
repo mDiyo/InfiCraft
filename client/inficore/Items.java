@@ -72,13 +72,13 @@ public class Items
 	
 	private static void addNames()
 	{
-		ModLoader.addLocalization("item.bucketWood", "Wooden Bucket");
-		ModLoader.addLocalization("item.bucketCactus", "Cactus Bucket");
-		ModLoader.addLocalization("item.bucketGold", "Gold Bucket");
-		ModLoader.addLocalization("item.bucketIce", "Ice Bucket");
-		ModLoader.addLocalization("item.bucketLava", "Fiery Bucket");
-		ModLoader.addLocalization("item.bucketSlime", "Slime Bucket");
-		ModLoader.addLocalization("item.bucketObsidian", "Obsidian Bucket");
+		ModLoader.addLocalization("item.bucketWood.name", "Wooden Bucket");
+		ModLoader.addLocalization("item.bucketCactus.name", "Cactus Bucket");
+		ModLoader.addLocalization("item.bucketGold.name", "Gold Bucket");
+		ModLoader.addLocalization("item.bucketIce.name", "Ice Bucket");
+		ModLoader.addLocalization("item.bucketLava.name", "Fiery Bucket");
+		ModLoader.addLocalization("item.bucketSlime.name", "Slime Bucket");
+		ModLoader.addLocalization("item.bucketObsidian.name", "Obsidian Bucket");
 		
 		ModLoader.addLocalization("stoneCustomBowl.name", "Stone Bowl");
 		ModLoader.addLocalization("ironCustomBowl.name", "Iron Bowl");

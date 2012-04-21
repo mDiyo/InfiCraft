@@ -1,11 +1,9 @@
 package net.minecraft.src;
 import java.util.*;
-
-import net.minecraft.src.forge.IOreHandler;
-import net.minecraft.src.forge.MinecraftForge;
+import net.minecraft.src.forge.*;
 import net.minecraft.src.infi2x2.*;
 
-public class mod_Infi2x2 extends BaseMod
+public class mod_Infi2x2 extends NetworkMod
 {
 	public static Random rand = new Random();
 	public static boolean infitoolsPresent;
@@ -13,7 +11,7 @@ public class mod_Infi2x2 extends BaseMod
 	@Override
 	public String getVersion() 
 	{
-		return "1.0.1";
+		return "1.0.3";
 	}
 	
 	@Override
@@ -26,6 +24,9 @@ public class mod_Infi2x2 extends BaseMod
 		Trowels.init();
 		Daggers.init();
 		oreDictionarySupport();
+		
+		MinecraftForge.registerEntity(net.minecraft.src.infi2x2.DaggerEntity.class,
+				this, 1, 20, 3, true);
 	}
 	
 	public static void checkForInfiTools()
@@ -182,4 +183,16 @@ public class mod_Infi2x2 extends BaseMod
     {
         map.put(net.minecraft.src.infi2x2.DaggerEntity.class, new DaggerRender(0.25));
     }
+
+	@Override
+	public boolean clientSideRequired() 
+	{
+		return true;
+	}
+
+	@Override
+	public boolean serverSideRequired() 
+	{
+		return false;
+	}
 }

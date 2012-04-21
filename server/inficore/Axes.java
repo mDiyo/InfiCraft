@@ -30,7 +30,7 @@ public class Axes
     	if(PropsHelperInfiTools.enableWoodTools)
     	{
     		woodWoodAxe = new InfiToolAxe(15, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWood");
+                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodAxe");
     		sandstoneWoodAxe = new InfiToolAxe(PropsHelperInfiTools.woodAxeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodAxe");
     		boneWoodAxe = new InfiToolAxe(PropsHelperInfiTools.woodAxeID+2, 
@@ -191,7 +191,7 @@ public class Axes
         if(PropsHelperInfiTools.enableRedstoneTools)
         {
         	woodRedstoneAxe = new InfiToolAxe(PropsHelperInfiTools.redstoneAxeID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneAxe");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneAxe");
         	stoneRedstoneAxe = new InfiToolAxe(PropsHelperInfiTools.redstoneAxeID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneAxe");
         	ironRedstoneAxe = new InfiToolAxe(PropsHelperInfiTools.redstoneAxeID+2, 
@@ -256,11 +256,11 @@ public class Axes
         if(PropsHelperInfiTools.enableObsidianTools)
         {
         	woodObsidianAxe = new InfiToolAxe(PropsHelperInfiTools.obsidianAxeID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianAxe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianAxe");
         	stoneObsidianAxe = new InfiToolAxe(PropsHelperInfiTools.obsidianAxeID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianAxe");
         	redstoneObsidianAxe = new InfiToolAxe(PropsHelperInfiTools.obsidianAxeID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianAxe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianAxe");
         	obsidianObsidianAxe = new InfiToolAxe(PropsHelperInfiTools.obsidianAxeID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianAxe");;
         	boneObsidianAxe = new InfiToolAxe(PropsHelperInfiTools.obsidianAxeID+4, 
@@ -291,7 +291,7 @@ public class Axes
         if(PropsHelperInfiTools.enableSandstoneTools)
         {
         	woodSandstoneAxe = new InfiToolAxe(PropsHelperInfiTools.sandstoneAxeID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneAxe");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneAxe");
         	sandstoneSandstoneAxe = new InfiToolAxe(PropsHelperInfiTools.sandstoneAxeID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneAxe");
         	boneSandstoneAxe = new InfiToolAxe(PropsHelperInfiTools.sandstoneAxeID+2, 
@@ -320,7 +320,7 @@ public class Axes
         if(PropsHelperInfiTools.enableBoneTools)
         {
         	woodBoneAxe = new InfiToolAxe(PropsHelperInfiTools.boneAxeID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneAxe");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneAxe");
         	stoneBoneAxe = new InfiToolAxe(PropsHelperInfiTools.boneAxeID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneAxe");
         	sandstoneBoneAxe = new InfiToolAxe(PropsHelperInfiTools.boneAxeID+2, 
@@ -352,13 +352,13 @@ public class Axes
         if(PropsHelperInfiTools.enablePaperTools)
         {
         	woodPaperAxe = new InfiToolAxe(PropsHelperInfiTools.paperAxeID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperAxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperAxe");
         	bonePaperAxe = new InfiToolAxe(PropsHelperInfiTools.paperAxeID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperAxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperAxe");
         	paperPaperAxe = new InfiToolAxe(PropsHelperInfiTools.paperAxeID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperAxe");
         	slimePaperAxe = new InfiToolAxe(PropsHelperInfiTools.paperAxeID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperAxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperAxe");
         	cactusPaperAxe = new InfiToolAxe(PropsHelperInfiTools.paperAxeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperAxe");
             
@@ -600,7 +600,7 @@ public class Axes
         	boneFlintAxe = new InfiToolAxe(PropsHelperInfiTools.flintAxeID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintAxe");
         	netherrackFlintAxe = new InfiToolAxe(PropsHelperInfiTools.flintAxeID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintAxe");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintAxe");
         	slimeFlintAxe = new InfiToolAxe(PropsHelperInfiTools.flintAxeID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintAxe");
         	cactusFlintAxe = new InfiToolAxe(PropsHelperInfiTools.flintAxeID+6, 
@@ -751,7 +751,7 @@ public class Axes
             steelWorkedIronAxe = new InfiToolAxe(PropsHelperInfiTools.workedIronAxeID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronAxe");
             uraniumWorkedIronAxe = new InfiToolAxe(PropsHelperInfiTools.workedIronAxeID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronAxe");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronAxe");
             
             MinecraftForge.setToolClass(woodWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -814,7 +814,7 @@ public class Axes
             arditeSteelAxe = new InfiToolAxe(PropsHelperInfiTools.steelAxeID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelAxe");
             uraniumSteelAxe = new InfiToolAxe(PropsHelperInfiTools.steelAxeID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelAxe");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelAxe");
 
             MinecraftForge.setToolClass(woodSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -875,7 +875,7 @@ public class Axes
             manyullynCobaltAxe = new InfiToolAxe(PropsHelperInfiTools.cobaltAxeID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltAxe");
             uraniumCobaltAxe = new InfiToolAxe(PropsHelperInfiTools.cobaltAxeID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltAxe");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltAxe");
             
             MinecraftForge.setToolClass(woodCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -934,7 +934,7 @@ public class Axes
             manyullynArditeAxe = new InfiToolAxe(PropsHelperInfiTools.arditeAxeID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeAxe");
             uraniumArditeAxe = new InfiToolAxe(PropsHelperInfiTools.arditeAxeID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeAxe");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeAxe");
             
             MinecraftForge.setToolClass(woodArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -959,7 +959,7 @@ public class Axes
         if(PropsHelperInfiTools.enableManyullynTools)
         {
         	woodManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynAxe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynAxe");
             stoneManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynAxe");
             ironManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+2, 
@@ -993,7 +993,7 @@ public class Axes
             manyullynManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynAxe");
             uraniumManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynAxe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynAxe");
             
             MinecraftForge.setToolClass(woodManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());

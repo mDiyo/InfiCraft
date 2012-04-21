@@ -2,19 +2,17 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-public class InfiToolPowers extends mod_InfiTools
+import net.minecraft.src.forge.ForgeHooks;
+
+public class InfiToolPowers
 {
     private static Random random = new Random();
 
-    public InfiToolPowers()
-    {
-    }
-
-    public static void splintering(int i, int j, int k, Item item, World world)
+    public static void splintering(int x, int y, int z, Item item, World world)
     {
         if (random.nextInt(100) + 1 <= 5)
         {
-            EntityItem entityitem = new EntityItem(world, i, j, k, new ItemStack(item.shiftedIndex, 1, 0));
+            EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(item.shiftedIndex, 1, 0));
             entityitem.delayBeforeCanPickup = 10;
             world.spawnEntityInWorld(entityitem);
         }
@@ -28,76 +26,70 @@ public class InfiToolPowers extends mod_InfiTools
             world.spawnEntityInWorld(entityitem);
         }
     }
-
-    public static void freezing(int i, int j, int k, int l, int i1, World world, EntityLiving entityliving)
+    
+    public static boolean searchForBlock(World world, int bID, int x, int y, int z, int radius)
     {
-        for (int j1 = i - 1; j1 <= i + 1; j1++)
+        for (int xIter = y - x; xIter <= y + x; xIter++)
         {
-            for (int k1 = j - 1; k1 <= j + 1; k1++)
+            for (int yIter = z - x; yIter <= z + x; yIter++)
             {
-                for (int l1 = k - 1; l1 <= k + 1; l1++)
+                for (int zIter = radius - x; zIter <= radius + x; zIter++)
                 {
-                    if (world.getBlockId(j1, k1, l1) == Block.waterStill.blockID || world.getBlockId(j1, k1, l1) == Block.waterMoving.blockID)
+                    if (world.getBlockId(xIter, yIter, zIter) == bID)
                     {
-                        world.setBlockWithNotify(j1, k1, l1, Block.ice.blockID);
+                        return true;
                     }
                 }
             }
         }
 
-        if (l != Block.ice.blockID)
-        {
-            Block.blocksList[l].harvestBlock(world, (EntityPlayer)entityliving, i, j, k, i1);
-        }
+        return false;
     }
-    
-    public static boolean freezingEnchant(ItemStack itemstack, EntityLiving mob)
-	{
-		int freezeCheck = 0;
-		NBTTagList nbttaglist = itemstack.getEnchantmentTagList();
-        if(nbttaglist == null)
+
+    public static void freezing(int x, int y, int z, int blockID, int meta, World world, EntityLiving entityliving)
+    {
+        for (int xIter = x - 1; xIter <= x + 1; xIter++)
         {
-            return false;
-        }
-        for(int j = 0; j < nbttaglist.tagCount(); j++)
-        {
-            short word0 = ((NBTTagCompound)nbttaglist.tagAt(j)).getShort("id");
-            short word1 = ((NBTTagCompound)nbttaglist.tagAt(j)).getShort("lvl");
-            if(word0 == 42)
+            for (int yIter = y - 1; yIter <= y + 1; yIter++)
             {
-                freezeCheck = word1;
+                for (int zIter = z - 1; zIter <= z + 1; zIter++)
+                {
+                    if (world.getBlockId(xIter, yIter, zIter) == Block.waterStill.blockID || world.getBlockId(xIter, yIter, zIter) == Block.waterMoving.blockID)
+                    {
+                        world.setBlockWithNotify(xIter, yIter, zIter, Block.ice.blockID);
+                    }
+                }
             }
         }
-		if(freezeCheck > 0)
-        {
-            mob.freeze(freezeCheck * 60);
-            return true;
-        }
-		return false;
-	}
 
-    public static void burning(int i, int j, int k, int l, int i1, World world, EntityLiving entityliving)
-    {
-        int j1 = burn(l);
-        int k1 = burnMd(l);
-        if (l == j1)
+        if (blockID != Block.ice.blockID && ForgeHooks.canHarvestBlock(Block.blocksList[blockID], (EntityPlayer) entityliving, meta))
         {
-            Block.blocksList[l].harvestBlock(world, (EntityPlayer)entityliving, i, j, k, i1);
+            Block.blocksList[blockID].harvestBlock(world, (EntityPlayer)entityliving, x, y, z, meta);
         }
-        else if (j1 == Item.brick.shiftedIndex)
+    }
+
+    public static void burning(int x, int y, int z, int l, int i1, World world, EntityLiving entityliving)
+    {
+        int id = burn(l);
+        int md = burnMd(l);
+        if (l == id)
         {
-            spawnItemBlock(i, j, k, j1, k1, world);
-            spawnItemBlock(i, j, k, j1, k1, world);
-            spawnItemBlock(i, j, k, j1, k1, world);
-            spawnItemBlock(i, j, k, j1, k1, world);
+            Block.blocksList[l].harvestBlock(world, (EntityPlayer)entityliving, x, y, z, i1);
+        }
+        else if (id == Item.brick.shiftedIndex)
+        {
+            spawnItem(x, y, z, id, 1, md, world);
+            spawnItem(x, y, z, id, 1, md, world);
+            spawnItem(x, y, z, id, 1, md, world);
+            spawnItem(x, y, z, id, 1, md, world);
         }
         else
         {
-            if (j1 == mod_InfiTools.stoneShard.shiftedIndex)
+            if (id == mod_InfiBase.stoneShard.shiftedIndex)
             {
-                j1 = Block.stone.blockID;
+                id = Block.stone.blockID;
             }
-            spawnItemBlock(i, j, k, j1, k1, world);
+            spawnItem(x, y, z, id, 1, md, world);
         }
     }
 
@@ -107,7 +99,7 @@ public class InfiToolPowers extends mod_InfiTools
         switch (i)
         {
             case 1:
-                j = mod_InfiTools.stoneShard.shiftedIndex;
+                j = mod_InfiBase.stoneShard.shiftedIndex;
                 break;
 
             case 4:
@@ -153,47 +145,59 @@ public class InfiToolPowers extends mod_InfiTools
         return j;
     }
 
-    public static void slimePower(int i, int j, int k, World world)
+    public static void slimePower(int x, int y, int z, World world)
     {
         if (random.nextInt(100) + 1 <= 12)
         {
-            int l = 0;
+            int id = 0;
             switch (random.nextInt(5) + 1)
             {
                 case 1:
-                    l = Item.slimeBall.shiftedIndex;
+                    id = Item.slimeBall.shiftedIndex;
                     break;
 
                 case 2:
-                    l = Item.slimeBall.shiftedIndex;
+                    id = Item.slimeBall.shiftedIndex;
                     break;
 
                 case 3:
-                    l = Block.plantYellow.blockID;
+                    id = Block.plantYellow.blockID;
                     break;
 
                 case 4:
-                    l = Block.plantRed.blockID;
+                    id = Block.plantRed.blockID;
                     break;
 
                 case 5:
-                    l = Item.seeds.shiftedIndex;
+                    id = Item.seeds.shiftedIndex;
                     break;
             }
-            spawnItemBlock(i, j, k, l, 0, world);
+            spawnItem(x, y, z, id, 1, 0, world);
         }
         if (random.nextInt(100) + 1 <= 5)
         {
             EntitySlime entityslime = new EntitySlime(world);
             entityslime.setSlimeSize(1);
-            entityslime.setPosition((double)i + 0.5D, (double)j + 0.5D, (double)k + 0.5D);
+            entityslime.setPosition((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D);
             world.spawnEntityInWorld(entityslime);
         }
     }
-
-    public static void spawnItemBlock(int i, int j, int k, int l, int i1, World world)
+    
+    /*public static void spawnItem(int x, int y, int z, int id, World world)
     {
-        EntityItem entityitem = new EntityItem(world, (double)i + 0.5D, (double)j + 0.5D, (double)k + 0.5D, new ItemStack(l, 1, i1));
+    	spawnItem(x, y, z, id, 1, 0, world);
+    }*/
+
+    public static void spawnItem(int x, int y, int z, int id, int num, int md, World world)
+    {
+        EntityItem entityitem = new EntityItem(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, new ItemStack(id, num, md));
+        entityitem.delayBeforeCanPickup = 10;
+        world.spawnEntityInWorld(entityitem);
+    }
+    
+    public static void spawnItem(double x, double y, double z, ItemStack stack, World world)
+    {
+        EntityItem entityitem = new EntityItem(world, x + 0.5D, y + 0.5D, z + 0.5D, stack);
         entityitem.delayBeforeCanPickup = 10;
         world.spawnEntityInWorld(entityitem);
     }

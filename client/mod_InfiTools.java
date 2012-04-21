@@ -10,7 +10,7 @@ public class mod_InfiTools extends BaseMod
 	@Override
 	public String getVersion() 
 	{
-		return "3.0.1";
+		return "3.0.2";
 	}
 
 	@Override

@@ -7,11 +7,11 @@ import java.util.Random;
 import net.minecraft.src.forge.ForgeHooks;
 import net.minecraft.src.forge.ITextureProvider;
 
-public abstract class InfiWeaponCore extends ItemSword
+public abstract class InfiHoeCore extends ItemHoe
 	implements ITextureProvider
 {
-	public static Random random = new Random();
-	public int secondIconIndex;
+    private static Random random = new Random();
+    protected int secondIconIndex;
     
     private String[] namePrefix = {
         	"", "Stony ", "Hard ", "Jeweled ", "Red ", "Glassy ", "Sandy ", "Occult ", "Fibery ",
@@ -25,7 +25,7 @@ public abstract class InfiWeaponCore extends ItemSword
         	"Copper", "Bronze", "Worked Iron", "Steel", "Cobalt", "Ardite", "Manyullyn", "Uranium"
         };
 	
-	public InfiWeaponCore(int itemID, int damageBase, InfiMaterialEnum head, InfiMaterialEnum handle, String internalName)
+	public InfiHoeCore(int itemID, int damageBase, InfiMaterialEnum head, InfiMaterialEnum handle, String internalName)
 	{
 		super(itemID, EnumToolMaterial.WOOD);
 
@@ -43,7 +43,6 @@ public abstract class InfiWeaponCore extends ItemSword
         this.headShoddy = head.getShoddy();
         this.handleShoddy = handle.getShoddy();
         this.setIconIndex(handleType - 1);
-        this.setSecondIconIndex(headType + 47);
         this.setItemName(internalName);
         if(headType != handleType)
         {
@@ -53,7 +52,7 @@ public abstract class InfiWeaponCore extends ItemSword
 	
 	public abstract String getInvName();
 
-    public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
+	public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
         World world = entityplayer.worldObj;
         if (world.isRemote)
@@ -62,51 +61,83 @@ public abstract class InfiWeaponCore extends ItemSword
         }
         int bID = world.getBlockId(x, y, z);
         int md = world.getBlockMetadata(x, y, z);
-        boolean flag = true;
-        boolean flag1 = true;
-        if (headType == handleType)
+        if(bID == Block.grass.blockID)
         {
-            flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headType);
+            world.playAuxSFX(2001, x, y, z, bID + (md << 12));
+            world.setBlockWithNotify(x, y, z, Block.dirt.blockID);
+            onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+            return true;
         }
-        else
+        else if (bID == Block.tallGrass.blockID)
         {
-            if (random.nextInt(100) + 1 <= 80)
-            {
-                flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headType);
-            }
-            if (random.nextInt(100) + 1 <= 20)
-            {
-                flag1 = powers(itemstack, bID, x, y, z, world, entityplayer, md, handleType);
-            }
-        }
-        if (!ForgeHooks.canHarvestBlock(Block.blocksList[bID], entityplayer, md))
-        {
-            flag = false;
-        }
-        if (flag == false || flag1 == false)
-        {
+            Block tallGrass = Block.blocksList[Block.tallGrass.blockID];
+            tallGrass.harvestBlock(world, entityplayer, x, y, z, md);
+            tallGrass.harvestBlock(world, entityplayer, x, y, z, md);
             world.playAuxSFX(2001, x, y, z, bID + (md << 12));
             world.setBlockWithNotify(x, y, z, 0);
             onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
             return true;
         }
-        else
+        else if (bID == Block.crops.blockID)
         {
-            return false;
+            if(md != 0)
+            {
+                Block crops = Block.blocksList[Block.crops.blockID];
+                crops.harvestBlock(world, entityplayer, x, y, z, md);
+                world.playAuxSFX(2001, x, y, z, bID + (md << 12));
+                world.setBlockWithNotify(x, y, z, Block.crops.blockID);
+                onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+            }
+            return true;
+        }
+        else
+        {            
+            boolean flag = true;
+            boolean flag1 = true;
+            if (headType == handleType)
+            {
+                flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headType);
+            }
+            else
+            {
+                if (random.nextInt(100) + 1 <= 80)
+                {
+                    flag = powers(itemstack, bID, x, y, z, world, entityplayer, md, headType);
+                }
+                if (random.nextInt(100) + 1 <= 20)
+                {
+                    flag1 = powers(itemstack, bID, x, y, z, world, entityplayer, md, handleType);
+                }
+            }
+            if (!ForgeHooks.canHarvestBlock(Block.blocksList[bID], entityplayer, md))
+            {
+                flag = false;
+            }
+            if (!flag || !flag1)
+            {
+                world.playAuxSFX(2001, x, y, z, bID + (md << 12));
+                world.setBlockWithNotify(x, y, z, 0);
+                onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
-    public boolean onBlockDestroyed(ItemStack itemstack, int bID, int x, int y, int z, EntityLiving player)
+	public boolean onBlockDestroyed(ItemStack itemstack, int bID, int x, int y, int z, EntityLiving player)
     {
         int unbreaking = headUnbreaking;
         if (handleUnbreaking > unbreaking)
         	unbreaking = handleUnbreaking;
         if (random.nextInt(100) + 1 <= 100 - (unbreaking * 10))
         {
-        	if (itemstack.getItemDamage() + 2 >= itemstack.getMaxDamage())
+        	if (itemstack.getItemDamage() + 1 >= itemstack.getMaxDamage())
         		((EntityPlayer)player).destroyCurrentEquippedItem();
         	else
-        		itemstack.damageItem(2, player);
+        		itemstack.damageItem(1, player);
         }
         return true;
     }
@@ -179,12 +210,6 @@ public abstract class InfiWeaponCore extends ItemSword
         }
     }
     
-    @Override
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
-    }
-
     public int getDamageVsEntity(Entity entity)
     {
         return toolDamage;
@@ -193,48 +218,6 @@ public abstract class InfiWeaponCore extends ItemSword
     public boolean isFull3D()
     {
         return true;
-    }
-    
-    public Item setSecondIconIndex(int par1)
-    {
-        this.secondIconIndex = par1;
-        return this;
-    }
-    
-    public Item setSecondIconCoord(int par1, int par2)
-    {
-        this.secondIconIndex = par1 + par2 * 16;
-        return this;
-    }
-    
-    public int getSecondIconFromDamage(int par1)
-    {
-        return this.secondIconIndex;
-    }
-    
-    @Override public int func_46057_a(int meta, int pass)
-    {
-    	if (pass == 0)
-    	{
-    		return this.getIconFromDamage(meta);
-    	}
-    	else
-    		return this.getSecondIconFromDamage(meta);
-    } 
-
-    public final int getSecondIconIndex(ItemStack par1ItemStack)
-    {
-        return this.getSecondIconFromDamage(par1ItemStack.getItemDamage());
-    }
-    
-    public int getRenderPasses(int metadata)
-    {
-    	return 2;
-    }
-        
-    @Override public boolean func_46058_c()
-    {
-    	return true;
     }
 
     public int getItemEnchantability()
@@ -251,13 +234,13 @@ public abstract class InfiWeaponCore extends ItemSword
     }
 
     protected float efficiencyOnProperMaterial;
-    public int toolHarvestLevel;
-    public int toolDamage;
-    public int enchantibility;
-    public int headType;
-    public int handleType;
-    public int headUnbreaking;
-    public int handleUnbreaking;
-    public boolean headShoddy;
-	public boolean handleShoddy;
+    protected int toolHarvestLevel;
+    protected int toolDamage;
+	protected int enchantibility;
+	protected int headType;
+	protected int handleType;
+	protected int headUnbreaking;
+	protected int handleUnbreaking;
+	protected boolean headShoddy;
+	protected boolean handleShoddy;
 }

@@ -49,6 +49,8 @@ public class IceAxes
     	MinecraftForge.setToolClass(woodStoneIceAxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
     	MinecraftForge.setToolClass(woodIronIceAxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
     	MinecraftForge.setToolClass(woodDiamondIceAxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+    	
+    	ModLoader.addName(woodWoodIceAxe, "Wooden Ice Axe");
     }
     
     private static void registerVanillaRecipes()
@@ -229,7 +231,7 @@ public class IceAxes
         if(PropsHelperInfiHybrids.enableRedstoneTools)
         {
         	woodRedstoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.redstoneIceAxeID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneIceAxe");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneIceAxe");
         	stoneRedstoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.redstoneIceAxeID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneIceAxe");
         	ironRedstoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.redstoneIceAxeID+2, 
@@ -294,11 +296,11 @@ public class IceAxes
         if(PropsHelperInfiHybrids.enableObsidianTools)
         {
         	woodObsidianIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.obsidianIceAxeID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianIceAxe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianIceAxe");
         	stoneObsidianIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.obsidianIceAxeID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianIceAxe");
         	redstoneObsidianIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.obsidianIceAxeID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianIceAxe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianIceAxe");
         	obsidianObsidianIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.obsidianIceAxeID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianIceAxe");;
         	boneObsidianIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.obsidianIceAxeID+4, 
@@ -329,7 +331,7 @@ public class IceAxes
         if(PropsHelperInfiHybrids.enableSandstoneTools)
         {
         	woodSandstoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.sandstoneIceAxeID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneIceAxe");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneIceAxe");
         	sandstoneSandstoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.sandstoneIceAxeID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneIceAxe");
         	boneSandstoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.sandstoneIceAxeID+2, 
@@ -358,7 +360,7 @@ public class IceAxes
         if(PropsHelperInfiHybrids.enableBoneTools)
         {
         	woodBoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.boneIceAxeID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneIceAxe");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneIceAxe");
         	stoneBoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.boneIceAxeID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneIceAxe");
         	sandstoneBoneIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.boneIceAxeID+2, 
@@ -390,13 +392,13 @@ public class IceAxes
         if(PropsHelperInfiHybrids.enablePaperTools)
         {
         	woodPaperIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.paperIceAxeID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperIceAxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperIceAxe");
         	bonePaperIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.paperIceAxeID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperIceAxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperIceAxe");
         	paperPaperIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.paperIceAxeID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperIceAxe");
         	slimePaperIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.paperIceAxeID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperIceAxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperIceAxe");
         	cactusPaperIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.paperIceAxeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperIceAxe");
             
@@ -638,7 +640,7 @@ public class IceAxes
         	boneFlintIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.flintIceAxeID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintIceAxe");
         	netherrackFlintIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.flintIceAxeID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintIceAxe");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintIceAxe");
         	slimeFlintIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.flintIceAxeID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintIceAxe");
         	cactusFlintIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.flintIceAxeID+6, 
@@ -789,7 +791,7 @@ public class IceAxes
             steelWorkedIronIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.workedIronIceAxeID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronIceAxe");
             uraniumWorkedIronIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.workedIronIceAxeID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronIceAxe");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronIceAxe");
             
             MinecraftForge.setToolClass(woodWorkedIronIceAxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronIceAxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -852,7 +854,7 @@ public class IceAxes
             arditeSteelIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.steelIceAxeID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelIceAxe");
             uraniumSteelIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.steelIceAxeID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelIceAxe");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelIceAxe");
 
             MinecraftForge.setToolClass(woodSteelIceAxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelIceAxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -913,7 +915,7 @@ public class IceAxes
             manyullynCobaltIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.cobaltIceAxeID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltIceAxe");
             uraniumCobaltIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.cobaltIceAxeID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltIceAxe");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltIceAxe");
             
             MinecraftForge.setToolClass(woodCobaltIceAxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltIceAxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -972,7 +974,7 @@ public class IceAxes
             manyullynArditeIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.arditeIceAxeID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeIceAxe");
             uraniumArditeIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.arditeIceAxeID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeIceAxe");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeIceAxe");
             
             MinecraftForge.setToolClass(woodArditeIceAxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeIceAxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -997,7 +999,7 @@ public class IceAxes
         if(PropsHelperInfiHybrids.enableManyullynTools)
         {
         	woodManyullynIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.manyullynIceAxeID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynIceAxe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynIceAxe");
             stoneManyullynIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.manyullynIceAxeID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynIceAxe");
             ironManyullynIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.manyullynIceAxeID+2, 
@@ -1031,7 +1033,7 @@ public class IceAxes
             manyullynManyullynIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.manyullynIceAxeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynIceAxe");
             uraniumManyullynIceAxe = new InfiToolIceAxe(PropsHelperInfiHybrids.manyullynIceAxeID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynIceAxe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynIceAxe");
             
             MinecraftForge.setToolClass(woodManyullynIceAxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynIceAxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());

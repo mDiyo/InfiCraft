@@ -140,7 +140,7 @@ public class Hoes
         if(PropsHelperInfiTools.enableRedstoneTools)
         {
         	woodRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneHoe");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneHoe");
         	stoneRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneHoe");
         	ironRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+2, 
@@ -179,37 +179,16 @@ public class Hoes
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneHoe");
         	uraniumRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableObsidianTools)
         {
         	woodObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianHoe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianHoe");
         	stoneObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianHoe");
         	redstoneObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianHoe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianHoe");
         	obsidianObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianHoe");;
         	boneObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+4, 
@@ -224,23 +203,12 @@ public class Hoes
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianHoe");
         	cactusObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableSandstoneTools)
         {
         	woodSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneHoe");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneHoe");
         	sandstoneSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneHoe");
         	boneSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+2, 
@@ -255,21 +223,12 @@ public class Hoes
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneHoe");
         	flintSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableBoneTools)
         {
         	woodBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneHoe");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneHoe");
         	stoneBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneHoe");
         	sandstoneBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+2, 
@@ -286,28 +245,18 @@ public class Hoes
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneHoe");
         	flintBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enablePaperTools)
         {
         	woodPaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperHoe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperHoe");
         	bonePaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperHoe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperHoe");
         	paperPaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperHoe");
         	slimePaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperHoe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperHoe");
         	cactusPaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperHoe");
             
@@ -549,7 +498,7 @@ public class Hoes
         	boneFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintHoe");
         	netherrackFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintHoe");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintHoe");
         	slimeFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintHoe");
         	cactusFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+6, 
@@ -560,17 +509,6 @@ public class Hoes
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintHoe");
         	bronzeFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableBlazeTools)
@@ -591,15 +529,6 @@ public class Hoes
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeHoe");
             uraniumBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
     	
         if(PropsHelperInfiTools.enableCopperTools)
@@ -620,15 +549,6 @@ public class Hoes
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperHoe");
             copperCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperHoe");
-            
-            
-        	
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableBronzeTools)
@@ -651,16 +571,6 @@ public class Hoes
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeHoe");
             bronzeBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiTools.enableWorkedIronTools)
@@ -700,26 +610,7 @@ public class Hoes
             steelWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronHoe");
             uraniumWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronHoe");
         }
         
         if(PropsHelperInfiTools.enableSteelTools)
@@ -763,28 +654,7 @@ public class Hoes
             arditeSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelHoe");
             uraniumSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelHoe");
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelHoe");
         }
         
         if(PropsHelperInfiTools.enableCobaltTools)
@@ -824,26 +694,7 @@ public class Hoes
             manyullynCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltHoe");
             uraniumCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHoe");
         }
         
         if(PropsHelperInfiTools.enableArditeTools)
@@ -883,32 +734,13 @@ public class Hoes
             manyullynArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeHoe");
             uraniumArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHoe");
         }
         
         if(PropsHelperInfiTools.enableManyullynTools)
         {
         	woodManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynHoe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynHoe");
             stoneManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynHoe");
             ironManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+2, 
@@ -942,26 +774,7 @@ public class Hoes
             manyullynManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynHoe");
             uraniumManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHoe");
         }
         
         if(PropsHelperInfiTools.enableUraniumTools)
@@ -986,17 +799,6 @@ public class Hoes
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumHoe");
             uraniumUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumHoe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
     }
     

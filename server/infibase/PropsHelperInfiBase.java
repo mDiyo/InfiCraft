@@ -57,6 +57,7 @@ public class PropsHelperInfiBase {
         slimeCrystalID = config.getOrCreateIntProperty("Slime Crystal", "item", 13949).getInt(13949);
         blazeCrystalID = config.getOrCreateIntProperty("Blaze Crystal", "item", 13950).getInt(13950);
         
+        grindstoneID = config.getOrCreateIntProperty("Grindstone", "item", 13890).getInt(13890);
         stoneRodID = config.getOrCreateIntProperty("Stone Rod", "item", 13891).getInt(13891);
         ironRodID = config.getOrCreateIntProperty("Iron Rod", "item", 13892).getInt(13892);
         diamondRodID = config.getOrCreateIntProperty("Diamond Rod", "item", 13893).getInt(13893);
@@ -124,6 +125,7 @@ public class PropsHelperInfiBase {
     public static int mossBlockID;
     public static int slimeSandID;
     public static int treeRootID;
+    public static int grindstoneID;
     
     public static int stoneRodID;
     public static int ironRodID;

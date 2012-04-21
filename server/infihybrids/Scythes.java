@@ -44,6 +44,8 @@ public class Scythes
                 InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronScythe");
     	woodDiamondScythe = new InfiToolScythe(PropsHelperInfiHybrids.diamondScytheID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondScythe");
+    	
+    	ModLoader.addName(woodWoodScythe, "Wooden Scythe");
     }
     
     private static void registerVanillaRecipes()
@@ -98,16 +100,6 @@ public class Scythes
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneScythe");
         	flintStoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.stoneScytheID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableIronTools)
@@ -130,16 +122,6 @@ public class Scythes
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronScythe");
         	bronzeIronScythe = new InfiToolScythe(PropsHelperInfiHybrids.ironScytheID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableDiamondTools)
@@ -188,35 +170,12 @@ public class Scythes
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondScythe");
             uraniumDiamondScythe = new InfiToolScythe(PropsHelperInfiHybrids.diamondScytheID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableRedstoneTools)
         {
         	woodRedstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.redstoneScytheID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneScythe");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneScythe");
         	stoneRedstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.redstoneScytheID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneScythe");
         	ironRedstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.redstoneScytheID+2, 
@@ -255,37 +214,16 @@ public class Scythes
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneScythe");
         	uraniumRedstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.redstoneScytheID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableObsidianTools)
         {
         	woodObsidianScythe = new InfiToolScythe(PropsHelperInfiHybrids.obsidianScytheID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianScythe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianScythe");
         	stoneObsidianScythe = new InfiToolScythe(PropsHelperInfiHybrids.obsidianScytheID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianScythe");
         	redstoneObsidianScythe = new InfiToolScythe(PropsHelperInfiHybrids.obsidianScytheID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianScythe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianScythe");
         	obsidianObsidianScythe = new InfiToolScythe(PropsHelperInfiHybrids.obsidianScytheID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianScythe");;
         	boneObsidianScythe = new InfiToolScythe(PropsHelperInfiHybrids.obsidianScytheID+4, 
@@ -300,23 +238,12 @@ public class Scythes
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianScythe");
         	cactusObsidianScythe = new InfiToolScythe(PropsHelperInfiHybrids.obsidianScytheID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableSandstoneTools)
         {
         	woodSandstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.sandstoneScytheID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneScythe");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneScythe");
         	sandstoneSandstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.sandstoneScytheID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneScythe");
         	boneSandstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.sandstoneScytheID+2, 
@@ -331,21 +258,12 @@ public class Scythes
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneScythe");
         	flintSandstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.sandstoneScytheID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableBoneTools)
         {
         	woodBoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.boneScytheID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneScythe");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneScythe");
         	stoneBoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.boneScytheID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneScythe");
         	sandstoneBoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.boneScytheID+2, 
@@ -362,36 +280,20 @@ public class Scythes
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneScythe");
         	flintBoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.boneScytheID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enablePaperTools)
         {
         	woodPaperScythe = new InfiToolScythe(PropsHelperInfiHybrids.paperScytheID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperScythe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperScythe");
         	bonePaperScythe = new InfiToolScythe(PropsHelperInfiHybrids.paperScytheID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperScythe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperScythe");
         	paperPaperScythe = new InfiToolScythe(PropsHelperInfiHybrids.paperScytheID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperScythe");
         	slimePaperScythe = new InfiToolScythe(PropsHelperInfiHybrids.paperScytheID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperScythe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperScythe");
         	cactusPaperScythe = new InfiToolScythe(PropsHelperInfiHybrids.paperScytheID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperScythe");
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableMossyTools)
@@ -420,19 +322,6 @@ public class Scythes
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyScythe");
         	uraniumMossyScythe = new InfiToolScythe(PropsHelperInfiHybrids.mossyScytheID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableNetherrackTools)
@@ -463,20 +352,6 @@ public class Scythes
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackScythe");
         	bronzeNetherrackScythe = new InfiToolScythe(PropsHelperInfiHybrids.netherrackScytheID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableGlowstoneTools)
@@ -499,17 +374,6 @@ public class Scythes
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Slime, "slimeGlowstoneScythe");
         	cactusGlowstoneScythe = new InfiToolScythe(PropsHelperInfiHybrids.glowstoneScytheID+8, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableIceTools)
@@ -526,14 +390,6 @@ public class Scythes
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Slime, "slimeIceScythe");
         	cactusIceScythe = new InfiToolScythe(PropsHelperInfiHybrids.iceScytheID+5, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceScythe");
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableLavaTools)
@@ -554,15 +410,6 @@ public class Scythes
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaScythe");
             uraniumLavaScythe = new InfiToolScythe(PropsHelperInfiHybrids.lavaScytheID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableSlimeTools)
@@ -579,13 +426,6 @@ public class Scythes
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Slime, "slimeSlimeScythe");
         	cactusSlimeScythe = new InfiToolScythe(PropsHelperInfiHybrids.slimeScytheID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeScythe");
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableCactusTools)
@@ -604,14 +444,6 @@ public class Scythes
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Slime, "slimeCactusScythe");
         	cactusCactusScythe = new InfiToolScythe(PropsHelperInfiHybrids.cactusScytheID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusScythe");
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableFlintTools)
@@ -625,7 +457,7 @@ public class Scythes
         	boneFlintScythe = new InfiToolScythe(PropsHelperInfiHybrids.flintScytheID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintScythe");
         	netherrackFlintScythe = new InfiToolScythe(PropsHelperInfiHybrids.flintScytheID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintScythe");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintScythe");
         	slimeFlintScythe = new InfiToolScythe(PropsHelperInfiHybrids.flintScytheID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintScythe");
         	cactusFlintScythe = new InfiToolScythe(PropsHelperInfiHybrids.flintScytheID+6, 
@@ -636,17 +468,6 @@ public class Scythes
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintScythe");
         	bronzeFlintScythe = new InfiToolScythe(PropsHelperInfiHybrids.flintScytheID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableBlazeTools)
@@ -667,15 +488,6 @@ public class Scythes
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeScythe");
             uraniumBlazeScythe = new InfiToolScythe(PropsHelperInfiHybrids.blazeScytheID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
     	
         if(PropsHelperInfiHybrids.enableCopperTools)
@@ -696,15 +508,6 @@ public class Scythes
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperScythe");
             copperCopperScythe = new InfiToolScythe(PropsHelperInfiHybrids.copperScytheID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperScythe");
-            
-            
-        	
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableBronzeTools)
@@ -727,16 +530,6 @@ public class Scythes
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeScythe");
             bronzeBronzeScythe = new InfiToolScythe(PropsHelperInfiHybrids.bronzeScytheID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableWorkedIronTools)
@@ -776,26 +569,7 @@ public class Scythes
             steelWorkedIronScythe = new InfiToolScythe(PropsHelperInfiHybrids.workedIronScytheID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronScythe");
             uraniumWorkedIronScythe = new InfiToolScythe(PropsHelperInfiHybrids.workedIronScytheID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronScythe");
         }
         
         if(PropsHelperInfiHybrids.enableSteelTools)
@@ -839,28 +613,7 @@ public class Scythes
             arditeSteelScythe = new InfiToolScythe(PropsHelperInfiHybrids.steelScytheID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelScythe");
             uraniumSteelScythe = new InfiToolScythe(PropsHelperInfiHybrids.steelScytheID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelScythe");
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelScythe");
         }
         
         if(PropsHelperInfiHybrids.enableCobaltTools)
@@ -900,26 +653,7 @@ public class Scythes
             manyullynCobaltScythe = new InfiToolScythe(PropsHelperInfiHybrids.cobaltScytheID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltScythe");
             uraniumCobaltScythe = new InfiToolScythe(PropsHelperInfiHybrids.cobaltScytheID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltScythe");
         }
         
         if(PropsHelperInfiHybrids.enableArditeTools)
@@ -959,32 +693,13 @@ public class Scythes
             manyullynArditeScythe = new InfiToolScythe(PropsHelperInfiHybrids.arditeScytheID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeScythe");
             uraniumArditeScythe = new InfiToolScythe(PropsHelperInfiHybrids.arditeScytheID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeScythe");
         }
         
         if(PropsHelperInfiHybrids.enableManyullynTools)
         {
         	woodManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynScythe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynScythe");
             stoneManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynScythe");
             ironManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+2, 
@@ -1018,26 +733,7 @@ public class Scythes
             manyullynManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynScythe");
             uraniumManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynScythe");
         }
         
         if(PropsHelperInfiHybrids.enableUraniumTools)
@@ -1062,17 +758,6 @@ public class Scythes
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumScythe");
             uraniumUraniumScythe = new InfiToolScythe(PropsHelperInfiHybrids.uraniumScytheID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumScythe");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
     }
     

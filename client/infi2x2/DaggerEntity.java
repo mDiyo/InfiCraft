@@ -29,6 +29,10 @@ public class DaggerEntity extends InfiEntityRotating
 
     public void onHit(MovingObjectPosition movingobjectposition)
     {
+    	if(worldObj.isRemote)
+    	{
+    		return;
+    	}
         if(movingobjectposition.entityHit != null)
         {
             if(movingobjectposition.entityHit.attackEntityFrom(DamageSource.causeMobDamage(owner), damageDealt))

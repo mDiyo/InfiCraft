@@ -2,6 +2,8 @@ package net.minecraft.src;
 
 import java.util.Random;
 
+import net.minecraft.src.forge.ForgeHooks;
+
 public class InfiToolPowers
 {
     private static Random random = new Random();
@@ -60,36 +62,11 @@ public class InfiToolPowers
             }
         }
 
-        if (blockID != Block.ice.blockID)
+        if (blockID != Block.ice.blockID && ForgeHooks.canHarvestBlock(Block.blocksList[blockID], (EntityPlayer) entityliving, meta))
         {
             Block.blocksList[blockID].harvestBlock(world, (EntityPlayer)entityliving, x, y, z, meta);
         }
     }
-    
-    public static boolean freezingEnchant(ItemStack itemstack, EntityLiving mob)
-	{
-		int freezeCheck = 0;
-		NBTTagList nbttaglist = itemstack.getEnchantmentTagList();
-        if(nbttaglist == null)
-        {
-            return false;
-        }
-        for(int j = 0; j < nbttaglist.tagCount(); j++)
-        {
-            short word0 = ((NBTTagCompound)nbttaglist.tagAt(j)).getShort("id");
-            short word1 = ((NBTTagCompound)nbttaglist.tagAt(j)).getShort("lvl");
-            if(word0 == 42)
-            {
-                freezeCheck = word1;
-            }
-        }
-		if(freezeCheck > 0)
-        {
-            mob.freeze(freezeCheck * 60);
-            return true;
-        }
-		return false;
-	}
 
     public static void burning(int x, int y, int z, int l, int i1, World world, EntityLiving entityliving)
     {
@@ -206,14 +183,26 @@ public class InfiToolPowers
         }
     }
     
-    public static void spawnItem(int x, int y, int z, int id, World world)
+    /*public static void spawnItem(int x, int y, int z, int id, World world)
     {
     	spawnItem(x, y, z, id, 1, 0, world);
-    }
+    }*/
 
     public static void spawnItem(int x, int y, int z, int id, int num, int md, World world)
     {
         EntityItem entityitem = new EntityItem(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, new ItemStack(id, num, md));
+        entityitem.delayBeforeCanPickup = 10;
+        world.spawnEntityInWorld(entityitem);
+    }
+    
+    /*public static void spawnItem(int x, int y, int z, ItemStack stack, World world)
+    {
+        spawnItem(x, y, z, stack, world);
+    }*/
+    
+    public static void spawnItem(double x, double y, double z, ItemStack stack, World world)
+    {
+        EntityItem entityitem = new EntityItem(world, x + 0.5D, y + 0.5D, z + 0.5D, stack);
         entityitem.delayBeforeCanPickup = 10;
         world.spawnEntityInWorld(entityitem);
     }

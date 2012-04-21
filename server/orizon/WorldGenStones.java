@@ -182,7 +182,7 @@ public class WorldGenStones {
 				int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity) + (mod_Orizon.galenaRarity / 2);
 				generateStratifiedVein(world, rand, chunkX, chunkZ, galenaS, galenaSA, galenaChunk, mod_Orizon.galenaHeight);
 			}
-			if(mod_Orizon.genChrysocolla) {
+			if(mod_Orizon.genIvymetal) {
 				int chrysocollaChunk = rand.nextInt(mod_Orizon.ivymetalRarity) + (mod_Orizon.ivymetalRarity / 2);
 				generateStratifiedVein(world, rand, chunkX, chunkZ, chrysocollaS, chrysocollaSA, chrysocollaChunk, mod_Orizon.ivymetalHeight);
 			}
@@ -255,7 +255,7 @@ public class WorldGenStones {
 				int galenaChunk = rand.nextInt(mod_Orizon.galenaRarity) + (mod_Orizon.galenaRarity / 2);
 				generateVein(world, rand, chunkX, chunkZ, galena, galenaA, galenaChunk, mod_Orizon.galenaHeight);
 			}
-			if(mod_Orizon.genChrysocolla) {
+			if(mod_Orizon.genIvymetal) {
 				int chrysocollaChunk = rand.nextInt(mod_Orizon.ivymetalRarity) + (mod_Orizon.ivymetalRarity / 2);
 				generateVein(world, rand, chunkX, chunkZ, chrysocolla, chrysocollaA, chrysocollaChunk, mod_Orizon.ivymetalHeight);
 			}

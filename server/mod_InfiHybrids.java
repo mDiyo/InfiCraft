@@ -9,7 +9,7 @@ public class mod_InfiHybrids extends BaseMod
 	@Override
 	public String getVersion() 
 	{
-		return "2.0.2";
+		return "2.0.6";
 	}
 
 	@Override

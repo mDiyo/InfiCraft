@@ -128,7 +128,22 @@ public class PropsHelperOrizon {
 		mod_Orizon.genGems = config.getOrCreateBooleanProperty("Generate Gemstones", "general", true).getBoolean(true);
 		mod_Orizon.genNonUniqueGems = config.getOrCreateBooleanProperty("Generate Ruby Emerald and Sapphire Gems", "general", true).getBoolean(true);
 		mod_Orizon.genSlimePools = config.getOrCreateBooleanProperty("Generate Slime Pools", "general", true).getBoolean(true);
-		mod_Orizon.genAcidPools = config.getOrCreateBooleanProperty("Generate Acid Pools", "general", true).getBoolean(true);
+		//mod_Orizon.genAcidPools = config.getOrCreateBooleanProperty("Generate Acid Pools", "general", true).getBoolean(true);
+		
+		mod_Orizon.genCopper = config.getOrCreateBooleanProperty("Generate Copper Ore", "general", true).getBoolean(true);
+		mod_Orizon.genTurquoise = config.getOrCreateBooleanProperty("Generate Turquoise Ore", "general", true).getBoolean(true);
+		mod_Orizon.genChalcocite = config.getOrCreateBooleanProperty("Generate Chalcocite Ore", "general", true).getBoolean(true);
+		mod_Orizon.genCassiterite = config.getOrCreateBooleanProperty("Generate Cassiterite Ore", "general", true).getBoolean(true);
+		mod_Orizon.genTeallite = config.getOrCreateBooleanProperty("Generate Teallite Ore", "general", true).getBoolean(true);
+		mod_Orizon.genZinc = config.getOrCreateBooleanProperty("Generate Zinc Bloom Ore", "general", true).getBoolean(true);
+		mod_Orizon.genSphalerite = config.getOrCreateBooleanProperty("Generate Sphalerite Ore", "general", true).getBoolean(true);
+		mod_Orizon.genCerussite = config.getOrCreateBooleanProperty("Generate Cerussite Ore", "general", true).getBoolean(true);
+		mod_Orizon.genCobalt = config.getOrCreateBooleanProperty("Generate Cobalt Ore", "general", true).getBoolean(true);
+		mod_Orizon.genArdite = config.getOrCreateBooleanProperty("Generate Ardite Ore", "general", true).getBoolean(true);
+		mod_Orizon.genMyuvil = config.getOrCreateBooleanProperty("Generate Myuvil Ore", "general", true).getBoolean(true);
+		mod_Orizon.genGalena = config.getOrCreateBooleanProperty("Generate Galena Ore", "general", true).getBoolean(true);
+		mod_Orizon.genIvymetal = config.getOrCreateBooleanProperty("Generate Ivymetal Ore", "general", true).getBoolean(true);
+		mod_Orizon.genAggregate = config.getOrCreateBooleanProperty("Generate Aggregate Ore", "general", true).getBoolean(true);
 		
 		mod_Orizon.copperRarity = config.getOrCreateIntProperty("Copper Rarity", "general", 6).getInt(6);
 	    mod_Orizon.copperHeight = config.getOrCreateIntProperty("Copper Height", "general", 64).getInt(64);

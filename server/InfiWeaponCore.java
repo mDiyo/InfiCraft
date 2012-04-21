@@ -43,7 +43,6 @@ public abstract class InfiWeaponCore extends ItemSword
         this.headShoddy = head.getShoddy();
         this.handleShoddy = handle.getShoddy();
         this.setIconIndex(handleType - 1);
-        this.setSecondIconIndex(headType + 47);
         this.setItemName(internalName);
         if(headType != handleType)
         {
@@ -195,48 +194,6 @@ public abstract class InfiWeaponCore extends ItemSword
         return true;
     }
     
-    public Item setSecondIconIndex(int par1)
-    {
-        this.secondIconIndex = par1;
-        return this;
-    }
-    
-    public Item setSecondIconCoord(int par1, int par2)
-    {
-        this.secondIconIndex = par1 + par2 * 16;
-        return this;
-    }
-    
-    public int getSecondIconFromDamage(int par1)
-    {
-        return this.secondIconIndex;
-    }
-    
-    @Override public int func_46057_a(int meta, int pass)
-    {
-    	if (pass == 0)
-    	{
-    		return this.getIconFromDamage(meta);
-    	}
-    	else
-    		return this.getSecondIconFromDamage(meta);
-    } 
-
-    public final int getSecondIconIndex(ItemStack par1ItemStack)
-    {
-        return this.getSecondIconFromDamage(par1ItemStack.getItemDamage());
-    }
-    
-    public int getRenderPasses(int metadata)
-    {
-    	return 2;
-    }
-        
-    @Override public boolean func_46058_c()
-    {
-    	return true;
-    }
-
     public int getItemEnchantability()
     {
         return enchantibility;

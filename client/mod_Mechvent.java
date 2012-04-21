@@ -241,11 +241,6 @@ public class mod_Mechvent extends NetworkMod
             { new ItemStack(mediumChunk, 1, 8), new ItemStack(mediumChunk, 1, 9),
             new ItemStack(mediumChunk, 1, 10), new ItemStack(mediumChunk, 1, 11),
             new ItemStack(mediumChunk, 1, 12), new ItemStack(mediumChunk, 1, 13) });
-        
-        //Stone
-        addCrushingRecipe(new ItemStack(Block.cobblestone, 1),
-                new int[] { 30, 30, 30, 30, 30, 30 }, new Object[]
-            { new ItemStack(largeChunk, 1, 14) });
     }
     
     private void addGrindingRecipes()

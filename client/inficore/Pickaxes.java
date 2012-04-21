@@ -191,7 +191,7 @@ public class Pickaxes
         if(PropsHelperInfiTools.enableRedstoneTools)
         {
         	woodRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstonePickaxe");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstonePickaxe");
         	stoneRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstonePickaxe");
         	ironRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+2, 
@@ -256,11 +256,11 @@ public class Pickaxes
         if(PropsHelperInfiTools.enableObsidianTools)
         {
         	woodObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianPickaxe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianPickaxe");
         	stoneObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianPickaxe");
         	redstoneObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianPickaxe");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianPickaxe");
         	obsidianObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianPickaxe");;
         	boneObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+4, 
@@ -291,7 +291,7 @@ public class Pickaxes
         if(PropsHelperInfiTools.enableSandstoneTools)
         {
         	woodSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstonePickaxe");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstonePickaxe");
         	sandstoneSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstonePickaxe");
         	boneSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+2, 
@@ -320,7 +320,7 @@ public class Pickaxes
         if(PropsHelperInfiTools.enableBoneTools)
         {
         	woodBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBonePickaxe");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBonePickaxe");
         	stoneBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBonePickaxe");
         	sandstoneBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+2, 
@@ -352,13 +352,13 @@ public class Pickaxes
         if(PropsHelperInfiTools.enablePaperTools)
         {
         	woodPaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperPickaxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperPickaxe");
         	bonePaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperPickaxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperPickaxe");
         	paperPaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperPickaxe");
         	slimePaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperPickaxe");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperPickaxe");
         	cactusPaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperPickaxe");
             
@@ -600,7 +600,7 @@ public class Pickaxes
         	boneFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintPickaxe");
         	netherrackFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintPickaxe");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintPickaxe");
         	slimeFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintPickaxe");
         	cactusFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+6, 
@@ -751,7 +751,7 @@ public class Pickaxes
             steelWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronPickaxe");
             uraniumWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronPickaxe");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronPickaxe");
             
             MinecraftForge.setToolClass(woodWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -814,7 +814,7 @@ public class Pickaxes
             arditeSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelPickaxe");
             uraniumSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelPickaxe");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelPickaxe");
 
             MinecraftForge.setToolClass(woodSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -875,7 +875,7 @@ public class Pickaxes
             manyullynCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltPickaxe");
             uraniumCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltPickaxe");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltPickaxe");
             
             MinecraftForge.setToolClass(woodCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -934,7 +934,7 @@ public class Pickaxes
             manyullynArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditePickaxe");
             uraniumArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditePickaxe");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditePickaxe");
             
             MinecraftForge.setToolClass(woodArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -959,7 +959,7 @@ public class Pickaxes
         if(PropsHelperInfiTools.enableManyullynTools)
         {
         	woodManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynPickaxe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynPickaxe");
             stoneManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynPickaxe");
             ironManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+2, 
@@ -993,7 +993,7 @@ public class Pickaxes
             manyullynManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynPickaxe");
             uraniumManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynPickaxe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynPickaxe");
             
             MinecraftForge.setToolClass(woodManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());

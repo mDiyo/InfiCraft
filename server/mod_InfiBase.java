@@ -3,15 +3,17 @@ package net.minecraft.src;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.infibase.*;
 import net.minecraft.src.forge.*;
+
 import java.util.*;
 
-    /* Notes
-     * 
-     * Each shard is worth 1/3 of its respective material. 
-     * 2 shards can make 2 rods, while 2 material makes 4 rods.
-     * Freezing enchants and abilities require base edits
-     * Poison enchants have a chance to wear off when hitting mobs
-     */
+/* Notes
+ * 
+ * Each shard is worth 1/3 of its respective material. 
+ * 2 shards can make 2 rods, while 2 material makes 4 rods.
+ * The grindstone can be used to gain a shard of many kinds.
+ * Freezing enchants and abilities require base edits
+ * Poison enchants have a chance to wear off when hitting mobs
+ */
 
 public class mod_InfiBase extends BaseMod
 {
@@ -22,7 +24,7 @@ public class mod_InfiBase extends BaseMod
 	@Override
 	public String getVersion() 
 	{
-		return "1.0.2 for 1.2.5";
+		return "1.0.4 for 1.2.5";
 	}
 	
 	public mod_InfiBase()
@@ -36,6 +38,8 @@ public class mod_InfiBase extends BaseMod
 		this.addMaterialRecipes();
 		this.oreDictionarySupport();
 		this.addEEsupport();
+		this.addOrizonSupport();
+		this.setupCraftHook();
         MinecraftForge.registerEntityInteractHandler(new EnchantHandler());
 	}
 	
@@ -63,12 +67,21 @@ public class mod_InfiBase extends BaseMod
 		        { " # ", "#m#", " # ", '#', Item.redstone, 'm', ironChunk });
 		ModLoader.addRecipe(new ItemStack(glowstoneCrystal, 1), new Object[]
 		        { " # ", "#m#", " # ", '#', Item.lightStoneDust, 'm', ironChunk });
+		
 		ModLoader.addShapelessRecipe(new ItemStack(lavaCrystal, 1), new Object[]
 		        { this.obsidianCrystal, Item.bucketLava, Item.bucketLava, Item.bucketLava });
+		ModLoader.addRecipe(new ItemStack(glowstoneCrystal, 1), new Object[]
+		        { " r ", "gpg", " r ", 'r', Item.redstone, 'g', Item.lightStoneDust, 'm', Item.paper });
+		ModLoader.addRecipe(new ItemStack(glowstoneCrystal, 1), new Object[]
+		        { " g ", "rpr", " g ", 'r', Item.redstone, 'g', Item.lightStoneDust, 'm', Item.paper });
+		ModLoader.addShapelessRecipe(new ItemStack(obsidianCrystal, 1), new Object[]
+		        { Block.obsidian, this.paperDust, this.paperDust, this.paperDust });
+		
+		ModLoader.addRecipe(new ItemStack(grindstone, 1), new Object[]
+		        { "#", '#', Block.stone });
+		
 		ModLoader.addShapelessRecipe(new ItemStack(slimeSand, 1), new Object[]
-		        { Item.slimeBall, Block.sand });		
-		ModLoader.addShapelessRecipe(new ItemStack(slimeSand, 1, 1), new Object[]
-		        { new ItemStack(slimeSand, 1, 0), Block.sand, Block.sand, Block.sand });
+		        { Item.slimeBall, Block.sand });
 		FurnaceRecipes.smelting().addSmelting(slimeSand.blockID, new ItemStack(slimeCrystal, 1));
 		ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
                 { "pwp", "ncn", "plp", 'p', Item.blazePowder, 'w', new ItemStack(Item.bucketWater, 1, -1), 
@@ -86,9 +99,11 @@ public class mod_InfiBase extends BaseMod
 		ModLoader.addRecipe(new ItemStack(Item.legsChain, 1), new Object[] {"###", "# #", "# #", '#', this.ironChunk});
 		ModLoader.addRecipe(new ItemStack(Item.bootsChain, 1), new Object[] {"# #", "# #", '#', this.ironChunk});
 		
-		//Brewing stand
+		//Paper
 		ModLoader.addRecipe(new ItemStack(this.paperStack, 1), new Object[]
 		        { "##", "##", '#', Item.paper });
+		ModLoader.addRecipe(new ItemStack(Item.paper, 4), new Object[]
+		        { "#", '#', this.paperStack });
 		      
 		//Cactus greens to charcoal
 	    FurnaceRecipes.smelting().addSmelting(Item.dyePowder.shiftedIndex, 2, new ItemStack(Item.coal, 1, 1));
@@ -187,6 +202,35 @@ public class mod_InfiBase extends BaseMod
                 { "#", "#", '#', this.cactusShard });
 		ModLoader.addRecipe(new ItemStack(flintRod, 2), new Object[] 
                 { "#", "#", '#', this.flintShard });
+		
+		ModLoader.addShapelessRecipe(new ItemStack(stoneShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.cobblestone });
+		ModLoader.addShapelessRecipe(new ItemStack(ironChunk, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Item.ingotIron });
+		ModLoader.addShapelessRecipe(new ItemStack(diamondShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Item.diamond });
+		ModLoader.addShapelessRecipe(new ItemStack(redstoneFragment, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), this.redstoneCrystal });
+		ModLoader.addShapelessRecipe(new ItemStack(obsidianShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.obsidian });
+		ModLoader.addShapelessRecipe(new ItemStack(sandstoneShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.sandStone });
+		ModLoader.addShapelessRecipe(new ItemStack(netherrackShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.netherrack });
+		ModLoader.addShapelessRecipe(new ItemStack(glowstoneFragment, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), this.glowstoneCrystal });
+		ModLoader.addShapelessRecipe(new ItemStack(iceShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.ice });
+		ModLoader.addShapelessRecipe(new ItemStack(lavaFragment, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), this.lavaCrystal });
+		ModLoader.addShapelessRecipe(new ItemStack(slimeFragment, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), this.slimeCrystal });
+		ModLoader.addShapelessRecipe(new ItemStack(cactusShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.cactus });
+		ModLoader.addShapelessRecipe(new ItemStack(flintShard, 3), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Item.flint });
+		ModLoader.addShapelessRecipe(new ItemStack(Item.flint, 1), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.gravel });
 		
 		Item[] stickArray = { 
 	    		stoneRod, ironRod, diamondRod, redstoneRod, obsidianRod,
@@ -289,10 +333,15 @@ public class mod_InfiBase extends BaseMod
         {
             public void registerOre(String ore, ItemStack itemstack)
             {
-                if(ore.equals("customCobblestone") || ore.equals("customStone"))
+                if(ore.equals("customCobblestone"))
                 {
                 	ModLoader.addRecipe(new ItemStack(stoneRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                }
+                if(ore.equals("customStone"))
+                {
+                	ModLoader.addRecipe(new ItemStack(grindstone, 1), new Object[]
+            		        { "#", '#', itemstack });
                 }
                 if(ore.equals("ingotCopper"))
                 {
@@ -480,6 +529,75 @@ public class mod_InfiBase extends BaseMod
             System.out.println(throwable);
         }
     }
+	
+	public void addOrizonSupport()
+    {
+        try
+        {
+            Class class1 = Class.forName("mod_Mechvent");
+            mod_Mechvent.addCrushingRecipe(new ItemStack(stoneShard, 3), new Object[] 
+                    { Block.cobblestone });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(ironChunk, 3), new Object[] 
+                    { Item.ingotIron });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(diamondShard, 3), new Object[] 
+                    { Item.diamond });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(redstoneFragment, 3), new Object[] 
+                    { this.redstoneCrystal });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(obsidianShard, 3), new Object[] 
+                    { Block.obsidian });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(sandstoneShard, 3), new Object[] 
+                    { Block.sandStone });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(netherrackShard, 3), new Object[] 
+                    { Block.netherrack });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(glowstoneFragment, 3), new Object[] 
+                    { this.glowstoneCrystal });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(iceShard, 3), new Object[] 
+                    { Block.ice });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(lavaFragment, 3), new Object[] 
+                    { this.lavaCrystal });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(slimeFragment, 3), new Object[] 
+                    { this.slimeCrystal });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(cactusShard, 3), new Object[] 
+                    { Block.cactus });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(flintShard, 3), new Object[] 
+                    { Item.flint });
+    		mod_Mechvent.addCrushingRecipe(new ItemStack(Item.flint, 1), new Object[] 
+                    { Block.gravel });
+        }
+        catch (Throwable throwable)
+        {
+        }
+    }
+	
+	private void setupCraftHook()
+    {
+        ICraftingHandler icraftinghandler = new ICraftingHandler()
+        {
+            public void onTakenFromCrafting(EntityPlayer entityplayer, ItemStack itemstack, IInventory iinventory)
+            {
+                for (int i = 0; i < iinventory.getSizeInventory(); i++)
+                {
+                    ItemStack itemstack1 = iinventory.getStackInSlot(i);
+                    if (itemstack1 != null && itemstack1.itemID == grindstone.shiftedIndex)
+                    {
+                    	itemstack1.stackSize++;
+                        itemstack1.damageItem(1, entityplayer);
+                        if (itemstack1.stackSize != 1)
+                        {
+                            continue;
+                        }
+                        Integer integer = (Integer)DetailManager.damageContainer.get(Integer.valueOf(itemstack1.itemID));
+                        if (integer != null)
+                        {
+                            iinventory.setInventorySlotContents(i, new ItemStack(integer.intValue(), 1, 0));
+                        }
+                    }                    
+                }
+            }
+        };
+        
+        MinecraftForge.registerCraftingHandler(icraftinghandler);
+    }
 
 	@Override
 	public void load() {}
@@ -487,6 +605,7 @@ public class mod_InfiBase extends BaseMod
 	public static Block blockMoss;
 	public static Block slimeSand;
 	public static Item treeRoot;
+	public static Item grindstone;
     
 	public static Item paperStack;
     public static Item paperDust;
@@ -562,8 +681,11 @@ public class mod_InfiBase extends BaseMod
     	
     	blockMoss = new MossBlock(PropsHelperInfiBase.mossBlockID, 0);
     	slimeSand = new SlimeSandBlock(PropsHelperInfiBase.slimeSandID, 240);
-    	treeRoot = new InfiTexturedItem(PropsHelperInfiBase.treeRootID, 
+    	treeRoot = new InfiTexturedItem(PropsHelperInfiBase.treeRootID,
     			"/infibase/items.png", "Tree Root").setIconCoord(3, 4);
+    	
+    	grindstone = new Grindstone(PropsHelperInfiBase.grindstoneID,
+    			"/infibase/items.png", "Grindstone").setIconCoord(0, 9);
     	
         paperStack = new InfiTexturedItem(PropsHelperInfiBase.paperStackID, 
         		"/infibase/items.png", "Stack of Paper").setIconCoord(0, 4);
@@ -694,5 +816,4 @@ public class mod_InfiBase extends BaseMod
 		uraniumRod = new InfiTexturedItem(PropsHelperInfiBase.uraniumRodID, 
 				"/infibase/items.png", "Uranium Rod").setIconCoord(9, 1);
     }
-
 }

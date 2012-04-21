@@ -12,7 +12,7 @@ public class Mattocks
 {
     public static Mattocks instance = new Mattocks();
     
-    private static String[] recipe = { "###", "#| ", " | " };
+    private static String[] recipe = { "#s#", "#| ", " | " };
     
     public static Mattocks getInstance()
     {
@@ -54,6 +54,8 @@ public class Mattocks
     	MinecraftForge.setToolClass(woodStoneMattock, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
     	MinecraftForge.setToolClass(woodIronMattock, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
     	MinecraftForge.setToolClass(woodDiamondMattock, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+    	
+    	ModLoader.addName(woodWoodMattock, "Wooden Mattock");
     }
     
     private static void registerVanillaRecipes()
@@ -285,7 +287,7 @@ public class Mattocks
         if(PropsHelperInfiHybrids.enableRedstoneTools)
         {
         	woodRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneMattock");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneMattock");
         	stoneRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneMattock");
         	ironRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+2, 
@@ -371,11 +373,11 @@ public class Mattocks
         if(PropsHelperInfiHybrids.enableObsidianTools)
         {
         	woodObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianMattock");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianMattock");
         	stoneObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianMattock");
         	redstoneObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianMattock");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianMattock");
         	obsidianObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianMattock");;
         	boneObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+4, 
@@ -417,7 +419,7 @@ public class Mattocks
         if(PropsHelperInfiHybrids.enableSandstoneTools)
         {
         	woodSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneMattock");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneMattock");
         	sandstoneSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneMattock");
         	boneSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+2, 
@@ -455,7 +457,7 @@ public class Mattocks
         if(PropsHelperInfiHybrids.enableBoneTools)
         {
         	woodBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneMattock");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneMattock");
         	stoneBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneMattock");
         	sandstoneBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+2, 
@@ -497,13 +499,13 @@ public class Mattocks
         if(PropsHelperInfiHybrids.enablePaperTools)
         {
         	woodPaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperMattock");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperMattock");
         	bonePaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperMattock");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperMattock");
         	paperPaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperMattock");
         	slimePaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperMattock");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperMattock");
         	cactusPaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperMattock");
             
@@ -818,7 +820,7 @@ public class Mattocks
         	boneFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintMattock");
         	netherrackFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintMattock");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintMattock");
         	slimeFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintMattock");
         	cactusFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+6, 
@@ -1008,7 +1010,7 @@ public class Mattocks
             steelWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronMattock");
             uraniumWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronMattock");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronMattock");
             
             MinecraftForge.setToolClass(woodWorkedIronMattock, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronMattock, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -1090,7 +1092,7 @@ public class Mattocks
             arditeSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelMattock");
             uraniumSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelMattock");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelMattock");
 
             MinecraftForge.setToolClass(woodSteelMattock, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelMattock, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -1172,7 +1174,7 @@ public class Mattocks
             manyullynCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltMattock");
             uraniumCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltMattock");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltMattock");
             
             MinecraftForge.setToolClass(woodCobaltMattock, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltMattock, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -1250,7 +1252,7 @@ public class Mattocks
             manyullynArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeMattock");
             uraniumArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeMattock");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeMattock");
             
             MinecraftForge.setToolClass(woodArditeMattock, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeMattock, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -1294,7 +1296,7 @@ public class Mattocks
         if(PropsHelperInfiHybrids.enableManyullynTools)
         {
         	woodManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynMattock");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynMattock");
             stoneManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynMattock");
             ironManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+2, 
@@ -1328,7 +1330,7 @@ public class Mattocks
             manyullynManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynMattock");
             uraniumManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynMattock");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynMattock");
             
             MinecraftForge.setToolClass(woodManyullynMattock, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynMattock, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
@@ -1451,791 +1453,791 @@ public class Mattocks
     	if(PropsHelperInfiHybrids.enableWoodTools)
         {
             ModLoader.addRecipe(new ItemStack(woodWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', Item.stick });
+                    { recipe, '#', Block.planks, '|', Item.stick, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.planks, '|', mod_InfiBase.sandstoneRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', Item.bone });
+                    { recipe, '#', Block.planks, '|', Item.bone, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.planks, '|', mod_InfiBase.boneRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(paperWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.planks, '|', mod_InfiBase.paperRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(iceWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.planks, '|', mod_InfiBase.iceRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(slimeWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.planks, '|', mod_InfiBase.slimeRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(cactusWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.planks, '|', mod_InfiBase.cactusRod, 's', Item.stick });
         }
     	
         if(PropsHelperInfiHybrids.enableStoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.stick });
+                    { recipe, '#', Block.cobblestone, '|', Item.stick, 's', mod_InfiBase.stoneShard });
         	ModLoader.addRecipe(new ItemStack(stoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.bone });
+                    { recipe, '#', Block.cobblestone, '|', Item.bone, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(netherrackStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(iceStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(slimeStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(cactusStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(flintStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.stoneShard });
             
             ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.stick });
+                    { recipe, '#', Block.stone, '|', Item.stick, 's', mod_InfiBase.stoneShard });
         	ModLoader.addRecipe(new ItemStack(stoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.bone });
+                    { recipe, '#', Block.stone, '|', Item.bone, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(netherrackStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(iceStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(slimeStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(cactusStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.stoneShard });
             ModLoader.addRecipe(new ItemStack(flintStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.stone, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.stoneShard });
         }
         
         if(PropsHelperInfiHybrids.enableIronTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.stick });
+                    { recipe, '#', Item.ingotIron, '|', Item.stick, 's', mod_InfiBase.ironChunk });
         	ModLoader.addRecipe(new ItemStack(stoneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(ironIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(boneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.bone });
+                    { recipe, '#', Item.ingotIron, '|', Item.bone, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(boneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(netherrackIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(glowstoneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(cactusIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(copperIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.ironChunk });
             ModLoader.addRecipe(new ItemStack(bronzeIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.ironChunk });
         }
         
         if(PropsHelperInfiHybrids.enableDiamondTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.stick });
+                    { recipe, '#', Item.diamond, '|', Item.stick, 's', mod_InfiBase.diamondShard });
         	ModLoader.addRecipe(new ItemStack(stoneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(ironDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(diamondDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(redstoneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(obsidianDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(boneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.bone });
+                    { recipe, '#', Item.diamond, '|', Item.bone, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(boneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(mossyDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(netherrackDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(glowstoneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(lavaDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(cactusDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(flintDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(blazeDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.blazeRod });
+                    { recipe, '#', Item.diamond, '|', Item.blazeRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(copperDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(bronzeDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(workedDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(steelDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.steelRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(cobaltDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cobaltRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(arditeDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.arditeRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(manyullynDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.diamondShard });
             ModLoader.addRecipe(new ItemStack(uraniumDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', Item.diamond, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.diamondShard });
         }
         
         if(PropsHelperInfiHybrids.enableRedstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.stick });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.stick, 's', mod_InfiBase.redstoneFragment });
         	ModLoader.addRecipe(new ItemStack(stoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(ironRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(redstoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(obsidianRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(sandstoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.bone });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.bone, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(paperRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.paperRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(mossyRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(netherrackRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(glowstoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(iceRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(lavaRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(slimeRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(cactusRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(flintRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(copperRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(bronzeRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(workedRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(uraniumRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.redstoneFragment });
         }
         
         if(PropsHelperInfiHybrids.enableObsidianTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', Item.stick });
+                    { recipe, '#', Block.obsidian, '|', Item.stick, 's', mod_InfiBase.obsidianShard });
         	ModLoader.addRecipe(new ItemStack(stoneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(redstoneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(obsidianObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(boneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', Item.bone });
+                    { recipe, '#', Block.obsidian, '|', Item.bone, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(boneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(netherrackObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(glowstoneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(iceObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(lavaObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.obsidianShard });
             ModLoader.addRecipe(new ItemStack(cactusObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.obsidianShard });
         }
         
         if(PropsHelperInfiHybrids.enableSandstoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', Item.stick });
+                    { recipe, '#', Block.sandStone, '|', Item.stick, 's', mod_InfiBase.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(sandstoneSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(boneSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', Item.bone });
+                    { recipe, '#', Block.sandStone, '|', Item.bone, 's', mod_InfiBase.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(boneSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.boneRod });      
+                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.sandstoneShard });      
             ModLoader.addRecipe(new ItemStack(netherrackSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(iceSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(slimeSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(cactusSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(flintSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.sandstoneShard });
         }
         
         if(PropsHelperInfiHybrids.enableBoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', Item.stick });
+                    { recipe, '#', Item.bone, '|', Item.stick, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(stoneBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.stoneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(sandstoneBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.sandstoneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(boneBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', Item.bone });
+                    { recipe, '#', Item.bone, '|', Item.bone, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(boneBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.boneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(paperBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.paperRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(netherrackBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.netherrackRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(iceBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.iceRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(cactusBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.cactusRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(flintBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.bone, '|', mod_InfiBase.flintRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
         }
         
         if(PropsHelperInfiHybrids.enablePaperTools)
         {
             ModLoader.addRecipe(new ItemStack(woodPaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.stick });
+                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.stick, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(bonePaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.bone });
+                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.bone, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(bonePaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.boneRod, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(paperPaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.paperRod, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(slimePaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.slimeRod, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(cactusPaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.cactusRod, 's', Item.paper });
         }
         
         if(PropsHelperInfiHybrids.enableMossyTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.stick });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.stick, 's', mod_InfiBase.mossyPatch });
         	ModLoader.addRecipe(new ItemStack(stoneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(diamondMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(redstoneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(boneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.bone });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.bone, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(boneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(mossyMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(netherrackMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(glowstoneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(cactusMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(blazeMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.blazeRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.blazeRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(manyullynMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.mossyPatch });
             ModLoader.addRecipe(new ItemStack(uraniumMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.mossyPatch });
         }
         
         if(PropsHelperInfiHybrids.enableNetherrackTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', Item.stick });
+                    { recipe, '#', Block.netherrack, '|', Item.stick, 's', mod_InfiBase.netherrackShard });
         	ModLoader.addRecipe(new ItemStack(stoneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(sandstoneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(boneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', Item.bone });
+                    { recipe, '#', Block.netherrack, '|', Item.bone, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(boneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(paperNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.paperRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(mossyNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(netherrackNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(iceNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(slimeNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(cactusNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(flintNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(copperNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.netherrackShard });
             ModLoader.addRecipe(new ItemStack(bronzeNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.netherrackShard });
         }
         
         if(PropsHelperInfiHybrids.enableGlowstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick, 's', mod_InfiBase.glowstoneFragment });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.glowstoneFragment });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.bone });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.bone, 's', mod_InfiBase.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(cactusGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.glowstoneFragment });
         }
         
         if(PropsHelperInfiHybrids.enableIceTools)
         {
             ModLoader.addRecipe(new ItemStack(woodIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', Item.stick });
+                    { recipe, '#', Block.ice, '|', Item.stick, 's', mod_InfiBase.iceShard });
             ModLoader.addRecipe(new ItemStack(boneIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', Item.bone });
+                    { recipe, '#', Block.ice, '|', Item.bone, 's', mod_InfiBase.iceShard });
             ModLoader.addRecipe(new ItemStack(boneIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.ice, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.iceShard });
             ModLoader.addRecipe(new ItemStack(paperIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.ice, '|', mod_InfiBase.paperRod, 's', mod_InfiBase.iceShard });
             ModLoader.addRecipe(new ItemStack(iceIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.ice, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.iceShard });
             ModLoader.addRecipe(new ItemStack(slimeIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.ice, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.iceShard });
             ModLoader.addRecipe(new ItemStack(cactusIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.ice, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.iceShard });
         }
         
         if(PropsHelperInfiHybrids.enableLavaTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.lavaFragment });
             ModLoader.addRecipe(new ItemStack(obsidianLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.lavaFragment });
             ModLoader.addRecipe(new ItemStack(netherrackLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.lavaFragment });
             ModLoader.addRecipe(new ItemStack(lavaLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.lavaFragment });
             ModLoader.addRecipe(new ItemStack(flintLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.lavaFragment });
             ModLoader.addRecipe(new ItemStack(blazeLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', Item.blazeRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', Item.blazeRod, 's', mod_InfiBase.lavaFragment });
             ModLoader.addRecipe(new ItemStack(manyullynLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.lavaFragment });
             ModLoader.addRecipe(new ItemStack(uraniumLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.lavaFragment });
         }
         
         if(PropsHelperInfiHybrids.enableSlimeTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.stick });
+                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.stick, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(sandstoneSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.sandstoneRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(boneSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.bone });
+                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.bone, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(boneSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.boneRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(paperSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.paperRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(slimeSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.slimeRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(cactusSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.cactusRod, 's', Item.slimeBall });
         }
         
         if(PropsHelperInfiHybrids.enableCactusTools)
         {
             ModLoader.addRecipe(new ItemStack(woodCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', Item.stick });
+                    { recipe, '#', Block.cactus, '|', Item.stick, 's', mod_InfiBase.cactusShard });
             ModLoader.addRecipe(new ItemStack(sandstoneCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cactus, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.cactusShard });
             ModLoader.addRecipe(new ItemStack(boneCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', Item.bone });
+                    { recipe, '#', Block.cactus, '|', Item.bone, 's', mod_InfiBase.cactusShard });
             ModLoader.addRecipe(new ItemStack(boneCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cactus, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.cactusShard });
             ModLoader.addRecipe(new ItemStack(netherrackCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cactus, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.cactusShard });
             ModLoader.addRecipe(new ItemStack(iceCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cactus, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.cactusShard });
             ModLoader.addRecipe(new ItemStack(slimeCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cactus, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.cactusShard });
             ModLoader.addRecipe(new ItemStack(cactusCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cactus, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.cactusShard });
         }
         
         if(PropsHelperInfiHybrids.enableFlintTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', Item.stick });
+                    { recipe, '#', Item.flint, '|', Item.stick, 's', mod_InfiBase.flintShard });
         	ModLoader.addRecipe(new ItemStack(stoneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(sandstoneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(boneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', Item.bone });
+                    { recipe, '#', Item.flint, '|', Item.bone, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(boneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(netherrackFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(slimeFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(cactusFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(flintFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(copperFlintMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.flintShard });
             ModLoader.addRecipe(new ItemStack(bronzeFlintMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.flintShard });
         }
         
         if(PropsHelperInfiHybrids.enableBlazeTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.blazeFragment });
             ModLoader.addRecipe(new ItemStack(obsidianBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.blazeFragment });
             ModLoader.addRecipe(new ItemStack(netherrackBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.blazeFragment });
             ModLoader.addRecipe(new ItemStack(lavaBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.blazeFragment });
             ModLoader.addRecipe(new ItemStack(flintBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.blazeFragment });
             ModLoader.addRecipe(new ItemStack(blazeBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', Item.blazeRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', Item.blazeRod, 's', mod_InfiBase.blazeFragment });
             ModLoader.addRecipe(new ItemStack(manyullynBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.blazeFragment });
             ModLoader.addRecipe(new ItemStack(uraniumBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.blazeFragment });
         }
     }
     
     public static void addStoneTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.stoneShard });
     	ModLoader.addRecipe(new ItemStack(stoneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(sandstoneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.sandstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(netherrackStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(iceStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(slimeStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(cactusStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.stoneShard });
         ModLoader.addRecipe(new ItemStack(flintStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.stoneShard });
     }
     
     public static void addCopperTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(stoneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(boneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(boneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(netherrackCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(slimeCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(cactusCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(flintCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.copperChunk });
         ModLoader.addRecipe(new ItemStack(copperCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.copperChunk });
     }
     
     public static void addBronzeTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(stoneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(boneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(boneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(netherrackBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(slimeBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(cactusBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(flintBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(copperBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(bronzeBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.bronzeChunk });
     }
     
     public static void addWorkedIronTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(stoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(ironWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(diamondWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(redstoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(obsidianWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(netherrackWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(glowstoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(iceWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(slimeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(cactusWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(blazeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(copperWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(bronzeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(workedWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(steelWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(uraniumWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.workedIronChunk });
     }
     
     public static void addSteelTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(stoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(ironSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(diamondSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(redstoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(obsidianSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(boneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(boneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(netherrackSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(glowstoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(iceSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(slimeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(cactusSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(blazeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(copperSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(bronzeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(workedSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(steelSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(cobaltSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(arditeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.steelChunk });
         ModLoader.addRecipe(new ItemStack(uraniumSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.steelChunk });
     }
     
     public static void addCobaltTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(stoneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(ironCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(diamondCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(redstoneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(obsidianCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(boneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(boneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(slimeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(cactusCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(blazeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(copperCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(bronzeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(workedCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(steelCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(cobaltCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(arditeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(manyullynCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(uraniumCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.cobaltChunk });
     }
     
     public static void addArditeTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(stoneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(ironArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(diamondArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(redstoneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(obsidianArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(boneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(boneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(slimeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(cactusArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(blazeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(copperArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(bronzeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(workedArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(steelArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(cobaltArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(arditeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(manyullynArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.arditeChunk });
         ModLoader.addRecipe(new ItemStack(uraniumArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.arditeChunk });
     }
     
     public static void addManyullynTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick });
+                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(stoneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(ironManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(diamondManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(redstoneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(obsidianManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(boneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(boneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(slimeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(cactusManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(blazeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(copperManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(bronzeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(workedManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(steelManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(cobaltManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(arditeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(manyullynManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(uraniumManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.manyullynChunk });
     }
     
     public static void addUraniumTools(ItemStack stack)
     {
         ModLoader.addRecipe(new ItemStack(diamondUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(redstoneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(boneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone });
+                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(boneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(netherrackUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(glowstoneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(lavaUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.lavaRod });
+                { recipe, '#', stack, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(blazeUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(cobaltUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(arditeUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(uraniumUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.uraniumChunk });
     }
     
 	public static Item woodWoodMattock;

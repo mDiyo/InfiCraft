@@ -44,6 +44,8 @@ public class Hatchets
                 InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronHatchet");
     	woodDiamondHatchet = new InfiToolHatchet(PropsHelperInfi2x2.diamondHatchetID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondHatchet");
+    	
+    	ModLoader.addName(woodWoodHatchet, "Wooden Hatchet");
     }
     
     private static void registerVanillaRecipes()
@@ -229,7 +231,7 @@ public class Hatchets
         if(PropsHelperInfi2x2.enableRedstoneTools)
         {
         	woodRedstoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.redstoneHatchetID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneHatchet");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneHatchet");
         	stoneRedstoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.redstoneHatchetID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneHatchet");
         	ironRedstoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.redstoneHatchetID+2, 
@@ -294,11 +296,11 @@ public class Hatchets
         if(PropsHelperInfi2x2.enableObsidianTools)
         {
         	woodObsidianHatchet = new InfiToolHatchet(PropsHelperInfi2x2.obsidianHatchetID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianHatchet");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianHatchet");
         	stoneObsidianHatchet = new InfiToolHatchet(PropsHelperInfi2x2.obsidianHatchetID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianHatchet");
         	redstoneObsidianHatchet = new InfiToolHatchet(PropsHelperInfi2x2.obsidianHatchetID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianHatchet");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianHatchet");
         	obsidianObsidianHatchet = new InfiToolHatchet(PropsHelperInfi2x2.obsidianHatchetID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianHatchet");;
         	boneObsidianHatchet = new InfiToolHatchet(PropsHelperInfi2x2.obsidianHatchetID+4, 
@@ -329,7 +331,7 @@ public class Hatchets
         if(PropsHelperInfi2x2.enableSandstoneTools)
         {
         	woodSandstoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.sandstoneHatchetID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneHatchet");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneHatchet");
         	sandstoneSandstoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.sandstoneHatchetID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneHatchet");
         	boneSandstoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.sandstoneHatchetID+2, 
@@ -358,7 +360,7 @@ public class Hatchets
         if(PropsHelperInfi2x2.enableBoneTools)
         {
         	woodBoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.boneHatchetID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneHatchet");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneHatchet");
         	stoneBoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.boneHatchetID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneHatchet");
         	sandstoneBoneHatchet = new InfiToolHatchet(PropsHelperInfi2x2.boneHatchetID+2, 
@@ -390,13 +392,13 @@ public class Hatchets
         if(PropsHelperInfi2x2.enablePaperTools)
         {
         	woodPaperHatchet = new InfiToolHatchet(PropsHelperInfi2x2.paperHatchetID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperHatchet");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperHatchet");
         	bonePaperHatchet = new InfiToolHatchet(PropsHelperInfi2x2.paperHatchetID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperHatchet");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperHatchet");
         	paperPaperHatchet = new InfiToolHatchet(PropsHelperInfi2x2.paperHatchetID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperHatchet");
         	slimePaperHatchet = new InfiToolHatchet(PropsHelperInfi2x2.paperHatchetID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperHatchet");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperHatchet");
         	cactusPaperHatchet = new InfiToolHatchet(PropsHelperInfi2x2.paperHatchetID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperHatchet");
             
@@ -638,7 +640,7 @@ public class Hatchets
         	boneFlintHatchet = new InfiToolHatchet(PropsHelperInfi2x2.flintHatchetID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintHatchet");
         	netherrackFlintHatchet = new InfiToolHatchet(PropsHelperInfi2x2.flintHatchetID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintHatchet");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintHatchet");
         	slimeFlintHatchet = new InfiToolHatchet(PropsHelperInfi2x2.flintHatchetID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintHatchet");
         	cactusFlintHatchet = new InfiToolHatchet(PropsHelperInfi2x2.flintHatchetID+6, 
@@ -789,7 +791,7 @@ public class Hatchets
             steelWorkedIronHatchet = new InfiToolHatchet(PropsHelperInfi2x2.workedIronHatchetID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronHatchet");
             uraniumWorkedIronHatchet = new InfiToolHatchet(PropsHelperInfi2x2.workedIronHatchetID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronHatchet");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronHatchet");
             
             MinecraftForge.setToolClass(woodWorkedIronHatchet, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronHatchet, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -852,7 +854,7 @@ public class Hatchets
             arditeSteelHatchet = new InfiToolHatchet(PropsHelperInfi2x2.steelHatchetID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelHatchet");
             uraniumSteelHatchet = new InfiToolHatchet(PropsHelperInfi2x2.steelHatchetID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelHatchet");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelHatchet");
 
             MinecraftForge.setToolClass(woodSteelHatchet, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelHatchet, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -913,7 +915,7 @@ public class Hatchets
             manyullynCobaltHatchet = new InfiToolHatchet(PropsHelperInfi2x2.cobaltHatchetID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltHatchet");
             uraniumCobaltHatchet = new InfiToolHatchet(PropsHelperInfi2x2.cobaltHatchetID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltHatchet");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHatchet");
             
             MinecraftForge.setToolClass(woodCobaltHatchet, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltHatchet, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -972,7 +974,7 @@ public class Hatchets
             manyullynArditeHatchet = new InfiToolHatchet(PropsHelperInfi2x2.arditeHatchetID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeHatchet");
             uraniumArditeHatchet = new InfiToolHatchet(PropsHelperInfi2x2.arditeHatchetID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeHatchet");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHatchet");
             
             MinecraftForge.setToolClass(woodArditeHatchet, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeHatchet, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -997,7 +999,7 @@ public class Hatchets
         if(PropsHelperInfi2x2.enableManyullynTools)
         {
         	woodManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynHatchet");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynHatchet");
             stoneManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynHatchet");
             ironManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+2, 
@@ -1031,7 +1033,7 @@ public class Hatchets
             manyullynManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynHatchet");
             uraniumManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynHatchet");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHatchet");
             
             MinecraftForge.setToolClass(woodManyullynHatchet, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynHatchet, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());

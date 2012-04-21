@@ -7,11 +7,11 @@ import java.util.Random;
 import net.minecraft.src.forge.ForgeHooks;
 import net.minecraft.src.forge.ITextureProvider;
 
-public abstract class InfiWeaponCore extends ItemSword
+public abstract class InfiToolCore extends ItemTool
 	implements ITextureProvider
 {
-	public static Random random = new Random();
-	public int secondIconIndex;
+    protected static Random random = new Random();
+    protected int secondIconIndex;
     
     private String[] namePrefix = {
         	"", "Stony ", "Hard ", "Jeweled ", "Red ", "Glassy ", "Sandy ", "Occult ", "Fibery ",
@@ -25,9 +25,9 @@ public abstract class InfiWeaponCore extends ItemSword
         	"Copper", "Bronze", "Worked Iron", "Steel", "Cobalt", "Ardite", "Manyullyn", "Uranium"
         };
 	
-	public InfiWeaponCore(int itemID, int damageBase, InfiMaterialEnum head, InfiMaterialEnum handle, String internalName)
+	public InfiToolCore(int itemID, int damageBase, InfiMaterialEnum head, InfiMaterialEnum handle, String internalName)
 	{
-		super(itemID, EnumToolMaterial.WOOD);
+		super(itemID, damageBase, EnumToolMaterial.WOOD, null);
 
 		this.toolHarvestLevel = head.getHarvestLevel();
 		this.maxStackSize = 1;		
@@ -43,7 +43,6 @@ public abstract class InfiWeaponCore extends ItemSword
         this.headShoddy = head.getShoddy();
         this.handleShoddy = handle.getShoddy();
         this.setIconIndex(handleType - 1);
-        this.setSecondIconIndex(headType + 47);
         this.setItemName(internalName);
         if(headType != handleType)
         {
@@ -83,7 +82,7 @@ public abstract class InfiWeaponCore extends ItemSword
         {
             flag = false;
         }
-        if (flag == false || flag1 == false)
+        if (!flag || !flag1)
         {
             world.playAuxSFX(2001, x, y, z, bID + (md << 12));
             world.setBlockWithNotify(x, y, z, 0);
@@ -103,10 +102,10 @@ public abstract class InfiWeaponCore extends ItemSword
         	unbreaking = handleUnbreaking;
         if (random.nextInt(100) + 1 <= 100 - (unbreaking * 10))
         {
-        	if (itemstack.getItemDamage() + 2 >= itemstack.getMaxDamage())
+        	if (itemstack.getItemDamage() + 1 >= itemstack.getMaxDamage())
         		((EntityPlayer)player).destroyCurrentEquippedItem();
         	else
-        		itemstack.damageItem(2, player);
+        		itemstack.damageItem(1, player);
         }
         return true;
     }
@@ -135,11 +134,12 @@ public abstract class InfiWeaponCore extends ItemSword
         	unbreaking = handleUnbreaking;
         if (random.nextInt(100) + 1 <= 100 - (unbreaking * 10))
         {
-        	if (itemstack.getItemDamage() + 1 >= itemstack.getMaxDamage())
+        	if (itemstack.getItemDamage() + 2 >= itemstack.getMaxDamage())
         		((EntityPlayer)player).destroyCurrentEquippedItem();
         	else
-        		itemstack.damageItem(1, player);
+        		itemstack.damageItem(2, mob);
         }
+        	
         return true;
     }
 
@@ -161,28 +161,22 @@ public abstract class InfiWeaponCore extends ItemSword
         return materialType != 13 && materialType != 14;
     }
 
-    public void attacks(ItemStack itemstack, World world, EntityLiving entityliving, EntityLiving entityliving1, int materialType)
+    public void attacks(ItemStack itemstack, World world, EntityLiving player, EntityLiving mob, int materialType)
     {
         switch (materialType)
         {
-            case 1: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.woodSplinters, world); break;
-            case 2: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.stoneShard, world); break;
-            case 6: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.obsidianShard, world); break;
-            case 7: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.sandstoneShard, world); break;
-            case 11: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.netherrackShard, world); break;
-            case 12: InfiToolPowers.splinterAttack(entityliving, Item.lightStoneDust, world); break;
-            case 13: entityliving1.freeze(35); break;
-            case 14: entityliving1.setFire(40); break;
-            case 15: InfiToolPowers.splinterAttack(entityliving, Item.slimeBall, world); break;
-            case 18: entityliving1.setFire(100); break;
-            case 26: entityliving1.addPotionEffect(new PotionEffect(Potion.poison.id, 3 * 20, 0));
+            case 1: InfiToolPowers.splinterAttack(player, mod_InfiBase.woodSplinters, world); break;
+            case 2: InfiToolPowers.splinterAttack(player, mod_InfiBase.stoneShard, world); break;
+            case 6: InfiToolPowers.splinterAttack(player, mod_InfiBase.obsidianShard, world); break;
+            case 7: InfiToolPowers.splinterAttack(player, mod_InfiBase.sandstoneShard, world); break;
+            case 11: InfiToolPowers.splinterAttack(player, mod_InfiBase.netherrackShard, world); break;
+            case 12: InfiToolPowers.splinterAttack(player, Item.lightStoneDust, world); break;
+            case 13: mob.freeze(35); break;
+            case 14: mob.setFire(40); break;
+            case 15: InfiToolPowers.splinterAttack(player, Item.slimeBall, world); break;
+            case 18: mob.setFire(100); break;
+            case 26: mob.addPotionEffect(new PotionEffect(Potion.poison.id, 3 * 20, 0));
         }
-    }
-    
-    @Override
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
     }
 
     public int getDamageVsEntity(Entity entity)
@@ -193,48 +187,6 @@ public abstract class InfiWeaponCore extends ItemSword
     public boolean isFull3D()
     {
         return true;
-    }
-    
-    public Item setSecondIconIndex(int par1)
-    {
-        this.secondIconIndex = par1;
-        return this;
-    }
-    
-    public Item setSecondIconCoord(int par1, int par2)
-    {
-        this.secondIconIndex = par1 + par2 * 16;
-        return this;
-    }
-    
-    public int getSecondIconFromDamage(int par1)
-    {
-        return this.secondIconIndex;
-    }
-    
-    @Override public int func_46057_a(int meta, int pass)
-    {
-    	if (pass == 0)
-    	{
-    		return this.getIconFromDamage(meta);
-    	}
-    	else
-    		return this.getSecondIconFromDamage(meta);
-    } 
-
-    public final int getSecondIconIndex(ItemStack par1ItemStack)
-    {
-        return this.getSecondIconFromDamage(par1ItemStack.getItemDamage());
-    }
-    
-    public int getRenderPasses(int metadata)
-    {
-    	return 2;
-    }
-        
-    @Override public boolean func_46058_c()
-    {
-    	return true;
     }
 
     public int getItemEnchantability()
@@ -251,13 +203,13 @@ public abstract class InfiWeaponCore extends ItemSword
     }
 
     protected float efficiencyOnProperMaterial;
-    public int toolHarvestLevel;
-    public int toolDamage;
-    public int enchantibility;
-    public int headType;
-    public int handleType;
-    public int headUnbreaking;
-    public int handleUnbreaking;
-    public boolean headShoddy;
-	public boolean handleShoddy;
+    protected int toolHarvestLevel;
+    protected int toolDamage;
+	protected int enchantibility;
+	protected int headType;
+	protected int handleType;
+	protected int headUnbreaking;
+	protected int handleUnbreaking;
+	protected boolean headShoddy;
+	protected boolean handleShoddy;
 }

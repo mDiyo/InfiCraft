@@ -44,6 +44,8 @@ public class Daggers
                 InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronDagger");
     	woodDiamondDagger = new InfiToolDagger(PropsHelperInfi2x2.diamondDaggerID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondDagger");
+    	
+    	ModLoader.addName(woodWoodDagger, "Wooden Dagger");
     }
     
     private static void registerVanillaRecipes()
@@ -76,7 +78,6 @@ public class Daggers
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodDagger");
     		cactusWoodDagger = new InfiToolDagger(PropsHelperInfi2x2.woodDaggerID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodDagger");
-
     	}
 
         if(PropsHelperInfi2x2.enableStoneTools)
@@ -99,9 +100,6 @@ public class Daggers
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneDagger");
         	flintStoneDagger = new InfiToolDagger(PropsHelperInfi2x2.stoneDaggerID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneDagger");
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableIronTools)
@@ -124,16 +122,6 @@ public class Daggers
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronDagger");
         	bronzeIronDagger = new InfiToolDagger(PropsHelperInfi2x2.ironDaggerID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronDagger");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableDiamondTools)
@@ -182,35 +170,12 @@ public class Daggers
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondDagger");
             uraniumDiamondDagger = new InfiToolDagger(PropsHelperInfi2x2.diamondDaggerID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondDagger");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableRedstoneTools)
         {
         	woodRedstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.redstoneDaggerID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneDagger");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneDagger");
         	stoneRedstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.redstoneDaggerID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneDagger");
         	ironRedstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.redstoneDaggerID+2, 
@@ -249,37 +214,16 @@ public class Daggers
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneDagger");
         	uraniumRedstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.redstoneDaggerID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneDagger");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableObsidianTools)
         {
         	woodObsidianDagger = new InfiToolDagger(PropsHelperInfi2x2.obsidianDaggerID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianDagger");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianDagger");
         	stoneObsidianDagger = new InfiToolDagger(PropsHelperInfi2x2.obsidianDaggerID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianDagger");
         	redstoneObsidianDagger = new InfiToolDagger(PropsHelperInfi2x2.obsidianDaggerID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianDagger");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianDagger");
         	obsidianObsidianDagger = new InfiToolDagger(PropsHelperInfi2x2.obsidianDaggerID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianDagger");;
         	boneObsidianDagger = new InfiToolDagger(PropsHelperInfi2x2.obsidianDaggerID+4, 
@@ -294,23 +238,12 @@ public class Daggers
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianDagger");
         	cactusObsidianDagger = new InfiToolDagger(PropsHelperInfi2x2.obsidianDaggerID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianDagger");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableSandstoneTools)
         {
         	woodSandstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.sandstoneDaggerID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneDagger");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneDagger");
         	sandstoneSandstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.sandstoneDaggerID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneDagger");
         	boneSandstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.sandstoneDaggerID+2, 
@@ -325,15 +258,6 @@ public class Daggers
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneDagger");
         	flintSandstoneDagger = new InfiToolDagger(PropsHelperInfi2x2.sandstoneDaggerID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneDagger");
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableBoneTools)
@@ -356,36 +280,20 @@ public class Daggers
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneDagger");
         	flintBoneDagger = new InfiToolDagger(PropsHelperInfi2x2.boneDaggerID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneDagger");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enablePaperTools)
         {
         	woodPaperDagger = new InfiToolDagger(PropsHelperInfi2x2.paperDaggerID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperDagger");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperDagger");
         	bonePaperDagger = new InfiToolDagger(PropsHelperInfi2x2.paperDaggerID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperDagger");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperDagger");
         	paperPaperDagger = new InfiToolDagger(PropsHelperInfi2x2.paperDaggerID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperDagger");
         	slimePaperDagger = new InfiToolDagger(PropsHelperInfi2x2.paperDaggerID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperDagger");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperDagger");
         	cactusPaperDagger = new InfiToolDagger(PropsHelperInfi2x2.paperDaggerID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperDagger");
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableMossyTools)
@@ -414,19 +322,6 @@ public class Daggers
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyDagger");
         	uraniumMossyDagger = new InfiToolDagger(PropsHelperInfi2x2.mossyDaggerID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyDagger");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfi2x2.enableNetherrackTools)

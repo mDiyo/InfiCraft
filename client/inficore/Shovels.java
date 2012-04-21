@@ -191,7 +191,7 @@ public class Shovels
         if(PropsHelperInfiTools.enableRedstoneTools)
         {
         	woodRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneShovel");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneShovel");
         	stoneRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneShovel");
         	ironRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+2, 
@@ -256,11 +256,11 @@ public class Shovels
         if(PropsHelperInfiTools.enableObsidianTools)
         {
         	woodObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianShovel");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianShovel");
         	stoneObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianShovel");
         	redstoneObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianShovel");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianShovel");
         	obsidianObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianShovel");;
         	boneObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+4, 
@@ -291,7 +291,7 @@ public class Shovels
         if(PropsHelperInfiTools.enableSandstoneTools)
         {
         	woodSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneShovel");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneShovel");
         	sandstoneSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneShovel");
         	boneSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+2, 
@@ -320,7 +320,7 @@ public class Shovels
         if(PropsHelperInfiTools.enableBoneTools)
         {
         	woodBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneShovel");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneShovel");
         	stoneBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneShovel");
         	sandstoneBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+2, 
@@ -352,13 +352,13 @@ public class Shovels
         if(PropsHelperInfiTools.enablePaperTools)
         {
         	woodPaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperShovel");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperShovel");
         	bonePaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperShovel");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperShovel");
         	paperPaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperShovel");
         	slimePaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperShovel");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperShovel");
         	cactusPaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperShovel");
             
@@ -600,7 +600,7 @@ public class Shovels
         	boneFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintShovel");
         	netherrackFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintShovel");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintShovel");
         	slimeFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintShovel");
         	cactusFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+6, 
@@ -751,7 +751,7 @@ public class Shovels
             steelWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronShovel");
             uraniumWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronShovel");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronShovel");
             
             MinecraftForge.setToolClass(woodWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -814,7 +814,7 @@ public class Shovels
             arditeSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelShovel");
             uraniumSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelShovel");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelShovel");
 
             MinecraftForge.setToolClass(woodSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -875,7 +875,7 @@ public class Shovels
             manyullynCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltShovel");
             uraniumCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltShovel");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltShovel");
             
             MinecraftForge.setToolClass(woodCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -934,7 +934,7 @@ public class Shovels
             manyullynArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeShovel");
             uraniumArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeShovel");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeShovel");
             
             MinecraftForge.setToolClass(woodArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -959,7 +959,7 @@ public class Shovels
         if(PropsHelperInfiTools.enableManyullynTools)
         {
         	woodManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynShovel");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynShovel");
             stoneManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynShovel");
             ironManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+2, 
@@ -993,7 +993,7 @@ public class Shovels
             manyullynManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynShovel");
             uraniumManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynShovel");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynShovel");
             
             MinecraftForge.setToolClass(woodManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());

@@ -31,8 +31,14 @@ public class InfiToolScythe extends InfiWeaponCore
         return itemstack;
     }
     
-    public ItemStack onFoodEaten(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    @Override
+    public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int useTime)
     {
+    	if (useTime < 10)
+        {
+            return;
+        }
+    	
     	int facing = MathHelper.floor_double((double)(entityplayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
         if (facing == 0)
@@ -63,7 +69,6 @@ public class InfiToolScythe extends InfiWeaponCore
             		entityplayer.posX +3, entityplayer.posY, entityplayer.posZ +1);
         }
     	entityplayer.swingItem();
-    	return itemstack;
     }
     
     private void reap(ItemStack itemstack, World world, EntityPlayer entityplayer, 
@@ -123,7 +128,7 @@ public class InfiToolScythe extends InfiWeaponCore
     
     public int getMaxItemUseDuration(ItemStack itemstack)
     {
-        return 15;
+        return 32000;
     }
     
     public EnumAction getItemUseAction(ItemStack itemstack)

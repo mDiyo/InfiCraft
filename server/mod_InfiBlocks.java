@@ -9,7 +9,7 @@ public class mod_InfiBlocks extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "v0.7.9 Color Bricked";
+		return "v0.7.10 Color Bricked";
 	}
 
 	public void load()
@@ -17,7 +17,7 @@ public class mod_InfiBlocks extends NetworkMod
 		//checkInitialized();
 	}
 	
-	public static void oreDictionarySupport()
+	public void oreDictionarySupport()
     {
         MinecraftForge.registerOreHandler(new IOreHandler()
         {
@@ -28,9 +28,126 @@ public class mod_InfiBlocks extends NetworkMod
                 	ModLoader.addRecipe(new ItemStack(workbench, 1), new Object[]
             	            { "##", "##", '#', stack });
                 }
+                if(ore.equals("stoneRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("ironRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("diamondRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("redstoneRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("obsidianRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("sandstoneRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("paperRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("mossyRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("netherrackRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("glowstoneRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("lavaRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("iceRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("slimeRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("cactusRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("flintRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("copperRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("bronzeRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("workedIronRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("steelRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("cobaltRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("arditeRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("manyullynRod"))
+                {
+                	addStickRecipe(stack);
+                }
+                else if(ore.equals("uraniumRod"))
+                {
+                	addStickRecipe(stack);
+                }
             }
         } );
     }
+	
+	private void addStickRecipe(ItemStack stack)
+	{
+		ModLoader.addRecipe(new ItemStack(Block.torchWood, 4), new Object[]
+		{
+			"c", "s", 'c', new ItemStack(Item.coal, 1, -1), 's', stack
+		});
+		ModLoader.addRecipe(new ItemStack(Block.torchRedstoneActive, 1), new Object[]
+		{
+			"c", "s", 'c', new ItemStack(Item.redstone, 1, 0), 's', stack
+		});
+		ModLoader.addRecipe(new ItemStack(Block.lever, 1), new Object[]
+		{
+			"s", "c", 'c', new ItemStack(Block.cobblestone, 1, 0), 's', stack
+		});
+		ModLoader.addRecipe(new ItemStack(Block.rail, 16), new Object[]
+		{
+			"c c", "csc", "c c", 'c', new ItemStack(Item.ingotIron, 1, 0), 's', stack
+		});
+		ModLoader.addRecipe(new ItemStack(Block.railPowered, 6), new Object[]
+		{
+			"c c", "csc", "crc", 'c', new ItemStack(Item.ingotGold, 1, -1), 
+			's', stack, 'r', new ItemStack(Item.redstone, 1, 0)
+		});
+	}
 
 	private static void setupCraftHook()
     {

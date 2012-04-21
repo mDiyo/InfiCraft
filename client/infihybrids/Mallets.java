@@ -49,6 +49,8 @@ public class Mallets
     	MinecraftForge.setToolClass(woodStoneMallet, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
     	MinecraftForge.setToolClass(woodIronMallet, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
     	MinecraftForge.setToolClass(woodDiamondMallet, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+    	
+    	ModLoader.addName(woodWoodMallet, "Wooden Mallet");
     }
     
     private static void registerVanillaRecipes()
@@ -229,7 +231,7 @@ public class Mallets
         if(PropsHelperInfiHybrids.enableRedstoneTools)
         {
         	woodRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneMallet");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneMallet");
         	stoneRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneMallet");
         	ironRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+2, 
@@ -294,11 +296,11 @@ public class Mallets
         if(PropsHelperInfiHybrids.enableObsidianTools)
         {
         	woodObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianMallet");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianMallet");
         	stoneObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianMallet");
         	redstoneObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianMallet");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianMallet");
         	obsidianObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianMallet");;
         	boneObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+4, 
@@ -329,7 +331,7 @@ public class Mallets
         if(PropsHelperInfiHybrids.enableSandstoneTools)
         {
         	woodSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneMallet");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneMallet");
         	sandstoneSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneMallet");
         	boneSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+2, 
@@ -358,7 +360,7 @@ public class Mallets
         if(PropsHelperInfiHybrids.enableBoneTools)
         {
         	woodBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneMallet");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneMallet");
         	stoneBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneMallet");
         	sandstoneBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+2, 
@@ -390,13 +392,13 @@ public class Mallets
         if(PropsHelperInfiHybrids.enablePaperTools)
         {
         	woodPaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperMallet");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperMallet");
         	bonePaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperMallet");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperMallet");
         	paperPaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperMallet");
         	slimePaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperMallet");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperMallet");
         	cactusPaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperMallet");
             
@@ -638,7 +640,7 @@ public class Mallets
         	boneFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintMallet");
         	netherrackFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintMallet");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintMallet");
         	slimeFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintMallet");
         	cactusFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+6, 
@@ -789,7 +791,7 @@ public class Mallets
             steelWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronMallet");
             uraniumWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronMallet");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronMallet");
             
             MinecraftForge.setToolClass(woodWorkedIronMallet, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronMallet, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -852,7 +854,7 @@ public class Mallets
             arditeSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelMallet");
             uraniumSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelMallet");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelMallet");
 
             MinecraftForge.setToolClass(woodSteelMallet, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelMallet, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -913,7 +915,7 @@ public class Mallets
             manyullynCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltMallet");
             uraniumCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltMallet");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltMallet");
             
             MinecraftForge.setToolClass(woodCobaltMallet, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltMallet, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -972,7 +974,7 @@ public class Mallets
             manyullynArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeMallet");
             uraniumArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeMallet");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeMallet");
             
             MinecraftForge.setToolClass(woodArditeMallet, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeMallet, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -997,7 +999,7 @@ public class Mallets
         if(PropsHelperInfiHybrids.enableManyullynTools)
         {
         	woodManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynMallet");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynMallet");
             stoneManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynMallet");
             ironManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+2, 
@@ -1031,7 +1033,7 @@ public class Mallets
             manyullynManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynMallet");
             uraniumManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynMallet");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynMallet");
             
             MinecraftForge.setToolClass(woodManyullynMallet, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynMallet, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());

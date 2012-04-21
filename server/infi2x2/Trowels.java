@@ -44,6 +44,8 @@ public class Trowels
                 InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronTrowel");
     	woodDiamondTrowel = new InfiToolTrowel(PropsHelperInfi2x2.diamondTrowelID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondTrowel");
+    	
+    	ModLoader.addName(woodWoodTrowel, "Wooden Trowel");
     }
     
     private static void registerVanillaRecipes()
@@ -229,7 +231,7 @@ public class Trowels
         if(PropsHelperInfi2x2.enableRedstoneTools)
         {
         	woodRedstoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.redstoneTrowelID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneTrowel");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneTrowel");
         	stoneRedstoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.redstoneTrowelID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneTrowel");
         	ironRedstoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.redstoneTrowelID+2, 
@@ -294,11 +296,11 @@ public class Trowels
         if(PropsHelperInfi2x2.enableObsidianTools)
         {
         	woodObsidianTrowel = new InfiToolTrowel(PropsHelperInfi2x2.obsidianTrowelID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianTrowel");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianTrowel");
         	stoneObsidianTrowel = new InfiToolTrowel(PropsHelperInfi2x2.obsidianTrowelID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianTrowel");
         	redstoneObsidianTrowel = new InfiToolTrowel(PropsHelperInfi2x2.obsidianTrowelID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianTrowel");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianTrowel");
         	obsidianObsidianTrowel = new InfiToolTrowel(PropsHelperInfi2x2.obsidianTrowelID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianTrowel");;
         	boneObsidianTrowel = new InfiToolTrowel(PropsHelperInfi2x2.obsidianTrowelID+4, 
@@ -329,7 +331,7 @@ public class Trowels
         if(PropsHelperInfi2x2.enableSandstoneTools)
         {
         	woodSandstoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.sandstoneTrowelID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneTrowel");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneTrowel");
         	sandstoneSandstoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.sandstoneTrowelID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneTrowel");
         	boneSandstoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.sandstoneTrowelID+2, 
@@ -358,7 +360,7 @@ public class Trowels
         if(PropsHelperInfi2x2.enableBoneTools)
         {
         	woodBoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.boneTrowelID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneTrowel");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneTrowel");
         	stoneBoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.boneTrowelID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneTrowel");
         	sandstoneBoneTrowel = new InfiToolTrowel(PropsHelperInfi2x2.boneTrowelID+2, 
@@ -390,13 +392,13 @@ public class Trowels
         if(PropsHelperInfi2x2.enablePaperTools)
         {
         	woodPaperTrowel = new InfiToolTrowel(PropsHelperInfi2x2.paperTrowelID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperTrowel");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperTrowel");
         	bonePaperTrowel = new InfiToolTrowel(PropsHelperInfi2x2.paperTrowelID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperTrowel");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperTrowel");
         	paperPaperTrowel = new InfiToolTrowel(PropsHelperInfi2x2.paperTrowelID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperTrowel");
         	slimePaperTrowel = new InfiToolTrowel(PropsHelperInfi2x2.paperTrowelID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperTrowel");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperTrowel");
         	cactusPaperTrowel = new InfiToolTrowel(PropsHelperInfi2x2.paperTrowelID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperTrowel");
             
@@ -638,7 +640,7 @@ public class Trowels
         	boneFlintTrowel = new InfiToolTrowel(PropsHelperInfi2x2.flintTrowelID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintTrowel");
         	netherrackFlintTrowel = new InfiToolTrowel(PropsHelperInfi2x2.flintTrowelID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintTrowel");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintTrowel");
         	slimeFlintTrowel = new InfiToolTrowel(PropsHelperInfi2x2.flintTrowelID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintTrowel");
         	cactusFlintTrowel = new InfiToolTrowel(PropsHelperInfi2x2.flintTrowelID+6, 
@@ -789,7 +791,7 @@ public class Trowels
             steelWorkedIronTrowel = new InfiToolTrowel(PropsHelperInfi2x2.workedIronTrowelID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronTrowel");
             uraniumWorkedIronTrowel = new InfiToolTrowel(PropsHelperInfi2x2.workedIronTrowelID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronTrowel");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronTrowel");
             
             MinecraftForge.setToolClass(woodWorkedIronTrowel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronTrowel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -852,7 +854,7 @@ public class Trowels
             arditeSteelTrowel = new InfiToolTrowel(PropsHelperInfi2x2.steelTrowelID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelTrowel");
             uraniumSteelTrowel = new InfiToolTrowel(PropsHelperInfi2x2.steelTrowelID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelTrowel");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelTrowel");
 
             MinecraftForge.setToolClass(woodSteelTrowel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelTrowel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -913,7 +915,7 @@ public class Trowels
             manyullynCobaltTrowel = new InfiToolTrowel(PropsHelperInfi2x2.cobaltTrowelID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltTrowel");
             uraniumCobaltTrowel = new InfiToolTrowel(PropsHelperInfi2x2.cobaltTrowelID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltTrowel");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltTrowel");
             
             MinecraftForge.setToolClass(woodCobaltTrowel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltTrowel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -972,7 +974,7 @@ public class Trowels
             manyullynArditeTrowel = new InfiToolTrowel(PropsHelperInfi2x2.arditeTrowelID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeTrowel");
             uraniumArditeTrowel = new InfiToolTrowel(PropsHelperInfi2x2.arditeTrowelID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeTrowel");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeTrowel");
             
             MinecraftForge.setToolClass(woodArditeTrowel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeTrowel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -997,7 +999,7 @@ public class Trowels
         if(PropsHelperInfi2x2.enableManyullynTools)
         {
         	woodManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynTrowel");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynTrowel");
             stoneManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynTrowel");
             ironManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+2, 
@@ -1031,7 +1033,7 @@ public class Trowels
             manyullynManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynTrowel");
             uraniumManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynTrowel");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynTrowel");
             
             MinecraftForge.setToolClass(woodManyullynTrowel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynTrowel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());

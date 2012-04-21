@@ -44,6 +44,8 @@ public class Handpicks
                 InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronHandpick");
     	woodDiamondHandpick = new InfiToolHandpick(PropsHelperInfi2x2.diamondHandpickID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondHandpick");
+    	
+    	ModLoader.addName(woodWoodHandpick, "Wooden Handpick");
     }
     
     private static void registerVanillaRecipes()
@@ -229,7 +231,7 @@ public class Handpicks
         if(PropsHelperInfi2x2.enableRedstoneTools)
         {
         	woodRedstoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.redstoneHandpickID+0, 
-                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "woodRedstoneHandpick");
+                    InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneHandpick");
         	stoneRedstoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.redstoneHandpickID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneHandpick");
         	ironRedstoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.redstoneHandpickID+2, 
@@ -294,11 +296,11 @@ public class Handpicks
         if(PropsHelperInfi2x2.enableObsidianTools)
         {
         	woodObsidianHandpick = new InfiToolHandpick(PropsHelperInfi2x2.obsidianHandpickID+0, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "woodObsidianHandpick");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianHandpick");
         	stoneObsidianHandpick = new InfiToolHandpick(PropsHelperInfi2x2.obsidianHandpickID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianHandpick");
         	redstoneObsidianHandpick = new InfiToolHandpick(PropsHelperInfi2x2.obsidianHandpickID+2, 
-                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "redstoneObsidianHandpick");
+                    InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianHandpick");
         	obsidianObsidianHandpick = new InfiToolHandpick(PropsHelperInfi2x2.obsidianHandpickID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianHandpick");;
         	boneObsidianHandpick = new InfiToolHandpick(PropsHelperInfi2x2.obsidianHandpickID+4, 
@@ -329,7 +331,7 @@ public class Handpicks
         if(PropsHelperInfi2x2.enableSandstoneTools)
         {
         	woodSandstoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.sandstoneHandpickID+0, 
-                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "woodSandstoneHandpick");
+                    InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneHandpick");
         	sandstoneSandstoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.sandstoneHandpickID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneHandpick");
         	boneSandstoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.sandstoneHandpickID+2, 
@@ -358,7 +360,7 @@ public class Handpicks
         if(PropsHelperInfi2x2.enableBoneTools)
         {
         	woodBoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.boneHandpickID+0, 
-                    InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "woodBoneHandpick");
+                    InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneHandpick");
         	stoneBoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.boneHandpickID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneHandpick");
         	sandstoneBoneHandpick = new InfiToolHandpick(PropsHelperInfi2x2.boneHandpickID+2, 
@@ -390,13 +392,13 @@ public class Handpicks
         if(PropsHelperInfi2x2.enablePaperTools)
         {
         	woodPaperHandpick = new InfiToolHandpick(PropsHelperInfi2x2.paperHandpickID+0, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "woodPaperHandpick");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperHandpick");
         	bonePaperHandpick = new InfiToolHandpick(PropsHelperInfi2x2.paperHandpickID+1, 
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "bonePaperHandpick");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperHandpick");
         	paperPaperHandpick = new InfiToolHandpick(PropsHelperInfi2x2.paperHandpickID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperHandpick");
         	slimePaperHandpick = new InfiToolHandpick(PropsHelperInfi2x2.paperHandpickID+3,
-                    InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "slimePaperHandpick");
+                    InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperHandpick");
         	cactusPaperHandpick = new InfiToolHandpick(PropsHelperInfi2x2.paperHandpickID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperHandpick");
             
@@ -638,7 +640,7 @@ public class Handpicks
         	boneFlintHandpick = new InfiToolHandpick(PropsHelperInfi2x2.flintHandpickID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintHandpick");
         	netherrackFlintHandpick = new InfiToolHandpick(PropsHelperInfi2x2.flintHandpickID+4, 
-                    InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "netherrackFlintHandpick");
+                    InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintHandpick");
         	slimeFlintHandpick = new InfiToolHandpick(PropsHelperInfi2x2.flintHandpickID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintHandpick");
         	cactusFlintHandpick = new InfiToolHandpick(PropsHelperInfi2x2.flintHandpickID+6, 
@@ -789,7 +791,7 @@ public class Handpicks
             steelWorkedIronHandpick = new InfiToolHandpick(PropsHelperInfi2x2.workedIronHandpickID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronHandpick");
             uraniumWorkedIronHandpick = new InfiToolHandpick(PropsHelperInfi2x2.workedIronHandpickID+17, 
-                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "uraniumWorkedIronHandpick");
+                    InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronHandpick");
             
             MinecraftForge.setToolClass(woodWorkedIronHandpick, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneWorkedIronHandpick, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -852,7 +854,7 @@ public class Handpicks
             arditeSteelHandpick = new InfiToolHandpick(PropsHelperInfi2x2.steelHandpickID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelHandpick");
             uraniumSteelHandpick = new InfiToolHandpick(PropsHelperInfi2x2.steelHandpickID+19, 
-                    InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "uraniumSteelHandpick");
+                    InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelHandpick");
 
             MinecraftForge.setToolClass(woodSteelHandpick, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
             MinecraftForge.setToolClass(stoneSteelHandpick, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -913,7 +915,7 @@ public class Handpicks
             manyullynCobaltHandpick = new InfiToolHandpick(PropsHelperInfi2x2.cobaltHandpickID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltHandpick");
             uraniumCobaltHandpick = new InfiToolHandpick(PropsHelperInfi2x2.cobaltHandpickID+17, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "uraniumCobaltHandpick");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHandpick");
             
             MinecraftForge.setToolClass(woodCobaltHandpick, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
             MinecraftForge.setToolClass(stoneCobaltHandpick, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -972,7 +974,7 @@ public class Handpicks
             manyullynArditeHandpick = new InfiToolHandpick(PropsHelperInfi2x2.arditeHandpickID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeHandpick");
             uraniumArditeHandpick = new InfiToolHandpick(PropsHelperInfi2x2.arditeHandpickID+17, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "uraniumArditeHandpick");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHandpick");
             
             MinecraftForge.setToolClass(woodArditeHandpick, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
             MinecraftForge.setToolClass(stoneArditeHandpick, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -997,7 +999,7 @@ public class Handpicks
         if(PropsHelperInfi2x2.enableManyullynTools)
         {
         	woodManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+0, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "woodManyullynHandpick");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynHandpick");
             stoneManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynHandpick");
             ironManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+2, 
@@ -1031,7 +1033,7 @@ public class Handpicks
             manyullynManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynHandpick");
             uraniumManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+17,
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynHandpick");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHandpick");
             
             MinecraftForge.setToolClass(woodManyullynHandpick, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
             MinecraftForge.setToolClass(stoneManyullynHandpick, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());

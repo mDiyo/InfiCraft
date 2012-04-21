@@ -33,7 +33,7 @@ public abstract class InfiHoeCore extends ItemHoe
 		this.maxStackSize = 1;		
         this.efficiencyOnProperMaterial = head.getSpeed();
         this.toolDamage = damageBase + head.getDamage();
-        this.durability = (int)(head.getDurability() * handle.getDurabilityBonus());        
+        int durability = (int)(head.getDurability() * handle.getDurabilityBonus());        
         setMaxDamage(durability);
         this.headType = head.getMaterialType();
         this.handleType = handle.getMaterialType();
@@ -43,7 +43,7 @@ public abstract class InfiHoeCore extends ItemHoe
         this.headShoddy = head.getShoddy();
         this.handleShoddy = handle.getShoddy();
         this.setIconIndex(handleType - 1);
-        this.setSecondIconIndex(headType + 127);
+        this.setSecondIconIndex(headType + 47);
         this.setItemName(internalName);
         if(headType != handleType)
         {
@@ -128,44 +128,37 @@ public abstract class InfiHoeCore extends ItemHoe
         }
     }
 
-    public boolean onBlockDestroyed(ItemStack itemstack, int i, int j, int k, int l, EntityLiving entityliving)
+	public boolean onBlockDestroyed(ItemStack itemstack, int bID, int x, int y, int z, EntityLiving player)
     {
-        int i1 = itemstack.getItemDamage();
-        if (i1 >= durability)
-        {
-            itemstack.stackSize = 0;
-        }
         int unbreaking = headUnbreaking;
         if (handleUnbreaking > unbreaking)
         	unbreaking = handleUnbreaking;
         if (random.nextInt(100) + 1 <= 100 - (unbreaking * 10))
         {
-            itemstack.damageItem(2, entityliving);
-        }
-        if (i >= durability)
-        {
-            itemstack.stackSize = 0;
-            itemstack = null;
+        	if (itemstack.getItemDamage() + 1 >= itemstack.getMaxDamage())
+        		((EntityPlayer)player).destroyCurrentEquippedItem();
+        	else
+        		itemstack.damageItem(1, player);
         }
         return true;
     }
 
-    public boolean hitEntity(ItemStack itemstack, EntityLiving entityliving, EntityLiving entityliving1)
+    public boolean hitEntity(ItemStack itemstack, EntityLiving mob, EntityLiving player)
     {
-        World world = entityliving1.worldObj;
+        World world = player.worldObj;
         if (headType == handleType)
         {
-            attacks(itemstack, world, entityliving1, entityliving, headType);
+            attacks(itemstack, world, player, mob, headType);
         }
         else
         {
             if (random.nextInt(100) + 1 <= 80)
             {
-                attacks(itemstack, world, entityliving1, entityliving, headType);
+                attacks(itemstack, world, player, mob, headType);
             }
             if (random.nextInt(100) + 1 <= 20)
             {
-                attacks(itemstack, world, entityliving1, entityliving, handleType);
+                attacks(itemstack, world, player, mob, handleType);
             }
         }
         
@@ -174,13 +167,10 @@ public abstract class InfiHoeCore extends ItemHoe
         	unbreaking = handleUnbreaking;
         if (random.nextInt(100) + 1 <= 100 - (unbreaking * 10))
         {
-            itemstack.damageItem(1, entityliving);
-        }
-        int i = itemstack.getItemDamage();
-        if (i >= durability)
-        {
-            itemstack.stackSize = 0;
-            itemstack = null;
+        	if (itemstack.getItemDamage() + 1 >= itemstack.getMaxDamage())
+        		((EntityPlayer)player).destroyCurrentEquippedItem();
+        	else
+        		itemstack.damageItem(1, player);
         }
         return true;
     }
@@ -213,12 +203,14 @@ public abstract class InfiHoeCore extends ItemHoe
             case 7: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.sandstoneShard, world); break;
             case 11: InfiToolPowers.splinterAttack(entityliving, mod_InfiBase.netherrackShard, world); break;
             case 12: InfiToolPowers.splinterAttack(entityliving, Item.lightStoneDust, world); break;
-            case 13: entityliving1.freeze(); break;
-            case 14: entityliving1.setFire(100); break;
+            case 13: entityliving1.freeze(35); break;
+            case 14: entityliving1.setFire(40); break;
+            case 15: InfiToolPowers.splinterAttack(entityliving, Item.slimeBall, world); break;
             case 18: entityliving1.setFire(100); break;
+            case 26: entityliving1.addPotionEffect(new PotionEffect(Potion.poison.id, 3 * 20, 0));
         }
     }
-
+    
     public int getDamageVsEntity(Entity entity)
     {
         return toolDamage;
@@ -246,7 +238,8 @@ public abstract class InfiHoeCore extends ItemHoe
         return this.secondIconIndex;
     }
     
-    @Override public int func_46057_a(int meta, int pass)
+    @Override 
+    public int func_46057_a(int meta, int pass)
     {
     	if (pass == 0)
     	{
@@ -287,7 +280,6 @@ public abstract class InfiHoeCore extends ItemHoe
     protected float efficiencyOnProperMaterial;
     protected int toolHarvestLevel;
     protected int toolDamage;
-    protected int durability;
 	protected int enchantibility;
 	protected int headType;
 	protected int handleType;

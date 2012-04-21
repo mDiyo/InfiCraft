@@ -11,7 +11,7 @@ public class mod_Orizon extends NetworkMod
 
     public String getVersion()
     {
-        return "v1.0.5";
+        return "v1.0.6";
     }
 
     public mod_Orizon()
@@ -370,7 +370,7 @@ public class mod_Orizon extends NetworkMod
     public static boolean genArdite;
     public static boolean genMyuvil;
     public static boolean genGalena;
-    public static boolean genChrysocolla;
+    public static boolean genIvymetal;
     public static boolean genAggregate;
     
     public static Block slimeStill;
