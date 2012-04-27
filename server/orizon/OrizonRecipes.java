@@ -164,6 +164,8 @@ public class OrizonRecipes {
 				{" B ", "###", '#', new ItemStack(mod_Orizon.cCobble, 1, -1), 'B', Item.blazeRod});
 		ModLoader.addRecipe(new ItemStack(Block.stairCompactCobblestone, 4), new Object[] 
 				{"#  ", "## ", "###", '#', new ItemStack(mod_Orizon.cCobble, 1, -1)});
+		ModLoader.addRecipe(new ItemStack(Block.button, 1), new Object[] 
+				{"#", "#", '#', new ItemStack(mod_Orizon.cStone, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 4), new Object[] 
 				{"#  ", "## ", "###", '#', new ItemStack(mod_Orizon.cBrick, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Block.lever, 1), new Object[] 

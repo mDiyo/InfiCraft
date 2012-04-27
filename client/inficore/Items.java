@@ -129,6 +129,12 @@ public class Items
 			}
 		}
 		
+		for (int i = 0; i < 8; i++)
+		{
+			ModLoader.addShapelessRecipe(new ItemStack(multiBowlSoup, 1, i), new Object[] 
+	                { new ItemStack(multiBowlEmpty, 1, i), Block.mushroomBrown, Block.mushroomRed });
+		}
+		
 		ModLoader.addRecipe(new ItemStack(multiBowlEmpty, 4, 0), new Object[] 
                 { bowlrecipe, '#', Block.cobblestone });
 		ModLoader.addRecipe(new ItemStack(multiBowlEmpty, 8, 1), new Object[] 

@@ -701,7 +701,7 @@ public class Shovels
             copperBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeShovel");
             bronzeBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeShovel");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeShovel");
             
             MinecraftForge.setToolClass(woodBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
             MinecraftForge.setToolClass(stoneBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -872,8 +872,8 @@ public class Shovels
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cobalt, "cobaltCobaltShovel");
             arditeCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltShovel");
-            manyullynCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltShovel");
+            manyullynCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+16,
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltShovel");
             uraniumCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltShovel");
             
@@ -932,7 +932,7 @@ public class Shovels
             arditeArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeShovel");
             manyullynArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeShovel");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeShovel");
             uraniumArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeShovel");
             
@@ -991,7 +991,7 @@ public class Shovels
             arditeManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynShovel");
             manyullynManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynShovel");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynShovel");
             uraniumManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynShovel");
             
@@ -1053,32 +1053,58 @@ public class Shovels
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodShovel, "Wooden Shovel");
-    	ModLoader.addName(stoneStoneShovel, "Heavy Shovel");
-    	ModLoader.addName(ironIronShovel, "Ironic Shovel");
-    	ModLoader.addName(diamondDiamondShovel, "Diamondium Shovel");
-    	ModLoader.addName(redstoneRedstoneShovel, "Redredred Shovel");
-    	ModLoader.addName(obsidianObsidianShovel, "Ebony Shovel");
-    	ModLoader.addName(sandstoneSandstoneShovel, "Fragile Shovel");
-    	ModLoader.addName(boneBoneShovel, "Necrotic Shovel");
-    	ModLoader.addName(paperPaperShovel, "Soft Shovel");
-    	ModLoader.addName(mossyMossyShovel, "Living Shovel");
-    	ModLoader.addName(netherrackNetherrackShovel, "Blood Shovel");
-    	ModLoader.addName(glowstoneGlowstoneShovel, "Bright Shovel");
-    	ModLoader.addName(iceIceShovel, "Freezing Shovel");
-    	ModLoader.addName(lavaLavaShovel, "Burning Shovel");
-    	ModLoader.addName(slimeSlimeShovel, "Toy Shovel");
-    	ModLoader.addName(cactusCactusShovel, "Thorned Shovel");
-    	ModLoader.addName(flintFlintShovel, "Rough-hewn Shovel");
-    	ModLoader.addName(blazeBlazeShovel, "Netherite Shovel");
-        ModLoader.addName(copperCopperShovel, "Orange-Tang Shovel");
-        ModLoader.addName(bronzeBronzeShovel, "Polished Shovel");
-        ModLoader.addName(workedWorkedIronShovel, "Reworked Iron Shovel");
-        ModLoader.addName(steelSteelShovel, "Forge-Wrought Shovel");
-        ModLoader.addName(cobaltCobaltShovel, "Beautiful Shovel");
-        ModLoader.addName(arditeArditeShovel, "Rustic Shovel");
-        ModLoader.addName(manyullynManyullynShovel, "False-Prophetic Shovel");
-        ModLoader.addName(uraniumUraniumShovel, "Cancerous Shovel");
+    	if(PropsHelperInfiTools.enableWoodTools)
+            ModLoader.addName(woodWoodShovel, "Wooden Shovel");
+        if(PropsHelperInfiTools.enableStoneTools)
+            ModLoader.addName(stoneStoneShovel, "Heavy Shovel");
+        if(PropsHelperInfiTools.enableIronTools)
+            ModLoader.addName(ironIronShovel, "Ironic Shovel");
+        if(PropsHelperInfiTools.enableDiamondTools)
+            ModLoader.addName(diamondDiamondShovel, "Diamondium Shovel");
+        if(PropsHelperInfiTools.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneShovel, "Redredred Shovel");
+        if(PropsHelperInfiTools.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianShovel, "Ebony Shovel");
+        if(PropsHelperInfiTools.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneShovel, "Fragile Shovel");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(boneBoneShovel, "Necrotic Shovel");
+        if(PropsHelperInfiTools.enablePaperTools)
+            ModLoader.addName(paperPaperShovel, "Soft Shovel");
+        if(PropsHelperInfiTools.enableMossyTools)
+            ModLoader.addName(mossyMossyShovel, "Living Shovel");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackShovel, "Bloodsoaked Shovel");
+        if(PropsHelperInfiTools.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneShovel, "Bright Shovel");
+        if(PropsHelperInfiTools.enableIceTools)
+            ModLoader.addName(iceIceShovel, "Freezing Shovel");
+        if(PropsHelperInfiTools.enableLavaTools)
+            ModLoader.addName(lavaLavaShovel, "Burning Shovel");
+        if(PropsHelperInfiTools.enableSlimeTools)
+            ModLoader.addName(slimeSlimeShovel, "Toy Shovel");
+        if(PropsHelperInfiTools.enableCactusTools)
+            ModLoader.addName(cactusCactusShovel, "Thorned Shovel");
+        if(PropsHelperInfiTools.enableFlintTools)
+            ModLoader.addName(flintFlintShovel, "Rough-hewn Shovel");
+        if(PropsHelperInfiTools.enableBlazeTools)
+            ModLoader.addName(blazeBlazeShovel, "Netherite Shovel");
+        if(PropsHelperInfiTools.enableCopperTools)
+            ModLoader.addName(copperCopperShovel, "Orange-Tang Shovel");
+        if(PropsHelperInfiTools.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeShovel, "Polished Shovel");
+        if(PropsHelperInfiTools.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronShovel, "Reworked Iron Shovel");
+        if(PropsHelperInfiTools.enableSteelTools)
+            ModLoader.addName(steelSteelShovel, "Forge-Wrought Shovel");
+        if(PropsHelperInfiTools.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltShovel, "Beautiful Shovel");
+        if(PropsHelperInfiTools.enableArditeTools)
+            ModLoader.addName(arditeArditeShovel, "Rustic Shovel");
+        if(PropsHelperInfiTools.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynShovel, "False-Prophetic Shovel");
+        if(PropsHelperInfiTools.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumShovel, "Cancerous Shovel");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1423,7 +1449,7 @@ public class Shovels
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneShovel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneShovel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneShovel), new Object[] 
@@ -1432,6 +1458,8 @@ public class Shovels
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneShovel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneShovel), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneShovel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneShovel), new Object[] 
@@ -1537,9 +1565,9 @@ public class Shovels
             ModLoader.addRecipe(new ItemStack(flintFlintShovel), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfiTools.enableBlazeTools)

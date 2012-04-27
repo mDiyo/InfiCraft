@@ -24,7 +24,7 @@ public class InfiToolScythe extends InfiWeaponCore
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
     {
         if((entityplayer.capabilities.isCreativeMode)) {
-        	onFoodEaten(itemstack, world, entityplayer);
+        	onPlayerStoppedUsing(itemstack, world, entityplayer, 400);
         } else {
         	entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
         }

@@ -9,6 +9,11 @@ public class mod_Mechvent extends NetworkMod
     private static mod_Mechvent proto;
     private static IGuiHandler guiHandler;
     
+    @Override
+    public String getVersion() {
+        return "1.0.6 Prototype";
+    }
+    
     public mod_Mechvent()
     {
         proto = this;
@@ -40,6 +45,18 @@ public class mod_Mechvent extends NetworkMod
         ModLoader.registerTileEntity(net.minecraft.src.mechvent.CrusherLogic.class, "Prototype Crusher");
         ModLoader.registerTileEntity(net.minecraft.src.mechvent.GrinderLogic.class, "Prototype Grinder");
         MinecraftForgeClient.preloadTexture("/mechtex/prototype.png");
+    }
+    
+    @Override
+    public void load() 
+    {
+        addCrushingRecipes();
+        addGrindingRecipes();
+        addCraftingRecipes();
+        addSmeltingRecipes();
+        addNames();
+        
+        oreDictionarySupport();
     }
     
     public static mod_Mechvent getInstance()
@@ -77,23 +94,6 @@ public class mod_Mechvent extends NetworkMod
         return false;
     }
 
-    @Override
-    public String getVersion() {
-        return "0.0.3 Prototype";
-    }
-
-    @Override
-    public void load() 
-    {
-        addCrushingRecipes();
-        addGrindingRecipes();
-        addCraftingRecipes();
-        addSmeltingRecipes();
-        addNames();
-        
-        oreDictionarySupport();
-    }
-    
     public String getPriorities()
     {
         return "after:mod_Orizon";
@@ -119,7 +119,7 @@ public class mod_Mechvent extends NetworkMod
         addCrushingRecipe(new ItemStack(Block.oreGold, 1), 
                 new int[] { 50, 40, 40, 50, 50, 25, 25 }, new Object[]
             { new ItemStack(largeChunk, 1, 1), new ItemStack(mediumChunk, 1, 1), new ItemStack(mediumChunk, 1, 1),
-            new ItemStack(Item.goldNugget, 1), new ItemStack(Item.goldNugget, 1),
+            new ItemStack(Item.goldNugget, 3), new ItemStack(Item.goldNugget, 3),
             new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });
         
         addCrushingRecipe(new ItemStack(largeChunk, 1, 1), 
@@ -241,6 +241,34 @@ public class mod_Mechvent extends NetworkMod
             { new ItemStack(mediumChunk, 1, 8), new ItemStack(mediumChunk, 1, 9),
             new ItemStack(mediumChunk, 1, 10), new ItemStack(mediumChunk, 1, 11),
             new ItemStack(mediumChunk, 1, 12), new ItemStack(mediumChunk, 1, 13) });
+        
+        /* Calcite Ores */
+        
+        addCrushingRecipe(new ItemStack(mod_Orizon.calciteOre, 1, 1), 
+                new int[] { 50, 40, 40, 50, 50, 25, 25 }, new Object[]
+            { new ItemStack(largeChunk, 1, 11+2), new ItemStack(mediumChunk, 1, 11+2), new ItemStack(mediumChunk, 1, 11+2),
+            new ItemStack(smallChunk, 1, 11+2), new ItemStack(smallChunk, 1, 11+2),
+            new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });
+        addCrushingRecipe(new ItemStack(mod_Orizon.calciteOre, 1, 2), 
+                new int[] { 50, 40, 40, 50, 50, 25, 25 }, new Object[]
+            { new ItemStack(largeChunk, 1, 3+2), new ItemStack(mediumChunk, 1, 3+2), new ItemStack(mediumChunk, 1, 3+2),
+            new ItemStack(smallChunk, 1, 3+2), new ItemStack(smallChunk, 1, 3+2),
+            new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });
+        addCrushingRecipe(new ItemStack(mod_Orizon.calciteOre, 1, 3), 
+                new int[] { 50, 40, 40, 50, 50, 25, 25 }, new Object[]
+            { new ItemStack(largeChunk, 1, 5+2), new ItemStack(mediumChunk, 1, 5+2), new ItemStack(mediumChunk, 1, 5+2),
+            new ItemStack(smallChunk, 1, 5+2), new ItemStack(smallChunk, 1, 5+2),
+            new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });
+        addCrushingRecipe(new ItemStack(mod_Orizon.calciteOre, 1, 4), 
+                new int[] { 50, 40, 40, 50, 50, 25, 25 }, new Object[]
+            { new ItemStack(largeChunk, 1, 6+2), new ItemStack(mediumChunk, 1, 6+2), new ItemStack(mediumChunk, 1, 6+2),
+            new ItemStack(smallChunk, 1, 6+2), new ItemStack(smallChunk, 1, 6+2),
+            new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });
+        addCrushingRecipe(new ItemStack(mod_Orizon.calciteOre, 1, 5), 
+                new int[] { 50, 40, 40, 50, 50, 25, 25 }, new Object[]
+            { new ItemStack(largeChunk, 1, 2+2), new ItemStack(mediumChunk, 1, 2+2), new ItemStack(mediumChunk, 1, 2+2),
+            new ItemStack(smallChunk, 1, 2+2), new ItemStack(smallChunk, 1, 2+2),
+            new ItemStack(oreDust, 1, 15), new ItemStack(oreDustSmall, 1, 15) });        
     }
     
     private void addGrindingRecipes()
@@ -255,7 +283,7 @@ public class mod_Mechvent extends NetworkMod
                 new ItemStack(oreDustSmall, 1, i), new ItemStack(oreDustSmall, 1, i)
             });
             addGrindingRecipe(new ItemStack(mediumChunk, 1, i),
-                new int[] { 30, 50, 50 }, new Object[]
+                new int[] { 70, 30, 30 }, new Object[]
             {
                 new ItemStack(oreDust, 1, i),
                 new ItemStack(oreDustSmall, 1, i), new ItemStack(oreDustSmall, 1, i)
@@ -298,7 +326,7 @@ public class mod_Mechvent extends NetworkMod
                 new ItemStack(oreDustSmall, 1, i), new ItemStack(oreDustSmall, 1, i)
             });
             addGrindingRecipe(new ItemStack(mediumChunk, 1, i),
-                new int[] { 30, 50, 50 }, new Object[]
+                new int[] { 70, 30, 30 }, new Object[]
             {
                 new ItemStack(oreDust, 1, i),
                 new ItemStack(oreDustSmall, 1, i), new ItemStack(oreDustSmall, 1, i)
@@ -337,6 +365,23 @@ public class mod_Mechvent extends NetworkMod
         addGrindingRecipe(new ItemStack(largeChunk, 1, 14),
             new int[] { 100 }, new Object[]
         { new ItemStack(oreDust, 1, 15),});
+        
+        try
+        {
+            Class class1 = Class.forName("mod_InfiBase");
+            addGrindingRecipe(new ItemStack(mediumChunk, 1, 12),
+                new int[] { 50, 50, 50, 50, 50, 50, 50, 50 }, new Object[]
+            {
+                new ItemStack(mod_InfiBase.coalBit), new ItemStack(mod_InfiBase.coalBit),
+                new ItemStack(mod_InfiBase.coalBit), new ItemStack(mod_InfiBase.coalBit),
+                new ItemStack(mod_InfiBase.coalBit), new ItemStack(mod_InfiBase.coalBit),
+                new ItemStack(mod_InfiBase.coalBit), new ItemStack(mod_InfiBase.coalBit)
+            });
+        }
+        catch (Throwable throwable)
+        {
+        	
+        }
     }
     
     private void addCraftingRecipes()
@@ -513,8 +558,8 @@ public class mod_Mechvent extends NetworkMod
     public void modsLoaded()
     {
         super.modsLoaded();
-        List<ItemStack> copper = MinecraftForge.getOreClass("oreCopper");
-        List<ItemStack> tin = MinecraftForge.getOreClass("oreTin");
+        List<ItemStack> copper = MinecraftForge.getOreClass("ingotCopper");
+        List<ItemStack> tin = MinecraftForge.getOreClass("ingotTin");
         List<ItemStack> stone = MinecraftForge.getOreClass("customStone");
         
         for (int iterStone = 0; iterStone < stone.size(); iterStone++)

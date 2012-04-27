@@ -444,14 +444,6 @@ public class Machetes
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Slime, "slimeCactusMachete");
         	cactusCactusMachete = new InfiToolMachete(PropsHelperInfiHybrids.cactusMacheteID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusMachete");
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
         if(PropsHelperInfiHybrids.enableFlintTools)
@@ -537,7 +529,7 @@ public class Machetes
             copperBronzeMachete = new InfiToolMachete(PropsHelperInfiHybrids.bronzeMacheteID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeMachete");
             bronzeBronzeMachete = new InfiToolMachete(PropsHelperInfiHybrids.bronzeMacheteID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeMachete");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeMachete");
         }
         
         if(PropsHelperInfiHybrids.enableWorkedIronTools)
@@ -659,7 +651,7 @@ public class Machetes
             arditeCobaltMachete = new InfiToolMachete(PropsHelperInfiHybrids.cobaltMacheteID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltMachete");
             manyullynCobaltMachete = new InfiToolMachete(PropsHelperInfiHybrids.cobaltMacheteID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltMachete");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltMachete");
             uraniumCobaltMachete = new InfiToolMachete(PropsHelperInfiHybrids.cobaltMacheteID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltMachete");
         }
@@ -699,7 +691,7 @@ public class Machetes
             arditeArditeMachete = new InfiToolMachete(PropsHelperInfiHybrids.arditeMacheteID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeMachete");
             manyullynArditeMachete = new InfiToolMachete(PropsHelperInfiHybrids.arditeMacheteID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeMachete");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeMachete");
             uraniumArditeMachete = new InfiToolMachete(PropsHelperInfiHybrids.arditeMacheteID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeMachete");
         }
@@ -739,7 +731,7 @@ public class Machetes
             arditeManyullynMachete = new InfiToolMachete(PropsHelperInfiHybrids.manyullynMacheteID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynMachete");
             manyullynManyullynMachete = new InfiToolMachete(PropsHelperInfiHybrids.manyullynMacheteID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynMachete");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynMachete");
             uraniumManyullynMachete = new InfiToolMachete(PropsHelperInfiHybrids.manyullynMacheteID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "uraniumManyullynMachete");
         }
@@ -771,32 +763,58 @@ public class Machetes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodMachete, "Wooden Machete");
-    	ModLoader.addName(stoneStoneMachete, "Heavy Machete");
-    	ModLoader.addName(ironIronMachete, "Ironic Machete");
-    	ModLoader.addName(diamondDiamondMachete, "Diamondium Machete");
-    	ModLoader.addName(redstoneRedstoneMachete, "Redredred Machete");
-    	ModLoader.addName(obsidianObsidianMachete, "Ebony Machete");
-    	ModLoader.addName(sandstoneSandstoneMachete, "Fragile Machete");
-    	ModLoader.addName(boneBoneMachete, "Necrotic Machete");
-    	ModLoader.addName(paperPaperMachete, "Soft Machete");
-    	ModLoader.addName(mossyMossyMachete, "Living Machete");
-    	ModLoader.addName(netherrackNetherrackMachete, "Blood Machete");
-    	ModLoader.addName(glowstoneGlowstoneMachete, "Bright Machete");
-    	ModLoader.addName(iceIceMachete, "Freezing Machete");
-    	ModLoader.addName(lavaLavaMachete, "Burning Machete");
-    	ModLoader.addName(slimeSlimeMachete, "Toy Machete");
-    	ModLoader.addName(cactusCactusMachete, "Thorned Machete");
-    	ModLoader.addName(flintFlintMachete, "Rough-hewn Machete");
-    	ModLoader.addName(blazeBlazeMachete, "Netherite Machete");
-        ModLoader.addName(copperCopperMachete, "Orange-Tang Machete");
-        ModLoader.addName(bronzeBronzeMachete, "Polished Machete");
-        ModLoader.addName(workedWorkedIronMachete, "Reworked Iron Machete");
-        ModLoader.addName(steelSteelMachete, "Forge-Wrought Machete");
-        ModLoader.addName(cobaltCobaltMachete, "Beautiful Machete");
-        ModLoader.addName(arditeArditeMachete, "Rustic StoneDigger");
-        ModLoader.addName(manyullynManyullynMachete, "False-Prophetic Machete");
-        ModLoader.addName(uraniumUraniumMachete, "Cancerous Machete");
+    	if(PropsHelperInfiHybrids.enableWoodTools)
+            ModLoader.addName(woodWoodMachete, "Wooden Machete");
+        if(PropsHelperInfiHybrids.enableStoneTools)
+            ModLoader.addName(stoneStoneMachete, "Heavy Machete");
+        if(PropsHelperInfiHybrids.enableIronTools)
+            ModLoader.addName(ironIronMachete, "Ironic Machete");
+        if(PropsHelperInfiHybrids.enableDiamondTools)
+            ModLoader.addName(diamondDiamondMachete, "Diamondium Machete");
+        if(PropsHelperInfiHybrids.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneMachete, "Redredred Machete");
+        if(PropsHelperInfiHybrids.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianMachete, "Ebony Machete");
+        if(PropsHelperInfiHybrids.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneMachete, "Fragile Machete");
+        if(PropsHelperInfiHybrids.enableNetherrackTools)
+            ModLoader.addName(boneBoneMachete, "Necrotic Machete");
+        if(PropsHelperInfiHybrids.enablePaperTools)
+            ModLoader.addName(paperPaperMachete, "Soft Machete");
+        if(PropsHelperInfiHybrids.enableMossyTools)
+            ModLoader.addName(mossyMossyMachete, "Living Machete");
+        if(PropsHelperInfiHybrids.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackMachete, "Bloodsoaked Machete");
+        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneMachete, "Bright Machete");
+        if(PropsHelperInfiHybrids.enableIceTools)
+            ModLoader.addName(iceIceMachete, "Freezing Machete");
+        if(PropsHelperInfiHybrids.enableLavaTools)
+            ModLoader.addName(lavaLavaMachete, "Burning Machete");
+        if(PropsHelperInfiHybrids.enableSlimeTools)
+            ModLoader.addName(slimeSlimeMachete, "Toy Machete");
+        if(PropsHelperInfiHybrids.enableCactusTools)
+            ModLoader.addName(cactusCactusMachete, "Thorned Machete");
+        if(PropsHelperInfiHybrids.enableFlintTools)
+            ModLoader.addName(flintFlintMachete, "Rough-hewn Machete");
+        if(PropsHelperInfiHybrids.enableBlazeTools)
+            ModLoader.addName(blazeBlazeMachete, "Netherite Machete");
+        if(PropsHelperInfiHybrids.enableCopperTools)
+            ModLoader.addName(copperCopperMachete, "Orange-Tang Machete");
+        if(PropsHelperInfiHybrids.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeMachete, "Polished Machete");
+        if(PropsHelperInfiHybrids.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronMachete, "Reworked Iron Machete");
+        if(PropsHelperInfiHybrids.enableSteelTools)
+            ModLoader.addName(steelSteelMachete, "Forge-Wrought Machete");
+        if(PropsHelperInfiHybrids.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltMachete, "Beautiful Machete");
+        if(PropsHelperInfiHybrids.enableArditeTools)
+            ModLoader.addName(arditeArditeMachete, "Rustic Machete");
+        if(PropsHelperInfiHybrids.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynMachete, "False-Prophetic Machete");
+        if(PropsHelperInfiHybrids.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumMachete, "Cancerous Machete");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1141,7 +1159,7 @@ public class Machetes
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneMachete), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneMachete), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneMachete), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMachete), new Object[] 
@@ -1150,6 +1168,8 @@ public class Machetes
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneMachete), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneMachete), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneMachete), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneMachete), new Object[] 
@@ -1255,9 +1275,9 @@ public class Machetes
             ModLoader.addRecipe(new ItemStack(flintFlintMachete), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintMachete), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintMachete), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfiHybrids.enableBlazeTools)

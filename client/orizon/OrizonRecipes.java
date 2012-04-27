@@ -169,6 +169,8 @@ public class OrizonRecipes {
 				{"#  ", "## ", "###", '#', new ItemStack(mod_Orizon.cBrick, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Block.lever, 1), new Object[] 
 				{"X", "#", '#', new ItemStack(mod_Orizon.cCobble, 1, -1), 'X', Item.stick});
+		ModLoader.addRecipe(new ItemStack(Block.button, 1), new Object[] 
+				{"#", "#", '#', new ItemStack(mod_Orizon.cStone, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Item.redstoneRepeater, 1), new Object[] 
 				{"#X#", "III", '#', Block.torchRedstoneActive, 'X', Item.redstone, 'I', new ItemStack(mod_Orizon.cStone, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Block.pressurePlateStone, 1), new Object[] 

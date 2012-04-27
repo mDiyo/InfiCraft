@@ -9,14 +9,13 @@ public class mod_InfiHybrids extends BaseMod
 	@Override
 	public String getVersion() 
 	{
-		return "2.0.6";
+		return "2.0.10";
 	}
 
 	@Override
 	public void load() 
 	{
 		PropsHelperInfiHybrids.initProps();
-		checkForInfiTools();
 		IceAxes.init();
 		Mattocks.init();
 		Mallets.init();
@@ -25,19 +24,6 @@ public class mod_InfiHybrids extends BaseMod
 		addCrushingRecipes();
 		oreDictionarySupport();
 	}
-	
-	public static void checkForInfiTools()
-    {
-        try
-        {
-        	Class class1 = Class.forName("mod_InfiTools");
-        	infitoolsPresent = true;
-        }
-        catch (Throwable throwable)
-        {
-        	infitoolsPresent = false;
-        }
-    }
 	
 	private void addCrushingRecipes()
 	{		
@@ -86,7 +72,7 @@ public class mod_InfiHybrids extends BaseMod
                 { mod_InfiBase.mossBall, mod_InfiBase.mossBall, mod_InfiBase.mossBall, mod_InfiBase.mossBall });
 		cm.addCrushing(new ItemStack(Block.obsidian), new Object[] 
                 { mod_InfiBase.obsidianShard, mod_InfiBase.obsidianShard, mod_InfiBase.obsidianShard });
-		cm.addCrushing(new ItemStack(Block.torchWood), new Object[] 
+		cm.addCrushing(new ItemStack(Block.torchWood, 1, -1), new Object[] 
                 { Item.stick, mod_InfiBase.coalBit });
 		cm.addCrushing(new ItemStack(Block.stairCompactPlanks), new Object[] 
                 { Block.planks, Block.planks, Item.stick, Item.stick, mod_InfiBase.woodSplinters, mod_InfiBase.woodSplinters });
@@ -112,6 +98,8 @@ public class mod_InfiHybrids extends BaseMod
                 { Block.planks, Block.planks, Item.stick, Item.stick, mod_InfiBase.woodSplinters, mod_InfiBase.woodSplinters });
 		cm.addCrushing(new ItemStack(Block.brick), new Object[] 
                 { Item.brick, Item.brick, Item.brick, Item.brick });
+		cm.addCrushing(new ItemStack(Block.ice), new Object[] 
+                { mod_InfiBase.iceShard, mod_InfiBase.iceShard, mod_InfiBase.iceShard });
 	}
 	
 	private void oreDictionarySupport()

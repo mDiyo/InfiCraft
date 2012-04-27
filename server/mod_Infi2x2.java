@@ -11,14 +11,13 @@ public class mod_Infi2x2 extends NetworkMod
 	@Override
 	public String getVersion() 
 	{
-		return "1.0.3";
+		return "1.0.6";
 	}
 	
 	@Override
 	public void load() 
 	{
 		PropsHelperInfi2x2.initProps();
-		checkForInfiTools();
 		Handpicks.init();
 		Hatchets.init();
 		Trowels.init();
@@ -28,19 +27,6 @@ public class mod_Infi2x2 extends NetworkMod
 		MinecraftForge.registerEntity(net.minecraft.src.infi2x2.DaggerEntity.class,
 				this, 1, 20, 3, true);
 	}
-	
-	public static void checkForInfiTools()
-    {
-        try
-        {
-        	Class class1 = Class.forName("mod_InfiTools");
-        	infitoolsPresent = true;
-        }
-        catch (Throwable throwable)
-        {
-        	infitoolsPresent = false;
-        }
-    }
 	
 	private void oreDictionarySupport()
 	{

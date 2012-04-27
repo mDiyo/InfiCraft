@@ -31,13 +31,13 @@ public class CrusherContainer extends Container
         		addSlot(new Slot(crusherLogic, 1 + inputX + inputY * 3, 8 + 18 * inputX, 9 + 18 * inputY));
         	}
         }
-        for (int outputY = 0; outputY < 3; outputY++)
+        /*for (int outputY = 0; outputY < 3; outputY++)
         {
         	for (int outputX = 0; outputX < 3; outputX++)
         	{
         		addSlot(new Slot(crusherLogic, 10 + outputX + outputY * 3, 115 + 18 * outputX, 9 + 18 * outputY));
         	}
-        }
+        }*/
         
         for (int invY = 0; invY < 3; invY++)
         {
@@ -135,15 +135,15 @@ public class CrusherContainer extends Container
         {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
-            if (slotID < 19)
+            if (slotID < 10)
             {
             	//stack, # of slots, # of total slots, ?
-                if (!mergeItemStack(itemstack1, 19, 55, false))
+                if (!mergeItemStack(itemstack1, 10, 46, false))
                 {
                     return null;
                 }
             }
-            else if (!this.mergeItemStack(itemstack1, 0, 19, false))
+            else if (!this.mergeItemStack(itemstack1, 0, 10, false))
             {
                 return null;
             }

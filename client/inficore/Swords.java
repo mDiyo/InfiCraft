@@ -495,7 +495,7 @@ public class Swords
             copperBronzeSword = new InfiToolSword(PropsHelperInfiTools.bronzeSwordID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeSword");
             bronzeBronzeSword = new InfiToolSword(PropsHelperInfiTools.bronzeSwordID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeSword");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeSword");
         }
         
         if(PropsHelperInfiTools.enableWorkedIronTools)
@@ -617,7 +617,7 @@ public class Swords
             arditeCobaltSword = new InfiToolSword(PropsHelperInfiTools.cobaltSwordID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltSword");
             manyullynCobaltSword = new InfiToolSword(PropsHelperInfiTools.cobaltSwordID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltSword");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltSword");
             uraniumCobaltSword = new InfiToolSword(PropsHelperInfiTools.cobaltSwordID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltSword");
         }
@@ -657,7 +657,7 @@ public class Swords
             arditeArditeSword = new InfiToolSword(PropsHelperInfiTools.arditeSwordID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeSword");
             manyullynArditeSword = new InfiToolSword(PropsHelperInfiTools.arditeSwordID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeSword");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeSword");
             uraniumArditeSword = new InfiToolSword(PropsHelperInfiTools.arditeSwordID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeSword");
         }
@@ -697,7 +697,7 @@ public class Swords
             arditeManyullynSword = new InfiToolSword(PropsHelperInfiTools.manyullynSwordID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynSword");
             manyullynManyullynSword = new InfiToolSword(PropsHelperInfiTools.manyullynSwordID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynSword");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynSword");
             uraniumManyullynSword = new InfiToolSword(PropsHelperInfiTools.manyullynSwordID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynSword");
         }
@@ -729,32 +729,58 @@ public class Swords
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodSword, "Wooden Sword");
-    	ModLoader.addName(stoneStoneSword, "Heavy Sword");
-    	ModLoader.addName(ironIronSword, "Ironic Sword");
-    	ModLoader.addName(diamondDiamondSword, "Diamondium Sword");
-    	ModLoader.addName(redstoneRedstoneSword, "Redredred Sword");
-    	ModLoader.addName(obsidianObsidianSword, "Ebony Sword");
-    	ModLoader.addName(sandstoneSandstoneSword, "Fragile Sword");
-    	ModLoader.addName(boneBoneSword, "Necrotic Sword");
-    	ModLoader.addName(paperPaperSword, "Soft Sword");
-    	ModLoader.addName(mossyMossySword, "Living Sword");
-    	ModLoader.addName(netherrackNetherrackSword, "Blood Sword");
-    	ModLoader.addName(glowstoneGlowstoneSword, "Bright Sword");
-    	ModLoader.addName(iceIceSword, "Freezing Sword");
-    	ModLoader.addName(lavaLavaSword, "Burning Sword");
-    	ModLoader.addName(slimeSlimeSword, "Toy Sword");
-    	ModLoader.addName(cactusCactusSword, "Thorned Sword");
-    	ModLoader.addName(flintFlintSword, "Rough-hewn Sword");
-    	ModLoader.addName(blazeBlazeSword, "Netherite Sword");
-        ModLoader.addName(copperCopperSword, "Orange-Tang Sword");
-        ModLoader.addName(bronzeBronzeSword, "Polished Sword");
-        ModLoader.addName(workedWorkedIronSword, "Reworked Iron Sword");
-        ModLoader.addName(steelSteelSword, "Forge-Wrought Sword");
-        ModLoader.addName(cobaltCobaltSword, "Beautiful Sword");
-        ModLoader.addName(arditeArditeSword, "Rustic Sword");
-        ModLoader.addName(manyullynManyullynSword, "False-Prophetic Sword");
-        ModLoader.addName(uraniumUraniumSword, "Cancerous Sword");
+    	if(PropsHelperInfiTools.enableWoodTools)
+            ModLoader.addName(woodWoodSword, "Wooden Sword");
+        if(PropsHelperInfiTools.enableStoneTools)
+            ModLoader.addName(stoneStoneSword, "Heavy Sword");
+        if(PropsHelperInfiTools.enableIronTools)
+            ModLoader.addName(ironIronSword, "Ironic Sword");
+        if(PropsHelperInfiTools.enableDiamondTools)
+            ModLoader.addName(diamondDiamondSword, "Diamondium Sword");
+        if(PropsHelperInfiTools.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneSword, "Redredred Sword");
+        if(PropsHelperInfiTools.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianSword, "Ebony Sword");
+        if(PropsHelperInfiTools.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneSword, "Fragile Sword");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(boneBoneSword, "Necrotic Sword");
+        if(PropsHelperInfiTools.enablePaperTools)
+            ModLoader.addName(paperPaperSword, "Soft Sword");
+        if(PropsHelperInfiTools.enableMossyTools)
+            ModLoader.addName(mossyMossySword, "Living Sword");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackSword, "Bloodsoaked Sword");
+        if(PropsHelperInfiTools.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneSword, "Bright Sword");
+        if(PropsHelperInfiTools.enableIceTools)
+            ModLoader.addName(iceIceSword, "Freezing Sword");
+        if(PropsHelperInfiTools.enableLavaTools)
+            ModLoader.addName(lavaLavaSword, "Burning Sword");
+        if(PropsHelperInfiTools.enableSlimeTools)
+            ModLoader.addName(slimeSlimeSword, "Toy Sword");
+        if(PropsHelperInfiTools.enableCactusTools)
+            ModLoader.addName(cactusCactusSword, "Thorned Sword");
+        if(PropsHelperInfiTools.enableFlintTools)
+            ModLoader.addName(flintFlintSword, "Rough-hewn Sword");
+        if(PropsHelperInfiTools.enableBlazeTools)
+            ModLoader.addName(blazeBlazeSword, "Netherite Sword");
+        if(PropsHelperInfiTools.enableCopperTools)
+            ModLoader.addName(copperCopperSword, "Orange-Tang Sword");
+        if(PropsHelperInfiTools.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeSword, "Polished Sword");
+        if(PropsHelperInfiTools.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronSword, "Reworked Iron Sword");
+        if(PropsHelperInfiTools.enableSteelTools)
+            ModLoader.addName(steelSteelSword, "Forge-Wrought Sword");
+        if(PropsHelperInfiTools.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltSword, "Beautiful Sword");
+        if(PropsHelperInfiTools.enableArditeTools)
+            ModLoader.addName(arditeArditeSword, "Rustic Sword");
+        if(PropsHelperInfiTools.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynSword, "False-Prophetic Sword");
+        if(PropsHelperInfiTools.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumSword, "Cancerous Sword");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1099,7 +1125,7 @@ public class Swords
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneSword), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneSword), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneSword), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneSword), new Object[] 
@@ -1108,6 +1134,8 @@ public class Swords
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneSword), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneSword), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneSword), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneSword), new Object[] 
@@ -1213,9 +1241,9 @@ public class Swords
             ModLoader.addRecipe(new ItemStack(flintFlintSword), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintSword), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintSword), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfiTools.enableBlazeTools)

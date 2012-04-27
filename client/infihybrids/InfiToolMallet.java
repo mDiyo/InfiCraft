@@ -18,6 +18,10 @@ public class InfiToolMallet extends InfiToolCore
     public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
     	World world = entityplayer.worldObj;
+    	if (world.isRemote)
+    	{
+    		return false;
+    	}
     	int blockID = world.getBlockId(x, y, z);
     	int meta = world.getBlockMetadata(x, y, z);
     	boolean headPower = true;

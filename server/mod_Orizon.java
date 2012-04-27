@@ -11,7 +11,7 @@ public class mod_Orizon extends NetworkMod
 
     public String getVersion()
     {
-        return "v1.0.6";
+        return "v1.0.8";
     }
 
     public mod_Orizon()
@@ -282,9 +282,6 @@ public class mod_Orizon extends NetworkMod
     }
 
     public void load() {}
-    
-    public static InfiProps props;
-    public static InfiProps spawnProps;
     
     public static Block mineralOre;
     public static Block mineralOreHigh;

@@ -43,16 +43,16 @@ public class PropsHelperFloraSoma {
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
         
-        mod_FloraSoma.redwoodID = config.getOrCreateBlockIdProperty("Wood Block", 168).getInt(168);
-        mod_FloraSoma.redwoodDoorID = config.getOrCreateBlockIdProperty("Redwood Door", 176).getInt(176);
-        mod_FloraSoma.cloudID = config.getOrCreateBlockIdProperty("Cloud Block", 171).getInt(171);
-        mod_FloraSoma.corruptorID = config.getOrCreateBlockIdProperty("Corruptor", 172).getInt(172);
-        mod_FloraSoma.corruptBrickID = config.getOrCreateBlockIdProperty("Corrupt Brick", 173).getInt(173);
-        mod_FloraSoma.floraSaplingID = config.getOrCreateBlockIdProperty("Sapling", 174).getInt(174);
-        mod_FloraSoma.berryBlockID = config.getOrCreateBlockIdProperty("Berry Bush", 167).getInt(167);
-        mod_FloraSoma.cherryLeavesID = config.getOrCreateBlockIdProperty("Sakura Leaves", 175).getInt(175);        
-        mod_FloraSoma.floraLeavesID = config.getOrCreateBlockIdProperty("Flora Leaves", 171).getInt(171); 
-        mod_FloraSoma.floraCropsID = config.getOrCreateBlockIdProperty("Crops", 170).getInt(170); 
+        mod_FloraSoma.redwoodID = config.getOrCreateBlockIdProperty("Wood Block", 3251).getInt(3251);
+        mod_FloraSoma.redwoodDoorID = config.getOrCreateBlockIdProperty("Redwood Door", 3252).getInt(3252);
+        mod_FloraSoma.cloudID = config.getOrCreateBlockIdProperty("Cloud Block", 3253).getInt(3253);
+        mod_FloraSoma.corruptorID = config.getOrCreateBlockIdProperty("Corruptor", 3254).getInt(3254);
+        mod_FloraSoma.corruptBrickID = config.getOrCreateBlockIdProperty("Corrupt Brick", 3255).getInt(3255);
+        mod_FloraSoma.floraSaplingID = config.getOrCreateBlockIdProperty("Sapling", 3256).getInt(3256);
+        mod_FloraSoma.berryBlockID = config.getOrCreateBlockIdProperty("Berry Bush", 3257).getInt(3257);
+        mod_FloraSoma.cherryLeavesID = config.getOrCreateBlockIdProperty("Sakura Leaves", 3258).getInt(3258);        
+        mod_FloraSoma.floraLeavesID = config.getOrCreateBlockIdProperty("Flora Leaves", 3259).getInt(3259); 
+        mod_FloraSoma.floraCropsID = config.getOrCreateBlockIdProperty("Crops", 3260).getInt(3260); 
         //saguaroID = config.getOrCreateBlockIdProperty("Cloud Block", 171).getInt(171);
         
         mod_FloraSoma.seedBagID = config.getOrCreateIntProperty("Seed Bag", "item", 12401).getInt(12401);

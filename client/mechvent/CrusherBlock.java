@@ -17,6 +17,24 @@ public class CrusherBlock extends BlockPrototypeBase
         setHardness(1.5F);
         setStepSound(soundMetalFootstep);
         rand = new Random();
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+    }
+    
+    /**
+     * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
+     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
+     */
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
+
+    /**
+     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
+     */
+    public boolean renderAsNormalBlock()
+    {
+        return false;
     }
 
     public String getTextureFile()
@@ -166,32 +184,12 @@ public class CrusherBlock extends BlockPrototypeBase
             TileEntity tileentity = world.getBlockTileEntity(i, j, k);
             short word0 = (tileentity instanceof BlockLogicBase) ? ((BlockLogicBase)tileentity).getFacing() : 0;
             float f = (float)i + 0.5F;
-            float f1 = (float)j + 0.0F + (random.nextFloat() * 6F) / 16F;
+            float f1 = (float)j + 0.5F + (random.nextFloat() * 6F) / 16F;
             float f2 = (float)k + 0.5F;
             float f3 = 0.52F;
             float f4 = random.nextFloat() * 0.6F - 0.3F;
-            switch (word0)
-            {
-                case 4:
-                    world.spawnParticle("smoke", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
-                    world.spawnParticle("flame", f - f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
-                    break;
-
-                case 5:
-                    world.spawnParticle("smoke", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
-                    world.spawnParticle("flame", f + f3, f1, f2 + f4, 0.0D, 0.0D, 0.0D);
-                    break;
-
-                case 2:
-                    world.spawnParticle("smoke", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);
-                    world.spawnParticle("flame", f + f4, f1, f2 - f3, 0.0D, 0.0D, 0.0D);
-                    break;
-
-                case 3:
-                    world.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);
-                    world.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0D, 0.0D, 0.0D);
-                    break;
-            }
+            world.spawnParticle("smoke", f, f1, f2+f4, 0.0D, 0.0D, 0.0D);
+            world.spawnParticle("flame", f, f1, f2+f4, 0.0D, 0.0D, 0.0D);
         }
     }
 

@@ -741,7 +741,7 @@ public class Handpicks
             copperBronzeHandpick = new InfiToolHandpick(PropsHelperInfi2x2.bronzeHandpickID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeHandpick");
             bronzeBronzeHandpick = new InfiToolHandpick(PropsHelperInfi2x2.bronzeHandpickID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeHandpick");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeHandpick");
             
             MinecraftForge.setToolClass(woodBronzeHandpick, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
             MinecraftForge.setToolClass(stoneBronzeHandpick, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -913,7 +913,7 @@ public class Handpicks
             arditeCobaltHandpick = new InfiToolHandpick(PropsHelperInfi2x2.cobaltHandpickID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltHandpick");
             manyullynCobaltHandpick = new InfiToolHandpick(PropsHelperInfi2x2.cobaltHandpickID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltHandpick");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltHandpick");
             uraniumCobaltHandpick = new InfiToolHandpick(PropsHelperInfi2x2.cobaltHandpickID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHandpick");
             
@@ -972,7 +972,7 @@ public class Handpicks
             arditeArditeHandpick = new InfiToolHandpick(PropsHelperInfi2x2.arditeHandpickID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeHandpick");
             manyullynArditeHandpick = new InfiToolHandpick(PropsHelperInfi2x2.arditeHandpickID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeHandpick");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeHandpick");
             uraniumArditeHandpick = new InfiToolHandpick(PropsHelperInfi2x2.arditeHandpickID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHandpick");
             
@@ -1031,7 +1031,7 @@ public class Handpicks
             arditeManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynHandpick");
             manyullynManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynHandpick");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynHandpick");
             uraniumManyullynHandpick = new InfiToolHandpick(PropsHelperInfi2x2.manyullynHandpickID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHandpick");
             
@@ -1093,32 +1093,58 @@ public class Handpicks
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodHandpick, "Wooden Handpick");
-    	ModLoader.addName(stoneStoneHandpick, "Heavy Handpick");
-    	ModLoader.addName(ironIronHandpick, "Ironic Handpick");
-    	ModLoader.addName(diamondDiamondHandpick, "Diamondium Handpick");
-    	ModLoader.addName(redstoneRedstoneHandpick, "Redredred Handpick");
-    	ModLoader.addName(obsidianObsidianHandpick, "Ebony Handpick");
-    	ModLoader.addName(sandstoneSandstoneHandpick, "Fragile Handpick");
-    	ModLoader.addName(boneBoneHandpick, "Necrotic Handpick");
-    	ModLoader.addName(paperPaperHandpick, "Soft Handpick");
-    	ModLoader.addName(mossyMossyHandpick, "Living Handpick");
-    	ModLoader.addName(netherrackNetherrackHandpick, "Blood Pick");
-    	ModLoader.addName(glowstoneGlowstoneHandpick, "Bright Handpick");
-    	ModLoader.addName(iceIceHandpick, "Freezing Handpick");
-    	ModLoader.addName(lavaLavaHandpick, "Burning Handpick");
-    	ModLoader.addName(slimeSlimeHandpick, "Toy Handpick");
-    	ModLoader.addName(cactusCactusHandpick, "Thorned Handpick");
-    	ModLoader.addName(flintFlintHandpick, "Rough-hewn Handpick");
-    	ModLoader.addName(blazeBlazeHandpick, "Netherite Handpick");
-        ModLoader.addName(copperCopperHandpick, "Orange-Tang Handpick");
-        ModLoader.addName(bronzeBronzeHandpick, "Polished Handpick");
-        ModLoader.addName(workedWorkedIronHandpick, "Reworked Iron Handpick");
-        ModLoader.addName(steelSteelHandpick, "Forge-Wrought Handpick");
-        ModLoader.addName(cobaltCobaltHandpick, "Beautiful Handpick");
-        ModLoader.addName(arditeArditeHandpick, "Rustic Handpick");
-        ModLoader.addName(manyullynManyullynHandpick, "False-Prophetic Handpick");
-        ModLoader.addName(uraniumUraniumHandpick, "Cancerous Handpick");
+    	if(PropsHelperInfi2x2.enableWoodTools)
+            ModLoader.addName(woodWoodHandpick, "Wooden Handpick");
+        if(PropsHelperInfi2x2.enableStoneTools)
+            ModLoader.addName(stoneStoneHandpick, "Heavy Handpick");
+        if(PropsHelperInfi2x2.enableIronTools)
+            ModLoader.addName(ironIronHandpick, "Ironic Handpick");
+        if(PropsHelperInfi2x2.enableDiamondTools)
+            ModLoader.addName(diamondDiamondHandpick, "Diamondium Handpick");
+        if(PropsHelperInfi2x2.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneHandpick, "Redredred Handpick");
+        if(PropsHelperInfi2x2.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianHandpick, "Ebony Handpick");
+        if(PropsHelperInfi2x2.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneHandpick, "Fragile Handpick");
+        if(PropsHelperInfi2x2.enableNetherrackTools)
+            ModLoader.addName(boneBoneHandpick, "Necrotic Handpick");
+        if(PropsHelperInfi2x2.enablePaperTools)
+            ModLoader.addName(paperPaperHandpick, "Soft Handpick");
+        if(PropsHelperInfi2x2.enableMossyTools)
+            ModLoader.addName(mossyMossyHandpick, "Living Handpick");
+        if(PropsHelperInfi2x2.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackHandpick, "Bloodsoaked Handpick");
+        if(PropsHelperInfi2x2.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneHandpick, "Bright Handpick");
+        if(PropsHelperInfi2x2.enableIceTools)
+            ModLoader.addName(iceIceHandpick, "Freezing Handpick");
+        if(PropsHelperInfi2x2.enableLavaTools)
+            ModLoader.addName(lavaLavaHandpick, "Burning Handpick");
+        if(PropsHelperInfi2x2.enableSlimeTools)
+            ModLoader.addName(slimeSlimeHandpick, "Toy Handpick");
+        if(PropsHelperInfi2x2.enableCactusTools)
+            ModLoader.addName(cactusCactusHandpick, "Thorned Handpick");
+        if(PropsHelperInfi2x2.enableFlintTools)
+            ModLoader.addName(flintFlintHandpick, "Rough-hewn Handpick");
+        if(PropsHelperInfi2x2.enableBlazeTools)
+            ModLoader.addName(blazeBlazeHandpick, "Netherite Handpick");
+        if(PropsHelperInfi2x2.enableCopperTools)
+            ModLoader.addName(copperCopperHandpick, "Orange-Tang Handpick");
+        if(PropsHelperInfi2x2.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeHandpick, "Polished Handpick");
+        if(PropsHelperInfi2x2.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronHandpick, "Reworked Iron Handpick");
+        if(PropsHelperInfi2x2.enableSteelTools)
+            ModLoader.addName(steelSteelHandpick, "Forge-Wrought Handpick");
+        if(PropsHelperInfi2x2.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltHandpick, "Beautiful Handpick");
+        if(PropsHelperInfi2x2.enableArditeTools)
+            ModLoader.addName(arditeArditeHandpick, "Rustic Handpick");
+        if(PropsHelperInfi2x2.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynHandpick, "False-Prophetic Handpick");
+        if(PropsHelperInfi2x2.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumHandpick, "Cancerous Handpick");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1463,7 +1489,7 @@ public class Handpicks
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneHandpick), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneHandpick), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneHandpick), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneHandpick), new Object[] 
@@ -1472,6 +1498,8 @@ public class Handpicks
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneHandpick), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneHandpick), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneHandpick), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneHandpick), new Object[] 
@@ -1577,9 +1605,9 @@ public class Handpicks
             ModLoader.addRecipe(new ItemStack(flintFlintHandpick), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintHandpick), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintHandpick), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfi2x2.enableBlazeTools)

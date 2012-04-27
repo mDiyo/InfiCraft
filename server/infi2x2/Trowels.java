@@ -741,7 +741,7 @@ public class Trowels
             copperBronzeTrowel = new InfiToolTrowel(PropsHelperInfi2x2.bronzeTrowelID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeTrowel");
             bronzeBronzeTrowel = new InfiToolTrowel(PropsHelperInfi2x2.bronzeTrowelID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeTrowel");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeTrowel");
             
             MinecraftForge.setToolClass(woodBronzeTrowel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
             MinecraftForge.setToolClass(stoneBronzeTrowel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -913,7 +913,7 @@ public class Trowels
             arditeCobaltTrowel = new InfiToolTrowel(PropsHelperInfi2x2.cobaltTrowelID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltTrowel");
             manyullynCobaltTrowel = new InfiToolTrowel(PropsHelperInfi2x2.cobaltTrowelID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltTrowel");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltTrowel");
             uraniumCobaltTrowel = new InfiToolTrowel(PropsHelperInfi2x2.cobaltTrowelID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltTrowel");
             
@@ -972,7 +972,7 @@ public class Trowels
             arditeArditeTrowel = new InfiToolTrowel(PropsHelperInfi2x2.arditeTrowelID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeTrowel");
             manyullynArditeTrowel = new InfiToolTrowel(PropsHelperInfi2x2.arditeTrowelID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeTrowel");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeTrowel");
             uraniumArditeTrowel = new InfiToolTrowel(PropsHelperInfi2x2.arditeTrowelID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeTrowel");
             
@@ -1031,7 +1031,7 @@ public class Trowels
             arditeManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynTrowel");
             manyullynManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynTrowel");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynTrowel");
             uraniumManyullynTrowel = new InfiToolTrowel(PropsHelperInfi2x2.manyullynTrowelID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynTrowel");
             
@@ -1093,32 +1093,58 @@ public class Trowels
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodTrowel, "Wooden Trowel");
-    	ModLoader.addName(stoneStoneTrowel, "Heavy Trowel");
-    	ModLoader.addName(ironIronTrowel, "Ironic Trowel");
-    	ModLoader.addName(diamondDiamondTrowel, "Diamondium Trowel");
-    	ModLoader.addName(redstoneRedstoneTrowel, "Redredred Trowel");
-    	ModLoader.addName(obsidianObsidianTrowel, "Ebony Trowel");
-    	ModLoader.addName(sandstoneSandstoneTrowel, "Fragile Trowel");
-    	ModLoader.addName(boneBoneTrowel, "Necrotic Trowel");
-    	ModLoader.addName(paperPaperTrowel, "Soft Trowel");
-    	ModLoader.addName(mossyMossyTrowel, "Living Trowel");
-    	ModLoader.addName(netherrackNetherrackTrowel, "Blood Trowel");
-    	ModLoader.addName(glowstoneGlowstoneTrowel, "Bright Trowel");
-    	ModLoader.addName(iceIceTrowel, "Freezing Trowel");
-    	ModLoader.addName(lavaLavaTrowel, "Burning Trowel");
-    	ModLoader.addName(slimeSlimeTrowel, "Toy Trowel");
-    	ModLoader.addName(cactusCactusTrowel, "Thorned Trowel");
-    	ModLoader.addName(flintFlintTrowel, "Rough-hewn Trowel");
-    	ModLoader.addName(blazeBlazeTrowel, "Netherite Trowel");
-        ModLoader.addName(copperCopperTrowel, "Orange-Tang Trowel");
-        ModLoader.addName(bronzeBronzeTrowel, "Polished Trowel");
-        ModLoader.addName(workedWorkedIronTrowel, "Reworked Iron Trowel");
-        ModLoader.addName(steelSteelTrowel, "Forge-Wrought Trowel");
-        ModLoader.addName(cobaltCobaltTrowel, "Beautiful Trowel");
-        ModLoader.addName(arditeArditeTrowel, "Rustic Trowel");
-        ModLoader.addName(manyullynManyullynTrowel, "False-Prophetic Trowel");
-        ModLoader.addName(uraniumUraniumTrowel, "Cancerous Trowel");
+    	if(PropsHelperInfi2x2.enableWoodTools)
+            ModLoader.addName(woodWoodTrowel, "Wooden Trowel");
+        if(PropsHelperInfi2x2.enableStoneTools)
+            ModLoader.addName(stoneStoneTrowel, "Heavy Trowel");
+        if(PropsHelperInfi2x2.enableIronTools)
+            ModLoader.addName(ironIronTrowel, "Ironic Trowel");
+        if(PropsHelperInfi2x2.enableDiamondTools)
+            ModLoader.addName(diamondDiamondTrowel, "Diamondium Trowel");
+        if(PropsHelperInfi2x2.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneTrowel, "Redredred Trowel");
+        if(PropsHelperInfi2x2.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianTrowel, "Ebony Trowel");
+        if(PropsHelperInfi2x2.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneTrowel, "Fragile Trowel");
+        if(PropsHelperInfi2x2.enableNetherrackTools)
+            ModLoader.addName(boneBoneTrowel, "Necrotic Trowel");
+        if(PropsHelperInfi2x2.enablePaperTools)
+            ModLoader.addName(paperPaperTrowel, "Soft Trowel");
+        if(PropsHelperInfi2x2.enableMossyTools)
+            ModLoader.addName(mossyMossyTrowel, "Living Trowel");
+        if(PropsHelperInfi2x2.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackTrowel, "Bloodsoaked Trowel");
+        if(PropsHelperInfi2x2.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneTrowel, "Bright Trowel");
+        if(PropsHelperInfi2x2.enableIceTools)
+            ModLoader.addName(iceIceTrowel, "Freezing Trowel");
+        if(PropsHelperInfi2x2.enableLavaTools)
+            ModLoader.addName(lavaLavaTrowel, "Burning Trowel");
+        if(PropsHelperInfi2x2.enableSlimeTools)
+            ModLoader.addName(slimeSlimeTrowel, "Toy Trowel");
+        if(PropsHelperInfi2x2.enableCactusTools)
+            ModLoader.addName(cactusCactusTrowel, "Thorned Trowel");
+        if(PropsHelperInfi2x2.enableFlintTools)
+            ModLoader.addName(flintFlintTrowel, "Rough-hewn Trowel");
+        if(PropsHelperInfi2x2.enableBlazeTools)
+            ModLoader.addName(blazeBlazeTrowel, "Netherite Trowel");
+        if(PropsHelperInfi2x2.enableCopperTools)
+            ModLoader.addName(copperCopperTrowel, "Orange-Tang Trowel");
+        if(PropsHelperInfi2x2.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeTrowel, "Polished Trowel");
+        if(PropsHelperInfi2x2.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronTrowel, "Reworked Iron Trowel");
+        if(PropsHelperInfi2x2.enableSteelTools)
+            ModLoader.addName(steelSteelTrowel, "Forge-Wrought Trowel");
+        if(PropsHelperInfi2x2.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltTrowel, "Beautiful Trowel");
+        if(PropsHelperInfi2x2.enableArditeTools)
+            ModLoader.addName(arditeArditeTrowel, "Rustic Trowel");
+        if(PropsHelperInfi2x2.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynTrowel, "False-Prophetic Trowel");
+        if(PropsHelperInfi2x2.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumTrowel, "Cancerous Trowel");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1463,7 +1489,7 @@ public class Trowels
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneTrowel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneTrowel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneTrowel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneTrowel), new Object[] 
@@ -1472,6 +1498,8 @@ public class Trowels
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneTrowel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneTrowel), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneTrowel), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneTrowel), new Object[] 
@@ -1577,9 +1605,9 @@ public class Trowels
             ModLoader.addRecipe(new ItemStack(flintFlintTrowel), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintTrowel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintTrowel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfi2x2.enableBlazeTools)

@@ -741,7 +741,7 @@ public class Hatchets
             copperBronzeHatchet = new InfiToolHatchet(PropsHelperInfi2x2.bronzeHatchetID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeHatchet");
             bronzeBronzeHatchet = new InfiToolHatchet(PropsHelperInfi2x2.bronzeHatchetID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeHatchet");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeHatchet");
             
             MinecraftForge.setToolClass(woodBronzeHatchet, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
             MinecraftForge.setToolClass(stoneBronzeHatchet, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -913,7 +913,7 @@ public class Hatchets
             arditeCobaltHatchet = new InfiToolHatchet(PropsHelperInfi2x2.cobaltHatchetID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltHatchet");
             manyullynCobaltHatchet = new InfiToolHatchet(PropsHelperInfi2x2.cobaltHatchetID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltHatchet");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltHatchet");
             uraniumCobaltHatchet = new InfiToolHatchet(PropsHelperInfi2x2.cobaltHatchetID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHatchet");
             
@@ -972,7 +972,7 @@ public class Hatchets
             arditeArditeHatchet = new InfiToolHatchet(PropsHelperInfi2x2.arditeHatchetID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeHatchet");
             manyullynArditeHatchet = new InfiToolHatchet(PropsHelperInfi2x2.arditeHatchetID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeHatchet");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeHatchet");
             uraniumArditeHatchet = new InfiToolHatchet(PropsHelperInfi2x2.arditeHatchetID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHatchet");
             
@@ -1031,7 +1031,7 @@ public class Hatchets
             arditeManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynHatchet");
             manyullynManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynHatchet");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynHatchet");
             uraniumManyullynHatchet = new InfiToolHatchet(PropsHelperInfi2x2.manyullynHatchetID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHatchet");
             
@@ -1093,32 +1093,58 @@ public class Hatchets
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodHatchet, "Wooden Hatchet");
-    	ModLoader.addName(stoneStoneHatchet, "Heavy Hatchet");
-    	ModLoader.addName(ironIronHatchet, "Ironic Hatchet");
-    	ModLoader.addName(diamondDiamondHatchet, "Diamondium Hatchet");
-    	ModLoader.addName(redstoneRedstoneHatchet, "Redredred Hatchet");
-    	ModLoader.addName(obsidianObsidianHatchet, "Ebony Hatchet");
-    	ModLoader.addName(sandstoneSandstoneHatchet, "Fragile Hatchet");
-    	ModLoader.addName(boneBoneHatchet, "Necrotic Hatchet");
-    	ModLoader.addName(paperPaperHatchet, "Soft Hatchet");
-    	ModLoader.addName(mossyMossyHatchet, "Living Hatchet");
-    	ModLoader.addName(netherrackNetherrackHatchet, "Blood Hatchet");
-    	ModLoader.addName(glowstoneGlowstoneHatchet, "Bright Hatchet");
-    	ModLoader.addName(iceIceHatchet, "Freezing Hatchet");
-    	ModLoader.addName(lavaLavaHatchet, "Burning Hatchet");
-    	ModLoader.addName(slimeSlimeHatchet, "Toy Hatchet");
-    	ModLoader.addName(cactusCactusHatchet, "Thorned Hatchet");
-    	ModLoader.addName(flintFlintHatchet, "Rough-hewn Hatchet");
-    	ModLoader.addName(blazeBlazeHatchet, "Netherite Hatchet");
-        ModLoader.addName(copperCopperHatchet, "Orange-Tang Hatchet");
-        ModLoader.addName(bronzeBronzeHatchet, "Polished Hatchet");
-        ModLoader.addName(workedWorkedIronHatchet, "Reworked Iron Hatchet");
-        ModLoader.addName(steelSteelHatchet, "Forge-Wrought Hatchet");
-        ModLoader.addName(cobaltCobaltHatchet, "Beautiful Hatchet");
-        ModLoader.addName(arditeArditeHatchet, "Rustic Hatchet");
-        ModLoader.addName(manyullynManyullynHatchet, "False-Prophetic Hatchet");
-        ModLoader.addName(uraniumUraniumHatchet, "Cancerous Hatchet");
+    	if(PropsHelperInfi2x2.enableWoodTools)
+            ModLoader.addName(woodWoodHatchet, "Wooden Hatchet");
+        if(PropsHelperInfi2x2.enableStoneTools)
+            ModLoader.addName(stoneStoneHatchet, "Heavy Hatchet");
+        if(PropsHelperInfi2x2.enableIronTools)
+            ModLoader.addName(ironIronHatchet, "Ironic Hatchet");
+        if(PropsHelperInfi2x2.enableDiamondTools)
+            ModLoader.addName(diamondDiamondHatchet, "Diamondium Hatchet");
+        if(PropsHelperInfi2x2.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneHatchet, "Redredred Hatchet");
+        if(PropsHelperInfi2x2.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianHatchet, "Ebony Hatchet");
+        if(PropsHelperInfi2x2.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneHatchet, "Fragile Hatchet");
+        if(PropsHelperInfi2x2.enableNetherrackTools)
+            ModLoader.addName(boneBoneHatchet, "Necrotic Hatchet");
+        if(PropsHelperInfi2x2.enablePaperTools)
+            ModLoader.addName(paperPaperHatchet, "Soft Hatchet");
+        if(PropsHelperInfi2x2.enableMossyTools)
+            ModLoader.addName(mossyMossyHatchet, "Living Hatchet");
+        if(PropsHelperInfi2x2.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackHatchet, "Bloodsoaked Hatchet");
+        if(PropsHelperInfi2x2.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneHatchet, "Bright Hatchet");
+        if(PropsHelperInfi2x2.enableIceTools)
+            ModLoader.addName(iceIceHatchet, "Freezing Hatchet");
+        if(PropsHelperInfi2x2.enableLavaTools)
+            ModLoader.addName(lavaLavaHatchet, "Burning Hatchet");
+        if(PropsHelperInfi2x2.enableSlimeTools)
+            ModLoader.addName(slimeSlimeHatchet, "Toy Hatchet");
+        if(PropsHelperInfi2x2.enableCactusTools)
+            ModLoader.addName(cactusCactusHatchet, "Thorned Hatchet");
+        if(PropsHelperInfi2x2.enableFlintTools)
+            ModLoader.addName(flintFlintHatchet, "Rough-hewn Hatchet");
+        if(PropsHelperInfi2x2.enableBlazeTools)
+            ModLoader.addName(blazeBlazeHatchet, "Netherite Hatchet");
+        if(PropsHelperInfi2x2.enableCopperTools)
+            ModLoader.addName(copperCopperHatchet, "Orange-Tang Hatchet");
+        if(PropsHelperInfi2x2.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeHatchet, "Polished Hatchet");
+        if(PropsHelperInfi2x2.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronHatchet, "Reworked Iron Hatchet");
+        if(PropsHelperInfi2x2.enableSteelTools)
+            ModLoader.addName(steelSteelHatchet, "Forge-Wrought Hatchet");
+        if(PropsHelperInfi2x2.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltHatchet, "Beautiful Hatchet");
+        if(PropsHelperInfi2x2.enableArditeTools)
+            ModLoader.addName(arditeArditeHatchet, "Rustic Hatchet");
+        if(PropsHelperInfi2x2.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynHatchet, "False-Prophetic Hatchet");
+        if(PropsHelperInfi2x2.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumHatchet, "Cancerous Hatchet");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1463,7 +1489,7 @@ public class Hatchets
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneHatchet), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneHatchet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneHatchet), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneHatchet), new Object[] 
@@ -1472,6 +1498,8 @@ public class Hatchets
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneHatchet), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneHatchet), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneHatchet), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneHatchet), new Object[] 
@@ -1577,9 +1605,9 @@ public class Hatchets
             ModLoader.addRecipe(new ItemStack(flintFlintHatchet), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintHatchet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintHatchet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfi2x2.enableBlazeTools)

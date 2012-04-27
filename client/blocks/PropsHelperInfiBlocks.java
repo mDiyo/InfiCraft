@@ -1,163 +1,90 @@
 package net.minecraft.src.blocks;
-import net.minecraft.src.*;
+import java.io.File;
+import java.io.IOException;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.src.Item;
+import net.minecraft.src.forge.Configuration;
+import net.minecraft.src.mod_InfiBlocks;
 
 public class PropsHelperInfiBlocks {
 
-	public PropsHelperInfiBlocks() { }
-	
-	public static InfiProps getProps(InfiProps infiprops)
-	{
-		mod_InfiBlocks.resolveConflicts = infiprops.readBoolean("Automatically Resolve ID conflicts");
-		
-		mod_InfiBlocks.blockCraftingID = infiprops.readInt("Crafting Table ID");
-		mod_InfiBlocks.blockChestID = infiprops.readInt("Chest ID");
-		mod_InfiBlocks.blockFurnaceID = infiprops.readInt("Furnace ID");
-		mod_InfiBlocks.magicSlabStoneID = infiprops.readInt("Magic Slab Stone ID");
-		mod_InfiBlocks.magicSlabSoilID = infiprops.readInt("Magic Slab Soil ID");
-		mod_InfiBlocks.magicSlabWoolID = infiprops.readInt("Magic Slab Wool ID");
-		
-		mod_InfiBlocks.woolCarpetID = infiprops.readInt("Wool Carpet ID");
-		mod_InfiBlocks.craftingGuiID = 1;
-		mod_InfiBlocks.furnaceGuiID = 2;
-		
-		mod_InfiBlocks.stainedGlassID = infiprops.readInt("Stained Glass ID");
-		mod_InfiBlocks.stainedGlassPaneID = infiprops.readInt("Stained Glass Pane ID");
-		mod_InfiBlocks.stainedGlassMagicSlabID = infiprops.readInt("Stained Glass Magic Slab ID");
-		
-		mod_InfiBlocks.storageBlockID = infiprops.readInt("Storage Block ID");
-		mod_InfiBlocks.brickID = infiprops.readInt("Brick ID");
-		mod_InfiBlocks.crackedBrickID = infiprops.readInt("Cracked Brick ID");
-		mod_InfiBlocks.fancyBrickID = infiprops.readInt("Fancy Brick ID");
-		mod_InfiBlocks.runeBrickID = infiprops.readInt("Runic Brick ID");
-		mod_InfiBlocks.infiGlassID = infiprops.readInt("Infi-Glass ID");
-		mod_InfiBlocks.infiGlassPaneID = infiprops.readInt("Infi-Glass Pane ID");
-		mod_InfiBlocks.iceBrickID = infiprops.readInt("Ice Brick ID");
-		mod_InfiBlocks.brownstoneID = infiprops.readInt("Brownstone ID");
-		
-		mod_InfiBlocks.storageBlockMagicSlabID = infiprops.readInt("Storage Block Magic Slab ID");
-		mod_InfiBlocks.brickMagicSlabID = infiprops.readInt("Brick Magic Slab ID");
-		mod_InfiBlocks.crackedBrickMagicSlabID = infiprops.readInt("Cracked Brick Magic Slab ID");
-		mod_InfiBlocks.fancyBrickMagicSlabID = infiprops.readInt("Fancy Brick Magic Slab ID");
-		mod_InfiBlocks.runeBrickMagicSlabID = infiprops.readInt("Runic Brick Magic Slab ID");
-		mod_InfiBlocks.infiGlassMagicSlabID = infiprops.readInt("Infi-Glass Magic Slab ID");
-		mod_InfiBlocks.iceBrickMagicSlabID = infiprops.readInt("Ice Brick Magic Slab ID");
-		mod_InfiBlocks.brownstoneMagicSlabID = infiprops.readInt("Brownstone Magic Slab ID");
-		
-		mod_InfiBlocks.chiselID = infiprops.readInt("Chisel ID");
-		return infiprops;
-	}
+    public static void initProps()
+    {
+        /* Here we will set up the config file for the mod 
+         * First: Create a folder inside the config folder
+         * Second: Create the actual config file
+         * Note: Configs are a pain, but absolutely necessary for every mod.
+         */
 
-	public static InfiProps InitProps(InfiProps infiprops)
-	{
-		infiprops.accessBoolean("Automatically Resolve ID conflicts", true);
-		
-		infiprops.accessInt("Crafting Table ID", 196);
-		infiprops.accessInt("Chest ID", 197);
-		infiprops.accessInt("Furnace ID", 198);
-		infiprops.accessInt("Wool Carpet ID", 200);
-		
-		infiprops.accessInt("Magic Slab Stone ID", 193);
-		infiprops.accessInt("Magic Slab Soil ID", 194);
-		infiprops.accessInt("Magic Slab Wool ID", 195);
-		
-		infiprops.accessInt("Stained Glass ID", 201);
-		infiprops.accessInt("Stained Glass Pane ID", 202);
-		infiprops.accessInt("Stained Glass Magic Slab ID", 203);
-		
-		infiprops.accessInt("Storage Block ID", 204);
-		infiprops.accessInt("Storage Block Magic Slab ID", 205);
-		
-		infiprops.accessInt("Brick ID", 206);
-		infiprops.accessInt("Brick Magic Slab ID", 207);
-		
-		infiprops.accessInt("Cracked Brick ID", 208);
-		infiprops.accessInt("Cracked Brick Magic Slab ID", 209);
-		
-		infiprops.accessInt("Fancy Brick ID", 210);
-		infiprops.accessInt("Fancy Brick Magic Slab ID", 211);
-		
-		infiprops.accessInt("Runic Brick ID", 212);
-		infiprops.accessInt("Runic Brick Magic Slab ID", 213);
-		
-		infiprops.accessInt("Infi-Glass ID", 214);
-		infiprops.accessInt("Infi-Glass Pane ID", 215);
-		infiprops.accessInt("Infi-Glass Magic Slab ID", 216);
-		
-		infiprops.accessInt("Ice Brick ID", 189);
-		infiprops.accessInt("Ice Brick Magic Slab ID", 190);
-		
-		infiprops.accessInt("Brownstone ID", 191);
-		infiprops.accessInt("Brownstone Magic Slab ID", 192);
-		
-		infiprops.accessInt("Chisel ID", 12101);
-		return infiprops;
-	}
-	
-	public static boolean resolveIDs(InfiProps props)
-	{	
-		mod_InfiBlocks.blockCraftingID = changeID(props, mod_InfiBlocks.blockCraftingID, 
-				"Crafting Table ID");
-		mod_InfiBlocks.woolCarpetID = changeID(props, mod_InfiBlocks.woolCarpetID, 
-				"Wool Carpet ID");
-		mod_InfiBlocks.blockChestID = changeID(props, mod_InfiBlocks.blockChestID, 
-				"Chest ID");
-		mod_InfiBlocks.blockFurnaceID = changeID(props, mod_InfiBlocks.blockFurnaceID, 
-				"Furnace ID");
-		mod_InfiBlocks.magicSlabStoneID = changeID(props, mod_InfiBlocks.magicSlabStoneID, 
-				"Magic Slab Stone ID");
-		mod_InfiBlocks.magicSlabSoilID = changeID(props, mod_InfiBlocks.magicSlabSoilID, 
-				"Magic Slab Soil ID");
-		mod_InfiBlocks.magicSlabWoolID = changeID(props, mod_InfiBlocks.magicSlabWoolID, 
-				"Magic Slab Wool ID");
-		mod_InfiBlocks.stainedGlassID = changeID(props, mod_InfiBlocks.stainedGlassID, 
-				"Stained Glass ID");
-		mod_InfiBlocks.stainedGlassPaneID = changeID(props, mod_InfiBlocks.stainedGlassPaneID, 
-				"Stained Glass Pane ID");
-		mod_InfiBlocks.stainedGlassMagicSlabID = changeID(props, mod_InfiBlocks.stainedGlassMagicSlabID, 
-				"Stained Glass Magic Slab ID");
-		mod_InfiBlocks.storageBlockID = changeID(props, mod_InfiBlocks.storageBlockID, 
-				"Storage Block ID");
-		mod_InfiBlocks.brickID = changeID(props, mod_InfiBlocks.brickID, 
-				"Brick ID");
-		mod_InfiBlocks.crackedBrickID = changeID(props, mod_InfiBlocks.crackedBrickID, 
-				"Cracked Brick ID");
-		mod_InfiBlocks.fancyBrickID = changeID(props, mod_InfiBlocks.fancyBrickID, 
-				"Fancy Brick ID");
-		mod_InfiBlocks.runeBrickID = changeID(props, mod_InfiBlocks.runeBrickID, 
-				"Runic Brick ID");
-		mod_InfiBlocks.infiGlassID = changeID(props, mod_InfiBlocks.infiGlassID, 
-				"Infi-Glass ID");
-		mod_InfiBlocks.iceBrickID = changeID(props, mod_InfiBlocks.iceBrickID, 
-				"Ice Brick ID");
-		mod_InfiBlocks.brownstoneID = changeID(props, mod_InfiBlocks.brownstoneID, 
-				"Brownstone ID");
-		mod_InfiBlocks.storageBlockMagicSlabID = changeID(props, mod_InfiBlocks.storageBlockMagicSlabID, 
-				"Storage Block Magic Slab ID");
-		mod_InfiBlocks.brickMagicSlabID = changeID(props, mod_InfiBlocks.brickMagicSlabID, 
-				"Brick Magic Slab ID");
-		mod_InfiBlocks.fancyBrickMagicSlabID = changeID(props, mod_InfiBlocks.fancyBrickMagicSlabID, 
-				"Fancy Brick Magic Slab ID");
-		mod_InfiBlocks.iceBrickMagicSlabID = changeID(props, mod_InfiBlocks.iceBrickMagicSlabID, 
-				"Ice Brick Magic Slab ID");
-		mod_InfiBlocks.brownstoneMagicSlabID = changeID(props, mod_InfiBlocks.brownstoneMagicSlabID, 
-				"Brownstone Magic Slab ID");
-		props.writeBoolean("Automatically Resolve ID conflicts", false);
-		return true;
-	}
-	
-	private static int idStart = 130;
-	
-	private static int changeID(InfiProps props, int id, String s)
-	{
-		if(Block.blocksList[id] != null) {
-			for(int i = idStart; i < Block.blocksList.length; i++) {
-				if(Block.blocksList[i] == null) {
-					props.writeInt(s, i);
-					idStart = i + 1;
-					return i;
-				}
-			}
-		}
-		return id;
-	}
+        File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
+        file.mkdir();
+        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/InfiBlocks.txt");
+
+        /* Some basic debugging will go a long way */
+        try
+        {
+            newFile.createNewFile();
+            System.out.println("Successfully created/read configuration file");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Could not create configuration file for mod_FloraSoma. Reason:");
+            System.out.println(e);
+        }
+
+        /* [Forge] Configuration class, used as config method */
+        Configuration config = new Configuration(newFile);
+
+        /* Load the configuration file */
+        config.load();
+
+        /* Define the mod's IDs. 
+         * Avoid values below 4096 for items and in the 250-450 range for blocks
+         */
+        
+        mod_InfiBlocks.blockCraftingID = config.getOrCreateBlockIdProperty("Crafting Table", 3271).getInt(3271);
+        mod_InfiBlocks.blockChestID = config.getOrCreateBlockIdProperty("Chest", 3272).getInt(3272);
+        mod_InfiBlocks.blockFurnaceID = config.getOrCreateBlockIdProperty("Furnace", 3273).getInt(3273);
+        mod_InfiBlocks.woolCarpetID = config.getOrCreateBlockIdProperty("Carpet", 3274).getInt(3274);
+        
+        mod_InfiBlocks.magicSlabStoneID = config.getOrCreateBlockIdProperty("Magic Slab Stone", 3275).getInt(3275);
+        mod_InfiBlocks.magicSlabSoilID = config.getOrCreateBlockIdProperty("Magic Slab Soil", 3276).getInt(3276);
+        mod_InfiBlocks.magicSlabWoolID = config.getOrCreateBlockIdProperty("Magic Slab Wool", 3277).getInt(3277);        
+        
+        mod_InfiBlocks.stainedGlassID = config.getOrCreateBlockIdProperty("Stained Glass", 3278).getInt(3278);
+        mod_InfiBlocks.stainedGlassPaneID = config.getOrCreateBlockIdProperty("Stained Glass Pane", 3279).getInt(3279);
+        mod_InfiBlocks.stainedGlassMagicSlabID = config.getOrCreateBlockIdProperty("Stained Glass Magic Slab", 3280).getInt(32802);
+        
+        mod_InfiBlocks.storageBlockID = config.getOrCreateBlockIdProperty("Storage Block", 3281).getInt(3281);
+        mod_InfiBlocks.storageBlockMagicSlabID = config.getOrCreateBlockIdProperty("Storage Block Magic Slab", 3282).getInt(3282);
+        
+        mod_InfiBlocks.brickID = config.getOrCreateBlockIdProperty("Brick", 3283).getInt(3283);
+        mod_InfiBlocks.brickMagicSlabID = config.getOrCreateBlockIdProperty("Brick Magic Slab", 3284).getInt(3284);
+        
+        mod_InfiBlocks.crackedBrickID = config.getOrCreateBlockIdProperty("Cracked Brick", 3285).getInt(3285);
+        mod_InfiBlocks.crackedBrickMagicSlabID = config.getOrCreateBlockIdProperty("Cracked Brick Magic Slab", 3286).getInt(3286);
+        
+        mod_InfiBlocks.fancyBrickID = config.getOrCreateBlockIdProperty("Fancy Brick", 3287).getInt(3287);
+        mod_InfiBlocks.fancyBrickMagicSlabID = config.getOrCreateBlockIdProperty("Fancy Brick Magic Slab", 3288).getInt(3288);
+        //mod_InfiBlocks.runeBrickID = config.getOrCreateBlockIdProperty("Chest", 3272).getInt(3272);
+        
+        mod_InfiBlocks.infiGlassID = config.getOrCreateBlockIdProperty("Glass", 3291).getInt(3291);
+        mod_InfiBlocks.infiGlassPaneID = config.getOrCreateBlockIdProperty("Glass Pane", 3292).getInt(3292);
+        mod_InfiBlocks.infiGlassMagicSlabID = config.getOrCreateBlockIdProperty("Glass Magic Slab", 3293).getInt(3293);
+        
+        mod_InfiBlocks.iceBrickID = config.getOrCreateBlockIdProperty("Ice Brick", 3294).getInt(3294);
+        mod_InfiBlocks.iceBrickMagicSlabID = config.getOrCreateBlockIdProperty("Ice Brick Magic Slab", 3295).getInt(3295);
+        
+        mod_InfiBlocks.brownstoneID = config.getOrCreateBlockIdProperty("Brownstone", 3296).getInt(3296);
+        mod_InfiBlocks.brownstoneMagicSlabID = config.getOrCreateBlockIdProperty("Brownstone Magic Slab", 3297).getInt(3297);
+        
+        mod_InfiBlocks.chiselID = config.getOrCreateIntProperty("Iron Chisel", "item", 12101).getInt(12101);
+        mod_InfiBlocks.chiselDiamondID = config.getOrCreateIntProperty("Diamond Chisel", "item", 12102).getInt(12102);
+
+        //mod_InfiBlocks.enableCrops = config.getOrCreateBooleanProperty("Enable Crops", "general", true).getBoolean(true);
+
+        /* Save the configuration file */
+        config.save();
+    }
 }

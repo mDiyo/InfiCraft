@@ -701,7 +701,7 @@ public class Axes
             copperBronzeAxe = new InfiToolAxe(PropsHelperInfiTools.bronzeAxeID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeAxe");
             bronzeBronzeAxe = new InfiToolAxe(PropsHelperInfiTools.bronzeAxeID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeAxe");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeAxe");
             
             MinecraftForge.setToolClass(woodBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
             MinecraftForge.setToolClass(stoneBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -873,7 +873,7 @@ public class Axes
             arditeCobaltAxe = new InfiToolAxe(PropsHelperInfiTools.cobaltAxeID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltAxe");
             manyullynCobaltAxe = new InfiToolAxe(PropsHelperInfiTools.cobaltAxeID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltAxe");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltAxe");
             uraniumCobaltAxe = new InfiToolAxe(PropsHelperInfiTools.cobaltAxeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltAxe");
             
@@ -932,7 +932,7 @@ public class Axes
             arditeArditeAxe = new InfiToolAxe(PropsHelperInfiTools.arditeAxeID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeAxe");
             manyullynArditeAxe = new InfiToolAxe(PropsHelperInfiTools.arditeAxeID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeAxe");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeAxe");
             uraniumArditeAxe = new InfiToolAxe(PropsHelperInfiTools.arditeAxeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeAxe");
             
@@ -991,7 +991,7 @@ public class Axes
             arditeManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynAxe");
             manyullynManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynAxe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynAxe");
             uraniumManyullynAxe = new InfiToolAxe(PropsHelperInfiTools.manyullynAxeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynAxe");
             
@@ -1053,32 +1053,58 @@ public class Axes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodAxe, "Wooden Axe");
-    	ModLoader.addName(stoneStoneAxe, "Heavy Axe");
-    	ModLoader.addName(ironIronAxe, "Ironic Axe");
-    	ModLoader.addName(diamondDiamondAxe, "Diamondium Axe");
-    	ModLoader.addName(redstoneRedstoneAxe, "Redredred Axe");
-    	ModLoader.addName(obsidianObsidianAxe, "Ebony Axe");
-    	ModLoader.addName(sandstoneSandstoneAxe, "Fragile Axe");
-    	ModLoader.addName(boneBoneAxe, "Necrotic Axe");
-    	ModLoader.addName(paperPaperAxe, "Soft Axe");
-    	ModLoader.addName(mossyMossyAxe, "Living Axe");
-    	ModLoader.addName(netherrackNetherrackAxe, "Blood Axe");
-    	ModLoader.addName(glowstoneGlowstoneAxe, "Bright Axe");
-    	ModLoader.addName(iceIceAxe, "Freezing Axe");
-    	ModLoader.addName(lavaLavaAxe, "Burning Axe");
-    	ModLoader.addName(slimeSlimeAxe, "Toy Axe");
-    	ModLoader.addName(cactusCactusAxe, "Thorned Axe");
-    	ModLoader.addName(flintFlintAxe, "Rough-hewn Axe");
-    	ModLoader.addName(blazeBlazeAxe, "Netherite Axe");
-        ModLoader.addName(copperCopperAxe, "Orange-Tang Axe");
-        ModLoader.addName(bronzeBronzeAxe, "Polished Axe");
-        ModLoader.addName(workedWorkedIronAxe, "Reworked Iron Axe");
-        ModLoader.addName(steelSteelAxe, "Forge-Wrought Axe");
-        ModLoader.addName(cobaltCobaltAxe, "Beautiful Axe");
-        ModLoader.addName(arditeArditeAxe, "Rustic Axe");
-        ModLoader.addName(manyullynManyullynAxe, "False-Prophetic Axe");
-        ModLoader.addName(uraniumUraniumAxe, "Cancerous Axe");
+    	if(PropsHelperInfiTools.enableWoodTools)
+            ModLoader.addName(woodWoodAxe, "Wooden Axe");
+        if(PropsHelperInfiTools.enableStoneTools)
+            ModLoader.addName(stoneStoneAxe, "Heavy Axe");
+        if(PropsHelperInfiTools.enableIronTools)
+            ModLoader.addName(ironIronAxe, "Ironic Axe");
+        if(PropsHelperInfiTools.enableDiamondTools)
+            ModLoader.addName(diamondDiamondAxe, "Diamondium Axe");
+        if(PropsHelperInfiTools.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneAxe, "Redredred Axe");
+        if(PropsHelperInfiTools.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianAxe, "Ebony Axe");
+        if(PropsHelperInfiTools.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneAxe, "Fragile Axe");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(boneBoneAxe, "Necrotic Axe");
+        if(PropsHelperInfiTools.enablePaperTools)
+            ModLoader.addName(paperPaperAxe, "Soft Axe");
+        if(PropsHelperInfiTools.enableMossyTools)
+            ModLoader.addName(mossyMossyAxe, "Living Axe");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackAxe, "Bloodsoaked Axe");
+        if(PropsHelperInfiTools.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneAxe, "Bright Axe");
+        if(PropsHelperInfiTools.enableIceTools)
+            ModLoader.addName(iceIceAxe, "Freezing Axe");
+        if(PropsHelperInfiTools.enableLavaTools)
+            ModLoader.addName(lavaLavaAxe, "Burning Axe");
+        if(PropsHelperInfiTools.enableSlimeTools)
+            ModLoader.addName(slimeSlimeAxe, "Toy Axe");
+        if(PropsHelperInfiTools.enableCactusTools)
+            ModLoader.addName(cactusCactusAxe, "Thorned Axe");
+        if(PropsHelperInfiTools.enableFlintTools)
+            ModLoader.addName(flintFlintAxe, "Rough-hewn Axe");
+        if(PropsHelperInfiTools.enableBlazeTools)
+            ModLoader.addName(blazeBlazeAxe, "Netherite Axe");
+        if(PropsHelperInfiTools.enableCopperTools)
+            ModLoader.addName(copperCopperAxe, "Orange-Tang Axe");
+        if(PropsHelperInfiTools.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeAxe, "Polished Axe");
+        if(PropsHelperInfiTools.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronAxe, "Reworked Iron Axe");
+        if(PropsHelperInfiTools.enableSteelTools)
+            ModLoader.addName(steelSteelAxe, "Forge-Wrought Axe");
+        if(PropsHelperInfiTools.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltAxe, "Beautiful Axe");
+        if(PropsHelperInfiTools.enableArditeTools)
+            ModLoader.addName(arditeArditeAxe, "Rustic Axe");
+        if(PropsHelperInfiTools.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynAxe, "False-Prophetic Axe");
+        if(PropsHelperInfiTools.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumAxe, "Cancerous Axe");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1423,7 +1449,7 @@ public class Axes
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneAxe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneAxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneAxe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneAxe), new Object[] 
@@ -1432,6 +1458,8 @@ public class Axes
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneAxe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneAxe), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneAxe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneAxe), new Object[] 
@@ -1537,9 +1565,9 @@ public class Axes
             ModLoader.addRecipe(new ItemStack(flintFlintAxe), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintAxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintAxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfiTools.enableBlazeTools)

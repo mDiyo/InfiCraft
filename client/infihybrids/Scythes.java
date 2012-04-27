@@ -529,7 +529,7 @@ public class Scythes
             copperBronzeScythe = new InfiToolScythe(PropsHelperInfiHybrids.bronzeScytheID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeScythe");
             bronzeBronzeScythe = new InfiToolScythe(PropsHelperInfiHybrids.bronzeScytheID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeScythe");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeScythe");
         }
         
         if(PropsHelperInfiHybrids.enableWorkedIronTools)
@@ -651,7 +651,7 @@ public class Scythes
             arditeCobaltScythe = new InfiToolScythe(PropsHelperInfiHybrids.cobaltScytheID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltScythe");
             manyullynCobaltScythe = new InfiToolScythe(PropsHelperInfiHybrids.cobaltScytheID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltScythe");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltScythe");
             uraniumCobaltScythe = new InfiToolScythe(PropsHelperInfiHybrids.cobaltScytheID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltScythe");
         }
@@ -691,7 +691,7 @@ public class Scythes
             arditeArditeScythe = new InfiToolScythe(PropsHelperInfiHybrids.arditeScytheID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeScythe");
             manyullynArditeScythe = new InfiToolScythe(PropsHelperInfiHybrids.arditeScytheID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeScythe");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeScythe");
             uraniumArditeScythe = new InfiToolScythe(PropsHelperInfiHybrids.arditeScytheID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeScythe");
         }
@@ -731,7 +731,7 @@ public class Scythes
             arditeManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynScythe");
             manyullynManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynScythe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynScythe");
             uraniumManyullynScythe = new InfiToolScythe(PropsHelperInfiHybrids.manyullynScytheID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynScythe");
         }
@@ -763,32 +763,58 @@ public class Scythes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodScythe, "Wooden Scythe");
-    	ModLoader.addName(stoneStoneScythe, "Heavy Scythe");
-    	ModLoader.addName(ironIronScythe, "Ironic Scythe");
-    	ModLoader.addName(diamondDiamondScythe, "Diamondium Scythe");
-    	ModLoader.addName(redstoneRedstoneScythe, "Redredred Scythe");
-    	ModLoader.addName(obsidianObsidianScythe, "Ebony Scythe");
-    	ModLoader.addName(sandstoneSandstoneScythe, "Fragile Scythe");
-    	ModLoader.addName(boneBoneScythe, "Necrotic Scythe");
-    	ModLoader.addName(paperPaperScythe, "Soft Scythe");
-    	ModLoader.addName(mossyMossyScythe, "Living Scythe");
-    	ModLoader.addName(netherrackNetherrackScythe, "Blood Scythe");
-    	ModLoader.addName(glowstoneGlowstoneScythe, "Bright Scythe");
-    	ModLoader.addName(iceIceScythe, "Freezing Scythe");
-    	ModLoader.addName(lavaLavaScythe, "Burning Scythe");
-    	ModLoader.addName(slimeSlimeScythe, "Toy Scythe");
-    	ModLoader.addName(cactusCactusScythe, "Thorned Scythe");
-    	ModLoader.addName(flintFlintScythe, "Rough-hewn Scythe");
-    	ModLoader.addName(blazeBlazeScythe, "Netherite Scythe");
-        ModLoader.addName(copperCopperScythe, "Orange-Tang Scythe");
-        ModLoader.addName(bronzeBronzeScythe, "Polished Scythe");
-        ModLoader.addName(workedWorkedIronScythe, "Reworked Iron Scythe");
-        ModLoader.addName(steelSteelScythe, "Forge-Wrought Scythe");
-        ModLoader.addName(cobaltCobaltScythe, "Beautiful Scythe");
-        ModLoader.addName(arditeArditeScythe, "Rustic StoneDigger");
-        ModLoader.addName(manyullynManyullynScythe, "False-Prophetic Scythe");
-        ModLoader.addName(uraniumUraniumScythe, "Cancerous Scythe");
+    	if(PropsHelperInfiHybrids.enableWoodTools)
+            ModLoader.addName(woodWoodScythe, "Wooden Scythe");
+        if(PropsHelperInfiHybrids.enableStoneTools)
+            ModLoader.addName(stoneStoneScythe, "Heavy Scythe");
+        if(PropsHelperInfiHybrids.enableIronTools)
+            ModLoader.addName(ironIronScythe, "Ironic Scythe");
+        if(PropsHelperInfiHybrids.enableDiamondTools)
+            ModLoader.addName(diamondDiamondScythe, "Diamondium Scythe");
+        if(PropsHelperInfiHybrids.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneScythe, "Redredred Scythe");
+        if(PropsHelperInfiHybrids.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianScythe, "Ebony Scythe");
+        if(PropsHelperInfiHybrids.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneScythe, "Fragile Scythe");
+        if(PropsHelperInfiHybrids.enableNetherrackTools)
+            ModLoader.addName(boneBoneScythe, "Necrotic Scythe");
+        if(PropsHelperInfiHybrids.enablePaperTools)
+            ModLoader.addName(paperPaperScythe, "Soft Scythe");
+        if(PropsHelperInfiHybrids.enableMossyTools)
+            ModLoader.addName(mossyMossyScythe, "Living Scythe");
+        if(PropsHelperInfiHybrids.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackScythe, "Bloodsoaked Scythe");
+        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneScythe, "Bright Scythe");
+        if(PropsHelperInfiHybrids.enableIceTools)
+            ModLoader.addName(iceIceScythe, "Freezing Scythe");
+        if(PropsHelperInfiHybrids.enableLavaTools)
+            ModLoader.addName(lavaLavaScythe, "Burning Scythe");
+        if(PropsHelperInfiHybrids.enableSlimeTools)
+            ModLoader.addName(slimeSlimeScythe, "Toy Scythe");
+        if(PropsHelperInfiHybrids.enableCactusTools)
+            ModLoader.addName(cactusCactusScythe, "Thorned Scythe");
+        if(PropsHelperInfiHybrids.enableFlintTools)
+            ModLoader.addName(flintFlintScythe, "Rough-hewn Scythe");
+        if(PropsHelperInfiHybrids.enableBlazeTools)
+            ModLoader.addName(blazeBlazeScythe, "Netherite Scythe");
+        if(PropsHelperInfiHybrids.enableCopperTools)
+            ModLoader.addName(copperCopperScythe, "Orange-Tang Scythe");
+        if(PropsHelperInfiHybrids.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeScythe, "Polished Scythe");
+        if(PropsHelperInfiHybrids.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronScythe, "Reworked Iron Scythe");
+        if(PropsHelperInfiHybrids.enableSteelTools)
+            ModLoader.addName(steelSteelScythe, "Forge-Wrought Scythe");
+        if(PropsHelperInfiHybrids.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltScythe, "Beautiful Scythe");
+        if(PropsHelperInfiHybrids.enableArditeTools)
+            ModLoader.addName(arditeArditeScythe, "Rustic Scythe");
+        if(PropsHelperInfiHybrids.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynScythe, "False-Prophetic Scythe");
+        if(PropsHelperInfiHybrids.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumScythe, "Cancerous Scythe");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1133,7 +1159,7 @@ public class Scythes
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneScythe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneScythe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneScythe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneScythe), new Object[] 
@@ -1142,6 +1168,8 @@ public class Scythes
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneScythe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneScythe), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneScythe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneScythe), new Object[] 
@@ -1247,9 +1275,9 @@ public class Scythes
             ModLoader.addRecipe(new ItemStack(flintFlintScythe), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintScythe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintScythe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfiHybrids.enableBlazeTools)

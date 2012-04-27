@@ -42,40 +42,40 @@ public class PropsHelperOrizon {
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
         
-        mod_Orizon.mineralOreID = config.getOrCreateBlockIdProperty("Mineral Ore", 131).getInt(131);
-        mod_Orizon.mineralOreHighID = config.getOrCreateBlockIdProperty("Mineral Ore High", 132).getInt(132);
-        mod_Orizon.mineralOreLow1ID = config.getOrCreateBlockIdProperty("Mineral Ore Medium", 133).getInt(133);
-        mod_Orizon.mineralOreLow2ID = config.getOrCreateBlockIdProperty("Mineral Ore Low", 134).getInt(134);
-        mod_Orizon.mineralOreLow3ID = config.getOrCreateBlockIdProperty("Mineral Ore Dark", 135).getInt(135);
+        mod_Orizon.mineralOreID = config.getOrCreateBlockIdProperty("Mineral Ore", 3211).getInt(3211);
+        mod_Orizon.mineralOreHighID = config.getOrCreateBlockIdProperty("Mineral Ore High", 3212).getInt(3212);
+        mod_Orizon.mineralOreLow1ID = config.getOrCreateBlockIdProperty("Mineral Ore Medium", 3213).getInt(3213);
+        mod_Orizon.mineralOreLow2ID = config.getOrCreateBlockIdProperty("Mineral Ore Low", 3214).getInt(3214);
+        mod_Orizon.mineralOreLow3ID = config.getOrCreateBlockIdProperty("Mineral Ore Dark", 3215).getInt(3215);
         
-        mod_Orizon.mineralOreAltID = config.getOrCreateBlockIdProperty("Mineral Ore Alt", 136).getInt(136);
-        mod_Orizon.mineralOreAltHighID = config.getOrCreateBlockIdProperty("Mineral Ore Alt High", 137).getInt(137);
-        mod_Orizon.mineralOreAltLow1ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Medium", 138).getInt(138);
-        mod_Orizon.mineralOreAltLow2ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Low", 139).getInt(139);
-        mod_Orizon.mineralOreAltLow3ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Dark", 140).getInt(140);
+        mod_Orizon.mineralOreAltID = config.getOrCreateBlockIdProperty("Mineral Ore Alt", 3216).getInt(3216);
+        mod_Orizon.mineralOreAltHighID = config.getOrCreateBlockIdProperty("Mineral Ore Alt High", 3217).getInt(3217);
+        mod_Orizon.mineralOreAltLow1ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Medium", 3218).getInt(3218);
+        mod_Orizon.mineralOreAltLow2ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Low", 3219).getInt(3219);
+        mod_Orizon.mineralOreAltLow3ID = config.getOrCreateBlockIdProperty("Mineral Ore Alt Dark", 3220).getInt(3220);
         
-        mod_Orizon.gemOreID = config.getOrCreateBlockIdProperty("Gem Ore", 141).getInt(141);
-        mod_Orizon.gemOreHighID = config.getOrCreateBlockIdProperty("Gem Ore High", 142).getInt(142);
-        mod_Orizon.gemOreLow1ID = config.getOrCreateBlockIdProperty("Gem Ore Medium", 143).getInt(143);
-        mod_Orizon.gemOreLow2ID = config.getOrCreateBlockIdProperty("Gem Ore Low", 144).getInt(144);
-        mod_Orizon.gemOreLow3ID = config.getOrCreateBlockIdProperty("Gem Ore Dark", 145).getInt(145);
+        mod_Orizon.gemOreID = config.getOrCreateBlockIdProperty("Gem Ore", 3221).getInt(3221);
+        mod_Orizon.gemOreHighID = config.getOrCreateBlockIdProperty("Gem Ore High", 3222).getInt(3222);
+        mod_Orizon.gemOreLow1ID = config.getOrCreateBlockIdProperty("Gem Ore Medium", 3223).getInt(3223);
+        mod_Orizon.gemOreLow2ID = config.getOrCreateBlockIdProperty("Gem Ore Low", 3224).getInt(3224);
+        mod_Orizon.gemOreLow3ID = config.getOrCreateBlockIdProperty("Gem Ore Dark", 3225).getInt(3225);
         
-        mod_Orizon.cStoneID = config.getOrCreateBlockIdProperty("Colored Stone", 146).getInt(146);
-        mod_Orizon.cCobbleID = config.getOrCreateBlockIdProperty("Colored Cobblestone", 147).getInt(147);
-        mod_Orizon.cBrickID = config.getOrCreateBlockIdProperty("Colored Stone Brick", 148).getInt(148);
-        mod_Orizon.cMossyID = config.getOrCreateBlockIdProperty("Colored Mossy Brick", 149).getInt(149);
-        mod_Orizon.cCrackedID = config.getOrCreateBlockIdProperty("Colored Cracked Brick", 150).getInt(150);
-        mod_Orizon.cTileID = config.getOrCreateBlockIdProperty("Colored Tiled Brick", 151).getInt(151);
-        mod_Orizon.cFancyID = config.getOrCreateBlockIdProperty("Colored Fancy Brick", 152).getInt(152);
-        mod_Orizon.cSquareID = config.getOrCreateBlockIdProperty("Colored Square Brick", 153).getInt(153);
+        mod_Orizon.cStoneID = config.getOrCreateBlockIdProperty("Colored Stone", 3226).getInt(3226);
+        mod_Orizon.cCobbleID = config.getOrCreateBlockIdProperty("Colored Cobblestone", 3227).getInt(3227);
+        mod_Orizon.cBrickID = config.getOrCreateBlockIdProperty("Colored Stone Brick", 3228).getInt(3228);
+        mod_Orizon.cMossyID = config.getOrCreateBlockIdProperty("Colored Mossy Brick", 3229).getInt(3229);
+        mod_Orizon.cCrackedID = config.getOrCreateBlockIdProperty("Colored Cracked Brick", 3230).getInt(3230);
+        mod_Orizon.cTileID = config.getOrCreateBlockIdProperty("Colored Tiled Brick", 3231).getInt(3231);
+        mod_Orizon.cFancyID = config.getOrCreateBlockIdProperty("Colored Fancy Brick", 3232).getInt(3232);
+        mod_Orizon.cSquareID = config.getOrCreateBlockIdProperty("Colored Square Brick", 3233).getInt(3233);
         
-        mod_Orizon.replaceOreID = config.getOrCreateBlockIdProperty("Replacement Ore", 154).getInt(154);
-        mod_Orizon.replaceMetalID = config.getOrCreateBlockIdProperty("Replacement Metal Ore", 155).getInt(155);
-        mod_Orizon.calciteOreID = config.getOrCreateBlockIdProperty("Calcite Ore", 156).getInt(156);
-        mod_Orizon.netherOreID = config.getOrCreateBlockIdProperty("Nether Ore", 157).getInt(157);
-        mod_Orizon.marbleID = config.getOrCreateBlockIdProperty("Marble", 158).getInt(158);
-        mod_Orizon.slimePoolID = config.getOrCreateBlockIdProperty("Slime Pool IDs", 159).getInt(159);        
-        mod_Orizon.slimeGelID = config.getOrCreateBlockIdProperty("Slime Gel", 161).getInt(161);
+        mod_Orizon.replaceOreID = config.getOrCreateBlockIdProperty("Replacement Ore", 3234).getInt(3234);
+        mod_Orizon.replaceMetalID = config.getOrCreateBlockIdProperty("Replacement Metal Ore", 3235).getInt(3235);
+        mod_Orizon.calciteOreID = config.getOrCreateBlockIdProperty("Calcite Ore", 3236).getInt(3236);
+        mod_Orizon.netherOreID = config.getOrCreateBlockIdProperty("Nether Ore", 3237).getInt(3237);
+        mod_Orizon.marbleID = config.getOrCreateBlockIdProperty("Marble", 3238).getInt(3238);
+        mod_Orizon.slimeGelID = config.getOrCreateBlockIdProperty("Slime Gel", 3239).getInt(3239);
+        mod_Orizon.slimePoolID = config.getOrCreateBlockIdProperty("Slime Pool IDs", 3240).getInt(3240);
         
         mod_Orizon.ingotsID = config.getOrCreateIntProperty("Ingots", "item", 10998).getInt(10998);
         mod_Orizon.netherIngotsID = config.getOrCreateIntProperty("Nether Ingots", "item", 10999).getInt(10999);

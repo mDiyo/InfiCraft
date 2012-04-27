@@ -14,7 +14,7 @@ public class CrusherLogic extends BlockLogicPrototype
     
     public CrusherLogic()
     {
-        super(19);
+        super(10);
         fuel = 0;
         fuelGague = 0;
         progress = 0;
@@ -121,15 +121,12 @@ public class CrusherLogic extends BlockLogicPrototype
         	if (items != null)
         	{
 	        	int[] chances = getRecipeChance(inventory[i]);
-	        	if (!machineClogged(items))
-	        	{
-	        		outputItems(items, chances);
-	        		inventory[i].stackSize--;
-	        		if (inventory[i].stackSize < 1)
-	        		{
-	        			inventory[i] = null;
-	        		}
-	        	}
+	        	outputItems(items, chances);
+        		inventory[i].stackSize--;
+        		if (inventory[i].stackSize < 1)
+        		{
+        			inventory[i] = null;
+        		}
         	}
         }        
     }
@@ -140,7 +137,13 @@ public class CrusherLogic extends BlockLogicPrototype
     	
     	for (int iter = 0; iter < items.size(); iter++)
     	{
-    		ItemStack stack = (ItemStack) items.get(iter);
+    		if(rand.nextInt(100) + 1 <= chances[iter])
+    		{
+	    		EntityItem entityitem = new EntityItem(this.worldObj, this.xCoord+0.5, this.yCoord, this.zCoord+0.5, ((ItemStack)items.get(iter)));
+	            entityitem.delayBeforeCanPickup = 10;
+	            this.worldObj.spawnEntityInWorld(entityitem);
+    		}
+    		/*ItemStack stack = (ItemStack) items.get(iter);
     		int size = stack.stackSize;
     		boolean deposited = false;
     		int slot = 10;
@@ -162,7 +165,7 @@ public class CrusherLogic extends BlockLogicPrototype
     				deposited = true;
     			}
     			slot++;
-    		}
+    		}*/
     	}
     }
     

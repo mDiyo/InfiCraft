@@ -24,7 +24,7 @@ public class mod_InfiBase extends BaseMod
 	@Override
 	public String getVersion() 
 	{
-		return "1.0.4 for 1.2.5";
+		return "1.0.8 for 1.2.5";
 	}
 	
 	public mod_InfiBase()
@@ -76,6 +76,8 @@ public class mod_InfiBase extends BaseMod
 		        { " g ", "rpr", " g ", 'r', Item.redstone, 'g', Item.lightStoneDust, 'm', Item.paper });
 		ModLoader.addShapelessRecipe(new ItemStack(obsidianCrystal, 1), new Object[]
 		        { Block.obsidian, this.paperDust, this.paperDust, this.paperDust });
+		ModLoader.addShapelessRecipe(new ItemStack(paperDust, 1), new Object[]
+		        { Item.paper, Item.redstone, Item.redstone, Item.lightStoneDust, Item.lightStoneDust });
 		
 		ModLoader.addRecipe(new ItemStack(grindstone, 1), new Object[]
 		        { "#", '#', Block.stone });
@@ -231,6 +233,10 @@ public class mod_InfiBase extends BaseMod
                 { new ItemStack(grindstone, 1, -1), Item.flint });
 		ModLoader.addShapelessRecipe(new ItemStack(Item.flint, 1), new Object[] 
                 { new ItemStack(grindstone, 1, -1), Block.gravel });
+		ModLoader.addShapelessRecipe(new ItemStack(this.coalBit, 4), new Object[] 
+                { new ItemStack(grindstone, 1, -1), new ItemStack(Item.coal, 1, 0) });
+		ModLoader.addShapelessRecipe(new ItemStack(this.glassShard, 1), new Object[] 
+                { new ItemStack(grindstone, 1, -1), Block.glass });
 		
 		Item[] stickArray = { 
 	    		stoneRod, ironRod, diamondRod, redstoneRod, obsidianRod,
@@ -329,7 +335,7 @@ public class mod_InfiBase extends BaseMod
 	       	MinecraftForge.registerOre(stickNames[stickIter], new ItemStack(materialArray[stickIter]));
 		}
 	    
-        MinecraftForge.registerOreHandler(new IOreHandler()
+	    MinecraftForge.registerOreHandler(new IOreHandler()
         {
             public void registerOre(String ore, ItemStack itemstack)
             {
@@ -342,46 +348,64 @@ public class mod_InfiBase extends BaseMod
                 {
                 	ModLoader.addRecipe(new ItemStack(grindstone, 1), new Object[]
             		        { "#", '#', itemstack });
+                	ModLoader.addRecipe(new ItemStack(mossyStone, 1), new Object[]
+                            { " m ", "msm", " m ", 'm', mossyPatch, 's', itemstack });
                 }
                 if(ore.equals("ingotCopper"))
                 {
                 	ModLoader.addRecipe(new ItemStack(copperRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(copperChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
                 if(ore.equals("ingotBronze"))
                 {
                 	ModLoader.addRecipe(new ItemStack(bronzeRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(bronzeChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
                 if(ore.equals("ingotRefinedIron"))
                 {
                 	ModLoader.addRecipe(new ItemStack(workedIronRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(workedIronChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
                 if(ore.equals("ingotSteel"))
                 {
                 	ModLoader.addRecipe(new ItemStack(steelRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(steelChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
                 if(ore.equals("ingotCobalt"))
                 {
                 	ModLoader.addRecipe(new ItemStack(cobaltRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(cobaltChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
                 if(ore.equals("ingotArdite"))
                 {
                 	ModLoader.addRecipe(new ItemStack(arditeRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(arditeChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
                 if(ore.equals("ingotManyullyn"))
                 {
                 	ModLoader.addRecipe(new ItemStack(manyullynRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(manyullynChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
                 if(ore.equals("ingotUranium"))
                 {
                 	ModLoader.addRecipe(new ItemStack(uraniumRod, 4), new Object[] 
                             { "#", "#", '#', itemstack });
+                	ModLoader.addShapelessRecipe(new ItemStack(uraniumChunk, 3), new Object[] 
+                            { new ItemStack(grindstone, 1, -1), itemstack });
                 }
             }
         } );
@@ -586,11 +610,11 @@ public class mod_InfiBase extends BaseMod
                         {
                             continue;
                         }
-                        Integer integer = (Integer)DetailManager.damageContainer.get(Integer.valueOf(itemstack1.itemID));
+                        /*Integer integer = (Integer)DetailManager.damageContainer.get(Integer.valueOf(itemstack1.itemID));
                         if (integer != null)
                         {
                             iinventory.setInventorySlotContents(i, new ItemStack(integer.intValue(), 1, 0));
-                        }
+                        }*/
                     }                    
                 }
             }

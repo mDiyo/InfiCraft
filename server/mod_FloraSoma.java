@@ -11,11 +11,29 @@ public class mod_FloraSoma extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "0.3.8 Height";
+		return "0.3.11 Height";
 	}
 
 	public void load()
 	{
+	}
+	
+	public void addInfiBlockSupport()
+	{
+		try
+        {
+            Class class1 = Class.forName("mod_InfiBlocks");
+            for (int i = 0; i < 5; i++)
+            ModLoader.addRecipe(new ItemStack(seedBag, 1, 0), new Object[]
+            {
+            	"i ", " w", 'i', Item.ingotIron, 'w', new ItemStack(this.redwood, 1, i*2+2)
+            });
+        }
+		catch (Throwable throwable)
+        {
+            System.out.println("InfiBlocks integration failed! Reason:");
+            System.out.println(throwable);
+        }
 	}
 	
 	public static void addEEsupport()
@@ -213,6 +231,7 @@ public class mod_FloraSoma extends NetworkMod
 		ModLoaderMp.registerEntityTrackerEntry(net.minecraft.src.flora.WhiteWoodBoat.class, whiteBoatID);
 		ModLoaderMp.registerEntityTrackerEntry(net.minecraft.src.flora.EucalyptusBoat.class, eucalyptusBoatID);*/
 		
+		addInfiBlockSupport();
 		addEEsupport();
 		//MinecraftForge.registerBonemealHandler(new FloraSomaBonemealHandler());
 		
@@ -885,9 +904,6 @@ public class mod_FloraSoma extends NetworkMod
 	public static int saguaroSpawnHeight;
 	public static int saguaroSpawnRange;
 	public static int saguaroSpawnSize;
-	
-	public static InfiProps props;
-	public static InfiProps spawnProps;
 
 	public static File getMinecraftDir()
     {

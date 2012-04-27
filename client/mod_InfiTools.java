@@ -10,7 +10,7 @@ public class mod_InfiTools extends BaseMod
 	@Override
 	public String getVersion() 
 	{
-		return "3.0.2";
+		return "3.0.6";
 	}
 
 	@Override
@@ -117,7 +117,8 @@ public class mod_InfiTools extends BaseMod
 	
 	private void removeVanillaRecipes()
 	{
-		System.out.println("Note: Some conflicts here are supposed to happen.");
+		System.out.println("Note: Some conflicts here are supposed to happen");
+		System.out.println("      if *Overwrite Vanilla Tools* is enabled");
 		ItemStack[] vanillaTools = {
 			new ItemStack(Item.axeWood), new ItemStack(Item.pickaxeWood), new ItemStack(Item.shovelWood), 
 			new ItemStack(Item.swordWood),new ItemStack(Item.hoeWood),

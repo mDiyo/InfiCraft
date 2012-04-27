@@ -9,13 +9,10 @@ public class mod_InfiBlocks extends NetworkMod
 {
 	public String getVersion()
 	{
-		return "v0.7.10 Color Bricked";
+		return "v0.7.13 Color Bricked";
 	}
 
-	public void load()
-	{
-		//checkInitialized();
-	}
+	public void load() {}
 	
 	public void oreDictionarySupport()
     {
@@ -294,6 +291,7 @@ public class mod_InfiBlocks extends NetworkMod
 	public static int iceBrickMagicSlabID;
 	
 	public static int chiselID;
+	public static int chiselDiamondID;
 	
 	public static Block workbench;
 	public static Block woolCarpet;
@@ -328,15 +326,13 @@ public class mod_InfiBlocks extends NetworkMod
 	public static Item chiselIron;
 	public static Item chiselDiamond;
 	
-	public static int craftingGuiID;
-	public static int furnaceGuiID;
+	public static int craftingGuiID = 1;
+	public static int furnaceGuiID = 2;
 	public static int magicSlabModel;
 	public static int paneModelID;
 	public static int brickModelID;
 	
 	public static boolean resolveConflicts;
-	
-	public static InfiProps props;
 	
 	public static File getMinecraftDir()
     {
@@ -345,14 +341,7 @@ public class mod_InfiBlocks extends NetworkMod
 
 	static
 	{
-		File me = new File( "./config/InfiCraft" );
-        me.mkdir();
-        props = new InfiProps( "./config/InfiCraft/InfiBlocks.cfg" );
-		props = PropsHelperInfiBlocks.InitProps(props);
-		PropsHelperInfiBlocks.getProps(props);
-		
-		if(resolveConflicts)
-			PropsHelperInfiBlocks.resolveIDs(props);
+		PropsHelperInfiBlocks.initProps();
 		
 		workbench = (new WorkbenchBlock(blockCraftingID)).setHardness(0.5F).setBlockName("infiCraftingTable");
 		woolCarpet = (new CarpetBlock(woolCarpetID)).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("woolCarpet");
@@ -381,7 +370,7 @@ public class mod_InfiBlocks extends NetworkMod
 		brownstoneMagicSlab = new BrownstoneMagicSlab(brownstoneMagicSlabID, 96).setHardness(Block.cobblestone.getHardness()).setBlockName("Brownstone Magic Slab");
 		
 		chiselIron = new Chisel(chiselID, 250).setIconCoord(14, 15).setItemName("Iron Chisel");
-		chiselDiamond = new Chisel(chiselID+1, 2000).setIconCoord(15, 15).setItemName("Diamond Chisel");
+		chiselDiamond = new Chisel(chiselDiamondID, 2000).setIconCoord(15, 15).setItemName("Diamond Chisel");
 		/*crackedBrick = new BrickBlock(crackedBrickID, 176).setHardness(0.3F).setBlockName("Infi-Brick Cracked");
 		*/
 		//runeBrick = new BrickBlock(brickID, 208).setHardness(0.3F).setBlockName("Infi-Brick Rune");

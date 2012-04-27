@@ -570,7 +570,7 @@ public class Hoes
             copperBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeHoe");
             bronzeBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+8, 
-                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "copperBronzeHoe");
+                    InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeHoe");
         }
         
         if(PropsHelperInfiTools.enableWorkedIronTools)
@@ -692,7 +692,7 @@ public class Hoes
             arditeCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltHoe");
             manyullynCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+16, 
-                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "arditeCobaltHoe");
+                    InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltHoe");
             uraniumCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHoe");
         }
@@ -732,7 +732,7 @@ public class Hoes
             arditeArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeHoe");
             manyullynArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+16, 
-                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "arditeArditeHoe");
+                    InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeHoe");
             uraniumArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHoe");
         }
@@ -772,7 +772,7 @@ public class Hoes
             arditeManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynHoe");
             manyullynManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+16, 
-                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "arditeManyullynHoe");
+                    InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynHoe");
             uraniumManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHoe");
         }
@@ -804,32 +804,58 @@ public class Hoes
     
     private static void addNames()
     {
-    	ModLoader.addName(woodWoodHoe, "Wooden Hoe");
-    	ModLoader.addName(stoneStoneHoe, "Heavy Hoe");
-    	ModLoader.addName(ironIronHoe, "Ironic Hoe");
-    	ModLoader.addName(diamondDiamondHoe, "Diamondium Hoe");
-    	ModLoader.addName(redstoneRedstoneHoe, "Redredred Hoe");
-    	ModLoader.addName(obsidianObsidianHoe, "Ebony Hoe");
-    	ModLoader.addName(sandstoneSandstoneHoe, "Fragile Hoe");
-    	ModLoader.addName(boneBoneHoe, "Necrotic Hoe");
-    	ModLoader.addName(paperPaperHoe, "Soft Hoe");
-    	ModLoader.addName(mossyMossyHoe, "Living Hoe");
-    	ModLoader.addName(netherrackNetherrackHoe, "Blood Hoe");
-    	ModLoader.addName(glowstoneGlowstoneHoe, "Bright Hoe");
-    	ModLoader.addName(iceIceHoe, "Freezing Hoe");
-    	ModLoader.addName(lavaLavaHoe, "Burning Hoe");
-    	ModLoader.addName(slimeSlimeHoe, "Toy Hoe");
-    	ModLoader.addName(cactusCactusHoe, "Thorned Hoe");
-    	ModLoader.addName(flintFlintHoe, "Rough-hewn Hoe");
-    	ModLoader.addName(blazeBlazeHoe, "Netherite Hoe");
-        ModLoader.addName(copperCopperHoe, "Orange-Tang Hoe");
-        ModLoader.addName(bronzeBronzeHoe, "Polished Hoe");
-        ModLoader.addName(workedWorkedIronHoe, "Reworked Iron Hoe");
-        ModLoader.addName(steelSteelHoe, "Forge-Wrought Hoe");
-        ModLoader.addName(cobaltCobaltHoe, "Beautiful Hoe");
-        ModLoader.addName(arditeArditeHoe, "Rustic Hoe");
-        ModLoader.addName(manyullynManyullynHoe, "False-Prophetic Hoe");
-        ModLoader.addName(uraniumUraniumHoe, "Cancerous Hoe");
+    	if(PropsHelperInfiTools.enableWoodTools)
+            ModLoader.addName(woodWoodHoe, "Wooden Hoe");
+        if(PropsHelperInfiTools.enableStoneTools)
+            ModLoader.addName(stoneStoneHoe, "Heavy Hoe");
+        if(PropsHelperInfiTools.enableIronTools)
+            ModLoader.addName(ironIronHoe, "Ironic Hoe");
+        if(PropsHelperInfiTools.enableDiamondTools)
+            ModLoader.addName(diamondDiamondHoe, "Diamondium Hoe");
+        if(PropsHelperInfiTools.enableRedstoneTools)
+            ModLoader.addName(redstoneRedstoneHoe, "Redredred Hoe");
+        if(PropsHelperInfiTools.enableObsidianTools)
+            ModLoader.addName(obsidianObsidianHoe, "Ebony Hoe");
+        if(PropsHelperInfiTools.enableSandstoneTools)
+            ModLoader.addName(sandstoneSandstoneHoe, "Fragile Hoe");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(boneBoneHoe, "Necrotic Hoe");
+        if(PropsHelperInfiTools.enablePaperTools)
+            ModLoader.addName(paperPaperHoe, "Soft Hoe");
+        if(PropsHelperInfiTools.enableMossyTools)
+            ModLoader.addName(mossyMossyHoe, "Living Hoe");
+        if(PropsHelperInfiTools.enableNetherrackTools)
+            ModLoader.addName(netherrackNetherrackHoe, "Bloodsoaked Hoe");
+        if(PropsHelperInfiTools.enableGlowstoneTools)
+            ModLoader.addName(glowstoneGlowstoneHoe, "Bright Hoe");
+        if(PropsHelperInfiTools.enableIceTools)
+            ModLoader.addName(iceIceHoe, "Freezing Hoe");
+        if(PropsHelperInfiTools.enableLavaTools)
+            ModLoader.addName(lavaLavaHoe, "Burning Hoe");
+        if(PropsHelperInfiTools.enableSlimeTools)
+            ModLoader.addName(slimeSlimeHoe, "Toy Hoe");
+        if(PropsHelperInfiTools.enableCactusTools)
+            ModLoader.addName(cactusCactusHoe, "Thorned Hoe");
+        if(PropsHelperInfiTools.enableFlintTools)
+            ModLoader.addName(flintFlintHoe, "Rough-hewn Hoe");
+        if(PropsHelperInfiTools.enableBlazeTools)
+            ModLoader.addName(blazeBlazeHoe, "Netherite Hoe");
+        if(PropsHelperInfiTools.enableCopperTools)
+            ModLoader.addName(copperCopperHoe, "Orange-Tang Hoe");
+        if(PropsHelperInfiTools.enableBronzeTools)
+            ModLoader.addName(bronzeBronzeHoe, "Polished Hoe");
+        if(PropsHelperInfiTools.enableWorkedIronTools)
+            ModLoader.addName(workedWorkedIronHoe, "Reworked Iron Hoe");
+        if(PropsHelperInfiTools.enableSteelTools)
+            ModLoader.addName(steelSteelHoe, "Forge-Wrought Hoe");
+        if(PropsHelperInfiTools.enableCobaltTools)
+            ModLoader.addName(cobaltCobaltHoe, "Beautiful Hoe");
+        if(PropsHelperInfiTools.enableArditeTools)
+            ModLoader.addName(arditeArditeHoe, "Rustic Hoe");
+        if(PropsHelperInfiTools.enableManyullynTools)
+            ModLoader.addName(manyullynManyullynHoe, "False-Prophetic Hoe");
+        if(PropsHelperInfiTools.enableUraniumTools)
+            ModLoader.addName(uraniumUraniumHoe, "Cancerous Hoe");
     }
     
     public static void registerInfiToolsRecipes()
@@ -1174,7 +1200,7 @@ public class Hoes
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneHoe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneHoe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneHoe), new Object[] 
@@ -1183,6 +1209,8 @@ public class Hoes
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneHoe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+            ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneHoe), new Object[] 
+                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneHoe), new Object[] 
                     { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneHoe), new Object[] 
@@ -1288,9 +1316,9 @@ public class Hoes
             ModLoader.addRecipe(new ItemStack(flintFlintHoe), new Object[] 
                     { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
         }
         
         if(PropsHelperInfiTools.enableBlazeTools)

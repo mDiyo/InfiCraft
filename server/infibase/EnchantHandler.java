@@ -26,9 +26,8 @@ public class EnchantHandler
 		{
 			ItemStack stack = player.getCurrentEquippedItem();
 			if(stack != null && ! player.worldObj.isRemote 
-					&& this.checkEnchants(stack, (EntityLiving)entity) ) 
+					&& this.checkEnchants(stack, (EntityLiving)entity, player) ) 
 			{
-				entity.attackEntityFrom(DamageSource.causePlayerDamage(player), stack.getDamageVsEntity(entity) );
 				return false;
 			} else
 			{ 
@@ -40,7 +39,7 @@ public class EnchantHandler
 		}		
 	}
     
-    public boolean checkEnchants(ItemStack itemstack, EntityLiving mob)
+    public boolean checkEnchants(ItemStack itemstack, EntityLiving mob, EntityPlayer player)
 	{
 		int freezeCheck = 0;
 		int poisonCheck = 0;
@@ -69,10 +68,12 @@ public class EnchantHandler
         }
 		if(freezeCheck > 0)
         {
+			mob.attackEntityFrom(DamageSource.causePlayerDamage(player), itemstack.getDamageVsEntity(mob) );
             mob.freeze(freezeCheck * 50);
         }
 		if(poisonCheck > 0)
 		{
+			mob.attackEntityFrom(DamageSource.causePlayerDamage(player), itemstack.getDamageVsEntity(mob) );
 			mob.addPotionEffect(new PotionEffect(Potion.poison.id, poisonCheck * 5, 0));
 		}
 		return false;

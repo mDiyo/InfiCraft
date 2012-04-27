@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Item;
+import net.minecraft.src.mod_Infi2x2;
 import net.minecraft.src.forge.Configuration;
 
 public class PropsHelperInfi2x2 {
@@ -41,6 +42,7 @@ public class PropsHelperInfi2x2 {
         /* Define the mod's IDs. 
          * Avoid values below 4096 for items and in the 250-600 range for blocks
          */
+        mod_Infi2x2.infitoolsPresent = config.getOrCreateBooleanProperty("Add InfiTool Combinations", "general", true).getBoolean(true);
         
         enableWoodTools = config.getOrCreateBooleanProperty("Enable Wooden Tools", "general", true).getBoolean(true);
         enableStoneTools = config.getOrCreateBooleanProperty("Enable Stone Tools", "general", true).getBoolean(true);

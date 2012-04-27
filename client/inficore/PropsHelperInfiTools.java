@@ -41,6 +41,7 @@ public class PropsHelperInfiTools {
         /* Define the mod's IDs. 
          * Avoid values below 4096 for items and in the 256-385 range for blocks
          */
+        overwriteVanillaTools = config.getOrCreateBooleanProperty("Overwrite Vanilla Tools", "general", true).getBoolean(true);
         
         enableWoodTools = config.getOrCreateBooleanProperty("Enable Wooden Tools", "general", true).getBoolean(true);
         enableStoneTools = config.getOrCreateBooleanProperty("Enable Stone Tools", "general", true).getBoolean(true);
@@ -227,6 +228,8 @@ public class PropsHelperInfiTools {
     }
 
     /* Prototype fields, used elsewhere */
+    
+    public static boolean overwriteVanillaTools;
     
     public static boolean enableWoodTools;
     public static boolean enableStoneTools;
