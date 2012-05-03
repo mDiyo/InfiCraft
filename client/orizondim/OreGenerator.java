@@ -1,5 +1,14 @@
 package net.minecraft.src.orizondim;
 import net.minecraft.src.orizon.*;
+import net.minecraft.src.orizon.ore.OreGen;
+import net.minecraft.src.orizon.ore.OreGenCalcite;
+import net.minecraft.src.orizon.ore.OreGenNether;
+import net.minecraft.src.orizon.ore.OreGenStratified;
+import net.minecraft.src.orizon.ore.OreGenStratifiedGem;
+import net.minecraft.src.orizon.ore.OreGenVanilla;
+import net.minecraft.src.orizon.slime.WorldGenSlimePools;
+import net.minecraft.src.orizon.stone.StoneGen;
+import net.minecraft.src.orizon.stone.StoneGenColor;
 import net.minecraft.src.*;
 
 import java.util.*;

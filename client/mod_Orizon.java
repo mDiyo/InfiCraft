@@ -2,9 +2,28 @@ package net.minecraft.src;
 
 import net.minecraft.src.forge.*;
 import net.minecraft.src.orizon.*;
+import net.minecraft.src.orizon.ore.CalciteOre;
+import net.minecraft.src.orizon.ore.GemOre;
+import net.minecraft.src.orizon.ore.MineralOre;
+import net.minecraft.src.orizon.ore.MineralOreAlt;
+import net.minecraft.src.orizon.ore.NetherOre;
+import net.minecraft.src.orizon.ore.OreReplacement;
+import net.minecraft.src.orizon.ore.OreReplacementMetal;
+import net.minecraft.src.orizon.slime.SlimeBlockFlowing;
+import net.minecraft.src.orizon.slime.SlimeBlockStill;
+import net.minecraft.src.orizon.slime.SlimeGelBlock;
+import net.minecraft.src.orizon.stone.ColoredStone;
+import net.minecraft.src.orizon.stone.CustomBlockStone;
+import net.minecraft.src.orizon.stone.Marble;
+import net.minecraft.src.orizon.tools.OrizonToolAxe;
+import net.minecraft.src.orizon.tools.OrizonToolHoe;
+import net.minecraft.src.orizon.tools.OrizonToolPickaxe;
+import net.minecraft.src.orizon.tools.OrizonToolShovel;
+import net.minecraft.src.orizon.tools.OrizonToolSword;
 import net.minecraft.src.orizondim.*;
 import net.minecraft.src.orizondim.biomes.*;
 import net.minecraft.src.orizondim.blocks.*;
+import net.minecraft.src.orizondim.mobs.*;
 
 import java.io.File;
 import java.util.*;
@@ -15,7 +34,7 @@ public class mod_Orizon extends NetworkMod
 
     public String getVersion()
     {
-        return "v1.1pre";
+        return "v1.1.19";
     }
     public static BiomeGenOrizon plains;
     public static BiomeGenOrizon desert;
@@ -33,6 +52,9 @@ public class mod_Orizon extends NetworkMod
     public static BiomeGenOrizon frozenOcean;
     public static BiomeGenOrizon icePlains;
     public static BiomeGenOrizon frozenRiver;
+    
+    public static ISleepHandler sleep;
+    public static Teleporter sleeperizer;
 
     public mod_Orizon()
     {
@@ -51,28 +73,67 @@ public class mod_Orizon extends NetworkMod
         OrizonRecipes.addRecipes();
         OrizonRecipes.addNames();
         
-        slimeAnimStill = new TextureSlimeFX();
+        /*slimeAnimStill = new TextureSlimeFX();
         slimeAnimFlowing = new TextureSlimeFlowFX();
         ModLoader.addAnimation(slimeAnimStill);
-        ModLoader.addAnimation(slimeAnimFlowing);
-        
+        ModLoader.addAnimation(slimeAnimFlowing)*/
         blueGrassModelID = ModLoader.getUniqueBlockModelID(this, true);
         
         WorldProviderOrizon provider = new WorldProviderOrizon();
         provider.registerWorldChunkManager();
         DimensionManager.registerDimension(47, provider, true);
         
-        ModLoader.registerBlock(warpPlank);
-        ModLoader.addName(warpPlank, "Reality-warping Plank");
-        ModLoader.addRecipe(new ItemStack(warpPlank, 1), new Object[] {
-            "p", 'p', Block.dirt //Planks in shears pattern
-        });
-        
         registerBlocks();
         registerOres();
         registerTools();
         addInfiBlockSupport();
-        oreDictionarySupport();        
+        oreDictionarySupport();
+        
+        sleeperizer = new Sleeperizer();
+        MinecraftForge.registerSleepHandler(new ISleepHandler()
+        {
+        	Minecraft mc;
+        		
+        	public EnumStatus sleepInBedAt(EntityPlayer player, int X, int Y, int Z) 
+        	{
+        		if(player.worldObj.worldInfo.getWorldTime() > 12000 && checkForBlocks((int)player.posX, (int)player.posY, (int)player.posZ, player.worldObj))
+        		{
+	        		mc = ModLoader.getMinecraftInstance();
+	        		if (player.dimension == 0)
+	        		{
+	        			mc.usePortal(47, sleeperizer);
+	        		}
+	        		else if (player.dimension == 47)
+	        		{
+	        			mc.usePortal(0, sleeperizer);
+	        		}
+        		}
+        		return null;
+        	}
+        } );
+    }
+    
+    public boolean checkForBlocks(int posX, int posY, int posZ, World world)
+    {
+    	int numBlocks = 0;
+    	for (int iterX = posX - 3; iterX <= posX + 3; iterX++)
+    	{    		
+    		for (int iterY = posY - 3; iterY <= posY + 3; iterY++)
+    		{
+    			for (int iterZ = posZ - 3; iterZ <= posZ + 3; iterZ++)
+    			{
+    				if (world.getBlockId(iterX, iterY, iterZ) == Block.obsidian.blockID)
+    				{
+    					numBlocks++;
+    				}
+    			}
+    		}
+    	}
+    	if (numBlocks >= 12)
+    	{
+    		return true;
+    	}
+    	return false;
     }
     
     @Override
@@ -143,49 +204,56 @@ public class mod_Orizon extends NetworkMod
     }
     
     public void registerBlocks() {
-    	ModLoader.registerBlock(mineralOre, net.minecraft.src.orizon.MineralOreItem.class);
-        ModLoader.registerBlock(mineralOreHigh, net.minecraft.src.orizon.MineralOreHighItem.class);
-        ModLoader.registerBlock(mineralOreLow1, net.minecraft.src.orizon.MineralOreMediumItem.class);
-        ModLoader.registerBlock(mineralOreLow2, net.minecraft.src.orizon.MineralOreLowItem.class);
-        ModLoader.registerBlock(mineralOreLow3, net.minecraft.src.orizon.MineralOreDarkItem.class);
+    	ModLoader.registerBlock(mineralOre, net.minecraft.src.orizon.ore.MineralOreItem.class);
+        ModLoader.registerBlock(mineralOreHigh, net.minecraft.src.orizon.ore.MineralOreHighItem.class);
+        ModLoader.registerBlock(mineralOreLow1, net.minecraft.src.orizon.ore.MineralOreMediumItem.class);
+        ModLoader.registerBlock(mineralOreLow2, net.minecraft.src.orizon.ore.MineralOreLowItem.class);
+        ModLoader.registerBlock(mineralOreLow3, net.minecraft.src.orizon.ore.MineralOreDarkItem.class);
         
-        ModLoader.registerBlock(mineralOreAlt, net.minecraft.src.orizon.MineralOreAltItem.class);
-        ModLoader.registerBlock(mineralOreAltHigh, net.minecraft.src.orizon.MineralOreAltHighItem.class);
-        ModLoader.registerBlock(mineralOreAltLow1, net.minecraft.src.orizon.MineralOreAltMediumItem.class);
-        ModLoader.registerBlock(mineralOreAltLow2, net.minecraft.src.orizon.MineralOreAltLowItem.class);
-        ModLoader.registerBlock(mineralOreAltLow3, net.minecraft.src.orizon.MineralOreAltDarkItem.class);
+        ModLoader.registerBlock(mineralOreAlt, net.minecraft.src.orizon.ore.MineralOreAltItem.class);
+        ModLoader.registerBlock(mineralOreAltHigh, net.minecraft.src.orizon.ore.MineralOreAltHighItem.class);
+        ModLoader.registerBlock(mineralOreAltLow1, net.minecraft.src.orizon.ore.MineralOreAltMediumItem.class);
+        ModLoader.registerBlock(mineralOreAltLow2, net.minecraft.src.orizon.ore.MineralOreAltLowItem.class);
+        ModLoader.registerBlock(mineralOreAltLow3, net.minecraft.src.orizon.ore.MineralOreAltDarkItem.class);
         
-        ModLoader.registerBlock(gemOre, net.minecraft.src.orizon.GemOreItem.class);
-        ModLoader.registerBlock(gemOreHigh, net.minecraft.src.orizon.GemOreHighItem.class);
-        ModLoader.registerBlock(gemOreLow1, net.minecraft.src.orizon.GemOreMediumItem.class);
-        ModLoader.registerBlock(gemOreLow2, net.minecraft.src.orizon.GemOreLowItem.class);
-        ModLoader.registerBlock(gemOreLow3, net.minecraft.src.orizon.GemOreDarkItem.class);
+        ModLoader.registerBlock(gemOre, net.minecraft.src.orizon.ore.GemOreItem.class);
+        ModLoader.registerBlock(gemOreHigh, net.minecraft.src.orizon.ore.GemOreHighItem.class);
+        ModLoader.registerBlock(gemOreLow1, net.minecraft.src.orizon.ore.GemOreMediumItem.class);
+        ModLoader.registerBlock(gemOreLow2, net.minecraft.src.orizon.ore.GemOreLowItem.class);
+        ModLoader.registerBlock(gemOreLow3, net.minecraft.src.orizon.ore.GemOreDarkItem.class);
         
-        ModLoader.registerBlock(cStone, net.minecraft.src.orizon.ColoredStoneItem.class);
-        ModLoader.registerBlock(cCobble, net.minecraft.src.orizon.ColoredCobblestoneItem.class);
-        ModLoader.registerBlock(cBrick, net.minecraft.src.orizon.ColoredBrickItem.class);
-        ModLoader.registerBlock(cMossy, net.minecraft.src.orizon.ColoredMossyBrickItem.class);
-        ModLoader.registerBlock(cCracked, net.minecraft.src.orizon.ColoredCrackedBrickItem.class);
-        ModLoader.registerBlock(cTile, net.minecraft.src.orizon.ColoredTileItem.class);
-        ModLoader.registerBlock(cFancy, net.minecraft.src.orizon.ColoredFancyBrickItem.class);
-        ModLoader.registerBlock(cSquare, net.minecraft.src.orizon.ColoredSquareBrickItem.class);
+        ModLoader.registerBlock(cStone, net.minecraft.src.orizon.stone.ColoredStoneItem.class);
+        ModLoader.registerBlock(cCobble, net.minecraft.src.orizon.stone.ColoredCobblestoneItem.class);
+        ModLoader.registerBlock(cBrick, net.minecraft.src.orizon.stone.ColoredBrickItem.class);
+        ModLoader.registerBlock(cMossy, net.minecraft.src.orizon.stone.ColoredMossyBrickItem.class);
+        ModLoader.registerBlock(cCracked, net.minecraft.src.orizon.stone.ColoredCrackedBrickItem.class);
+        ModLoader.registerBlock(cTile, net.minecraft.src.orizon.stone.ColoredTileItem.class);
+        ModLoader.registerBlock(cFancy, net.minecraft.src.orizon.stone.ColoredFancyBrickItem.class);
+        ModLoader.registerBlock(cSquare, net.minecraft.src.orizon.stone.ColoredSquareBrickItem.class);
         
-        ModLoader.registerBlock(calciteOre, net.minecraft.src.orizon.CalciteOreItem.class);
-        ModLoader.registerBlock(netherOre, net.minecraft.src.orizon.NetherOreItem.class);
-        ModLoader.registerBlock(marble, net.minecraft.src.orizon.MarbleItem.class);
-        ModLoader.registerBlock(replaceOre, net.minecraft.src.orizon.OreReplacementItem.class);
-        ModLoader.registerBlock(replaceMetal, net.minecraft.src.orizon.OreReplacementMetalItem.class);
+        ModLoader.registerBlock(calciteOre, net.minecraft.src.orizon.ore.CalciteOreItem.class);
+        ModLoader.registerBlock(netherOre, net.minecraft.src.orizon.ore.NetherOreItem.class);
+        ModLoader.registerBlock(marble, net.minecraft.src.orizon.stone.MarbleItem.class);
+        ModLoader.registerBlock(replaceOre, net.minecraft.src.orizon.ore.OreReplacementItem.class);
+        ModLoader.registerBlock(replaceMetal, net.minecraft.src.orizon.ore.OreReplacementMetalItem.class);
         ModLoader.registerBlock(slimeStill);
         ModLoader.registerBlock(slimeFlowing);
         ModLoader.registerBlock(slimeGelBlock);
         ModLoader.registerBlock(blueGrass);
-        ModLoader.registerBlock(blueDirt);
+        ModLoader.registerBlock(blueDirt, net.minecraft.src.orizondim.blocks.BlueDirtItem.class);
+        ModLoader.registerBlock(dimensionWood, net.minecraft.src.orizondim.blocks.OrizonLogsItem.class);
+        ModLoader.registerBlock(dimensionLeaves, net.minecraft.src.orizondim.blocks.OrizonLeavesItem.class);
+        ModLoader.registerBlock(dimensionFlowers, net.minecraft.src.orizondim.blocks.OrizonFlowerItem.class);
+        ModLoader.registerBlock(dimensionTallGrass);
+        ModLoader.registerBlock(dimensionSapling, net.minecraft.src.orizondim.blocks.OrizonSaplingItem.class);
         
         ModLoader.addName(blueGrass, "Surreal Grass");
-        ModLoader.addName(blueDirt, "Alien Dirt");
+        ModLoader.addName(dimensionTallGrass, "Thyrine Grass");
         
         MinecraftForge.registerEntity(net.minecraft.src.orizondim.blocks.FallingDirtEntity.class,
 				this, 1, 20, 5, true);
+        MinecraftForge.registerEntity(net.minecraft.src.orizondim.mobs.NightmareCreeper.class,
+				this, 2, 20, 3, true);
     }
     
     public void registerOres() {
@@ -195,7 +263,7 @@ public class mod_Orizon extends NetworkMod
         };
         
         int oreLevelArray[] = {
-            2, 1, 2, 1, 2, 1, 1, 2, 3, 3, 3, 2, 3, 3
+            1, 1, 2, 1, 2, 1, 1, 2, 3, 3, 3, 2, 3, 3
         };
         
         String oreNames[] = {
@@ -615,8 +683,8 @@ public class mod_Orizon extends NetworkMod
     public static boolean genNonUniqueGems;
     public static boolean flatBedrock;
     
-    public static TextureFX slimeAnimStill;
-    public static TextureFX slimeAnimFlowing;
+    /*public static TextureFX slimeAnimStill;
+    public static TextureFX slimeAnimFlowing;*/
     
     public static Item copperSword;
     public static Item copperPickaxe;
@@ -701,18 +769,22 @@ public class mod_Orizon extends NetworkMod
     public static int coloredStoneRarity;
     public static int coloredStoneChance;
     public static int coloredStoneHeight;
-    
-    public static Block warpPlank;
-    
+        
     public static Block blueGrass;
     public static Block blueDirt;
-    public static Block dimensionLeaves;
+    public static BlockLeaves dimensionLeaves;
     public static Block dimensionWood;
     public static Block dimensionTallGrass;
     public static Block dimensionFlowers;
+    public static Block dimensionSapling;
     
     public static int blueGrassID;    
     public static int blueDirtID;
+    public static int dimensionLeavesID;
+    public static int dimensionWoodID;    
+    public static int dimensionTallGrassID;
+    public static int dimensionFlowersID;
+    public static int dimensionSaplingID;
     
     public static int blueGrassModelID;
     
@@ -727,6 +799,7 @@ public class mod_Orizon extends NetworkMod
     public void addRenderer(Map map)
     {
 		map.put(net.minecraft.src.orizondim.blocks.FallingDirtEntity.class, new FallingDirtRender());
+		map.put(net.minecraft.src.orizondim.mobs.NightmareCreeper.class, new NightmareCreeperRender());
 	}
 
     static
@@ -735,6 +808,11 @@ public class mod_Orizon extends NetworkMod
     	
     	blueGrass = (BlueGrass)(new BlueGrass(blueGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setBlockName("blueGrass");
     	blueDirt = new BlueDirt(blueDirtID, 32).setHardness(0.5F).setStepSound(Block.soundGravelFootstep).setBlockName("blueDirt");
+    	dimensionLeaves = (BlockLeaves) new OrizonLeaves(dimensionLeavesID, 17).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setBlockName("orizonLeaves").setRequiresSelfNotify();
+    	dimensionWood = new OrizonLogs(dimensionWoodID).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setBlockName("orizonLog").setRequiresSelfNotify();
+    	dimensionTallGrass = new OrizonTallGrass(dimensionTallGrassID, 22).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("orizonTallGrass");
+    	dimensionFlowers = new OrizonFlower(dimensionFlowersID, 48).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("orizonFlower");
+    	dimensionSapling = new BlockSapling(dimensionSaplingID, 96).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("orizonSapling").setRequiresSelfNotify();
     	
         cStone = new ColoredStone(cStoneID, 0).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone");
         cCobble = new CustomBlockStone(cCobbleID, 16).setHardness(Block.cobblestone.getHardness()).setBlockName("Colored Cobblestone");
@@ -821,8 +899,6 @@ public class mod_Orizon extends NetworkMod
         manyullynShovel = new OrizonToolShovel(manyullynShovelID, materialManyullyn).setIconCoord(6, 4).setItemName("manyullynShovel");
         manyullynAxe = new OrizonToolAxe(manyullynAxeID, materialManyullyn).setIconCoord(6, 6).setItemName("manyullynAxe");
         manyullynHoe = new OrizonToolHoe(manyullynHoeID, materialManyullyn).setIconCoord(6, 7).setItemName("manyullynHoe");
-        
-        warpPlank = new WarpPlank(1740).setBlockName("warpPlank");
         
         initBiomes();
     }

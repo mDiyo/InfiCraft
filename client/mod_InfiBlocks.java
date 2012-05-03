@@ -1,6 +1,9 @@
 package net.minecraft.src;
 
 import net.minecraft.src.blocks.*;
+import net.minecraft.src.blocks.bricks.*;
+import net.minecraft.src.blocks.magicslabs.*;
+import net.minecraft.src.blocks.tech.*;
 import net.minecraft.src.forge.*;
 import net.minecraft.src.mechvent.CrusherLogic;
 
@@ -158,43 +161,50 @@ public class mod_InfiBlocks extends NetworkMod
 	
 	@Override
 	public boolean renderWorldBlock(RenderBlocks renderblocks, 
-			IBlockAccess iblockaccess, int i, int j, int k, Block block, int modelID)
+			IBlockAccess iblockaccess, int x, int y, int z, Block block, int modelID)
 	{
 		if (modelID == magicSlabModel)
 		{
-			return InfiBlockRenders.RenderMagicWorld(renderblocks, iblockaccess, i, j, k, (MagicSlabBase)block);
+			return InfiBlockRenders.RenderMagicWorld(renderblocks, iblockaccess, x, y, z, (MagicSlabBase)block);
 		}
 		else
 		
 		if (modelID == paneModelID)
 		{
-			return InfiBlockRenders.RenderPaneInWorld(renderblocks, iblockaccess, i, j, k, (PaneBase)block);
-		} else
-		
-		if (modelID == brickModelID)
+			return InfiBlockRenders.RenderPaneInWorld(renderblocks, iblockaccess, x, y, z, (PaneBase)block);
+		} 
+		else
+			
+		if (modelID == magicSlabModel)
 		{
-			return InfiBlockRenders.renderBrickWorld(renderblocks, iblockaccess, i, j, k, block);
-		} else
+			return InfiBlockRenders.RenderMagicWorld(renderblocks, iblockaccess, x, y, z, (MagicSlabBase)block);
+		}
+		else
 		{	  	
 			return false;
 		}
 	}
 	
-	public void renderInvBlock(RenderBlocks renderblocks, Block block, int i, int modelID)
+	public void renderInvBlock(RenderBlocks renderblocks, Block block, int metadata, int modelID)
 	{
 		if (modelID == magicSlabModel)
 		{
-			InfiBlockRenders.RenderMagicInv(renderblocks, block, i);
+			InfiBlockRenders.RenderMagicInv(renderblocks, block, metadata);
 		}
 		
 		if (modelID == paneModelID)
 		{
-			InfiBlockRenders.RenderPaneInv(renderblocks, block, i);
+			InfiBlockRenders.RenderPaneInv(renderblocks, block, metadata);
 		}
 		
 		if (modelID == brickModelID)
 		{
-			InfiBlockRenders.RenderBrickInv(renderblocks, block, i);
+			InfiBlockRenders.RenderBrickInv(renderblocks, block, metadata);
+		}
+		
+		if (modelID == chestModelID)
+		{
+			InfiBlockRenders.renderChestInv(renderblocks, block, metadata);
 		}
 	}
 	
@@ -268,34 +278,38 @@ public class mod_InfiBlocks extends NetworkMod
 			}
 		};
 		
-		ModLoader.registerBlock(workbench, net.minecraft.src.blocks.WorkbenchItem.class);
+		ModLoader.registerBlock(workbench, net.minecraft.src.blocks.tech.WorkbenchItem.class);
 		ModLoader.registerBlock(woolCarpet, net.minecraft.src.blocks.CarpetItem.class);
-		ModLoader.registerBlock(furnace, net.minecraft.src.blocks.FurnaceItem.class);
-		ModLoader.registerTileEntity(net.minecraft.src.blocks.FurnaceLogic.class, "InfiFurnace");
+		ModLoader.registerBlock(furnace, net.minecraft.src.blocks.tech.FurnaceItem.class);
+		ModLoader.registerTileEntity(net.minecraft.src.blocks.tech.FurnaceLogic.class, "InfiFurnace");
 		
-		ModLoader.registerBlock(magicSlabStone, net.minecraft.src.blocks.MagicSlabStoneItem.class);
-		ModLoader.registerBlock(magicSlabSoil, net.minecraft.src.blocks.MagicSlabSoilItem.class);
-		ModLoader.registerBlock(magicSlabWool, net.minecraft.src.blocks.MagicSlabWoolItem.class);
+		ModLoader.registerBlock(chest, net.minecraft.src.blocks.tech.ChestItem.class);
+		ModLoader.registerTileEntity(net.minecraft.src.blocks.tech.ChestLogic.class, "InfiChest", new ChestSpecialRenderer());
+		
+		ModLoader.registerBlock(magicSlabStone, net.minecraft.src.blocks.magicslabs.MagicSlabStoneItem.class);
+		ModLoader.registerBlock(magicSlabSoil, net.minecraft.src.blocks.magicslabs.MagicSlabSoilItem.class);
+		ModLoader.registerBlock(magicSlabWool, net.minecraft.src.blocks.magicslabs.MagicSlabWoolItem.class);
 		
 		ModLoader.registerBlock(stainedGlass, net.minecraft.src.blocks.StainedGlassItem.class);
 		ModLoader.registerBlock(stainedGlassPane, net.minecraft.src.blocks.StainedGlassPaneItem.class);
-		ModLoader.registerBlock(stainedGlassMagicSlab, net.minecraft.src.blocks.StainedGlassMagicSlabItem.class);
+		ModLoader.registerBlock(stainedGlassMagicSlab, net.minecraft.src.blocks.magicslabs.StainedGlassMagicSlabItem.class);
 		ModLoader.registerBlock(infiGlass, net.minecraft.src.blocks.InfiGlassItem.class);
 		ModLoader.registerBlock(infiGlassPane, net.minecraft.src.blocks.InfiGlassPaneItem.class);
-		ModLoader.registerBlock(infiGlassMagicSlab, net.minecraft.src.blocks.InfiGlassMagicSlabItem.class);
+		ModLoader.registerBlock(infiGlassMagicSlab, net.minecraft.src.blocks.magicslabs.InfiGlassMagicSlabItem.class);
 		
-		ModLoader.registerBlock(brick, net.minecraft.src.blocks.BrickBlockItem.class);
-		ModLoader.registerBlock(fancyBrick, net.minecraft.src.blocks.BrickFancyItem.class);
+		ModLoader.registerBlock(brick, net.minecraft.src.blocks.bricks.BrickBlockItem.class);
+		ModLoader.registerBlock(fancyBrick, net.minecraft.src.blocks.bricks.BrickFancyItem.class);
 		ModLoader.registerBlock(storageBlock, net.minecraft.src.blocks.StorageBlockItem.class);
-		ModLoader.registerBlock(iceBrick, net.minecraft.src.blocks.BrickIceItem.class);
+		ModLoader.registerBlock(iceBrick, net.minecraft.src.blocks.bricks.BrickIceItem.class);
 		ModLoader.registerBlock(brownstone, net.minecraft.src.blocks.BrownstoneItem.class);
 		
-		ModLoader.registerBlock(brickMagicSlab, net.minecraft.src.blocks.BrickBlockMagicSlabItem.class);
-		ModLoader.registerBlock(fancyBrickMagicSlab, net.minecraft.src.blocks.BrickFancyMagicSlabItem.class);
-		ModLoader.registerBlock(storageBlockMagicSlab, net.minecraft.src.blocks.StorageBlockMagicSlabItem.class);
-		ModLoader.registerBlock(iceBrickMagicSlab, net.minecraft.src.blocks.BrickIceMagicSlabItem.class);
-		ModLoader.registerBlock(brownstoneMagicSlab, net.minecraft.src.blocks.BrownstoneMagicSlabItem.class);
+		ModLoader.registerBlock(brickMagicSlab, net.minecraft.src.blocks.bricks.BrickBlockMagicSlabItem.class);
+		ModLoader.registerBlock(fancyBrickMagicSlab, net.minecraft.src.blocks.bricks.BrickFancyMagicSlabItem.class);
+		ModLoader.registerBlock(storageBlockMagicSlab, net.minecraft.src.blocks.magicslabs.StorageBlockMagicSlabItem.class);
+		ModLoader.registerBlock(iceBrickMagicSlab, net.minecraft.src.blocks.bricks.BrickIceMagicSlabItem.class);
+		ModLoader.registerBlock(brownstoneMagicSlab, net.minecraft.src.blocks.magicslabs.BrownstoneMagicSlabItem.class);
 		
+		chestModelID = ModLoader.getUniqueBlockModelID(this, true);
 		magicSlabModel = ModLoader.getUniqueBlockModelID(this, true);
 		paneModelID = ModLoader.getUniqueBlockModelID(this, true);
 		brickModelID = ModLoader.getUniqueBlockModelID(this, true);
@@ -350,6 +364,8 @@ public class mod_InfiBlocks extends NetworkMod
 	public static Block workbench;
 	public static Block woolCarpet;
 	public static Block furnace;
+	public static Block chest;
+	
 	public static Block magicSlabStone;
 	public static Block magicSlabSoil;
 	public static Block magicSlabWool;
@@ -382,6 +398,7 @@ public class mod_InfiBlocks extends NetworkMod
 	
 	public static int craftingGuiID = 1;
 	public static int furnaceGuiID = 2;
+	public static int chestModelID;
 	public static int magicSlabModel;
 	public static int paneModelID;
 	public static int brickModelID;
@@ -397,6 +414,7 @@ public class mod_InfiBlocks extends NetworkMod
 		workbench = (new WorkbenchBlock(blockCraftingID)).setHardness(0.5F).setBlockName("infiCraftingTable");
 		woolCarpet = (new CarpetBlock(woolCarpetID)).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("woolCarpet");
 		furnace = (new FurnaceBlock(blockFurnaceID)).setBlockName("InfiFurnace");
+		chest = new ChestBlock(blockChestID).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setBlockName("infiChest").setRequiresSelfNotify();
 		magicSlabStone = new MagicSlabStone(magicSlabStoneID, 23).setHardness(0.3F).setBlockName("Magic Slab Stone");
 		magicSlabSoil = new MagicSlabSoil(magicSlabSoilID, 23).setHardness(0.3F).setStepSound(Block.soundWoodFootstep).setBlockName("Magic Slab Soil");
 		magicSlabWool = new MagicSlabWool(magicSlabWoolID, 64).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("Magic Slab Wool");

@@ -28,12 +28,12 @@ public abstract class BlockMachineBase extends BlockContainer
         }
     }
     
-    public abstract Integer getGui(World world, int i, int j, int k, EntityPlayer entityplayer);
+    public abstract Integer getGui(World world, int x, int y, int z, EntityPlayer entityplayer);
 
-    public ArrayList getBlockDropped(World world, int i, int j, int k, int l, int i1)
+    public ArrayList getBlockDropped(World world, int x, int y, int z, int l, int i1)
     {
-        ArrayList arraylist = super.getBlockDropped(world, i, j, k, l, i1);
-        TileEntity tileentity = world.getBlockTileEntity(i, j, k);
+        ArrayList arraylist = super.getBlockDropped(world, x, y, z, l, i1);
+        TileEntity tileentity = world.getBlockTileEntity(x, y, z);
         if (tileentity instanceof IInventory)
         {
             IInventory iinventory = (IInventory)tileentity;
@@ -55,7 +55,7 @@ public abstract class BlockMachineBase extends BlockContainer
         return null;
     }
 
-    public abstract BlockLogicBase getBlockEntity(int i);
+    public abstract BlockLogicBase getBlockEntity(int metadata);
 
     public void onBlockAdded(World world, int i, int j, int k)
     {

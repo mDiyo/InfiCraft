@@ -45,7 +45,7 @@ public class OrizonRenderHelper
     }
 
     public boolean renderNormalBlockAO(RenderBlocks render, Block par1Block, IBlockAccess iblockaccess, 
-    		int posX, int posY, int posZ, float par5, float par6, float par7)
+    		int posX, int posY, int posZ, float colorRed, float colorBlue, float colorGreen)
     {
     	render.enableAO = true;
         boolean var8 = false;
@@ -204,9 +204,9 @@ public class OrizonRenderHelper
                 render.brightnessTopLeft = render.brightnessBottomLeft = render.brightnessBottomRight = render.brightnessTopRight = render.aoBrightnessXYNN;
             }
 
-            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var13 ? par5 : 1.0F) * 0.5F;
-            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var13 ? par6 : 1.0F) * 0.5F;
-            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var13 ? par7 : 1.0F) * 0.5F;
+            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var13 ? colorRed : 1.0F) * 0.5F;
+            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var13 ? colorBlue : 1.0F) * 0.5F;
+            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var13 ? colorGreen : 1.0F) * 0.5F;
             render.colorRedTopLeft *= var9;
             render.colorGreenTopLeft *= var9;
             render.colorBlueTopLeft *= var9;
@@ -308,9 +308,9 @@ public class OrizonRenderHelper
                 render.brightnessTopLeft = render.brightnessBottomLeft = render.brightnessBottomRight = render.brightnessTopRight = var24;
             }
 
-            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = var14 ? par5 : 1.0F;
-            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = var14 ? par6 : 1.0F;
-            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = var14 ? par7 : 1.0F;
+            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = var14 ? colorRed : 1.0F;
+            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = var14 ? colorBlue : 1.0F;
+            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = var14 ? colorGreen : 1.0F;
             render.colorRedTopLeft *= var9;
             render.colorGreenTopLeft *= var9;
             render.colorBlueTopLeft *= var9;
@@ -414,9 +414,9 @@ public class OrizonRenderHelper
                 render.brightnessTopLeft = render.brightnessBottomLeft = render.brightnessBottomRight = render.brightnessTopRight = var22;
             }
 
-            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var15 ? par5 : 1.0F) * 0.8F;
-            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var15 ? par6 : 1.0F) * 0.8F;
-            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var15 ? par7 : 1.0F) * 0.8F;
+            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var15 ? colorRed : 1.0F) * 0.8F;
+            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var15 ? colorBlue : 1.0F) * 0.8F;
+            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var15 ? colorGreen : 1.0F) * 0.8F;
             render.colorRedTopLeft *= var9;
             render.colorGreenTopLeft *= var9;
             render.colorBlueTopLeft *= var9;
@@ -432,20 +432,20 @@ public class OrizonRenderHelper
             var27 = par1Block.getBlockTexture(iblockaccess, posX, posY, posZ, 2);
             this.renderEastFace(par1Block, render, (double)posX, (double)posY, (double)posZ, var27);
 
-            if (Tessellator.instance.defaultTexture && render.cfgGrassFix && var27 == 3)
+            if (Tessellator.instance.defaultTexture && var27 == 3)
             {
-                render.colorRedTopLeft *= par5;
-                render.colorRedBottomLeft *= par5;
-                render.colorRedBottomRight *= par5;
-                render.colorRedTopRight *= par5;
-                render.colorGreenTopLeft *= par6;
-                render.colorGreenBottomLeft *= par6;
-                render.colorGreenBottomRight *= par6;
-                render.colorGreenTopRight *= par6;
-                render.colorBlueTopLeft *= par7;
-                render.colorBlueBottomLeft *= par7;
-                render.colorBlueBottomRight *= par7;
-                render.colorBlueTopRight *= par7;
+                render.colorRedTopLeft *= colorRed;
+                render.colorRedBottomLeft *= colorRed;
+                render.colorRedBottomRight *= colorRed;
+                render.colorRedTopRight *= colorRed;
+                render.colorGreenTopLeft *= colorBlue;
+                render.colorGreenBottomLeft *= colorBlue;
+                render.colorGreenBottomRight *= colorBlue;
+                render.colorGreenTopRight *= colorBlue;
+                render.colorBlueTopLeft *= colorGreen;
+                render.colorBlueBottomLeft *= colorGreen;
+                render.colorBlueBottomRight *= colorGreen;
+                render.colorBlueTopRight *= colorGreen;
                 this.renderEastFace(par1Block, render, (double)posX, (double)posY, (double)posZ, 1);
             }
 
@@ -537,9 +537,9 @@ public class OrizonRenderHelper
                 render.brightnessTopLeft = render.brightnessBottomLeft = render.brightnessBottomRight = render.brightnessTopRight = var25;
             }
 
-            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var16 ? par5 : 1.0F) * 0.8F;
-            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var16 ? par6 : 1.0F) * 0.8F;
-            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var16 ? par7 : 1.0F) * 0.8F;
+            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var16 ? colorRed : 1.0F) * 0.8F;
+            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var16 ? colorBlue : 1.0F) * 0.8F;
+            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var16 ? colorGreen : 1.0F) * 0.8F;
             render.colorRedTopLeft *= var9;
             render.colorGreenTopLeft *= var9;
             render.colorBlueTopLeft *= var9;
@@ -555,20 +555,20 @@ public class OrizonRenderHelper
             var27 = par1Block.getBlockTexture(iblockaccess, posX, posY, posZ, 3);
             this.renderWestFace(par1Block, render, (double)posX, (double)posY, (double)posZ, var27);
 
-            if (Tessellator.instance.defaultTexture && render.cfgGrassFix && var27 == 3)
+            if (Tessellator.instance.defaultTexture && var27 == 3)
             {
-                render.colorRedTopLeft *= par5;
-                render.colorRedBottomLeft *= par5;
-                render.colorRedBottomRight *= par5;
-                render.colorRedTopRight *= par5;
-                render.colorGreenTopLeft *= par6;
-                render.colorGreenBottomLeft *= par6;
-                render.colorGreenBottomRight *= par6;
-                render.colorGreenTopRight *= par6;
-                render.colorBlueTopLeft *= par7;
-                render.colorBlueBottomLeft *= par7;
-                render.colorBlueBottomRight *= par7;
-                render.colorBlueTopRight *= par7;
+                render.colorRedTopLeft *= colorRed;
+                render.colorRedBottomLeft *= colorRed;
+                render.colorRedBottomRight *= colorRed;
+                render.colorRedTopRight *= colorRed;
+                render.colorGreenTopLeft *= colorBlue;
+                render.colorGreenBottomLeft *= colorBlue;
+                render.colorGreenBottomRight *= colorBlue;
+                render.colorGreenTopRight *= colorBlue;
+                render.colorBlueTopLeft *= colorGreen;
+                render.colorBlueBottomLeft *= colorGreen;
+                render.colorBlueBottomRight *= colorGreen;
+                render.colorBlueTopRight *= colorGreen;
                 this.renderWestFace(par1Block, render, (double)posX, (double)posY, (double)posZ, 1);
             }
 
@@ -660,9 +660,9 @@ public class OrizonRenderHelper
                 render.brightnessTopLeft = render.brightnessBottomLeft = render.brightnessBottomRight = render.brightnessTopRight = var20;
             }
 
-            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var17 ? par5 : 1.0F) * 0.6F;
-            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var17 ? par6 : 1.0F) * 0.6F;
-            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var17 ? par7 : 1.0F) * 0.6F;
+            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var17 ? colorRed : 1.0F) * 0.6F;
+            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var17 ? colorBlue : 1.0F) * 0.6F;
+            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var17 ? colorGreen : 1.0F) * 0.6F;
             render.colorRedTopLeft *= var9;
             render.colorGreenTopLeft *= var9;
             render.colorBlueTopLeft *= var9;
@@ -678,20 +678,20 @@ public class OrizonRenderHelper
             var27 = par1Block.getBlockTexture(iblockaccess, posX, posY, posZ, 4);
             this.renderNorthFace(par1Block, render, (double)posX, (double)posY, (double)posZ, var27);
 
-            if (Tessellator.instance.defaultTexture && render.cfgGrassFix && var27 == 3)
+            if (Tessellator.instance.defaultTexture && var27 == 3)
             {
-                render.colorRedTopLeft *= par5;
-                render.colorRedBottomLeft *= par5;
-                render.colorRedBottomRight *= par5;
-                render.colorRedTopRight *= par5;
-                render.colorGreenTopLeft *= par6;
-                render.colorGreenBottomLeft *= par6;
-                render.colorGreenBottomRight *= par6;
-                render.colorGreenTopRight *= par6;
-                render.colorBlueTopLeft *= par7;
-                render.colorBlueBottomLeft *= par7;
-                render.colorBlueBottomRight *= par7;
-                render.colorBlueTopRight *= par7;
+                render.colorRedTopLeft *= colorRed;
+                render.colorRedBottomLeft *= colorRed;
+                render.colorRedBottomRight *= colorRed;
+                render.colorRedTopRight *= colorRed;
+                render.colorGreenTopLeft *= colorBlue;
+                render.colorGreenBottomLeft *= colorBlue;
+                render.colorGreenBottomRight *= colorBlue;
+                render.colorGreenTopRight *= colorBlue;
+                render.colorBlueTopLeft *= colorGreen;
+                render.colorBlueBottomLeft *= colorGreen;
+                render.colorBlueBottomRight *= colorGreen;
+                render.colorBlueTopRight *= colorGreen;
                 this.renderNorthFace(par1Block, render, (double)posX, (double)posY, (double)posZ, 1);
             }
 
@@ -783,9 +783,9 @@ public class OrizonRenderHelper
                 render.brightnessTopLeft = render.brightnessBottomLeft = render.brightnessBottomRight = render.brightnessTopRight = var23;
             }
 
-            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var18 ? par5 : 1.0F) * 0.6F;
-            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var18 ? par6 : 1.0F) * 0.6F;
-            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var18 ? par7 : 1.0F) * 0.6F;
+            render.colorRedTopLeft = render.colorRedBottomLeft = render.colorRedBottomRight = render.colorRedTopRight = (var18 ? colorRed : 1.0F) * 0.6F;
+            render.colorGreenTopLeft = render.colorGreenBottomLeft = render.colorGreenBottomRight = render.colorGreenTopRight = (var18 ? colorBlue : 1.0F) * 0.6F;
+            render.colorBlueTopLeft = render.colorBlueBottomLeft = render.colorBlueBottomRight = render.colorBlueTopRight = (var18 ? colorGreen : 1.0F) * 0.6F;
             render.colorRedTopLeft *= var9;
             render.colorGreenTopLeft *= var9;
             render.colorBlueTopLeft *= var9;
@@ -801,20 +801,20 @@ public class OrizonRenderHelper
             var27 = par1Block.getBlockTexture(iblockaccess, posX, posY, posZ, 5);
             this.renderSouthFace(par1Block, render, (double)posX, (double)posY, (double)posZ, var27);
 
-            if (Tessellator.instance.defaultTexture && render.cfgGrassFix && var27 == 3)
+            if (Tessellator.instance.defaultTexture && var27 == 3)
             {
-                render.colorRedTopLeft *= par5;
-                render.colorRedBottomLeft *= par5;
-                render.colorRedBottomRight *= par5;
-                render.colorRedTopRight *= par5;
-                render.colorGreenTopLeft *= par6;
-                render.colorGreenBottomLeft *= par6;
-                render.colorGreenBottomRight *= par6;
-                render.colorGreenTopRight *= par6;
-                render.colorBlueTopLeft *= par7;
-                render.colorBlueBottomLeft *= par7;
-                render.colorBlueBottomRight *= par7;
-                render.colorBlueTopRight *= par7;
+                render.colorRedTopLeft *= colorRed;
+                render.colorRedBottomLeft *= colorRed;
+                render.colorRedBottomRight *= colorRed;
+                render.colorRedTopRight *= colorRed;
+                render.colorGreenTopLeft *= colorBlue;
+                render.colorGreenBottomLeft *= colorBlue;
+                render.colorGreenBottomRight *= colorBlue;
+                render.colorGreenTopRight *= colorBlue;
+                render.colorBlueTopLeft *= colorGreen;
+                render.colorBlueBottomLeft *= colorGreen;
+                render.colorBlueBottomRight *= colorGreen;
+                render.colorBlueTopRight *= colorGreen;
                 this.renderSouthFace(par1Block, render, (double)posX, (double)posY, (double)posZ, 1);
             }
 

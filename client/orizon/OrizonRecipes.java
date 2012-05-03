@@ -151,6 +151,33 @@ public class OrizonRecipes {
     	ModLoader.addName(mod_Orizon.manyullynShovel, "Manyullyn Shovel");
     	ModLoader.addName(mod_Orizon.manyullynAxe, "Manyullyn Axe");
     	ModLoader.addName(mod_Orizon.manyullynHoe, "Manyullyn Hoe");
+    	
+    	ModLoader.addLocalization("orizonDirt.name", "Blue Dirt");
+    	ModLoader.addLocalization("orizonSand.name", "Sparkling Sand");
+    	
+    	ModLoader.addLocalization("orizonRose.name", "Rose");
+    	ModLoader.addLocalization("orizonDandelion.name", "Dandelion");
+    	ModLoader.addLocalization("orizonNightbloom.name", "Nightbloom");
+    	ModLoader.addLocalization("orizonDaisy.name", "Daisy");
+    	
+    	ModLoader.addLocalization("orizonOakLeaves.name", "Oaked Leaves");
+    	ModLoader.addLocalization("orizonPineLeaves.name", "Cine Leaves");
+    	ModLoader.addLocalization("orizonBirchLeaves.name", "Nightbirch Leaves");
+    	ModLoader.addLocalization("orizonJungleLeaves.name", "Rainy Leaves");
+    	
+    	ModLoader.addLocalization("orizonOakSapling.name", "Oaked Sapling");
+    	ModLoader.addLocalization("orizonPineSapling.name", "Cine Sapling");
+    	ModLoader.addLocalization("orizonBirchSapling.name", "Nightbirch Sapling");
+    	ModLoader.addLocalization("orizonJungleSapling.name", "Rainy Sapling");
+    	
+    	ModLoader.addLocalization("orizonOakLog.name", "Oaked Log");
+    	ModLoader.addLocalization("orizonPineLog.name", "Cine Log");
+    	ModLoader.addLocalization("orizonBirchLog.name", "Nightbirch Log");
+    	ModLoader.addLocalization("orizonJungleLog.name", "Rainy Log");
+    	ModLoader.addLocalization("orizonOakPlanks.name", "Oaked Planks");
+    	ModLoader.addLocalization("orizonPinePlanks.name", "Cine Planks");
+    	ModLoader.addLocalization("orizonBirchPlanks.name", "Nightbirch Planks");
+    	ModLoader.addLocalization("orizonJunglePlanks.name", "Rainy Planks");
     }
 	
 	public static void addRecipes()
@@ -201,8 +228,101 @@ public class OrizonRecipes {
         	FurnaceRecipes.smelting().addSmelting(mod_Orizon.cCobbleID, i, new ItemStack(mod_Orizon.cStone, 1, i));
         }
         
+        for(int i = 0; i < 4; i++)
+        {
+        	ModLoader.addRecipe(new ItemStack(mod_Orizon.dimensionWood, 4, i+4), new Object[] 
+    			{"#", '#', new ItemStack(mod_Orizon.dimensionWood, 4, i) });
+        	ModLoader.addRecipe(new ItemStack(Item.stick), new Object[] 
+        		{"#", "#", '#', new ItemStack(mod_Orizon.dimensionWood, 4, i+4) });
+        	ModLoader.addRecipe(new ItemStack(mod_Orizon.dimensionWood, 4, i), new Object[]
+        			{	
+        				"w", 'w', new ItemStack(mod_Orizon.dimensionWood, 1, i - 1)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.workbench), new Object[]
+        			{
+        				"ww", "ww", 'w', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[]
+        			{
+        			   "#W#", "#W#", '#', Item.stick, 'W', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.jukebox, 1), new Object[]
+        			{
+        				"###", "#X#", "###", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), 'X', Item.diamond
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.music, 1), new Object[]
+        			{
+        				"###", "#X#", "###", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), 'X', Item.redstone
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.stairSingle, 3, 2), new Object[]
+        			{
+        				"###", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Item.doorWood, 1), new Object[]
+        			{
+        				"##", "##", "##", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[]
+        			{
+        				"###", "###", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Item.sign, 1), new Object[]
+        			{
+        				"###", "###", " X ", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), 'X', Item.stick
+        			});
+        			ModLoader.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[]
+        			{
+        				"# #", " # ", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.stairCompactPlanks, 4), new Object[]
+        			{
+        				"#  ", "## ", "###", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.chest), new Object[]
+        			{
+        				"###", "# #", "###", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[]
+        			{
+        				"##", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[]
+        			{	
+        				"TTT", "#X#", "#R#", '#', Block.cobblestone, 'X', Item.ingotIron, 'R', Item.redstone, 'T',
+        				new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Item.bed, 1), new Object[]
+        			{
+        				"###", "XXX", '#', Block.cloth, 'X', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Item.boat), new Object[]
+        			{
+        				"# #", "###", '#', new ItemStack(mod_Orizon.dimensionWood, 1, i+4)
+        			});
+        			ModLoader.addRecipe(new ItemStack(Item.pickaxeWood), new Object[]
+        					{
+        						"www", " | ", " | ", 'w', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), '|', Item.stick
+        					});
+        					ModLoader.addRecipe(new ItemStack(Item.shovelWood), new Object[]
+        					{
+        						"w", "|", "|", 'w', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), '|', Item.stick
+        					});
+        					ModLoader.addRecipe(new ItemStack(Item.axeWood), new Object[]
+        					{
+        						"ww ", "w| ", " | ", 'w', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), '|', Item.stick
+        					});
+        					ModLoader.addRecipe(new ItemStack(Item.swordWood), new Object[]
+        					{
+        						"w", "w", "|", 'w', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), '|', Item.stick
+        					});
+        					ModLoader.addRecipe(new ItemStack(Item.hoeWood), new Object[]
+        					{
+        						"ww", "| ", "| ", 'w', new ItemStack(mod_Orizon.dimensionWood, 1, i+4), '|', Item.stick
+        					});
+        }
+        
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 0, new ItemStack(mod_Orizon.ingots, 1, 0));
-        FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 4, new ItemStack(mod_Orizon.ingots, 1, 1));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 3, new ItemStack(mod_Orizon.ingots, 1, 1));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 5, new ItemStack(mod_Orizon.ingots, 1, 2));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 8, new ItemStack(mod_Orizon.ingots, 1, 3));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 9, new ItemStack(mod_Orizon.ingots, 1, 4));
@@ -210,12 +330,20 @@ public class OrizonRecipes {
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOre.blockID, 7, new ItemStack(mod_Orizon.ingots, 1, 13));
         
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 0, new ItemStack(mod_Orizon.ingots, 1, 0));
-        FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 4, new ItemStack(mod_Orizon.ingots, 1, 1));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 3, new ItemStack(mod_Orizon.ingots, 1, 1));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 5, new ItemStack(mod_Orizon.ingots, 1, 2));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 8, new ItemStack(mod_Orizon.ingots, 1, 3));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 9, new ItemStack(mod_Orizon.ingots, 1, 4));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 12, new ItemStack(mod_Orizon.ingots, 1, 5));
         FurnaceRecipes.smelting().addSmelting(mod_Orizon.mineralOreAlt.blockID, 7, new ItemStack(mod_Orizon.ingots, 1, 13));
+        
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.dimensionWood.blockID, 0, new ItemStack(Item.coal, 1, 1));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.dimensionWood.blockID, 1, new ItemStack(Item.coal, 1, 1));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.dimensionWood.blockID, 2, new ItemStack(Item.coal, 1, 1));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.dimensionWood.blockID, 3, new ItemStack(Item.coal, 1, 1));
+        
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.blueDirt.blockID, 1, new ItemStack(Block.glass));
+        FurnaceRecipes.smelting().addSmelting(mod_Orizon.blueDirt.blockID, 2, new ItemStack(Block.glass));
 	}
 	
 	public static void addCopperTools(ItemStack stack) {

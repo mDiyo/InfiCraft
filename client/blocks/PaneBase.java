@@ -1,5 +1,6 @@
 package net.minecraft.src.blocks;
 import net.minecraft.src.*;
+import net.minecraft.src.blocks.magicslabs.MagicSlabBase;
 
 import java.util.ArrayList;
 import java.util.Random;

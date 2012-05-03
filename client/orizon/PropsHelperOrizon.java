@@ -78,8 +78,13 @@ public class PropsHelperOrizon {
         mod_Orizon.slimeGelID = config.getOrCreateBlockIdProperty("Slime Gel", 3239).getInt(3239);
         mod_Orizon.slimePoolID = config.getOrCreateBlockIdProperty("Slime Pool IDs", 3240).getInt(3240);
         
-        mod_Orizon.blueGrassID  = config.getOrCreateBlockIdProperty("Blue Grass", 3242).getInt(3242);
-        mod_Orizon.blueDirtID  = config.getOrCreateBlockIdProperty("Blue Dirt", 3243).getInt(3243);
+        mod_Orizon.blueGrassID = config.getOrCreateBlockIdProperty("Dimension Grass", 3242).getInt(3242);
+        mod_Orizon.blueDirtID = config.getOrCreateBlockIdProperty("Dimension Dirt", 3243).getInt(3243);
+        mod_Orizon.dimensionLeavesID = config.getOrCreateBlockIdProperty("Dimension Leaves", 3244).getInt(3244);
+        mod_Orizon.dimensionWoodID = config.getOrCreateBlockIdProperty("Dimension Wood", 3245).getInt(3245);
+        mod_Orizon.dimensionTallGrassID = config.getOrCreateBlockIdProperty("Dimension Tall Grass", 3246).getInt(3246);
+        mod_Orizon.dimensionFlowersID = config.getOrCreateBlockIdProperty("Dimension Flowers", 3247).getInt(3247);
+        mod_Orizon.dimensionSaplingID = config.getOrCreateBlockIdProperty("Dimension Sapling", 3248).getInt(3248);
         
         mod_Orizon.ingotsID = config.getOrCreateIntProperty("Ingots", "item", 10998).getInt(10998);
         mod_Orizon.netherIngotsID = config.getOrCreateIntProperty("Nether Ingots", "item", 10999).getInt(10999);
@@ -238,6 +243,7 @@ public class PropsHelperOrizon {
 		dimensiongenGems = config.getOrCreateBooleanProperty("Dimension Generate Gemstones", "general", true).getBoolean(true);
 		dimensiongenNonUniqueGems = config.getOrCreateBooleanProperty("Dimension Generate Ruby Emerald and Sapphire Gems", "general", true).getBoolean(true);
 		dimensiongenSlimePools = config.getOrCreateBooleanProperty("Dimension Generate Slime Pools", "general", true).getBoolean(true);
+		dimensiongenColoredStone = config.getOrCreateBooleanProperty("Dimension Generate Colored Stone", "general", true).getBoolean(true);
 		//dimensiongenAcidPools = config.getOrCreateBooleanProperty("Generate Acid Pools", "general", true).getBoolean(true);
 		
 		dimensiongenCopper = config.getOrCreateBooleanProperty("Dimension Generate Copper Ore", "general", true).getBoolean(true);

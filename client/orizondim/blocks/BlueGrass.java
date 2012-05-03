@@ -67,12 +67,13 @@ public class BlueGrass extends Block
      * Returns a integer with hex for 0xrrggbb with this color multiplied against the blocks color. Note only called
      * when first determining what to render.
      */
+    /*double var1 = 0.5D;
+    double var3 = 1.0D;
+    return OrizonColorizer.getGrassColor(var1, var3);*/
+	//return 16777215;
     public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
-    	/*double var1 = 0.5D;
-        double var3 = 1.0D;
-        return OrizonColorizer.getGrassColor(var1, var3);*/
-    	//return 16777215;
+    	
         int var5 = 0;
         int var6 = 0;
         int var7 = 0;
@@ -134,7 +135,7 @@ public class BlueGrass extends Block
 		return "/oretex/organics.png";
 	}
 	
-	@Override
+	//@Override
     public boolean canSupportPlants(int metadata)
     {
     	return true;

@@ -253,8 +253,7 @@ public class ChunkProviderOrizon implements IChunkProvider
                     }
                     else
                     {
-                        short var18 = blockIDs[var17];
-                        
+                        short var18 = blockIDs[var17];                        
 
                         if (var18 == 0)
                         {
@@ -267,12 +266,24 @@ public class ChunkProviderOrizon implements IChunkProvider
                                 if (var12 <= 0)
                                 {
                                     topID = 0;
+                                    topMeta = 0;
                                     fillID = (short)Block.stone.blockID;
+                                    fillMeta = 0;
                                 }
                                 else if (height >= waterHeight - 4 && height <= waterHeight + 1)
                                 {
-                                    topID = var10.topBlock;
-                                    fillID = var10.fillerBlock;
+                                	if (var10 instanceof BiomeGenOrizon)
+                                    {
+                                    	topID = ((BiomeGenOrizon)var10).getTopBlockEX();
+                                    	topMeta = ((BiomeGenOrizon)var10).getTopMeta();
+                                    	fillID = ((BiomeGenOrizon)var10).getFillBlockEX();
+                                    	fillMeta = ((BiomeGenOrizon)var10).getFillMeta();
+                                    }
+                                	else
+                                	{
+                                		topID = var10.topBlock;
+                                		fillID = var10.fillerBlock;
+                                	}
                                 }
 
                                 if (height < waterHeight && topID == 0)
@@ -306,6 +317,7 @@ public class ChunkProviderOrizon implements IChunkProvider
                             {
                                 --var13;
                                 blockIDs[var17] = fillID;
+                                metadata[var17] = fillMeta;
 
                                 if (var13 == 0 && fillID == Block.sand.blockID)
                                 {

@@ -33,7 +33,7 @@ public class OrizonBiomeSwamp extends BiomeGenOrizon
     {
         double var1 = (double)this.getFloatTemperature();
         double var3 = (double)this.getFloatRainfall();
-        return ((OrizonColorizer.getGrassColor(var1, var3) & 16711422) + 5115470) * 2 / 3;
+        return ((OrizonColorizer.getGrassColor(var1, var3) & 16711422) + 5115470) * 3 / 2;
     }
 
     /**
@@ -43,6 +43,6 @@ public class OrizonBiomeSwamp extends BiomeGenOrizon
     {
         double var1 = (double)this.getFloatTemperature();
         double var3 = (double)this.getFloatRainfall();
-        return ((OrizonColorizer.getFoliageColor(var1, var3) & 16711422) + 5115470) * 2 / 3;
+        return ((OrizonColorizer.getFoliageColor(var1, var3) & 16711422) + 5115470) * 3 / 2;
     }
 }

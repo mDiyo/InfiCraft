@@ -15,7 +15,7 @@ public class PropsHelperOrizon {
          * Second: Create the actual config file
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
-
+ 
         File file = new File("./config/InfiCraft");
         file.mkdir();
         File newFile = new File("./config/InfiCraft/Orizon.txt");
@@ -77,6 +77,9 @@ public class PropsHelperOrizon {
         mod_Orizon.slimeGelID = config.getOrCreateBlockIdProperty("Slime Gel", 3239).getInt(3239);
         mod_Orizon.slimePoolID = config.getOrCreateBlockIdProperty("Slime Pool IDs", 3240).getInt(3240);
         
+        mod_Orizon.blueGrassID  = config.getOrCreateBlockIdProperty("Blue Grass", 3242).getInt(3242);
+        mod_Orizon.blueDirtID  = config.getOrCreateBlockIdProperty("Blue Dirt", 3243).getInt(3243);
+        
         mod_Orizon.ingotsID = config.getOrCreateIntProperty("Ingots", "item", 10998).getInt(10998);
         mod_Orizon.netherIngotsID = config.getOrCreateIntProperty("Nether Ingots", "item", 10999).getInt(10999);
         mod_Orizon.gemsID = config.getOrCreateIntProperty("Gems", "item", 11000).getInt(11000);
@@ -116,34 +119,36 @@ public class PropsHelperOrizon {
 	    mod_Orizon.manyullynAxeID = config.getOrCreateIntProperty("Manyullyn Axe", "item", 11033).getInt(11033);
 	    mod_Orizon.manyullynShovelID = config.getOrCreateIntProperty("Manyullyn Shovel", "item", 11034).getInt(11034);
 	    mod_Orizon.manyullynHoeID = config.getOrCreateIntProperty("Manyullyn Hoe", "item", 11035).getInt(11035);
+	    
+	    mod_Orizon.superfun = config.getOrCreateBooleanProperty("All the world is Superfun", "general", false).getBoolean(false);
         
-	    mod_Orizon.genStratifiedStone = config.getOrCreateBooleanProperty("Generate Stratified Stone", "general", true).getBoolean(true);
+	    mod_Orizon.genStratifiedStone = config.getOrCreateBooleanProperty("Generate Stratified Stone", "general", false).getBoolean(false);
 		mod_Orizon.genColoredStone = config.getOrCreateBooleanProperty("Generate Colored Stone", "general", true).getBoolean(true);
-		mod_Orizon.genCalcite = config.getOrCreateBooleanProperty("Generate Calcite and Calcite Ores", "general", true).getBoolean(true);
+		mod_Orizon.genCalcite = config.getOrCreateBooleanProperty("Generate Calcite and Calcite Ores", "general", false).getBoolean(false);
 		mod_Orizon.genMarble = config.getOrCreateBooleanProperty("Generate Marble", "general", true).getBoolean(true);
 		mod_Orizon.genNetherOre = config.getOrCreateBooleanProperty("Generate Nether Ores", "general", true).getBoolean(true);
 		mod_Orizon.genSilt = config.getOrCreateBooleanProperty("Generate Silt", "general", true).getBoolean(true);
-		mod_Orizon.redoVanillaOres = config.getOrCreateBooleanProperty("Metallurgy Style Spawn", "general", true).getBoolean(true);
-		mod_Orizon.replaceOres = config.getOrCreateBooleanProperty("Replace Vanilla Ores", "general", true).getBoolean(true);
-		mod_Orizon.genGems = config.getOrCreateBooleanProperty("Generate Gemstones", "general", true).getBoolean(true);
-		mod_Orizon.genNonUniqueGems = config.getOrCreateBooleanProperty("Generate Ruby Emerald and Sapphire Gems", "general", true).getBoolean(true);
+		mod_Orizon.redoVanillaOres = config.getOrCreateBooleanProperty("Metallurgy Style Spawn", "general", false).getBoolean(false);
+		mod_Orizon.replaceOres = config.getOrCreateBooleanProperty("Replace Vanilla Ores", "general", false).getBoolean(false);
+		mod_Orizon.genGems = config.getOrCreateBooleanProperty("Generate Gemstones", "general", false).getBoolean(false);
+		mod_Orizon.genNonUniqueGems = config.getOrCreateBooleanProperty("Generate Ruby Emerald and Sapphire Gems", "general", false).getBoolean(false);
 		mod_Orizon.genSlimePools = config.getOrCreateBooleanProperty("Generate Slime Pools", "general", true).getBoolean(true);
 		//mod_Orizon.genAcidPools = config.getOrCreateBooleanProperty("Generate Acid Pools", "general", true).getBoolean(true);
 		
 		mod_Orizon.genCopper = config.getOrCreateBooleanProperty("Generate Copper Ore", "general", true).getBoolean(true);
-		mod_Orizon.genTurquoise = config.getOrCreateBooleanProperty("Generate Turquoise Ore", "general", true).getBoolean(true);
-		mod_Orizon.genChalcocite = config.getOrCreateBooleanProperty("Generate Chalcocite Ore", "general", true).getBoolean(true);
+		mod_Orizon.genTurquoise = config.getOrCreateBooleanProperty("Generate Turquoise Ore", "general", false).getBoolean(false);
+		mod_Orizon.genChalcocite = config.getOrCreateBooleanProperty("Generate Chalcocite Ore", "general", false).getBoolean(false);
 		mod_Orizon.genCassiterite = config.getOrCreateBooleanProperty("Generate Cassiterite Ore", "general", true).getBoolean(true);
-		mod_Orizon.genTeallite = config.getOrCreateBooleanProperty("Generate Teallite Ore", "general", true).getBoolean(true);
-		mod_Orizon.genZinc = config.getOrCreateBooleanProperty("Generate Zinc Bloom Ore", "general", true).getBoolean(true);
-		mod_Orizon.genSphalerite = config.getOrCreateBooleanProperty("Generate Sphalerite Ore", "general", true).getBoolean(true);
-		mod_Orizon.genCerussite = config.getOrCreateBooleanProperty("Generate Cerussite Ore", "general", true).getBoolean(true);
-		mod_Orizon.genCobalt = config.getOrCreateBooleanProperty("Generate Cobalt Ore", "general", true).getBoolean(true);
-		mod_Orizon.genArdite = config.getOrCreateBooleanProperty("Generate Ardite Ore", "general", true).getBoolean(true);
-		mod_Orizon.genMyuvil = config.getOrCreateBooleanProperty("Generate Myuvil Ore", "general", true).getBoolean(true);
-		mod_Orizon.genGalena = config.getOrCreateBooleanProperty("Generate Galena Ore", "general", true).getBoolean(true);
-		mod_Orizon.genIvymetal = config.getOrCreateBooleanProperty("Generate Ivymetal Ore", "general", true).getBoolean(true);
-		mod_Orizon.genAggregate = config.getOrCreateBooleanProperty("Generate Aggregate Ore", "general", true).getBoolean(true);
+		mod_Orizon.genTeallite = config.getOrCreateBooleanProperty("Generate Teallite Ore", "general", false).getBoolean(false);
+		mod_Orizon.genZinc = config.getOrCreateBooleanProperty("Generate Zinc Bloom Ore", "general", false).getBoolean(false);
+		mod_Orizon.genSphalerite = config.getOrCreateBooleanProperty("Generate Sphalerite Ore", "general", false).getBoolean(false);
+		mod_Orizon.genCerussite = config.getOrCreateBooleanProperty("Generate Cerussite Ore", "general", false).getBoolean(false);
+		mod_Orizon.genCobalt = config.getOrCreateBooleanProperty("Generate Cobalt Ore", "general", false).getBoolean(false);
+		mod_Orizon.genArdite = config.getOrCreateBooleanProperty("Generate Ardite Ore", "general", false).getBoolean(false);
+		mod_Orizon.genMyuvil = config.getOrCreateBooleanProperty("Generate Myuvil Ore", "general", false).getBoolean(false);
+		mod_Orizon.genGalena = config.getOrCreateBooleanProperty("Generate Galena Ore", "general", false).getBoolean(false);
+		mod_Orizon.genIvymetal = config.getOrCreateBooleanProperty("Generate Ivymetal Ore", "general", false).getBoolean(false);
+		mod_Orizon.genAggregate = config.getOrCreateBooleanProperty("Generate Aggregate Ore", "general", false).getBoolean(false);
 		
 		mod_Orizon.copperRarity = config.getOrCreateIntProperty("Copper Rarity", "general", 6).getInt(6);
 	    mod_Orizon.copperHeight = config.getOrCreateIntProperty("Copper Height", "general", 64).getInt(64);
@@ -226,10 +231,213 @@ public class PropsHelperOrizon {
 	    
 	    mod_Orizon.slimePoolRarity = config.getOrCreateIntProperty("Slime Pool Rarity", "general", 30).getInt(30);
 	    mod_Orizon.slimePoolHeight = config.getOrCreateIntProperty("Slime Pool Height", "general", 64).getInt(64);
-        
-        //mod_Orizon.corruptionSpeed = config.getOrCreateIntProperty("Corruption Speed", "general", 5).getInt(5);
+	    
+		dimensiongenCalcite = config.getOrCreateBooleanProperty("Dimension Generate Calcite and Calcite Ores", "general", true).getBoolean(true);
+		dimensiongenMarble = config.getOrCreateBooleanProperty("Dimension Generate Marble", "general", true).getBoolean(true);
+		dimensiongenGems = config.getOrCreateBooleanProperty("Dimension Generate Gemstones", "general", true).getBoolean(true);
+		dimensiongenNonUniqueGems = config.getOrCreateBooleanProperty("Dimension Generate Ruby Emerald and Sapphire Gems", "general", true).getBoolean(true);
+		dimensiongenSlimePools = config.getOrCreateBooleanProperty("Dimension Generate Slime Pools", "general", true).getBoolean(true);
+		//dimensiongenAcidPools = config.getOrCreateBooleanProperty("Generate Acid Pools", "general", true).getBoolean(true);
+		
+		dimensiongenCopper = config.getOrCreateBooleanProperty("Dimension Generate Copper Ore", "general", true).getBoolean(true);
+		dimensiongenTurquoise = config.getOrCreateBooleanProperty("Dimension Generate Turquoise Ore", "general", true).getBoolean(true);
+		dimensiongenChalcocite = config.getOrCreateBooleanProperty("Dimension Generate Chalcocite Ore", "general", true).getBoolean(true);
+		dimensiongenCassiterite = config.getOrCreateBooleanProperty("Dimension Generate Cassiterite Ore", "general", true).getBoolean(true);
+		dimensiongenTeallite = config.getOrCreateBooleanProperty("Dimension Generate Teallite Ore", "general", true).getBoolean(true);
+		dimensiongenZinc = config.getOrCreateBooleanProperty("Dimension Generate Zinc Bloom Ore", "general", true).getBoolean(true);
+		dimensiongenSphalerite = config.getOrCreateBooleanProperty("Dimension enerate Sphalerite Ore", "general", true).getBoolean(true);
+		dimensiongenCerussite = config.getOrCreateBooleanProperty("Dimension Generate Cerussite Ore", "general", true).getBoolean(true);
+		dimensiongenCobalt = config.getOrCreateBooleanProperty("Dimension Generate Cobalt Ore", "general", true).getBoolean(true);
+		dimensiongenArdite = config.getOrCreateBooleanProperty("Dimension Generate Ardite Ore", "general", true).getBoolean(true);
+		dimensiongenMyuvil = config.getOrCreateBooleanProperty("Dimension Generate Myuvil Ore", "general", true).getBoolean(true);
+		dimensiongenGalena = config.getOrCreateBooleanProperty("Dimension Generate Galena Ore", "general", true).getBoolean(true);
+		dimensiongenIvymetal = config.getOrCreateBooleanProperty("Dimension Generate Ivymetal Ore", "general", true).getBoolean(true);
+		dimensiongenAggregate = config.getOrCreateBooleanProperty("Dimension Generate Aggregate Ore", "general", true).getBoolean(true);
+		
+		dimensioncopperRarity = config.getOrCreateIntProperty("Dimension Copper Rarity", "general", 6).getInt(6);
+	    dimensioncopperHeight = config.getOrCreateIntProperty("Dimension Copper Height", "general", 100).getInt(100);
+	    dimensionturquoiseRarity = config.getOrCreateIntProperty("Dimension Turquoise Rarity", "general", 7).getInt(7);
+	    dimensionturquoiseHeight = config.getOrCreateIntProperty("Dimension Turquoise Height", "general", 100).getInt(100);
+	    dimensionchalcociteRarity = config.getOrCreateIntProperty("Dimension Chalcocite Rarity", "general", 3).getInt(3);
+	    dimensionchalcociteHeight = config.getOrCreateIntProperty("Dimension Chalcocite Height", "general", 100).getInt(100);
+	    dimensioncassiteriteRarity = config.getOrCreateIntProperty("Dimension Cassiterite Rarity", "general", 6).getInt(6);
+	    dimensioncassiteriteHeight = config.getOrCreateIntProperty("Dimension Cassiterite Height", "general", 100).getInt(6);
+	    dimensiontealliteRarity = config.getOrCreateIntProperty("Dimension Teallite Rarity", "general", 7).getInt(7);
+	    dimensiontealliteHeight = config.getOrCreateIntProperty("Dimension Teallite Height", "general", 100).getInt(100);
+	    dimensionzincBloomRarity = config.getOrCreateIntProperty("Dimension Zinc Bloom Rarity", "general", 6).getInt(6);
+	    dimensionzincBloomHeight = config.getOrCreateIntProperty("Dimension Zinc Bloom Height", "general", 100).getInt(100);
+	    dimensionsphaleriteRarity = config.getOrCreateIntProperty("Dimension Sphalerite Rarity", "general", 5).getInt(5);
+	    dimensionsphaleriteHeight = config.getOrCreateIntProperty("Dimension Sphalerite Height", "general", 100).getInt(100);
+	    dimensioncerussiteRarity = config.getOrCreateIntProperty("Dimension Cerussite Rarity", "general", 4).getInt(4);
+	    dimensioncerussiteHeight = config.getOrCreateIntProperty("Dimension Cerussite Height", "general", 100).getInt(100);
+	    dimensioncobaltRarity = config.getOrCreateIntProperty("Dimension Cobalt Rarity", "general", 3).getInt(3);
+	    dimensioncobaltHeight = config.getOrCreateIntProperty("Dimension Cobalt Height", "general", 100).getInt(100);
+	    dimensionarditeRarity = config.getOrCreateIntProperty("Dimension Ardite Rarity", "general", 3).getInt(3);
+	    dimensionarditeHeight = config.getOrCreateIntProperty("Dimension Ardite Height", "general", 100).getInt(100);
+	    dimensionmyuvilRarity = config.getOrCreateIntProperty("Dimension Myuvil Rarity", "general", 2).getInt(2);
+	    dimensionmyuvilHeight = config.getOrCreateIntProperty("Dimension Myuvil Height", "general", 100).getInt(100);
+	    dimensiongalenaRarity = config.getOrCreateIntProperty("Dimension Galena Rarity", "general", 2).getInt(2);
+	    dimensiongalenaHeight = config.getOrCreateIntProperty("Dimension Galena Height", "general", 100).getInt(100);
+	    dimensionivymetalRarity = config.getOrCreateIntProperty("Dimension Ivymetal Rarity", "general", 1).getInt(1);
+	    dimensionivymetalHeight = config.getOrCreateIntProperty("Dimension Ivymetal Height", "general", 100).getInt(100);
+	    dimensionaggregateRarity = config.getOrCreateIntProperty("Dimension Aggregate Rarity", "general", 2).getInt(2);
+	    dimensionaggregateHeight = config.getOrCreateIntProperty("Dimension Aggregate Height", "general", 100).getInt(100);
+	    
+	    dimensioncoalRarity = config.getOrCreateIntProperty("Dimension Coal Rarity", "general", 12).getInt(12);
+	    dimensioncoalHeight = config.getOrCreateIntProperty("Dimension Coal Height", "general", 100).getInt(100); 
+	    dimensionironRarity = config.getOrCreateIntProperty("Dimension Iron Rarity", "general", 12).getInt(12);
+	    dimensionironHeight = config.getOrCreateIntProperty("Dimension Iron Height", "general", 100).getInt(100); 
+	    dimensiongoldRarity = config.getOrCreateIntProperty("Dimension Gold Rarity", "general", 3).getInt(3);
+	    dimensiongoldHeight = config.getOrCreateIntProperty("Dimension Gold Height", "general", 100).getInt(100); 
+	    dimensiondiamondRarity = config.getOrCreateIntProperty("Dimension Diamond Rarity", "general", 1).getInt(1);
+	    dimensiondiamondHeight = config.getOrCreateIntProperty("Dimension Diamond Height", "general", 100).getInt(100); 
+	    dimensionlapisRarity = config.getOrCreateIntProperty("Dimension Lapis Rarity", "general", 2).getInt(2);
+	    dimensionlapisHeight = config.getOrCreateIntProperty("Dimension Lapis Height", "general", 100).getInt(100); 
+	    dimensionredstoneRarity = config.getOrCreateIntProperty("Dimension Redstone Rarity", "general", 4).getInt(4);
+	    dimensionredstoneHeight = config.getOrCreateIntProperty("Dimension Redstone Height", "general", 100).getInt(100);
+	    
+	    dimensionrubyRarity = config.getOrCreateIntProperty("Dimension Ruby Rarity", "general", 2).getInt(2);
+	    dimensionrubyHeight = config.getOrCreateIntProperty("Dimension Ruby Height", "general", 100).getInt(100);
+	    dimensionemeraldRarity = config.getOrCreateIntProperty("Dimension Emerald Rarity", "general", 2).getInt(2);
+	    dimensionemeraldHeight = config.getOrCreateIntProperty("Dimension Emerald Height", "general", 100).getInt(100);
+	    dimensionsapphireRarity = config.getOrCreateIntProperty("Dimension Sapphire Rarity", "general", 2).getInt(2);
+	    dimensionsapphireHeight = config.getOrCreateIntProperty("Dimension Sapphire Height", "general", 100).getInt(100);
+	    dimensiontopazRarity = config.getOrCreateIntProperty("Dimension Topaz Rarity", "general", 2).getInt(2);
+	    dimensiontopazHeight = config.getOrCreateIntProperty("Dimension Topaz Height", "general", 100).getInt(100);
+	    dimensionamethystRarity = config.getOrCreateIntProperty("Dimension Amethyst Rarity", "general", 2).getInt(2);
+	    dimensionamethystHeight = config.getOrCreateIntProperty("Dimension Amethyst Height", "general", 100).getInt(100);
+	    dimensionquartzRarity = config.getOrCreateIntProperty("Dimension Quartz Rarity", "general", 2).getInt(2);
+	    dimensionquartzHeight = config.getOrCreateIntProperty("Dimension Quartz Height", "general", 100).getInt(100);
+	    dimensionroseQuartzRarity = config.getOrCreateIntProperty("Dimension Rose Quartz Rarity", "general", 2).getInt(2);
+	    dimensionroseQuartzHeight = config.getOrCreateIntProperty("Dimension Rose Quartz Height", "general", 100).getInt(100);
+	    dimensionrockCrystalRarity = config.getOrCreateIntProperty("Dimension Rock Crystal Rarity", "general", 2).getInt(2);
+	    dimensionrockCrystalHeight = config.getOrCreateIntProperty("Dimension Rock Crystal Height", "general", 100).getInt(100);
+	    
+	    dimensionmarbleRarity = config.getOrCreateIntProperty("Dimension Marble Rarity", "general", 22).getInt(22);
+	    dimensionmarbleHeight = config.getOrCreateIntProperty("Dimension Marble Height", "general", 100).getInt(100);
+	    dimensionsiltRarity = config.getOrCreateIntProperty("Dimension Silt Rarity", "general", 22).getInt(22);
+	    dimensionsiltHeight = config.getOrCreateIntProperty("Dimension Silt Height", "general", 100).getInt(100);
+	    dimensionsiltstoneRarity = config.getOrCreateIntProperty("Dimension Siltstone Rarity", "general", 22).getInt(22);
+	    dimensionsiltstoneHeight = config.getOrCreateIntProperty("Dimension Siltstone Height", "general", 100).getInt(100);
+	    
+	    dimensionSlimePoolRarity = config.getOrCreateIntProperty("Dimension Slime Pool Rarity", "general", 30).getInt(30);
+	    dimensionSlimePoolHeight = config.getOrCreateIntProperty("Dimension Slime Pool Height", "general", 100).getInt(100);
 
         /* Save the configuration file */
         config.save();
     }
+    
+    public static boolean dimensiongenCopper;
+    public static boolean dimensiongenTurquoise;
+    public static boolean dimensiongenChalcocite;
+    public static boolean dimensiongenCassiterite;
+    public static boolean dimensiongenTeallite;
+    public static boolean dimensiongenZinc;
+    public static boolean dimensiongenSphalerite;
+    public static boolean dimensiongenCerussite;
+    public static boolean dimensiongenCobalt;
+    public static boolean dimensiongenArdite;
+    public static boolean dimensiongenMyuvil;
+    public static boolean dimensiongenGalena;
+    public static boolean dimensiongenIvymetal;
+    public static boolean dimensiongenAggregate;
+    
+    public static boolean dimensiongenSlimePools;
+    public static int dimensionSlimePoolRarity;
+    public static int dimensionSlimePoolHeight;
+    
+    public static boolean dimensiongenAcidPools;
+    public static int dimensionacidPoolRarity;
+    public static int dimensionacidPoolHeight;
+    
+    public static int dimensioncopperRarity;
+    public static int dimensioncopperHeight;
+    public static int dimensionturquoiseRarity;
+    public static int dimensionturquoiseHeight;
+    public static int dimensionchalcociteRarity;
+    public static int dimensionchalcociteHeight;
+    public static int dimensioncassiteriteRarity;
+    public static int dimensioncassiteriteHeight;
+    public static int dimensiontealliteRarity;
+    public static int dimensiontealliteHeight;
+    public static int dimensionzincBloomRarity;
+    public static int dimensionzincBloomHeight;
+    public static int dimensionsphaleriteRarity;
+    public static int dimensionsphaleriteHeight;
+    public static int dimensioncerussiteRarity;
+    public static int dimensioncerussiteHeight;
+    public static int dimensioncobaltRarity;
+    public static int dimensioncobaltHeight;
+    public static int dimensionarditeRarity;
+    public static int dimensionarditeHeight;
+    public static int dimensionmyuvilRarity;
+    public static int dimensionmyuvilHeight;
+    public static int dimensiongalenaRarity;
+    public static int dimensiongalenaHeight;
+    public static int dimensionivymetalRarity;
+    public static int dimensionivymetalHeight;
+    public static int dimensionaggregateRarity;
+    public static int dimensionaggregateHeight;
+    
+    public static int dimensioncoalRarity;
+    public static int dimensioncoalHeight;
+    public static int dimensionironRarity;
+    public static int dimensionironHeight;
+    public static int dimensiongoldRarity;
+    public static int dimensiongoldHeight;
+    public static int dimensiondiamondRarity;
+    public static int dimensiondiamondHeight;
+    public static int dimensionlapisRarity;
+    public static int dimensionlapisHeight;
+    public static int dimensionredstoneRarity;
+    public static int dimensionredstoneHeight;
+    
+    public static int dimensionrubyRarity;
+    public static int dimensionrubyHeight;
+    public static int dimensionemeraldRarity;
+    public static int dimensionemeraldHeight;
+    public static int dimensionsapphireRarity;
+    public static int dimensionsapphireHeight;
+    public static int dimensionamethystRarity;
+    public static int dimensionamethystHeight;
+    public static int dimensiontopazRarity;
+    public static int dimensiontopazHeight;
+    public static int dimensionquartzRarity;
+    public static int dimensionquartzHeight;
+    public static int dimensionroseQuartzRarity;
+    public static int dimensionroseQuartzHeight;
+    public static int dimensionrockCrystalRarity;
+    public static int dimensionrockCrystalHeight;
+    
+    public static int dimensionmarbleRarity;
+    public static int dimensionmarbleHeight;
+    public static int dimensionsiltRarity;
+    public static int dimensionsiltHeight;
+    public static int dimensionsiltstoneRarity;
+    public static int dimensionsiltstoneHeight;
+    
+    public static int dimensionbloodbiteRarity;
+    public static int dimensionbloodbiteHeight;
+    public static int dimensiongrudgestoneRarity;
+    public static int dimensiongrudgestoneHeight;
+    public static int dimensionwistfulRarity;
+    public static int dimensionwistfulHeight;
+    public static int dimensionflamelashRarity;
+    public static int dimensionflamelashHeight;
+    public static int dimensiontearsRarity;
+    public static int dimensiontearsHeight;
+    public static int dimensionnetherGoldRarity;
+    public static int dimensionnetherGoldHeight;
+    
+    public static boolean dimensiongenStratifiedStone;
+    public static boolean dimensiongenColoredStone;
+    public static boolean dimensiongenCalcite;
+    public static boolean dimensiongenMarble;
+    public static boolean dimensiongenNetherOre;
+    public static boolean dimensiongenSilt;
+    public static boolean redoVanillaOres;
+    public static boolean replaceOres;
+    public static boolean dimensiongenGems;
+    public static boolean dimensiongenNonUniqueGems;
+    public static boolean flatBedrock;
 }

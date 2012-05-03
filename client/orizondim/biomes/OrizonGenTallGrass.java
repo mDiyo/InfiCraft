@@ -1,6 +1,7 @@
 package net.minecraft.src.orizondim.biomes;
 import net.minecraft.src.orizondim.*;
 import net.minecraft.src.*;
+
 import java.util.*;
 
 public class OrizonGenTallGrass extends WorldGenerator
@@ -19,7 +20,7 @@ public class OrizonGenTallGrass extends WorldGenerator
     {
         int var11;
 
-        for (boolean var6 = false; ((var11 = par1World.getBlockId(par3, par4, par5)) == 0 || var11 == Block.leaves.blockID) && par4 > 0; --par4)
+        for (boolean var6 = false; ((var11 = par1World.getBlockId(par3, par4, par5)) == 0 || var11 == mod_Orizon.dimensionLeavesID) && par4 > 0; --par4)
         {
             ;
         }

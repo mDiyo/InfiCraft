@@ -1,14 +1,18 @@
 package net.minecraft.src.blocks;
 
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
+import net.minecraft.src.ChestItemRenderHelper;
 import net.minecraft.src.EntityRenderer;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.RenderBlocks;
 import net.minecraft.src.Tessellator;
 import net.minecraft.src.mod_InfiBlocks;
+import net.minecraft.src.blocks.magicslabs.MagicSlabBase;
+import net.minecraft.src.blocks.tech.ChestItem;
 import net.minecraft.src.forge.MinecraftForgeClient;
 
 public class InfiBlockRenders {
@@ -1305,7 +1309,11 @@ public class InfiBlockRenders {
     {
         block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         BlockRenderHelper.RenderDo(renderblocks, block, i);
+    }  
+    
+    public static void renderChestInv(RenderBlocks renderblocks, Block block, int metadata)
+    {
+    	ChestItem.renderChest(block, metadata, 0);
+        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
     }
-    
-    
 }

@@ -12,15 +12,17 @@ public class BiomeGenOrizon extends BiomeGenBase
     protected OrizonGenSwamp orizonGenSwamp;
 	
 	public BiomeDecoratorOrizon orizonDecorator = new BiomeDecoratorOrizon(this);
-	public short topBlockEX = 0;
-	public byte topMeta = 0;
-	public short fillBlockEX = 0;
-	public byte fillMeta = 0;
+	public short topBlockEX;
+	public byte topMeta;
+	public short fillBlockEX;
+	public byte fillMeta;
 	
 	public BiomeGenOrizon(int biomeID) {
 		super(biomeID);
 		this.topBlockEX = (short)(mod_Orizon.blueGrass.blockID);
+		this.topMeta = 0;
 		this.fillBlockEX = (short)(mod_Orizon.blueDirt.blockID);
+		this.fillMeta = 0;
 		
 		this.orizonGenTrees = new OrizonGenTrees(false);
         this.orizonGenBigTree = new OrizonGenBigTree(false);
@@ -68,6 +70,11 @@ public class BiomeGenOrizon extends BiomeGenBase
     {
         this.minHeight = min;
         this.maxHeight = max;
+    }
+	
+	public WorldGenerator func_48410_b(Random par1Random)
+    {
+        return new OrizonGenTallGrass(mod_Orizon.dimensionTallGrass.blockID, 1);
     }
 	
 	public void decorate(World par1World, Random par2Random, int par3, int par4)

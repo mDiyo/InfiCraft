@@ -2,7 +2,10 @@ package net.minecraft.src;
 
 import net.minecraft.src.forge.*;
 import net.minecraft.src.orizon.*;
-//import net.minecraft.src.orizondim.*;
+import net.minecraft.src.orizondim.*;
+import net.minecraft.src.orizondim.biomes.*;
+import net.minecraft.src.orizondim.blocks.*;
+
 import java.io.File;
 import java.util.*;
 
@@ -11,26 +14,93 @@ public class mod_Orizon extends NetworkMod
 
     public String getVersion()
     {
-        return "v1.0.8";
+        return "v1.0.14";
     }
+    
+    public static BiomeGenOrizon plains;
+    public static BiomeGenOrizon desert;
+    public static BiomeGenOrizon forest;
+    public static BiomeGenOrizon taiga;
+    public static BiomeGenOrizon swampland;
+    public static BiomeGenOrizon beach;
+    public static BiomeGenOrizon ocean;
+    public static BiomeGenOrizon river;
+    public static BiomeGenOrizon forestHills;
+    public static BiomeGenOrizon taigaHills;
+    public static BiomeGenOrizon jungle;
+    public static BiomeGenOrizon jungleHills;
+    public static BiomeGenOrizon desertHills;
+    public static BiomeGenOrizon frozenOcean;
+    public static BiomeGenOrizon icePlains;
+    public static BiomeGenOrizon frozenRiver;
 
     public mod_Orizon()
-    {
-    	OrizonRecipes.addRecipes();
-        OrizonRecipes.addNames();
-        //DimensionManager.registerDimension(7, new WorldProviderOrizon(), true);
+    {        
+        blueGrassModelID = ModLoader.getUniqueBlockModelID(this, true);
         
-        /*ModLoader.registerBlock(warpPlank);
-        ModLoader.addName(warpPlank, "Reality-warping Plank");
-        ModLoader.addRecipe(new ItemStack(warpPlank, 1), new Object[] {
-            "p ", " p", 'p', Block.planks //Planks in shears pattern
+        WorldProviderOrizon provider = new WorldProviderOrizon();
+        provider.registerWorldChunkManager();
+        DimensionManager.registerDimension(47, provider, true);
+        
+        //ModLoader.registerBlock(warpPlank);
+        //ModLoader.addName(warpPlank, "Reality-warping Plank");
+        /*ModLoader.addRecipe(new ItemStack(warpPlank, 1), new Object[] {
+            "p", 'p', Block.dirt //Planks in shears pattern
         });*/
         
         registerBlocks();
         registerOres();
         registerTools();
         addInfiBlockSupport();
-        oreDictionarySupport();
+        oreDictionarySupport();        
+    }
+    
+    public static void initBiomes()
+    {
+    	plains = new OrizonBiomePlains(128);
+        desert = new OrizonBiomeDesert(129);
+        forest = new OrizonBiomeForest(130);
+        taiga = new OrizonBiomeTaiga(131);
+        swampland = new OrizonBiomeSwamp(132);
+        beach = new OrizonBiomeBeach(133);
+        ocean = new OrizonBiomeOcean(134);
+        river = new OrizonBiomeRiver(135);
+        forestHills = new OrizonBiomeForest(136);
+        taigaHills = new OrizonBiomeTaiga(137);
+        jungle = new OrizonBiomeJungle(138);
+        jungleHills = new OrizonBiomeJungle(139);
+        desertHills = new OrizonBiomeDesert(140);
+        frozenOcean = new OrizonBiomeOcean(141);
+        frozenRiver = new OrizonBiomeRiver(142);
+        icePlains = new OrizonBiomeSnow(143);
+        
+    	((BiomeGenOrizon) plains.setColor(9286496).setBiomeName("Orizon Plains")).setRainAndTemp(0.8F, 0.4F);
+    	((BiomeGenOrizon) desert.setColor(16421912).setBiomeName("Orizon Desert")).setRainAndTemp(2.0F, 0.0F);
+    	desert.setHeight(0.1F, 0.2F);
+    	((BiomeGenOrizon) forest.setColor(353825).setBiomeName("Orizon Forest").func_4080_a(5159473)).setRainAndTemp(0.7F, 0.8F);
+    	((BiomeGenOrizon) taiga.setColor(747097).setBiomeName("Orizon Taiga").func_4080_a(5159473).setEnableSnow()).setRainAndTemp(0.05F, 0.8F);
+    	taiga.setHeight(0.1F, 0.4F);
+    	((BiomeGenOrizon) swampland.setColor(522674).setBiomeName("Orizon Swampland").func_4080_a(9154376)).setRainAndTemp(0.8F, 0.9F);
+    	swampland.setHeight(-0.2F, 0.1F);
+    	((BiomeGenOrizon) beach.setColor(16440917).setBiomeName("Beach")).setRainAndTemp(0.8F, 0.4F);
+    	beach.setHeight(0.0F, 0.1F);
+    	((BiomeGenOrizon) ocean.setColor(112).setBiomeName("Orizon Ocean")).setHeight(-1.0F, 0.4F);
+    	((BiomeGenOrizon) river.setColor(255).setBiomeName("Orizon River")).setHeight(-0.5F, 0.0F);
+    	((BiomeGenOrizon) forestHills.setColor(2250012).setBiomeName("Orizon Fores tHills").func_4080_a(5159473)).setRainAndTemp(0.7F, 0.8F);
+    	forestHills.setHeight(0.2F, 0.6F);
+    	((BiomeGenOrizon) taigaHills.setColor(1456435).setBiomeName("Orizon Taiga Hills").setEnableSnow().func_4080_a(5159473)).setRainAndTemp(0.05F, 0.8F);
+    	taigaHills.setHeight(0.2F, 0.7F);
+    	((BiomeGenOrizon) jungle.setColor(5470985).setBiomeName("Orizon Jungle").func_4080_a(5470985)).setRainAndTemp(1.2F, 0.9F);
+    	jungle.setHeight(0.2F, 0.4F);
+    	((BiomeGenOrizon) jungleHills.setColor(2900485).setBiomeName("Orizon Jungle Hills").func_4080_a(5470985)).setRainAndTemp(1.2F, 0.9F);
+    	jungleHills.setHeight(1.8F, 0.2F);
+    	((BiomeGenOrizon) desertHills.setColor(13786898).setBiomeName("Orizon Desert Hills")).setRainAndTemp(2.0F, 0.0F);
+    	desertHills.setHeight(0.2F, 0.7F);
+    	((BiomeGenOrizon) frozenOcean.setColor(9474208).setBiomeName("Orizon Frozen Ocean").setEnableSnow()).setHeight(-1.0F, 0.5F);
+    	frozenOcean.setRainAndTemp(0.0F, 0.5F);
+    	((BiomeGenOrizon) frozenRiver.setColor(10526975).setBiomeName("Orizon Frozen River").setEnableSnow()).setHeight(-0.5F, 0.0F);
+    	frozenRiver.setRainAndTemp(0.0F, 0.5F);
+    	((BiomeGenOrizon) icePlains.setColor(16777215).setBiomeName("Ice Plains").setEnableSnow()).setRainAndTemp(0.0F, 0.5F);
     }
     
     public void registerBlocks() {
@@ -69,6 +139,14 @@ public class mod_Orizon extends NetworkMod
         ModLoader.registerBlock(slimeStill);
         ModLoader.registerBlock(slimeFlowing);
         ModLoader.registerBlock(slimeGelBlock);
+        ModLoader.registerBlock(blueGrass);
+        ModLoader.registerBlock(blueDirt);
+        
+        ModLoader.addName(blueGrass, "Surreal Grass");
+        ModLoader.addName(blueDirt, "Alien Dirt");
+        
+        MinecraftForge.registerEntity(net.minecraft.src.orizondim.blocks.FallingDirtEntity.class,
+				this, 1, 20, 5, true);
     }
     
     public void registerOres() {
@@ -225,7 +303,7 @@ public class mod_Orizon extends NetworkMod
     }
     
     public void addInfiBlockSupport() {
-        try
+        /*try
         {
             Class class1 = Class.forName("DetailManager");
             for(int i = 0; i < 16; i++) {
@@ -238,7 +316,7 @@ public class mod_Orizon extends NetworkMod
         {
             System.out.println("InfiBlock detailing failed! Reason:");
             System.out.println(throwable);
-        }
+        }*/
         /*for(int i = 0; i < 16; i++) {
             DetailManager.getInstance().addDetailing(cStone, i, cBrick, i);
             DetailManager.getInstance().addDetailing(cBrick, i, cTile, i);
@@ -252,24 +330,40 @@ public class mod_Orizon extends NetworkMod
     @Override
     public void generateSurface(World world, Random random, int chunkX, int chunkZ)
     {
-    	if(flatBedrock)
-    		WorldGenStones.removeBedrock(world, random, chunkX, chunkZ);
-        if(genCalcite)
-            WorldGenStones.generateCalcite(world, random, chunkX, chunkZ);
-        if(genMarble)
-            WorldGenStones.generateMarble(world, random, chunkX, chunkZ);
-        if(genSilt)
-            WorldGenStones.generateSilt(world, random, chunkX, chunkZ);
-        if(genGems)
-            WorldGenStones.generateGems(world, random, chunkX, chunkZ);
-        if(genStratifiedStone)
-            WorldGenStones.generateStratifiedStone(world, random, chunkX, chunkZ);
-        if(genSlimePools)
-            WorldGenStones.generateSlimePool(world, random, chunkX, chunkZ);
-        if(genColoredStone)
-        	WorldGenStones.generateColoredStone(world, random, chunkX, chunkZ);
-        WorldGenStones.generateOres(world, random, chunkX, chunkZ);
-        WorldGenStones.replaceBedrock(world, random, chunkX, chunkZ);
+    	if(superfun)
+    	{
+    		for(int iterX = chunkX; iterX < chunkX + 16; iterX++)
+    		{
+    			for (int iterZ = chunkZ; iterZ < chunkZ + 16; iterZ++)
+    			{
+    				for(int iterY = 0; iterY < 121; iterY++)
+    				{
+    					world.setBlock(iterX, iterY, iterZ, Block.oreDiamond.blockID);
+    				}
+    			}
+    		}
+    	}
+    	else
+    	{
+	    	if(flatBedrock)
+	    		WorldGenStones.removeBedrock(world, random, chunkX, chunkZ);
+	        if(genCalcite)
+	            WorldGenStones.generateCalcite(world, random, chunkX, chunkZ);
+	        if(genMarble)
+	            WorldGenStones.generateMarble(world, random, chunkX, chunkZ);
+	        /*if(genSilt)
+	            WorldGenStones.generateSilt(world, random, chunkX, chunkZ);*/
+	        if(genGems)
+	            WorldGenStones.generateGems(world, random, chunkX, chunkZ);
+	        if(genStratifiedStone)
+	            WorldGenStones.generateStratifiedStone(world, random, chunkX, chunkZ);
+	        if(genSlimePools)
+	            WorldGenStones.generateSlimePool(world, random, chunkX, chunkZ);
+	        if(genColoredStone)
+	        	WorldGenStones.generateColoredStone(world, random, chunkX, chunkZ);
+	        WorldGenStones.generateOres(world, random, chunkX, chunkZ);
+	        WorldGenStones.replaceBedrock(world, random, chunkX, chunkZ);
+    	}
     }
     
     @Override
@@ -280,9 +374,11 @@ public class mod_Orizon extends NetworkMod
         if(genNetherOre)
             WorldGenStones.generateNetherOres(world, random, chunkX, chunkZ);
     }
+    
+    public static boolean superfun;
 
     public void load() {}
-    
+        
     public static Block mineralOre;
     public static Block mineralOreHigh;
     public static Block mineralOreLow1;
@@ -564,26 +660,35 @@ public class mod_Orizon extends NetworkMod
     public static int coloredStoneChance;
     public static int coloredStoneHeight;
     
+    //public static Block warpPlank;
+    
+    public static Block blueGrass;
+    public static Block blueDirt;
+    public static Block dimensionLeaves;
+    public static Block dimensionWood;
+    public static Block dimensionTallGrass;
+    public static Block dimensionFlowers;
+    
+    public static int blueGrassID;    
+    public static int blueDirtID;
+    
+    public static int blueGrassModelID;
+    
     static EnumToolMaterial materialCopper = EnumHelper.addToolMaterial("ORIZONCOPPER", 1, 180, 5.0F, 1, 7);
-    static EnumToolMaterial materialBronze = EnumHelper.addToolMaterial("ORIZONBRONZE", 1, 350, 5.5F, 1, 8);
-    static EnumToolMaterial materialRefinedIron = EnumHelper.addToolMaterial("ORIZONREFINEDIRON", 2, 350, 6.0F, 2, 14);
+    static EnumToolMaterial materialBronze = EnumHelper.addToolMaterial("ORIZONBRONZE", 2, 350, 5.5F, 1, 8);
+    static EnumToolMaterial materialRefinedIron = EnumHelper.addToolMaterial("ORIZONREFINEDIRON", 2, 400, 6.0F, 2, 14);
     static EnumToolMaterial materialSteel = EnumHelper.addToolMaterial("ORIZONSTEEL", 3, 550, 7.0F, 2, 14);
     static EnumToolMaterial materialCobalt = EnumHelper.addToolMaterial("ORIZONCOBALT", 4, 800, 8.0F, 3, 12);
     static EnumToolMaterial materialArdite = EnumHelper.addToolMaterial("ORIZONARDITE", 4, 800, 8.0F, 3, 12);
     static EnumToolMaterial materialManyullyn = EnumHelper.addToolMaterial("ORIZONMANYULLYN", 5, 1200, 10.0F, 3, 12);
 
-    public static File getMinecraftDir()
-    {
-        return new File(".");
-    }
-    
     static
     {
     	PropsHelperOrizon.initProps();
-        
-        /*if(resolveConflicts)
-            PropsHelperOrizon.resolveIDs(props);*/
-        
+    	
+    	blueGrass = (BlueGrass)(new BlueGrass(blueGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setBlockName("blueGrass");
+    	blueDirt = new BlueDirt(blueDirtID, 32).setHardness(0.5F).setStepSound(Block.soundGravelFootstep).setBlockName("blueDirt");
+    	
         cStone = new ColoredStone(cStoneID, 0).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone");
         cCobble = new CustomBlockStone(cCobbleID, 16).setHardness(Block.cobblestone.getHardness()).setBlockName("Colored Cobblestone");
         cBrick = new CustomBlockStone(cBrickID, 32).setHardness(Block.stone.getHardness()).setBlockName("Colored Stone Brick");
@@ -669,6 +774,10 @@ public class mod_Orizon extends NetworkMod
         manyullynShovel = new OrizonToolShovel(manyullynShovelID, materialManyullyn).setIconCoord(6, 4).setItemName("manyullynShovel");
         manyullynAxe = new OrizonToolAxe(manyullynAxeID, materialManyullyn).setIconCoord(6, 6).setItemName("manyullynAxe");
         manyullynHoe = new OrizonToolHoe(manyullynHoeID, materialManyullyn).setIconCoord(6, 7).setItemName("manyullynHoe");
+        
+        //warpPlank = new WarpPlank(1740).setBlockName("warpPlank");
+        
+        initBiomes();
     }
     
     @Override

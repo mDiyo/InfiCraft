@@ -875,9 +875,9 @@ public class WorldGenStones {
     
     static StoneGenColor coloredStone;
 
-	public static void generateSilt(World world, Random random, int chunkX,
+	/*public static void generateSilt(World world, Random random, int chunkX,
 			int chunkZ) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 }

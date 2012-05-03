@@ -3,7 +3,7 @@ import net.minecraft.src.*;
 public class OrizonRecipes {
 	
 	public static void addNames() {
-    	/*ModLoader.addLocalization("mineralCopper.name", "Copper Ore");
+    	ModLoader.addLocalization("mineralCopper.name", "Copper Ore");
     	ModLoader.addLocalization("mineralTurquoise.name", "Turquoise Ore");
     	ModLoader.addLocalization("mineralChalcocte.name", "Chalcocite Ore");
     	ModLoader.addLocalization("mineralCassiterite.name", "Cassiterite Ore");
@@ -51,6 +51,7 @@ public class OrizonRecipes {
     	ModLoader.addLocalization("refinedIronIngot.name", "Worked Iron Ingot");
     	ModLoader.addLocalization("steelIngot.name", "Carbon Steel Ingot");
     	ModLoader.addLocalization("leadIngot.name", "Lead Ingot");
+    	ModLoader.addLocalization("electrumIngot.name", "Electrum Ingot");
     	
     	ModLoader.addLocalization("calciteCalcite.name", "Calcite");
     	ModLoader.addLocalization("calciteGalena.name", "Galena Ore");
@@ -149,7 +150,7 @@ public class OrizonRecipes {
     	ModLoader.addName(mod_Orizon.manyullynPickaxe, "Manyullyn Pickaxe");
     	ModLoader.addName(mod_Orizon.manyullynShovel, "Manyullyn Shovel");
     	ModLoader.addName(mod_Orizon.manyullynAxe, "Manyullyn Axe");
-    	ModLoader.addName(mod_Orizon.manyullynHoe, "Manyullyn Hoe");*/
+    	ModLoader.addName(mod_Orizon.manyullynHoe, "Manyullyn Hoe");
     }
 	
 	public static void addRecipes()
@@ -164,12 +165,12 @@ public class OrizonRecipes {
 				{" B ", "###", '#', new ItemStack(mod_Orizon.cCobble, 1, -1), 'B', Item.blazeRod});
 		ModLoader.addRecipe(new ItemStack(Block.stairCompactCobblestone, 4), new Object[] 
 				{"#  ", "## ", "###", '#', new ItemStack(mod_Orizon.cCobble, 1, -1)});
-		ModLoader.addRecipe(new ItemStack(Block.button, 1), new Object[] 
-				{"#", "#", '#', new ItemStack(mod_Orizon.cStone, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 4), new Object[] 
 				{"#  ", "## ", "###", '#', new ItemStack(mod_Orizon.cBrick, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Block.lever, 1), new Object[] 
 				{"X", "#", '#', new ItemStack(mod_Orizon.cCobble, 1, -1), 'X', Item.stick});
+		ModLoader.addRecipe(new ItemStack(Block.button, 1), new Object[] 
+				{"#", "#", '#', new ItemStack(mod_Orizon.cStone, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Item.redstoneRepeater, 1), new Object[] 
 				{"#X#", "III", '#', Block.torchRedstoneActive, 'X', Item.redstone, 'I', new ItemStack(mod_Orizon.cStone, 1, -1)});
 		ModLoader.addRecipe(new ItemStack(Block.pressurePlateStone, 1), new Object[] 

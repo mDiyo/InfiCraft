@@ -41,7 +41,7 @@ public class OrizonColorizer
      */
     public static int getFoliageColorPine()
     {
-        return 6396257;
+        return 0xddddff;
     }
 
     /**
@@ -49,7 +49,7 @@ public class OrizonColorizer
      */
     public static int getFoliageColorBirch()
     {
-        return 8431445;
+        return 0xffffaa;
     }
 
     public static int getFoliageColorBasic()

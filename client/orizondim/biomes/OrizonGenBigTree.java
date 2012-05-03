@@ -224,7 +224,7 @@ public class OrizonGenBigTree extends WorldGenerator
         for (int var5 = par2 + this.leafDistanceLimit; var4 < var5; ++var4)
         {
             float var6 = this.orizonLeafSize(var4 - par2);
-            this.genOrizonTreeLayer(par1, var4, par3, var6, (byte)1, 18);
+            this.genOrizonTreeLayer(par1, var4, par3, var6, (byte)1, mod_Orizon.dimensionLeaves.blockID);
         }
     }
 
@@ -346,7 +346,7 @@ public class OrizonGenBigTree extends WorldGenerator
 
             if (this.orizonLeafNodeNeedsBase(var6))
             {
-                this.orizonPlaceBlockLine(var3, var5, 17);
+                this.orizonPlaceBlockLine(var3, var5, mod_Orizon.dimensionWood.blockID);
             }
         }
     }

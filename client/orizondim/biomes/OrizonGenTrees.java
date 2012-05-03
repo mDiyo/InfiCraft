@@ -1,6 +1,7 @@
 package net.minecraft.src.orizondim.biomes;
 import net.minecraft.src.orizondim.*;
 import net.minecraft.src.*;
+
 import java.util.*;
 
 public class OrizonGenTrees extends WorldGenerator
@@ -58,7 +59,7 @@ public class OrizonGenTrees extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != Block.leaves.blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != Block.wood.blockID)
+                            if (var12 != 0 && var12 != mod_Orizon.dimensionLeavesID && var12 != mod_Orizon.blueGrass.blockID && var12 != mod_Orizon.blueDirt.blockID && var12 != mod_Orizon.dimensionWood.blockID)
                             {
                                 var7 = false;
                             }
@@ -79,9 +80,9 @@ public class OrizonGenTrees extends WorldGenerator
             {
                 var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+                if ((var8 == mod_Orizon.blueGrass.blockID || var8 == mod_Orizon.blueDirt.blockID) && par4 < 256 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
+                    this.setBlock(par1World, par3, par4 - 1, par5, mod_Orizon.blueDirt.blockID);
                     var9 = 3;
                     byte var18 = 0;
                     int var13;
@@ -103,7 +104,7 @@ public class OrizonGenTrees extends WorldGenerator
 
                                 if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var14, var11, var16)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var14, var11, var16, Block.leaves.blockID, this.field_48199_d);
+                                    this.setBlockAndMetadata(par1World, var14, var11, var16, mod_Orizon.dimensionLeaves.blockID, this.field_48199_d);
                                 }
                             }
                         }
@@ -115,7 +116,7 @@ public class OrizonGenTrees extends WorldGenerator
 
                         if (var12 == 0 || var12 == Block.leaves.blockID)
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, Block.wood.blockID, this.field_48201_c);
+                            this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, mod_Orizon.dimensionWood.blockID, this.field_48201_c);
 
                             if (this.field_48200_b && var11 > 0)
                             {
@@ -153,7 +154,7 @@ public class OrizonGenTrees extends WorldGenerator
                             {
                                 for (var15 = par5 - var13; var15 <= par5 + var13; ++var15)
                                 {
-                                    if (par1World.getBlockId(var14, var11, var15) == Block.leaves.blockID)
+                                    if (par1World.getBlockId(var14, var11, var15) == mod_Orizon.dimensionLeaves.blockID)
                                     {
                                         if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var14 - 1, var11, var15) == 0)
                                         {

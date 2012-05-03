@@ -158,7 +158,6 @@ public class InfiToolSpear extends InfiWeaponCore
                 itemstack.hitEntity((EntityLiving)entity, entityplayer);
                 if(itemstack.stackSize <= 0)
                 {
-                    //itemstack.func_1097_a(entityplayer);
                     entityplayer.destroyCurrentEquippedItem();
                 }
             }
