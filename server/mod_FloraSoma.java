@@ -7,6 +7,8 @@ import java.io.File;
 import java.util.Map;
 import java.util.Random;
 
+import extrabiomes.api.BiomeManager;
+
 public class mod_FloraSoma extends NetworkMod
 {
 	public String getVersion()
@@ -260,6 +262,7 @@ public class mod_FloraSoma extends NetworkMod
 		
 		BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(xChunk + 16, zChunk + 16);
 		if (enableClouds && biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills 
+				&& biomegenbase != BiomeManager.mountaindesert && biomegenbase != BiomeManager.mountainridge 
 				&& random.nextInt(cloudSpawnDensity) == 0)
 		{
 			int xCo = random.nextInt(cloudSpawnRange) + cloudSpawnHeight;
@@ -288,7 +291,10 @@ public class mod_FloraSoma extends NetworkMod
 			zCh = zChunk + random.nextInt(16) + 8;
 			genRedwood.generate(world, random, xCh, yRw, zCh);
 		}
-		if (biomegenbase == BiomeGenBase.forest)
+		if (biomegenbase == BiomeGenBase.forest || biomegenbase == BiomeManager.autumnwoods ||
+				biomegenbase == BiomeManager.birchforest || biomegenbase == BiomeManager.pineforest ||
+				biomegenbase == BiomeManager.rainforest || biomegenbase == BiomeManager.rainforest ||
+				biomegenbase == BiomeManager.temperaterainforest || biomegenbase == BiomeManager.woodlands)
 		{
 			if(enableBerryBush && random.nextInt(raspSpawnDensity) == 0)
 			{
@@ -315,7 +321,7 @@ public class mod_FloraSoma extends NetworkMod
 				eucalyptusShort.generate(world, random, xCh, yDo, zCh);
 			}
 		}
-		if (biomegenbase == BiomeGenBase.plains)
+		if (biomegenbase == BiomeGenBase.plains || biomegenbase == BiomeManager.meadow)
 		{
 			if (enableBerryBush && random.nextInt(blueSpawnDensity) == 0)
 			{
@@ -343,7 +349,8 @@ public class mod_FloraSoma extends NetworkMod
 				eucalyptusShort.generate(world, random, xDo, yDo, zDo);
 			}
 		}
-		if (biomegenbase == BiomeGenBase.extremeHills)
+		if (biomegenbase == BiomeGenBase.extremeHills || biomegenbase == BiomeManager.forestedhills
+				|| biomegenbase == BiomeManager.greenhills)
 		{
 			if(enableBerryBush && random.nextInt(10) == 0) {
 				int yBry = random.nextInt(raspSpawnRange) + raspSpawnHeight - 64;
@@ -368,7 +375,9 @@ public class mod_FloraSoma extends NetworkMod
 				eucalyptusShort.generate(world, random, xDo, yDo, zDo);
 			}
 		}
-		if (enableBerryBush && biomegenbase == BiomeGenBase.taiga && random.nextInt(geoSpawnDensity) == 0)
+		if (enableBerryBush && (biomegenbase == BiomeGenBase.taiga || biomegenbase == BiomeManager.snowforest
+				|| biomegenbase == BiomeManager.snowyrainforest)
+				&& random.nextInt(geoSpawnDensity) == 0)
 		{
 			int yBry = random.nextInt(geoSpawnRange) + geoSpawnHeight - 64;
 			xCh = xChunk + random.nextInt(16) + 8;
