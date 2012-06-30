@@ -12,6 +12,8 @@ import net.minecraft.src.orizon.stone.StoneGenColor;
 
 import java.util.*;
 
+import extrabiomes.api.BiomeManager;
+
 public class WorldGenStones {
 
 	private static WorldGenStones instance = new WorldGenStones();
@@ -709,14 +711,17 @@ public class WorldGenStones {
 		}
 		BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(chunkX + 16, chunkZ + 16);
 		if(rand.nextInt(mod_Orizon.slimePoolRarity/4) == 0 && (biomegenbase == BiomeGenBase.swampland 
-				|| biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills)) {
+				|| biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills
+				|| biomegenbase == BiomeManager.greenswamp || biomegenbase == BiomeManager.extremejungle
+				|| biomegenbase == BiomeManager.minijungle)) {
 			int hi = rand.nextInt(mod_Orizon.slimePoolHeight * 3);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
 	        slimepool.generate(world, rand, randX, hi, randZ);
 		}
 		if(rand.nextInt(mod_Orizon.slimePoolRarity/4) == 0 && 
-				(biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills)) {
+				(biomegenbase == BiomeGenBase.jungle || biomegenbase == BiomeGenBase.jungleHills || biomegenbase == BiomeManager.extremejungle
+						|| biomegenbase == BiomeManager.minijungle)) {
 			int hi = rand.nextInt(mod_Orizon.slimePoolHeight * 2);
 	        int randX = chunkX + rand.nextInt(16);
 	        int randZ = chunkZ + rand.nextInt(16);
