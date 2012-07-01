@@ -9,6 +9,8 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 
+import extrabiomes.api.BiomeManager;
+
 public class mod_FloraSoma extends NetworkMod
 {
 	public String getVersion()
@@ -272,7 +274,14 @@ public class mod_FloraSoma extends NetworkMod
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(xChunk + 16, zChunk + 16);
 		if(enableCrops && random.nextInt(5) < 2 && (biome == BiomeGenBase.plains 
 				|| biome == BiomeGenBase.forest || biome == BiomeGenBase.forestHills || 
-				biome == BiomeGenBase.extremeHills || biome == BiomeGenBase.extremeHillsEdge))
+				biome == BiomeGenBase.extremeHills || biome == BiomeGenBase.extremeHillsEdge ||
+				biome == BiomeManager.autumnwoods || biome == BiomeManager.birchforest ||
+				biome == BiomeManager.forestedhills || biome == BiomeManager.forestedisland ||
+				biome == BiomeManager.greenhills || biome == BiomeManager.meadow ||
+				biome == BiomeManager.pineforest || biome == BiomeManager.rainforest ||
+				biome == BiomeManager.redwoodforest || biome == BiomeManager.redwoodlush ||
+				biome == BiomeManager.savanna || biome == BiomeManager.shrubland ||
+				biome == BiomeManager.temperaterainforest || biome == BiomeManager.woodlands))
 		{
 			genCrops.generate(world, random, xCh, yCh + barleySpawnHeight - 64, zCh);
 			genCrops.generate(world, random, xCh, yCh + barleySpawnHeight - 64, zCh);
@@ -280,6 +289,7 @@ public class mod_FloraSoma extends NetworkMod
 		
 		
 		if (enableClouds && biome != BiomeGenBase.desert && biome != BiomeGenBase.desertHills 
+				&& biome != BiomeManager.mountaindesert && biome != BiomeManager.mountainridge 
 				&& random.nextInt(cloudSpawnDensity) == 0)
 		{
 			int xCo = random.nextInt(cloudSpawnRange) + cloudSpawnHeight;
@@ -308,7 +318,10 @@ public class mod_FloraSoma extends NetworkMod
 			zCh = zChunk + random.nextInt(16) + 8;
 			genRedwood.generate(world, random, xCh, yRw, zCh);
 		}
-		if (biome == BiomeGenBase.forest)
+		if (biome == BiomeGenBase.forest || biome == BiomeManager.autumnwoods ||
+				biome == BiomeManager.birchforest || biome == BiomeManager.pineforest ||
+				biome == BiomeManager.rainforest || biome == BiomeManager.rainforest ||
+				biome == BiomeManager.temperaterainforest || biome == BiomeManager.woodlands)
 		{
 			if(enableBerryBush && random.nextInt(raspSpawnDensity) == 0)
 			{
@@ -335,7 +348,7 @@ public class mod_FloraSoma extends NetworkMod
 				eucalyptusShort.generate(world, random, xCh, yDo, zCh);
 			}
 		}
-		if (biome == BiomeGenBase.plains)
+		if (biome == BiomeGenBase.plains || biome == BiomeManager.meadow)
 		{
 			if (enableBerryBush && random.nextInt(blueSpawnDensity) == 0)
 			{
@@ -363,7 +376,8 @@ public class mod_FloraSoma extends NetworkMod
 				eucalyptusShort.generate(world, random, xDo, yDo, zDo);
 			}
 		}
-		if (biome == BiomeGenBase.extremeHills)
+		if (biome == BiomeGenBase.extremeHills || biome == BiomeManager.forestedhills
+				|| biome == BiomeManager.greenhills)
 		{
 			if(enableBerryBush && random.nextInt(10) == 0) {
 				int yBry = random.nextInt(raspSpawnRange) + raspSpawnHeight - 64;
@@ -388,14 +402,16 @@ public class mod_FloraSoma extends NetworkMod
 				eucalyptusShort.generate(world, random, xDo, yDo, zDo);
 			}
 		}
-		if (enableBerryBush && biome == BiomeGenBase.taiga && random.nextInt(geoSpawnDensity) == 0)
+		if (enableBerryBush && (biome == BiomeGenBase.taiga || biome == BiomeManager.snowforest
+				|| biome == BiomeManager.snowyrainforest)
+				&& random.nextInt(geoSpawnDensity) == 0)
 		{
 			int yBry = random.nextInt(geoSpawnRange) + geoSpawnHeight - 64;
 			xCh = xChunk + random.nextInt(16) + 8;
 			zCh = zChunk + random.nextInt(16) + 8;
 			geogen.generate(world, random, xCh, yCh, zCh);
 		}
-		if (enableBerryBush && biome == BiomeGenBase.swampland)
+		if (enableBerryBush && (biome == BiomeGenBase.swampland || biome == BiomeManager.greenswamp))
 		{
 			for (int iter = 0; iter < (int)(blackSpawnDensity / 5); iter++)
 			{
