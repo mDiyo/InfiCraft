@@ -19,8 +19,8 @@ public class FloraBerryClientProxy extends FloraBerryCommonProxy
 	@Override
 	public void registerRenderer()
 	{
-		FloraBerries.getInstance().berryModelID = RenderingRegistry.instance().getNextAvailableRenderId();
-		RenderingRegistry.instance().registerBlockHandler(new BerryRender());
+		FloraBerries.getInstance().berryModelID = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(new BerryRender());
 		TickRegistry.registerTickHandler(new FloraBerryTickHandler(), Side.CLIENT);
 		MinecraftForgeClient.preloadTexture("/floratex/plantblocks.png");
 	}

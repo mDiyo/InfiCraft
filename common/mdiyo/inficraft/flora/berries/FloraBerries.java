@@ -14,13 +14,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import extrabiomes.api.BiomeManager;
 
-import net.minecraft.src.BaseMod;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
 import net.minecraft.src.World;
 
 /**
@@ -33,7 +31,7 @@ import net.minecraft.src.World;
 public class FloraBerries
 {
 	/* Proxies for sides, used for graphics processing */
-	@SidedProxy(clientSide = "mdiyo.inficraft.flora.client.FloraBerryClientProxy", serverSide = "mdiyo.inficraft.flora.common.FloraBerryCommonProxy")
+	@SidedProxy(clientSide = "mdiyo.inficraft.flora.berries.client.FloraBerryClientProxy", serverSide = "mdiyo.inficraft.flora.berries.FloraBerryCommonProxy")
 	public static FloraBerryCommonProxy proxy;
 	
 	/* Instance of this mod, used for grabbing prototype fields */
@@ -43,17 +41,19 @@ public class FloraBerries
 	{
 		return instance;
 	}
-
-	/* Defines blocks and items */
-	@Init
-	public void load(FMLInitializationEvent evt) 
+	
+	@PreInit
+	public void preInit(FMLPreInitializationEvent evt)
 	{
 		PHBerries.initProps();		
-		
 		berryItem = new BerryItem(PHBerries.berryItemID, 2).setItemName("berry");
 		berryBush = new BerryBush(PHBerries.berryBlockID, 0);
-		
 		GameRegistry.registerBlock(berryBush, mdiyo.inficraft.flora.berries.BerryBushItem.class);
+	}
+
+	@Init
+	public void load(FMLInitializationEvent evt) 
+	{		
 		GameRegistry.registerWorldGenerator(new BerryWorldgen());
 		
 		proxy.registerRenderer();
