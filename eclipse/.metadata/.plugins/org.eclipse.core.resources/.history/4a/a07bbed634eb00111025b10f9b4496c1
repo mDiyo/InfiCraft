@@ -1,0 +1,195 @@
+package mdiyo.inficraft.flora.corruptor;
+
+import java.util.Random;
+
+import net.minecraft.src.Block;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.ModLoader;
+import net.minecraft.src.World;
+import net.minecraftforge.client.MinecraftForgeClient;
+
+public class FloraCorruptor
+{
+
+	/* Initial loading, used to define blocks, items, and entities */
+	public void load() 
+	{
+		init();
+	}
+	
+	public FloraCorruptor()
+	{
+		MinecraftForgeClient.preloadTexture("/floratex/stone.png");
+	}
+
+	private void init()
+	{
+		PHCorruptor.initProps();
+		
+		corruptor = new CorruptorBlock(PHCorruptor.corruptorID);
+		corruptBrick = new CorruptBrick(PHCorruptor.corruptBrickID);
+		
+		ModLoader.registerBlock(corruptor, net.minecraft.src.flora.corruptor.CorruptorItem.class);
+		ModLoader.registerBlock(corruptBrick, net.minecraft.src.flora.corruptor.CorruptBrickItem.class);
+		
+		corruptred = new CorruptorGen(PHCorruptor.corruptorID, 0, PHCorruptor.corruptorSpawnSize);
+		corruptblue = new CorruptorGen(PHCorruptor.corruptorID, 1, PHCorruptor.corruptorSpawnSize);
+		corruptgreen = new CorruptorGen(PHCorruptor.corruptorID, 2, PHCorruptor.corruptorSpawnSize);
+		corruptamber = new CorruptorGen(PHCorruptor.corruptorID, 3, PHCorruptor.corruptorSpawnSize);
+		corruptmagenta = new CorruptorGen(PHCorruptor.corruptorID, 4, PHCorruptor.corruptorSpawnSize);
+		corruptpurple = new CorruptorGen(PHCorruptor.corruptorID, 5, PHCorruptor.corruptorSpawnSize);
+		corruptyellow = new CorruptorGen(PHCorruptor.corruptorID, 6, PHCorruptor.corruptorSpawnSize);
+		corruptsilver = new CorruptorGen(PHCorruptor.corruptorID, 7, PHCorruptor.corruptorSpawnSize);
+		
+		addEESupport();
+		addNames();
+		addRecipes();
+	}
+	
+	private void addEESupport() {
+		try 
+		{
+			Class class1 = Class.forName("mod_EE");
+            Class class2 = Class.forName("EEProxy");
+			int corr = 64;
+            int corrBrick = 512;
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 0), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 1), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 2), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 3), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 4), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 5), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 6), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 7), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 8), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 9), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 10), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 11), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 12), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 13), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 14), corr);
+            EEProxy.setEMC(new ItemStack(corruptor, 1, 15), corr);
+            
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 0), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 1), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 2), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 3), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 4), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 5), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 6), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 7), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 8), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 9), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 10), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 11), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 12), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 13), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 14), corrBrick);
+            EEProxy.setEMC(new ItemStack(corruptBrick, 1, 15), corrBrick);
+		} 
+		catch (Throwable throwable)
+		{
+			System.out.println("Equivalent Exchange integration for mod_FloraCorruptor failed! Reason:");
+            System.out.println(throwable);
+		}
+		
+	}
+	
+	private void addNames()
+	{
+		ModLoader.addLocalization("bloodcorruptor.name", "Blood Corruptor");
+		ModLoader.addLocalization("azurecorruptor.name", "Azure Corruptor");
+		ModLoader.addLocalization("envycorruptor.name", "Envious Corruptor");
+		ModLoader.addLocalization("ambercorruptor.name", "Amber Corruptor");
+		ModLoader.addLocalization("heartcorruptor.name", "Heart Corruptor");
+		ModLoader.addLocalization("darkcorruptor.name", "Dark Corruptor");
+		ModLoader.addLocalization("brightcorruptor.name", "Bright Corruptor");
+		ModLoader.addLocalization("purecorruptor.name", "Pure Corruptor");
+		
+		ModLoader.addLocalization("bloodgrasscorruptor.name", "Blood Corruption Grass");
+		ModLoader.addLocalization("azuregrasscorruptor.name", "Azure Corruption Grass");
+		ModLoader.addLocalization("envygrasscorruptor.name", "Envious Corruption Grass");
+		ModLoader.addLocalization("ambergrasscorruptor.name", "Amber Corruption Grass");
+		ModLoader.addLocalization("heartgrasscorruptor.name", "Heart Corruption Grass");
+		ModLoader.addLocalization("darkgrasscorruptor.name", "Dark Corruption Grass");
+		ModLoader.addLocalization("brightgrasscorruptor.name", "Bright Corruption Grass");
+		ModLoader.addLocalization("puregrasscorruptor.name", "Pure Corruption Grass");
+		
+		ModLoader.addLocalization("bloodcorrupted.name", "Bloodstone");
+		ModLoader.addLocalization("azurecorrupted.name", "Azure Stone");
+		ModLoader.addLocalization("envycorrupted.name", "Envious Stone");
+		ModLoader.addLocalization("ambercorrupted.name", "Amber Stone");
+		ModLoader.addLocalization("heartcorrupted.name", "Heartstone");
+		ModLoader.addLocalization("darkcorrupted.name", "Darkstone");
+		ModLoader.addLocalization("brightcorrupted.name", "Brightstone");
+		ModLoader.addLocalization("purecorrupted.name", "Purified Stone");
+		
+		ModLoader.addLocalization("bloodbrickcorrupted.name", "Blood Brick");
+		ModLoader.addLocalization("azurebrickcorrupted.name", "Azure Brick");
+		ModLoader.addLocalization("envybrickcorrupted.name", "Envious Brick");
+		ModLoader.addLocalization("amberbrickcorrupted.name", "Amber Brick");
+		ModLoader.addLocalization("heartbrickcorrupted.name", "Heart Brick");
+		ModLoader.addLocalization("darkbrickcorrupted.name", "Dark Brick");
+		ModLoader.addLocalization("brightbrickcorrupted.name", "Bright Brick");
+		ModLoader.addLocalization("purebrickcorrupted.name", "Purified Brick");
+	}
+	
+	private void addRecipes()
+	{
+		for (int i = 0; i <= 7; i++)
+		{
+			ModLoader.addRecipe(new ItemStack(corruptor, 1, i), new Object[]
+			{
+				"c", 'c', new ItemStack(corruptBrick, 1, i)
+			});
+		}
+
+		for (int j = 0; j <= 7; j++)
+		{
+			ModLoader.addRecipe(new ItemStack(corruptBrick, 4, j + 8), new Object[]
+			{
+				"cc", "cc", 'c', new ItemStack(corruptBrick, 1, j)
+			});
+		}
+	}
+	
+	@Override
+	public void generateNether(World world, Random random, int i, int j)
+	{
+		int xCor, yCor, zCor;		
+		
+		xCor = i + random.nextInt(16) + 8;
+		yCor = random.nextInt(PHCorruptor.corruptorSpawnRange) + PHCorruptor.corruptorSpawnHeight;
+		zCor = j + random.nextInt(16) + 8;
+		int color = random.nextInt(8);
+		
+		for(int iter = 0; iter < PHCorruptor.corruptorSpawnDensity; iter++)
+		{
+			switch (color)
+			{
+				case 0:	corruptred.generate(world, random, xCor, yCor, zCor);		break;
+				case 1:	corruptblue.generate(world, random, xCor, yCor, zCor);		break;
+				case 2:	corruptgreen.generate(world, random, xCor, yCor, zCor);		break;
+				case 3:	corruptamber.generate(world, random, xCor, yCor, zCor);		break;
+				case 4:	corruptmagenta.generate(world, random, xCor, yCor, zCor);	break;
+				case 5:	corruptpurple.generate(world, random, xCor, yCor, zCor);	break;
+				case 6:	corruptyellow.generate(world, random, xCor, yCor, zCor);	break;
+				case 7:	corruptsilver.generate(world, random, xCor, yCor, zCor);	break;
+			}
+		}
+	}
+
+	/* Prototype fields, used elsewhere */
+	
+	public static Block corruptor;
+	public static Block corruptBrick;
+	
+	CorruptorGen corruptred;
+	CorruptorGen corruptblue;
+	CorruptorGen corruptgreen;
+	CorruptorGen corruptamber;
+	CorruptorGen corruptmagenta;
+	CorruptorGen corruptpurple;
+	CorruptorGen corruptyellow;
+	CorruptorGen corruptsilver;
+}

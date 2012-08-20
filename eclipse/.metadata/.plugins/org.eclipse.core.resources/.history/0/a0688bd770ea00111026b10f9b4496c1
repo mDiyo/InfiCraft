@@ -1,0 +1,8 @@
+package mdiyo.inficraft.flora.corruptor.client;
+
+import mdiyo.inficraft.flora.corruptor.FloraCorruptorCommonProxy;
+
+public class FloraCorruptorClientProxy extends FloraCorruptorCommonProxy
+{
+
+}
