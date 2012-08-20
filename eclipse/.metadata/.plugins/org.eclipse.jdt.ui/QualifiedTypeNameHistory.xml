@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="net.minecraft.src.Block"/>
-<fullyQualifiedTypeName name="net.minecraftforge.common.Configuration"/>
-<fullyQualifiedTypeName name="mdiyo.inficraft.flora.corruptor.FloraCorruptorCommonProxy"/>
-<fullyQualifiedTypeName name="net.minecraftforge.common.ForgeDirection"/>
-<fullyQualifiedTypeName name="cpw.mods.fml.common.IWorldGenerator"/>
-<fullyQualifiedTypeName name="net.minecraft.src.WorldProviderHell"/>
-</qualifiedTypeNameHistroy>
