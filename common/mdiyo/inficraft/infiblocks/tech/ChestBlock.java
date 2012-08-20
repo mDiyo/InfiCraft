@@ -1,7 +1,5 @@
 package mdiyo.inficraft.infiblocks.tech;
 
-import static net.minecraftforge.common.Orientation.DOWN;
-
 import java.util.Iterator;
 import java.util.Random;
 
@@ -22,6 +20,7 @@ import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.TileEntityChest;
 import net.minecraft.src.World;
+import net.minecraftforge.common.ForgeDirection;
 
 import mdiyo.inficraft.infiblocks.InfiBlocks;
 import mdiyo.shared.machines.BlockLogicBase;
@@ -35,6 +34,10 @@ public class ChestBlock extends BlockMachineBase
     {
         super(var1, Material.wood);
         this.blockIndexInTexture = 1;
+        this.setHardness(2.5F);
+        this.setStepSound(Block.soundWoodFootstep);
+        this.setBlockName("infiChest");
+        this.setRequiresSelfNotify();
     }
 
     /**
@@ -475,7 +478,7 @@ public class ChestBlock extends BlockMachineBase
         {
             return true;
         }
-        else if (par1World.isBlockSolidOnSide(par2, par3 + 1, par4, DOWN))
+        else if (par1World.isBlockSolidOnSide(par2, par3 + 1, par4, ForgeDirection.DOWN))
         {
             return true;
         }
@@ -483,19 +486,19 @@ public class ChestBlock extends BlockMachineBase
         {
             return true;
         }
-        else if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 - 1, par3 + 1, par4, DOWN) || isOcelotBlockingChest(par1World, par2 - 1, par3, par4)))
+        else if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 - 1, par3 + 1, par4, ForgeDirection.DOWN) || isOcelotBlockingChest(par1World, par2 - 1, par3, par4)))
         {
             return true;
         }
-        else if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 + 1, par3 + 1, par4, DOWN) || isOcelotBlockingChest(par1World, par2 + 1, par3, par4)))
+        else if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 + 1, par3 + 1, par4, ForgeDirection.DOWN) || isOcelotBlockingChest(par1World, par2 + 1, par3, par4)))
         {
             return true;
         }
-        else if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 - 1, DOWN) || isOcelotBlockingChest(par1World, par2, par3, par4 - 1)))
+        else if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 - 1, ForgeDirection.DOWN) || isOcelotBlockingChest(par1World, par2, par3, par4 - 1)))
         {
             return true;
         }
-        else if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 + 1, DOWN) || isOcelotBlockingChest(par1World, par2, par3, par4 + 1)))
+        else if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 + 1, ForgeDirection.DOWN) || isOcelotBlockingChest(par1World, par2, par3, par4 + 1)))
         {
             return true;
         }

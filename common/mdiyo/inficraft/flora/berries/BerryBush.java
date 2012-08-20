@@ -8,7 +8,7 @@ import java.util.Random;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.*;
-import net.minecraftforge.common.Orientation;
+import net.minecraftforge.common.ForgeDirection;
 
 public class BerryBush extends BlockLeavesBase
 {
@@ -233,19 +233,19 @@ public class BerryBush extends BlockLeavesBase
     /* Resistance to fire */
 
     @Override
-    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, Orientation face)
+    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
     {
         return 25;
     }
 
     @Override
-    public boolean isFlammable(IBlockAccess world, int x, int y, int z, int metadata, Orientation face)
+    public boolean isFlammable(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
     {
         return true;
     }
 
     @Override
-    public int getFireSpreadSpeed(World world, int x, int y, int z, int metadata, Orientation face)
+    public int getFireSpreadSpeed(World world, int x, int y, int z, int metadata, ForgeDirection face)
     {
         return 4;
     }

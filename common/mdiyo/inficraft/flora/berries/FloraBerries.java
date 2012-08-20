@@ -1,25 +1,15 @@
 package mdiyo.inficraft.flora.berries;
 
-import java.util.Random;
-
+import net.minecraft.src.Block;
+import net.minecraft.src.Item;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
-
-import extrabiomes.api.BiomeManager;
-
-import net.minecraft.src.BiomeGenBase;
-import net.minecraft.src.Block;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
 
 /**
  * Flora & Soma: Berries
@@ -52,7 +42,7 @@ public class FloraBerries
 	}
 
 	@Init
-	public void load(FMLInitializationEvent evt) 
+	public void init(FMLInitializationEvent evt) 
 	{		
 		GameRegistry.registerWorldGenerator(new BerryWorldgen());
 		

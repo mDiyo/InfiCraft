@@ -1,6 +1,6 @@
 package mdiyo.inficraft.infiblocks.tech;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import mdiyo.shared.machines.BlockLogicMachine;
 import net.minecraft.src.Block;
 import net.minecraft.src.Container;
 import net.minecraft.src.FurnaceRecipes;
@@ -13,9 +13,9 @@ import net.minecraft.src.ItemSword;
 import net.minecraft.src.ItemTool;
 import net.minecraft.src.Material;
 import net.minecraft.src.NBTTagCompound;
+import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ISidedInventory;
-import net.minecraftforge.common.Orientation;
-import mdiyo.shared.machines.BlockLogicMachine;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class FurnaceLogic extends BlockLogicMachine
     implements ISidedInventory
@@ -253,15 +253,17 @@ public class FurnaceLogic extends BlockLogicMachine
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	//TODO: Switch old inventory sides to this
 
 	@Override
-	public int getStartInventorySide(Orientation side) {
+	public int getStartInventorySide(ForgeDirection side) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int getSizeInventorySide(Orientation side) {
+	public int getSizeInventorySide(ForgeDirection side) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
