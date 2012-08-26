@@ -20,7 +20,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = "FloraBerries", name = "Flora and Soma Berries", version = "Anachrosim")
 public class FloraBerries
 {
-	/* Proxies for sides, used for graphics processing */
+	/* Proxies for sides, used for client-only processing*/
 	@SidedProxy(clientSide = "mdiyo.inficraft.flora.berries.client.FloraBerryClientProxy", serverSide = "mdiyo.inficraft.flora.berries.FloraBerryCommonProxy")
 	public static FloraBerryCommonProxy proxy;
 	

@@ -1,5 +1,8 @@
 package mdiyo.inficraft.flora.corruptor.client;
 
+import java.io.File;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.client.MinecraftForgeClient;
 import mdiyo.inficraft.flora.corruptor.FloraCorruptorCommonProxy;
@@ -51,5 +54,10 @@ public class FloraCorruptorClientProxy extends FloraCorruptorCommonProxy
 		ModLoader.addLocalization("darkbrickcorrupted.name", "Dark Brick");
 		ModLoader.addLocalization("brightbrickcorrupted.name", "Bright Brick");
 		ModLoader.addLocalization("purebrickcorrupted.name", "Purified Brick");
+	}
+	
+	public File getMinecraftDir()
+	{
+		return Minecraft.getMinecraftDir();
 	}
 }

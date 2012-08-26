@@ -4,9 +4,12 @@ import java.util.Random;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
@@ -47,9 +50,11 @@ public class FloraCorruptor
 		ModLoader.registerBlock(corruptBrick, mdiyo.inficraft.flora.corruptor.CorruptBrickItem.class);
 	}
 
-	/* Initial loading, used to define blocks, items, and entities */
-	public void load() 
+	@Init
+	public void init(FMLInitializationEvent evt)
 	{
+		GameRegistry.registerWorldGenerator(new CorruptorWorldgen());
+		
 		proxy.addEESupport();
 		proxy.addNames();
 		proxy.addRecipes();

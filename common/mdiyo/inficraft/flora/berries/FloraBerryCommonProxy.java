@@ -17,23 +17,9 @@ public class FloraBerryCommonProxy
 	/* Equivalent Exchange support, direct plug-in 
 	 * Temporarily disabled
 	 */
-	public void addEESupport()
-	{
-		/*try 
-		{
-			Class class1 = Class.forName("mod_EE");
-            Class class2 = Class.forName("EEProxy");
-			EEProxy.setEMC(new ItemStack(berryBush, 1, 8), 16);
-	        EEProxy.setEMC(new ItemStack(berryBush, 1, 9), 16);
-	        EEProxy.setEMC(new ItemStack(berryBush, 1, 10), 16);
-	        EEProxy.setEMC(new ItemStack(berryBush, 1, 11), 16);
-		}
-		catch (Throwable throwable)
-		{
-			System.out.println("Equivalent Exchange integration for mod_FloraClouds failed! Reason:");
-            System.out.println(throwable);
-		}    */    
-	}
+	public void addEESupport() {}
+	
+	/* Server-side config location */
 	
 	public File getMinecraftDir()
 	{
