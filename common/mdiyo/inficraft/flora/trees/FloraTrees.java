@@ -2,6 +2,17 @@ package mdiyo.inficraft.flora.trees;
 import java.util.Map;
 import java.util.Random;
 
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+import mdiyo.inficraft.flora.crops.FloraCrops;
+import mdiyo.inficraft.flora.crops.FloraCropsCommonProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
@@ -15,49 +26,25 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import extrabiomes.api.BiomeManager;
 
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "Anachrosim")
 public class FloraTrees
 {
-	@Override
-	public String getVersion() 
+	/* Proxies for sides, used for graphics processing */
+	@SidedProxy(clientSide = "mdiyo.inficraft.flora.trees.client.FloraCropsClientProxy", serverSide = "mdiyo.inficraft.flora.trees.FloraCropsCommonProxy")
+	public static FloraTreesCommonProxy proxy;
+	
+	/* Instance of this mod, used for grabbing prototype fields */
+	@Instance
+	public static FloraTrees instance;
+	public static FloraTrees getInstance()
 	{
-		return "Anarchy";
+		return instance;
 	}
 
 	/* Initial loading, used to define blocks, items, and entities */
-	@Override
-	public void load() 
-	{
-		init();		
-		addWoodRecipes();
-		addNames();
-		
-		/*ModLoader.registerEntityID(net.minecraft.src.flora.trees.RedwoodBoat.class, "redwoodBoat", redwoodBoatID);
-		ModLoader.registerEntityID(net.minecraft.src.flora.trees.BloodBoat.class, "bloodBoat", bloodBoatID);
-		ModLoader.registerEntityID(net.minecraft.src.flora.trees.WhiteWoodBoat.class, "whiteBoat", whiteBoatID);
-		ModLoader.registerEntityID(net.minecraft.src.flora.trees.EucalyptusBoat.class, "eucalyptusBoat", eucalyptusBoatID);*/
-		
-		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.RedwoodBoat.class,
-				this, 1, 20, 5, true);
-		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.BloodBoat.class,
-				this, 2, 20, 5, true);
-		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.WhiteWoodBoat.class,
-				this, 3, 20, 5, true);
-		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.EucalyptusBoat.class,
-				this, 4, 20, 5, true);
-		
-		addEEsupport();
-	}
 	
-	/* These need to be called first and should remain constant */
-	public FloraTrees()
-	{
-		mc = ModLoader.getMinecraftInstance();
-		ModLoader.setInGameHook(this, true, false);
-		MinecraftForgeClient.preloadTexture("/floratex/plantblocks.png");
-	}
-	
-	/* Used for defining blocks and items */
-	public void init()
+	@PreInit
+	public void preInit(FMLPreInitializationEvent evt)
 	{
 		PHTrees.initProps();
 		
@@ -71,12 +58,39 @@ public class FloraTrees
 				
 		floraBoat = new FloraBoat(PHTrees.boatItemID).setIconCoord(0, 3).setItemName("floraBoat");
 		
-		ModLoader.registerBlock(redwood, net.minecraft.src.flora.trees.RedwoodItem.class);
-		ModLoader.registerBlock(floraLeaves);
-		ModLoader.registerBlock(cherryLeaves);		
-		ModLoader.registerBlock(floraSapling, net.minecraft.src.flora.trees.FloraSaplingItem.class);
+		GameRegistry.registerBlock(redwood, mdiyo.inficraft.flora.trees.RedwoodItem.class);
+		GameRegistry.registerBlock(floraLeaves);
+		GameRegistry.registerBlock(cherryLeaves);		
+		GameRegistry.registerBlock(floraSapling, mdiyo.inficraft.flora.trees.FloraSaplingItem.class);
 		
-		ModLoader.registerBlock(redwoodDoor);
+		GameRegistry.registerBlock(redwoodDoor);
+	}
+	
+	@Init
+	public void init(FMLInitializationEvent evt)
+	{
+		addWoodRecipes();
+		addNames();
+		
+		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.RedwoodBoat.class,
+				this, 1, 20, 5, true);
+		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.BloodBoat.class,
+				this, 2, 20, 5, true);
+		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.WhiteWoodBoat.class,
+				this, 3, 20, 5, true);
+		MinecraftForge.registerEntity(net.minecraft.src.flora.trees.EucalyptusBoat.class,
+				this, 4, 20, 5, true);
+		
+		addEEsupport();
+		mc = ModLoader.getMinecraftInstance();
+		ModLoader.setInGameHook(this, true, false);
+		MinecraftForgeClient.preloadTexture("/floratex/plantblocks.png");
+	}
+	
+	/* Used for defining blocks and items */
+	public void init()
+	{
+		
 		
 		genRedwood = new RedwoodTreeGen(false);
 		genBlood = new BloodTreeGen(3, 1);
