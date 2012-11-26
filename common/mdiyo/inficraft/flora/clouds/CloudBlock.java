@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.clouds;
+package mDiyo.inficraft.flora.clouds;
 
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
@@ -54,7 +54,7 @@ public class CloudBlock extends Block
     }
 
     @Override
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         return i;
     }
@@ -68,7 +68,7 @@ public class CloudBlock extends Block
     @Override
     public String getTextureFile()
     {
-        return "/floratex/plantblocks.png";
+        return FloraClouds.texture;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.berries;
+package mDiyo.inficraft.flora.berries;
 import net.minecraft.src.*;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class BerryBush extends BlockLeavesBase
 
     /* Bushes are stored by size then type */
     @Override
-    protected int damageDropped(int metadata)
+    public int damageDropped(int metadata)
     {
         return metadata % 4;
     }
@@ -176,7 +176,7 @@ public class BerryBush extends BlockLeavesBase
 
     public int getRenderType()
     {
-        return FloraBerries.getInstance().berryModelID;
+        return FloraBerries.instance.berryModelID;
     }
     
     public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int i, int j, int k, int l)
@@ -196,7 +196,7 @@ public class BerryBush extends BlockLeavesBase
     @Override
     public String getTextureFile()
     {
-        return "/mdiyo/inficraft/flora/textures/bushes.png";
+        return FloraBerries.bushTexture;
     }
     
     /* Bush growth */

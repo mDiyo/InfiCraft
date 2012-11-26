@@ -1,4 +1,4 @@
-package mdiyo.shared.detailing;
+package mDiyo.shared.detailing;
 
 import cpw.mods.fml.common.ICraftingHandler;
 import net.minecraft.src.EntityPlayer;

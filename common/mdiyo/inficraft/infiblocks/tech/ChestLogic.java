@@ -1,7 +1,7 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.shared.machines.BlockLogicMachine;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.shared.machines.BlockLogicMachine;
 import net.minecraft.src.Container;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.IInventory;

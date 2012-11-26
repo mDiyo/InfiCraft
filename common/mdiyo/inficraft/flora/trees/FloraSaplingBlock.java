@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.trees;
+package mDiyo.inficraft.flora.trees;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -170,14 +170,14 @@ public class FloraSaplingBlock extends BlockFlower
         //return false;
     }
 
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         return i % 8;
     }
 
     public String getTextureFile()
     {
-        return "/floratex/plantblocks.png";
+        return FloraTrees.texture;
     }
     
     public void addCreativeItems(ArrayList arraylist)

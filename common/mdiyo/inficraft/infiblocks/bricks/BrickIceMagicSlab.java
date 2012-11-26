@@ -1,11 +1,11 @@
-package mdiyo.inficraft.infiblocks.bricks;
+package mDiyo.inficraft.infiblocks.bricks;
 
 import java.util.ArrayList;
 
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
 
 public class BrickIceMagicSlab extends MagicSlabBase
 {

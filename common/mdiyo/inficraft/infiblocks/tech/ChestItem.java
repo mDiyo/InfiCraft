@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
 import net.minecraft.src.*;
 

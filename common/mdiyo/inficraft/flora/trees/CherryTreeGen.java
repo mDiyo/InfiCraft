@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.trees;
+package mDiyo.inficraft.flora.trees;
 import java.util.Random;
 
 import net.minecraft.src.Block;

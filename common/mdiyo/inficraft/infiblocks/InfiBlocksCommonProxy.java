@@ -1,9 +1,9 @@
-package mdiyo.inficraft.infiblocks;
+package mDiyo.inficraft.infiblocks;
 
 import java.io.File;
 
-import mdiyo.inficraft.infiblocks.tech.FurnaceLogic;
-import mdiyo.inficraft.infiblocks.tech.WorkbenchContainer;
+import mDiyo.inficraft.infiblocks.tech.FurnaceLogic;
+import mDiyo.inficraft.infiblocks.tech.WorkbenchContainer;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;

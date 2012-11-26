@@ -1,6 +1,6 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
-import mdiyo.shared.machines.BlockLogicMachine;
+import mDiyo.shared.machines.BlockLogicMachine;
 import net.minecraft.src.Block;
 import net.minecraft.src.Container;
 import net.minecraft.src.FurnaceRecipes;
@@ -203,7 +203,7 @@ public class FurnaceLogic extends BlockLogicMachine
                     return 300;
                 }
             }
-            if (var2 instanceof ItemTool && ((ItemTool) var2).func_77861_e().equals("WOOD")) return 200;
+            if (var2 instanceof ItemTool && ((ItemTool) var2).getToolMaterialName().equals("WOOD")) return 200;
             if (var2 instanceof ItemSword && ((ItemSword) var2).func_77825_f().equals("WOOD")) return 200;
             if (var2 instanceof ItemHoe && ((ItemHoe) var2).func_77842_f().equals("WOOD")) return 200;
             if (var1 == Item.stick.shiftedIndex) return 100;

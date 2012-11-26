@@ -1,4 +1,4 @@
-package mdiyo.shared.detailing;
+package mDiyo.shared.detailing;
 
 /** This class is to be used from the right-click function of a mallet */
 public class CrackInput {

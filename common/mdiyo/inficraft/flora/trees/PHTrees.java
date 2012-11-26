@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.trees;
+package mDiyo.inficraft.flora.trees;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,38 +43,38 @@ public class PHTrees
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
         
-        redwoodID = config.getOrCreateBlockIdProperty("Wood Block", 3251).getInt(3251);
-        floraLeavesID = config.getOrCreateBlockIdProperty("Flora Leaves", 3259).getInt(3259); 
-        cherryLeavesID = config.getOrCreateBlockIdProperty("Sakura Leaves", 3258).getInt(3258);       
+        redwoodID = config.getBlock("Wood Block", 3251).getInt(3251);
+        floraLeavesID = config.getBlock("Flora Leaves", 3259).getInt(3259); 
+        cherryLeavesID = config.getBlock("Sakura Leaves", 3258).getInt(3258);       
         
-        floraSaplingID = config.getOrCreateBlockIdProperty("Sapling", 3256).getInt(3256);
+        floraSaplingID = config.getBlock("Sapling", 3256).getInt(3256);
         
-        redwoodDoorID = config.getOrCreateBlockIdProperty("Redwood Door", 3252).getInt(3252);
-        redwoodDoorItemID = config.getOrCreateIntProperty("Redwood Door", "item", 12406).getInt(12406);
+        redwoodDoorID = config.getBlock("Redwood Door", 3252).getInt(3252);
+        redwoodDoorItemID = config.getItem("Redwood Door", 12406).getInt(12406);
         
-        boatItemID = config.getOrCreateIntProperty("Boat Item", "item", 12405).getInt(12405);
+        boatItemID = config.getItem("Boat Item", "item", 12405).getInt(12405);
         
-        generateRedwood = config.getOrCreateBooleanProperty("Generate Redwood Trees", "general", true).getBoolean(true);
-        generateSakura = config.getOrCreateBooleanProperty("Generate Sakura Trees", "general", true).getBoolean(true);
-        generateSmallEucalyptus = config.getOrCreateBooleanProperty("Generate Small Eucalyptus Trees", "general", true).getBoolean(true);
-        generateBloodwood = config.getOrCreateBooleanProperty("Generate Bloodwood Trees", "general", true).getBoolean(true);
-        generateGhost = config.getOrCreateBooleanProperty("Generate Ghost Trees", "general", true).getBoolean(true);
+        generateRedwood = config.get("general", "Generate Redwood Trees", true).getBoolean(true);
+        generateSakura = config.get("general", "Generate Sakura Trees", true).getBoolean(true);
+        generateSmallEucalyptus = config.get("general", "Generate Small Eucalyptus Trees", true).getBoolean(true);
+        generateBloodwood = config.get("general", "Generate Bloodwood Trees", true).getBoolean(true);
+        generateGhost = config.get("general", "Generate Ghost Trees", true).getBoolean(true);
         
-        redwoodSpawnDensity = config.getOrCreateIntProperty("Redwood Tree Spawn Density", "general", 6).getInt(6);
-        redwoodSpawnHeight = config.getOrCreateIntProperty("Redwood Tree Spawn Height", "general", 64).getInt(64);
-        redwoodSpawnRange = config.getOrCreateIntProperty("Redwood Tree Spawn Range", "general", 32).getInt(32);
-        bloodSpawnDensity = config.getOrCreateIntProperty("Bloodwood Tree Spawn Density", "general", 5).getInt(5);
-        bloodSpawnHeight = config.getOrCreateIntProperty("Bloodwood Tree Spawn Height", "general", 32).getInt(32);
-        bloodSpawnRange = config.getOrCreateIntProperty("Bloodwood Tree Spawn Range", "general", 64).getInt(64);
-        eucalyptusShortSpawnDensity = config.getOrCreateIntProperty("Small Eucalyptus Tree Spawn Density", "general", 25).getInt(25);
-        eucalyptusShortSpawnHeight = config.getOrCreateIntProperty("Small Eucalyptus Tree Spawn Height", "general", 64).getInt(64);
-        eucalyptusShortSpawnRange = config.getOrCreateIntProperty("Small Eucalyptus Tree Spawn Range", "general", 32).getInt(32);
-        sakuraSpawnDensity = config.getOrCreateIntProperty("Sakura Tree Spawn Density", "general", 10).getInt(10);
-        sakuraSpawnHeight = config.getOrCreateIntProperty("Sakura Tree Spawn Height", "general", 64).getInt(64);
-        sakuraSpawnRange = config.getOrCreateIntProperty("Sakura Tree Spawn Range", "general", 32).getInt(32);
-        whiteSpawnDensity = config.getOrCreateIntProperty("Ghost Tree Spawn Density", "general", 25).getInt(25);
-        whiteSpawnHeight = config.getOrCreateIntProperty("Ghost Tree Spawn Height", "general", 16).getInt(16);
-        whiteSpawnRange  = config.getOrCreateIntProperty("Ghost Tree Spawn Range", "general", 80).getInt(80);
+        redwoodSpawnDensity = config.get("general", "Redwood Tree Spawn Density", 6).getInt(6);
+        redwoodSpawnHeight = config.get("general", "Redwood Tree Spawn Height", 64).getInt(64);
+        redwoodSpawnRange = config.get("general", "Redwood Tree Spawn Range", 32).getInt(32);
+        bloodSpawnDensity = config.get("general", "Bloodwood Tree Spawn Density", 5).getInt(5);
+        bloodSpawnHeight = config.get("general", "Bloodwood Tree Spawn Height", 32).getInt(32);
+        bloodSpawnRange = config.get("general", "Bloodwood Tree Spawn Range", 64).getInt(64);
+        eucalyptusShortSpawnDensity = config.get("general", "Small Eucalyptus Tree Spawn Density", 25).getInt(25);
+        eucalyptusShortSpawnHeight = config.get("general", "Small Eucalyptus Tree Spawn Height", 64).getInt(64);
+        eucalyptusShortSpawnRange = config.get("general", "Small Eucalyptus Tree Spawn Range", 32).getInt(32);
+        sakuraSpawnDensity = config.get("general", "Sakura Tree Spawn Density", 10).getInt(10);
+        sakuraSpawnHeight = config.get("general", "Sakura Tree Spawn Height", 64).getInt(64);
+        sakuraSpawnRange = config.get("general", "Sakura Tree Spawn Range", 32).getInt(32);
+        whiteSpawnDensity = config.get("general", "Ghost Tree Spawn Density", 25).getInt(25);
+        whiteSpawnHeight = config.get("general", "Ghost Tree Spawn Height", 16).getInt(16);
+        whiteSpawnRange  = config.get("general", "Ghost Tree Spawn Range", 80).getInt(80);
         
         /* Save the configuration file */
         config.save();

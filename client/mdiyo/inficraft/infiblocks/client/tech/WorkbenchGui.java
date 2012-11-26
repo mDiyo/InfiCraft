@@ -1,6 +1,6 @@
-package mdiyo.inficraft.infiblocks.client.tech;
+package mDiyo.inficraft.infiblocks.client.tech;
 
-import mdiyo.inficraft.infiblocks.tech.WorkbenchContainer;
+import mDiyo.inficraft.infiblocks.tech.WorkbenchContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.*;
 import org.lwjgl.opengl.GL11;

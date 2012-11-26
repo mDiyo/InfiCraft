@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.crops;
+package mDiyo.inficraft.flora.crops;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -139,6 +139,6 @@ public class FloraCropBlock extends BlockFlower
 
     public String getTextureFile()
     {
-        return "/floratex/plantblocks.png";
+        return FloraCrops.cropTexture;
     }
 }

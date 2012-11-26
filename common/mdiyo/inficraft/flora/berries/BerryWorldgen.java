@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.berries;
+package mDiyo.inficraft.flora.berries;
 
 import java.util.Random;
 

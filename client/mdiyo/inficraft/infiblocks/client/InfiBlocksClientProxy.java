@@ -1,11 +1,11 @@
-package mdiyo.inficraft.infiblocks.client;
+package mDiyo.inficraft.infiblocks.client;
 
-import mdiyo.inficraft.infiblocks.InfiBlockContent;
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
-import mdiyo.inficraft.infiblocks.client.tech.FurnaceGui;
-import mdiyo.inficraft.infiblocks.client.tech.WorkbenchGui;
-import mdiyo.inficraft.infiblocks.tech.FurnaceLogic;
+import mDiyo.inficraft.infiblocks.InfiBlockContent;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
+import mDiyo.inficraft.infiblocks.client.tech.FurnaceGui;
+import mDiyo.inficraft.infiblocks.client.tech.WorkbenchGui;
+import mDiyo.inficraft.infiblocks.tech.FurnaceLogic;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;
 import net.minecraftforge.client.MinecraftForgeClient;

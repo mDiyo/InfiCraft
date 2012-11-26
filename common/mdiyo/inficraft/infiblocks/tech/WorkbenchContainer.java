@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
 import java.util.List;
 import net.minecraft.src.*;
@@ -41,7 +41,7 @@ public class WorkbenchContainer extends Container
 
     public void onCraftMatrixChanged(IInventory iinventory)
     {
-        craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(craftMatrix));
+        craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(craftMatrix, worldObj));
     }
 
     public void onCraftGuiClosed(EntityPlayer entityplayer)
@@ -66,7 +66,8 @@ public class WorkbenchContainer extends Container
         return true;
     }
 
-    public ItemStack transferStackInSlot(int i)
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer entityplayer, int i)
     {
         ItemStack itemstack = null;
         Slot slot = (Slot)inventorySlots.get(i);
@@ -109,7 +110,7 @@ public class WorkbenchContainer extends Container
             }
             if (itemstack1.stackSize != itemstack.stackSize)
             {
-                slot.onPickupFromSlot(itemstack1);
+                slot.onPickupFromSlot(entityplayer, itemstack1);
             }
             else
             {

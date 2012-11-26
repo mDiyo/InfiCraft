@@ -1,12 +1,14 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
 import net.minecraft.src.Container;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.ICrafting;
 import net.minecraft.src.InventoryPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Slot;
 import net.minecraft.src.SlotFurnace;
+import net.minecraft.src.TileEntityFurnace;
 
 public class FurnaceContainer extends Container
 {
@@ -43,15 +45,15 @@ public class FurnaceContainer extends Container
             ICrafting icrafting = (ICrafting)crafters.get(i);
             if (progress != tileentity.progress)
             {
-                icrafting.updateCraftingInventoryInfo(this, 0, tileentity.progress);
+                icrafting.sendProgressBarUpdate(this, 0, tileentity.progress);
             }
             if (fuel != tileentity.fuel)
             {
-                icrafting.updateCraftingInventoryInfo(this, 1, tileentity.fuel);
+                icrafting.sendProgressBarUpdate(this, 1, tileentity.fuel);
             }
             if (fuelGague != tileentity.fuelGague)
             {
-                icrafting.updateCraftingInventoryInfo(this, 2, tileentity.fuelGague);
+                icrafting.sendProgressBarUpdate(this, 2, tileentity.fuelGague);
             }
         }
 
@@ -91,56 +93,75 @@ public class FurnaceContainer extends Container
         return 0;
     }
 
-    public ItemStack transferStackInSlot(int i)
+    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
     {
-        ItemStack itemstack = null;
-        Slot slot = (Slot)inventorySlots.get(i);
-        if (slot != null && slot.getHasStack())
+        ItemStack var3 = null;
+        Slot var4 = (Slot)this.inventorySlots.get(par2);
+
+        if (var4 != null && var4.getHasStack())
         {
-            ItemStack itemstack1 = slot.getStack();
-            itemstack = itemstack1.copy();
-            if (i == 2)
+            ItemStack var5 = var4.getStack();
+            var3 = var5.copy();
+
+            if (par2 == 2)
             {
-                if (!mergeItemStack(itemstack1, 3, 39, true))
+                if (!this.mergeItemStack(var5, 3, 39, true))
+                {
+                    return null;
+                }
+
+                var4.onSlotChange(var5, var3);
+            }
+            else if (par2 != 1 && par2 != 0)
+            {
+                if (FurnaceRecipes.smelting().getSmeltingResult(var5) != null)
+                {
+                    if (!this.mergeItemStack(var5, 0, 1, false))
+                    {
+                        return null;
+                    }
+                }
+                else if (TileEntityFurnace.isItemFuel(var5))
+                {
+                    if (!this.mergeItemStack(var5, 1, 2, false))
+                    {
+                        return null;
+                    }
+                }
+                else if (par2 >= 3 && par2 < 30)
+                {
+                    if (!this.mergeItemStack(var5, 30, 39, false))
+                    {
+                        return null;
+                    }
+                }
+                else if (par2 >= 30 && par2 < 39 && !this.mergeItemStack(var5, 3, 30, false))
                 {
                     return null;
                 }
             }
-            else if (i >= 3 && i < 30)
-            {
-                if (!mergeItemStack(itemstack1, 30, 39, false))
-                {
-                    return null;
-                }
-            }
-            else if (i >= 30 && i < 39)
-            {
-                if (!mergeItemStack(itemstack1, 3, 30, false))
-                {
-                    return null;
-                }
-            }
-            else if (!mergeItemStack(itemstack1, 3, 39, false))
+            else if (!this.mergeItemStack(var5, 3, 39, false))
             {
                 return null;
             }
-            if (itemstack1.stackSize == 0)
+
+            if (var5.stackSize == 0)
             {
-                slot.putStack(null);
+                var4.putStack((ItemStack)null);
             }
             else
             {
-                slot.onSlotChanged();
+                var4.onSlotChanged();
             }
-            if (itemstack1.stackSize != itemstack.stackSize)
-            {
-                slot.onPickupFromSlot(itemstack1);
-            }
-            else
+
+            if (var5.stackSize == var3.stackSize)
             {
                 return null;
             }
+
+            var4.onPickupFromSlot(par1EntityPlayer, var5);
         }
-        return itemstack;
+
+        return var3;
     }
 }

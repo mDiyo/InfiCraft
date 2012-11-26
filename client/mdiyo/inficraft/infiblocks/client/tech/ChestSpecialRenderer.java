@@ -1,7 +1,7 @@
-package mdiyo.inficraft.infiblocks.client.tech;
+package mDiyo.inficraft.infiblocks.client.tech;
 
-import mdiyo.inficraft.infiblocks.tech.ChestBlock;
-import mdiyo.inficraft.infiblocks.tech.ChestLogic;
+import mDiyo.inficraft.infiblocks.tech.ChestBlock;
+import mDiyo.inficraft.infiblocks.tech.ChestLogic;
 import net.minecraft.src.Block;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.TileEntitySpecialRenderer;

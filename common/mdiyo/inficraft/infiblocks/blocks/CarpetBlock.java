@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.blocks;
+package mDiyo.inficraft.infiblocks.blocks;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
@@ -80,7 +80,7 @@ public class CarpetBlock extends Block
         }
     }
 
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         return i;
     }

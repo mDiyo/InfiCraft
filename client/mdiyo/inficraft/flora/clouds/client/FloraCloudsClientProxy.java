@@ -1,11 +1,11 @@
-package mdiyo.inficraft.flora.clouds.client;
+package mDiyo.inficraft.flora.clouds.client;
 
 import java.io.File;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-import mdiyo.inficraft.flora.clouds.FloraClouds;
-import mdiyo.inficraft.flora.clouds.FloraCloudsCommonProxy;
+import mDiyo.inficraft.flora.clouds.FloraClouds;
+import mDiyo.inficraft.flora.clouds.FloraCloudsCommonProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.MinecraftForgeClient;
 

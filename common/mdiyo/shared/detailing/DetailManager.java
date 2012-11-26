@@ -1,4 +1,4 @@
-package mdiyo.shared.detailing;
+package mDiyo.shared.detailing;
 
 import java.util.ArrayList;
 import java.util.HashMap;

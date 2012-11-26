@@ -1,4 +1,4 @@
-package mdiyo.shared.detailing;
+package mDiyo.shared.detailing;
 
 public class DetailInput {
 

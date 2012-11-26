@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.magicslabs;
+package mDiyo.inficraft.infiblocks.magicslabs;
 import java.util.ArrayList;
 
 import net.minecraft.src.AxisAlignedBB;
@@ -9,8 +9,8 @@ import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.blocks.PaneBase;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.blocks.PaneBase;
 
 public class MagicSlabBase extends Block
 {
@@ -1459,7 +1459,7 @@ public class MagicSlabBase extends Block
         return InfiBlocks.getContentInstance().magicSlabModel;
     }
     
-    protected int damageDropped(int md)
+    public int damageDropped(int md)
     {
         return md;
     }

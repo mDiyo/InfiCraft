@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.berries;
+package mDiyo.inficraft.flora.berries;
 
 import net.minecraft.src.*;
 
@@ -20,18 +20,18 @@ public class BerryBushItem extends ItemBlock
 
     /* Place bushes on dirt, grass, or other bushes only */
     @Override
-    public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side)
+    public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-        if (!player.canPlayerEdit(x, y, z) || !player.canPlayerEdit(x, y + 1, z))
+        if (!player.canPlayerEdit(x, y, z, side, stack) || !player.canPlayerEdit(x, y + 1, z, side, stack))
         {
             return false;
         }
         int i1 = world.getBlockId(x, y, z);
         if ((i1 == Block.dirt.blockID || i1 == Block.grass.blockID || i1 == FloraBerries.berryBush.blockID) && world.isAirBlock(x, y + 1, z))
         {
-            world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraBerries.berryBush.blockID, itemstack.getItemDamage());
+            world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraBerries.berryBush.blockID, stack.getItemDamage());
             if (!player.capabilities.isCreativeMode)
-            	itemstack.stackSize--;
+            	stack.stackSize--;
             world.playAuxSFX(2001, x, y, z, Block.grass.blockID);
             return true;
         }
@@ -57,6 +57,6 @@ public class BerryBushItem extends ItemBlock
     @Override
     public int getIconFromDamage(int meta)
     {
-        return FloraBerries.getInstance().berryBush.getBlockTextureFromSideAndMetadata(2, BlockCloth.getBlockFromDye(meta));
+        return FloraBerries.instance.berryBush.getBlockTextureFromSideAndMetadata(2, BlockCloth.getBlockFromDye(meta));
     }
 }

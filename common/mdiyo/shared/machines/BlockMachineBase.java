@@ -1,4 +1,4 @@
-package mdiyo.shared.machines;
+package mDiyo.shared.machines;
 
 import java.util.ArrayList;
 import net.minecraft.src.*;

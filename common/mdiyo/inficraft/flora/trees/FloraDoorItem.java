@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.trees;
+package mDiyo.inficraft.flora.trees;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
@@ -19,13 +19,13 @@ public class FloraDoorItem extends Item
         //maxStackSize = 1;
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side)
     {
-        if (l != 1)
+        if (side != 1)
         {
             return false;
         }
-        j++;
+        y++;
 
         Block block;
         if(door == FloraTrees.redwoodDoor.blockID) {
@@ -33,18 +33,18 @@ public class FloraDoorItem extends Item
         } else {
         	block = Block.doorWood;
         }
-        if (!entityplayer.canPlayerEdit(i, j, k) || !entityplayer.canPlayerEdit(i, j + 1, k))
+        if (!player.canPlayerEdit(x, y, z, side, itemstack) || !player.canPlayerEdit(x, y + 1, z, side, itemstack))
         {
             return false;
         }
-        if (!block.canPlaceBlockAt(world, i, j, k))
+        if (!block.canPlaceBlockAt(world, x, y, z))
         {
             return false;
         }
         else
         {
-            int i1 = MathHelper.floor_double((double)(((entityplayer.rotationYaw + 180F) * 4F) / 360F) - 0.5D) & 3;
-            placeDoorBlock(world, i, j, k, i1, block);
+            int i1 = MathHelper.floor_double((double)(((player.rotationYaw + 180F) * 4F) / 360F) - 0.5D) & 3;
+            placeDoorBlock(world, x, y, z, i1, block);
             itemstack.stackSize--;
             return true;
         }
@@ -98,6 +98,6 @@ public class FloraDoorItem extends Item
     
     public String getTextureFile()
     {
-        return "/floratex/plantblocks.png";
+        return FloraTrees.texture;
     }
 }

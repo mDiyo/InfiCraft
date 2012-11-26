@@ -1,8 +1,8 @@
-package mdiyo.inficraft.infiblocks.magicslabs;
+package mDiyo.inficraft.infiblocks.magicslabs;
 
 import java.util.ArrayList;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.ColorizerFoliage;
 import net.minecraft.src.ColorizerGrass;

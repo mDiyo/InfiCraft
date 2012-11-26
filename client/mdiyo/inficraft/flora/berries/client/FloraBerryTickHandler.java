@@ -1,12 +1,12 @@
-package mdiyo.inficraft.flora.berries.client;
+package mDiyo.inficraft.flora.berries.client;
 
 import java.util.EnumSet;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.ModLoader;
 
-import mdiyo.inficraft.flora.berries.BerryBush;
-import mdiyo.inficraft.flora.berries.FloraBerries;
+import mDiyo.inficraft.flora.berries.BerryBush;
+import mDiyo.inficraft.flora.berries.FloraBerries;
 
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;

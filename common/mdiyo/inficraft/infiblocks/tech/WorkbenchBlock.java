@@ -1,12 +1,12 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
 
 public class WorkbenchBlock extends Block
 {
@@ -48,7 +48,7 @@ public class WorkbenchBlock extends Block
         }
     }
 
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         return i;
     }

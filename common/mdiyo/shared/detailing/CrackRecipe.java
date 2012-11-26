@@ -1,4 +1,4 @@
-package mdiyo.shared.detailing;
+package mDiyo.shared.detailing;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,6 +7,7 @@ import java.util.List;
 import net.minecraft.src.IRecipe;
 import net.minecraft.src.InventoryCrafting;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.World;
 
 /** This class is to be used in the crafting manager for any recipe that requires a mallet */
 public class CrackRecipe implements IRecipe
@@ -31,7 +32,7 @@ public class CrackRecipe implements IRecipe
     /**
      * Used to check if a recipe matches current crafting inventory
      */
-    public boolean matches(InventoryCrafting par1InventoryCrafting)
+    public boolean matches(InventoryCrafting par1InventoryCrafting, World world)
     {
         ArrayList var2 = new ArrayList(this.recipeItems);
         

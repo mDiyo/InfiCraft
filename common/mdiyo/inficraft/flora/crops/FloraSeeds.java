@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.crops;
+package mDiyo.inficraft.flora.crops;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
@@ -17,21 +17,22 @@ public class FloraSeeds extends Item
         plantableBlock = k;
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    @Override
+    public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-        if (l != 1)
+        if (side != 1)
         {
             return false;
         }
-        if (!entityplayer.canPlayerEdit(i, j, k) || !entityplayer.canPlayerEdit(i, j + 1, k))
+        if (!player.canPlayerEdit(x, y, z, x, stack) || !player.canPlayerEdit(x, y + 1, z, x, stack))
         {
             return false;
         }
-        int i1 = world.getBlockId(i, j, k);
-        if (i1 == plantableBlock && world.isAirBlock(i, j + 1, k))
+        int i1 = world.getBlockId(x, y, z);
+        if (i1 == plantableBlock && world.isAirBlock(x, y + 1, z))
         {
-            world.setBlockWithNotify(i, j + 1, k, blockType);
-            itemstack.stackSize--;
+            world.setBlockWithNotify(x, y + 1, z, blockType);
+            stack.stackSize--;
             return true;
         }
         else
@@ -42,6 +43,6 @@ public class FloraSeeds extends Item
 
     public String getTextureFile()
     {
-        return "/floratex/seeds.png";
+        return FloraCrops.seedTexture;
     }
 }

@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.client;
+package mDiyo.inficraft.infiblocks.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityRenderer;
@@ -9,13 +9,66 @@ import net.minecraft.src.Tessellator;
 import org.lwjgl.opengl.GL11;
 
 public class BlockRenderHelper
-{
-	
+{	
 	private static BlockRenderHelper instance = new BlockRenderHelper();
 	
 	public static BlockRenderHelper getInstance(){
 		return instance;
 	}
+	
+	double blockMinX;
+	double blockMaxX;
+	double blockMinY;
+	double blockMaxY;
+	double blockMinZ;
+	double blockMaxZ;
+	
+	boolean someBoolField = false;
+	
+	 /**
+     * Sets the size and offset of the block to be rendered, ie: half size and rendered center block: 0.25D, 0.75D
+     */
+    public void setRenderMinMax(double par1, double par3, double par5, double par7, double par9, double par11)
+    {
+        if (!this.someBoolField)
+        {
+            this.blockMinX = par1;
+            this.blockMaxX = par7;
+            this.blockMinY = par3;
+            this.blockMaxY = par9;
+            this.blockMinZ = par5;
+            this.blockMaxZ = par11;
+        }
+    }
+
+    public void setRenderMinMaxFromBlock(Block par1Block)
+    {
+        if (!this.someBoolField)
+        {
+            this.blockMinX = par1Block.getBlockBoundsMinX();
+            this.blockMaxX = par1Block.getBlockBoundsMaxX();
+            this.blockMinY = par1Block.getBlockBoundsMinY();
+            this.blockMaxY = par1Block.getBlockBoundsMaxY();
+            this.blockMinZ = par1Block.getBlockBoundsMinZ();
+            this.blockMaxZ = par1Block.getBlockBoundsMaxZ();
+        }
+    }
+
+    public void func_83019_b(double par1, double par3, double par5, double par7, double par9, double par11)
+    {
+        this.blockMinX = par1;
+        this.blockMaxX = par7;
+        this.blockMinY = par3;
+        this.blockMaxY = par9;
+        this.blockMinZ = par5;
+        this.blockMaxZ = par11;
+        this.someBoolField = true;
+    }
+    
+    public void func_83017_b()
+    {
+        this.someBoolField = false;
+    }
     
 	/**
      * Renders a textured cube block at the given coordinates
@@ -39,6 +92,8 @@ public class BlockRenderHelper
             var7 = var10;
             var8 = var11;
         }
+        
+        setRenderMinMaxFromBlock(par1Block);
 
         return Minecraft.isAmbientOcclusionEnabled() && Block.lightValue[par1Block.blockID] == 0 ? 
         		this.renderTexturedBlockAO(render, par1Block, iblockaccess, posX, posY, posZ, var6, var7, var8, 
@@ -79,32 +134,32 @@ public class BlockRenderHelper
         int var24 = var19;
         int var25 = var19;
 
-        if (par1Block.minY <= 0.0D)
+        if (blockMinY <= 0.0D)
         {
             var21 = par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY - 1, posZ);
         }
 
-        if (par1Block.maxY >= 1.0D)
+        if (blockMaxY >= 1.0D)
         {
             var24 = par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY + 1, posZ);
         }
 
-        if (par1Block.minX <= 0.0D)
+        if (blockMinX <= 0.0D)
         {
             var20 = par1Block.getMixedBrightnessForBlock(iblockaccess, posX - 1, posY, posZ);
         }
 
-        if (par1Block.maxX >= 1.0D)
+        if (blockMaxX >= 1.0D)
         {
             var23 = par1Block.getMixedBrightnessForBlock(iblockaccess, posX + 1, posY, posZ);
         }
 
-        if (par1Block.minZ <= 0.0D)
+        if (blockMinZ <= 0.0D)
         {
             var22 = par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY, posZ - 1);
         }
 
-        if (par1Block.maxZ >= 1.0D)
+        if (blockMaxZ >= 1.0D)
         {
             var25 = par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY, posZ + 1);
         }
@@ -128,7 +183,7 @@ public class BlockRenderHelper
         {
             if (render.aoType > 0)
             {
-                if (par1Block.minY <= 0.0D)
+                if (blockMinY <= 0.0D)
                 {
                     --posY;
                 }
@@ -186,7 +241,7 @@ public class BlockRenderHelper
                     render.aoBrightnessXYZPNP = par1Block.getMixedBrightnessForBlock(iblockaccess, posX + 1, posY, posZ + 1);
                 }
 
-                if (par1Block.minY <= 0.0D)
+                if (blockMinY <= 0.0D)
                 {
                     ++posY;
                 }
@@ -232,7 +287,7 @@ public class BlockRenderHelper
         {
             if (render.aoType > 0)
             {
-                if (par1Block.maxY >= 1.0D)
+                if (blockMaxY >= 1.0D)
                 {
                     ++posY;
                 }
@@ -290,7 +345,7 @@ public class BlockRenderHelper
                     render.aoBrightnessXYZPPP = par1Block.getMixedBrightnessForBlock(iblockaccess, posX + 1, posY, posZ + 1);
                 }
 
-                if (par1Block.maxY >= 1.0D)
+                if (blockMaxY >= 1.0D)
                 {
                     --posY;
                 }
@@ -338,7 +393,7 @@ public class BlockRenderHelper
         {
             if (render.aoType > 0)
             {
-                if (par1Block.minZ <= 0.0D)
+                if (blockMinZ <= 0.0D)
                 {
                     --posZ;
                 }
@@ -396,7 +451,7 @@ public class BlockRenderHelper
                     render.aoBrightnessXYZPPN = par1Block.getMixedBrightnessForBlock(iblockaccess, posX + 1, posY + 1, posZ);
                 }
 
-                if (par1Block.minZ <= 0.0D)
+                if (blockMinZ <= 0.0D)
                 {
                     ++posZ;
                 }
@@ -461,7 +516,7 @@ public class BlockRenderHelper
         {
             if (render.aoType > 0)
             {
-                if (par1Block.maxZ >= 1.0D)
+                if (blockMaxZ >= 1.0D)
                 {
                     ++posZ;
                 }
@@ -519,7 +574,7 @@ public class BlockRenderHelper
                     render.aoBrightnessXYZPPP = par1Block.getMixedBrightnessForBlock(iblockaccess, posX + 1, posY + 1, posZ);
                 }
 
-                if (par1Block.maxZ >= 1.0D)
+                if (blockMaxZ >= 1.0D)
                 {
                     --posZ;
                 }
@@ -584,7 +639,7 @@ public class BlockRenderHelper
         {
             if (render.aoType > 0)
             {
-                if (par1Block.minX <= 0.0D)
+                if (blockMinX <= 0.0D)
                 {
                     --posX;
                 }
@@ -642,7 +697,7 @@ public class BlockRenderHelper
                     render.aoBrightnessXYZNPP = par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY + 1, posZ + 1);
                 }
 
-                if (par1Block.minX <= 0.0D)
+                if (blockMinX <= 0.0D)
                 {
                     ++posX;
                 }
@@ -707,7 +762,7 @@ public class BlockRenderHelper
         {
             if (render.aoType > 0)
             {
-                if (par1Block.maxX >= 1.0D)
+                if (blockMaxX >= 1.0D)
                 {
                     ++posX;
                 }
@@ -765,7 +820,7 @@ public class BlockRenderHelper
                     render.aoBrightnessXYZPPP = par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY + 1, posZ + 1);
                 }
 
-                if (par1Block.maxX >= 1.0D)
+                if (blockMaxX >= 1.0D)
                 {
                     --posX;
                 }
@@ -875,7 +930,7 @@ public class BlockRenderHelper
 
         if (render.renderAllFaces || par1Block.shouldSideBeRendered(iblockaccess, posX, posY - 1, posZ, 0))
         {
-            var8.setBrightness(par1Block.minY > 0.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY - 1, posZ));
+            var8.setBrightness(blockMinY > 0.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY - 1, posZ));
             var8.setColorOpaque_F(var17, var20, var23);
             render.renderBottomFace(par1Block, (double)posX, (double)posY, (double)posZ, textureBottom);
             var9 = true;
@@ -883,7 +938,7 @@ public class BlockRenderHelper
 
         if (render.renderAllFaces || par1Block.shouldSideBeRendered(iblockaccess, posX, posY + 1, posZ, 1))
         {
-            var8.setBrightness(par1Block.maxY < 1.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY + 1, posZ));
+            var8.setBrightness(blockMaxY < 1.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY + 1, posZ));
             var8.setColorOpaque_F(var14, var15, var16);
             render.renderTopFace(par1Block, (double)posX, (double)posY, (double)posZ, textureTop);
             var9 = true;
@@ -893,7 +948,7 @@ public class BlockRenderHelper
 
         if (render.renderAllFaces || par1Block.shouldSideBeRendered(iblockaccess, posX, posY, posZ - 1, 2))
         {
-            var8.setBrightness(par1Block.minZ > 0.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY, posZ - 1));
+            var8.setBrightness(blockMinZ > 0.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY, posZ - 1));
             var8.setColorOpaque_F(var18, var21, var24);
             var27 = textureEast;
             render.renderEastFace(par1Block, (double)posX, (double)posY, (double)posZ, var27);
@@ -909,7 +964,7 @@ public class BlockRenderHelper
 
         if (render.renderAllFaces || par1Block.shouldSideBeRendered(iblockaccess, posX, posY, posZ + 1, 3))
         {
-            var8.setBrightness(par1Block.maxZ < 1.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY, posZ + 1));
+            var8.setBrightness(blockMaxZ < 1.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX, posY, posZ + 1));
             var8.setColorOpaque_F(var18, var21, var24);
             var27 = textureWest;
             render.renderWestFace(par1Block, (double)posX, (double)posY, (double)posZ, var27);
@@ -925,7 +980,7 @@ public class BlockRenderHelper
 
         if (render.renderAllFaces || par1Block.shouldSideBeRendered(iblockaccess, posX - 1, posY, posZ, 4))
         {
-            var8.setBrightness(par1Block.minX > 0.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX - 1, posY, posZ));
+            var8.setBrightness(blockMinX > 0.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX - 1, posY, posZ));
             var8.setColorOpaque_F(var19, var22, var25);
             var27 = textureNorth;
             render.renderNorthFace(par1Block, (double)posX, (double)posY, (double)posZ, var27);
@@ -941,7 +996,7 @@ public class BlockRenderHelper
 
         if (render.renderAllFaces || par1Block.shouldSideBeRendered(iblockaccess, posX + 1, posY, posZ, 5))
         {
-            var8.setBrightness(par1Block.maxX < 1.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX + 1, posY, posZ));
+            var8.setBrightness(blockMaxX < 1.0D ? var26 : par1Block.getMixedBrightnessForBlock(iblockaccess, posX + 1, posY, posZ));
             var8.setColorOpaque_F(var19, var22, var25);
             var27 = textureSouth;
             render.renderSouthFace(par1Block, (double)posX, (double)posY, (double)posZ, var27);

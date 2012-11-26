@@ -1,6 +1,6 @@
-package mdiyo.inficraft.flora.berries.client;
+package mDiyo.inficraft.flora.berries.client;
 
-import mdiyo.inficraft.flora.berries.FloraBerries;
+import mDiyo.inficraft.flora.berries.FloraBerries;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.RenderBlocks;
@@ -16,7 +16,7 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z,
 			Block block, int modelId, RenderBlocks renderer) {
 
-		if (modelId == FloraBerries.getInstance().berryModelID)
+		if (modelId == FloraBerries.instance.berryModelID)
 		{
 			int md = world.getBlockMetadata(x, y, z);
 			if (md < 4)
@@ -68,7 +68,7 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 
 	@Override
 	public int getRenderId() {
-		return FloraBerries.getInstance().berryModelID;
+		return FloraBerries.instance.berryModelID;
 	}
 	
 	private void renderDo(RenderBlocks renderblocks, Block block, int i)

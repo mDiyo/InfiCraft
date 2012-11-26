@@ -1,9 +1,9 @@
-package mdiyo.inficraft.infiblocks.magicslabs;
+package mDiyo.inficraft.infiblocks.magicslabs;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 

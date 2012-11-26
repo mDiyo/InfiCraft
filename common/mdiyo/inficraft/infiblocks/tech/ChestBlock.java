@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
 import java.util.Iterator;
 import java.util.Random;
@@ -22,9 +22,9 @@ import net.minecraft.src.TileEntityChest;
 import net.minecraft.src.World;
 import net.minecraftforge.common.ForgeDirection;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.shared.machines.BlockLogicBase;
-import mdiyo.shared.machines.BlockMachineBase;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.shared.machines.BlockLogicBase;
+import mDiyo.shared.machines.BlockMachineBase;
 
 public class ChestBlock extends BlockMachineBase
 {

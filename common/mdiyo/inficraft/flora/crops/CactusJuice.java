@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.crops;
+package mDiyo.inficraft.flora.crops;
 
 import net.minecraft.src.ItemFood;
 import net.minecraft.src.ItemStack;

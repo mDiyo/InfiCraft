@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.corruptor;
+package mDiyo.inficraft.flora.corruptor;
 
 import java.util.Random;
 
@@ -27,16 +27,12 @@ import net.minecraftforge.client.MinecraftForgeClient;
 public class FloraCorruptor
 {
 	/* Proxies for sides, used for graphics processing */
-	@SidedProxy(clientSide = "mdiyo.inficraft.flora.corruptor.client.FloraCorruptorClientProxy", serverSide = "mdiyo.inficraft.flora.corruptor.FloraCorruptorCommonProxy")
+	@SidedProxy(clientSide = "mDiyo.inficraft.flora.corruptor.client.FloraCorruptorClientProxy", serverSide = "mDiyo.inficraft.flora.corruptor.FloraCorruptorCommonProxy")
 	public static FloraCorruptorCommonProxy proxy;
 	
 	/* Instance of this mod, used for grabbing prototype fields */
-	@Instance
+	@Instance("Flora Corruptor")
 	public static FloraCorruptor instance;
-	public static FloraCorruptor getInstance()
-	{
-		return instance;
-	}
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
@@ -46,8 +42,8 @@ public class FloraCorruptor
 		corruptor = new CorruptorBlock(PHCorruptor.corruptorID);
 		corruptBrick = new CorruptBrick(PHCorruptor.corruptBrickID);
 		
-		ModLoader.registerBlock(corruptor, mdiyo.inficraft.flora.corruptor.CorruptorItem.class);
-		ModLoader.registerBlock(corruptBrick, mdiyo.inficraft.flora.corruptor.CorruptBrickItem.class);
+		ModLoader.registerBlock(corruptor, mDiyo.inficraft.flora.corruptor.CorruptorItem.class);
+		ModLoader.registerBlock(corruptBrick, mDiyo.inficraft.flora.corruptor.CorruptBrickItem.class);
 	}
 
 	@Init
@@ -55,7 +51,6 @@ public class FloraCorruptor
 	{
 		GameRegistry.registerWorldGenerator(new CorruptorWorldgen());
 		
-		proxy.addEESupport();
 		proxy.addNames();
 		proxy.addRecipes();
 	}
@@ -65,5 +60,5 @@ public class FloraCorruptor
 	public static Block corruptor;
 	public static Block corruptBrick;
 	
-	
+	public static String texture = "/mDiyo/inficraft/flora/textures/stone.png";
 }

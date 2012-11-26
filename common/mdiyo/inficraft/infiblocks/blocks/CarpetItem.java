@@ -1,8 +1,8 @@
-package mdiyo.inficraft.infiblocks.blocks;
+package mDiyo.inficraft.infiblocks.blocks;
 
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
-import mdiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 
 public class CarpetItem extends ItemBlock
 {

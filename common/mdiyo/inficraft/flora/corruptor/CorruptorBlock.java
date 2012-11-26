@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.corruptor;
+package mDiyo.inficraft.flora.corruptor;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -136,7 +136,7 @@ public class CorruptorBlock extends Block
         }
     }
 
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         if (i > 8)
         {
@@ -150,7 +150,7 @@ public class CorruptorBlock extends Block
 
     public String getTextureFile()
     {
-        return "/floratex/stone.png";
+        return FloraCorruptor.texture;
     }
 
     public void addCreativeItems(ArrayList arraylist)

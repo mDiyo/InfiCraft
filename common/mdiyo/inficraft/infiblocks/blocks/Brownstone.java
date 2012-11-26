@@ -1,7 +1,7 @@
-package mdiyo.inficraft.infiblocks.blocks;
+package mDiyo.inficraft.infiblocks.blocks;
 import java.util.ArrayList;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.Entity;
 import net.minecraft.src.ItemStack;
@@ -33,7 +33,7 @@ public class Brownstone extends Block
         }
     }
     
-    protected int damageDropped(int md)
+    public int damageDropped(int md)
     {
         return md;
     }

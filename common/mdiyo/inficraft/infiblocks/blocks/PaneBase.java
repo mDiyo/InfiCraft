@@ -1,8 +1,8 @@
-package mdiyo.inficraft.infiblocks.blocks;
+package mDiyo.inficraft.infiblocks.blocks;
 import java.util.List;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockPane;

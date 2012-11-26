@@ -1,7 +1,7 @@
-package mdiyo.inficraft.infiblocks.bricks;
+package mDiyo.inficraft.infiblocks.bricks;
 import java.util.ArrayList;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
@@ -41,7 +41,7 @@ public class BrickBlock extends Block
         return InfiBlocks.getContentInstance().brickModelID;
     }
     
-    protected int damageDropped(int meta)
+    public int damageDropped(int meta)
     {
         return meta;
     }

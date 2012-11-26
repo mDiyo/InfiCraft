@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.crops;
+package mDiyo.inficraft.flora.crops;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,18 +43,16 @@ public class PHCrops
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
         
-        floraCropsID = config.getOrCreateBlockIdProperty("Crops", 3260).getInt(3260); 
+        floraCropsID = config.getBlock("Crops", 3260).getInt(3260); 
         
-        seedBagID = config.getOrCreateIntProperty("Seed Bag", "item", 12401).getInt(12401);
-        barleySeedID = config.getOrCreateIntProperty("Barley Seed", "item", 12403).getInt(12403);
-        foodID = config.getOrCreateIntProperty("Food Items", "item", 12404).getInt(12404);
-        
+        seedBagID = config.getItem("Seed Bag", 12401).getInt(12401);
+        barleySeedID = config.getItem("Barley Seed", 12403).getInt(12403);
+        foodID = config.getItem("Food Items", 12404).getInt(12404);
+        ingredientsID = config.getItem("Ingredients", 12407).getInt(12407);
 
-        barleySpawnDensity = config.getOrCreateIntProperty("Barley Spawn Density", "general", 64).getInt(64);
-        barleySpawnHeight = config.getOrCreateIntProperty("Barley Spawn Height", "general", 64).getInt(64);        
-
-        ingredientsID = config.getOrCreateIntProperty("Ingredients", "item", 12407).getInt(12407);
-        
+        barleySpawnDensity = config.get("general", "Barley Spawn Density", 64).getInt(64);
+        barleySpawnHeight = config.get("general", "Barley Spawn Height", 64).getInt(64);        
+       
         /* Save the configuration file */
         config.save();
     }

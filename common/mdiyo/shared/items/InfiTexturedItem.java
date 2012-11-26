@@ -1,4 +1,4 @@
-package mdiyo.shared.items;
+package mDiyo.shared.items;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Item;

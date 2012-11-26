@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.corruptor;
+package mDiyo.inficraft.flora.corruptor;
 
 import java.util.Random;
 

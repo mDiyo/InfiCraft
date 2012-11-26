@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.berries.client;
+package mDiyo.inficraft.flora.berries.client;
 
 import java.io.File;
 
@@ -10,8 +10,8 @@ import cpw.mods.fml.common.registry.TickRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.client.MinecraftForgeClient;
-import mdiyo.inficraft.flora.berries.FloraBerries;
-import mdiyo.inficraft.flora.berries.FloraBerryCommonProxy;
+import mDiyo.inficraft.flora.berries.FloraBerries;
+import mDiyo.inficraft.flora.berries.FloraBerryCommonProxy;
 
 public class FloraBerryClientProxy extends FloraBerryCommonProxy 
 {
@@ -19,7 +19,7 @@ public class FloraBerryClientProxy extends FloraBerryCommonProxy
 	@Override
 	public void registerRenderer()
 	{
-		FloraBerries.getInstance().berryModelID = RenderingRegistry.getNextAvailableRenderId();
+		FloraBerries.instance.berryModelID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new BerryRender());
 		TickRegistry.registerTickHandler(new FloraBerryTickHandler(), Side.CLIENT);
 		MinecraftForgeClient.preloadTexture("/floratex/plantblocks.png");

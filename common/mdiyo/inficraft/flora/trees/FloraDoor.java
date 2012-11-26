@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.trees;
+package mDiyo.inficraft.flora.trees;
 import java.util.Random;
 
 import net.minecraft.src.Block;
@@ -32,6 +32,6 @@ public class FloraDoor extends BlockDoor
     
     public String getTextureFile()
     {
-        return "/floratex/plantblocks.png";
+        return FloraTrees.texture;
     }
 }

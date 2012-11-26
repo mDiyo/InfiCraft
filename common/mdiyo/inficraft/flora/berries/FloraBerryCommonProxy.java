@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.berries;
+package mDiyo.inficraft.flora.berries;
 
 import java.io.File;
 
@@ -13,11 +13,6 @@ public class FloraBerryCommonProxy
 	
 	/* Ties an internal name to a visible one. Does nothing server-side */
 	public void addNames() {}
-	
-	/* Equivalent Exchange support, direct plug-in 
-	 * Temporarily disabled
-	 */
-	public void addEESupport() {}
 	
 	/* Server-side config location */
 	

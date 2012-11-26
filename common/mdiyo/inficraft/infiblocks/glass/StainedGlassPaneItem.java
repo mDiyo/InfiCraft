@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.glass;
+package mDiyo.inficraft.infiblocks.glass;
 
 import net.minecraft.src.*;
 

@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.trees;
+package mDiyo.inficraft.flora.trees;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -249,7 +249,7 @@ public class CherryLeaves extends BlockLeavesBase
     /**
      * Determines the damage on the item the block drops. Used in cloth and wood.
      */
-    protected int damageDropped(int var1)
+    public int damageDropped(int var1)
     {
         return (var1 & 3) + 3;
     }
@@ -278,7 +278,7 @@ public class CherryLeaves extends BlockLeavesBase
 
     public String getTextureFile()
     {
-        return "/floratex/plantblocks.png";
+        return FloraTrees.texture;
     }
 
     public int getFlammability(IBlockAccess var1, int var2, int var3, int var4, int var5, int var6)

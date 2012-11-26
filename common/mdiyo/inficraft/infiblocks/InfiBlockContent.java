@@ -1,11 +1,11 @@
-package mdiyo.inficraft.infiblocks;
+package mDiyo.inficraft.infiblocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import mdiyo.inficraft.infiblocks.blocks.*;
-import mdiyo.inficraft.infiblocks.bricks.*;
-import mdiyo.inficraft.infiblocks.glass.*;
-import mdiyo.inficraft.infiblocks.magicslabs.*;
-import mdiyo.inficraft.infiblocks.tech.*;
+import mDiyo.inficraft.infiblocks.blocks.*;
+import mDiyo.inficraft.infiblocks.bricks.*;
+import mDiyo.inficraft.infiblocks.glass.*;
+import mDiyo.inficraft.infiblocks.magicslabs.*;
+import mDiyo.inficraft.infiblocks.tech.*;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.Material;
@@ -49,38 +49,38 @@ public class InfiBlockContent
 		
 		//stoneStairSlab = new StairSlabBlock(PropsHelperInfiBlocks.stoneStairSlabID, Material.rock);
 		
-		GameRegistry.registerBlock(workbench, mdiyo.inficraft.infiblocks.tech.WorkbenchItem.class);
-		GameRegistry.registerBlock(woolCarpet, mdiyo.inficraft.infiblocks.blocks.CarpetItem.class);
-		GameRegistry.registerBlock(furnace, mdiyo.inficraft.infiblocks.tech.FurnaceItem.class);
-		GameRegistry.registerTileEntity(mdiyo.inficraft.infiblocks.tech.FurnaceLogic.class, "InfiFurnace");
+		GameRegistry.registerBlock(workbench, mDiyo.inficraft.infiblocks.tech.WorkbenchItem.class);
+		GameRegistry.registerBlock(woolCarpet, mDiyo.inficraft.infiblocks.blocks.CarpetItem.class);
+		GameRegistry.registerBlock(furnace, mDiyo.inficraft.infiblocks.tech.FurnaceItem.class);
+		GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.FurnaceLogic.class, "InfiFurnace");
 		
-		GameRegistry.registerBlock(chest, mdiyo.inficraft.infiblocks.tech.ChestItem.class);
-		GameRegistry.registerTileEntity(mdiyo.inficraft.infiblocks.tech.ChestLogic.class, "InfiChest");
+		GameRegistry.registerBlock(chest, mDiyo.inficraft.infiblocks.tech.ChestItem.class);
+		GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.ChestLogic.class, "InfiChest");
 		
-		GameRegistry.registerBlock(magicSlabStone, mdiyo.inficraft.infiblocks.magicslabs.MagicSlabStoneItem.class);
-		GameRegistry.registerBlock(magicSlabSoil, mdiyo.inficraft.infiblocks.magicslabs.MagicSlabSoilItem.class);
-		GameRegistry.registerBlock(magicSlabWool, mdiyo.inficraft.infiblocks.magicslabs.MagicSlabWoolItem.class);
+		GameRegistry.registerBlock(magicSlabStone, mDiyo.inficraft.infiblocks.magicslabs.MagicSlabStoneItem.class);
+		GameRegistry.registerBlock(magicSlabSoil, mDiyo.inficraft.infiblocks.magicslabs.MagicSlabSoilItem.class);
+		GameRegistry.registerBlock(magicSlabWool, mDiyo.inficraft.infiblocks.magicslabs.MagicSlabWoolItem.class);
 		
-		GameRegistry.registerBlock(stainedGlass, mdiyo.inficraft.infiblocks.glass.StainedGlassItem.class);
-		GameRegistry.registerBlock(stainedGlassPane, mdiyo.inficraft.infiblocks.glass.StainedGlassPaneItem.class);
-		GameRegistry.registerBlock(stainedGlassMagicSlab, mdiyo.inficraft.infiblocks.magicslabs.StainedGlassMagicSlabItem.class);
-		GameRegistry.registerBlock(infiGlass, mdiyo.inficraft.infiblocks.glass.InfiGlassItem.class);
-		GameRegistry.registerBlock(infiGlassPane, mdiyo.inficraft.infiblocks.glass.InfiGlassPaneItem.class);
-		GameRegistry.registerBlock(infiGlassMagicSlab, mdiyo.inficraft.infiblocks.magicslabs.InfiGlassMagicSlabItem.class);
+		GameRegistry.registerBlock(stainedGlass, mDiyo.inficraft.infiblocks.glass.StainedGlassItem.class);
+		GameRegistry.registerBlock(stainedGlassPane, mDiyo.inficraft.infiblocks.glass.StainedGlassPaneItem.class);
+		GameRegistry.registerBlock(stainedGlassMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.StainedGlassMagicSlabItem.class);
+		GameRegistry.registerBlock(infiGlass, mDiyo.inficraft.infiblocks.glass.InfiGlassItem.class);
+		GameRegistry.registerBlock(infiGlassPane, mDiyo.inficraft.infiblocks.glass.InfiGlassPaneItem.class);
+		GameRegistry.registerBlock(infiGlassMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.InfiGlassMagicSlabItem.class);
 		
-		GameRegistry.registerBlock(brick, mdiyo.inficraft.infiblocks.bricks.BrickBlockItem.class);
-		GameRegistry.registerBlock(fancyBrick, mdiyo.inficraft.infiblocks.bricks.BrickFancyItem.class);
-		GameRegistry.registerBlock(storageBlock, mdiyo.inficraft.infiblocks.blocks.StorageBlockItem.class);
-		GameRegistry.registerBlock(iceBrick, mdiyo.inficraft.infiblocks.bricks.BrickIceItem.class);
-		GameRegistry.registerBlock(brownstone, mdiyo.inficraft.infiblocks.blocks.BrownstoneItem.class);
+		GameRegistry.registerBlock(brick, mDiyo.inficraft.infiblocks.bricks.BrickBlockItem.class);
+		GameRegistry.registerBlock(fancyBrick, mDiyo.inficraft.infiblocks.bricks.BrickFancyItem.class);
+		GameRegistry.registerBlock(storageBlock, mDiyo.inficraft.infiblocks.blocks.StorageBlockItem.class);
+		GameRegistry.registerBlock(iceBrick, mDiyo.inficraft.infiblocks.bricks.BrickIceItem.class);
+		GameRegistry.registerBlock(brownstone, mDiyo.inficraft.infiblocks.blocks.BrownstoneItem.class);
 		
-		GameRegistry.registerBlock(brickMagicSlab, mdiyo.inficraft.infiblocks.bricks.BrickBlockMagicSlabItem.class);
-		GameRegistry.registerBlock(fancyBrickMagicSlab, mdiyo.inficraft.infiblocks.bricks.BrickFancyMagicSlabItem.class);
-		GameRegistry.registerBlock(storageBlockMagicSlab, mdiyo.inficraft.infiblocks.magicslabs.StorageBlockMagicSlabItem.class);
-		GameRegistry.registerBlock(iceBrickMagicSlab, mdiyo.inficraft.infiblocks.bricks.BrickIceMagicSlabItem.class);
-		GameRegistry.registerBlock(brownstoneMagicSlab, mdiyo.inficraft.infiblocks.magicslabs.BrownstoneMagicSlabItem.class);
+		GameRegistry.registerBlock(brickMagicSlab, mDiyo.inficraft.infiblocks.bricks.BrickBlockMagicSlabItem.class);
+		GameRegistry.registerBlock(fancyBrickMagicSlab, mDiyo.inficraft.infiblocks.bricks.BrickFancyMagicSlabItem.class);
+		GameRegistry.registerBlock(storageBlockMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.StorageBlockMagicSlabItem.class);
+		GameRegistry.registerBlock(iceBrickMagicSlab, mDiyo.inficraft.infiblocks.bricks.BrickIceMagicSlabItem.class);
+		GameRegistry.registerBlock(brownstoneMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.BrownstoneMagicSlabItem.class);
 		
-		//GameRegistry.registerBlock(stoneStairSlab, mdiyo.inficraft.infiblocks.stairs.StairSlabItem.class);
+		//GameRegistry.registerBlock(stoneStairSlab, mDiyo.inficraft.infiblocks.stairs.StairSlabItem.class);
 		
 		/*crackedBrick = new BrickBlock(crackedBrickID, 176).setHardness(0.3F).setBlockName("Infi-Brick Cracked");
 		*/

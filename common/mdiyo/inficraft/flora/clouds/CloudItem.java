@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.clouds;
+package mDiyo.inficraft.flora.clouds;
 
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;

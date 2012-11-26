@@ -1,13 +1,13 @@
-package mdiyo.inficraft.infiblocks.client;
+package mDiyo.inficraft.infiblocks.client;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.blocks.PaneBase;
-import mdiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
-import mdiyo.inficraft.infiblocks.tech.ChestItem;
-import mdiyo.inficraft.infiblocks.tech.ChestLogic;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.blocks.PaneBase;
+import mDiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
+import mDiyo.inficraft.infiblocks.tech.ChestItem;
+import mDiyo.inficraft.infiblocks.tech.ChestLogic;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.RenderBlocks;

@@ -1,11 +1,11 @@
-package mdiyo.inficraft.flora.corruptor.client;
+package mDiyo.inficraft.flora.corruptor.client;
 
 import java.io.File;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.client.MinecraftForgeClient;
-import mdiyo.inficraft.flora.corruptor.FloraCorruptorCommonProxy;
+import mDiyo.inficraft.flora.corruptor.FloraCorruptorCommonProxy;
 
 public class FloraCorruptorClientProxy extends FloraCorruptorCommonProxy
 {
@@ -14,7 +14,7 @@ public class FloraCorruptorClientProxy extends FloraCorruptorCommonProxy
 	@Override
 	public void registerRenderer() 
 	{
-		MinecraftForgeClient.preloadTexture("/mdiyo/inficraft/flora/corruptor/stone.png");
+		MinecraftForgeClient.preloadTexture("/mDiyo/inficraft/flora/corruptor/stone.png");
 	}
 	@Override
 	public void addNames()
@@ -56,6 +56,7 @@ public class FloraCorruptorClientProxy extends FloraCorruptorCommonProxy
 		ModLoader.addLocalization("purebrickcorrupted.name", "Purified Brick");
 	}
 	
+	@Override
 	public File getMinecraftDir()
 	{
 		return Minecraft.getMinecraftDir();

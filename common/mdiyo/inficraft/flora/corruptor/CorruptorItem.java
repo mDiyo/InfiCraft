@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.corruptor;
+package mDiyo.inficraft.flora.corruptor;
 
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;

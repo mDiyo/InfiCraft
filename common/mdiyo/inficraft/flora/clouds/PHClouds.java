@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.clouds;
+package mDiyo.inficraft.flora.clouds;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,20 +43,20 @@ public class PHClouds
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
         
-        cloudID = config.getOrCreateBlockIdProperty("Cloud Block", 3253).getInt(3253);
+        cloudID = config.getBlock("Cloud Block", 3253).getInt(3253);
         
-        cloudSpawnDensity = config.getOrCreateIntProperty("Cloud Spawn Density", "general", 10).getInt(10);
-        cloudSpawnHeight = config.getOrCreateIntProperty("Cloud Spawn Height", "general", 192).getInt(192);
-        cloudSpawnRange = config.getOrCreateIntProperty("Cloud Spawn Range", "general", 48).getInt(48);
-        darkCloudSpawnDensity = config.getOrCreateIntProperty("Dark Cloud Spawn Density", "general", 10).getInt(10);
-        darkCloudSpawnHeight = config.getOrCreateIntProperty("Dark Cloud Spawn Height", "general", 64).getInt(64);
-        darkCloudSpawnRange = config.getOrCreateIntProperty("Dark Cloud Spawn Range", "general", 128).getInt(128);
-        sulfurSpawnDensity = config.getOrCreateIntProperty("Sulfur Cloud Spawn Density", "general", 20).getInt(20);
-        sulfurSpawnHeight = config.getOrCreateIntProperty("Sulfur Cloud Spawn Height", "general", 40).getInt(40);
-        sulfurSpawnRange = config.getOrCreateIntProperty("Sulfur Cloud Spawn Range", "general", 78).getInt(78);
-        ashSpawnDensity = config.getOrCreateIntProperty("Ash Cloud Spawn Density", "general", 20).getInt(20);
-        ashSpawnHeight = config.getOrCreateIntProperty("Ash Cloud Spawn Height", "general", 40).getInt(40);
-        ashSpawnRange = config.getOrCreateIntProperty("Ash Cloud Spawn Range", "general", 78).getInt(78);
+        cloudSpawnDensity = config.get("general", "Cloud Spawn Density", 10).getInt(10);
+        cloudSpawnHeight = config.get("general", "Cloud Spawn Height", 192).getInt(192);
+        cloudSpawnRange = config.get("general", "Cloud Spawn Range", 48).getInt(48);
+        darkCloudSpawnDensity = config.get("general", "Dark Cloud Spawn Density", 10).getInt(10);
+        darkCloudSpawnHeight = config.get("general", "Dark Cloud Spawn Height", 64).getInt(64);
+        darkCloudSpawnRange = config.get("general", "Dark Cloud Spawn Range", 128).getInt(128);
+        sulfurSpawnDensity = config.get("general", "Sulfur Cloud Spawn Density", 20).getInt(20);
+        sulfurSpawnHeight = config.get("general", "Sulfur Cloud Spawn Height", 40).getInt(40);
+        sulfurSpawnRange = config.get("general", "Sulfur Cloud Spawn Range", 78).getInt(78);
+        ashSpawnDensity = config.get("general", "Ash Cloud Spawn Density", 20).getInt(20);
+        ashSpawnHeight = config.get("general", "Ash Cloud Spawn Height", 40).getInt(40);
+        ashSpawnRange = config.get("general", "Ash Cloud Spawn Range", 78).getInt(78);
         
         /* Save the configuration file */
         config.save();

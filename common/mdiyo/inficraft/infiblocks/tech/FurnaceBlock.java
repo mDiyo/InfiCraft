@@ -1,11 +1,11 @@
-package mdiyo.inficraft.infiblocks.tech;
+package mDiyo.inficraft.infiblocks.tech;
 
 import java.util.Random;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
-import mdiyo.shared.machines.BlockLogicBase;
-import mdiyo.shared.machines.BlockMachineBase;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
+import mDiyo.shared.machines.BlockLogicBase;
+import mDiyo.shared.machines.BlockMachineBase;
 
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityLiving;
@@ -80,7 +80,7 @@ public class FurnaceBlock extends BlockMachineBase
         }
     }
 
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         return i;
     }

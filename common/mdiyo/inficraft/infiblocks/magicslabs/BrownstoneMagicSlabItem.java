@@ -1,4 +1,4 @@
-package mdiyo.inficraft.infiblocks.magicslabs;
+package mDiyo.inficraft.infiblocks.magicslabs;
 
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;

@@ -1,7 +1,8 @@
-package mdiyo.inficraft.infiblocks;
+package mDiyo.inficraft.infiblocks;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -16,7 +17,7 @@ import cpw.mods.fml.common.SidedProxy;
 public class InfiBlocks
 {
 	/* Proxies for sides, used for graphics processing */
-	@SidedProxy(clientSide = "mdiyo.inficraft.infiblocks.client.InfiBlocksClientProxy", serverSide = "mdiyo.inficraft.infiblocks.InfiBlocksCommonProxy")
+	@SidedProxy(clientSide = "mDiyo.inficraft.infiblocks.client.InfiBlocksClientProxy", serverSide = "mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy")
 	public static InfiBlocksCommonProxy proxy;
 	
 	/* Instance of the content, used to grab blocks and such. */
@@ -46,7 +47,7 @@ public class InfiBlocks
 	}
 	
 	/* Texture paths */
-	public static String bricksImage = "/mdiyo/inficraft/infiblocks/textures/bricks.png";
-	public static String blocksImage = "/mdiyo/inficraft/infiblocks/textures/blocks.png";
-	public static String techImage = "/mdiyo/inficraft/infiblocks/textures/tech.png";
+	public static String bricksImage = "/mDiyo/inficraft/infiblocks/textures/bricks.png";
+	public static String blocksImage = "/mDiyo/inficraft/infiblocks/textures/blocks.png";
+	public static String techImage = "/mDiyo/inficraft/infiblocks/textures/tech.png";
 }

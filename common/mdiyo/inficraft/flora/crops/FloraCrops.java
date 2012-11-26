@@ -1,7 +1,7 @@
-package mdiyo.inficraft.flora.crops;
+package mDiyo.inficraft.flora.crops;
 import java.util.Random;
 
-import mdiyo.shared.items.InfiTexturedItem;
+import mDiyo.shared.items.InfiTexturedItem;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
@@ -26,11 +26,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class FloraCrops
 {
 	/* Proxies for sides, used for graphics processing */
-	@SidedProxy(clientSide = "mdiyo.inficraft.flora.crops.client.FloraCropsClientProxy", serverSide = "mdiyo.inficraft.flora.crops.FloraCropsCommonProxy")
+	@SidedProxy(clientSide = "mDiyo.inficraft.flora.crops.client.FloraCropsClientProxy", serverSide = "mDiyo.inficraft.flora.crops.FloraCropsCommonProxy")
 	public static FloraCropsCommonProxy proxy;
 	
 	/* Instance of this mod, used for grabbing prototype fields */
-	@Instance
+	@Instance("Flora Crops")
 	public static FloraCrops instance;
 	public static FloraCrops getInstance()
 	{
@@ -212,4 +212,6 @@ public class FloraCrops
 	
 	public static int saguaroModel;
 
+	public static String cropTexture = "/mDiyo/inficraft/flora/textures/crops.png";
+	public static String seedTexture = "/mDiyo/inficraft/flora/textures/seeds.png";
 }

@@ -1,12 +1,12 @@
-package mdiyo.inficraft.infiblocks.glass;
+package mDiyo.inficraft.infiblocks.glass;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.blocks.PaneBase;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.blocks.PaneBase;
 
 public class InfiGlassPane extends PaneBase
 {

@@ -1,15 +1,16 @@
-package mdiyo.inficraft.flora.crops.client;
+package mDiyo.inficraft.flora.crops.client;
 
 import java.io.File;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-import mdiyo.inficraft.flora.crops.FloraCrops;
+import mDiyo.inficraft.flora.crops.FloraCrops;
+import mDiyo.inficraft.flora.crops.FloraCropsCommonProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-public class FloraCropsClientProxy 
+public class FloraCropsClientProxy extends FloraCropsCommonProxy
 {
 	public void registerRenderer()
 	{

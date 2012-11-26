@@ -1,7 +1,7 @@
-package mdiyo.inficraft.infiblocks.bricks;
+package mDiyo.inficraft.infiblocks.bricks;
 import java.util.ArrayList;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
@@ -35,7 +35,7 @@ public class BrickFancy extends Block
     	}
     }
     
-    protected int damageDropped(int md)
+    public int damageDropped(int md)
     {
         return md;
     }

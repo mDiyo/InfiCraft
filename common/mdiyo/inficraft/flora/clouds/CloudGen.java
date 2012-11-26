@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.clouds;
+package mDiyo.inficraft.flora.clouds;
 
 import java.util.Random;
 import net.minecraft.src.World;

@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.corruptor;
+package mDiyo.inficraft.flora.corruptor;
 
 import java.util.ArrayList;
 
@@ -39,14 +39,14 @@ public class CorruptBrick extends Block
         return i <= 8 ? 2.0F : 8F;
     }
 
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         return i;
     }
 
     public String getTextureFile()
     {
-        return "/floratex/stone.png";
+        return FloraCorruptor.texture;
     }
 
     public void addCreativeItems(ArrayList arraylist)

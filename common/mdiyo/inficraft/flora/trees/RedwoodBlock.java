@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.trees;
+package mDiyo.inficraft.flora.trees;
 
 import java.util.ArrayList;
 
@@ -97,7 +97,7 @@ public class RedwoodBlock extends BlockLog
     }
 
     @Override
-    protected int damageDropped(int i)
+    public int damageDropped(int i)
     {
         return i;
     }

@@ -1,8 +1,8 @@
-package mdiyo.inficraft.infiblocks.bricks;
+package mDiyo.inficraft.infiblocks.bricks;
 import java.util.ArrayList;
 
-import mdiyo.inficraft.infiblocks.InfiBlocks;
-import mdiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
+import mDiyo.inficraft.infiblocks.InfiBlocks;
+import mDiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;

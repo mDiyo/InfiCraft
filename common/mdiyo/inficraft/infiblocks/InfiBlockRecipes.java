@@ -1,6 +1,6 @@
-package mdiyo.inficraft.infiblocks;
+package mDiyo.inficraft.infiblocks;
 
-import mdiyo.shared.detailing.DetailManager;
+import mDiyo.shared.detailing.DetailManager;
 import net.minecraft.src.*;
 
 import java.util.*;
@@ -103,7 +103,7 @@ public class InfiBlockRecipes
 		
 		for (int iter = 0; iter < chestArray.length; ++iter)
         	{ GameRegistry.addRecipe(new ItemStack(InfiBlockContent.chest, 1, iter), new Object[] 
-        		{chestRecipe, 'm', chestArray[iter], 'b', Block.button}); }
+        		{chestRecipe, 'm', chestArray[iter], 'b', Block.stoneButton}); }
 		
 		for (int iter = 0; iter < workbenchArray.length; iter++)
 		{

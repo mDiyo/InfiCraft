@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.corruptor;
+package mDiyo.inficraft.flora.corruptor;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,15 +43,15 @@ public class PHCorruptor
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */        
 
-        corruptorID = config.getOrCreateBlockIdProperty("Corruptor", 3254).getInt(3254);
-        corruptBrickID = config.getOrCreateBlockIdProperty("Corrupt Brick", 3255).getInt(3255);        
+        corruptorID = config.getBlock("Corruptor", 3254).getInt(3254);
+        corruptBrickID = config.getBlock("Corrupt Brick", 3255).getInt(3255);        
 
-        corruptorSpawnDensity = config.getOrCreateIntProperty("Corruptor Spawn Density", "general", 1).getInt(1);
-        corruptorSpawnHeight = config.getOrCreateIntProperty("Corruptor Spawn Height", "general", 0).getInt(0);
-        corruptorSpawnRange = config.getOrCreateIntProperty("Corruptor Spawn Range", "general", 128).getInt(128);
-        corruptorSpawnSize = config.getOrCreateIntProperty("Corruptor Spawn Slize", "general", 8).getInt(8);
-        corruptionSpeed = config.getOrCreateIntProperty("Corruption Speed", "general", 5).getInt(5);
-        corruptionSpread = config.getOrCreateBooleanProperty("Spread Corruption", "general", true).getBoolean(true);
+        corruptorSpawnDensity = config.get("general", "Corruptor Spawn Density", 1).getInt(1);
+        corruptorSpawnHeight = config.get("general", "Corruptor Spawn Height", 0).getInt(0);
+        corruptorSpawnRange = config.get("general", "Corruptor Spawn Range", 128).getInt(128);
+        corruptorSpawnSize = config.get("general", "Corruptor Spawn Slize", 8).getInt(8);
+        corruptionSpeed = config.get("general", "Corruption Speed", 5).getInt(5);
+        corruptionSpread = config.get("general", "Spread Corruption", true).getBoolean(true);
         
         /* Save the configuration file */
         config.save();

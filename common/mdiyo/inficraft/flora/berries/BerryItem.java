@@ -1,4 +1,4 @@
-package mdiyo.inficraft.flora.berries;
+package mDiyo.inficraft.flora.berries;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class BerryItem extends ItemFood
         setHasSubtypes(true);
         setMaxDamage(0);
         iconIndex = 16;
-        this.setTabToDisplayOn(CreativeTabs.tabFood);
+        //this.setTabToDisplayOn(CreativeTabs.tabFood);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class BerryItem extends ItemFood
     @Override
     public String getTextureFile()
     {
-        return "/mdiyo/inficraft/flora/textures/seeds.png";
+        return FloraBerries.seedTexture;
     }
     
     /**
