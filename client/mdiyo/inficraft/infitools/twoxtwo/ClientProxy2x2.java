@@ -1,4 +1,4 @@
-package mDiyo;
+package mDiyo.inficraft.infitools.twoxtwo;
 
 import mDiyo.inficraft.infitools.twoxtwo.CommonProxy2x2;
 import mDiyo.inficraft.infitools.twoxtwo.DaggerRender;

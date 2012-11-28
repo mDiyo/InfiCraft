@@ -28,7 +28,7 @@ public class mod_Infi2x2
 	@Instance("Infi2x2")
 	public static mod_Infi2x2 instance;
 	
-	@SidedProxy(clientSide = "mDiyo.ClientProxy2x2", serverSide = "mDiyo.CommonProxy2x2")
+	@SidedProxy(clientSide = "mDiyo.inficraft.infitools.twoxtwo.ClientProxy2x2", serverSide = "mDiyo.inficraft.infitools.twoxtwo.CommonProxy2x2")
 	public static CommonProxy2x2 proxy;
 	
 	@Init

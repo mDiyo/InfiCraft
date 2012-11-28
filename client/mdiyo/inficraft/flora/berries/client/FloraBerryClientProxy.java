@@ -22,7 +22,8 @@ public class FloraBerryClientProxy extends FloraBerryCommonProxy
 		FloraBerries.instance.berryModelID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new BerryRender());
 		TickRegistry.registerTickHandler(new FloraBerryTickHandler(), Side.CLIENT);
-		MinecraftForgeClient.preloadTexture("/floratex/plantblocks.png");
+		MinecraftForgeClient.preloadTexture(FloraBerries.bushTexture);
+		MinecraftForgeClient.preloadTexture(FloraBerries.seedTexture);
 	}
 	
 	/* Ties an internal name to a visible one */
