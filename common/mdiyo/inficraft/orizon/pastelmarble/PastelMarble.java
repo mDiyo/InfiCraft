@@ -28,26 +28,26 @@ public class PastelMarble
 		PHPastel.initProps();
 		
 		cStone = new ColoredStone(PHPastel.cStoneID, 0).setHardness(1.5f).setBlockName("Colored Stone");
-        cCobble = new CustomBlockStone(PHPastel.cCobbleID, 16).setHardness(Block.cobblestone.getBlockHardness(null, 0, 0, 0)).setBlockName("Colored Cobblestone");
-        cBrick = new CustomBlockStone(PHPastel.cBrickID, 32).setHardness(1.5f).setBlockName("Colored Stone Brick");
-        cMossy = new CustomBlockStone(PHPastel.cMossyID, 48).setHardness(1.5f).setBlockName("Colored Moss Brick");
-        cCracked = new CustomBlockStone(PHPastel.cCrackedID, 64).setHardness(1.5f).setBlockName("Colored Cracked Brick");
-        cTile = new CustomBlockStone(PHPastel.cTileID, 80).setHardness(1.5f).setBlockName("Colored Tile");
-        cFancy = new CustomBlockStone(PHPastel.cFancyID, 96).setHardness(1.5f).setBlockName("Colored Fancy Brick");
-        cSquare = new CustomBlockStone(PHPastel.cSquareID, 112).setHardness(1.5f).setBlockName("Colored Square Brick");
-        
-        marble = new Marble(PHPastel.marbleID, 176).setHardness(5F).setBlockName("Marble");
+		cCobble = new CustomBlockStone(PHPastel.cCobbleID, 16).setHardness(Block.cobblestone.getBlockHardness(null, 0, 0, 0)).setBlockName("Colored Cobblestone");
+		cBrick = new CustomBlockStone(PHPastel.cBrickID, 32).setHardness(1.5f).setBlockName("Colored Stone Brick");
+		cMossy = new CustomBlockStone(PHPastel.cMossyID, 48).setHardness(1.5f).setBlockName("Colored Moss Brick");
+		cCracked = new CustomBlockStone(PHPastel.cCrackedID, 64).setHardness(1.5f).setBlockName("Colored Cracked Brick");
+		cTile = new CustomBlockStone(PHPastel.cTileID, 80).setHardness(1.5f).setBlockName("Colored Tile");
+		cFancy = new CustomBlockStone(PHPastel.cFancyID, 96).setHardness(1.5f).setBlockName("Colored Fancy Brick");
+		cSquare = new CustomBlockStone(PHPastel.cSquareID, 112).setHardness(1.5f).setBlockName("Colored Square Brick");
+		
+		marble = new Marble(PHPastel.marbleID, 176).setHardness(5F).setBlockName("Marble");
 		
 		GameRegistry.registerBlock(cStone, mDiyo.inficraft.orizon.pastelmarble.ColoredStoneItem.class);
 		GameRegistry.registerBlock(cCobble, mDiyo.inficraft.orizon.pastelmarble.ColoredCobblestoneItem.class);
 		GameRegistry.registerBlock(cBrick, mDiyo.inficraft.orizon.pastelmarble.ColoredBrickItem.class);
 		GameRegistry.registerBlock(cMossy, mDiyo.inficraft.orizon.pastelmarble.ColoredMossyBrickItem.class);
-        GameRegistry.registerBlock(cCracked, mDiyo.inficraft.orizon.pastelmarble.ColoredCrackedBrickItem.class);
-        GameRegistry.registerBlock(cTile, mDiyo.inficraft.orizon.pastelmarble.ColoredTileItem.class);
-        GameRegistry.registerBlock(cFancy, mDiyo.inficraft.orizon.pastelmarble.ColoredFancyBrickItem.class);
-        GameRegistry.registerBlock(cSquare, mDiyo.inficraft.orizon.pastelmarble.ColoredSquareBrickItem.class);
-        
-        GameRegistry.registerBlock(marble, mDiyo.inficraft.orizon.pastelmarble.MarbleItem.class);
+		GameRegistry.registerBlock(cCracked, mDiyo.inficraft.orizon.pastelmarble.ColoredCrackedBrickItem.class);
+		GameRegistry.registerBlock(cTile, mDiyo.inficraft.orizon.pastelmarble.ColoredTileItem.class);
+		GameRegistry.registerBlock(cFancy, mDiyo.inficraft.orizon.pastelmarble.ColoredFancyBrickItem.class);
+		GameRegistry.registerBlock(cSquare, mDiyo.inficraft.orizon.pastelmarble.ColoredSquareBrickItem.class);
+		
+		GameRegistry.registerBlock(marble, mDiyo.inficraft.orizon.pastelmarble.MarbleItem.class);
 	}
 	
 	@Init
@@ -61,15 +61,15 @@ public class PastelMarble
 	}
 	
 	public Block cStone;
-    public Block cCobble;
-    public Block cBrick;
-    public Block cMossy;
-    public Block cCracked;
-    public Block cTile;
-    public Block cFancy;
-    public Block cSquare;
-    
-    public Block marble;
-    
-    public static String texture = "/mDiyo/inficraft/orizon/textures/stone.png";
+	public Block cCobble;
+	public Block cBrick;
+	public Block cMossy;
+	public Block cCracked;
+	public Block cTile;
+	public Block cFancy;
+	public Block cSquare;
+	
+	public Block marble;
+	
+	public static String texture = "/mDiyo/inficraft/orizon/textures/stone.png";
 }
