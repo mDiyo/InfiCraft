@@ -24,6 +24,6 @@ public class Marble extends Block
 
     public String getTextureFile()
     {
-        return "/oretex/ores.png";
+        return PastelMarble.texture;
     }
 }
