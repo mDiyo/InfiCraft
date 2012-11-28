@@ -14,6 +14,7 @@ public class SlimeBlockFlowing extends LiquidBlockBase
         super(id, material);
         enableStats = false;
         blockIndexInTexture = tex;
+        this.setBlockName("SlimeFlowing");
     }
     
     public boolean getEnableStats() {return false;}
@@ -46,7 +47,7 @@ public class SlimeBlockFlowing extends LiquidBlockBase
        par1World.markBlockRangeForRenderUpdate(par2, par3, par4, par2, par3, par4);
    }
 
-   public boolean func_48204_b(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+   public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
    {
        return this.blockMaterial != Material.lava;
    }

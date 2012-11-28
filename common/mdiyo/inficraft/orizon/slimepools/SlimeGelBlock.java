@@ -14,6 +14,7 @@ public class SlimeGelBlock extends BlockBreakable
     {
         super(i, j, Material.sponge, false);
         enableStats = false;
+        this.setBlockName("SlimeGel");
     }
     
 	public boolean getEnableStats() {return false;}

@@ -18,11 +18,11 @@ import cpw.mods.fml.common.SidedProxy;
  * @author mDiyo
  */
 
-@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "0.1")
+@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "0.2")
 public class OrizonSlime 
 {
 	/* Proxies for sides, used for graphics processing */
-	@SidedProxy(clientSide = "mDiyo.inficraft.orizon.client.SlimeProxyClient", serverSide = "mDiyo.inficraft.orizon.SlimeProxyCommon")
+	@SidedProxy(clientSide = "mDiyo.inficraft.orizon.slimepools.SlimeProxyClient", serverSide = "mDiyo.inficraft.orizon.slimepools.SlimeProxyCommon")
 	public static SlimeProxyCommon proxy;
 	
 	@Instance("Orizon Slime")
@@ -62,6 +62,8 @@ public class OrizonSlime
     public static Block acidStill;
     public static Block acidFlowing;
     public static Block slimeGelBlock;
+    
+    public static int slimeModel;
 	
 	public static String texture = "/mDiyo/inficraft/orizon/textures/slime.png";
 }

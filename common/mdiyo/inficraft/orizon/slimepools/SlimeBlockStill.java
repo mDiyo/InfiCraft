@@ -14,6 +14,7 @@ public class SlimeBlockStill extends LiquidBlockBase
         super(id, material);
         enableStats = false;
         blockIndexInTexture = tex;
+        this.setBlockName("SlimeSource");
     }
     
     public boolean getEnableStats() {return false;}

@@ -123,15 +123,6 @@ public abstract class LiquidBlockBase extends BlockFluid
         return var5;
     }
     
-    /*public static double getFlowDirection(IBlockAccess par0IBlockAccess, int par1, int par2, int par3, Material par4Material)
-    {
-        Vec3 var5 = null;
-        
-        var5 = ((LiquidBlockBase)OrizonSlime.slimeFlowing).getFlowingVector(par0IBlockAccess, par1, par2, par3);
-
-        return var5.xCoord == 0.0D && var5.zCoord == 0.0D ? -1000.0D : Math.atan2(var5.zCoord, var5.xCoord) - (Math.PI / 2D);
-    }*/
-    
     protected Vec3 getFlowingVector(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         Vec3 var5 = par1IBlockAccess.getWorldVec3Pool().getVecFromPool(0.0D, 0.0D, 0.0D);
@@ -256,16 +247,12 @@ public abstract class LiquidBlockBase extends BlockFluid
     {
         Vec3 var5 = ((LiquidBlockBase)OrizonSlime.instance.slimeFlowing).getFlowingVector(par0IBlockAccess, par1, par2, par3);
 
-        /*if (par4Material == Material.water)
-        {
-            var5 = ((BlockFluid)Block.waterMoving).getFlowVector(par0IBlockAccess, par1, par2, par3);
-        }
-
-        if (par4Material == Material.lava)
-        {
-            var5 = ((BlockFluid)Block.lavaMoving).getFlowVector(par0IBlockAccess, par1, par2, par3);
-        }*/
-
         return var5.xCoord == 0.0D && var5.zCoord == 0.0D ? -1000.0D : Math.atan2(var5.zCoord, var5.xCoord) - (Math.PI / 2D);
+    }
+    
+    public int getRenderType()
+    {
+    	return 0;
+        //return OrizonSlime.slimeModel;
     }
 }

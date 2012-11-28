@@ -19,10 +19,8 @@ public class Machetes
 
     public static void init()
     {
-    	System.out.println("machetes");
         if(mod_InfiHybrids.infitoolsPresent)
         {
-        	System.out.println("machetes tools");
         	createTools();
             addNames();
         	registerInfiToolsRecipes();

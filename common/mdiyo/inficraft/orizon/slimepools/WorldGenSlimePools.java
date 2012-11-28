@@ -41,12 +41,6 @@ public class WorldGenSlimePools extends WorldGenerator implements IWorldGenerato
 		        int randZ = chunkZ + rand.nextInt(16);
 		        this.generate(world, rand, randX, hi, randZ);
 			}
-			if(rand.nextInt(PHSlime.slimePoolRarity/4+1) == 0) {
-				int hi = rand.nextInt(PHSlime.slimePoolHeight * 2);
-		        int randX = chunkX + rand.nextInt(16);
-		        int randZ = chunkZ + rand.nextInt(16);
-		        this.generate(world, rand, randX, hi, randZ);
-			}
 		}
 	}
 
@@ -166,7 +160,7 @@ public class WorldGenSlimePools extends WorldGenerator implements IWorldGenerato
                 }
             }
             
-            if (Block.blocksList[this.blockIndex].blockMaterial == Material.water)
+            if (Block.blocksList[this.blockIndex].blockMaterial == Material.plants)
             {
                 for (var8 = 0; var8 < 16; ++var8)
                 {
