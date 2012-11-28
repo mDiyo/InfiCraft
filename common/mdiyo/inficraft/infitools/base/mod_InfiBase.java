@@ -48,7 +48,6 @@ public class mod_InfiBase
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
-		//ModLoader.setInGameHook(this, true, true);
 		GameRegistry.registerBlock(blockMoss);
 		GameRegistry.registerBlock(slimeSand);
 		ModLoader.addLocalization("enchantment.frost", "Frost");
@@ -56,7 +55,6 @@ public class mod_InfiBase
 		this.addBaseRecipes();
 		this.addMaterialRecipes();
 		this.oreDictionarySupport();
-		//this.addEEsupport();
 		//this.addOrizonSupport();
 		this.setupCraftHook();
         MinecraftForge.EVENT_BUS.register(new EnchantHandler());
@@ -104,7 +102,7 @@ public class mod_InfiBase
 		
 		ModLoader.addShapelessRecipe(new ItemStack(slimeSand, 1), new Object[]
 		        { Item.slimeBall, Block.sand });
-		FurnaceRecipes.smelting().addSmelting(slimeSand.blockID, 0, new ItemStack(slimeCrystal, 1));
+		FurnaceRecipes.smelting().addSmelting(slimeSand.blockID, 0, new ItemStack(slimeCrystal, 1), 0);
 		ModLoader.addRecipe(new ItemStack(blazeCrystal, 1), new Object[]
                 { "pwp", "ncn", "plp", 'p', Item.blazePowder, 'w', new ItemStack(Item.bucketWater, 1, -1), 
 			'l', new ItemStack(Item.bucketLava, 1, -1), 'c', Item.magmaCream, 'n', Block.netherrack });
@@ -128,7 +126,7 @@ public class mod_InfiBase
 		        { "#", '#', this.paperStack });
 		      
 		//Cactus greens to charcoal
-	    FurnaceRecipes.smelting().addSmelting(Item.dyePowder.shiftedIndex, 2, new ItemStack(Item.coal, 1, 1));
+	    FurnaceRecipes.smelting().addSmelting(Item.dyePowder.shiftedIndex, 2, new ItemStack(Item.coal, 1, 1), 0.15f);
 	    
 	    //Mossy materials
 	    ModLoader.addRecipe(new ItemStack(mossBall, 4), new Object[]
@@ -462,32 +460,6 @@ public class mod_InfiBase
     		}
     	}
     	return true;
-    }
-	*/
-	/*
-	public void addEEsupport()
-    {
-        try
-        {
-            Class class1 = Class.forName("mod_EE");
-            Class class2 = Class.forName("EEProxy");
-            System.out.println("Equivalent Exchange integration for InfiTools activated");
-            EEProxy.setEMC(redstoneCrystal.shiftedIndex, 405);
-            EEProxy.setEMC(glowstoneCrystal.shiftedIndex, 3754);
-            EEProxy.setEMC(lavaCrystal.shiftedIndex, 3104);
-            EEProxy.setEMC(slimeCrystal.shiftedIndex, 88);
-            EEProxy.setEMC(blazeCrystal.shiftedIndex, 3930);
-            EEProxy.setEMC(paperDust.shiftedIndex, 928);
-            EEProxy.setEMC(obsidianCrystal.shiftedIndex, 2848);
-            EEProxy.setEMC(mossyPatch.shiftedIndex, 145);
-            EEProxy.setEMC(mossyStone.shiftedIndex, 581);
-            System.out.println("EMC values set!");
-        }
-        catch (Throwable throwable)
-        {
-            System.out.println("Equivalent Exchange integration failed! Reason:");
-            System.out.println(throwable);
-        }
     }
 	*/
 	

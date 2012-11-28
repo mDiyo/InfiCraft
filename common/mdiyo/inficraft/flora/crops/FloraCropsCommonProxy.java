@@ -16,33 +16,6 @@ public class FloraCropsCommonProxy
 	/* Ties an internal name to a visible one. Does nothing server-side */
 	public void addNames() {}
 	
-	/* Equivalent Exchange support, direct plug-in 
-	 * Temporarily disabled
-	 */
-	public static void addEESupport()
-    {
-        /*try
-        {
-            Class class1 = Class.forName("mod_EE");
-            Class class2 = Class.forName("EEProxy");
-            System.out.println("Equivalent Exchange integration for Flora & Soma activated");
-
-	        EEProxy.setEMC(new ItemStack(barleySeed, 1, 0), 16);
-	        EEProxy.setEMC(new ItemStack(food, 1, 0), 24);
-	        EEProxy.setEMC(new ItemStack(food, 1, 1), 24);
-            
-            //EEProxy.setEMC(saguaro.blockID, 8);
-            
-
-            System.out.println("EMC values set!");
-        }
-        catch (Throwable throwable)
-        {
-            System.out.println("Equivalent Exchange integration failed! Reason:");
-            System.out.println(throwable);
-        }*/
-    }
-	
 	public void addRecipes()
 	{
 		ModLoader.addRecipe(new ItemStack(FloraCrops.getInstance().seedBag, 1, 0), new Object[]
@@ -58,7 +31,7 @@ public class FloraCropsCommonProxy
 		{
 			"b", Character.valueOf('b'), new ItemStack(FloraCrops.getInstance().food, 1, 0)
 		});
-		FurnaceRecipes.smelting().addSmelting(FloraCrops.getInstance().food.shiftedIndex, 1, new ItemStack(Item.bread, 1));
+		FurnaceRecipes.smelting().addSmelting(FloraCrops.getInstance().food.shiftedIndex, 1, new ItemStack(Item.bread, 1), 1f);
 		
 		ModLoader.addRecipe(new ItemStack(FloraCrops.getInstance().waterDrop, 1), new Object[]
 				{

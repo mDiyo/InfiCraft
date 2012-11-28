@@ -64,7 +64,6 @@ public class FloraCrops
 		proxy.registerRenderer();
 		proxy.addRecipes();
 		proxy.addNames();
-		proxy.addEESupport();
 	}
 	
 	/* Render methods, used for saguaro */

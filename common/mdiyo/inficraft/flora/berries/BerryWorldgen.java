@@ -6,7 +6,6 @@ import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.IWorldGenerator;
-import extrabiomes.api.BiomeManager;
 
 /* Generates berry bushes in the overworld 
  * Current bushes: Blueberry, Blackberry, Raspberry, Geoberry
@@ -32,11 +31,11 @@ public class BerryWorldgen implements IWorldGenerator
 		int zPos = chunkZ * 16;
 		int xCh, yCh, zCh;
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(chunkX, chunkZ);
+		String name = biome.biomeName;
 		
-		if (biome == BiomeGenBase.forest || biome == BiomeManager.autumnwoods ||
-				biome == BiomeManager.birchforest || biome == BiomeManager.pineforest ||
-				biome == BiomeManager.rainforest || biome == BiomeManager.rainforest ||
-				biome == BiomeManager.temperaterainforest || biome == BiomeManager.woodlands)
+		if (name == "Forest" || name == "AutumnWoods" ||
+				name == "BirchForest" || name == "PineForest" ||
+				name == "Rainforest" || name == "Woodlands")
 		{
 			if(random.nextInt(PHBerries.raspSpawnDensity) == 0)
 			{				
@@ -44,11 +43,10 @@ public class BerryWorldgen implements IWorldGenerator
 				yCh = random.nextInt(PHBerries.raspSpawnRange) + PHBerries.raspSpawnHeight - 64;
 				zCh = zPos + random.nextInt(16) + 8;
 				raspgen.generate(world, random, xCh, yCh, zCh);
-				System.out.println("Raspberry bush generated at: " + xCh + " " + yCh + " " + zCh);
 			}
 		}
 		
-		if (biome == BiomeGenBase.plains || biome == BiomeManager.meadow)
+		if (name == "Plains" || name == "Meadow")
 		{
 			if (random.nextInt(PHBerries.blueSpawnDensity) == 0)
 			{
@@ -56,12 +54,11 @@ public class BerryWorldgen implements IWorldGenerator
 				yCh = random.nextInt(PHBerries.blueSpawnRange) + PHBerries.blueSpawnHeight - 64;
 				zCh = zPos + random.nextInt(16) + 8;
 				bluegen.generate(world, random, xCh, yCh, zCh);
-				System.out.println("Blueberry bush generated at: " + xCh + " " + yCh + " " + zCh);
 			}
 		}
 		
-		if (biome == BiomeGenBase.extremeHills || biome == BiomeManager.forestedhills
-				|| biome == BiomeManager.greenhills)
+		if (name == "ExtremeHills" || name == "ForestedHills"
+				|| name == "GreenHills")
 		{
 			if(random.nextInt(PHBerries.raspSpawnDensity / 2) == 0) 
 			{				
@@ -69,12 +66,11 @@ public class BerryWorldgen implements IWorldGenerator
 				yCh = random.nextInt(PHBerries.raspSpawnRange) + PHBerries.raspSpawnHeight - 64;
 				zCh = zPos + random.nextInt(16) + 8;
 				raspgen.generate(world, random, xCh, yCh, zCh);
-				System.out.println("Raspberry bush generated at: " + xCh + " " + yCh + " " + zCh);
 			}
 		}
 		
-		if (biome == BiomeGenBase.taiga || biome == BiomeManager.snowforest
-				|| biome == BiomeManager.snowyrainforest)
+		if (name == "Taiga" || name == "SnowForest"
+				|| name == "SnowyRainforest")
 		{
 			if (random.nextInt(PHBerries.geoSpawnDensity) == 0)
 			{
@@ -82,11 +78,10 @@ public class BerryWorldgen implements IWorldGenerator
 				yCh = random.nextInt(PHBerries.geoSpawnRange) + PHBerries.geoSpawnHeight - 64;
 				zCh = zPos + random.nextInt(16) + 8;
 				geogen.generate(world, random, xCh, yCh, zCh);
-				System.out.println("Geoberry bush generated at: " + xCh + " " + yCh + " " + zCh);
 			}
 		}
 		
-		if (biome == BiomeGenBase.swampland || biome == BiomeManager.greenswamp)
+		if ( name == "Swampland" || name == "GreenSwamp")
 		{
 			for (int iter = 0; iter < (int)(PHBerries.blackSpawnDensity / 5); iter++)
 			{				
@@ -94,11 +89,10 @@ public class BerryWorldgen implements IWorldGenerator
 				yCh = random.nextInt(PHBerries.blackSpawnRange) + PHBerries.blackSpawnHeight - 64;
 				zCh = zPos + random.nextInt(16) + 8;
 				blackgen.generate(world, random, xCh, yCh, zCh);
-				System.out.println("Blackberry bush generated at: " + xCh + " " + yCh + " " + zCh);
 			}
 		}
 		
-		if (biome == BiomeGenBase.river)
+		if (name == "River")
 		{
 			if (random.nextInt(PHBerries.blackSpawnDensity * 2) == 0)
 			{
@@ -106,7 +100,6 @@ public class BerryWorldgen implements IWorldGenerator
 				yCh = random.nextInt(PHBerries.blackSpawnRange) + PHBerries.blackSpawnHeight - 64;
 				zCh = zPos + random.nextInt(16) + 8;
 				blackgen.generate(world, random, xCh, yCh, zCh);
-				System.out.println("Blackberry bush generated at: " + xCh + " " + yCh + " " + zCh);
 			}
 		}		
 	}

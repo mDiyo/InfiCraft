@@ -24,7 +24,6 @@ import net.minecraft.src.ModLoader;
 import net.minecraft.src.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
-import extrabiomes.api.BiomeManager;
 
 @Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "Anachrosim")
 public class FloraTrees
@@ -118,11 +117,12 @@ public class FloraTrees
 	{
 		int xCh, yCh, zCh;
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(xChunk + 16, zChunk + 16);
+		String name = biome.biomeName;
 		
-		if (biome == BiomeGenBase.forest || biome == BiomeManager.autumnwoods ||
-				biome == BiomeManager.birchforest || biome == BiomeManager.pineforest ||
-				biome == BiomeManager.rainforest || biome == BiomeManager.rainforest ||
-				biome == BiomeManager.temperaterainforest || biome == BiomeManager.woodlands)
+		if (name == "Forest" || name == "AutumnWoods" ||
+				name == "BirchForest" || name == "PineForest" ||
+				name == "Rainforest" || 
+				name == "TemperateRainforest" || name == "Woodlands")
 		{
 			if(PHTrees.generateSakura && random.nextInt((int)(PHTrees.sakuraSpawnDensity * 1.4)) == 0)
 			{
@@ -144,7 +144,7 @@ public class FloraTrees
 			}
 		}
 		
-		if (biome == BiomeGenBase.plains || biome == BiomeManager.meadow)
+		if (name == "Plains" || name == "Meadow")
 		{
 			if(PHTrees.generateRedwood && random.nextInt((int)(PHTrees.redwoodSpawnDensity / 2)) == 0)
 			{
@@ -174,8 +174,8 @@ public class FloraTrees
 			}
 		}
 		
-		if (biome == BiomeGenBase.extremeHills || biome == BiomeManager.forestedhills
-				|| biome == BiomeManager.greenhills)
+		if (name == "ExtremeHills" || name == "ForestedHills"
+				|| name == "GreenHills")
 		{
 			if(PHTrees.generateSakura && random.nextInt(PHTrees.sakuraSpawnDensity) == 0) 
 			{

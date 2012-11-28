@@ -6,7 +6,6 @@ import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.IWorldGenerator;
-import extrabiomes.api.BiomeManager;
 
 /* Generates clouds in every dimension
  * Current clouds: Normal, Dark, Sulfur, Ash
@@ -49,9 +48,7 @@ public class CloudWorldgen implements IWorldGenerator
 		int xChunk = chunkX * 16, zChunk = chunkX * 16;
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(xChunk + 16, zChunk + 16);
 
-		if (biome != BiomeGenBase.desert && biome != BiomeGenBase.desertHills 
-				&& biome != BiomeManager.mountaindesert && biome != BiomeManager.mountainridge 
-				&& random.nextInt(PHClouds.cloudSpawnDensity) == 0)
+		if (biome.rainfall > 0.15f && random.nextInt(PHClouds.cloudSpawnDensity) == 0)
 		{
 			xCh = xChunk + random.nextInt(16) + 8;
 			zCh = zChunk + random.nextInt(16) + 8;
@@ -78,8 +75,8 @@ public class CloudWorldgen implements IWorldGenerator
 		//End Generation
 		if (biome == BiomeGenBase.sky && random.nextInt(PHClouds.darkCloudSpawnDensity) < PHClouds.darkCloudSpawnDensity / 4)
 		{
-			xCh = xChunk + random.nextInt(16) + 8;
-			zCh = zChunk + random.nextInt(16) + 8;
+			xCh = xChunk * 16 + random.nextInt(16) + 8;
+			zCh = zChunk * 16 + random.nextInt(16) + 8;
 			for(int iter = 0; iter < PHClouds.darkCloudSpawnDensity / 4; iter++)
 			{
 				int height = random.nextInt(PHClouds.darkCloudSpawnRange);
@@ -105,9 +102,9 @@ public class CloudWorldgen implements IWorldGenerator
 		//Nether
 		if (biome == BiomeGenBase.hell)
 		{
-			int xCor = xChunk + random.nextInt(16) + 8;
+			int xCor = xChunk * 16 + random.nextInt(16) + 8;
 			int yCor = random.nextInt(128);
-			int zCor = zChunk + random.nextInt(16) + 8;
+			int zCor = zChunk * 16 + random.nextInt(16) + 8;
 			
 			if (random.nextInt(PHClouds.ashSpawnDensity) < 5)
 			{

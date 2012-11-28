@@ -8,7 +8,6 @@ import net.minecraft.src.BlockFlower;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.IWorldGenerator;
-import extrabiomes.api.BiomeManager;
 
 /* Adds crops to the overworld
  * Current crops: Barley
@@ -25,16 +24,7 @@ public class CropWorldgen implements IWorldGenerator
 		int zCh = chunkZ * 16 + random.nextInt(16) + 8;
 		
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(chunkX * 16 + 16, chunkZ * 16 + 16);
-		if( random.nextInt(5) < 2 && (biome == BiomeGenBase.plains 
-				|| biome == BiomeGenBase.forest || biome == BiomeGenBase.forestHills || 
-				biome == BiomeGenBase.extremeHills || biome == BiomeGenBase.extremeHillsEdge ||
-				biome == BiomeManager.autumnwoods || biome == BiomeManager.birchforest ||
-				biome == BiomeManager.forestedhills || biome == BiomeManager.forestedisland ||
-				biome == BiomeManager.greenhills || biome == BiomeManager.meadow ||
-				biome == BiomeManager.pineforest || biome == BiomeManager.rainforest ||
-				biome == BiomeManager.redwoodforest || biome == BiomeManager.redwoodlush ||
-				biome == BiomeManager.savanna || biome == BiomeManager.shrubland ||
-				biome == BiomeManager.temperaterainforest || biome == BiomeManager.woodlands))
+		if( random.nextInt(5) < 2 && biome.temperature > 0.1f && biome.rainfall > 0.1f && biome.temperature > 0.35f && biome.temperature <= 1.0f)
 		{
 			generateBarley(world, random, xCh, yCh + PHCrops.barleySpawnHeight - 64, zCh);
 			generateBarley(world, random, xCh, yCh + PHCrops.barleySpawnHeight - 64, zCh);

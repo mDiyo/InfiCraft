@@ -10,7 +10,7 @@ import cpw.mods.fml.common.SidedProxy;
 
 /* InfiBlocks!
  * Bringing you a little bit of every block in every flavor.
- * @author: Merdiwen Tirelle Diyo
+ * @author: mDiyo
  */
 
 @Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "0.9")
