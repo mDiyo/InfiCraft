@@ -1,13 +1,10 @@
 package mDiyo.inficraft.orizon.pastelmarble;
 
-import java.io.File;
-
-import mDiyo.inficraft.flora.trees.FloraTrees;
 import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PastelProxyCommon 
 {
@@ -19,46 +16,46 @@ public class PastelProxyCommon
 	
 	public void addRecipes()
 	{
-		ModLoader.addRecipe(new ItemStack(Block.stoneSingleSlab, 6, 3), 
+		GameRegistry.addRecipe(new ItemStack(Block.stoneSingleSlab, 6, 3), 
 				"###", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1));
-		ModLoader.addRecipe(new ItemStack(Block.stoneSingleSlab, 6, 0), 
+		GameRegistry.addRecipe(new ItemStack(Block.stoneSingleSlab, 6, 0), 
 				"###", '#', new ItemStack(PastelMarble.instance.cStone, 1, -1));
-		ModLoader.addRecipe(new ItemStack(Block.stoneSingleSlab, 6, 5), 
+		GameRegistry.addRecipe(new ItemStack(Block.stoneSingleSlab, 6, 5), 
 				"###", '#', new ItemStack(PastelMarble.instance.cBrick, 1, -1));
-		ModLoader.addRecipe(new ItemStack(Item.brewingStand, 1), 
+		GameRegistry.addRecipe(new ItemStack(Item.brewingStand, 1), 
 				" B ", "###", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), 'B', Item.blazeRod);
-		ModLoader.addRecipe(new ItemStack(Block.stairCompactCobblestone, 4), 
+		GameRegistry.addRecipe(new ItemStack(Block.stairCompactCobblestone, 4), 
 				"#  ", "## ", "###", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1));
-		ModLoader.addRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 4), 
+		GameRegistry.addRecipe(new ItemStack(Block.stairsStoneBrickSmooth, 4), 
 				"#  ", "## ", "###", '#', new ItemStack(PastelMarble.instance.cBrick, 1, -1));
-		ModLoader.addRecipe(new ItemStack(Block.lever, 1), 
+		GameRegistry.addRecipe(new ItemStack(Block.lever, 1), 
 				"X", "#", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), 'X', Item.stick);
-		ModLoader.addRecipe(new ItemStack(Block.stoneButton, 1), 
+		GameRegistry.addRecipe(new ItemStack(Block.stoneButton, 1), 
 				"#", "#", '#', new ItemStack(PastelMarble.instance.cStone, 1, -1));
-		ModLoader.addRecipe(new ItemStack(Item.redstoneRepeater, 1), 
+		GameRegistry.addRecipe(new ItemStack(Item.redstoneRepeater, 1), 
 				"#X#", "III", '#', Block.torchRedstoneActive, 'X', Item.redstone, 'I', new ItemStack(PastelMarble.instance.cStone, 1, -1));
-		ModLoader.addRecipe(new ItemStack(Block.pressurePlateStone, 1), 
+		GameRegistry.addRecipe(new ItemStack(Block.pressurePlateStone, 1), 
 				"##", '#', new ItemStack(PastelMarble.instance.cStone, 1, -1));
-        ModLoader.addRecipe(new ItemStack(Block.dispenser, 1), 
+        GameRegistry.addRecipe(new ItemStack(Block.dispenser, 1), 
         		"###", "#X#", "#R#", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), 'X', Item.bow, 'R', Item.redstone);
-        ModLoader.addRecipe(new ItemStack(Block.pistonBase, 1), 
+        GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), 
         		"TTT", "#X#", "#R#", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), 'X', Item.ingotIron, 'R', Item.redstone, 'T', Block.planks);
 	
-        ModLoader.addRecipe(new ItemStack(Item.pickaxeStone), 
+        GameRegistry.addRecipe(new ItemStack(Item.pickaxeStone), 
 				"###", " | ", " | ", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), '|', Item.stick);
-        ModLoader.addRecipe(new ItemStack(Item.shovelStone), 
+        GameRegistry.addRecipe(new ItemStack(Item.shovelStone), 
 				"#", "|", "|", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), '|', Item.stick);
-        ModLoader.addRecipe(new ItemStack(Item.axeStone), 
+        GameRegistry.addRecipe(new ItemStack(Item.axeStone), 
 				"##", "#|", " |", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), '|', Item.stick);
-        ModLoader.addRecipe(new ItemStack(Item.swordStone), 
+        GameRegistry.addRecipe(new ItemStack(Item.swordStone), 
 				"#", "#", "|", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), '|', Item.stick);
-        ModLoader.addRecipe(new ItemStack(Item.hoeStone), 
+        GameRegistry.addRecipe(new ItemStack(Item.hoeStone), 
 				"##", " |", " |", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), '|', Item.stick);
         
-        ModLoader.addRecipe(new ItemStack(Block.stoneOvenIdle), 
+        GameRegistry.addRecipe(new ItemStack(Block.stoneOvenIdle), 
         		"###", "# #", "###", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1));
         for(int i = 0; i < 16; i++) {
-        	ModLoader.addRecipe(new ItemStack(PastelMarble.instance.cBrick, 4, i), 
+        	GameRegistry.addRecipe(new ItemStack(PastelMarble.instance.cBrick, 4, i), 
         		"##", "##", '#', new ItemStack(PastelMarble.instance.cStone, 1, i));
         }
         for(int i = 0; i < 16; i++) {

@@ -15,7 +15,7 @@ public class PastelMarble
 {
 	/* Proxies for sides, used for graphics processing */
 	@SidedProxy(clientSide = "mDiyo.inficraft.orizon.pastelmarble.PastelProxyClient", serverSide = "mDiyo.inficraft.orizon.pastelmarble.PastelProxyCommon")
-	PastelProxyCommon proxy;
+	public static PastelProxyCommon proxy;
 	
 	/* Instance of this mod, used for grabbing prototype fields */
 	@Instance("OrizonPastels")
