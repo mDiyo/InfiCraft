@@ -17,6 +17,8 @@ public class PastelGenerator implements IWorldGenerator
 		marbleRose = new StoneGen(PHPastel.marbleID, 2, 40);
 		marbleEmerald = new StoneGen(PHPastel.marbleID, 3, 40);
 		marbleAzure = new StoneGen(PHPastel.marbleID, 4, 40);
+		
+		coloredStone = new StoneGenColor(PHPastel.cStoneID, 20);
 	}
 	
 	@Override
