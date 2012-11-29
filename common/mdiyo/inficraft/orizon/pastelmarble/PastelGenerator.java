@@ -7,16 +7,17 @@ import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.src.Block;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
+import net.minecraft.src.WorldGenMinable;
 
 public class PastelGenerator implements IWorldGenerator
 {
 	public PastelGenerator()
 	{
-		marbleWhite = new StoneGen(PHPastel.marbleID, 0, 40);
-		marbleBlack = new StoneGen(PHPastel.marbleID, 1, 40);
-		marbleRose = new StoneGen(PHPastel.marbleID, 2, 40);
-		marbleEmerald = new StoneGen(PHPastel.marbleID, 3, 40);
-		marbleAzure = new StoneGen(PHPastel.marbleID, 4, 40);
+		marbleWhite = new WorldGenMinable(PHPastel.marbleID, 0, 40);
+		marbleBlack = new WorldGenMinable(PHPastel.marbleID, 1, 40);
+		marbleRose = new WorldGenMinable(PHPastel.marbleID, 2, 40);
+		marbleEmerald = new WorldGenMinable(PHPastel.marbleID, 3, 40);
+		marbleAzure = new WorldGenMinable(PHPastel.marbleID, 4, 40);
 		
 		coloredStone = new StoneGenColor(PHPastel.cStoneID, 20);
 	}
@@ -39,10 +40,10 @@ public class PastelGenerator implements IWorldGenerator
     	{
 	        if(PHPastel.genMarble)
 	            generateMarble(world, random, chunkX*16, chunkZ*16);
-	        if(PHPastel.genStratifiedStone)
-	            generateStratifiedStone(world, random, chunkX*16, chunkZ*16);
 	        if(PHPastel.genColoredStone)
 	        	generateColoredStone(world, random, chunkX*16, chunkZ*16);
+	        if(PHPastel.genStratifiedStone)
+	            generateStratifiedStone(world, random, chunkX*16, chunkZ*16);	        
     	}
 	}
 	
@@ -185,9 +186,9 @@ public class PastelGenerator implements IWorldGenerator
 	
 	StoneGenColor coloredStone;
 	
-	StoneGen marbleWhite;
-    StoneGen marbleBlack;
-    StoneGen marbleRose;
-    StoneGen marbleEmerald;
-    StoneGen marbleAzure;
+	WorldGenMinable marbleWhite;
+	WorldGenMinable marbleBlack;
+    WorldGenMinable marbleRose;
+    WorldGenMinable marbleEmerald;
+    WorldGenMinable marbleAzure;
 }
