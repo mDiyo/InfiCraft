@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infitools.core;
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -26,237 +26,237 @@ public class Hoes
     
     private static void createTools()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
     	{
     		woodWoodHoe = new InfiToolHoe(34, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodHoe");
-    		sandstoneWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+1, 
+    		sandstoneWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodHoe");
-    		boneWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+2, 
+    		boneWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+2, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Bone, "boneWoodHoe");
-    		paperWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+3, 
+    		paperWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+3, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Paper, "paperWoodHoe");
-    		iceWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+4, 
+    		iceWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+4, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Ice, "iceWoodHoe");
-    		slimeWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+5, 
+    		slimeWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+5, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodHoe");
-    		cactusWoodHoe = new InfiToolHoe(PropsHelperInfiTools.woodHoeID+6, 
+    		cactusWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodHoe");
     	}
 
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
         {
         	woodStoneHoe = new InfiToolHoe(35, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneHoe");
-        	stoneStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+1, 
+        	stoneStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneHoe");
-        	sandstoneStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+2, 
+        	sandstoneStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+2, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Sandstone, "sandstoneStoneHoe");
-        	boneStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+3, 
+        	boneStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+3, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Bone, "boneStoneHoe");
-        	netherrackStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+4, 
+        	netherrackStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+4, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Netherrack, "netherrackStoneHoe");
-        	iceStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+5, 
+        	iceStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+5, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Ice, "iceStoneHoe");
-        	slimeStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+6, 
+        	slimeStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+6, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Slime, "slimeStoneHoe");
-        	cactusStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+7, 
+        	cactusStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+7, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneHoe");
-        	flintStoneHoe = new InfiToolHoe(PropsHelperInfiTools.stoneHoeID+8, 
+        	flintStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneHoe");            
         }
         
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
         {
         	woodIronHoe = new InfiToolHoe(36, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronHoe");
-        	stoneIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+1, 
+        	stoneIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronHoe");
-        	ironIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+2, 
+        	ironIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Iron, "ironIronHoe");
-        	boneIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+3, 
+        	boneIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+3, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bone, "boneIronHoe");
-        	netherrackIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+4, 
+        	netherrackIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+4, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Netherrack, "netherrackIronHoe");
-        	glowstoneIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+5, 
+        	glowstoneIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+5, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Glowstone, "glowstoneIronHoe");
-        	cactusIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+6, 
+        	cactusIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+6, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Cactus, "cactusIronHoe");
-        	copperIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+7, 
+        	copperIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+7, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronHoe");
-        	bronzeIronHoe = new InfiToolHoe(PropsHelperInfiTools.ironHoeID+8, 
+        	bronzeIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronHoe");
         }
         
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
         {
         	woodDiamondHoe = new InfiToolHoe(37, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondHoe");
-        	stoneDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+1, 
+        	stoneDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondHoe");
-        	ironDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+2, 
+        	ironDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+2, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Iron, "ironDiamondHoe");
-        	diamondDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+3, 
+        	diamondDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+3, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Diamond, "diamondDiamondHoe");
-        	redstoneDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+4, 
+        	redstoneDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+4, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Redstone, "redstoneDiamondHoe");
-        	obsidianDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+5, 
+        	obsidianDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+5, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Obsidian, "obsidianDiamondHoe");
-        	boneDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+6, 
+        	boneDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+6, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bone, "boneDiamondHoe");
-        	mossyDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+7, 
+        	mossyDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Mossy, "mossyDiamondHoe");
-        	netherrackDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+8, 
+        	netherrackDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+8, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Netherrack, "netherrackDiamondHoe");
-        	glowstoneDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+9, 
+        	glowstoneDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+9, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Glowstone, "glowstoneDiamondHoe");
-        	lavaDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+10, 
+        	lavaDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+10, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Lava, "lavaDiamondHoe");
-        	cactusDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+11, 
+        	cactusDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+11, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cactus, "cactusDiamondHoe");
-        	flintDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+12, 
+        	flintDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+12, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Flint, "flintDiamondHoe");
-        	blazeDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+13, 
+        	blazeDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+13, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Blaze, "blazeDiamondHoe");
-            copperDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+14, 
+            copperDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+14, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Copper, "copperDiamondHoe");
-            bronzeDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+15, 
+            bronzeDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+15, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bronze, "bronzeDiamondHoe");
-            workedDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+16, 
+            workedDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+16, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.WorkedIron, "workedDiamondHoe");
-            steelDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+17, 
+            steelDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+17, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Steel, "steelDiamondHoe");
-            cobaltDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+18, 
+            cobaltDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+18, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cobalt, "cobaltDiamondHoe");
-            arditeDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+19, 
+            arditeDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+19, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Ardite, "arditeDiamondHoe");
-            manyullynDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+20, 
+            manyullynDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+20, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondHoe");
-            uraniumDiamondHoe = new InfiToolHoe(PropsHelperInfiTools.diamondHoeID+21, 
+            uraniumDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondHoe");
         }
         
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
         {
-        	woodRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+0, 
+        	woodRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+0, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneHoe");
-        	stoneRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+1, 
+        	stoneRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneHoe");
-        	ironRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+2, 
+        	ironRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Iron, "ironRedstoneHoe");
-        	redstoneRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+3, 
+        	redstoneRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+3, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "redstoneRedstoneHoe");
-        	obsidianRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+4, 
+        	obsidianRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+4, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Obsidian, "obsidianRedstoneHoe");
-        	sandstoneRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+5, 
+        	sandstoneRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+5, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Sandstone, "sandstoneRedstoneHoe");
-        	boneRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+6, 
+        	boneRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+6, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bone, "boneRedstoneHoe");
-        	paperRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+7, 
+        	paperRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+7, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Paper, "paperRedstoneHoe");
-        	mossyRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+8, 
+        	mossyRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+8, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Mossy, "mossyRedstoneHoe");
-        	netherrackRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+9, 
+        	netherrackRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+9, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Netherrack, "netherrackRedstoneHoe");
-        	glowstoneRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+10, 
+        	glowstoneRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+10, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Glowstone, "glowstoneRedstoneHoe");
-        	iceRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+11, 
+        	iceRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+11, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Ice, "iceRedstoneHoe");
-        	lavaRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+12,
+        	lavaRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+12,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Lava, "lavaRedstoneHoe");
-        	slimeRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+13,
+        	slimeRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+13,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Slime, "slimeRedstoneHoe");
-        	cactusRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+14,
+        	cactusRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+14,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Cactus, "cactusRedstoneHoe");
-        	flintRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+15,
+        	flintRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+15,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Flint, "flintRedstoneHoe");
-        	copperRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+16,
+        	copperRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+16,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Copper, "copperRedstoneHoe");
-        	bronzeRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+17,
+        	bronzeRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+17,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstoneHoe");
-        	workedRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+18,
+        	workedRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+18,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneHoe");
-        	uraniumRedstoneHoe = new InfiToolHoe(PropsHelperInfiTools.redstoneHoeID+19,
+        	uraniumRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneHoe");
         }
         
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
         {
-        	woodObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+0, 
+        	woodObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+0, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianHoe");
-        	stoneObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+1, 
+        	stoneObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianHoe");
-        	redstoneObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+2, 
+        	redstoneObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+2, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianHoe");
-        	obsidianObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+3, 
+        	obsidianObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianHoe");;
-        	boneObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+4, 
+        	boneObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+4, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Bone, "boneObsidianHoe");
-        	netherrackObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+5, 
+        	netherrackObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+5, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Netherrack, "netherrackObsidianHoe");
-        	glowstoneObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+6, 
+        	glowstoneObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+6, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Glowstone, "glowstoneObsidianHoe");
-        	iceObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+7, 
+        	iceObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+7, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Ice, "iceObsidianHoe");
-        	lavaObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+8,
+        	lavaObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+8,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianHoe");
-        	cactusObsidianHoe = new InfiToolHoe(PropsHelperInfiTools.obsidianHoeID+9,
+        	cactusObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianHoe");
         }
         
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
         {
-        	woodSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+0, 
+        	woodSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+0, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneHoe");
-        	sandstoneSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+1, 
+        	sandstoneSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneHoe");
-        	boneSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+2, 
+        	boneSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+2, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Bone, "boneSandstoneHoe");
-        	netherrackSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+3, 
+        	netherrackSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+3, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Netherrack, "netherrackSandstoneHoe");
-        	iceSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+4, 
+        	iceSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+4, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Ice, "iceSandstoneHoe");
-        	slimeSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+5,
+        	slimeSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+5,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Slime, "slimeSandstoneHoe");
-        	cactusSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+6,
+        	cactusSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+6,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneHoe");
-        	flintSandstoneHoe = new InfiToolHoe(PropsHelperInfiTools.sandstoneHoeID+7,
+        	flintSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneHoe");
         }
         
-        if(PropsHelperInfiTools.enableBoneTools)
+        if(PHInfiTools.enableBoneTools)
         {
-        	woodBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+0, 
+        	woodBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+0, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneHoe");
-        	stoneBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+1, 
+        	stoneBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneHoe");
-        	sandstoneBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+2, 
+        	sandstoneBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+2, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Sandstone, "sandstoneBoneHoe");
-        	boneBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+3, 
+        	boneBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+3, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "boneBoneHoe");
-        	paperBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+4, 
+        	paperBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+4, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Paper, "paperBoneHoe");
-        	netherrackBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+5, 
+        	netherrackBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+5, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Netherrack, "netherrackBoneHoe");
-        	iceBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+6, 
+        	iceBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+6, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Ice, "iceBoneHoe");
-        	cactusBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+7,
+        	cactusBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+7,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneHoe");
-        	flintBoneHoe = new InfiToolHoe(PropsHelperInfiTools.boneHoeID+8,
+        	flintBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneHoe");
         }
         
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
         {
-        	woodPaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+0, 
+        	woodPaperHoe = new InfiToolHoe(PHInfiTools.paperHoeID+0, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperHoe");
-        	bonePaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+1, 
+        	bonePaperHoe = new InfiToolHoe(PHInfiTools.paperHoeID+1, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperHoe");
-        	paperPaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+2, 
+        	paperPaperHoe = new InfiToolHoe(PHInfiTools.paperHoeID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperHoe");
-        	slimePaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+3,
+        	slimePaperHoe = new InfiToolHoe(PHInfiTools.paperHoeID+3,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperHoe");
-        	cactusPaperHoe = new InfiToolHoe(PropsHelperInfiTools.paperHoeID+4,
+        	cactusPaperHoe = new InfiToolHoe(PHInfiTools.paperHoeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperHoe");
             
             
@@ -266,31 +266,31 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
         {
-        	woodMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+0, 
+        	woodMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+0, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Wood, "woodMossyHoe");
-        	stoneMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+1, 
+        	stoneMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+1, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Stone, "stoneMossyHoe");
-        	diamondMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+2, 
+        	diamondMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Diamond, "diamondMossyHoe");
-        	redstoneMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+3, 
+        	redstoneMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+3, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Redstone, "redstoneMossyHoe");
-        	boneMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+4, 
+        	boneMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+4, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Bone, "boneMossyHoe");
-        	mossyMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+5, 
+        	mossyMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+5, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Mossy, "mossyMossyHoe");
-        	netherrackMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+6, 
+        	netherrackMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+6, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Netherrack, "netherrackMossyHoe");
-        	glowstoneMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+7, 
+        	glowstoneMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+7, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Glowstone, "glowstoneMossyHoe");
-        	cactusMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+8, 
+        	cactusMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+8, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Cactus, "cactusMossyHoe");
-        	blazeMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+9, 
+        	blazeMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+9, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Blaze, "blazeMossyHoe");
-        	manyullynMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+10, 
+        	manyullynMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+10, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyHoe");
-        	uraniumMossyHoe = new InfiToolHoe(PropsHelperInfiTools.mossyHoeID+11, 
+        	uraniumMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyHoe");
             
             
@@ -307,33 +307,33 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
         {
-        	woodNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+0, 
+        	woodNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Wood, "woodNetherrackHoe");
-        	stoneNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+1, 
+        	stoneNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+1, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Stone, "stoneNetherrackHoe");
-        	sandstoneNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+2, 
+        	sandstoneNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+2, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Sandstone, "sandstoneNetherrackHoe");
-        	boneNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+3, 
+        	boneNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+3, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bone, "boneNetherrackHoe");
-        	paperNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+4, 
+        	paperNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+4, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Paper, "paperNetherrackHoe");
-        	mossyNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+5, 
+        	mossyNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+5, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Mossy, "mossyNetherrackHoe");
-        	netherrackNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+6, 
+        	netherrackNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+6, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Netherrack, "netherrackNetherrackHoe");
-        	iceNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+7, 
+        	iceNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+7, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Ice, "iceNetherrackHoe");
-        	slimeNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+8, 
+        	slimeNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+8, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Slime, "slimeNetherrackHoe");
-        	cactusNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+9, 
+        	cactusNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+9, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Cactus, "cactusNetherrackHoe");
-        	flintNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+10, 
+        	flintNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+10, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Flint, "flintNetherrackHoe");
-        	copperNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+11, 
+        	copperNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+11, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackHoe");
-        	bronzeNetherrackHoe = new InfiToolHoe(PropsHelperInfiTools.netherrackHoeID+12, 
+        	bronzeNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackHoe");
             
             
@@ -351,25 +351,25 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
         {
-        	woodGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+0, 
+        	woodGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+0, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Wood, "woodGlowstoneHoe");
-        	redstoneGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+1, 
+        	redstoneGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+1, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Redstone, "redstoneGlowstoneHoe");
-        	obsidianGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+2, 
+        	obsidianGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+2, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Obsidian, "obsidianGlowstoneHoe");
-        	boneGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+3, 
+        	boneGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Bone, "boneGlowstoneHoe");
-        	netherrackGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+4, 
+        	netherrackGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+4, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Netherrack, "netherrackGlowstoneHoe");
-        	glowstoneGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+5, 
+        	glowstoneGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+5, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Glowstone, "glowstoneGlowstoneHoe");
-        	iceGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+6, 
+        	iceGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+6, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Ice, "iceGlowstoneHoe");
-        	slimeGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+7, 
+        	slimeGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+7, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Slime, "slimeGlowstoneHoe");
-        	cactusGlowstoneHoe = new InfiToolHoe(PropsHelperInfiTools.glowstoneHoeID+8, 
+        	cactusGlowstoneHoe = new InfiToolHoe(PHInfiTools.glowstoneHoeID+8, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneHoe");
             
             
@@ -384,19 +384,19 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
         {
-        	woodIceHoe = new InfiToolHoe(PropsHelperInfiTools.iceHoeID+0, 
+        	woodIceHoe = new InfiToolHoe(PHInfiTools.iceHoeID+0, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Wood, "woodIceHoe");
-        	boneIceHoe = new InfiToolHoe(PropsHelperInfiTools.iceHoeID+1, 
+        	boneIceHoe = new InfiToolHoe(PHInfiTools.iceHoeID+1, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Bone, "boneIceHoe");
-        	paperIceHoe = new InfiToolHoe(PropsHelperInfiTools.iceHoeID+2, 
+        	paperIceHoe = new InfiToolHoe(PHInfiTools.iceHoeID+2, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Paper, "paperIceHoe");
-        	iceIceHoe = new InfiToolHoe(PropsHelperInfiTools.iceHoeID+3, 
+        	iceIceHoe = new InfiToolHoe(PHInfiTools.iceHoeID+3, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Ice, "iceIceHoe");
-        	slimeIceHoe = new InfiToolHoe(PropsHelperInfiTools.iceHoeID+4, 
+        	slimeIceHoe = new InfiToolHoe(PHInfiTools.iceHoeID+4, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Slime, "slimeIceHoe");
-        	cactusIceHoe = new InfiToolHoe(PropsHelperInfiTools.iceHoeID+5, 
+        	cactusIceHoe = new InfiToolHoe(PHInfiTools.iceHoeID+5, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceHoe");
             
             
@@ -408,23 +408,23 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
         {
-        	diamondLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+0, 
+        	diamondLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+0, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Diamond, "diamondLavaHoe");
-        	obsidianLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+1, 
+        	obsidianLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+1, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Obsidian, "obsidianLavaHoe");
-        	netherrackLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+2, 
+        	netherrackLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+2, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Netherrack, "netherrackLavaHoe");
-        	lavaLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+3, 
+        	lavaLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Lava, "lavaLavaHoe");
-        	flintLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+4, 
+        	flintLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+4, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Flint, "flintLavaHoe");
-        	blazeLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+5, 
+        	blazeLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+5, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Blaze, "blazeLavaHoe");
-        	manyullynLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+6, 
+        	manyullynLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+6, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaHoe");
-            uraniumLavaHoe = new InfiToolHoe(PropsHelperInfiTools.lavaHoeID+7, 
+            uraniumLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaHoe");
             
             
@@ -437,19 +437,19 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
         {
-        	woodSlimeHoe = new InfiToolHoe(PropsHelperInfiTools.slimeHoeID+0, 
+        	woodSlimeHoe = new InfiToolHoe(PHInfiTools.slimeHoeID+0, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Wood, "woodSlimeHoe");
-        	sandstoneSlimeHoe = new InfiToolHoe(PropsHelperInfiTools.slimeHoeID+1, 
+        	sandstoneSlimeHoe = new InfiToolHoe(PHInfiTools.slimeHoeID+1, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Sandstone, "sandstoneSlimeHoe");
-        	boneSlimeHoe = new InfiToolHoe(PropsHelperInfiTools.slimeHoeID+2, 
+        	boneSlimeHoe = new InfiToolHoe(PHInfiTools.slimeHoeID+2, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Bone, "boneSlimeHoe");
-        	paperSlimeHoe = new InfiToolHoe(PropsHelperInfiTools.slimeHoeID+3, 
+        	paperSlimeHoe = new InfiToolHoe(PHInfiTools.slimeHoeID+3, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Paper, "paperSlimeHoe");
-        	slimeSlimeHoe = new InfiToolHoe(PropsHelperInfiTools.slimeHoeID+4, 
+        	slimeSlimeHoe = new InfiToolHoe(PHInfiTools.slimeHoeID+4, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Slime, "slimeSlimeHoe");
-        	cactusSlimeHoe = new InfiToolHoe(PropsHelperInfiTools.slimeHoeID+5, 
+        	cactusSlimeHoe = new InfiToolHoe(PHInfiTools.slimeHoeID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeHoe");
             
             
@@ -460,21 +460,21 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
         {
-        	woodCactusHoe = new InfiToolHoe(PropsHelperInfiTools.cactusHoeID+0, 
+        	woodCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+0, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Wood, "woodCactusHoe");
-        	sandstoneCactusHoe = new InfiToolHoe(PropsHelperInfiTools.cactusHoeID+1, 
+        	sandstoneCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+1, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Sandstone, "sandstoneCactusHoe");
-        	boneCactusHoe = new InfiToolHoe(PropsHelperInfiTools.cactusHoeID+2, 
+        	boneCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+2, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Bone, "boneCactusHoe");
-        	netherrackCactusHoe = new InfiToolHoe(PropsHelperInfiTools.cactusHoeID+3, 
+        	netherrackCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+3, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Netherrack, "netherrackCactusHoe");
-        	iceCactusHoe = new InfiToolHoe(PropsHelperInfiTools.cactusHoeID+4, 
+        	iceCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+4, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Ice, "iceCactusHoe");
-        	slimeCactusHoe = new InfiToolHoe(PropsHelperInfiTools.cactusHoeID+5, 
+        	slimeCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+5, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Slime, "slimeCactusHoe");
-        	cactusCactusHoe = new InfiToolHoe(PropsHelperInfiTools.cactusHoeID+6, 
+        	cactusCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusHoe");
             
             
@@ -486,858 +486,858 @@ public class Hoes
             
         }
         
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
         {
-        	woodFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+0, 
+        	woodFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+0, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Wood, "woodFlintHoe");
-        	stoneFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+1, 
+        	stoneFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Stone, "stoneFlintHoe");
-        	sandstoneFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+2, 
+        	sandstoneFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+2, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Sandstone, "sandstoneFlintHoe");
-        	boneFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+3, 
+        	boneFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintHoe");
-        	netherrackFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+4, 
+        	netherrackFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+4, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintHoe");
-        	slimeFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+5, 
+        	slimeFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintHoe");
-        	cactusFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+6, 
+        	cactusFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+6, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Cactus, "cactusFlintHoe");
-        	flintFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+7, 
+        	flintFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+7, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "flintFlintHoe");
-        	copperFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+8, 
+        	copperFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+8, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintHoe");
-        	bronzeFlintHoe = new InfiToolHoe(PropsHelperInfiTools.flintHoeID+9, 
+        	bronzeFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintHoe");
         }
         
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
         {
-        	diamondBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+0, 
+        	diamondBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+0, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Diamond, "diamondBlazeHoe");
-        	obsidianBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+1, 
+        	obsidianBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+1, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Obsidian, "obsidianBlazeHoe");
-        	netherrackBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+2, 
+        	netherrackBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+2, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Netherrack, "netherrackBlazeHoe");
-        	lavaBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+3, 
+        	lavaBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Lava, "lavaBlazeHoe");
-        	flintBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+4, 
+        	flintBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+4, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Flint, "flintBlazeHoe");
-        	blazeBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+5, 
+        	blazeBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+5, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Blaze, "blazeBlazeHoe");
-        	manyullynBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+6, 
+        	manyullynBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+6, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeHoe");
-            uraniumBlazeHoe = new InfiToolHoe(PropsHelperInfiTools.blazeHoeID+7, 
+            uraniumBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeHoe");
         }
     	
-        if(PropsHelperInfiTools.enableCopperTools)
+        if(PHInfiTools.enableCopperTools)
         {
-        	woodCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+0, 
+        	woodCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+0, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Wood, "woodCopperHoe");
-            stoneCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+1, 
+            stoneCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+1, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Stone, "stoneCopperHoe");
-            boneCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+2, 
+            boneCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+2, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Bone, "boneCopperHoe");
-            netherrackCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+3, 
+            netherrackCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+3, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Netherrack, "netherrackCopperHoe");
-            slimeCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+4, 
+            slimeCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+4, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Slime, "slimeCopperHoe");
-            cactusCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+5, 
+            cactusCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+5, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Cactus, "cactusCopperHoe");
-            flintCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+6, 
+            flintCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperHoe");
-            copperCopperHoe = new InfiToolHoe(PropsHelperInfiTools.copperHoeID+7, 
+            copperCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperHoe");
         }
         
-        if(PropsHelperInfiTools.enableBronzeTools)
+        if(PHInfiTools.enableBronzeTools)
         {
-        	woodBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+0, 
+        	woodBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+0, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Wood, "woodBronzeHoe");
-            stoneBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+1, 
+            stoneBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+1, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Stone, "stoneBronzeHoe");
-            boneBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+2, 
+            boneBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+2, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bone, "boneBronzeHoe");
-            netherrackBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+3, 
+            netherrackBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+3, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Netherrack, "netherrackBronzeHoe");
-            slimeBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+4, 
+            slimeBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+4, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Slime, "slimeBronzeHoe");
-            cactusBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+5, 
+            cactusBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+5, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Cactus, "cactusBronzeHoe");
-            flintBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+6, 
+            flintBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+6, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Flint, "flintBronzeHoe");
-            copperBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+7, 
+            copperBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeHoe");
-            bronzeBronzeHoe = new InfiToolHoe(PropsHelperInfiTools.bronzeHoeID+8, 
+            bronzeBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeHoe");
         }
         
-        if(PropsHelperInfiTools.enableWorkedIronTools)
+        if(PHInfiTools.enableWorkedIronTools)
         {
-        	woodWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+0, 
+        	woodWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+0, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Wood, "woodWorkedIronHoe");
-            stoneWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+1, 
+            stoneWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+1, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Stone, "stoneWorkedIronHoe");
-            ironWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+2,
+            ironWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+2,
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Iron, "ironWorkedIronHoe");
-            diamondWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+3, 
+            diamondWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+3, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Diamond, "diamondWorkedIronHoe");
-            redstoneWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+4, 
+            redstoneWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+4, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Redstone, "redstoneWorkedIronHoe");
-            obsidianWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+5, 
+            obsidianWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+5, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Obsidian, "obsidianWorkedIronHoe");
-            boneWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+6, 
+            boneWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+6, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bone, "boneWorkedIronHoe");
-            netherrackWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+7, 
+            netherrackWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+7, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Netherrack, "netherrackWorkedIronHoe");
-            glowstoneWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+8, 
+            glowstoneWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+8, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Glowstone, "glowstoneWorkedIronHoe");
-            iceWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+9, 
+            iceWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+9, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ice, "iceWorkedIronHoe");
-            slimeWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+10, 
+            slimeWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+10, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Slime, "slimeWorkedIronHoe");
-            cactusWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+11, 
+            cactusWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+11, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Cactus, "cactusWorkedIronHoe");
-            blazeWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+12, 
+            blazeWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+12, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Blaze, "blazeWorkedIronHoe");
-            copperWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+13, 
+            copperWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+13, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Copper, "copperWorkedIronHoe");
-            bronzeWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+14, 
+            bronzeWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+14, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "bronzeWorkedIronHoe");
-            workedWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+15, 
+            workedWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+15, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.WorkedIron, "workedWorkedIronHoe");
-            steelWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+16, 
+            steelWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronHoe");
-            uraniumWorkedIronHoe = new InfiToolHoe(PropsHelperInfiTools.workedIronHoeID+17, 
+            uraniumWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronHoe");
         }
         
-        if(PropsHelperInfiTools.enableSteelTools)
+        if(PHInfiTools.enableSteelTools)
         {
-        	woodSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+0, 
+        	woodSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+0, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Wood, "woodSteelHoe");
-            stoneSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+1, 
+            stoneSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+1, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Stone, "stoneSteelHoe");
-            ironSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+2, 
+            ironSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+2, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Iron, "ironSteelHoe");
-            diamondSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+3, 
+            diamondSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+3, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Diamond, "diamondSteelHoe");
-            redstoneSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+4, 
+            redstoneSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+4, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Redstone, "redstoneSteelHoe");
-            obsidianSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+5, 
+            obsidianSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+5, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Obsidian, "obsidianSteelHoe");
-            boneSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+6, 
+            boneSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+6, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bone, "boneSteelHoe");
-            netherrackSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+7, 
+            netherrackSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+7, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Netherrack, "netherrackSteelHoe");
-            glowstoneSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+8, 
+            glowstoneSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+8, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Glowstone, "glowstoneSteelHoe");
-            iceSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+9, 
+            iceSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+9, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ice, "iceSteelHoe");
-            slimeSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+10, 
+            slimeSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+10, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Slime, "slimeSteelHoe");
-            cactusSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+11, 
+            cactusSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+11, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cactus, "cactusSteelHoe");
-            blazeSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+12, 
+            blazeSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+12, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Blaze, "blazeSteelHoe");
-            copperSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+13, 
+            copperSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+13, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Copper, "copperSteelHoe");
-            bronzeSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+14, 
+            bronzeSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+14, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "bronzeSteelHoe");
-            workedSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+15, 
+            workedSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+15, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.WorkedIron, "workedSteelHoe");
-            steelSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+16, 
+            steelSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+16, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Steel, "steelSteelHoe");
-            cobaltSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+17, 
+            cobaltSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+17, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cobalt, "cobaltSteelHoe");
-            arditeSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+18, 
+            arditeSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelHoe");
-            uraniumSteelHoe = new InfiToolHoe(PropsHelperInfiTools.steelHoeID+19, 
+            uraniumSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelHoe");
         }
         
-        if(PropsHelperInfiTools.enableCobaltTools)
+        if(PHInfiTools.enableCobaltTools)
         {
-        	woodCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+0, 
+        	woodCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+0, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Wood, "woodCobaltHoe");
-            stoneCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+1, 
+            stoneCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+1, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Stone, "stoneCobaltHoe");
-            ironCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+2, 
+            ironCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+2, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Iron, "ironCobaltHoe");
-            diamondCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+3,
+            diamondCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+3,
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Diamond, "diamondCobaltHoe");
-            redstoneCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+4, 
+            redstoneCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+4, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Redstone, "redstoneCobaltHoe");
-            obsidianCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+5, 
+            obsidianCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+5, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Obsidian, "obsidianCobaltHoe");
-            boneCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+6, 
+            boneCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+6, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bone, "boneCobaltHoe");
-            slimeCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+7, 
+            slimeCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+7, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Slime, "slimeCobaltHoe");
-            cactusCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+8, 
+            cactusCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+8, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cactus, "cactusCobaltHoe");
-            blazeCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+9, 
+            blazeCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+9, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Blaze, "blazeCobaltHoe");
-            copperCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+10, 
+            copperCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+10, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Copper, "copperCobaltHoe");
-            bronzeCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+11, 
+            bronzeCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+11, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "bronzeCobaltHoe");
-            workedCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+12, 
+            workedCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+12, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.WorkedIron, "workedCobaltHoe");
-            steelCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+13, 
+            steelCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+13, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Steel, "steelCobaltHoe");
-            cobaltCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+14, 
+            cobaltCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+14, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cobalt, "cobaltCobaltHoe");
-            arditeCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+15, 
+            arditeCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltHoe");
-            manyullynCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+16, 
+            manyullynCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltHoe");
-            uraniumCobaltHoe = new InfiToolHoe(PropsHelperInfiTools.cobaltHoeID+17, 
+            uraniumCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHoe");
         }
         
-        if(PropsHelperInfiTools.enableArditeTools)
+        if(PHInfiTools.enableArditeTools)
         {
-        	woodArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+0, 
+        	woodArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+0, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Wood, "woodArditeHoe");
-            stoneArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+1, 
+            stoneArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+1, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Stone, "stoneArditeHoe");
-            ironArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+2, 
+            ironArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+2, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Iron, "ironArditeHoe");
-            diamondArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+3,
+            diamondArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+3,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Diamond, "diamondArditeHoe");
-            redstoneArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+4, 
+            redstoneArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+4, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Redstone, "redstoneArditeHoe");
-            obsidianArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+5, 
+            obsidianArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+5, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Obsidian, "obsidianArditeHoe");
-            boneArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+6,
+            boneArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+6,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bone, "boneArditeHoe");
-            slimeArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+7, 
+            slimeArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+7, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Slime, "slimeArditeHoe");
-            cactusArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+8, 
+            cactusArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+8, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cactus, "cactusArditeHoe");
-            blazeArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+9, 
+            blazeArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+9, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Blaze, "blazeArditeHoe");
-            copperArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+10, 
+            copperArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+10, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Copper, "copperArditeHoe");
-            bronzeArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+11, 
+            bronzeArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+11, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "bronzeArditeHoe");
-            workedArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+12, 
+            workedArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+12, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.WorkedIron, "workedArditeHoe");
-            steelArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+13, 
+            steelArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+13, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Steel, "steelArditeHoe");
-            cobaltArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+14, 
+            cobaltArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+14, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cobalt, "cobaltArditeHoe");
-            arditeArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+15, 
+            arditeArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeHoe");
-            manyullynArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+16, 
+            manyullynArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeHoe");
-            uraniumArditeHoe = new InfiToolHoe(PropsHelperInfiTools.arditeHoeID+17, 
+            uraniumArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHoe");
         }
         
-        if(PropsHelperInfiTools.enableManyullynTools)
+        if(PHInfiTools.enableManyullynTools)
         {
-        	woodManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+0, 
+        	woodManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+0, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynHoe");
-            stoneManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+1, 
+            stoneManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynHoe");
-            ironManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+2, 
+            ironManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+2, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Iron, "ironManyullynHoe");
-            diamondManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+3,
+            diamondManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+3,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Diamond, "diamondManyullynHoe");
-            redstoneManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+4, 
+            redstoneManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+4, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Redstone, "redstoneManyullynHoe");
-            obsidianManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+5, 
+            obsidianManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+5, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Obsidian, "obsidianManyullynHoe");
-            boneManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+6, 
+            boneManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+6, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bone, "boneManyullynHoe");
-            slimeManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+7, 
+            slimeManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+7, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Slime, "slimeManyullynHoe");
-            cactusManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+8, 
+            cactusManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+8, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cactus, "cactusManyullynHoe");
-            blazeManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+9, 
+            blazeManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+9, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Blaze, "blazeManyullynHoe");
-            copperManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+10, 
+            copperManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+10, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Copper, "copperManyullynHoe");
-            bronzeManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+11, 
+            bronzeManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+11, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "bronzeManyullynHoe");
-            workedManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+12, 
+            workedManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+12, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.WorkedIron, "workedManyullynHoe");
-            steelManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+13, 
+            steelManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+13, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Steel, "steelManyullynHoe");
-            cobaltManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+14, 
+            cobaltManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+14, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cobalt, "cobaltManyullynHoe");
-            arditeManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+15, 
+            arditeManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynHoe");
-            manyullynManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+16, 
+            manyullynManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynHoe");
-            uraniumManyullynHoe = new InfiToolHoe(PropsHelperInfiTools.manyullynHoeID+17,
+            uraniumManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHoe");
         }
         
-        if(PropsHelperInfiTools.enableUraniumTools)
+        if(PHInfiTools.enableUraniumTools)
         {
-            diamondUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+0, 
+            diamondUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+0, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Diamond, "diamondUraniumHoe");
-            redstoneUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+1, 
+            redstoneUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+1, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Redstone, "redstoneUraniumHoe");
-            boneUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+2, 
+            boneUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+2, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Bone, "boneUraniumHoe");
-            netherrackUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+3, 
+            netherrackUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+3, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Netherrack, "netherrackUraniumHoe");
-            glowstoneUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+4, 
+            glowstoneUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+4, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Glowstone, "glowstoneUraniumHoe");
-            lavaUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+5, 
+            lavaUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+5, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Lava, "lavaUraniumHoe");
-            blazeUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+6, 
+            blazeUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+6, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Blaze, "blazeUraniumHoe");
-            cobaltUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+7, 
+            cobaltUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+7, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Cobalt, "cobaltUraniumHoe");
-            arditeUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+8, 
+            arditeUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+8, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumHoe");
-            uraniumUraniumHoe = new InfiToolHoe(PropsHelperInfiTools.uraniumHoeID+9, 
+            uraniumUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumHoe");
         }
     }
     
     private static void addNames()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
             ModLoader.addName(woodWoodHoe, "Wooden Hoe");
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
             ModLoader.addName(stoneStoneHoe, "Heavy Hoe");
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
             ModLoader.addName(ironIronHoe, "Ironic Hoe");
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
             ModLoader.addName(diamondDiamondHoe, "Diamondium Hoe");
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
             ModLoader.addName(redstoneRedstoneHoe, "Redredred Hoe");
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
             ModLoader.addName(obsidianObsidianHoe, "Ebony Hoe");
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
             ModLoader.addName(sandstoneSandstoneHoe, "Fragile Hoe");
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
             ModLoader.addName(boneBoneHoe, "Necrotic Hoe");
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
             ModLoader.addName(paperPaperHoe, "Soft Hoe");
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
             ModLoader.addName(mossyMossyHoe, "Living Hoe");
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
             ModLoader.addName(netherrackNetherrackHoe, "Bloodsoaked Hoe");
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
             ModLoader.addName(glowstoneGlowstoneHoe, "Bright Hoe");
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
             ModLoader.addName(iceIceHoe, "Freezing Hoe");
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
             ModLoader.addName(lavaLavaHoe, "Burning Hoe");
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
             ModLoader.addName(slimeSlimeHoe, "Toy Hoe");
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
             ModLoader.addName(cactusCactusHoe, "Thorned Hoe");
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
             ModLoader.addName(flintFlintHoe, "Rough-hewn Hoe");
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
             ModLoader.addName(blazeBlazeHoe, "Netherite Hoe");
-        if(PropsHelperInfiTools.enableCopperTools)
+        if(PHInfiTools.enableCopperTools)
             ModLoader.addName(copperCopperHoe, "Orange-Tang Hoe");
-        if(PropsHelperInfiTools.enableBronzeTools)
+        if(PHInfiTools.enableBronzeTools)
             ModLoader.addName(bronzeBronzeHoe, "Polished Hoe");
-        if(PropsHelperInfiTools.enableWorkedIronTools)
+        if(PHInfiTools.enableWorkedIronTools)
             ModLoader.addName(workedWorkedIronHoe, "Reworked Iron Hoe");
-        if(PropsHelperInfiTools.enableSteelTools)
+        if(PHInfiTools.enableSteelTools)
             ModLoader.addName(steelSteelHoe, "Forge-Wrought Hoe");
-        if(PropsHelperInfiTools.enableCobaltTools)
+        if(PHInfiTools.enableCobaltTools)
             ModLoader.addName(cobaltCobaltHoe, "Beautiful Hoe");
-        if(PropsHelperInfiTools.enableArditeTools)
+        if(PHInfiTools.enableArditeTools)
             ModLoader.addName(arditeArditeHoe, "Rustic Hoe");
-        if(PropsHelperInfiTools.enableManyullynTools)
+        if(PHInfiTools.enableManyullynTools)
             ModLoader.addName(manyullynManyullynHoe, "False-Prophetic Hoe");
-        if(PropsHelperInfiTools.enableUraniumTools)
+        if(PHInfiTools.enableUraniumTools)
             ModLoader.addName(uraniumUraniumHoe, "Cancerous Hoe");
     }
     
     public static void registerInfiToolsRecipes()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
         {
             ModLoader.addRecipe(new ItemStack(woodWoodHoe), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneWoodHoe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodHoe), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneWoodHoe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperWoodHoe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceWoodHoe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeWoodHoe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusWoodHoe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.cactusRod });
         }
     	
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodStoneHoe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStoneHoe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
             ModLoader.addRecipe(new ItemStack(woodStoneHoe), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStoneHoe), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodIronHoe), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(boneIronHoe), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(copperIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodDiamondHoe), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(diamondDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneDiamondHoe), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(lavaDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeDiamondHoe), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(copperDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(steelDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.steelRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.steelRod });
             ModLoader.addRecipe(new ItemStack(cobaltDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cobaltRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cobaltRod });
             ModLoader.addRecipe(new ItemStack(arditeDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.arditeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.arditeRod });
             ModLoader.addRecipe(new ItemStack(manyullynDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(redstoneRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(sandstoneRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(slimeRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(uraniumRedstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodObsidianHoe), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(redstoneObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneObsidianHoe), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusObsidianHoe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSandstoneHoe), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSandstoneHoe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSandstoneHoe), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSandstoneHoe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.boneRod });      
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.boneRod });      
             ModLoader.addRecipe(new ItemStack(netherrackSandstoneHoe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceSandstoneHoe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeSandstoneHoe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSandstoneHoe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintSandstoneHoe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enableBoneTools)
+        if(PHInfiTools.enableBoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodBoneHoe), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(stoneBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneBoneHoe), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(netherrackBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(cactusBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintBoneHoe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
         {
             ModLoader.addRecipe(new ItemStack(woodPaperHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(bonePaperHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(bonePaperHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperPaperHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimePaperHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusPaperHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(diamondMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(boneMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(blazeMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumMossyHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodNetherrackHoe), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneNetherrackHoe), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeNetherrackHoe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusGlowstoneHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
         {
             ModLoader.addRecipe(new ItemStack(woodIceHoe), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneIceHoe), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIceHoe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperIceHoe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceIceHoe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeIceHoe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusIceHoe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumLavaHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSlimeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSlimeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSlimeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSlimeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperSlimeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimeSlimeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSlimeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
         {
             ModLoader.addRecipe(new ItemStack(woodCactusHoe), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneCactusHoe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneCactusHoe), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneCactusHoe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackCactusHoe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceCactusHoe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeCactusHoe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusCactusHoe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodFlintHoe), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneFlintHoe), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(slimeFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintHoe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumBlazeHoe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.uraniumRod });
         }
     }
     
@@ -1346,23 +1346,23 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodStoneHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
     	ModLoader.addRecipe(new ItemStack(stoneStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(sandstoneStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.sandstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.sandstoneRod });
         ModLoader.addRecipe(new ItemStack(boneStoneHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(iceStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintStoneHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
     }
     
     public static void addCopperTools(ItemStack stack)
@@ -1370,21 +1370,21 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodCopperHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCopperHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneCopperHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCopperHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackCopperHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeCopperHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCopperHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintCopperHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperCopperHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
     }
     
     public static void addBronzeTools(ItemStack stack)
@@ -1392,23 +1392,23 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodBronzeHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneBronzeHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeBronzeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
     }
     
     public static void addWorkedIronTools(ItemStack stack)
@@ -1416,41 +1416,41 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodWorkedIronHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeWorkedIronHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(uraniumWorkedIronHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addSteelTools(ItemStack stack)
@@ -1458,45 +1458,45 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodSteelHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneSteelHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeSteelHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumSteelHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addCobaltTools(ItemStack stack)
@@ -1504,41 +1504,41 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodCobaltHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneCobaltHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeCobaltHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumCobaltHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addArditeTools(ItemStack stack)
@@ -1546,41 +1546,41 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodArditeHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneArditeHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeArditeHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumArditeHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addManyullynTools(ItemStack stack)
@@ -1588,67 +1588,67 @@ public class Hoes
     	ModLoader.addRecipe(new ItemStack(woodManyullynHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneManyullynHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeManyullynHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumManyullynHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addUraniumTools(ItemStack stack)
     {
         ModLoader.addRecipe(new ItemStack(diamondUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(boneUraniumHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(lavaUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.lavaRod });
+                { recipe, '#', stack, '|', InfiLibrary.lavaRod });
         ModLoader.addRecipe(new ItemStack(blazeUraniumHoe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(cobaltUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumUraniumHoe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
 	public static Item woodWoodHoe;

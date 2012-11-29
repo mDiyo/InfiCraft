@@ -40,7 +40,7 @@ public class PropsHelperInfi2x2 {
         /* Define the mod's IDs. 
          * Avoid values below 4096 for items and in the 250-600 range for blocks
          */
-        mod_Infi2x2.infitoolsPresent = config.get("general", "Add InfiTool Combinations", true).getBoolean(true);
+        Infi2x2.infitoolsPresent = config.get("general", "Add InfiTool Combinations", true).getBoolean(true);
         
         enableWoodTools = config.get("general", "Enable Wooden Tools", true).getBoolean(true);
         enableStoneTools = config.get("general", "Enable Stone Tools", true).getBoolean(true);

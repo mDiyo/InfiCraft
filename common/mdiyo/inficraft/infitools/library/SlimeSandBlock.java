@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 import net.minecraft.src.*;
 
 public class SlimeSandBlock extends Block

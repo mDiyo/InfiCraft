@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infitools.core;
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
 import mDiyo.inficraft.infitools.core.buckets.*;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -27,47 +27,47 @@ public class Items
 	
 	private static void registerItems()
 	{
-		woodBucketEmpty = new InfiBucketWood(PropsHelperInfiTools.woodBucketID + 0, 0).setIconCoord(0, 0);
-        woodBucketWater = new InfiBucketWood(PropsHelperInfiTools.woodBucketID + 1, Block.waterMoving.blockID).setIconCoord(1, 0);
-        woodBucketMilk = new InfiBucketWoodMilk(PropsHelperInfiTools.woodBucketID + 2).setIconCoord(2, 0);
-        woodBucketSand = new InfiBucketWood(PropsHelperInfiTools.woodBucketID + 3, Block.sand.blockID).setIconCoord(3, 0);
-        woodBucketGravel = new InfiBucketWood(PropsHelperInfiTools.woodBucketID + 4, Block.gravel.blockID).setIconCoord(4, 0);
-        cactusBucketEmpty = new InfiBucketCactus(PropsHelperInfiTools.cactusBucketID + 0, 0).setIconCoord(5, 0);
-        cactusBucketWater = new InfiBucketCactus(PropsHelperInfiTools.cactusBucketID + 1, Block.waterMoving.blockID).setIconCoord(6, 0);
-        cactusBucketMilk = new InfiBucketCactusMilk(PropsHelperInfiTools.cactusBucketID + 2).setIconCoord(7, 0);
-        cactusBucketSand = new InfiBucketCactus(PropsHelperInfiTools.cactusBucketID + 3, Block.sand.blockID).setIconCoord(8, 0);
-        cactusBucketGravel = new InfiBucketCactus(PropsHelperInfiTools.cactusBucketID + 4, Block.gravel.blockID).setIconCoord(9, 0);
-        goldBucketEmpty = new InfiBucketGold(PropsHelperInfiTools.goldBucketID + 0, 0).setIconCoord(10, 0);
-        goldBucketWater = new InfiBucketGold(PropsHelperInfiTools.goldBucketID + 1, Block.waterMoving.blockID).setIconCoord(11, 0);
-        goldBucketMilk = new InfiBucketGoldMilk(PropsHelperInfiTools.goldBucketID + 2).setIconCoord(12, 0);
-        goldBucketSand = new InfiBucketGold(PropsHelperInfiTools.goldBucketID + 3, Block.sand.blockID).setIconCoord(13, 0);
-        goldBucketGravel = new InfiBucketGold(PropsHelperInfiTools.goldBucketID + 4, Block.gravel.blockID).setIconCoord(14, 0);
-        goldBucketLava = new InfiBucketGold(PropsHelperInfiTools.goldBucketID + 5, Block.lavaMoving.blockID).setIconCoord(15, 0);
-        iceBucketEmpty = new InfiBucketIce(PropsHelperInfiTools.iceBucketID + 0, 0).setIconCoord(0, 1);
-        iceBucketIce = new InfiBucketIce(PropsHelperInfiTools.iceBucketID + 1, Block.ice.blockID).setIconCoord(1, 1);
-        iceBucketMilk = new InfiBucketIceMilk(PropsHelperInfiTools.iceBucketID + 2).setIconCoord(2, 1);
-        iceBucketSand = new InfiBucketIce(PropsHelperInfiTools.iceBucketID + 3, Block.sand.blockID).setIconCoord(3, 1);
-        iceBucketGravel = new InfiBucketIce(PropsHelperInfiTools.iceBucketID + 4, Block.gravel.blockID).setIconCoord(4, 1);
-        lavaBucketEmpty = new InfiBucketLava(PropsHelperInfiTools.lavaBucketID + 0, 0).setIconCoord(5, 1);
-        lavaBucketGlass = new InfiBucketLava(PropsHelperInfiTools.lavaBucketID + 1, Block.glass.blockID).setIconCoord(6, 1);
-        lavaBucketCobblestone = new InfiBucketLava(PropsHelperInfiTools.lavaBucketID + 2, Block.cobblestone.blockID).setIconCoord(7, 1);
-        lavaBucketLava = new InfiBucketLava(PropsHelperInfiTools.lavaBucketID + 3, Block.lavaMoving.blockID).setIconCoord(8, 1);
-        slimeBucketEmpty = new InfiBucketSlime(PropsHelperInfiTools.slimeBucketID + 0, 0).setIconCoord(9, 1);
-        slimeBucketWater = new InfiBucketSlime(PropsHelperInfiTools.slimeBucketID + 1, Block.waterMoving.blockID).setIconCoord(10, 1);
-        slimeBucketMilk = new InfiBucketSlimeMilk(PropsHelperInfiTools.slimeBucketID + 2).setIconCoord(11, 1);
-        slimeBucketSand = new InfiBucketSlime(PropsHelperInfiTools.slimeBucketID + 3, Block.sand.blockID).setIconCoord(12, 1);
-        slimeBucketGravel = new InfiBucketSlime(PropsHelperInfiTools.slimeBucketID + 4, Block.gravel.blockID).setIconCoord(13, 1);
-        ironBucketSand = new InfiBucketIron(PropsHelperInfiTools.ironBucketID + 0, Block.sand.blockID).setIconCoord(14, 1);
-        ironBucketGravel = new InfiBucketIron(PropsHelperInfiTools.ironBucketID + 1, Block.gravel.blockID).setIconCoord(15, 1);
-        obsidianBucketEmpty = new InfiBucketObsidian(PropsHelperInfiTools.obsidianBucketID + 0, 0).setIconCoord(0, 2);
-        obsidianBucketWater = new InfiBucketObsidian(PropsHelperInfiTools.obsidianBucketID + 1, Block.waterMoving.blockID).setIconCoord(1, 2);
-        obsidianBucketMilk = new InfiBucketObsidianMilk(PropsHelperInfiTools.obsidianBucketID + 2).setIconCoord(2, 2);
-        obsidianBucketSand = new InfiBucketObsidian(PropsHelperInfiTools.obsidianBucketID + 3, Block.sand.blockID).setIconCoord(3, 2);
-        obsidianBucketGravel = new InfiBucketObsidian(PropsHelperInfiTools.obsidianBucketID + 4, Block.gravel.blockID).setIconCoord(4, 2);
-        obsidianBucketLava = new InfiBucketObsidian(PropsHelperInfiTools.obsidianBucketID + 5, Block.lavaMoving.blockID).setIconCoord(5, 2);
+		woodBucketEmpty = new InfiBucketWood(PHInfiTools.woodBucketID + 0, 0).setIconCoord(0, 0);
+        woodBucketWater = new InfiBucketWood(PHInfiTools.woodBucketID + 1, Block.waterMoving.blockID).setIconCoord(1, 0);
+        woodBucketMilk = new InfiBucketWoodMilk(PHInfiTools.woodBucketID + 2).setIconCoord(2, 0);
+        woodBucketSand = new InfiBucketWood(PHInfiTools.woodBucketID + 3, Block.sand.blockID).setIconCoord(3, 0);
+        woodBucketGravel = new InfiBucketWood(PHInfiTools.woodBucketID + 4, Block.gravel.blockID).setIconCoord(4, 0);
+        cactusBucketEmpty = new InfiBucketCactus(PHInfiTools.cactusBucketID + 0, 0).setIconCoord(5, 0);
+        cactusBucketWater = new InfiBucketCactus(PHInfiTools.cactusBucketID + 1, Block.waterMoving.blockID).setIconCoord(6, 0);
+        cactusBucketMilk = new InfiBucketCactusMilk(PHInfiTools.cactusBucketID + 2).setIconCoord(7, 0);
+        cactusBucketSand = new InfiBucketCactus(PHInfiTools.cactusBucketID + 3, Block.sand.blockID).setIconCoord(8, 0);
+        cactusBucketGravel = new InfiBucketCactus(PHInfiTools.cactusBucketID + 4, Block.gravel.blockID).setIconCoord(9, 0);
+        goldBucketEmpty = new InfiBucketGold(PHInfiTools.goldBucketID + 0, 0).setIconCoord(10, 0);
+        goldBucketWater = new InfiBucketGold(PHInfiTools.goldBucketID + 1, Block.waterMoving.blockID).setIconCoord(11, 0);
+        goldBucketMilk = new InfiBucketGoldMilk(PHInfiTools.goldBucketID + 2).setIconCoord(12, 0);
+        goldBucketSand = new InfiBucketGold(PHInfiTools.goldBucketID + 3, Block.sand.blockID).setIconCoord(13, 0);
+        goldBucketGravel = new InfiBucketGold(PHInfiTools.goldBucketID + 4, Block.gravel.blockID).setIconCoord(14, 0);
+        goldBucketLava = new InfiBucketGold(PHInfiTools.goldBucketID + 5, Block.lavaMoving.blockID).setIconCoord(15, 0);
+        iceBucketEmpty = new InfiBucketIce(PHInfiTools.iceBucketID + 0, 0).setIconCoord(0, 1);
+        iceBucketIce = new InfiBucketIce(PHInfiTools.iceBucketID + 1, Block.ice.blockID).setIconCoord(1, 1);
+        iceBucketMilk = new InfiBucketIceMilk(PHInfiTools.iceBucketID + 2).setIconCoord(2, 1);
+        iceBucketSand = new InfiBucketIce(PHInfiTools.iceBucketID + 3, Block.sand.blockID).setIconCoord(3, 1);
+        iceBucketGravel = new InfiBucketIce(PHInfiTools.iceBucketID + 4, Block.gravel.blockID).setIconCoord(4, 1);
+        lavaBucketEmpty = new InfiBucketLava(PHInfiTools.lavaBucketID + 0, 0).setIconCoord(5, 1);
+        lavaBucketGlass = new InfiBucketLava(PHInfiTools.lavaBucketID + 1, Block.glass.blockID).setIconCoord(6, 1);
+        lavaBucketCobblestone = new InfiBucketLava(PHInfiTools.lavaBucketID + 2, Block.cobblestone.blockID).setIconCoord(7, 1);
+        lavaBucketLava = new InfiBucketLava(PHInfiTools.lavaBucketID + 3, Block.lavaMoving.blockID).setIconCoord(8, 1);
+        slimeBucketEmpty = new InfiBucketSlime(PHInfiTools.slimeBucketID + 0, 0).setIconCoord(9, 1);
+        slimeBucketWater = new InfiBucketSlime(PHInfiTools.slimeBucketID + 1, Block.waterMoving.blockID).setIconCoord(10, 1);
+        slimeBucketMilk = new InfiBucketSlimeMilk(PHInfiTools.slimeBucketID + 2).setIconCoord(11, 1);
+        slimeBucketSand = new InfiBucketSlime(PHInfiTools.slimeBucketID + 3, Block.sand.blockID).setIconCoord(12, 1);
+        slimeBucketGravel = new InfiBucketSlime(PHInfiTools.slimeBucketID + 4, Block.gravel.blockID).setIconCoord(13, 1);
+        ironBucketSand = new InfiBucketIron(PHInfiTools.ironBucketID + 0, Block.sand.blockID).setIconCoord(14, 1);
+        ironBucketGravel = new InfiBucketIron(PHInfiTools.ironBucketID + 1, Block.gravel.blockID).setIconCoord(15, 1);
+        obsidianBucketEmpty = new InfiBucketObsidian(PHInfiTools.obsidianBucketID + 0, 0).setIconCoord(0, 2);
+        obsidianBucketWater = new InfiBucketObsidian(PHInfiTools.obsidianBucketID + 1, Block.waterMoving.blockID).setIconCoord(1, 2);
+        obsidianBucketMilk = new InfiBucketObsidianMilk(PHInfiTools.obsidianBucketID + 2).setIconCoord(2, 2);
+        obsidianBucketSand = new InfiBucketObsidian(PHInfiTools.obsidianBucketID + 3, Block.sand.blockID).setIconCoord(3, 2);
+        obsidianBucketGravel = new InfiBucketObsidian(PHInfiTools.obsidianBucketID + 4, Block.gravel.blockID).setIconCoord(4, 2);
+        obsidianBucketLava = new InfiBucketObsidian(PHInfiTools.obsidianBucketID + 5, Block.lavaMoving.blockID).setIconCoord(5, 2);
         
-        multiBowlEmpty = new EmptyBowl(PropsHelperInfiTools.bowlID, "customBowl").setIconCoord(0, 3);
-        multiBowlSoup = new SoupBowl(PropsHelperInfiTools.soupBowlID, 8, "Mushroom Stew").setIconCoord(0, 4);
+        multiBowlEmpty = new EmptyBowl(PHInfiTools.bowlID, "customBowl").setIconCoord(0, 3);
+        multiBowlSoup = new SoupBowl(PHInfiTools.soupBowlID, 8, "Mushroom Stew").setIconCoord(0, 4);
 	}
 	
 	private static void addNames()
@@ -101,7 +101,7 @@ public class Items
 		ModLoader.addRecipe(new ItemStack(iceBucketEmpty), new Object[] 
                 { bucketrecipe, '#', Block.ice });
 		ModLoader.addRecipe(new ItemStack(lavaBucketEmpty), new Object[] 
-                { bucketrecipe, '#', mod_InfiBase.lavaFragment });
+                { bucketrecipe, '#', InfiLibrary.lavaFragment });
 		ModLoader.addRecipe(new ItemStack(lavaBucketEmpty), new Object[] 
                 { bucketrecipe, '#', Item.bucketLava });
 		ModLoader.addRecipe(new ItemStack(lavaBucketEmpty), new Object[] 
@@ -155,13 +155,13 @@ public class Items
 	
 	private static void addBlazeCrystalRecipes(ItemStack lava, ItemStack water)
 	{
-		ModLoader.addRecipe(new ItemStack(mod_InfiBase.blazeCrystal, 1), new Object[]
+		ModLoader.addRecipe(new ItemStack(InfiLibrary.blazeCrystal, 1), new Object[]
 	            { "pwp", "ncn", "plp", 'p', Item.blazePowder, 'w', water, 
 			'l', lava, 'c', Item.magmaCream, 'n', Block.netherrack });
-		ModLoader.addRecipe(new ItemStack(mod_InfiBase.blazeCrystal, 1), new Object[]
+		ModLoader.addRecipe(new ItemStack(InfiLibrary.blazeCrystal, 1), new Object[]
 	            { "plp", "ncn", "pwp", 'p', Item.blazePowder, 'w', water, 
 			'l', lava, 'c', Item.magmaCream, 'n', Block.netherrack });
-		ModLoader.addRecipe(new ItemStack(mod_InfiBase.blazeCrystal, 1), new Object[]
+		ModLoader.addRecipe(new ItemStack(InfiLibrary.blazeCrystal, 1), new Object[]
 	            { "pnp", "lcw", "pnp", 'p', Item.blazePowder, 'w', water, 
 			'l', lava, 'c', Item.magmaCream, 'n', Block.netherrack });
 	}

@@ -2,7 +2,7 @@ package mDiyo.inficraft.infitools.twoxtwo;
 import java.util.Map;
 import java.util.Random;
 
-import mDiyo.inficraft.infitools.hybrids.mod_InfiHybrids;
+import mDiyo.inficraft.infitools.hybrids.InfiHybrids;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityList;
 import net.minecraft.src.EntityPlayer;
@@ -19,17 +19,17 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.1 for 1.3.2")
+@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.4.5_2012.11.29")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true, channels = {"infi2x2"})
-public class mod_Infi2x2
+public class Infi2x2
 {
 	public static Random rand = new Random();
 	public static boolean infitoolsPresent;
 	@Instance("Infi2x2")
-	public static mod_Infi2x2 instance;
+	public static Infi2x2 instance;
 	
-	@SidedProxy(clientSide = "mDiyo.inficraft.infitools.twoxtwo.ClientProxy2x2", serverSide = "mDiyo.inficraft.infitools.twoxtwo.CommonProxy2x2")
-	public static CommonProxy2x2 proxy;
+	@SidedProxy(clientSide = "mDiyo.inficraft.infitools.twoxtwo.InfiProxy2x2Client", serverSide = "mDiyo.inficraft.infitools.twoxtwo.InfiProxy2x2Common")
+	public static InfiProxy2x2Common proxy;
 	
 	@Init
 	public void load(FMLInitializationEvent event) 

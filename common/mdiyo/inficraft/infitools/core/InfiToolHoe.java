@@ -1,7 +1,7 @@
 package mDiyo.inficraft.infitools.core;
 
-import mDiyo.inficraft.infitools.base.InfiHoeCore;
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
+import mDiyo.inficraft.infitools.library.InfiHoeCore;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;

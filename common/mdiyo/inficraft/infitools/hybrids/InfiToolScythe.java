@@ -2,8 +2,8 @@ package mDiyo.inficraft.infitools.hybrids;
 
 import java.util.List;
 
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.InfiWeaponCore;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
+import mDiyo.inficraft.infitools.library.InfiWeaponCore;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockFlower;

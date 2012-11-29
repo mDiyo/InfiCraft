@@ -4,6 +4,7 @@ import java.io.File;
 
 import mDiyo.inficraft.infiblocks.tech.FurnaceLogic;
 import mDiyo.inficraft.infiblocks.tech.WorkbenchContainer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;

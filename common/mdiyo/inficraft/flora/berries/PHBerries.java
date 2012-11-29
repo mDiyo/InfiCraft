@@ -43,7 +43,7 @@ public class PHBerries
          */
         
         berryBlockID = config.getBlock("Berry_Bush", 3257).getInt(3257);
-        berryItemID = config.getItem("Berry_Food", "item", 12402).getInt(12402);
+        berryItemID = config.getItem("Berry_Food", 12402).getInt(12402);
         
         raspSpawnDensity = config.get("general", "Raspberry_Spawn_Density", 14).getInt(14);
         raspSpawnHeight = config.get("general", "Raspberry_Spawn_Height", 64).getInt(64);

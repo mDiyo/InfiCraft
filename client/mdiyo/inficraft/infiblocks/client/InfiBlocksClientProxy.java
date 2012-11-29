@@ -1,11 +1,14 @@
 package mDiyo.inficraft.infiblocks.client;
 
+import java.io.File;
+
 import mDiyo.inficraft.infiblocks.InfiBlockContent;
 import mDiyo.inficraft.infiblocks.InfiBlocks;
 import mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
 import mDiyo.inficraft.infiblocks.client.tech.FurnaceGui;
 import mDiyo.inficraft.infiblocks.client.tech.WorkbenchGui;
 import mDiyo.inficraft.infiblocks.tech.FurnaceLogic;
+import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -339,5 +342,11 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
         LanguageRegistry.instance().addStringLocalization("jeweledChestInfi.name", "Jeweled Chest");
         LanguageRegistry.instance().addStringLocalization("slimeChestInfi.name", "Slime Chest");
         LanguageRegistry.instance().addStringLocalization("endstoneChestInfi.name", "Endstone Chest");
+	}
+	
+	@Override
+	public File getMinecraftDir()
+	{
+		return Minecraft.getMinecraftDir();
 	}
 }

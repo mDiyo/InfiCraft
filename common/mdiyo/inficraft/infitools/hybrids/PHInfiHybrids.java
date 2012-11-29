@@ -5,7 +5,7 @@ import java.io.IOException;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.Configuration;
 
-public class PropsHelperInfiHybrids {
+public class PHInfiHybrids {
 
     public static void initProps()
     {
@@ -15,9 +15,9 @@ public class PropsHelperInfiHybrids {
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
 
-        File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
+        File file = new File(InfiHybrids.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/Hybrids.txt");
+        File newFile = new File(InfiHybrids.proxy.getMinecraftDir() + "/config/InfiCraft/Hybrids.txt");
 
         /* Some basic debugging will go a long way */
         try
@@ -40,7 +40,7 @@ public class PropsHelperInfiHybrids {
         /* Define the mod's IDs. 
          * Avoid values below 4096 for items and in the 250-600 range for blocks
          */
-        mod_InfiHybrids.infitoolsPresent = config.get("general", "Add InfiTool Combinations", true).getBoolean(true);
+        InfiHybrids.infitoolsPresent = config.get("general", "Add InfiTool Combinations", true).getBoolean(true);
         
         enableWoodTools = config.get("general", "Enable Wooden Tools", true).getBoolean(true);
         enableStoneTools = config.get("general", "Enable Stone Tools", true).getBoolean(true);

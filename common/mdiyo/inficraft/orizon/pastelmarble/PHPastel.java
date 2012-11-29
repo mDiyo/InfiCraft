@@ -8,7 +8,6 @@ import net.minecraftforge.common.Configuration;
 
 public class PHPastel 
 {
-
 	public static void initProps()
     {
         /* Here we will set up the config file for the mod 
@@ -17,9 +16,9 @@ public class PHPastel
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
 		
-		File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
+		File file = new File(PastelMarble.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/OrizonPastels.txt");
+        File newFile = new File(PastelMarble.proxy.getMinecraftDir() + "/config/InfiCraft/OrizonPastels.txt");
         
         /* Some basic debugging will go a long way */
         try

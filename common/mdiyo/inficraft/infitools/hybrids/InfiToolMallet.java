@@ -1,9 +1,9 @@
 package mDiyo.inficraft.infitools.hybrids;
 import java.util.List;
 
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.InfiToolCore;
-import mDiyo.inficraft.infitools.base.InfiToolPowers;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
+import mDiyo.inficraft.infitools.library.InfiToolCore;
+import mDiyo.inficraft.infitools.library.InfiToolPowers;
 import mDiyo.shared.detailing.CrackManager;
 import net.minecraft.src.Block;
 import net.minecraft.src.DamageSource;

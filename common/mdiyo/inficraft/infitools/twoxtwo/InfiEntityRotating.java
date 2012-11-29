@@ -312,8 +312,8 @@ public class InfiEntityRotating extends Entity
             {
                 return;
             }
-            mod_Infi2x2.addToInv(entityplayer, returnStack, true);
-            worldObj.playSoundAtEntity(this, "random.pop", 0.2F, ((mod_Infi2x2.rand.nextFloat() - mod_Infi2x2.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+            Infi2x2.addToInv(entityplayer, returnStack, true);
+            worldObj.playSoundAtEntity(this, "random.pop", 0.2F, ((Infi2x2.rand.nextFloat() - Infi2x2.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.onItemPickup(this, 1);
             kill();
         }

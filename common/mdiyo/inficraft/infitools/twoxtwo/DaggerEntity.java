@@ -1,5 +1,5 @@
 package mDiyo.inficraft.infitools.twoxtwo;
-import mDiyo.inficraft.infitools.base.InfiWeaponCore;
+import mDiyo.inficraft.infitools.library.InfiWeaponCore;
 import net.minecraft.src.AchievementList;
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.EnchantmentHelper;

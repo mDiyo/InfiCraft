@@ -1,7 +1,8 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 
 import java.util.Random;
 
+import mDiyo.inficraft.infitools.core.InfiCoreProxyCommon;
 import mDiyo.shared.items.InfiTexturedItem;
 import net.minecraft.src.Block;
 import net.minecraft.src.Enchantment;
@@ -19,6 +20,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
@@ -35,15 +37,19 @@ import cpw.mods.fml.common.registry.GameRegistry;
      * Poison enchants have a chance to wear off when hitting mobs
      */
 
-@Mod(modid = "InfiBase", name = "InfiBase", version = "1.1 for 1.3.2")
-public class mod_InfiBase
+@Mod(modid = "InfiLibrary", name = "InfiLibrary", version = "1.4.5_2012.11.29")
+public class InfiLibrary
 {
 	Random rand = new Random();
-	InfiEnchantPoison poison = new InfiEnchantPoison(41, 2);
+	//InfiEnchantPoison poison = new InfiEnchantPoison(41, 2);
 	InfiEnchantFreezing freeze = new InfiEnchantFreezing(42, 2);
 	
-	@Instance("InfiBase")
-	public static mod_InfiBase instance;
+	@Instance("InfiLibrary")
+	public static InfiLibrary instance;
+	
+	/* Proxies for sides, used for graphics processing */
+	@SidedProxy(clientSide = "mDiyo.inficraft.infitools.library.InfiLibraryProxyClient", serverSide = "mDiyo.inficraft.infitools.library.InfiLibraryProxyCommon")
+	public static InfiLibraryProxyCommon proxy;
 	
 	@Init
 	public void load(FMLInitializationEvent event)
@@ -621,143 +627,143 @@ public class mod_InfiBase
     @PreInit
     public void preInit(FMLPreInitializationEvent event)
     { //Icons not set yet
-    	PropsHelperInfiBase.initProps();
+    	PHInfiLibrary.initProps();
     	
-    	blockMoss = new MossBlock(PropsHelperInfiBase.mossBlockID, 0);
-    	slimeSand = new SlimeSandBlock(PropsHelperInfiBase.slimeSandID, 240);
-    	treeRoot = new InfiTexturedItem(PropsHelperInfiBase.treeRootID,
+    	blockMoss = new MossBlock(PHInfiLibrary.mossBlockID, 0);
+    	slimeSand = new SlimeSandBlock(PHInfiLibrary.slimeSandID, 240);
+    	treeRoot = new InfiTexturedItem(PHInfiLibrary.treeRootID,
     			"/infibase/items.png", "Tree Root").setIconCoord(3, 4);
     	
-    	grindstone = new Grindstone(PropsHelperInfiBase.grindstoneID,
+    	grindstone = new Grindstone(PHInfiLibrary.grindstoneID,
     			"/infibase/items.png", "Grindstone").setIconCoord(0, 9);
     	
-        paperStack = new InfiTexturedItem(PropsHelperInfiBase.paperStackID, 
+        paperStack = new InfiTexturedItem(PHInfiLibrary.paperStackID, 
         		"/infibase/items.png", "Stack of Paper").setIconCoord(0, 4);
-        paperDust = new InfiTexturedItem(PropsHelperInfiBase.paperDustID, 
+        paperDust = new InfiTexturedItem(PHInfiLibrary.paperDustID, 
         		"/infibase/items.png", "Dust-filled Paper").setIconCoord(1, 4);
         
-        mossBall = new InfiTexturedItem(PropsHelperInfiBase.mossBallID, 
+        mossBall = new InfiTexturedItem(PHInfiLibrary.mossBallID, 
         		"/infibase/items.png", "Ball of Moss").setIconCoord(2, 4);
-        mossyPatch = new MossPatchItem(PropsHelperInfiBase.mossyPatchID).setIconCoord(9, 6);
-        mossyStone = new InfiTexturedItem(PropsHelperInfiBase.mossyStoneID, 
+        mossyPatch = new MossPatchItem(PHInfiLibrary.mossyPatchID).setIconCoord(9, 6);
+        mossyStone = new InfiTexturedItem(PHInfiLibrary.mossyStoneID, 
         		"/infibase/items.png", "Moss-infused Stone").setIconCoord(5, 3);
         
-        redstoneCrystal = new InfiTexturedItem(PropsHelperInfiBase.redstoneCrystalID, 
+        redstoneCrystal = new InfiTexturedItem(PHInfiLibrary.redstoneCrystalID, 
         		"/infibase/items.png", "Redstone Crystal").setIconCoord(0, 3);
-        glowstoneCrystal = new InfiTexturedItem(PropsHelperInfiBase.glowstoneCrystalID, 
+        glowstoneCrystal = new InfiTexturedItem(PHInfiLibrary.glowstoneCrystalID, 
         		"/infibase/items.png", "Glowstone Crystal").setIconCoord(1, 3);
-        obsidianCrystal = new InfiTexturedItem(PropsHelperInfiBase.obsidianCrystalID, 
+        obsidianCrystal = new InfiTexturedItem(PHInfiLibrary.obsidianCrystalID, 
         		"/infibase/items.png", "Ebony Obelisk").setIconCoord(4, 3);
-        lavaCrystal = new InfiTexturedItem(PropsHelperInfiBase.lavaCrystalID, 
+        lavaCrystal = new InfiTexturedItem(PHInfiLibrary.lavaCrystalID, 
         		"/infibase/items.png", "Lava Crystal").setIconCoord(2, 3);
-        slimeCrystal = new InfiTexturedItem(PropsHelperInfiBase.slimeCrystalID, 
+        slimeCrystal = new InfiTexturedItem(PHInfiLibrary.slimeCrystalID, 
         		"/infibase/items.png", "Slime Crystal").setIconCoord(3, 3);
-        blazeCrystal = new InfiTexturedItem(PropsHelperInfiBase.blazeCrystalID, 
+        blazeCrystal = new InfiTexturedItem(PHInfiLibrary.blazeCrystalID, 
         		"/infibase/items.png", "Frozen Blaze Essence").setIconCoord(6, 3);
         
-        woodSplinters = new InfiTexturedItem(PropsHelperInfiBase.woodSplintersID, 
+        woodSplinters = new InfiTexturedItem(PHInfiLibrary.woodSplintersID, 
         		"/infibase/items.png", "Wood Splinters").setIconCoord(0, 6);
-        stoneShard = new InfiTexturedItem(PropsHelperInfiBase.stoneShardID, 
+        stoneShard = new InfiTexturedItem(PHInfiLibrary.stoneShardID, 
         		"/infibase/items.png", "Stone Shard").setIconCoord(1, 6);
-        ironChunk = new InfiTexturedItem(PropsHelperInfiBase.ironChunkID, 
+        ironChunk = new InfiTexturedItem(PHInfiLibrary.ironChunkID, 
         		"/infibase/items.png", "Chunk of Iron").setIconCoord(2, 6);
-        diamondShard = new InfiTexturedItem(PropsHelperInfiBase.diamondShardID, 
+        diamondShard = new InfiTexturedItem(PHInfiLibrary.diamondShardID, 
         		"/infibase/items.png", "Sliver of Diamond").setIconCoord(3, 6);
 
-        redstoneFragment = new InfiTexturedItem(PropsHelperInfiBase.redstoneFragmentID, 
+        redstoneFragment = new InfiTexturedItem(PHInfiLibrary.redstoneFragmentID, 
         		"/infibase/items.png", "Redstone Crystal Fragment").setIconCoord(4, 6);
-        obsidianShard = new InfiTexturedItem(PropsHelperInfiBase.obsidianShardID, 
+        obsidianShard = new InfiTexturedItem(PHInfiLibrary.obsidianShardID, 
         		"/infibase/items.png", "Obsidian Shard").setIconCoord(5, 6);
-        sandstoneShard = new InfiTexturedItem(PropsHelperInfiBase.sandstoneShardID, 
+        sandstoneShard = new InfiTexturedItem(PHInfiLibrary.sandstoneShardID, 
         		"/infibase/items.png", "Sandstone Shard").setIconCoord(6, 6);
-        netherrackShard = new InfiTexturedItem(PropsHelperInfiBase.netherrackShardID, 
+        netherrackShard = new InfiTexturedItem(PHInfiLibrary.netherrackShardID, 
         		"/infibase/items.png", "Netherrack Shard").setIconCoord(10, 6);
-        glowstoneFragment = new InfiTexturedItem(PropsHelperInfiBase.glowstoneFragmentID, 
+        glowstoneFragment = new InfiTexturedItem(PHInfiLibrary.glowstoneFragmentID, 
         		"/infibase/items.png", "Glowstone Crystal Fragment").setIconCoord(11, 6);
-        iceShard = new InfiTexturedItem(PropsHelperInfiBase.iceShardID, 
+        iceShard = new InfiTexturedItem(PHInfiLibrary.iceShardID, 
         		"/infibase/items.png", "Shard of Ice").setIconCoord(12, 6);
-        lavaFragment = new InfiTexturedItem(PropsHelperInfiBase.lavaFragmentID, 
+        lavaFragment = new InfiTexturedItem(PHInfiLibrary.lavaFragmentID, 
         		"/infibase/items.png", "Lava Crystal Fragment").setIconCoord(13, 6);
-        slimeFragment = new InfiTexturedItem(PropsHelperInfiBase.slimeFragmentID, 
+        slimeFragment = new InfiTexturedItem(PHInfiLibrary.slimeFragmentID, 
         		"/infibase/items.png", "Slime Crystal Fragment").setIconCoord(14, 6);
-        cactusShard = new InfiTexturedItem(PropsHelperInfiBase.cactusShardID, 
+        cactusShard = new InfiTexturedItem(PHInfiLibrary.cactusShardID, 
         		"/infibase/items.png", "Cactus Spine").setIconCoord(15, 6);
-        flintShard = new InfiTexturedItem(PropsHelperInfiBase.flintShardID, 
+        flintShard = new InfiTexturedItem(PHInfiLibrary.flintShardID, 
         		"/infibase/items.png", "Piece of Flint").setIconCoord(0, 7);
-        blazeFragment = new InfiTexturedItem(PropsHelperInfiBase.blazeFragmentID,
+        blazeFragment = new InfiTexturedItem(PHInfiLibrary.blazeFragmentID,
         		"/infibase/items.png", "Fragmented Blaze Essence").setIconCoord(1, 7);
         
-        copperChunk = new InfiTexturedItem(PropsHelperInfiBase.copperChunkID,
+        copperChunk = new InfiTexturedItem(PHInfiLibrary.copperChunkID,
         		"/infibase/items.png", "Copper Chunk").setIconCoord(2, 7);
-        bronzeChunk = new InfiTexturedItem(PropsHelperInfiBase.bronzeChunkID,
+        bronzeChunk = new InfiTexturedItem(PHInfiLibrary.bronzeChunkID,
         		"/infibase/items.png", "Bronze Chunk").setIconCoord(3, 7);
-        workedIronChunk = new InfiTexturedItem(PropsHelperInfiBase.workedIronChunkID,
+        workedIronChunk = new InfiTexturedItem(PHInfiLibrary.workedIronChunkID,
         		"/infibase/items.png", "Worked Iron Chunk").setIconCoord(4, 7);
-        steelChunk = new InfiTexturedItem(PropsHelperInfiBase.steelChunkID,
+        steelChunk = new InfiTexturedItem(PHInfiLibrary.steelChunkID,
         		"/infibase/items.png", "Steel Chunk").setIconCoord(5, 7);
-        cobaltChunk = new InfiTexturedItem(PropsHelperInfiBase.cobaltChunkID,
+        cobaltChunk = new InfiTexturedItem(PHInfiLibrary.cobaltChunkID,
         		"/infibase/items.png", "Cobalt Chunk").setIconCoord(6, 7);
-        arditeChunk = new InfiTexturedItem(PropsHelperInfiBase.arditeChunkID,
+        arditeChunk = new InfiTexturedItem(PHInfiLibrary.arditeChunkID,
         		"/infibase/items.png", "Ardite Chunk").setIconCoord(7, 7);
-        manyullynChunk = new InfiTexturedItem(PropsHelperInfiBase.manyullynChunkID,
+        manyullynChunk = new InfiTexturedItem(PHInfiLibrary.manyullynChunkID,
         		"/infibase/items.png", "Manyullyn Chunk").setIconCoord(8, 7);
-        uraniumChunk = new InfiTexturedItem(PropsHelperInfiBase.uraniumChunkID,
+        uraniumChunk = new InfiTexturedItem(PHInfiLibrary.uraniumChunkID,
         		"/infibase/items.png", "Uranium Chunk").setIconCoord(9, 7);
         
-        glassShard = new InfiTexturedItem(PropsHelperInfiBase.glassShardID, 
+        glassShard = new InfiTexturedItem(PHInfiLibrary.glassShardID, 
         		"/infibase/items.png", "Shard of Glass").setIconCoord(0, 8);
-        coalBit = new InfiTexturedItem(PropsHelperInfiBase.coalBitID, 
+        coalBit = new InfiTexturedItem(PHInfiLibrary.coalBitID, 
         		"/infibase/items.png", "Tiny Piece of Coal").setIconCoord(1, 8);
     	
-        stoneRod = new InfiTexturedItem(PropsHelperInfiBase.stoneRodID, 
+        stoneRod = new InfiTexturedItem(PHInfiLibrary.stoneRodID, 
         		"/infibase/items.png", "Stone Rod").setIconCoord(1, 0);
-        ironRod = new InfiTexturedItem(PropsHelperInfiBase.ironRodID, 
+        ironRod = new InfiTexturedItem(PHInfiLibrary.ironRodID, 
         		"/infibase/items.png", "Iron Rod").setIconCoord(2, 0);
-        diamondRod = new InfiTexturedItem(PropsHelperInfiBase.diamondRodID, 
+        diamondRod = new InfiTexturedItem(PHInfiLibrary.diamondRodID, 
         		"/infibase/items.png", "Diamond Rod").setIconCoord(3, 0);
 
-        redstoneRod = new InfiTexturedItem(PropsHelperInfiBase.redstoneRodID, 
+        redstoneRod = new InfiTexturedItem(PHInfiLibrary.redstoneRodID, 
         		"/infibase/items.png", "Redstone Rod").setIconCoord(4, 0);
-        obsidianRod = new InfiTexturedItem(PropsHelperInfiBase.obsidianRodID, 
+        obsidianRod = new InfiTexturedItem(PHInfiLibrary.obsidianRodID, 
         		"/infibase/items.png", "Obsidian Rod").setIconCoord(5, 0);
-        sandstoneRod = new InfiTexturedItem(PropsHelperInfiBase.sandstoneRodID, 
+        sandstoneRod = new InfiTexturedItem(PHInfiLibrary.sandstoneRodID, 
         		"/infibase/items.png", "Sandstone Rod").setIconCoord(6, 0);
-        boneRod = new InfiTexturedItem(PropsHelperInfiBase.boneRodID, 
+        boneRod = new InfiTexturedItem(PHInfiLibrary.boneRodID, 
         		"/infibase/items.png", "Bone Rod").setIconCoord(7, 0);
-        paperRod = new InfiTexturedItem(PropsHelperInfiBase.paperRodID, 
+        paperRod = new InfiTexturedItem(PHInfiLibrary.paperRodID, 
         		"/infibase/items.png", "Paper Rod").setIconCoord(8, 0);
-        mossyRod = new InfiTexturedItem(PropsHelperInfiBase.mossyRodID, 
+        mossyRod = new InfiTexturedItem(PHInfiLibrary.mossyRodID, 
         		"/infibase/items.png", "Mossy Rod").setIconCoord(9, 0);
-        netherrackRod = new InfiTexturedItem(PropsHelperInfiBase.netherrackRodID, 
+        netherrackRod = new InfiTexturedItem(PHInfiLibrary.netherrackRodID, 
         		"/infibase/items.png", "Netherrack Rod").setIconCoord(10, 0);
-        glowstoneRod = new InfiTexturedItem(PropsHelperInfiBase.glowstoneRodID, 
+        glowstoneRod = new InfiTexturedItem(PHInfiLibrary.glowstoneRodID, 
         		"/infibase/items.png", "Glowstone Rod").setIconCoord(11, 0);
-        iceRod = new InfiTexturedItem(PropsHelperInfiBase.iceRodID, 
+        iceRod = new InfiTexturedItem(PHInfiLibrary.iceRodID, 
         		"/infibase/items.png", "Ice Rod").setIconCoord(12, 0);
-        lavaRod = new InfiTexturedItem(PropsHelperInfiBase.lavaRodID, 
+        lavaRod = new InfiTexturedItem(PHInfiLibrary.lavaRodID, 
         		"/infibase/items.png", "Lava Rod").setIconCoord(13, 0);
-        slimeRod = new InfiTexturedItem(PropsHelperInfiBase.slimeRodID, 
+        slimeRod = new InfiTexturedItem(PHInfiLibrary.slimeRodID, 
         		"/infibase/items.png", "Slime Rod").setIconCoord(14, 0);
-        cactusRod = new InfiTexturedItem(PropsHelperInfiBase.cactusRodID, 
+        cactusRod = new InfiTexturedItem(PHInfiLibrary.cactusRodID, 
         		"/infibase/items.png", "Cactus Rod").setIconCoord(15, 0);
-        flintRod = new InfiTexturedItem(PropsHelperInfiBase.flintRodID, 
+        flintRod = new InfiTexturedItem(PHInfiLibrary.flintRodID, 
         		"/infibase/items.png", "Flint Rod").setIconCoord(0, 1);
         
-        copperRod = new InfiTexturedItem(PropsHelperInfiBase.copperRodID, 
+        copperRod = new InfiTexturedItem(PHInfiLibrary.copperRodID, 
         		"/infibase/items.png", "Copper Rod").setIconCoord(2, 1);
-		bronzeRod = new InfiTexturedItem(PropsHelperInfiBase.bronzeRodID, 
+		bronzeRod = new InfiTexturedItem(PHInfiLibrary.bronzeRodID, 
 				"/infibase/items.png", "Bronze Rod").setIconCoord(3, 1);
-		workedIronRod = new InfiTexturedItem(PropsHelperInfiBase.workedIronRodID, 
+		workedIronRod = new InfiTexturedItem(PHInfiLibrary.workedIronRodID, 
 				"/infibase/items.png", "Worked Iron Rod").setIconCoord(4, 1);
-		steelRod = new InfiTexturedItem(PropsHelperInfiBase.steelRodID, 
+		steelRod = new InfiTexturedItem(PHInfiLibrary.steelRodID, 
 				"/infibase/items.png", "Steel Rod").setIconCoord(5, 1);
-		cobaltRod = new InfiTexturedItem(PropsHelperInfiBase.cobaltRodID, 
+		cobaltRod = new InfiTexturedItem(PHInfiLibrary.cobaltRodID, 
 				"/infibase/items.png", "Cobalt Rod").setIconCoord(6, 1);
-		arditeRod = new InfiTexturedItem(PropsHelperInfiBase.arditeRodID, 
+		arditeRod = new InfiTexturedItem(PHInfiLibrary.arditeRodID, 
 				"/infibase/items.png", "Ardite Rod").setIconCoord(7, 1);
-		manyullynRod = new InfiTexturedItem(PropsHelperInfiBase.manyullynRodID, 
+		manyullynRod = new InfiTexturedItem(PHInfiLibrary.manyullynRodID, 
 				"/infibase/items.png", "Manyullyn Rod").setIconCoord(8, 1);
-		uraniumRod = new InfiTexturedItem(PropsHelperInfiBase.uraniumRodID, 
+		uraniumRod = new InfiTexturedItem(PHInfiLibrary.uraniumRodID, 
 				"/infibase/items.png", "Uranium Rod").setIconCoord(9, 1);
     }
 }

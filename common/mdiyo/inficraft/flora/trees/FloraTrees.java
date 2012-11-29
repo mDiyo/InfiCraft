@@ -25,7 +25,7 @@ import net.minecraft.src.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "Anachrosim")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.11.29")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */

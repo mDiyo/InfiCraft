@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infitools.core;
 
-import mDiyo.inficraft.infitools.base.InfiToolPowers;
+import mDiyo.inficraft.infitools.library.InfiToolPowers;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemFood;

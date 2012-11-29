@@ -1,8 +1,8 @@
 package mDiyo.inficraft.infitools.core.buckets;
 
-import mDiyo.inficraft.infitools.base.InfiToolPowers;
 import mDiyo.inficraft.infitools.core.EmptyBowl;
 import mDiyo.inficraft.infitools.core.Items;
+import mDiyo.inficraft.infitools.library.InfiToolPowers;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.event.ForgeSubscribe;

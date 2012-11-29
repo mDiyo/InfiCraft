@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 
 import java.util.Arrays;
 import java.util.List;
@@ -159,11 +159,11 @@ public abstract class InfiToolCore extends ItemTool
     {
         switch (materialType)
         {
-            case 1: InfiToolPowers.splintering(x, y, z, mod_InfiBase.woodSplinters, world); break;
-            case 2: InfiToolPowers.splintering(x, y, z, mod_InfiBase.stoneShard, world); break;
-            case 6: InfiToolPowers.splintering(x, y, z, mod_InfiBase.obsidianShard, world); break;
-            case 7: InfiToolPowers.splintering(x, y, z, mod_InfiBase.sandstoneShard, world); break;
-            case 11: InfiToolPowers.splintering(x, y, z, mod_InfiBase.netherrackShard, world); break;
+            case 1: InfiToolPowers.splintering(x, y, z, InfiLibrary.woodSplinters, world); break;
+            case 2: InfiToolPowers.splintering(x, y, z, InfiLibrary.stoneShard, world); break;
+            case 6: InfiToolPowers.splintering(x, y, z, InfiLibrary.obsidianShard, world); break;
+            case 7: InfiToolPowers.splintering(x, y, z, InfiLibrary.sandstoneShard, world); break;
+            case 11: InfiToolPowers.splintering(x, y, z, InfiLibrary.netherrackShard, world); break;
             case 12: InfiToolPowers.splintering(x, y, z, Item.lightStoneDust, world); break;
             case 13: InfiToolPowers.freezing(x, y, z, blockID, metadata, world, entityliving); break;
             case 14: InfiToolPowers.burning(x, y, z, blockID, metadata, world, entityliving); break;
@@ -176,11 +176,11 @@ public abstract class InfiToolCore extends ItemTool
     {
         switch (materialType)
         {
-            case 1: InfiToolPowers.splinterAttack(player, mod_InfiBase.woodSplinters, world); break;
-            case 2: InfiToolPowers.splinterAttack(player, mod_InfiBase.stoneShard, world); break;
-            case 6: InfiToolPowers.splinterAttack(player, mod_InfiBase.obsidianShard, world); break;
-            case 7: InfiToolPowers.splinterAttack(player, mod_InfiBase.sandstoneShard, world); break;
-            case 11: InfiToolPowers.splinterAttack(player, mod_InfiBase.netherrackShard, world); break;
+            case 1: InfiToolPowers.splinterAttack(player, InfiLibrary.woodSplinters, world); break;
+            case 2: InfiToolPowers.splinterAttack(player, InfiLibrary.stoneShard, world); break;
+            case 6: InfiToolPowers.splinterAttack(player, InfiLibrary.obsidianShard, world); break;
+            case 7: InfiToolPowers.splinterAttack(player, InfiLibrary.sandstoneShard, world); break;
+            case 11: InfiToolPowers.splinterAttack(player, InfiLibrary.netherrackShard, world); break;
             case 12: InfiToolPowers.splinterAttack(player, Item.lightStoneDust, world); break;
             //case 13: mob.freeze(35); break;
             case 14: mob.setFire(40); break;

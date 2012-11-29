@@ -1,7 +1,7 @@
 package mDiyo.inficraft.infitools.twoxtwo;
 
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.InfiToolCore;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
+import mDiyo.inficraft.infitools.library.InfiToolCore;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;

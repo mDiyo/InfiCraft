@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
@@ -14,7 +14,7 @@ public class InfiFuelHandler  implements IFuelHandler
         {
             return 100;
         }
-        if(fuel.itemID == mod_InfiBase.coalBit.shiftedIndex)
+        if(fuel.itemID == InfiLibrary.coalBit.shiftedIndex)
         {
         	return 600;
         }

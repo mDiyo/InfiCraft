@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infitools.core;
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -27,21 +27,21 @@ public class Shovels
     
     private static void createTools()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
     	{
     		woodWoodShovel = new InfiToolShovel(13, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodShovel");
-    		sandstoneWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+1, 
+    		sandstoneWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodShovel");
-    		boneWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+2, 
+    		boneWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+2, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Bone, "boneWoodShovel");
-    		paperWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+3, 
+    		paperWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+3, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Paper, "paperWoodShovel");
-    		iceWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+4, 
+    		iceWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+4, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Ice, "iceWoodShovel");
-    		slimeWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+5, 
+    		slimeWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+5, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodShovel");
-    		cactusWoodShovel = new InfiToolShovel(PropsHelperInfiTools.woodShovelID+6, 
+    		cactusWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodShovel");
     		
     		MinecraftForge.setToolClass(woodWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
@@ -53,25 +53,25 @@ public class Shovels
     		MinecraftForge.setToolClass(cactusWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
         {
         	woodStoneShovel = new InfiToolShovel(17, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneShovel");
-        	stoneStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+1, 
+        	stoneStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneShovel");
-        	sandstoneStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+2, 
+        	sandstoneStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+2, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Sandstone, "sandstoneStoneShovel");
-        	boneStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+3, 
+        	boneStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+3, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Bone, "boneStoneShovel");
-        	netherrackStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+4, 
+        	netherrackStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+4, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Netherrack, "netherrackStoneShovel");
-        	iceStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+5, 
+        	iceStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+5, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Ice, "iceStoneShovel");
-        	slimeStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+6, 
+        	slimeStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+6, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Slime, "slimeStoneShovel");
-        	cactusStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+7, 
+        	cactusStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+7, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneShovel");
-        	flintStoneShovel = new InfiToolShovel(PropsHelperInfiTools.stoneShovelID+8, 
+        	flintStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneShovel");
             
             MinecraftForge.setToolClass(woodStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
@@ -85,25 +85,25 @@ public class Shovels
             MinecraftForge.setToolClass(flintStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
         {
         	woodIronShovel = new InfiToolShovel(0, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronShovel");
-        	stoneIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+1, 
+        	stoneIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronShovel");
-        	ironIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+2, 
+        	ironIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Iron, "ironIronShovel");
-        	boneIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+3, 
+        	boneIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+3, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bone, "boneIronShovel");
-        	netherrackIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+4, 
+        	netherrackIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+4, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Netherrack, "netherrackIronShovel");
-        	glowstoneIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+5, 
+        	glowstoneIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+5, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Glowstone, "glowstoneIronShovel");
-        	cactusIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+6, 
+        	cactusIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+6, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Cactus, "cactusIronShovel");
-        	copperIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+7, 
+        	copperIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+7, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronShovel");
-        	bronzeIronShovel = new InfiToolShovel(PropsHelperInfiTools.ironShovelID+8, 
+        	bronzeIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronShovel");
             
             MinecraftForge.setToolClass(woodIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
@@ -117,51 +117,51 @@ public class Shovels
             MinecraftForge.setToolClass(bronzeIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
         {
         	woodDiamondShovel = new InfiToolShovel(21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondShovel");
-        	stoneDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+1, 
+        	stoneDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondShovel");
-        	ironDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+2, 
+        	ironDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+2, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Iron, "ironDiamondShovel");
-        	diamondDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+3, 
+        	diamondDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+3, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Diamond, "diamondDiamondShovel");
-        	redstoneDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+4, 
+        	redstoneDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+4, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Redstone, "redstoneDiamondShovel");
-        	obsidianDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+5, 
+        	obsidianDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+5, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Obsidian, "obsidianDiamondShovel");
-        	boneDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+6, 
+        	boneDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+6, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bone, "boneDiamondShovel");
-        	mossyDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+7, 
+        	mossyDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Mossy, "mossyDiamondShovel");
-        	netherrackDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+8, 
+        	netherrackDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+8, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Netherrack, "netherrackDiamondShovel");
-        	glowstoneDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+9, 
+        	glowstoneDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+9, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Glowstone, "glowstoneDiamondShovel");
-        	lavaDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+10, 
+        	lavaDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+10, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Lava, "lavaDiamondShovel");
-        	cactusDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+11, 
+        	cactusDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+11, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cactus, "cactusDiamondShovel");
-        	flintDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+12, 
+        	flintDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+12, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Flint, "flintDiamondShovel");
-        	blazeDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+13, 
+        	blazeDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+13, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Blaze, "blazeDiamondShovel");
-            copperDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+14, 
+            copperDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+14, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Copper, "copperDiamondShovel");
-            bronzeDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+15, 
+            bronzeDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+15, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bronze, "bronzeDiamondShovel");
-            workedDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+16, 
+            workedDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+16, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.WorkedIron, "workedDiamondShovel");
-            steelDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+17, 
+            steelDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+17, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Steel, "steelDiamondShovel");
-            cobaltDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+18, 
+            cobaltDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+18, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cobalt, "cobaltDiamondShovel");
-            arditeDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+19, 
+            arditeDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+19, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Ardite, "arditeDiamondShovel");
-            manyullynDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+20, 
+            manyullynDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+20, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondShovel");
-            uraniumDiamondShovel = new InfiToolShovel(PropsHelperInfiTools.diamondShovelID+21, 
+            uraniumDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondShovel");
             
             MinecraftForge.setToolClass(woodDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
@@ -188,47 +188,47 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
         {
-        	woodRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+0, 
+        	woodRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+0, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneShovel");
-        	stoneRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+1, 
+        	stoneRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneShovel");
-        	ironRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+2, 
+        	ironRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Iron, "ironRedstoneShovel");
-        	redstoneRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+3, 
+        	redstoneRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+3, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "redstoneRedstoneShovel");
-        	obsidianRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+4, 
+        	obsidianRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+4, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Obsidian, "obsidianRedstoneShovel");
-        	sandstoneRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+5, 
+        	sandstoneRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+5, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Sandstone, "sandstoneRedstoneShovel");
-        	boneRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+6, 
+        	boneRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+6, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bone, "boneRedstoneShovel");
-        	paperRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+7, 
+        	paperRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+7, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Paper, "paperRedstoneShovel");
-        	mossyRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+8, 
+        	mossyRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+8, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Mossy, "mossyRedstoneShovel");
-        	netherrackRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+9, 
+        	netherrackRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+9, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Netherrack, "netherrackRedstoneShovel");
-        	glowstoneRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+10, 
+        	glowstoneRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+10, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Glowstone, "glowstoneRedstoneShovel");
-        	iceRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+11, 
+        	iceRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+11, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Ice, "iceRedstoneShovel");
-        	lavaRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+12,
+        	lavaRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+12,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Lava, "lavaRedstoneShovel");
-        	slimeRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+13,
+        	slimeRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+13,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Slime, "slimeRedstoneShovel");
-        	cactusRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+14,
+        	cactusRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+14,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Cactus, "cactusRedstoneShovel");
-        	flintRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+15,
+        	flintRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+15,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Flint, "flintRedstoneShovel");
-        	copperRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+16,
+        	copperRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+16,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Copper, "copperRedstoneShovel");
-        	bronzeRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+17,
+        	bronzeRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+17,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstoneShovel");
-        	workedRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+18,
+        	workedRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+18,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneShovel");
-        	uraniumRedstoneShovel = new InfiToolShovel(PropsHelperInfiTools.redstoneShovelID+19,
+        	uraniumRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneShovel");
             
             MinecraftForge.setToolClass(woodRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
@@ -253,27 +253,27 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
         {
-        	woodObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+0, 
+        	woodObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+0, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianShovel");
-        	stoneObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+1, 
+        	stoneObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianShovel");
-        	redstoneObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+2, 
+        	redstoneObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+2, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianShovel");
-        	obsidianObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+3, 
+        	obsidianObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianShovel");;
-        	boneObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+4, 
+        	boneObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+4, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Bone, "boneObsidianShovel");
-        	netherrackObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+5, 
+        	netherrackObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+5, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Netherrack, "netherrackObsidianShovel");
-        	glowstoneObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+6, 
+        	glowstoneObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+6, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Glowstone, "glowstoneObsidianShovel");
-        	iceObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+7, 
+        	iceObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+7, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Ice, "iceObsidianShovel");
-        	lavaObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+8,
+        	lavaObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+8,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianShovel");
-        	cactusObsidianShovel = new InfiToolShovel(PropsHelperInfiTools.obsidianShovelID+9,
+        	cactusObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianShovel");
             
             MinecraftForge.setToolClass(woodObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
@@ -288,23 +288,23 @@ public class Shovels
             MinecraftForge.setToolClass(cactusObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
         {
-        	woodSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+0, 
+        	woodSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+0, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneShovel");
-        	sandstoneSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+1, 
+        	sandstoneSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneShovel");
-        	boneSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+2, 
+        	boneSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+2, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Bone, "boneSandstoneShovel");
-        	netherrackSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+3, 
+        	netherrackSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+3, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Netherrack, "netherrackSandstoneShovel");
-        	iceSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+4, 
+        	iceSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+4, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Ice, "iceSandstoneShovel");
-        	slimeSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+5,
+        	slimeSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+5,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Slime, "slimeSandstoneShovel");
-        	cactusSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+6,
+        	cactusSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+6,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneShovel");
-        	flintSandstoneShovel = new InfiToolShovel(PropsHelperInfiTools.sandstoneShovelID+7,
+        	flintSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneShovel");
             
             MinecraftForge.setToolClass(woodSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
@@ -317,25 +317,25 @@ public class Shovels
             MinecraftForge.setToolClass(flintSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableBoneTools)
+        if(PHInfiTools.enableBoneTools)
         {
-        	woodBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+0, 
+        	woodBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+0, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneShovel");
-        	stoneBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+1, 
+        	stoneBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneShovel");
-        	sandstoneBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+2, 
+        	sandstoneBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+2, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Sandstone, "sandstoneBoneShovel");
-        	boneBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+3, 
+        	boneBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+3, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "boneBoneShovel");
-        	paperBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+4, 
+        	paperBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+4, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Paper, "paperBoneShovel");
-        	netherrackBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+5, 
+        	netherrackBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+5, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Netherrack, "netherrackBoneShovel");
-        	iceBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+6, 
+        	iceBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+6, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Ice, "iceBoneShovel");
-        	cactusBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+7,
+        	cactusBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+7,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneShovel");
-        	flintBoneShovel = new InfiToolShovel(PropsHelperInfiTools.boneShovelID+8,
+        	flintBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneShovel");
             
             MinecraftForge.setToolClass(woodBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
@@ -349,17 +349,17 @@ public class Shovels
             MinecraftForge.setToolClass(flintBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
         {
-        	woodPaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+0, 
+        	woodPaperShovel = new InfiToolShovel(PHInfiTools.paperShovelID+0, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperShovel");
-        	bonePaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+1, 
+        	bonePaperShovel = new InfiToolShovel(PHInfiTools.paperShovelID+1, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperShovel");
-        	paperPaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+2, 
+        	paperPaperShovel = new InfiToolShovel(PHInfiTools.paperShovelID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperShovel");
-        	slimePaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+3,
+        	slimePaperShovel = new InfiToolShovel(PHInfiTools.paperShovelID+3,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperShovel");
-        	cactusPaperShovel = new InfiToolShovel(PropsHelperInfiTools.paperShovelID+4,
+        	cactusPaperShovel = new InfiToolShovel(PHInfiTools.paperShovelID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperShovel");
             
             MinecraftForge.setToolClass(woodPaperShovel, "shovel", InfiMaterialEnum.Paper.getHarvestLevel());
@@ -369,31 +369,31 @@ public class Shovels
             MinecraftForge.setToolClass(cactusPaperShovel, "shovel", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
         {
-        	woodMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+0, 
+        	woodMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+0, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Wood, "woodMossyShovel");
-        	stoneMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+1, 
+        	stoneMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+1, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Stone, "stoneMossyShovel");
-        	diamondMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+2, 
+        	diamondMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Diamond, "diamondMossyShovel");
-        	redstoneMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+3, 
+        	redstoneMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+3, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Redstone, "redstoneMossyShovel");
-        	boneMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+4, 
+        	boneMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+4, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Bone, "boneMossyShovel");
-        	mossyMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+5, 
+        	mossyMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+5, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Mossy, "mossyMossyShovel");
-        	netherrackMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+6, 
+        	netherrackMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+6, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Netherrack, "netherrackMossyShovel");
-        	glowstoneMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+7, 
+        	glowstoneMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+7, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Glowstone, "glowstoneMossyShovel");
-        	cactusMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+8, 
+        	cactusMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+8, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Cactus, "cactusMossyShovel");
-        	blazeMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+9, 
+        	blazeMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+9, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Blaze, "blazeMossyShovel");
-        	manyullynMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+10, 
+        	manyullynMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+10, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyShovel");
-        	uraniumMossyShovel = new InfiToolShovel(PropsHelperInfiTools.mossyShovelID+11, 
+        	uraniumMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyShovel");
             
             MinecraftForge.setToolClass(woodMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
@@ -410,33 +410,33 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
         {
-        	woodNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+0, 
+        	woodNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Wood, "woodNetherrackShovel");
-        	stoneNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+1, 
+        	stoneNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+1, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Stone, "stoneNetherrackShovel");
-        	sandstoneNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+2, 
+        	sandstoneNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+2, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Sandstone, "sandstoneNetherrackShovel");
-        	boneNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+3, 
+        	boneNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+3, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bone, "boneNetherrackShovel");
-        	paperNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+4, 
+        	paperNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+4, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Paper, "paperNetherrackShovel");
-        	mossyNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+5, 
+        	mossyNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+5, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Mossy, "mossyNetherrackShovel");
-        	netherrackNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+6, 
+        	netherrackNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+6, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Netherrack, "netherrackNetherrackShovel");
-        	iceNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+7, 
+        	iceNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+7, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Ice, "iceNetherrackShovel");
-        	slimeNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+8, 
+        	slimeNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+8, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Slime, "slimeNetherrackShovel");
-        	cactusNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+9, 
+        	cactusNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+9, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Cactus, "cactusNetherrackShovel");
-        	flintNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+10, 
+        	flintNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+10, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Flint, "flintNetherrackShovel");
-        	copperNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+11, 
+        	copperNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+11, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackShovel");
-        	bronzeNetherrackShovel = new InfiToolShovel(PropsHelperInfiTools.netherrackShovelID+12, 
+        	bronzeNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackShovel");
             
             MinecraftForge.setToolClass(woodNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
@@ -454,25 +454,25 @@ public class Shovels
             MinecraftForge.setToolClass(bronzeNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
         {
-        	woodGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+0, 
+        	woodGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+0, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Wood, "woodGlowstoneShovel");
-        	redstoneGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+1, 
+        	redstoneGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+1, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Redstone, "redstoneGlowstoneShovel");
-        	obsidianGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+2, 
+        	obsidianGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+2, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Obsidian, "obsidianGlowstoneShovel");
-        	boneGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+3, 
+        	boneGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Bone, "boneGlowstoneShovel");
-        	netherrackGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+4, 
+        	netherrackGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+4, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Netherrack, "netherrackGlowstoneShovel");
-        	glowstoneGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+5, 
+        	glowstoneGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+5, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Glowstone, "glowstoneGlowstoneShovel");
-        	iceGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+6, 
+        	iceGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+6, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Ice, "iceGlowstoneShovel");
-        	slimeGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+7, 
+        	slimeGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+7, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Slime, "slimeGlowstoneShovel");
-        	cactusGlowstoneShovel = new InfiToolShovel(PropsHelperInfiTools.glowstoneShovelID+8, 
+        	cactusGlowstoneShovel = new InfiToolShovel(PHInfiTools.glowstoneShovelID+8, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneShovel");
             
             
@@ -487,19 +487,19 @@ public class Shovels
             MinecraftForge.setToolClass(cactusGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
         {
-        	woodIceShovel = new InfiToolShovel(PropsHelperInfiTools.iceShovelID+0, 
+        	woodIceShovel = new InfiToolShovel(PHInfiTools.iceShovelID+0, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Wood, "woodIceShovel");
-        	boneIceShovel = new InfiToolShovel(PropsHelperInfiTools.iceShovelID+1, 
+        	boneIceShovel = new InfiToolShovel(PHInfiTools.iceShovelID+1, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Bone, "boneIceShovel");
-        	paperIceShovel = new InfiToolShovel(PropsHelperInfiTools.iceShovelID+2, 
+        	paperIceShovel = new InfiToolShovel(PHInfiTools.iceShovelID+2, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Paper, "paperIceShovel");
-        	iceIceShovel = new InfiToolShovel(PropsHelperInfiTools.iceShovelID+3, 
+        	iceIceShovel = new InfiToolShovel(PHInfiTools.iceShovelID+3, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Ice, "iceIceShovel");
-        	slimeIceShovel = new InfiToolShovel(PropsHelperInfiTools.iceShovelID+4, 
+        	slimeIceShovel = new InfiToolShovel(PHInfiTools.iceShovelID+4, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Slime, "slimeIceShovel");
-        	cactusIceShovel = new InfiToolShovel(PropsHelperInfiTools.iceShovelID+5, 
+        	cactusIceShovel = new InfiToolShovel(PHInfiTools.iceShovelID+5, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceShovel");
             
             
@@ -511,23 +511,23 @@ public class Shovels
             MinecraftForge.setToolClass(cactusIceShovel, "shovel", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
         {
-        	diamondLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+0, 
+        	diamondLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+0, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Diamond, "diamondLavaShovel");
-        	obsidianLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+1, 
+        	obsidianLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+1, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Obsidian, "obsidianLavaShovel");
-        	netherrackLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+2, 
+        	netherrackLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+2, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Netherrack, "netherrackLavaShovel");
-        	lavaLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+3, 
+        	lavaLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Lava, "lavaLavaShovel");
-        	flintLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+4, 
+        	flintLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+4, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Flint, "flintLavaShovel");
-        	blazeLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+5, 
+        	blazeLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+5, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Blaze, "blazeLavaShovel");
-        	manyullynLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+6, 
+        	manyullynLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+6, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaShovel");
-            uraniumLavaShovel = new InfiToolShovel(PropsHelperInfiTools.lavaShovelID+7, 
+            uraniumLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaShovel");
             
             MinecraftForge.setToolClass(diamondLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
@@ -540,19 +540,19 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
         {
-        	woodSlimeShovel = new InfiToolShovel(PropsHelperInfiTools.slimeShovelID+0, 
+        	woodSlimeShovel = new InfiToolShovel(PHInfiTools.slimeShovelID+0, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Wood, "woodSlimeShovel");
-        	sandstoneSlimeShovel = new InfiToolShovel(PropsHelperInfiTools.slimeShovelID+1, 
+        	sandstoneSlimeShovel = new InfiToolShovel(PHInfiTools.slimeShovelID+1, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Sandstone, "sandstoneSlimeShovel");
-        	boneSlimeShovel = new InfiToolShovel(PropsHelperInfiTools.slimeShovelID+2, 
+        	boneSlimeShovel = new InfiToolShovel(PHInfiTools.slimeShovelID+2, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Bone, "boneSlimeShovel");
-        	paperSlimeShovel = new InfiToolShovel(PropsHelperInfiTools.slimeShovelID+3, 
+        	paperSlimeShovel = new InfiToolShovel(PHInfiTools.slimeShovelID+3, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Paper, "paperSlimeShovel");
-        	slimeSlimeShovel = new InfiToolShovel(PropsHelperInfiTools.slimeShovelID+4, 
+        	slimeSlimeShovel = new InfiToolShovel(PHInfiTools.slimeShovelID+4, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Slime, "slimeSlimeShovel");
-        	cactusSlimeShovel = new InfiToolShovel(PropsHelperInfiTools.slimeShovelID+5, 
+        	cactusSlimeShovel = new InfiToolShovel(PHInfiTools.slimeShovelID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeShovel");
             
             MinecraftForge.setToolClass(woodSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
@@ -563,21 +563,21 @@ public class Shovels
             MinecraftForge.setToolClass(cactusSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
         {
-        	woodCactusShovel = new InfiToolShovel(PropsHelperInfiTools.cactusShovelID+0, 
+        	woodCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+0, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Wood, "woodCactusShovel");
-        	sandstoneCactusShovel = new InfiToolShovel(PropsHelperInfiTools.cactusShovelID+1, 
+        	sandstoneCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+1, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Sandstone, "sandstoneCactusShovel");
-        	boneCactusShovel = new InfiToolShovel(PropsHelperInfiTools.cactusShovelID+2, 
+        	boneCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+2, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Bone, "boneCactusShovel");
-        	netherrackCactusShovel = new InfiToolShovel(PropsHelperInfiTools.cactusShovelID+3, 
+        	netherrackCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+3, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Netherrack, "netherrackCactusShovel");
-        	iceCactusShovel = new InfiToolShovel(PropsHelperInfiTools.cactusShovelID+4, 
+        	iceCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+4, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Ice, "iceCactusShovel");
-        	slimeCactusShovel = new InfiToolShovel(PropsHelperInfiTools.cactusShovelID+5, 
+        	slimeCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+5, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Slime, "slimeCactusShovel");
-        	cactusCactusShovel = new InfiToolShovel(PropsHelperInfiTools.cactusShovelID+6, 
+        	cactusCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusShovel");
             
             MinecraftForge.setToolClass(woodCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
@@ -589,27 +589,27 @@ public class Shovels
             MinecraftForge.setToolClass(cactusCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
         {
-        	woodFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+0, 
+        	woodFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+0, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Wood, "woodFlintShovel");
-        	stoneFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+1, 
+        	stoneFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Stone, "stoneFlintShovel");
-        	sandstoneFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+2, 
+        	sandstoneFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+2, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Sandstone, "sandstoneFlintShovel");
-        	boneFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+3, 
+        	boneFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintShovel");
-        	netherrackFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+4, 
+        	netherrackFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+4, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintShovel");
-        	slimeFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+5, 
+        	slimeFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintShovel");
-        	cactusFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+6, 
+        	cactusFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+6, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Cactus, "cactusFlintShovel");
-        	flintFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+7, 
+        	flintFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+7, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "flintFlintShovel");
-        	copperFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+8, 
+        	copperFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+8, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintShovel");
-        	bronzeFlintShovel = new InfiToolShovel(PropsHelperInfiTools.flintShovelID+9, 
+        	bronzeFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintShovel");
             
             MinecraftForge.setToolClass(woodFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
@@ -624,23 +624,23 @@ public class Shovels
             MinecraftForge.setToolClass(bronzeFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
         {
-        	diamondBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+0, 
+        	diamondBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+0, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Diamond, "diamondBlazeShovel");
-        	obsidianBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+1, 
+        	obsidianBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+1, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Obsidian, "obsidianBlazeShovel");
-        	netherrackBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+2, 
+        	netherrackBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+2, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Netherrack, "netherrackBlazeShovel");
-        	lavaBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+3, 
+        	lavaBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Lava, "lavaBlazeShovel");
-        	flintBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+4, 
+        	flintBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+4, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Flint, "flintBlazeShovel");
-        	blazeBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+5, 
+        	blazeBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+5, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Blaze, "blazeBlazeShovel");
-        	manyullynBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+6, 
+        	manyullynBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+6, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeShovel");
-            uraniumBlazeShovel = new InfiToolShovel(PropsHelperInfiTools.blazeShovelID+7, 
+            uraniumBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeShovel");
             
             MinecraftForge.setToolClass(diamondBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
@@ -653,23 +653,23 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
-        if(PropsHelperInfiTools.enableCopperTools)
+        if(PHInfiTools.enableCopperTools)
         {
-        	woodCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+0, 
+        	woodCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+0, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Wood, "woodCopperShovel");
-            stoneCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+1, 
+            stoneCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+1, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Stone, "stoneCopperShovel");
-            boneCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+2, 
+            boneCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+2, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Bone, "boneCopperShovel");
-            netherrackCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+3, 
+            netherrackCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+3, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Netherrack, "netherrackCopperShovel");
-            slimeCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+4, 
+            slimeCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+4, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Slime, "slimeCopperShovel");
-            cactusCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+5, 
+            cactusCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+5, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Cactus, "cactusCopperShovel");
-            flintCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+6, 
+            flintCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperShovel");
-            copperCopperShovel = new InfiToolShovel(PropsHelperInfiTools.copperShovelID+7, 
+            copperCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperShovel");
             
             MinecraftForge.setToolClass(woodCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
@@ -682,25 +682,25 @@ public class Shovels
             MinecraftForge.setToolClass(copperCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableBronzeTools)
+        if(PHInfiTools.enableBronzeTools)
         {
-        	woodBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+0, 
+        	woodBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+0, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Wood, "woodBronzeShovel");
-            stoneBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+1, 
+            stoneBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+1, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Stone, "stoneBronzeShovel");
-            boneBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+2, 
+            boneBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+2, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bone, "boneBronzeShovel");
-            netherrackBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+3, 
+            netherrackBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+3, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Netherrack, "netherrackBronzeShovel");
-            slimeBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+4, 
+            slimeBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+4, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Slime, "slimeBronzeShovel");
-            cactusBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+5, 
+            cactusBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+5, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Cactus, "cactusBronzeShovel");
-            flintBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+6, 
+            flintBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+6, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Flint, "flintBronzeShovel");
-            copperBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+7, 
+            copperBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeShovel");
-            bronzeBronzeShovel = new InfiToolShovel(PropsHelperInfiTools.bronzeShovelID+8, 
+            bronzeBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeShovel");
             
             MinecraftForge.setToolClass(woodBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -714,43 +714,43 @@ public class Shovels
             MinecraftForge.setToolClass(bronzeBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableWorkedIronTools)
+        if(PHInfiTools.enableWorkedIronTools)
         {
-        	woodWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+0, 
+        	woodWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+0, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Wood, "woodWorkedIronShovel");
-            stoneWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+1, 
+            stoneWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+1, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Stone, "stoneWorkedIronShovel");
-            ironWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+2,
+            ironWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+2,
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Iron, "ironWorkedIronShovel");
-            diamondWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+3, 
+            diamondWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+3, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Diamond, "diamondWorkedIronShovel");
-            redstoneWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+4, 
+            redstoneWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+4, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Redstone, "redstoneWorkedIronShovel");
-            obsidianWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+5, 
+            obsidianWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+5, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Obsidian, "obsidianWorkedIronShovel");
-            boneWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+6, 
+            boneWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+6, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bone, "boneWorkedIronShovel");
-            netherrackWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+7, 
+            netherrackWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+7, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Netherrack, "netherrackWorkedIronShovel");
-            glowstoneWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+8, 
+            glowstoneWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+8, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Glowstone, "glowstoneWorkedIronShovel");
-            iceWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+9, 
+            iceWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+9, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ice, "iceWorkedIronShovel");
-            slimeWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+10, 
+            slimeWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+10, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Slime, "slimeWorkedIronShovel");
-            cactusWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+11, 
+            cactusWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+11, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Cactus, "cactusWorkedIronShovel");
-            blazeWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+12, 
+            blazeWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+12, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Blaze, "blazeWorkedIronShovel");
-            copperWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+13, 
+            copperWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+13, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Copper, "copperWorkedIronShovel");
-            bronzeWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+14, 
+            bronzeWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+14, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "bronzeWorkedIronShovel");
-            workedWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+15, 
+            workedWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+15, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.WorkedIron, "workedWorkedIronShovel");
-            steelWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+16, 
+            steelWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronShovel");
-            uraniumWorkedIronShovel = new InfiToolShovel(PropsHelperInfiTools.workedIronShovelID+17, 
+            uraniumWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronShovel");
             
             MinecraftForge.setToolClass(woodWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -773,47 +773,47 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableSteelTools)
+        if(PHInfiTools.enableSteelTools)
         {
-        	woodSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+0, 
+        	woodSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+0, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Wood, "woodSteelShovel");
-            stoneSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+1, 
+            stoneSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+1, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Stone, "stoneSteelShovel");
-            ironSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+2, 
+            ironSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+2, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Iron, "ironSteelShovel");
-            diamondSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+3, 
+            diamondSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+3, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Diamond, "diamondSteelShovel");
-            redstoneSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+4, 
+            redstoneSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+4, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Redstone, "redstoneSteelShovel");
-            obsidianSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+5, 
+            obsidianSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+5, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Obsidian, "obsidianSteelShovel");
-            boneSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+6, 
+            boneSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+6, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bone, "boneSteelShovel");
-            netherrackSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+7, 
+            netherrackSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+7, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Netherrack, "netherrackSteelShovel");
-            glowstoneSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+8, 
+            glowstoneSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+8, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Glowstone, "glowstoneSteelShovel");
-            iceSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+9, 
+            iceSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+9, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ice, "iceSteelShovel");
-            slimeSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+10, 
+            slimeSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+10, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Slime, "slimeSteelShovel");
-            cactusSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+11, 
+            cactusSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+11, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cactus, "cactusSteelShovel");
-            blazeSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+12, 
+            blazeSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+12, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Blaze, "blazeSteelShovel");
-            copperSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+13, 
+            copperSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+13, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Copper, "copperSteelShovel");
-            bronzeSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+14, 
+            bronzeSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+14, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "bronzeSteelShovel");
-            workedSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+15, 
+            workedSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+15, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.WorkedIron, "workedSteelShovel");
-            steelSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+16, 
+            steelSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+16, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Steel, "steelSteelShovel");
-            cobaltSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+17, 
+            cobaltSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+17, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cobalt, "cobaltSteelShovel");
-            arditeSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+18, 
+            arditeSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelShovel");
-            uraniumSteelShovel = new InfiToolShovel(PropsHelperInfiTools.steelShovelID+19, 
+            uraniumSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelShovel");
 
             MinecraftForge.setToolClass(woodSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -838,43 +838,43 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableCobaltTools)
+        if(PHInfiTools.enableCobaltTools)
         {
-        	woodCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+0, 
+        	woodCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+0, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Wood, "woodCobaltShovel");
-            stoneCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+1, 
+            stoneCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+1, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Stone, "stoneCobaltShovel");
-            ironCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+2, 
+            ironCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+2, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Iron, "ironCobaltShovel");
-            diamondCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+3,
+            diamondCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+3,
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Diamond, "diamondCobaltShovel");
-            redstoneCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+4, 
+            redstoneCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+4, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Redstone, "redstoneCobaltShovel");
-            obsidianCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+5, 
+            obsidianCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+5, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Obsidian, "obsidianCobaltShovel");
-            boneCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+6, 
+            boneCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+6, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bone, "boneCobaltShovel");
-            slimeCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+7, 
+            slimeCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+7, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Slime, "slimeCobaltShovel");
-            cactusCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+8, 
+            cactusCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+8, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cactus, "cactusCobaltShovel");
-            blazeCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+9, 
+            blazeCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+9, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Blaze, "blazeCobaltShovel");
-            copperCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+10, 
+            copperCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+10, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Copper, "copperCobaltShovel");
-            bronzeCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+11, 
+            bronzeCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+11, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "bronzeCobaltShovel");
-            workedCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+12, 
+            workedCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+12, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.WorkedIron, "workedCobaltShovel");
-            steelCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+13, 
+            steelCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+13, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Steel, "steelCobaltShovel");
-            cobaltCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+14, 
+            cobaltCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+14, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cobalt, "cobaltCobaltShovel");
-            arditeCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+15, 
+            arditeCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltShovel");
-            manyullynCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+16,
+            manyullynCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+16,
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltShovel");
-            uraniumCobaltShovel = new InfiToolShovel(PropsHelperInfiTools.cobaltShovelID+17, 
+            uraniumCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltShovel");
             
             MinecraftForge.setToolClass(woodCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -897,43 +897,43 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableArditeTools)
+        if(PHInfiTools.enableArditeTools)
         {
-        	woodArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+0, 
+        	woodArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+0, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Wood, "woodArditeShovel");
-            stoneArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+1, 
+            stoneArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+1, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Stone, "stoneArditeShovel");
-            ironArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+2, 
+            ironArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+2, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Iron, "ironArditeShovel");
-            diamondArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+3,
+            diamondArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+3,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Diamond, "diamondArditeShovel");
-            redstoneArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+4, 
+            redstoneArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+4, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Redstone, "redstoneArditeShovel");
-            obsidianArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+5, 
+            obsidianArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+5, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Obsidian, "obsidianArditeShovel");
-            boneArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+6,
+            boneArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+6,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bone, "boneArditeShovel");
-            slimeArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+7, 
+            slimeArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+7, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Slime, "slimeArditeShovel");
-            cactusArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+8, 
+            cactusArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+8, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cactus, "cactusArditeShovel");
-            blazeArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+9, 
+            blazeArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+9, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Blaze, "blazeArditeShovel");
-            copperArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+10, 
+            copperArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+10, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Copper, "copperArditeShovel");
-            bronzeArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+11, 
+            bronzeArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+11, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "bronzeArditeShovel");
-            workedArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+12, 
+            workedArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+12, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.WorkedIron, "workedArditeShovel");
-            steelArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+13, 
+            steelArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+13, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Steel, "steelArditeShovel");
-            cobaltArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+14, 
+            cobaltArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+14, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cobalt, "cobaltArditeShovel");
-            arditeArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+15, 
+            arditeArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeShovel");
-            manyullynArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+16, 
+            manyullynArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeShovel");
-            uraniumArditeShovel = new InfiToolShovel(PropsHelperInfiTools.arditeShovelID+17, 
+            uraniumArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeShovel");
             
             MinecraftForge.setToolClass(woodArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -956,43 +956,43 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableManyullynTools)
+        if(PHInfiTools.enableManyullynTools)
         {
-        	woodManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+0, 
+        	woodManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+0, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynShovel");
-            stoneManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+1, 
+            stoneManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynShovel");
-            ironManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+2, 
+            ironManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+2, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Iron, "ironManyullynShovel");
-            diamondManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+3,
+            diamondManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+3,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Diamond, "diamondManyullynShovel");
-            redstoneManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+4, 
+            redstoneManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+4, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Redstone, "redstoneManyullynShovel");
-            obsidianManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+5, 
+            obsidianManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+5, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Obsidian, "obsidianManyullynShovel");
-            boneManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+6, 
+            boneManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+6, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bone, "boneManyullynShovel");
-            slimeManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+7, 
+            slimeManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+7, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Slime, "slimeManyullynShovel");
-            cactusManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+8, 
+            cactusManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+8, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cactus, "cactusManyullynShovel");
-            blazeManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+9, 
+            blazeManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+9, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Blaze, "blazeManyullynShovel");
-            copperManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+10, 
+            copperManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+10, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Copper, "copperManyullynShovel");
-            bronzeManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+11, 
+            bronzeManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+11, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "bronzeManyullynShovel");
-            workedManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+12, 
+            workedManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+12, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.WorkedIron, "workedManyullynShovel");
-            steelManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+13, 
+            steelManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+13, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Steel, "steelManyullynShovel");
-            cobaltManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+14, 
+            cobaltManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+14, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cobalt, "cobaltManyullynShovel");
-            arditeManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+15, 
+            arditeManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynShovel");
-            manyullynManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+16, 
+            manyullynManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynShovel");
-            uraniumManyullynShovel = new InfiToolShovel(PropsHelperInfiTools.manyullynShovelID+17,
+            uraniumManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynShovel");
             
             MinecraftForge.setToolClass(woodManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
@@ -1015,27 +1015,27 @@ public class Shovels
             MinecraftForge.setToolClass(uraniumManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableUraniumTools)
+        if(PHInfiTools.enableUraniumTools)
         {
-            diamondUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+0, 
+            diamondUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+0, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Diamond, "diamondUraniumShovel");
-            redstoneUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+1, 
+            redstoneUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+1, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Redstone, "redstoneUraniumShovel");
-            boneUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+2, 
+            boneUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+2, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Bone, "boneUraniumShovel");
-            netherrackUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+3, 
+            netherrackUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+3, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Netherrack, "netherrackUraniumShovel");
-            glowstoneUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+4, 
+            glowstoneUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+4, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Glowstone, "glowstoneUraniumShovel");
-            lavaUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+5, 
+            lavaUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+5, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Lava, "lavaUraniumShovel");
-            blazeUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+6, 
+            blazeUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+6, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Blaze, "blazeUraniumShovel");
-            cobaltUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+7, 
+            cobaltUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+7, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Cobalt, "cobaltUraniumShovel");
-            arditeUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+8, 
+            arditeUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+8, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumShovel");
-            uraniumUraniumShovel = new InfiToolShovel(PropsHelperInfiTools.uraniumShovelID+9, 
+            uraniumUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumShovel");
             
             MinecraftForge.setToolClass(diamondUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
@@ -1053,541 +1053,541 @@ public class Shovels
     
     private static void addNames()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
             ModLoader.addName(woodWoodShovel, "Wooden Shovel");
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
             ModLoader.addName(stoneStoneShovel, "Heavy Shovel");
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
             ModLoader.addName(ironIronShovel, "Ironic Shovel");
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
             ModLoader.addName(diamondDiamondShovel, "Diamondium Shovel");
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
             ModLoader.addName(redstoneRedstoneShovel, "Redredred Shovel");
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
             ModLoader.addName(obsidianObsidianShovel, "Ebony Shovel");
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
             ModLoader.addName(sandstoneSandstoneShovel, "Fragile Shovel");
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
             ModLoader.addName(boneBoneShovel, "Necrotic Shovel");
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
             ModLoader.addName(paperPaperShovel, "Soft Shovel");
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
             ModLoader.addName(mossyMossyShovel, "Living Shovel");
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
             ModLoader.addName(netherrackNetherrackShovel, "Bloodsoaked Shovel");
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
             ModLoader.addName(glowstoneGlowstoneShovel, "Bright Shovel");
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
             ModLoader.addName(iceIceShovel, "Freezing Shovel");
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
             ModLoader.addName(lavaLavaShovel, "Burning Shovel");
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
             ModLoader.addName(slimeSlimeShovel, "Toy Shovel");
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
             ModLoader.addName(cactusCactusShovel, "Thorned Shovel");
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
             ModLoader.addName(flintFlintShovel, "Rough-hewn Shovel");
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
             ModLoader.addName(blazeBlazeShovel, "Netherite Shovel");
-        if(PropsHelperInfiTools.enableCopperTools)
+        if(PHInfiTools.enableCopperTools)
             ModLoader.addName(copperCopperShovel, "Orange-Tang Shovel");
-        if(PropsHelperInfiTools.enableBronzeTools)
+        if(PHInfiTools.enableBronzeTools)
             ModLoader.addName(bronzeBronzeShovel, "Polished Shovel");
-        if(PropsHelperInfiTools.enableWorkedIronTools)
+        if(PHInfiTools.enableWorkedIronTools)
             ModLoader.addName(workedWorkedIronShovel, "Reworked Iron Shovel");
-        if(PropsHelperInfiTools.enableSteelTools)
+        if(PHInfiTools.enableSteelTools)
             ModLoader.addName(steelSteelShovel, "Forge-Wrought Shovel");
-        if(PropsHelperInfiTools.enableCobaltTools)
+        if(PHInfiTools.enableCobaltTools)
             ModLoader.addName(cobaltCobaltShovel, "Beautiful Shovel");
-        if(PropsHelperInfiTools.enableArditeTools)
+        if(PHInfiTools.enableArditeTools)
             ModLoader.addName(arditeArditeShovel, "Rustic Shovel");
-        if(PropsHelperInfiTools.enableManyullynTools)
+        if(PHInfiTools.enableManyullynTools)
             ModLoader.addName(manyullynManyullynShovel, "False-Prophetic Shovel");
-        if(PropsHelperInfiTools.enableUraniumTools)
+        if(PHInfiTools.enableUraniumTools)
             ModLoader.addName(uraniumUraniumShovel, "Cancerous Shovel");
     }
     
     public static void registerInfiToolsRecipes()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
         {
             ModLoader.addRecipe(new ItemStack(woodWoodShovel), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneWoodShovel), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodShovel), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneWoodShovel), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperWoodShovel), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceWoodShovel), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeWoodShovel), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusWoodShovel), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.cactusRod });
         }
     	
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodStoneShovel), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStoneShovel), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
             ModLoader.addRecipe(new ItemStack(woodStoneShovel), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStoneShovel), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodIronShovel), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(boneIronShovel), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(copperIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodDiamondShovel), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(diamondDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneDiamondShovel), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(lavaDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeDiamondShovel), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(copperDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(steelDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.steelRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.steelRod });
             ModLoader.addRecipe(new ItemStack(cobaltDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cobaltRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cobaltRod });
             ModLoader.addRecipe(new ItemStack(arditeDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.arditeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.arditeRod });
             ModLoader.addRecipe(new ItemStack(manyullynDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(redstoneRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(sandstoneRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(slimeRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(uraniumRedstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodObsidianShovel), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(redstoneObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneObsidianShovel), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusObsidianShovel), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSandstoneShovel), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSandstoneShovel), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSandstoneShovel), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSandstoneShovel), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.boneRod });      
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.boneRod });      
             ModLoader.addRecipe(new ItemStack(netherrackSandstoneShovel), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceSandstoneShovel), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeSandstoneShovel), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSandstoneShovel), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintSandstoneShovel), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enableBoneTools)
+        if(PHInfiTools.enableBoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodBoneShovel), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(stoneBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneBoneShovel), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(netherrackBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(cactusBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintBoneShovel), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
         {
             ModLoader.addRecipe(new ItemStack(woodPaperShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(bonePaperShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(bonePaperShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperPaperShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimePaperShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusPaperShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(diamondMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(boneMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(blazeMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumMossyShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodNetherrackShovel), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneNetherrackShovel), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeNetherrackShovel), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusGlowstoneShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
         {
             ModLoader.addRecipe(new ItemStack(woodIceShovel), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneIceShovel), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIceShovel), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperIceShovel), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceIceShovel), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeIceShovel), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusIceShovel), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumLavaShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSlimeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSlimeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSlimeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSlimeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperSlimeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimeSlimeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSlimeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
         {
             ModLoader.addRecipe(new ItemStack(woodCactusShovel), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneCactusShovel), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneCactusShovel), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneCactusShovel), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackCactusShovel), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceCactusShovel), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeCactusShovel), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusCactusShovel), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodFlintShovel), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneFlintShovel), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(slimeFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintShovel), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumBlazeShovel), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.uraniumRod });
         }
     }
     
@@ -1596,23 +1596,23 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodStoneShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
     	ModLoader.addRecipe(new ItemStack(stoneStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(sandstoneStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.sandstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.sandstoneRod });
         ModLoader.addRecipe(new ItemStack(boneStoneShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(iceStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintStoneShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
     }
     
     public static void addCopperTools(ItemStack stack)
@@ -1620,21 +1620,21 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodCopperShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCopperShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneCopperShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCopperShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackCopperShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeCopperShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCopperShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintCopperShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperCopperShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
     }
     
     public static void addBronzeTools(ItemStack stack)
@@ -1642,23 +1642,23 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodBronzeShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneBronzeShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeBronzeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
     }
     
     public static void addWorkedIronTools(ItemStack stack)
@@ -1666,41 +1666,41 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodWorkedIronShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeWorkedIronShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(uraniumWorkedIronShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addSteelTools(ItemStack stack)
@@ -1708,45 +1708,45 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodSteelShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneSteelShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeSteelShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumSteelShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addCobaltTools(ItemStack stack)
@@ -1754,41 +1754,41 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodCobaltShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneCobaltShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeCobaltShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumCobaltShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addArditeTools(ItemStack stack)
@@ -1796,41 +1796,41 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodArditeShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneArditeShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeArditeShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumArditeShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addManyullynTools(ItemStack stack)
@@ -1838,67 +1838,67 @@ public class Shovels
     	ModLoader.addRecipe(new ItemStack(woodManyullynShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneManyullynShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeManyullynShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumManyullynShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addUraniumTools(ItemStack stack)
     {
         ModLoader.addRecipe(new ItemStack(diamondUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(boneUraniumShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(lavaUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.lavaRod });
+                { recipe, '#', stack, '|', InfiLibrary.lavaRod });
         ModLoader.addRecipe(new ItemStack(blazeUraniumShovel), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(cobaltUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumUraniumShovel), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
 	public static Item woodWoodShovel;

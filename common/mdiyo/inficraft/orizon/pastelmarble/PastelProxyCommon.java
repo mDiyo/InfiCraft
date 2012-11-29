@@ -1,5 +1,7 @@
 package mDiyo.inficraft.orizon.pastelmarble;
 
+import java.io.File;
+
 import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
@@ -62,4 +64,9 @@ public class PastelProxyCommon
         	FurnaceRecipes.smelting().addSmelting(PHPastel.cCobbleID, i, new ItemStack(PastelMarble.instance.cStone, 1, i), 0.15f);
         }
 	}
+
+	public File getMinecraftDir()
+    {
+        return new File(".");
+    }
 }

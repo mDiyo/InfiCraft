@@ -23,7 +23,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
  * @author: Merdiwen Tirelle Diyo
  */
 
-@Mod(modid = "Flora Corruptor", name = "Flora and Soma Corruptor", version = "Anachrosim")
+@Mod(modid = "Flora Corruptor", name = "Flora and Soma Corruptor", version = "1.4.5_2012.11.29")
 public class FloraCorruptor
 {
 	/* Proxies for sides, used for graphics processing */

@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 
 import net.minecraft.src.Enchantment;
 import net.minecraft.src.EnumEnchantmentType;

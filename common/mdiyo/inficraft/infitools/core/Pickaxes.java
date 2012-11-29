@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infitools.core;
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -27,21 +27,21 @@ public class Pickaxes
     
     private static void createTools()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
     	{
     		woodWoodPickaxe = new InfiToolPickaxe(14, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodPickaxe");
-    		sandstoneWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+1, 
+    		sandstoneWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodPickaxe");
-    		boneWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+2, 
+    		boneWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+2, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Bone, "boneWoodPickaxe");
-    		paperWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+3, 
+    		paperWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+3, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Paper, "paperWoodPickaxe");
-    		iceWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+4, 
+    		iceWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+4, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Ice, "iceWoodPickaxe");
-    		slimeWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+5, 
+    		slimeWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+5, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodPickaxe");
-    		cactusWoodPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.woodPickaxeID+6, 
+    		cactusWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodPickaxe");
     		
     		MinecraftForge.setToolClass(woodWoodPickaxe, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
@@ -53,25 +53,25 @@ public class Pickaxes
     		MinecraftForge.setToolClass(cactusWoodPickaxe, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
         {
         	woodStonePickaxe = new InfiToolPickaxe(18, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStonePickaxe");
-        	stoneStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+1, 
+        	stoneStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStonePickaxe");
-        	sandstoneStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+2, 
+        	sandstoneStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+2, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Sandstone, "sandstoneStonePickaxe");
-        	boneStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+3, 
+        	boneStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+3, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Bone, "boneStonePickaxe");
-        	netherrackStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+4, 
+        	netherrackStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+4, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Netherrack, "netherrackStonePickaxe");
-        	iceStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+5, 
+        	iceStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+5, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Ice, "iceStonePickaxe");
-        	slimeStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+6, 
+        	slimeStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+6, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Slime, "slimeStonePickaxe");
-        	cactusStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+7, 
+        	cactusStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+7, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStonePickaxe");
-        	flintStonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.stonePickaxeID+8, 
+        	flintStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStonePickaxe");
             
             MinecraftForge.setToolClass(woodStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
@@ -85,25 +85,25 @@ public class Pickaxes
             MinecraftForge.setToolClass(flintStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
         {
         	woodIronPickaxe = new InfiToolPickaxe(1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronPickaxe");
-        	stoneIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+1, 
+        	stoneIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronPickaxe");
-        	ironIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+2, 
+        	ironIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Iron, "ironIronPickaxe");
-        	boneIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+3, 
+        	boneIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+3, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bone, "boneIronPickaxe");
-        	netherrackIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+4, 
+        	netherrackIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+4, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Netherrack, "netherrackIronPickaxe");
-        	glowstoneIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+5, 
+        	glowstoneIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+5, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Glowstone, "glowstoneIronPickaxe");
-        	cactusIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+6, 
+        	cactusIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+6, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Cactus, "cactusIronPickaxe");
-        	copperIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+7, 
+        	copperIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+7, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronPickaxe");
-        	bronzeIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.ironPickaxeID+8, 
+        	bronzeIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronPickaxe");
             
             MinecraftForge.setToolClass(woodIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
@@ -117,51 +117,51 @@ public class Pickaxes
             MinecraftForge.setToolClass(bronzeIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
         {
         	woodDiamondPickaxe = new InfiToolPickaxe(22, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondPickaxe");
-        	stoneDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+1, 
+        	stoneDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondPickaxe");
-        	ironDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+2, 
+        	ironDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+2, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Iron, "ironDiamondPickaxe");
-        	diamondDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+3, 
+        	diamondDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+3, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Diamond, "diamondDiamondPickaxe");
-        	redstoneDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+4, 
+        	redstoneDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+4, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Redstone, "redstoneDiamondPickaxe");
-        	obsidianDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+5, 
+        	obsidianDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+5, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Obsidian, "obsidianDiamondPickaxe");
-        	boneDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+6, 
+        	boneDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+6, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bone, "boneDiamondPickaxe");
-        	mossyDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+7, 
+        	mossyDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Mossy, "mossyDiamondPickaxe");
-        	netherrackDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+8, 
+        	netherrackDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+8, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Netherrack, "netherrackDiamondPickaxe");
-        	glowstoneDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+9, 
+        	glowstoneDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+9, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Glowstone, "glowstoneDiamondPickaxe");
-        	lavaDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+10, 
+        	lavaDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+10, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Lava, "lavaDiamondPickaxe");
-        	cactusDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+11, 
+        	cactusDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+11, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cactus, "cactusDiamondPickaxe");
-        	flintDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+12, 
+        	flintDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+12, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Flint, "flintDiamondPickaxe");
-        	blazeDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+13, 
+        	blazeDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+13, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Blaze, "blazeDiamondPickaxe");
-            copperDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+14, 
+            copperDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+14, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Copper, "copperDiamondPickaxe");
-            bronzeDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+15, 
+            bronzeDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+15, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bronze, "bronzeDiamondPickaxe");
-            workedDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+16, 
+            workedDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+16, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.WorkedIron, "workedDiamondPickaxe");
-            steelDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+17, 
+            steelDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+17, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Steel, "steelDiamondPickaxe");
-            cobaltDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+18, 
+            cobaltDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+18, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cobalt, "cobaltDiamondPickaxe");
-            arditeDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+19, 
+            arditeDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+19, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Ardite, "arditeDiamondPickaxe");
-            manyullynDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+20, 
+            manyullynDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+20, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondPickaxe");
-            uraniumDiamondPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.diamondPickaxeID+21, 
+            uraniumDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondPickaxe");
             
             MinecraftForge.setToolClass(woodDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
@@ -188,47 +188,47 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
         {
-        	woodRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+0, 
+        	woodRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+0, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstonePickaxe");
-        	stoneRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+1, 
+        	stoneRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstonePickaxe");
-        	ironRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+2, 
+        	ironRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Iron, "ironRedstonePickaxe");
-        	redstoneRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+3, 
+        	redstoneRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+3, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "redstoneRedstonePickaxe");
-        	obsidianRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+4, 
+        	obsidianRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+4, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Obsidian, "obsidianRedstonePickaxe");
-        	sandstoneRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+5, 
+        	sandstoneRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+5, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Sandstone, "sandstoneRedstonePickaxe");
-        	boneRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+6, 
+        	boneRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+6, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bone, "boneRedstonePickaxe");
-        	paperRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+7, 
+        	paperRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+7, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Paper, "paperRedstonePickaxe");
-        	mossyRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+8, 
+        	mossyRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+8, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Mossy, "mossyRedstonePickaxe");
-        	netherrackRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+9, 
+        	netherrackRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+9, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Netherrack, "netherrackRedstonePickaxe");
-        	glowstoneRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+10, 
+        	glowstoneRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+10, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Glowstone, "glowstoneRedstonePickaxe");
-        	iceRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+11, 
+        	iceRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+11, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Ice, "iceRedstonePickaxe");
-        	lavaRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+12,
+        	lavaRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+12,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Lava, "lavaRedstonePickaxe");
-        	slimeRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+13,
+        	slimeRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+13,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Slime, "slimeRedstonePickaxe");
-        	cactusRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+14,
+        	cactusRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+14,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Cactus, "cactusRedstonePickaxe");
-        	flintRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+15,
+        	flintRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+15,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Flint, "flintRedstonePickaxe");
-        	copperRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+16,
+        	copperRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+16,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Copper, "copperRedstonePickaxe");
-        	bronzeRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+17,
+        	bronzeRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+17,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstonePickaxe");
-        	workedRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+18,
+        	workedRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+18,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstonePickaxe");
-        	uraniumRedstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.redstonePickaxeID+19,
+        	uraniumRedstonePickaxe = new InfiToolPickaxe(PHInfiTools.redstonePickaxeID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstonePickaxe");
             
             MinecraftForge.setToolClass(woodRedstonePickaxe, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
@@ -253,27 +253,27 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumRedstonePickaxe, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
         {
-        	woodObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+0, 
+        	woodObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+0, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianPickaxe");
-        	stoneObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+1, 
+        	stoneObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianPickaxe");
-        	redstoneObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+2, 
+        	redstoneObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+2, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianPickaxe");
-        	obsidianObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+3, 
+        	obsidianObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianPickaxe");;
-        	boneObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+4, 
+        	boneObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+4, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Bone, "boneObsidianPickaxe");
-        	netherrackObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+5, 
+        	netherrackObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+5, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Netherrack, "netherrackObsidianPickaxe");
-        	glowstoneObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+6, 
+        	glowstoneObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+6, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Glowstone, "glowstoneObsidianPickaxe");
-        	iceObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+7, 
+        	iceObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+7, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Ice, "iceObsidianPickaxe");
-        	lavaObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+8,
+        	lavaObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+8,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianPickaxe");
-        	cactusObsidianPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.obsidianPickaxeID+9,
+        	cactusObsidianPickaxe = new InfiToolPickaxe(PHInfiTools.obsidianPickaxeID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianPickaxe");
             
             MinecraftForge.setToolClass(woodObsidianPickaxe, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
@@ -288,23 +288,23 @@ public class Pickaxes
             MinecraftForge.setToolClass(cactusObsidianPickaxe, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
         {
-        	woodSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+0, 
+        	woodSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+0, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstonePickaxe");
-        	sandstoneSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+1, 
+        	sandstoneSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstonePickaxe");
-        	boneSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+2, 
+        	boneSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+2, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Bone, "boneSandstonePickaxe");
-        	netherrackSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+3, 
+        	netherrackSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+3, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Netherrack, "netherrackSandstonePickaxe");
-        	iceSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+4, 
+        	iceSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+4, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Ice, "iceSandstonePickaxe");
-        	slimeSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+5,
+        	slimeSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+5,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Slime, "slimeSandstonePickaxe");
-        	cactusSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+6,
+        	cactusSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+6,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstonePickaxe");
-        	flintSandstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.sandstonePickaxeID+7,
+        	flintSandstonePickaxe = new InfiToolPickaxe(PHInfiTools.sandstonePickaxeID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstonePickaxe");
             
             MinecraftForge.setToolClass(woodSandstonePickaxe, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
@@ -317,25 +317,25 @@ public class Pickaxes
             MinecraftForge.setToolClass(flintSandstonePickaxe, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableBoneTools)
+        if(PHInfiTools.enableBoneTools)
         {
-        	woodBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+0, 
+        	woodBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+0, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBonePickaxe");
-        	stoneBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+1, 
+        	stoneBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBonePickaxe");
-        	sandstoneBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+2, 
+        	sandstoneBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+2, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Sandstone, "sandstoneBonePickaxe");
-        	boneBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+3, 
+        	boneBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+3, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "boneBonePickaxe");
-        	paperBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+4, 
+        	paperBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+4, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Paper, "paperBonePickaxe");
-        	netherrackBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+5, 
+        	netherrackBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+5, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Netherrack, "netherrackBonePickaxe");
-        	iceBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+6, 
+        	iceBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+6, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Ice, "iceBonePickaxe");
-        	cactusBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+7,
+        	cactusBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+7,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBonePickaxe");
-        	flintBonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bonePickaxeID+8,
+        	flintBonePickaxe = new InfiToolPickaxe(PHInfiTools.bonePickaxeID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBonePickaxe");
             
             MinecraftForge.setToolClass(woodBonePickaxe, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
@@ -349,17 +349,17 @@ public class Pickaxes
             MinecraftForge.setToolClass(flintBonePickaxe, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
         {
-        	woodPaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+0, 
+        	woodPaperPickaxe = new InfiToolPickaxe(PHInfiTools.paperPickaxeID+0, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperPickaxe");
-        	bonePaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+1, 
+        	bonePaperPickaxe = new InfiToolPickaxe(PHInfiTools.paperPickaxeID+1, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperPickaxe");
-        	paperPaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+2, 
+        	paperPaperPickaxe = new InfiToolPickaxe(PHInfiTools.paperPickaxeID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperPickaxe");
-        	slimePaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+3,
+        	slimePaperPickaxe = new InfiToolPickaxe(PHInfiTools.paperPickaxeID+3,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperPickaxe");
-        	cactusPaperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.paperPickaxeID+4,
+        	cactusPaperPickaxe = new InfiToolPickaxe(PHInfiTools.paperPickaxeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperPickaxe");
             
             MinecraftForge.setToolClass(woodPaperPickaxe, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
@@ -369,31 +369,31 @@ public class Pickaxes
             MinecraftForge.setToolClass(cactusPaperPickaxe, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
         {
-        	woodMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+0, 
+        	woodMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+0, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Wood, "woodMossyPickaxe");
-        	stoneMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+1, 
+        	stoneMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+1, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Stone, "stoneMossyPickaxe");
-        	diamondMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+2, 
+        	diamondMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Diamond, "diamondMossyPickaxe");
-        	redstoneMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+3, 
+        	redstoneMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+3, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Redstone, "redstoneMossyPickaxe");
-        	boneMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+4, 
+        	boneMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+4, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Bone, "boneMossyPickaxe");
-        	mossyMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+5, 
+        	mossyMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+5, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Mossy, "mossyMossyPickaxe");
-        	netherrackMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+6, 
+        	netherrackMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+6, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Netherrack, "netherrackMossyPickaxe");
-        	glowstoneMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+7, 
+        	glowstoneMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+7, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Glowstone, "glowstoneMossyPickaxe");
-        	cactusMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+8, 
+        	cactusMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+8, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Cactus, "cactusMossyPickaxe");
-        	blazeMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+9, 
+        	blazeMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+9, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Blaze, "blazeMossyPickaxe");
-        	manyullynMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+10, 
+        	manyullynMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+10, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyPickaxe");
-        	uraniumMossyPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.mossyPickaxeID+11, 
+        	uraniumMossyPickaxe = new InfiToolPickaxe(PHInfiTools.mossyPickaxeID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyPickaxe");
             
             MinecraftForge.setToolClass(woodMossyPickaxe, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
@@ -410,33 +410,33 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumMossyPickaxe, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
         {
-        	woodNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+0, 
+        	woodNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Wood, "woodNetherrackPickaxe");
-        	stoneNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+1, 
+        	stoneNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+1, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Stone, "stoneNetherrackPickaxe");
-        	sandstoneNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+2, 
+        	sandstoneNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+2, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Sandstone, "sandstoneNetherrackPickaxe");
-        	boneNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+3, 
+        	boneNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+3, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bone, "boneNetherrackPickaxe");
-        	paperNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+4, 
+        	paperNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+4, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Paper, "paperNetherrackPickaxe");
-        	mossyNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+5, 
+        	mossyNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+5, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Mossy, "mossyNetherrackPickaxe");
-        	netherrackNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+6, 
+        	netherrackNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+6, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Netherrack, "netherrackNetherrackPickaxe");
-        	iceNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+7, 
+        	iceNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+7, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Ice, "iceNetherrackPickaxe");
-        	slimeNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+8, 
+        	slimeNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+8, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Slime, "slimeNetherrackPickaxe");
-        	cactusNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+9, 
+        	cactusNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+9, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Cactus, "cactusNetherrackPickaxe");
-        	flintNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+10, 
+        	flintNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+10, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Flint, "flintNetherrackPickaxe");
-        	copperNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+11, 
+        	copperNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+11, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackPickaxe");
-        	bronzeNetherrackPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.netherrackPickaxeID+12, 
+        	bronzeNetherrackPickaxe = new InfiToolPickaxe(PHInfiTools.netherrackPickaxeID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackPickaxe");
             
             MinecraftForge.setToolClass(woodNetherrackPickaxe, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
@@ -454,25 +454,25 @@ public class Pickaxes
             MinecraftForge.setToolClass(bronzeNetherrackPickaxe, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
         {
-        	woodGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+0, 
+        	woodGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+0, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Wood, "woodGlowstonePickaxe");
-        	redstoneGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+1, 
+        	redstoneGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+1, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Redstone, "redstoneGlowstonePickaxe");
-        	obsidianGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+2, 
+        	obsidianGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+2, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Obsidian, "obsidianGlowstonePickaxe");
-        	boneGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+3, 
+        	boneGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Bone, "boneGlowstonePickaxe");
-        	netherrackGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+4, 
+        	netherrackGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+4, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Netherrack, "netherrackGlowstonePickaxe");
-        	glowstoneGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+5, 
+        	glowstoneGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+5, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Glowstone, "glowstoneGlowstonePickaxe");
-        	iceGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+6, 
+        	iceGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+6, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Ice, "iceGlowstonePickaxe");
-        	slimeGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+7, 
+        	slimeGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+7, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Slime, "slimeGlowstonePickaxe");
-        	cactusGlowstonePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.glowstonePickaxeID+8, 
+        	cactusGlowstonePickaxe = new InfiToolPickaxe(PHInfiTools.glowstonePickaxeID+8, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstonePickaxe");
             
             
@@ -487,19 +487,19 @@ public class Pickaxes
             MinecraftForge.setToolClass(cactusGlowstonePickaxe, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
         {
-        	woodIcePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.icePickaxeID+0, 
+        	woodIcePickaxe = new InfiToolPickaxe(PHInfiTools.icePickaxeID+0, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Wood, "woodIcePickaxe");
-        	boneIcePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.icePickaxeID+1, 
+        	boneIcePickaxe = new InfiToolPickaxe(PHInfiTools.icePickaxeID+1, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Bone, "boneIcePickaxe");
-        	paperIcePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.icePickaxeID+2, 
+        	paperIcePickaxe = new InfiToolPickaxe(PHInfiTools.icePickaxeID+2, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Paper, "paperIcePickaxe");
-        	iceIcePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.icePickaxeID+3, 
+        	iceIcePickaxe = new InfiToolPickaxe(PHInfiTools.icePickaxeID+3, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Ice, "iceIcePickaxe");
-        	slimeIcePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.icePickaxeID+4, 
+        	slimeIcePickaxe = new InfiToolPickaxe(PHInfiTools.icePickaxeID+4, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Slime, "slimeIcePickaxe");
-        	cactusIcePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.icePickaxeID+5, 
+        	cactusIcePickaxe = new InfiToolPickaxe(PHInfiTools.icePickaxeID+5, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIcePickaxe");
             
             
@@ -511,23 +511,23 @@ public class Pickaxes
             MinecraftForge.setToolClass(cactusIcePickaxe, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
         {
-        	diamondLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+0, 
+        	diamondLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+0, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Diamond, "diamondLavaPickaxe");
-        	obsidianLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+1, 
+        	obsidianLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+1, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Obsidian, "obsidianLavaPickaxe");
-        	netherrackLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+2, 
+        	netherrackLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+2, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Netherrack, "netherrackLavaPickaxe");
-        	lavaLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+3, 
+        	lavaLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Lava, "lavaLavaPickaxe");
-        	flintLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+4, 
+        	flintLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+4, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Flint, "flintLavaPickaxe");
-        	blazeLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+5, 
+        	blazeLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+5, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Blaze, "blazeLavaPickaxe");
-        	manyullynLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+6, 
+        	manyullynLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+6, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaPickaxe");
-            uraniumLavaPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.lavaPickaxeID+7, 
+            uraniumLavaPickaxe = new InfiToolPickaxe(PHInfiTools.lavaPickaxeID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaPickaxe");
             
             MinecraftForge.setToolClass(diamondLavaPickaxe, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
@@ -540,19 +540,19 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumLavaPickaxe, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
         {
-        	woodSlimePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.slimePickaxeID+0, 
+        	woodSlimePickaxe = new InfiToolPickaxe(PHInfiTools.slimePickaxeID+0, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Wood, "woodSlimePickaxe");
-        	sandstoneSlimePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.slimePickaxeID+1, 
+        	sandstoneSlimePickaxe = new InfiToolPickaxe(PHInfiTools.slimePickaxeID+1, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Sandstone, "sandstoneSlimePickaxe");
-        	boneSlimePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.slimePickaxeID+2, 
+        	boneSlimePickaxe = new InfiToolPickaxe(PHInfiTools.slimePickaxeID+2, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Bone, "boneSlimePickaxe");
-        	paperSlimePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.slimePickaxeID+3, 
+        	paperSlimePickaxe = new InfiToolPickaxe(PHInfiTools.slimePickaxeID+3, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Paper, "paperSlimePickaxe");
-        	slimeSlimePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.slimePickaxeID+4, 
+        	slimeSlimePickaxe = new InfiToolPickaxe(PHInfiTools.slimePickaxeID+4, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Slime, "slimeSlimePickaxe");
-        	cactusSlimePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.slimePickaxeID+5, 
+        	cactusSlimePickaxe = new InfiToolPickaxe(PHInfiTools.slimePickaxeID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimePickaxe");
             
             MinecraftForge.setToolClass(woodSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
@@ -563,21 +563,21 @@ public class Pickaxes
             MinecraftForge.setToolClass(cactusSlimePickaxe, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
         {
-        	woodCactusPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cactusPickaxeID+0, 
+        	woodCactusPickaxe = new InfiToolPickaxe(PHInfiTools.cactusPickaxeID+0, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Wood, "woodCactusPickaxe");
-        	sandstoneCactusPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cactusPickaxeID+1, 
+        	sandstoneCactusPickaxe = new InfiToolPickaxe(PHInfiTools.cactusPickaxeID+1, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Sandstone, "sandstoneCactusPickaxe");
-        	boneCactusPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cactusPickaxeID+2, 
+        	boneCactusPickaxe = new InfiToolPickaxe(PHInfiTools.cactusPickaxeID+2, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Bone, "boneCactusPickaxe");
-        	netherrackCactusPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cactusPickaxeID+3, 
+        	netherrackCactusPickaxe = new InfiToolPickaxe(PHInfiTools.cactusPickaxeID+3, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Netherrack, "netherrackCactusPickaxe");
-        	iceCactusPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cactusPickaxeID+4, 
+        	iceCactusPickaxe = new InfiToolPickaxe(PHInfiTools.cactusPickaxeID+4, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Ice, "iceCactusPickaxe");
-        	slimeCactusPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cactusPickaxeID+5, 
+        	slimeCactusPickaxe = new InfiToolPickaxe(PHInfiTools.cactusPickaxeID+5, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Slime, "slimeCactusPickaxe");
-        	cactusCactusPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cactusPickaxeID+6, 
+        	cactusCactusPickaxe = new InfiToolPickaxe(PHInfiTools.cactusPickaxeID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusPickaxe");
             
             MinecraftForge.setToolClass(woodCactusPickaxe, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
@@ -589,27 +589,27 @@ public class Pickaxes
             MinecraftForge.setToolClass(cactusCactusPickaxe, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
         {
-        	woodFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+0, 
+        	woodFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+0, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Wood, "woodFlintPickaxe");
-        	stoneFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+1, 
+        	stoneFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Stone, "stoneFlintPickaxe");
-        	sandstoneFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+2, 
+        	sandstoneFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+2, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Sandstone, "sandstoneFlintPickaxe");
-        	boneFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+3, 
+        	boneFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintPickaxe");
-        	netherrackFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+4, 
+        	netherrackFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+4, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintPickaxe");
-        	slimeFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+5, 
+        	slimeFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintPickaxe");
-        	cactusFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+6, 
+        	cactusFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+6, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Cactus, "cactusFlintPickaxe");
-        	flintFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+7, 
+        	flintFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+7, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "flintFlintPickaxe");
-        	copperFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+8, 
+        	copperFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+8, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintPickaxe");
-        	bronzeFlintPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.flintPickaxeID+9, 
+        	bronzeFlintPickaxe = new InfiToolPickaxe(PHInfiTools.flintPickaxeID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintPickaxe");
             
             MinecraftForge.setToolClass(woodFlintPickaxe, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
@@ -624,23 +624,23 @@ public class Pickaxes
             MinecraftForge.setToolClass(bronzeFlintPickaxe, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
         {
-        	diamondBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+0, 
+        	diamondBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+0, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Diamond, "diamondBlazePickaxe");
-        	obsidianBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+1, 
+        	obsidianBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+1, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Obsidian, "obsidianBlazePickaxe");
-        	netherrackBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+2, 
+        	netherrackBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+2, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Netherrack, "netherrackBlazePickaxe");
-        	lavaBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+3, 
+        	lavaBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Lava, "lavaBlazePickaxe");
-        	flintBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+4, 
+        	flintBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+4, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Flint, "flintBlazePickaxe");
-        	blazeBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+5, 
+        	blazeBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+5, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Blaze, "blazeBlazePickaxe");
-        	manyullynBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+6, 
+        	manyullynBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+6, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazePickaxe");
-            uraniumBlazePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.blazePickaxeID+7, 
+            uraniumBlazePickaxe = new InfiToolPickaxe(PHInfiTools.blazePickaxeID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazePickaxe");
             
             MinecraftForge.setToolClass(diamondBlazePickaxe, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
@@ -653,23 +653,23 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumBlazePickaxe, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
-        if(PropsHelperInfiTools.enableCopperTools)
+        if(PHInfiTools.enableCopperTools)
         {
-        	woodCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+0, 
+        	woodCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+0, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Wood, "woodCopperPickaxe");
-            stoneCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+1, 
+            stoneCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+1, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Stone, "stoneCopperPickaxe");
-            boneCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+2, 
+            boneCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+2, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Bone, "boneCopperPickaxe");
-            netherrackCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+3, 
+            netherrackCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+3, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Netherrack, "netherrackCopperPickaxe");
-            slimeCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+4, 
+            slimeCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+4, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Slime, "slimeCopperPickaxe");
-            cactusCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+5, 
+            cactusCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+5, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Cactus, "cactusCopperPickaxe");
-            flintCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+6, 
+            flintCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperPickaxe");
-            copperCopperPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.copperPickaxeID+7, 
+            copperCopperPickaxe = new InfiToolPickaxe(PHInfiTools.copperPickaxeID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperPickaxe");
             
             MinecraftForge.setToolClass(woodCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
@@ -682,25 +682,25 @@ public class Pickaxes
             MinecraftForge.setToolClass(copperCopperPickaxe, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableBronzeTools)
+        if(PHInfiTools.enableBronzeTools)
         {
-        	woodBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+0, 
+        	woodBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+0, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Wood, "woodBronzePickaxe");
-            stoneBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+1, 
+            stoneBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+1, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Stone, "stoneBronzePickaxe");
-            boneBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+2, 
+            boneBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+2, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bone, "boneBronzePickaxe");
-            netherrackBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+3, 
+            netherrackBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+3, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Netherrack, "netherrackBronzePickaxe");
-            slimeBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+4, 
+            slimeBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+4, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Slime, "slimeBronzePickaxe");
-            cactusBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+5, 
+            cactusBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+5, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Cactus, "cactusBronzePickaxe");
-            flintBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+6, 
+            flintBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+6, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Flint, "flintBronzePickaxe");
-            copperBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+7, 
+            copperBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzePickaxe");
-            bronzeBronzePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.bronzePickaxeID+8, 
+            bronzeBronzePickaxe = new InfiToolPickaxe(PHInfiTools.bronzePickaxeID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzePickaxe");
             
             MinecraftForge.setToolClass(woodBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -714,43 +714,43 @@ public class Pickaxes
             MinecraftForge.setToolClass(bronzeBronzePickaxe, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableWorkedIronTools)
+        if(PHInfiTools.enableWorkedIronTools)
         {
-        	woodWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+0, 
+        	woodWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+0, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Wood, "woodWorkedIronPickaxe");
-            stoneWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+1, 
+            stoneWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+1, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Stone, "stoneWorkedIronPickaxe");
-            ironWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+2,
+            ironWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+2,
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Iron, "ironWorkedIronPickaxe");
-            diamondWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+3, 
+            diamondWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+3, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Diamond, "diamondWorkedIronPickaxe");
-            redstoneWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+4, 
+            redstoneWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+4, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Redstone, "redstoneWorkedIronPickaxe");
-            obsidianWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+5, 
+            obsidianWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+5, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Obsidian, "obsidianWorkedIronPickaxe");
-            boneWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+6, 
+            boneWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+6, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bone, "boneWorkedIronPickaxe");
-            netherrackWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+7, 
+            netherrackWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+7, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Netherrack, "netherrackWorkedIronPickaxe");
-            glowstoneWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+8, 
+            glowstoneWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+8, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Glowstone, "glowstoneWorkedIronPickaxe");
-            iceWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+9, 
+            iceWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+9, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ice, "iceWorkedIronPickaxe");
-            slimeWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+10, 
+            slimeWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+10, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Slime, "slimeWorkedIronPickaxe");
-            cactusWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+11, 
+            cactusWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+11, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Cactus, "cactusWorkedIronPickaxe");
-            blazeWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+12, 
+            blazeWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+12, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Blaze, "blazeWorkedIronPickaxe");
-            copperWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+13, 
+            copperWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+13, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Copper, "copperWorkedIronPickaxe");
-            bronzeWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+14, 
+            bronzeWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+14, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "bronzeWorkedIronPickaxe");
-            workedWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+15, 
+            workedWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+15, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.WorkedIron, "workedWorkedIronPickaxe");
-            steelWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+16, 
+            steelWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronPickaxe");
-            uraniumWorkedIronPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.workedIronPickaxeID+17, 
+            uraniumWorkedIronPickaxe = new InfiToolPickaxe(PHInfiTools.workedIronPickaxeID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronPickaxe");
             
             MinecraftForge.setToolClass(woodWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -773,47 +773,47 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumWorkedIronPickaxe, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableSteelTools)
+        if(PHInfiTools.enableSteelTools)
         {
-        	woodSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+0, 
+        	woodSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+0, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Wood, "woodSteelPickaxe");
-            stoneSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+1, 
+            stoneSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+1, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Stone, "stoneSteelPickaxe");
-            ironSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+2, 
+            ironSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+2, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Iron, "ironSteelPickaxe");
-            diamondSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+3, 
+            diamondSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+3, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Diamond, "diamondSteelPickaxe");
-            redstoneSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+4, 
+            redstoneSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+4, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Redstone, "redstoneSteelPickaxe");
-            obsidianSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+5, 
+            obsidianSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+5, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Obsidian, "obsidianSteelPickaxe");
-            boneSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+6, 
+            boneSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+6, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bone, "boneSteelPickaxe");
-            netherrackSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+7, 
+            netherrackSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+7, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Netherrack, "netherrackSteelPickaxe");
-            glowstoneSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+8, 
+            glowstoneSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+8, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Glowstone, "glowstoneSteelPickaxe");
-            iceSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+9, 
+            iceSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+9, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ice, "iceSteelPickaxe");
-            slimeSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+10, 
+            slimeSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+10, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Slime, "slimeSteelPickaxe");
-            cactusSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+11, 
+            cactusSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+11, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cactus, "cactusSteelPickaxe");
-            blazeSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+12, 
+            blazeSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+12, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Blaze, "blazeSteelPickaxe");
-            copperSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+13, 
+            copperSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+13, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Copper, "copperSteelPickaxe");
-            bronzeSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+14, 
+            bronzeSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+14, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "bronzeSteelPickaxe");
-            workedSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+15, 
+            workedSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+15, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.WorkedIron, "workedSteelPickaxe");
-            steelSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+16, 
+            steelSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+16, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Steel, "steelSteelPickaxe");
-            cobaltSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+17, 
+            cobaltSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+17, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cobalt, "cobaltSteelPickaxe");
-            arditeSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+18, 
+            arditeSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelPickaxe");
-            uraniumSteelPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.steelPickaxeID+19, 
+            uraniumSteelPickaxe = new InfiToolPickaxe(PHInfiTools.steelPickaxeID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelPickaxe");
 
             MinecraftForge.setToolClass(woodSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -838,43 +838,43 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumSteelPickaxe, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableCobaltTools)
+        if(PHInfiTools.enableCobaltTools)
         {
-        	woodCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+0, 
+        	woodCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+0, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Wood, "woodCobaltPickaxe");
-            stoneCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+1, 
+            stoneCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+1, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Stone, "stoneCobaltPickaxe");
-            ironCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+2, 
+            ironCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+2, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Iron, "ironCobaltPickaxe");
-            diamondCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+3,
+            diamondCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+3,
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Diamond, "diamondCobaltPickaxe");
-            redstoneCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+4, 
+            redstoneCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+4, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Redstone, "redstoneCobaltPickaxe");
-            obsidianCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+5, 
+            obsidianCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+5, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Obsidian, "obsidianCobaltPickaxe");
-            boneCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+6, 
+            boneCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+6, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bone, "boneCobaltPickaxe");
-            slimeCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+7, 
+            slimeCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+7, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Slime, "slimeCobaltPickaxe");
-            cactusCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+8, 
+            cactusCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+8, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cactus, "cactusCobaltPickaxe");
-            blazeCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+9, 
+            blazeCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+9, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Blaze, "blazeCobaltPickaxe");
-            copperCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+10, 
+            copperCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+10, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Copper, "copperCobaltPickaxe");
-            bronzeCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+11, 
+            bronzeCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+11, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "bronzeCobaltPickaxe");
-            workedCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+12, 
+            workedCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+12, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.WorkedIron, "workedCobaltPickaxe");
-            steelCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+13, 
+            steelCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+13, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Steel, "steelCobaltPickaxe");
-            cobaltCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+14, 
+            cobaltCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+14, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cobalt, "cobaltCobaltPickaxe");
-            arditeCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+15, 
+            arditeCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltPickaxe");
-            manyullynCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+16, 
+            manyullynCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltPickaxe");
-            uraniumCobaltPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.cobaltPickaxeID+17, 
+            uraniumCobaltPickaxe = new InfiToolPickaxe(PHInfiTools.cobaltPickaxeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltPickaxe");
             
             MinecraftForge.setToolClass(woodCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -897,43 +897,43 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumCobaltPickaxe, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableArditeTools)
+        if(PHInfiTools.enableArditeTools)
         {
-        	woodArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+0, 
+        	woodArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+0, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Wood, "woodArditePickaxe");
-            stoneArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+1, 
+            stoneArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+1, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Stone, "stoneArditePickaxe");
-            ironArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+2, 
+            ironArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+2, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Iron, "ironArditePickaxe");
-            diamondArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+3,
+            diamondArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+3,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Diamond, "diamondArditePickaxe");
-            redstoneArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+4, 
+            redstoneArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+4, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Redstone, "redstoneArditePickaxe");
-            obsidianArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+5, 
+            obsidianArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+5, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Obsidian, "obsidianArditePickaxe");
-            boneArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+6,
+            boneArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+6,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bone, "boneArditePickaxe");
-            slimeArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+7, 
+            slimeArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+7, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Slime, "slimeArditePickaxe");
-            cactusArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+8, 
+            cactusArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+8, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cactus, "cactusArditePickaxe");
-            blazeArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+9, 
+            blazeArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+9, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Blaze, "blazeArditePickaxe");
-            copperArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+10, 
+            copperArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+10, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Copper, "copperArditePickaxe");
-            bronzeArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+11, 
+            bronzeArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+11, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "bronzeArditePickaxe");
-            workedArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+12, 
+            workedArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+12, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.WorkedIron, "workedArditePickaxe");
-            steelArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+13, 
+            steelArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+13, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Steel, "steelArditePickaxe");
-            cobaltArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+14, 
+            cobaltArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+14, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cobalt, "cobaltArditePickaxe");
-            arditeArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+15, 
+            arditeArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditePickaxe");
-            manyullynArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+16, 
+            manyullynArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditePickaxe");
-            uraniumArditePickaxe = new InfiToolPickaxe(PropsHelperInfiTools.arditePickaxeID+17, 
+            uraniumArditePickaxe = new InfiToolPickaxe(PHInfiTools.arditePickaxeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditePickaxe");
             
             MinecraftForge.setToolClass(woodArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -956,43 +956,43 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumArditePickaxe, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableManyullynTools)
+        if(PHInfiTools.enableManyullynTools)
         {
-        	woodManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+0, 
+        	woodManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+0, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynPickaxe");
-            stoneManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+1, 
+            stoneManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynPickaxe");
-            ironManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+2, 
+            ironManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+2, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Iron, "ironManyullynPickaxe");
-            diamondManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+3,
+            diamondManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+3,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Diamond, "diamondManyullynPickaxe");
-            redstoneManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+4, 
+            redstoneManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+4, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Redstone, "redstoneManyullynPickaxe");
-            obsidianManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+5, 
+            obsidianManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+5, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Obsidian, "obsidianManyullynPickaxe");
-            boneManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+6, 
+            boneManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+6, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bone, "boneManyullynPickaxe");
-            slimeManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+7, 
+            slimeManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+7, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Slime, "slimeManyullynPickaxe");
-            cactusManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+8, 
+            cactusManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+8, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cactus, "cactusManyullynPickaxe");
-            blazeManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+9, 
+            blazeManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+9, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Blaze, "blazeManyullynPickaxe");
-            copperManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+10, 
+            copperManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+10, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Copper, "copperManyullynPickaxe");
-            bronzeManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+11, 
+            bronzeManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+11, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "bronzeManyullynPickaxe");
-            workedManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+12, 
+            workedManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+12, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.WorkedIron, "workedManyullynPickaxe");
-            steelManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+13, 
+            steelManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+13, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Steel, "steelManyullynPickaxe");
-            cobaltManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+14, 
+            cobaltManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+14, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cobalt, "cobaltManyullynPickaxe");
-            arditeManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+15, 
+            arditeManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynPickaxe");
-            manyullynManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+16, 
+            manyullynManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynPickaxe");
-            uraniumManyullynPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.manyullynPickaxeID+17,
+            uraniumManyullynPickaxe = new InfiToolPickaxe(PHInfiTools.manyullynPickaxeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynPickaxe");
             
             MinecraftForge.setToolClass(woodManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
@@ -1015,27 +1015,27 @@ public class Pickaxes
             MinecraftForge.setToolClass(uraniumManyullynPickaxe, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
-        if(PropsHelperInfiTools.enableUraniumTools)
+        if(PHInfiTools.enableUraniumTools)
         {
-            diamondUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+0, 
+            diamondUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+0, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Diamond, "diamondUraniumPickaxe");
-            redstoneUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+1, 
+            redstoneUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+1, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Redstone, "redstoneUraniumPickaxe");
-            boneUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+2, 
+            boneUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+2, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Bone, "boneUraniumPickaxe");
-            netherrackUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+3, 
+            netherrackUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+3, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Netherrack, "netherrackUraniumPickaxe");
-            glowstoneUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+4, 
+            glowstoneUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+4, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Glowstone, "glowstoneUraniumPickaxe");
-            lavaUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+5, 
+            lavaUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+5, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Lava, "lavaUraniumPickaxe");
-            blazeUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+6, 
+            blazeUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+6, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Blaze, "blazeUraniumPickaxe");
-            cobaltUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+7, 
+            cobaltUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+7, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Cobalt, "cobaltUraniumPickaxe");
-            arditeUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+8, 
+            arditeUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+8, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumPickaxe");
-            uraniumUraniumPickaxe = new InfiToolPickaxe(PropsHelperInfiTools.uraniumPickaxeID+9, 
+            uraniumUraniumPickaxe = new InfiToolPickaxe(PHInfiTools.uraniumPickaxeID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumPickaxe");
             
             MinecraftForge.setToolClass(diamondUraniumPickaxe, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
@@ -1053,541 +1053,541 @@ public class Pickaxes
     
     private static void addNames()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
             ModLoader.addName(woodWoodPickaxe, "Wooden Pickaxe");
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
             ModLoader.addName(stoneStonePickaxe, "Heavy Pickaxe");
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
             ModLoader.addName(ironIronPickaxe, "Ironic Pickaxe");
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
             ModLoader.addName(diamondDiamondPickaxe, "Diamondium Pickaxe");
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
             ModLoader.addName(redstoneRedstonePickaxe, "Redredred Pickaxe");
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
             ModLoader.addName(obsidianObsidianPickaxe, "Ebony Pickaxe");
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
             ModLoader.addName(sandstoneSandstonePickaxe, "Fragile Pickaxe");
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
             ModLoader.addName(boneBonePickaxe, "Necrotic Pickaxe");
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
             ModLoader.addName(paperPaperPickaxe, "Soft Pickaxe");
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
             ModLoader.addName(mossyMossyPickaxe, "Living Pickaxe");
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
             ModLoader.addName(netherrackNetherrackPickaxe, "Bloodsoaked Pickaxe");
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
             ModLoader.addName(glowstoneGlowstonePickaxe, "Bright Pickaxe");
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
             ModLoader.addName(iceIcePickaxe, "Freezing Pickaxe");
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
             ModLoader.addName(lavaLavaPickaxe, "Burning Pickaxe");
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
             ModLoader.addName(slimeSlimePickaxe, "Toy Pickaxe");
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
             ModLoader.addName(cactusCactusPickaxe, "Thorned Pickaxe");
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
             ModLoader.addName(flintFlintPickaxe, "Rough-hewn Pickaxe");
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
             ModLoader.addName(blazeBlazePickaxe, "Netherite Pickaxe");
-        if(PropsHelperInfiTools.enableCopperTools)
+        if(PHInfiTools.enableCopperTools)
             ModLoader.addName(copperCopperPickaxe, "Orange-Tang Pickaxe");
-        if(PropsHelperInfiTools.enableBronzeTools)
+        if(PHInfiTools.enableBronzeTools)
             ModLoader.addName(bronzeBronzePickaxe, "Polished Pickaxe");
-        if(PropsHelperInfiTools.enableWorkedIronTools)
+        if(PHInfiTools.enableWorkedIronTools)
             ModLoader.addName(workedWorkedIronPickaxe, "Reworked Iron Pickaxe");
-        if(PropsHelperInfiTools.enableSteelTools)
+        if(PHInfiTools.enableSteelTools)
             ModLoader.addName(steelSteelPickaxe, "Forge-Wrought Pickaxe");
-        if(PropsHelperInfiTools.enableCobaltTools)
+        if(PHInfiTools.enableCobaltTools)
             ModLoader.addName(cobaltCobaltPickaxe, "Beautiful Pickaxe");
-        if(PropsHelperInfiTools.enableArditeTools)
+        if(PHInfiTools.enableArditeTools)
             ModLoader.addName(arditeArditePickaxe, "Rustic Pickaxe");
-        if(PropsHelperInfiTools.enableManyullynTools)
+        if(PHInfiTools.enableManyullynTools)
             ModLoader.addName(manyullynManyullynPickaxe, "False-Prophetic Pickaxe");
-        if(PropsHelperInfiTools.enableUraniumTools)
+        if(PHInfiTools.enableUraniumTools)
             ModLoader.addName(uraniumUraniumPickaxe, "Cancerous Pickaxe");
     }
     
     public static void registerInfiToolsRecipes()
     {
-    	if(PropsHelperInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools)
         {
             ModLoader.addRecipe(new ItemStack(woodWoodPickaxe), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneWoodPickaxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodPickaxe), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneWoodPickaxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperWoodPickaxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceWoodPickaxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeWoodPickaxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusWoodPickaxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.cactusRod });
         }
     	
-        if(PropsHelperInfiTools.enableStoneTools)
+        if(PHInfiTools.enableStoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodStonePickaxe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStonePickaxe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
             ModLoader.addRecipe(new ItemStack(woodStonePickaxe), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStonePickaxe), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enableIronTools)
+        if(PHInfiTools.enableIronTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodIronPickaxe), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(boneIronPickaxe), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(copperIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableDiamondTools)
+        if(PHInfiTools.enableDiamondTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodDiamondPickaxe), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(diamondDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneDiamondPickaxe), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(lavaDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeDiamondPickaxe), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(copperDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(steelDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.steelRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.steelRod });
             ModLoader.addRecipe(new ItemStack(cobaltDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cobaltRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cobaltRod });
             ModLoader.addRecipe(new ItemStack(arditeDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.arditeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.arditeRod });
             ModLoader.addRecipe(new ItemStack(manyullynDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableRedstoneTools)
+        if(PHInfiTools.enableRedstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(redstoneRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(sandstoneRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(slimeRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(uraniumRedstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableObsidianTools)
+        if(PHInfiTools.enableObsidianTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodObsidianPickaxe), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(redstoneObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneObsidianPickaxe), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusObsidianPickaxe), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableSandstoneTools)
+        if(PHInfiTools.enableSandstoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSandstonePickaxe), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSandstonePickaxe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSandstonePickaxe), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSandstonePickaxe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.boneRod });      
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.boneRod });      
             ModLoader.addRecipe(new ItemStack(netherrackSandstonePickaxe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceSandstonePickaxe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeSandstonePickaxe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSandstonePickaxe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintSandstonePickaxe), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enableBoneTools)
+        if(PHInfiTools.enableBoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodBonePickaxe), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(stoneBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneBonePickaxe), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(netherrackBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(cactusBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintBonePickaxe), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiTools.enablePaperTools)
+        if(PHInfiTools.enablePaperTools)
         {
             ModLoader.addRecipe(new ItemStack(woodPaperPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(bonePaperPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(bonePaperPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperPaperPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimePaperPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusPaperPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableMossyTools)
+        if(PHInfiTools.enableMossyTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(diamondMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(boneMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(blazeMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumMossyPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableNetherrackTools)
+        if(PHInfiTools.enableNetherrackTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodNetherrackPickaxe), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneNetherrackPickaxe), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeNetherrackPickaxe), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableGlowstoneTools)
+        if(PHInfiTools.enableGlowstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusGlowstonePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableIceTools)
+        if(PHInfiTools.enableIceTools)
         {
             ModLoader.addRecipe(new ItemStack(woodIcePickaxe), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneIcePickaxe), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIcePickaxe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperIcePickaxe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceIcePickaxe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeIcePickaxe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusIcePickaxe), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableLavaTools)
+        if(PHInfiTools.enableLavaTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumLavaPickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiTools.enableSlimeTools)
+        if(PHInfiTools.enableSlimeTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSlimePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSlimePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSlimePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSlimePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperSlimePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimeSlimePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSlimePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableCactusTools)
+        if(PHInfiTools.enableCactusTools)
         {
             ModLoader.addRecipe(new ItemStack(woodCactusPickaxe), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneCactusPickaxe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneCactusPickaxe), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneCactusPickaxe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackCactusPickaxe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceCactusPickaxe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeCactusPickaxe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusCactusPickaxe), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiTools.enableFlintTools)
+        if(PHInfiTools.enableFlintTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodFlintPickaxe), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneFlintPickaxe), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(slimeFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintPickaxe), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiTools.enableBlazeTools)
+        if(PHInfiTools.enableBlazeTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumBlazePickaxe), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.uraniumRod });
         }
     }
     
@@ -1596,23 +1596,23 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodStonePickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
     	ModLoader.addRecipe(new ItemStack(stoneStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(sandstoneStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.sandstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.sandstoneRod });
         ModLoader.addRecipe(new ItemStack(boneStonePickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(iceStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintStonePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
     }
     
     public static void addCopperTools(ItemStack stack)
@@ -1620,21 +1620,21 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodCopperPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCopperPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneCopperPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCopperPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackCopperPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeCopperPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCopperPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintCopperPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperCopperPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
     }
     
     public static void addBronzeTools(ItemStack stack)
@@ -1642,23 +1642,23 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodBronzePickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneBronzePickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeBronzePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
     }
     
     public static void addWorkedIronTools(ItemStack stack)
@@ -1666,41 +1666,41 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodWorkedIronPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeWorkedIronPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(uraniumWorkedIronPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addSteelTools(ItemStack stack)
@@ -1708,45 +1708,45 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodSteelPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneSteelPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeSteelPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumSteelPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addCobaltTools(ItemStack stack)
@@ -1754,41 +1754,41 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodCobaltPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneCobaltPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeCobaltPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumCobaltPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addArditeTools(ItemStack stack)
@@ -1796,41 +1796,41 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodArditePickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneArditePickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeArditePickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumArditePickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addManyullynTools(ItemStack stack)
@@ -1838,67 +1838,67 @@ public class Pickaxes
     	ModLoader.addRecipe(new ItemStack(woodManyullynPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneManyullynPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeManyullynPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumManyullynPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addUraniumTools(ItemStack stack)
     {
         ModLoader.addRecipe(new ItemStack(diamondUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(boneUraniumPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(lavaUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.lavaRod });
+                { recipe, '#', stack, '|', InfiLibrary.lavaRod });
         ModLoader.addRecipe(new ItemStack(blazeUraniumPickaxe), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(cobaltUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumUraniumPickaxe), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
 	public static Item woodWoodPickaxe;

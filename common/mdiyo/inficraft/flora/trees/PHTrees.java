@@ -17,9 +17,9 @@ public class PHTrees
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
 		
-		File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
+		File file = new File(FloraTrees.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/FloraTrees.txt");
+        File newFile = new File(FloraTrees.proxy.getMinecraftDir() + "/config/InfiCraft/FloraTrees.txt");
         
         /* Some basic debugging will go a long way */
         try

@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.Item;
 import net.minecraftforge.common.Configuration;
 
-public class PropsHelperInfiTools {
+public class PHInfiTools {
 
     public static void initProps()
     {
@@ -16,19 +16,19 @@ public class PropsHelperInfiTools {
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
 
-        File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
+        File file = new File(InfiCore.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/InfiTools.txt");
+        File newFile = new File(InfiCore.proxy.getMinecraftDir() + "/config/InfiCraft/InfiTools.txt");
 
         /* Some basic debugging will go a long way */
         try
         {
             newFile.createNewFile();
-            System.out.println("Successfully created/read configuration file");
+            System.out.println("InfiBase configuration file read!");
         }
         catch (IOException e)
         {
-            System.out.println("Could not create configuration file for mod_InfiTools. Reason:");
+            System.out.println("Could not create configuration file for InfiBase. Reason:");
             System.out.println(e);
         }
 
@@ -41,7 +41,7 @@ public class PropsHelperInfiTools {
         /* Define the mod's IDs. 
          * Avoid values below 4096 for items and in the 256-385 range for blocks
          */
-        overwriteVanillaTools = config.get("general", "Overwrite Vanilla Tools", true).getBoolean(true);
+        overwriteVanillaTools = config.get("general", "Overwrite Vanilla Tools", false).getBoolean(false);
         
         enableWoodTools = config.get("general", "Enable Wooden Tools", true).getBoolean(true);
         enableStoneTools = config.get("general", "Enable Stone Tools", true).getBoolean(true);

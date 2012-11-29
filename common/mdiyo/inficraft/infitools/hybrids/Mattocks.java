@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infitools.hybrids;
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -20,7 +20,7 @@ public class Mattocks
 
     public static void init()
     {
-        if(mod_InfiHybrids.infitoolsPresent)
+        if(InfiHybrids.infitoolsPresent)
         {
         	createTools();
             addNames();
@@ -35,13 +35,13 @@ public class Mattocks
     
     private static void createVanillaTools()
     {
-    	woodWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+0, 
+    	woodWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+0, 
                 InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMattock");
-    	woodStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+0, 
+    	woodStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+0, 
                 InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMattock");
-    	woodIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+0, 
+    	woodIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+0, 
                 InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronMattock");
-    	woodDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+0, 
+    	woodDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMattock");
     	
     	MinecraftForge.setToolClass(woodWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
@@ -57,30 +57,30 @@ public class Mattocks
     	ModLoader.addRecipe(new ItemStack(woodWoodMattock), new Object[] 
                 { recipe, '#', Block.planks, '|', Item.stick, 's', Item.stick });
 		ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                { recipe, '#', Block.cobblestone, '|', Item.stick, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', Block.cobblestone, '|', Item.stick, 's', InfiLibrary.stoneShard });
 		ModLoader.addRecipe(new ItemStack(woodIronMattock), new Object[] 
-                { recipe, '#', Item.ingotIron, '|', Item.stick, 's', mod_InfiBase.ironChunk });
+                { recipe, '#', Item.ingotIron, '|', Item.stick, 's', InfiLibrary.ironChunk });
 		ModLoader.addRecipe(new ItemStack(woodDiamondMattock), new Object[] 
-                { recipe, '#', Item.diamond, '|', Item.stick, 's', mod_InfiBase.diamondShard });
+                { recipe, '#', Item.diamond, '|', Item.stick, 's', InfiLibrary.diamondShard });
     }
     
     private static void createTools()
     {
-    	if(PropsHelperInfiHybrids.enableWoodTools)
+    	if(PHInfiHybrids.enableWoodTools)
     	{
-    		woodWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+0, 
+    		woodWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+0, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMattock");
-    		sandstoneWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+1, 
+    		sandstoneWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMattock");
-    		boneWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+2, 
+    		boneWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+2, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Bone, "boneWoodMattock");
-    		paperWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+3, 
+    		paperWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+3, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Paper, "paperWoodMattock");
-    		iceWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+4, 
+    		iceWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+4, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Ice, "iceWoodMattock");
-    		slimeWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+5, 
+    		slimeWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+5, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodMattock");
-    		cactusWoodMattock = new InfiToolMattock(PropsHelperInfiHybrids.woodMattockID+6, 
+    		cactusWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodMattock");
     		
     		MinecraftForge.setToolClass(woodWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
@@ -92,25 +92,25 @@ public class Mattocks
     		MinecraftForge.setToolClass(cactusWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
-        if(PropsHelperInfiHybrids.enableStoneTools)
+        if(PHInfiHybrids.enableStoneTools)
         {
-        	woodStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+0, 
+        	woodStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+0, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMattock");
-        	stoneStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+1, 
+        	stoneStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneMattock");
-        	sandstoneStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+2, 
+        	sandstoneStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+2, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Sandstone, "sandstoneStoneMattock");
-        	boneStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+3, 
+        	boneStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+3, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Bone, "boneStoneMattock");
-        	netherrackStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+4, 
+        	netherrackStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+4, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Netherrack, "netherrackStoneMattock");
-        	iceStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+5, 
+        	iceStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+5, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Ice, "iceStoneMattock");
-        	slimeStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+6, 
+        	slimeStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+6, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Slime, "slimeStoneMattock");
-        	cactusStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+7, 
+        	cactusStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+7, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneMattock");
-        	flintStoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.stoneMattockID+8, 
+        	flintStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneMattock");
             
             MinecraftForge.setToolClass(woodStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
@@ -124,25 +124,25 @@ public class Mattocks
             MinecraftForge.setToolClass(flintStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableIronTools)
+        if(PHInfiHybrids.enableIronTools)
         {
-        	woodIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+0, 
+        	woodIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+0, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronMattock");
-        	stoneIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+1, 
+        	stoneIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronMattock");
-        	ironIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+2, 
+        	ironIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Iron, "ironIronMattock");
-        	boneIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+3, 
+        	boneIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+3, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bone, "boneIronMattock");
-        	netherrackIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+4, 
+        	netherrackIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+4, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Netherrack, "netherrackIronMattock");
-        	glowstoneIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+5, 
+        	glowstoneIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+5, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Glowstone, "glowstoneIronMattock");
-        	cactusIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+6, 
+        	cactusIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+6, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Cactus, "cactusIronMattock");
-        	copperIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+7, 
+        	copperIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+7, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronMattock");
-        	bronzeIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.ironMattockID+8, 
+        	bronzeIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronMattock");
             
             MinecraftForge.setToolClass(woodIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
@@ -156,51 +156,51 @@ public class Mattocks
             MinecraftForge.setToolClass(bronzeIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableDiamondTools)
+        if(PHInfiHybrids.enableDiamondTools)
         {
-        	woodDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+0, 
+        	woodDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+0, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMattock");
-        	stoneDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+1, 
+        	stoneDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondMattock");
-        	ironDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+2, 
+        	ironDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+2, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Iron, "ironDiamondMattock");
-        	diamondDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+3, 
+        	diamondDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+3, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Diamond, "diamondDiamondMattock");
-        	redstoneDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+4, 
+        	redstoneDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+4, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Redstone, "redstoneDiamondMattock");
-        	obsidianDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+5, 
+        	obsidianDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+5, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Obsidian, "obsidianDiamondMattock");
-        	boneDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+6, 
+        	boneDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+6, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bone, "boneDiamondMattock");
-        	mossyDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+7, 
+        	mossyDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Mossy, "mossyDiamondMattock");
-        	netherrackDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+8, 
+        	netherrackDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+8, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Netherrack, "netherrackDiamondMattock");
-        	glowstoneDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+9, 
+        	glowstoneDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+9, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Glowstone, "glowstoneDiamondMattock");
-        	lavaDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+10, 
+        	lavaDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+10, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Lava, "lavaDiamondMattock");
-        	cactusDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+11, 
+        	cactusDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+11, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cactus, "cactusDiamondMattock");
-        	flintDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+12, 
+        	flintDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+12, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Flint, "flintDiamondMattock");
-        	blazeDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+13, 
+        	blazeDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+13, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Blaze, "blazeDiamondMattock");
-            copperDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+14, 
+            copperDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+14, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Copper, "copperDiamondMattock");
-            bronzeDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+15, 
+            bronzeDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+15, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bronze, "bronzeDiamondMattock");
-            workedDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+16, 
+            workedDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+16, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.WorkedIron, "workedDiamondMattock");
-            steelDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+17, 
+            steelDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+17, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Steel, "steelDiamondMattock");
-            cobaltDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+18, 
+            cobaltDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+18, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cobalt, "cobaltDiamondMattock");
-            arditeDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+19, 
+            arditeDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+19, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Ardite, "arditeDiamondMattock");
-            manyullynDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+20, 
+            manyullynDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+20, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondMattock");
-            uraniumDiamondMattock = new InfiToolMattock(PropsHelperInfiHybrids.diamondMattockID+21, 
+            uraniumDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondMattock");
             
             MinecraftForge.setToolClass(woodDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
@@ -227,47 +227,47 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableRedstoneTools)
+        if(PHInfiHybrids.enableRedstoneTools)
         {
-        	woodRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+0, 
+        	woodRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+0, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneMattock");
-        	stoneRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+1, 
+        	stoneRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneMattock");
-        	ironRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+2, 
+        	ironRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Iron, "ironRedstoneMattock");
-        	redstoneRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+3, 
+        	redstoneRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+3, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "redstoneRedstoneMattock");
-        	obsidianRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+4, 
+        	obsidianRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+4, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Obsidian, "obsidianRedstoneMattock");
-        	sandstoneRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+5, 
+        	sandstoneRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+5, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Sandstone, "sandstoneRedstoneMattock");
-        	boneRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+6, 
+        	boneRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+6, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bone, "boneRedstoneMattock");
-        	paperRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+7, 
+        	paperRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+7, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Paper, "paperRedstoneMattock");
-        	mossyRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+8, 
+        	mossyRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+8, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Mossy, "mossyRedstoneMattock");
-        	netherrackRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+9, 
+        	netherrackRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+9, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Netherrack, "netherrackRedstoneMattock");
-        	glowstoneRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+10, 
+        	glowstoneRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+10, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Glowstone, "glowstoneRedstoneMattock");
-        	iceRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+11, 
+        	iceRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+11, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Ice, "iceRedstoneMattock");
-        	lavaRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+12,
+        	lavaRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+12,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Lava, "lavaRedstoneMattock");
-        	slimeRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+13,
+        	slimeRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+13,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Slime, "slimeRedstoneMattock");
-        	cactusRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+14,
+        	cactusRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+14,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Cactus, "cactusRedstoneMattock");
-        	flintRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+15,
+        	flintRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+15,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Flint, "flintRedstoneMattock");
-        	copperRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+16,
+        	copperRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+16,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Copper, "copperRedstoneMattock");
-        	bronzeRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+17,
+        	bronzeRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+17,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstoneMattock");
-        	workedRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+18,
+        	workedRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+18,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneMattock");
-        	uraniumRedstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.redstoneMattockID+19,
+        	uraniumRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneMattock");
             
             MinecraftForge.setToolClass(woodRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
@@ -292,27 +292,27 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableObsidianTools)
+        if(PHInfiHybrids.enableObsidianTools)
         {
-        	woodObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+0, 
+        	woodObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+0, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianMattock");
-        	stoneObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+1, 
+        	stoneObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianMattock");
-        	redstoneObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+2, 
+        	redstoneObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+2, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianMattock");
-        	obsidianObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+3, 
+        	obsidianObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianMattock");;
-        	boneObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+4, 
+        	boneObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+4, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Bone, "boneObsidianMattock");
-        	netherrackObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+5, 
+        	netherrackObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+5, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Netherrack, "netherrackObsidianMattock");
-        	glowstoneObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+6, 
+        	glowstoneObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+6, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Glowstone, "glowstoneObsidianMattock");
-        	iceObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+7, 
+        	iceObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+7, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Ice, "iceObsidianMattock");
-        	lavaObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+8,
+        	lavaObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+8,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianMattock");
-        	cactusObsidianMattock = new InfiToolMattock(PropsHelperInfiHybrids.obsidianMattockID+9,
+        	cactusObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianMattock");
             
             MinecraftForge.setToolClass(woodObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
@@ -327,23 +327,23 @@ public class Mattocks
             MinecraftForge.setToolClass(cactusObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableSandstoneTools)
+        if(PHInfiHybrids.enableSandstoneTools)
         {
-        	woodSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+0, 
+        	woodSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+0, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneMattock");
-        	sandstoneSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+1, 
+        	sandstoneSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneMattock");
-        	boneSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+2, 
+        	boneSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+2, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Bone, "boneSandstoneMattock");
-        	netherrackSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+3, 
+        	netherrackSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+3, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Netherrack, "netherrackSandstoneMattock");
-        	iceSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+4, 
+        	iceSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+4, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Ice, "iceSandstoneMattock");
-        	slimeSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+5,
+        	slimeSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+5,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Slime, "slimeSandstoneMattock");
-        	cactusSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+6,
+        	cactusSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+6,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneMattock");
-        	flintSandstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.sandstoneMattockID+7,
+        	flintSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneMattock");
             
             MinecraftForge.setToolClass(woodSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
@@ -356,25 +356,25 @@ public class Mattocks
             MinecraftForge.setToolClass(flintSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableBoneTools)
+        if(PHInfiHybrids.enableBoneTools)
         {
-        	woodBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+0, 
+        	woodBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+0, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneMattock");
-        	stoneBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+1, 
+        	stoneBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneMattock");
-        	sandstoneBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+2, 
+        	sandstoneBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+2, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Sandstone, "sandstoneBoneMattock");
-        	boneBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+3, 
+        	boneBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+3, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "boneBoneMattock");
-        	paperBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+4, 
+        	paperBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+4, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Paper, "paperBoneMattock");
-        	netherrackBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+5, 
+        	netherrackBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+5, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Netherrack, "netherrackBoneMattock");
-        	iceBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+6, 
+        	iceBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+6, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Ice, "iceBoneMattock");
-        	cactusBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+7,
+        	cactusBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+7,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneMattock");
-        	flintBoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.boneMattockID+8,
+        	flintBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneMattock");
             
             MinecraftForge.setToolClass(woodBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
@@ -388,17 +388,17 @@ public class Mattocks
             MinecraftForge.setToolClass(flintBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enablePaperTools)
+        if(PHInfiHybrids.enablePaperTools)
         {
-        	woodPaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+0, 
+        	woodPaperMattock = new InfiToolMattock(PHInfiHybrids.paperMattockID+0, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperMattock");
-        	bonePaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+1, 
+        	bonePaperMattock = new InfiToolMattock(PHInfiHybrids.paperMattockID+1, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperMattock");
-        	paperPaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+2, 
+        	paperPaperMattock = new InfiToolMattock(PHInfiHybrids.paperMattockID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperMattock");
-        	slimePaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+3,
+        	slimePaperMattock = new InfiToolMattock(PHInfiHybrids.paperMattockID+3,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperMattock");
-        	cactusPaperMattock = new InfiToolMattock(PropsHelperInfiHybrids.paperMattockID+4,
+        	cactusPaperMattock = new InfiToolMattock(PHInfiHybrids.paperMattockID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperMattock");
             
             MinecraftForge.setToolClass(woodPaperMattock, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
@@ -408,31 +408,31 @@ public class Mattocks
             MinecraftForge.setToolClass(cactusPaperMattock, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableMossyTools)
+        if(PHInfiHybrids.enableMossyTools)
         {
-        	woodMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+0, 
+        	woodMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+0, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Wood, "woodMossyMattock");
-        	stoneMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+1, 
+        	stoneMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+1, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Stone, "stoneMossyMattock");
-        	diamondMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+2, 
+        	diamondMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Diamond, "diamondMossyMattock");
-        	redstoneMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+3, 
+        	redstoneMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+3, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Redstone, "redstoneMossyMattock");
-        	boneMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+4, 
+        	boneMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+4, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Bone, "boneMossyMattock");
-        	mossyMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+5, 
+        	mossyMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+5, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Mossy, "mossyMossyMattock");
-        	netherrackMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+6, 
+        	netherrackMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+6, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Netherrack, "netherrackMossyMattock");
-        	glowstoneMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+7, 
+        	glowstoneMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+7, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Glowstone, "glowstoneMossyMattock");
-        	cactusMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+8, 
+        	cactusMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+8, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Cactus, "cactusMossyMattock");
-        	blazeMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+9, 
+        	blazeMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+9, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Blaze, "blazeMossyMattock");
-        	manyullynMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+10, 
+        	manyullynMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+10, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyMattock");
-        	uraniumMossyMattock = new InfiToolMattock(PropsHelperInfiHybrids.mossyMattockID+11, 
+        	uraniumMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyMattock");
             
             MinecraftForge.setToolClass(woodMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
@@ -449,33 +449,33 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
         {
-        	woodNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+0, 
+        	woodNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Wood, "woodNetherrackMattock");
-        	stoneNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+1, 
+        	stoneNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+1, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Stone, "stoneNetherrackMattock");
-        	sandstoneNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+2, 
+        	sandstoneNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+2, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Sandstone, "sandstoneNetherrackMattock");
-        	boneNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+3, 
+        	boneNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+3, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bone, "boneNetherrackMattock");
-        	paperNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+4, 
+        	paperNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+4, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Paper, "paperNetherrackMattock");
-        	mossyNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+5, 
+        	mossyNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+5, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Mossy, "mossyNetherrackMattock");
-        	netherrackNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+6, 
+        	netherrackNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+6, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Netherrack, "netherrackNetherrackMattock");
-        	iceNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+7, 
+        	iceNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+7, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Ice, "iceNetherrackMattock");
-        	slimeNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+8, 
+        	slimeNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+8, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Slime, "slimeNetherrackMattock");
-        	cactusNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+9, 
+        	cactusNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+9, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Cactus, "cactusNetherrackMattock");
-        	flintNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+10, 
+        	flintNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+10, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Flint, "flintNetherrackMattock");
-        	copperNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+11, 
+        	copperNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+11, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackMattock");
-        	bronzeNetherrackMattock = new InfiToolMattock(PropsHelperInfiHybrids.netherrackMattockID+12, 
+        	bronzeNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackMattock");
             
             MinecraftForge.setToolClass(woodNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
@@ -493,25 +493,25 @@ public class Mattocks
             MinecraftForge.setToolClass(bronzeNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+        if(PHInfiHybrids.enableGlowstoneTools)
         {
-        	woodGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+0, 
+        	woodGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+0, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Wood, "woodGlowstoneMattock");
-        	redstoneGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+1, 
+        	redstoneGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+1, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Redstone, "redstoneGlowstoneMattock");
-        	obsidianGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+2, 
+        	obsidianGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+2, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Obsidian, "obsidianGlowstoneMattock");
-        	boneGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+3, 
+        	boneGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Bone, "boneGlowstoneMattock");
-        	netherrackGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+4, 
+        	netherrackGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+4, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Netherrack, "netherrackGlowstoneMattock");
-        	glowstoneGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+5, 
+        	glowstoneGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+5, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Glowstone, "glowstoneGlowstoneMattock");
-        	iceGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+6, 
+        	iceGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+6, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Ice, "iceGlowstoneMattock");
-        	slimeGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+7, 
+        	slimeGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+7, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Slime, "slimeGlowstoneMattock");
-        	cactusGlowstoneMattock = new InfiToolMattock(PropsHelperInfiHybrids.glowstoneMattockID+8, 
+        	cactusGlowstoneMattock = new InfiToolMattock(PHInfiHybrids.glowstoneMattockID+8, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneMattock");
             
             
@@ -526,19 +526,19 @@ public class Mattocks
             MinecraftForge.setToolClass(cactusGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableIceTools)
+        if(PHInfiHybrids.enableIceTools)
         {
-        	woodIceMattock = new InfiToolMattock(PropsHelperInfiHybrids.iceMattockID+0, 
+        	woodIceMattock = new InfiToolMattock(PHInfiHybrids.iceMattockID+0, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Wood, "woodIceMattock");
-        	boneIceMattock = new InfiToolMattock(PropsHelperInfiHybrids.iceMattockID+1, 
+        	boneIceMattock = new InfiToolMattock(PHInfiHybrids.iceMattockID+1, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Bone, "boneIceMattock");
-        	paperIceMattock = new InfiToolMattock(PropsHelperInfiHybrids.iceMattockID+2, 
+        	paperIceMattock = new InfiToolMattock(PHInfiHybrids.iceMattockID+2, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Paper, "paperIceMattock");
-        	iceIceMattock = new InfiToolMattock(PropsHelperInfiHybrids.iceMattockID+3, 
+        	iceIceMattock = new InfiToolMattock(PHInfiHybrids.iceMattockID+3, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Ice, "iceIceMattock");
-        	slimeIceMattock = new InfiToolMattock(PropsHelperInfiHybrids.iceMattockID+4, 
+        	slimeIceMattock = new InfiToolMattock(PHInfiHybrids.iceMattockID+4, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Slime, "slimeIceMattock");
-        	cactusIceMattock = new InfiToolMattock(PropsHelperInfiHybrids.iceMattockID+5, 
+        	cactusIceMattock = new InfiToolMattock(PHInfiHybrids.iceMattockID+5, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceMattock");
             
             
@@ -550,23 +550,23 @@ public class Mattocks
             MinecraftForge.setToolClass(cactusIceMattock, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableLavaTools)
+        if(PHInfiHybrids.enableLavaTools)
         {
-        	diamondLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+0, 
+        	diamondLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+0, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Diamond, "diamondLavaMattock");
-        	obsidianLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+1, 
+        	obsidianLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+1, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Obsidian, "obsidianLavaMattock");
-        	netherrackLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+2, 
+        	netherrackLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+2, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Netherrack, "netherrackLavaMattock");
-        	lavaLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+3, 
+        	lavaLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Lava, "lavaLavaMattock");
-        	flintLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+4, 
+        	flintLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+4, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Flint, "flintLavaMattock");
-        	blazeLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+5, 
+        	blazeLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+5, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Blaze, "blazeLavaMattock");
-        	manyullynLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+6, 
+        	manyullynLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+6, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaMattock");
-            uraniumLavaMattock = new InfiToolMattock(PropsHelperInfiHybrids.lavaMattockID+7, 
+            uraniumLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaMattock");
             
             MinecraftForge.setToolClass(diamondLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
@@ -579,19 +579,19 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableSlimeTools)
+        if(PHInfiHybrids.enableSlimeTools)
         {
-        	woodSlimeMattock = new InfiToolMattock(PropsHelperInfiHybrids.slimeMattockID+0, 
+        	woodSlimeMattock = new InfiToolMattock(PHInfiHybrids.slimeMattockID+0, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Wood, "woodSlimeMattock");
-        	sandstoneSlimeMattock = new InfiToolMattock(PropsHelperInfiHybrids.slimeMattockID+1, 
+        	sandstoneSlimeMattock = new InfiToolMattock(PHInfiHybrids.slimeMattockID+1, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Sandstone, "sandstoneSlimeMattock");
-        	boneSlimeMattock = new InfiToolMattock(PropsHelperInfiHybrids.slimeMattockID+2, 
+        	boneSlimeMattock = new InfiToolMattock(PHInfiHybrids.slimeMattockID+2, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Bone, "boneSlimeMattock");
-        	paperSlimeMattock = new InfiToolMattock(PropsHelperInfiHybrids.slimeMattockID+3, 
+        	paperSlimeMattock = new InfiToolMattock(PHInfiHybrids.slimeMattockID+3, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Paper, "paperSlimeMattock");
-        	slimeSlimeMattock = new InfiToolMattock(PropsHelperInfiHybrids.slimeMattockID+4, 
+        	slimeSlimeMattock = new InfiToolMattock(PHInfiHybrids.slimeMattockID+4, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Slime, "slimeSlimeMattock");
-        	cactusSlimeMattock = new InfiToolMattock(PropsHelperInfiHybrids.slimeMattockID+5, 
+        	cactusSlimeMattock = new InfiToolMattock(PHInfiHybrids.slimeMattockID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeMattock");
             
             MinecraftForge.setToolClass(woodSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
@@ -602,21 +602,21 @@ public class Mattocks
             MinecraftForge.setToolClass(cactusSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableCactusTools)
+        if(PHInfiHybrids.enableCactusTools)
         {
-        	woodCactusMattock = new InfiToolMattock(PropsHelperInfiHybrids.cactusMattockID+0, 
+        	woodCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+0, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Wood, "woodCactusMattock");
-        	sandstoneCactusMattock = new InfiToolMattock(PropsHelperInfiHybrids.cactusMattockID+1, 
+        	sandstoneCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+1, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Sandstone, "sandstoneCactusMattock");
-        	boneCactusMattock = new InfiToolMattock(PropsHelperInfiHybrids.cactusMattockID+2, 
+        	boneCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+2, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Bone, "boneCactusMattock");
-        	netherrackCactusMattock = new InfiToolMattock(PropsHelperInfiHybrids.cactusMattockID+3, 
+        	netherrackCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+3, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Netherrack, "netherrackCactusMattock");
-        	iceCactusMattock = new InfiToolMattock(PropsHelperInfiHybrids.cactusMattockID+4, 
+        	iceCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+4, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Ice, "iceCactusMattock");
-        	slimeCactusMattock = new InfiToolMattock(PropsHelperInfiHybrids.cactusMattockID+5, 
+        	slimeCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+5, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Slime, "slimeCactusMattock");
-        	cactusCactusMattock = new InfiToolMattock(PropsHelperInfiHybrids.cactusMattockID+6, 
+        	cactusCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusMattock");
             
             MinecraftForge.setToolClass(woodCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
@@ -628,27 +628,27 @@ public class Mattocks
             MinecraftForge.setToolClass(cactusCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableFlintTools)
+        if(PHInfiHybrids.enableFlintTools)
         {
-        	woodFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+0, 
+        	woodFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+0, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Wood, "woodFlintMattock");
-        	stoneFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+1, 
+        	stoneFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Stone, "stoneFlintMattock");
-        	sandstoneFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+2, 
+        	sandstoneFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+2, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Sandstone, "sandstoneFlintMattock");
-        	boneFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+3, 
+        	boneFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintMattock");
-        	netherrackFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+4, 
+        	netherrackFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+4, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintMattock");
-        	slimeFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+5, 
+        	slimeFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintMattock");
-        	cactusFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+6, 
+        	cactusFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+6, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Cactus, "cactusFlintMattock");
-        	flintFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+7, 
+        	flintFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+7, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "flintFlintMattock");
-        	copperFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+8, 
+        	copperFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+8, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintMattock");
-        	bronzeFlintMattock = new InfiToolMattock(PropsHelperInfiHybrids.flintMattockID+9, 
+        	bronzeFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintMattock");
             
             MinecraftForge.setToolClass(woodFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
@@ -663,23 +663,23 @@ public class Mattocks
             MinecraftForge.setToolClass(bronzeFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableBlazeTools)
+        if(PHInfiHybrids.enableBlazeTools)
         {
-        	diamondBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+0, 
+        	diamondBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+0, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Diamond, "diamondBlazeMattock");
-        	obsidianBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+1, 
+        	obsidianBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+1, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Obsidian, "obsidianBlazeMattock");
-        	netherrackBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+2, 
+        	netherrackBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+2, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Netherrack, "netherrackBlazeMattock");
-        	lavaBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+3, 
+        	lavaBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Lava, "lavaBlazeMattock");
-        	flintBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+4, 
+        	flintBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+4, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Flint, "flintBlazeMattock");
-        	blazeBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+5, 
+        	blazeBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+5, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Blaze, "blazeBlazeMattock");
-        	manyullynBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+6, 
+        	manyullynBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+6, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeMattock");
-            uraniumBlazeMattock = new InfiToolMattock(PropsHelperInfiHybrids.blazeMattockID+7, 
+            uraniumBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeMattock");
             
             MinecraftForge.setToolClass(diamondBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
@@ -692,23 +692,23 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
-        if(PropsHelperInfiHybrids.enableCopperTools)
+        if(PHInfiHybrids.enableCopperTools)
         {
-        	woodCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+0, 
+        	woodCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+0, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Wood, "woodCopperMattock");
-            stoneCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+1, 
+            stoneCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+1, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Stone, "stoneCopperMattock");
-            boneCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+2, 
+            boneCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+2, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Bone, "boneCopperMattock");
-            netherrackCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+3, 
+            netherrackCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+3, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Netherrack, "netherrackCopperMattock");
-            slimeCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+4, 
+            slimeCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+4, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Slime, "slimeCopperMattock");
-            cactusCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+5, 
+            cactusCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+5, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Cactus, "cactusCopperMattock");
-            flintCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+6, 
+            flintCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperMattock");
-            copperCopperMattock = new InfiToolMattock(PropsHelperInfiHybrids.copperMattockID+7, 
+            copperCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperMattock");
             
             MinecraftForge.setToolClass(woodCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
@@ -721,25 +721,25 @@ public class Mattocks
             MinecraftForge.setToolClass(copperCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableBronzeTools)
+        if(PHInfiHybrids.enableBronzeTools)
         {
-        	woodBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+0, 
+        	woodBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+0, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Wood, "woodBronzeMattock");
-            stoneBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+1, 
+            stoneBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+1, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Stone, "stoneBronzeMattock");
-            boneBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+2, 
+            boneBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+2, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bone, "boneBronzeMattock");
-            netherrackBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+3, 
+            netherrackBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+3, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Netherrack, "netherrackBronzeMattock");
-            slimeBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+4, 
+            slimeBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+4, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Slime, "slimeBronzeMattock");
-            cactusBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+5, 
+            cactusBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+5, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Cactus, "cactusBronzeMattock");
-            flintBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+6, 
+            flintBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+6, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Flint, "flintBronzeMattock");
-            copperBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+7, 
+            copperBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeMattock");
-            bronzeBronzeMattock = new InfiToolMattock(PropsHelperInfiHybrids.bronzeMattockID+8, 
+            bronzeBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeMattock");
             
             MinecraftForge.setToolClass(woodBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -753,43 +753,43 @@ public class Mattocks
             MinecraftForge.setToolClass(bronzeBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableWorkedIronTools)
+        if(PHInfiHybrids.enableWorkedIronTools)
         {
-        	woodWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+0, 
+        	woodWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+0, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Wood, "woodWorkedIronMattock");
-            stoneWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+1, 
+            stoneWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+1, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Stone, "stoneWorkedIronMattock");
-            ironWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+2,
+            ironWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+2,
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Iron, "ironWorkedIronMattock");
-            diamondWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+3, 
+            diamondWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+3, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Diamond, "diamondWorkedIronMattock");
-            redstoneWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+4, 
+            redstoneWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+4, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Redstone, "redstoneWorkedIronMattock");
-            obsidianWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+5, 
+            obsidianWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+5, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Obsidian, "obsidianWorkedIronMattock");
-            boneWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+6, 
+            boneWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+6, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bone, "boneWorkedIronMattock");
-            netherrackWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+7, 
+            netherrackWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+7, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Netherrack, "netherrackWorkedIronMattock");
-            glowstoneWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+8, 
+            glowstoneWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+8, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Glowstone, "glowstoneWorkedIronMattock");
-            iceWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+9, 
+            iceWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+9, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ice, "iceWorkedIronMattock");
-            slimeWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+10, 
+            slimeWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+10, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Slime, "slimeWorkedIronMattock");
-            cactusWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+11, 
+            cactusWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+11, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Cactus, "cactusWorkedIronMattock");
-            blazeWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+12, 
+            blazeWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+12, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Blaze, "blazeWorkedIronMattock");
-            copperWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+13, 
+            copperWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+13, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Copper, "copperWorkedIronMattock");
-            bronzeWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+14, 
+            bronzeWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+14, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "bronzeWorkedIronMattock");
-            workedWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+15, 
+            workedWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+15, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.WorkedIron, "workedWorkedIronMattock");
-            steelWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+16, 
+            steelWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronMattock");
-            uraniumWorkedIronMattock = new InfiToolMattock(PropsHelperInfiHybrids.workedIronMattockID+17, 
+            uraniumWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronMattock");
             
             MinecraftForge.setToolClass(woodWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -812,47 +812,47 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableSteelTools)
+        if(PHInfiHybrids.enableSteelTools)
         {
-        	woodSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+0, 
+        	woodSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+0, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Wood, "woodSteelMattock");
-            stoneSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+1, 
+            stoneSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+1, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Stone, "stoneSteelMattock");
-            ironSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+2, 
+            ironSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+2, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Iron, "ironSteelMattock");
-            diamondSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+3, 
+            diamondSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+3, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Diamond, "diamondSteelMattock");
-            redstoneSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+4, 
+            redstoneSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+4, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Redstone, "redstoneSteelMattock");
-            obsidianSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+5, 
+            obsidianSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+5, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Obsidian, "obsidianSteelMattock");
-            boneSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+6, 
+            boneSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+6, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bone, "boneSteelMattock");
-            netherrackSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+7, 
+            netherrackSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+7, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Netherrack, "netherrackSteelMattock");
-            glowstoneSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+8, 
+            glowstoneSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+8, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Glowstone, "glowstoneSteelMattock");
-            iceSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+9, 
+            iceSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+9, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ice, "iceSteelMattock");
-            slimeSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+10, 
+            slimeSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+10, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Slime, "slimeSteelMattock");
-            cactusSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+11, 
+            cactusSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+11, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cactus, "cactusSteelMattock");
-            blazeSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+12, 
+            blazeSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+12, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Blaze, "blazeSteelMattock");
-            copperSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+13, 
+            copperSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+13, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Copper, "copperSteelMattock");
-            bronzeSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+14, 
+            bronzeSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+14, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "bronzeSteelMattock");
-            workedSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+15, 
+            workedSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+15, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.WorkedIron, "workedSteelMattock");
-            steelSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+16, 
+            steelSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+16, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Steel, "steelSteelMattock");
-            cobaltSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+17, 
+            cobaltSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+17, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cobalt, "cobaltSteelMattock");
-            arditeSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+18, 
+            arditeSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelMattock");
-            uraniumSteelMattock = new InfiToolMattock(PropsHelperInfiHybrids.steelMattockID+19, 
+            uraniumSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelMattock");
 
             MinecraftForge.setToolClass(woodSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -877,43 +877,43 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableCobaltTools)
+        if(PHInfiHybrids.enableCobaltTools)
         {
-        	woodCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+0, 
+        	woodCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+0, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Wood, "woodCobaltMattock");
-            stoneCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+1, 
+            stoneCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+1, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Stone, "stoneCobaltMattock");
-            ironCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+2, 
+            ironCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+2, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Iron, "ironCobaltMattock");
-            diamondCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+3,
+            diamondCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+3,
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Diamond, "diamondCobaltMattock");
-            redstoneCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+4, 
+            redstoneCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+4, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Redstone, "redstoneCobaltMattock");
-            obsidianCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+5, 
+            obsidianCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+5, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Obsidian, "obsidianCobaltMattock");
-            boneCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+6, 
+            boneCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+6, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bone, "boneCobaltMattock");
-            slimeCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+7, 
+            slimeCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+7, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Slime, "slimeCobaltMattock");
-            cactusCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+8, 
+            cactusCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+8, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cactus, "cactusCobaltMattock");
-            blazeCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+9, 
+            blazeCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+9, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Blaze, "blazeCobaltMattock");
-            copperCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+10, 
+            copperCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+10, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Copper, "copperCobaltMattock");
-            bronzeCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+11, 
+            bronzeCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+11, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "bronzeCobaltMattock");
-            workedCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+12, 
+            workedCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+12, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.WorkedIron, "workedCobaltMattock");
-            steelCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+13, 
+            steelCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+13, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Steel, "steelCobaltMattock");
-            cobaltCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+14, 
+            cobaltCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+14, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cobalt, "cobaltCobaltMattock");
-            arditeCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+15, 
+            arditeCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltMattock");
-            manyullynCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+16, 
+            manyullynCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltMattock");
-            uraniumCobaltMattock = new InfiToolMattock(PropsHelperInfiHybrids.cobaltMattockID+17, 
+            uraniumCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltMattock");
             
             MinecraftForge.setToolClass(woodCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -936,43 +936,43 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableArditeTools)
+        if(PHInfiHybrids.enableArditeTools)
         {
-        	woodArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+0, 
+        	woodArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+0, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Wood, "woodArditeMattock");
-            stoneArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+1, 
+            stoneArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+1, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Stone, "stoneArditeMattock");
-            ironArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+2, 
+            ironArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+2, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Iron, "ironArditeMattock");
-            diamondArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+3,
+            diamondArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+3,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Diamond, "diamondArditeMattock");
-            redstoneArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+4, 
+            redstoneArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+4, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Redstone, "redstoneArditeMattock");
-            obsidianArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+5, 
+            obsidianArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+5, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Obsidian, "obsidianArditeMattock");
-            boneArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+6,
+            boneArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+6,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bone, "boneArditeMattock");
-            slimeArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+7, 
+            slimeArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+7, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Slime, "slimeArditeMattock");
-            cactusArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+8, 
+            cactusArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+8, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cactus, "cactusArditeMattock");
-            blazeArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+9, 
+            blazeArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+9, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Blaze, "blazeArditeMattock");
-            copperArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+10, 
+            copperArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+10, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Copper, "copperArditeMattock");
-            bronzeArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+11, 
+            bronzeArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+11, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "bronzeArditeMattock");
-            workedArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+12, 
+            workedArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+12, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.WorkedIron, "workedArditeMattock");
-            steelArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+13, 
+            steelArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+13, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Steel, "steelArditeMattock");
-            cobaltArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+14, 
+            cobaltArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+14, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cobalt, "cobaltArditeMattock");
-            arditeArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+15, 
+            arditeArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeMattock");
-            manyullynArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+16, 
+            manyullynArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeMattock");
-            uraniumArditeMattock = new InfiToolMattock(PropsHelperInfiHybrids.arditeMattockID+17, 
+            uraniumArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeMattock");
             
             MinecraftForge.setToolClass(woodArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -995,43 +995,43 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableManyullynTools)
+        if(PHInfiHybrids.enableManyullynTools)
         {
-        	woodManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+0, 
+        	woodManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+0, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynMattock");
-            stoneManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+1, 
+            stoneManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynMattock");
-            ironManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+2, 
+            ironManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+2, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Iron, "ironManyullynMattock");
-            diamondManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+3,
+            diamondManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+3,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Diamond, "diamondManyullynMattock");
-            redstoneManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+4, 
+            redstoneManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+4, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Redstone, "redstoneManyullynMattock");
-            obsidianManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+5, 
+            obsidianManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+5, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Obsidian, "obsidianManyullynMattock");
-            boneManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+6, 
+            boneManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+6, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bone, "boneManyullynMattock");
-            slimeManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+7, 
+            slimeManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+7, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Slime, "slimeManyullynMattock");
-            cactusManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+8, 
+            cactusManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+8, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cactus, "cactusManyullynMattock");
-            blazeManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+9, 
+            blazeManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+9, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Blaze, "blazeManyullynMattock");
-            copperManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+10, 
+            copperManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+10, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Copper, "copperManyullynMattock");
-            bronzeManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+11, 
+            bronzeManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+11, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "bronzeManyullynMattock");
-            workedManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+12, 
+            workedManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+12, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.WorkedIron, "workedManyullynMattock");
-            steelManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+13, 
+            steelManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+13, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Steel, "steelManyullynMattock");
-            cobaltManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+14, 
+            cobaltManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+14, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cobalt, "cobaltManyullynMattock");
-            arditeManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+15, 
+            arditeManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynMattock");
-            manyullynManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+16, 
+            manyullynManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynMattock");
-            uraniumManyullynMattock = new InfiToolMattock(PropsHelperInfiHybrids.manyullynMattockID+17,
+            uraniumManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynMattock");
             
             MinecraftForge.setToolClass(woodManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
@@ -1054,27 +1054,27 @@ public class Mattocks
             MinecraftForge.setToolClass(uraniumManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableUraniumTools)
+        if(PHInfiHybrids.enableUraniumTools)
         {
-            diamondUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+0, 
+            diamondUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+0, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Diamond, "diamondUraniumMattock");
-            redstoneUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+1, 
+            redstoneUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+1, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Redstone, "redstoneUraniumMattock");
-            boneUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+2, 
+            boneUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+2, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Bone, "boneUraniumMattock");
-            netherrackUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+3, 
+            netherrackUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+3, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Netherrack, "netherrackUraniumMattock");
-            glowstoneUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+4, 
+            glowstoneUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+4, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Glowstone, "glowstoneUraniumMattock");
-            lavaUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+5, 
+            lavaUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+5, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Lava, "lavaUraniumMattock");
-            blazeUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+6, 
+            blazeUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+6, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Blaze, "blazeUraniumMattock");
-            cobaltUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+7, 
+            cobaltUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+7, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Cobalt, "cobaltUraniumMattock");
-            arditeUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+8, 
+            arditeUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+8, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumMattock");
-            uraniumUraniumMattock = new InfiToolMattock(PropsHelperInfiHybrids.uraniumMattockID+9, 
+            uraniumUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumMattock");
             
             MinecraftForge.setToolClass(diamondUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
@@ -1092,852 +1092,852 @@ public class Mattocks
     
     private static void addNames()
     {
-    	if(PropsHelperInfiHybrids.enableWoodTools)
+    	if(PHInfiHybrids.enableWoodTools)
             ModLoader.addName(woodWoodMattock, "Wooden Mattock");
-        if(PropsHelperInfiHybrids.enableStoneTools)
+        if(PHInfiHybrids.enableStoneTools)
             ModLoader.addName(stoneStoneMattock, "Heavy Mattock");
-        if(PropsHelperInfiHybrids.enableIronTools)
+        if(PHInfiHybrids.enableIronTools)
             ModLoader.addName(ironIronMattock, "Ironic Mattock");
-        if(PropsHelperInfiHybrids.enableDiamondTools)
+        if(PHInfiHybrids.enableDiamondTools)
             ModLoader.addName(diamondDiamondMattock, "Diamondium Mattock");
-        if(PropsHelperInfiHybrids.enableRedstoneTools)
+        if(PHInfiHybrids.enableRedstoneTools)
             ModLoader.addName(redstoneRedstoneMattock, "Redredred Mattock");
-        if(PropsHelperInfiHybrids.enableObsidianTools)
+        if(PHInfiHybrids.enableObsidianTools)
             ModLoader.addName(obsidianObsidianMattock, "Ebony Mattock");
-        if(PropsHelperInfiHybrids.enableSandstoneTools)
+        if(PHInfiHybrids.enableSandstoneTools)
             ModLoader.addName(sandstoneSandstoneMattock, "Fragile Mattock");
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
             ModLoader.addName(boneBoneMattock, "Necrotic Mattock");
-        if(PropsHelperInfiHybrids.enablePaperTools)
+        if(PHInfiHybrids.enablePaperTools)
             ModLoader.addName(paperPaperMattock, "Soft Mattock");
-        if(PropsHelperInfiHybrids.enableMossyTools)
+        if(PHInfiHybrids.enableMossyTools)
             ModLoader.addName(mossyMossyMattock, "Living Mattock");
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
             ModLoader.addName(netherrackNetherrackMattock, "Bloodsoaked Mattock");
-        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+        if(PHInfiHybrids.enableGlowstoneTools)
             ModLoader.addName(glowstoneGlowstoneMattock, "Bright Mattock");
-        if(PropsHelperInfiHybrids.enableIceTools)
+        if(PHInfiHybrids.enableIceTools)
             ModLoader.addName(iceIceMattock, "Freezing Mattock");
-        if(PropsHelperInfiHybrids.enableLavaTools)
+        if(PHInfiHybrids.enableLavaTools)
             ModLoader.addName(lavaLavaMattock, "Burning Mattock");
-        if(PropsHelperInfiHybrids.enableSlimeTools)
+        if(PHInfiHybrids.enableSlimeTools)
             ModLoader.addName(slimeSlimeMattock, "Toy Mattock");
-        if(PropsHelperInfiHybrids.enableCactusTools)
+        if(PHInfiHybrids.enableCactusTools)
             ModLoader.addName(cactusCactusMattock, "Thorned Mattock");
-        if(PropsHelperInfiHybrids.enableFlintTools)
+        if(PHInfiHybrids.enableFlintTools)
             ModLoader.addName(flintFlintMattock, "Rough-hewn Mattock");
-        if(PropsHelperInfiHybrids.enableBlazeTools)
+        if(PHInfiHybrids.enableBlazeTools)
             ModLoader.addName(blazeBlazeMattock, "Netherite Mattock");
-        if(PropsHelperInfiHybrids.enableCopperTools)
+        if(PHInfiHybrids.enableCopperTools)
             ModLoader.addName(copperCopperMattock, "Orange-Tang Mattock");
-        if(PropsHelperInfiHybrids.enableBronzeTools)
+        if(PHInfiHybrids.enableBronzeTools)
             ModLoader.addName(bronzeBronzeMattock, "Polished Mattock");
-        if(PropsHelperInfiHybrids.enableWorkedIronTools)
+        if(PHInfiHybrids.enableWorkedIronTools)
             ModLoader.addName(workedWorkedIronMattock, "Reworked Iron Mattock");
-        if(PropsHelperInfiHybrids.enableSteelTools)
+        if(PHInfiHybrids.enableSteelTools)
             ModLoader.addName(steelSteelMattock, "Forge-Wrought Mattock");
-        if(PropsHelperInfiHybrids.enableCobaltTools)
+        if(PHInfiHybrids.enableCobaltTools)
             ModLoader.addName(cobaltCobaltMattock, "Beautiful Mattock");
-        if(PropsHelperInfiHybrids.enableArditeTools)
+        if(PHInfiHybrids.enableArditeTools)
             ModLoader.addName(arditeArditeMattock, "Rustic Mattock");
-        if(PropsHelperInfiHybrids.enableManyullynTools)
+        if(PHInfiHybrids.enableManyullynTools)
             ModLoader.addName(manyullynManyullynMattock, "False-Prophetic Mattock");
-        if(PropsHelperInfiHybrids.enableUraniumTools)
+        if(PHInfiHybrids.enableUraniumTools)
             ModLoader.addName(uraniumUraniumMattock, "Cancerous Mattock");
     }
     
     public static void registerInfiToolsRecipes()
     {
-    	if(PropsHelperInfiHybrids.enableWoodTools)
+    	if(PHInfiHybrids.enableWoodTools)
         {
             ModLoader.addRecipe(new ItemStack(woodWoodMattock), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.stick, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.sandstoneRod, 's', Item.stick });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneWoodMattock), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.bone, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.boneRod, 's', Item.stick });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.boneRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(paperWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.paperRod, 's', Item.stick });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.paperRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(iceWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.iceRod, 's', Item.stick });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.iceRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(slimeWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.slimeRod, 's', Item.stick });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.slimeRod, 's', Item.stick });
             ModLoader.addRecipe(new ItemStack(cactusWoodMattock), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.cactusRod, 's', Item.stick });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.cactusRod, 's', Item.stick });
         }
     	
-        if(PropsHelperInfiHybrids.enableStoneTools)
+        if(PHInfiHybrids.enableStoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.stick, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', Item.stick, 's', InfiLibrary.stoneShard });
         	ModLoader.addRecipe(new ItemStack(stoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.bone, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', Item.bone, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.boneRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(netherrackStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(iceStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.iceRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(slimeStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.slimeRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(cactusStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(flintStoneMattock), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod, 's', InfiLibrary.stoneShard });
             
             ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.stick, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', Item.stick, 's', InfiLibrary.stoneShard });
         	ModLoader.addRecipe(new ItemStack(stoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.bone, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', Item.bone, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.boneRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(netherrackStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(iceStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.iceRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(slimeStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.slimeRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(cactusStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.cactusRod, 's', InfiLibrary.stoneShard });
             ModLoader.addRecipe(new ItemStack(flintStoneMattock), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.stoneShard });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.flintRod, 's', InfiLibrary.stoneShard });
         }
         
-        if(PropsHelperInfiHybrids.enableIronTools)
+        if(PHInfiHybrids.enableIronTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.stick, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', Item.stick, 's', InfiLibrary.ironChunk });
         	ModLoader.addRecipe(new ItemStack(stoneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(ironIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(boneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.bone, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', Item.bone, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(boneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.boneRod, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(netherrackIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(glowstoneIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(cactusIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.cactusRod, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(copperIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.copperRod, 's', InfiLibrary.ironChunk });
             ModLoader.addRecipe(new ItemStack(bronzeIronMattock), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.ironChunk });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.ironChunk });
         }
         
-        if(PropsHelperInfiHybrids.enableDiamondTools)
+        if(PHInfiHybrids.enableDiamondTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.stick, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', Item.stick, 's', InfiLibrary.diamondShard });
         	ModLoader.addRecipe(new ItemStack(stoneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(ironDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.ironRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(diamondDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(redstoneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(obsidianDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(boneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.bone, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', Item.bone, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(boneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.boneRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(mossyDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.mossyRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(netherrackDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(glowstoneDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(lavaDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.lavaRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(cactusDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cactusRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(flintDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.flintRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(blazeDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.blazeRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', Item.blazeRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(copperDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.copperRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(bronzeDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(workedDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(steelDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.steelRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(cobaltDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(arditeDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.arditeRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(manyullynDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.diamondShard });
             ModLoader.addRecipe(new ItemStack(uraniumDiamondMattock), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.diamondShard });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.diamondShard });
         }
         
-        if(PropsHelperInfiHybrids.enableRedstoneTools)
+        if(PHInfiHybrids.enableRedstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.stick, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.stick, 's', InfiLibrary.redstoneFragment });
         	ModLoader.addRecipe(new ItemStack(stoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.stoneRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(ironRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.ironRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(redstoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(obsidianRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(sandstoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.bone, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.bone, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.boneRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(paperRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.paperRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.paperRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(mossyRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.mossyRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(netherrackRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(glowstoneRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(iceRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.iceRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(lavaRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.lavaRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(slimeRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.slimeRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(cactusRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.cactusRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(flintRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.flintRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(copperRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.copperRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(bronzeRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(workedRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.redstoneFragment });
             ModLoader.addRecipe(new ItemStack(uraniumRedstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.redstoneFragment });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.redstoneFragment });
         }
         
-        if(PropsHelperInfiHybrids.enableObsidianTools)
+        if(PHInfiHybrids.enableObsidianTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', Item.stick, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', Item.stick, 's', InfiLibrary.obsidianShard });
         	ModLoader.addRecipe(new ItemStack(stoneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.stoneRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(redstoneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(obsidianObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(boneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', Item.bone, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', Item.bone, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(boneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.boneRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(netherrackObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(glowstoneObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(iceObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.iceRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(lavaObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.lavaRod, 's', InfiLibrary.obsidianShard });
             ModLoader.addRecipe(new ItemStack(cactusObsidianMattock), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.obsidianShard });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.cactusRod, 's', InfiLibrary.obsidianShard });
         }
         
-        if(PropsHelperInfiHybrids.enableSandstoneTools)
+        if(PHInfiHybrids.enableSandstoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', Item.stick, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', Item.stick, 's', InfiLibrary.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(sandstoneSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(boneSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', Item.bone, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', Item.bone, 's', InfiLibrary.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(boneSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.sandstoneShard });      
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.boneRod, 's', InfiLibrary.sandstoneShard });      
             ModLoader.addRecipe(new ItemStack(netherrackSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(iceSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.iceRod, 's', InfiLibrary.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(slimeSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.slimeRod, 's', InfiLibrary.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(cactusSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.cactusRod, 's', InfiLibrary.sandstoneShard });
             ModLoader.addRecipe(new ItemStack(flintSandstoneMattock), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.sandstoneShard });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.flintRod, 's', InfiLibrary.sandstoneShard });
         }
         
-        if(PropsHelperInfiHybrids.enableBoneTools)
+        if(PHInfiHybrids.enableBoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodBoneMattock), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.stick, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(stoneBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.stoneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.stoneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(sandstoneBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.sandstoneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.sandstoneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(boneBoneMattock), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.bone, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(boneBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.boneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.boneRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(paperBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.paperRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.paperRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(netherrackBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.netherrackRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.netherrackRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(iceBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.iceRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.iceRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(cactusBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.cactusRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.cactusRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
             ModLoader.addRecipe(new ItemStack(flintBoneMattock), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.flintRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.flintRod, 's', new ItemStack(Item.dyePowder, 1, 15) });
         }
         
-        if(PropsHelperInfiHybrids.enablePaperTools)
+        if(PHInfiHybrids.enablePaperTools)
         {
             ModLoader.addRecipe(new ItemStack(woodPaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.stick, 's', Item.paper });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.stick, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(bonePaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.bone, 's', Item.paper });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.bone, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(bonePaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.boneRod, 's', Item.paper });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.boneRod, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(paperPaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.paperRod, 's', Item.paper });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.paperRod, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(slimePaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.slimeRod, 's', Item.paper });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.slimeRod, 's', Item.paper });
             ModLoader.addRecipe(new ItemStack(cactusPaperMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.cactusRod, 's', Item.paper });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.cactusRod, 's', Item.paper });
         }
         
-        if(PropsHelperInfiHybrids.enableMossyTools)
+        if(PHInfiHybrids.enableMossyTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.stick, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.stick, 's', InfiLibrary.mossyPatch });
         	ModLoader.addRecipe(new ItemStack(stoneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.stoneRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(diamondMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.diamondRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(redstoneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(boneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.bone, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.bone, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(boneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.boneRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(mossyMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.mossyRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(netherrackMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(glowstoneMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(cactusMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.cactusRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(blazeMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.blazeRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.blazeRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(manyullynMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.mossyPatch });
             ModLoader.addRecipe(new ItemStack(uraniumMossyMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.mossyPatch });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.mossyPatch });
         }
         
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', Item.stick, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', Item.stick, 's', InfiLibrary.netherrackShard });
         	ModLoader.addRecipe(new ItemStack(stoneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(sandstoneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(boneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', Item.bone, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', Item.bone, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(boneNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.boneRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(paperNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.paperRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.paperRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(mossyNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.mossyRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.mossyRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(netherrackNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(iceNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.iceRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(slimeNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(cactusNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(flintNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.flintRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(copperNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.copperRod, 's', InfiLibrary.netherrackShard });
             ModLoader.addRecipe(new ItemStack(bronzeNetherrackMattock), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.netherrackShard });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.netherrackShard });
         }
         
-        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+        if(PHInfiHybrids.enableGlowstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.stick, 's', InfiLibrary.glowstoneFragment });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.glowstoneFragment });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.bone, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.bone, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.boneRod, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.iceRod, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.slimeRod, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(cactusGlowstoneMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.cactusRod, 's', InfiLibrary.glowstoneFragment });
         }
         
-        if(PropsHelperInfiHybrids.enableIceTools)
+        if(PHInfiHybrids.enableIceTools)
         {
             ModLoader.addRecipe(new ItemStack(woodIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', Item.stick, 's', mod_InfiBase.iceShard });
+                    { recipe, '#', Block.ice, '|', Item.stick, 's', InfiLibrary.iceShard });
             ModLoader.addRecipe(new ItemStack(boneIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', Item.bone, 's', mod_InfiBase.iceShard });
+                    { recipe, '#', Block.ice, '|', Item.bone, 's', InfiLibrary.iceShard });
             ModLoader.addRecipe(new ItemStack(boneIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.iceShard });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.boneRod, 's', InfiLibrary.iceShard });
             ModLoader.addRecipe(new ItemStack(paperIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.paperRod, 's', mod_InfiBase.iceShard });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.paperRod, 's', InfiLibrary.iceShard });
             ModLoader.addRecipe(new ItemStack(iceIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.iceShard });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.iceRod, 's', InfiLibrary.iceShard });
             ModLoader.addRecipe(new ItemStack(slimeIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.iceShard });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.slimeRod, 's', InfiLibrary.iceShard });
             ModLoader.addRecipe(new ItemStack(cactusIceMattock), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.iceShard });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.cactusRod, 's', InfiLibrary.iceShard });
         }
         
-        if(PropsHelperInfiHybrids.enableLavaTools)
+        if(PHInfiHybrids.enableLavaTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.diamondRod, 's', InfiLibrary.lavaFragment });
             ModLoader.addRecipe(new ItemStack(obsidianLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.lavaFragment });
             ModLoader.addRecipe(new ItemStack(netherrackLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.lavaFragment });
             ModLoader.addRecipe(new ItemStack(lavaLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.lavaRod, 's', InfiLibrary.lavaFragment });
             ModLoader.addRecipe(new ItemStack(flintLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.flintRod, 's', InfiLibrary.lavaFragment });
             ModLoader.addRecipe(new ItemStack(blazeLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', Item.blazeRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', Item.blazeRod, 's', InfiLibrary.lavaFragment });
             ModLoader.addRecipe(new ItemStack(manyullynLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.lavaFragment });
             ModLoader.addRecipe(new ItemStack(uraniumLavaMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.lavaFragment });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.lavaFragment });
         }
         
-        if(PropsHelperInfiHybrids.enableSlimeTools)
+        if(PHInfiHybrids.enableSlimeTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.stick, 's', Item.slimeBall });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.stick, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(sandstoneSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.sandstoneRod, 's', Item.slimeBall });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.sandstoneRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(boneSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.bone, 's', Item.slimeBall });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.bone, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(boneSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.boneRod, 's', Item.slimeBall });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.boneRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(paperSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.paperRod, 's', Item.slimeBall });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.paperRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(slimeSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.slimeRod, 's', Item.slimeBall });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.slimeRod, 's', Item.slimeBall });
             ModLoader.addRecipe(new ItemStack(cactusSlimeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.cactusRod, 's', Item.slimeBall });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.cactusRod, 's', Item.slimeBall });
         }
         
-        if(PropsHelperInfiHybrids.enableCactusTools)
+        if(PHInfiHybrids.enableCactusTools)
         {
             ModLoader.addRecipe(new ItemStack(woodCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', Item.stick, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', Item.stick, 's', InfiLibrary.cactusShard });
             ModLoader.addRecipe(new ItemStack(sandstoneCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.cactusShard });
             ModLoader.addRecipe(new ItemStack(boneCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', Item.bone, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', Item.bone, 's', InfiLibrary.cactusShard });
             ModLoader.addRecipe(new ItemStack(boneCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.boneRod, 's', InfiLibrary.cactusShard });
             ModLoader.addRecipe(new ItemStack(netherrackCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.cactusShard });
             ModLoader.addRecipe(new ItemStack(iceCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.iceRod, 's', InfiLibrary.cactusShard });
             ModLoader.addRecipe(new ItemStack(slimeCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.slimeRod, 's', InfiLibrary.cactusShard });
             ModLoader.addRecipe(new ItemStack(cactusCactusMattock), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.cactusShard });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.cactusRod, 's', InfiLibrary.cactusShard });
         }
         
-        if(PropsHelperInfiHybrids.enableFlintTools)
+        if(PHInfiHybrids.enableFlintTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', Item.stick, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', Item.stick, 's', InfiLibrary.flintShard });
         	ModLoader.addRecipe(new ItemStack(stoneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.stoneRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(sandstoneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(boneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', Item.bone, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', Item.bone, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(boneFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.boneRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(netherrackFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(slimeFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.slimeRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(cactusFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.cactusRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(flintFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.flintRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(copperFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.copperRod, 's', InfiLibrary.flintShard });
             ModLoader.addRecipe(new ItemStack(bronzeFlintMattock), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.flintShard });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.flintShard });
         }
         
-        if(PropsHelperInfiHybrids.enableBlazeTools)
+        if(PHInfiHybrids.enableBlazeTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.diamondRod, 's', InfiLibrary.blazeFragment });
             ModLoader.addRecipe(new ItemStack(obsidianBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.blazeFragment });
             ModLoader.addRecipe(new ItemStack(netherrackBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.blazeFragment });
             ModLoader.addRecipe(new ItemStack(lavaBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.lavaRod, 's', InfiLibrary.blazeFragment });
             ModLoader.addRecipe(new ItemStack(flintBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.flintRod, 's', InfiLibrary.blazeFragment });
             ModLoader.addRecipe(new ItemStack(blazeBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', Item.blazeRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', Item.blazeRod, 's', InfiLibrary.blazeFragment });
             ModLoader.addRecipe(new ItemStack(manyullynBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.blazeFragment });
             ModLoader.addRecipe(new ItemStack(uraniumBlazeMattock), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.blazeFragment });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.blazeFragment });
         }
     }
     
     public static void addStoneTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.stoneShard });
     	ModLoader.addRecipe(new ItemStack(stoneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(sandstoneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.sandstoneRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(netherrackStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(iceStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(slimeStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(cactusStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.stoneShard });
         ModLoader.addRecipe(new ItemStack(flintStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.stoneShard });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod, 's', InfiLibrary.stoneShard });
     }
     
     public static void addCopperTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(stoneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(boneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(boneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(netherrackCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(slimeCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(cactusCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(flintCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod, 's', InfiLibrary.copperChunk });
         ModLoader.addRecipe(new ItemStack(copperCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.copperChunk });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.copperChunk });
     }
     
     public static void addBronzeTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(stoneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(boneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(boneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(netherrackBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(slimeBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(cactusBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(flintBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(copperBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.bronzeChunk });
         ModLoader.addRecipe(new ItemStack(bronzeBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.bronzeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.bronzeChunk });
     }
     
     public static void addWorkedIronTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(stoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(ironWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(diamondWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(redstoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(obsidianWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(netherrackWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(glowstoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(iceWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(slimeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(cactusWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(blazeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(copperWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(bronzeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(workedWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(steelWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.workedIronChunk });
         ModLoader.addRecipe(new ItemStack(uraniumWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.workedIronChunk });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.workedIronChunk });
     }
     
     public static void addSteelTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(stoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(ironSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(diamondSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(redstoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(obsidianSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(boneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(boneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(netherrackSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(glowstoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(iceSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(slimeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(cactusSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(blazeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(copperSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(bronzeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(workedSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(steelSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(cobaltSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(arditeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.steelChunk });
         ModLoader.addRecipe(new ItemStack(uraniumSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.steelChunk });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.steelChunk });
     }
     
     public static void addCobaltTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(stoneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(ironCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(diamondCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(redstoneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(obsidianCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(boneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(boneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(slimeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(cactusCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(blazeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(copperCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(bronzeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(workedCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(steelCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(cobaltCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(arditeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(manyullynCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.cobaltChunk });
         ModLoader.addRecipe(new ItemStack(uraniumCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.cobaltChunk });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.cobaltChunk });
     }
     
     public static void addArditeTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(stoneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(ironArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(diamondArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(redstoneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(obsidianArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(boneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(boneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(slimeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(cactusArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(blazeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(copperArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(bronzeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(workedArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(steelArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(cobaltArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(arditeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(manyullynArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.arditeChunk });
         ModLoader.addRecipe(new ItemStack(uraniumArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.arditeChunk });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.arditeChunk });
     }
     
     public static void addManyullynTools(ItemStack stack)
     {
     	ModLoader.addRecipe(new ItemStack(woodManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(stoneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(ironManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(diamondManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(redstoneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(obsidianManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(boneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(boneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(slimeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(cactusManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(blazeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(copperManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(bronzeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(workedManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(steelManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(cobaltManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(arditeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(manyullynManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.manyullynChunk });
         ModLoader.addRecipe(new ItemStack(uraniumManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.manyullynChunk });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.manyullynChunk });
     }
     
     public static void addUraniumTools(ItemStack stack)
     {
         ModLoader.addRecipe(new ItemStack(diamondUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(redstoneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(boneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(boneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(netherrackUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(glowstoneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(lavaUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.lavaRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.lavaRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(blazeUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(cobaltUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(arditeUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.uraniumChunk });
         ModLoader.addRecipe(new ItemStack(uraniumUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod, 's', mod_InfiBase.uraniumChunk });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.uraniumChunk });
     }
     
 	public static Item woodWoodMattock;

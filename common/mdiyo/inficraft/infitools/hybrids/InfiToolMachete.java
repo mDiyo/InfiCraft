@@ -1,7 +1,7 @@
 package mDiyo.inficraft.infitools.hybrids;
 
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.InfiWeaponCore;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
+import mDiyo.inficraft.infitools.library.InfiWeaponCore;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityLiving;

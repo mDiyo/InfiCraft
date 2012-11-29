@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
@@ -31,7 +31,7 @@ public class MossPatchItem extends Item
         int i1 = world.getBlockId(x, y, z);
         if (Block.blocksList[i1].renderAsNormalBlock() && world.isAirBlock(x, y + 1, z))
         {
-            world.setBlockWithNotify(x, y + 1, z, mod_InfiBase.blockMoss.blockID);
+            world.setBlockWithNotify(x, y + 1, z, InfiLibrary.blockMoss.blockID);
             stack.stackSize--;
             return true;
         }

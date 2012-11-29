@@ -1,9 +1,9 @@
 package mDiyo.inficraft.infitools.core;
 import java.util.List;
 
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
 import mDiyo.inficraft.infitools.core.buckets.BucketInteractHandler;
 import mDiyo.inficraft.infitools.core.buckets.InfiBucketHandler;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
 import net.minecraft.src.CraftingManager;
 import net.minecraft.src.IRecipe;
 import net.minecraft.src.Item;
@@ -13,21 +13,26 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary.OreRegisterEvent;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 
-@Mod(modid = "InfiTools", name = "InfiTools", version = "3.1")
-public class mod_InfiTools
+@Mod(modid = "InfiTools", name = "InfiTools", version = "1.4.5_2012.11.29")
+public class InfiCore
 {
 	@Instance("InfiTools")
-	public static mod_InfiTools instance;
+	public static InfiCore instance;
+	
+	/* Proxies for sides, used for graphics processing */
+	@SidedProxy(clientSide = "mDiyo.inficraft.infitools.core.InfiCoreProxyClient", serverSide = "mDiyo.inficraft.infitools.core.InfiCoreProxyCommon")
+	public static InfiCoreProxyCommon proxy;
 
 	@Init
 	public void load(FMLInitializationEvent event) 
 	{
-		PropsHelperInfiTools.initProps();
+		PHInfiTools.initProps();
 		removeVanillaRecipes();
 		Pickaxes.init();
 		Swords.init();
@@ -45,7 +50,7 @@ public class mod_InfiTools
 	{
 		String ore = event.Name;
 		ItemStack itemstack = event.Ore;
-	    if(PropsHelperInfiTools.enableCopperTools && ore.equals("ingotCopper"))
+	    if(PHInfiTools.enableCopperTools && ore.equals("ingotCopper"))
 	    {
 	    	Pickaxes.addCopperTools(itemstack);
 	    	Swords.addCopperTools(itemstack);
@@ -53,7 +58,7 @@ public class mod_InfiTools
 	    	Axes.addCopperTools(itemstack);
 	    	Hoes.addCopperTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableBronzeTools && ore.equals("ingotBronze"))
+	    if(PHInfiTools.enableBronzeTools && ore.equals("ingotBronze"))
 	    {
 	        Pickaxes.addBronzeTools(itemstack);
 	        Swords.addBronzeTools(itemstack);
@@ -61,7 +66,7 @@ public class mod_InfiTools
 	        Axes.addBronzeTools(itemstack);
 	        Hoes.addBronzeTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableWorkedIronTools && ore.equals("ingotRefinedIron"))
+	    if(PHInfiTools.enableWorkedIronTools && ore.equals("ingotRefinedIron"))
 	    {
 	        Pickaxes.addWorkedIronTools(itemstack);
 	        Swords.addWorkedIronTools(itemstack);
@@ -69,7 +74,7 @@ public class mod_InfiTools
 	        Axes.addWorkedIronTools(itemstack);
 	        Hoes.addWorkedIronTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableSteelTools && ore.equals("ingotSteel"))
+	    if(PHInfiTools.enableSteelTools && ore.equals("ingotSteel"))
 	    {
 	        Pickaxes.addSteelTools(itemstack);
 	        Swords.addSteelTools(itemstack);
@@ -77,7 +82,7 @@ public class mod_InfiTools
 	        Axes.addSteelTools(itemstack);
 	        Hoes.addSteelTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableCobaltTools && ore.equals("ingotCobalt"))
+	    if(PHInfiTools.enableCobaltTools && ore.equals("ingotCobalt"))
 	    {
 	        Pickaxes.addCobaltTools(itemstack);
 	        Swords.addCobaltTools(itemstack);
@@ -85,7 +90,7 @@ public class mod_InfiTools
 	        Axes.addCobaltTools(itemstack);
 	        Hoes.addCobaltTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableArditeTools && ore.equals("ingotArdite"))
+	    if(PHInfiTools.enableArditeTools && ore.equals("ingotArdite"))
 	    {
 	        Pickaxes.addArditeTools(itemstack);
 	        Swords.addArditeTools(itemstack);
@@ -93,7 +98,7 @@ public class mod_InfiTools
 	        Axes.addArditeTools(itemstack);
 	        Hoes.addArditeTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableManyullynTools && ore.equals("ingotManyullyn"))
+	    if(PHInfiTools.enableManyullynTools && ore.equals("ingotManyullyn"))
 	    {
 	    	Pickaxes.addManyullynTools(itemstack);
 	    	Swords.addManyullynTools(itemstack);
@@ -101,7 +106,7 @@ public class mod_InfiTools
 	    	Axes.addManyullynTools(itemstack);
 	    	Hoes.addManyullynTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableUraniumTools && ore.equals("ingotUranium"))
+	    if(PHInfiTools.enableUraniumTools && ore.equals("ingotUranium"))
 	    {
 	        Pickaxes.addUraniumTools(itemstack);
 	        Swords.addUraniumTools(itemstack);
@@ -109,7 +114,7 @@ public class mod_InfiTools
 	        Axes.addUraniumTools(itemstack);
 	        Hoes.addUraniumTools(itemstack);
 	    }
-	    if(PropsHelperInfiTools.enableStoneTools && (ore.equals("customCobblestone") || ore.equals("customStone")))
+	    if(PHInfiTools.enableStoneTools && (ore.equals("customCobblestone") || ore.equals("customStone")))
 	    {
 	        Pickaxes.addStoneTools(itemstack);
 	        Swords.addStoneTools(itemstack);

@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 import java.util.Random;
 
 import net.minecraft.src.AxisAlignedBB;
@@ -88,7 +88,7 @@ public class MossBlock extends Block
 
     public int idDropped(int i, Random random, int j)
     {
-        return mod_InfiBase.mossBall.shiftedIndex;
+        return InfiLibrary.mossBall.shiftedIndex;
     }
 
     public int quantityDropped(Random random)
@@ -114,9 +114,9 @@ public class MossBlock extends Block
             int k1 = world.getBlockId(l, i1, j1);
             int l1 = world.getBlockId(l, i1 - 1, j1);
             int i2 = (l - i) + (j1 - k);
-            if ((i2 == 1 || i2 == -1) && k1 == 0 && l1 != 0 && l1 != mod_InfiBase.blockMoss.blockID && Block.blocksList[l1].renderAsNormalBlock())
+            if ((i2 == 1 || i2 == -1) && k1 == 0 && l1 != 0 && l1 != InfiLibrary.blockMoss.blockID && Block.blocksList[l1].renderAsNormalBlock())
             {
-                world.setBlockWithNotify(l, i1, j1, mod_InfiBase.blockMoss.blockID);
+                world.setBlockWithNotify(l, i1, j1, InfiLibrary.blockMoss.blockID);
             }
         }
     }

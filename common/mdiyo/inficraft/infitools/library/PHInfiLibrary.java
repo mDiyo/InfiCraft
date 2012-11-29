@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 import java.io.File;
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.Item;
 import net.minecraftforge.common.Configuration;
 
-public class PropsHelperInfiBase {
+public class PHInfiLibrary {
 
     public static void initProps()
     {
@@ -16,9 +16,9 @@ public class PropsHelperInfiBase {
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
 
-        File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
+        File file = new File(InfiLibrary.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/InfiBase.txt");
+        File newFile = new File(InfiLibrary.proxy.getMinecraftDir() + "/config/InfiCraft/InfiBase.txt");
 
         /* Some basic debugging will go a long way */
         try
@@ -39,12 +39,11 @@ public class PropsHelperInfiBase {
         config.load();
 
         /* Define the mod's IDs. 
-         * Avoid values below 4096 for items and in the 250-600 range for blocks
+         * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
-        //enableCopperTools = config.getOrCreateBooleanProperty("Enable Copper Tools", "general", true).getBoolean(true);
         
-        mossBlockID = config.getBlock("Moss Block", 252).getInt(252);
-        slimeSandID = config.getBlock("Slime Sand", 253).getInt(253);
+        mossBlockID = config.getBlock("Moss Block", 1401).getInt(1401);
+        slimeSandID = config.getBlock("Slime Sand", 1402).getInt(1402);
         treeRootID = config.getItem("Tree Root", 14000).getInt(14000);
         
         mossBallID = config.getItem("Moss Ball", 13951).getInt(13951);

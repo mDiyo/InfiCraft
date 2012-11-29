@@ -13,7 +13,7 @@ import cpw.mods.fml.common.SidedProxy;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "0.9")
+@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.5_2012.11.29")
 public class InfiBlocks
 {
 	/* Proxies for sides, used for graphics processing */

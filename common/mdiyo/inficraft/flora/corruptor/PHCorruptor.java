@@ -17,9 +17,9 @@ public class PHCorruptor
          * Note: Configs are a pain, but absolutely necessary for every mod.
          */
 		
-		File file = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft");
+		File file = new File(FloraCorruptor.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(Minecraft.getMinecraftDir() + "/config/InfiCraft/FloraCorruptor.txt");
+        File newFile = new File(FloraCorruptor.proxy.getMinecraftDir() + "/config/InfiCraft/FloraCorruptor.txt");
         
         /* Some basic debugging will go a long way */
         try

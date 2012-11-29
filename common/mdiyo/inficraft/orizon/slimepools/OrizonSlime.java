@@ -20,7 +20,7 @@ import cpw.mods.fml.common.SidedProxy;
  * @author mDiyo
  */
 
-@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "0.2")
+@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "1.4.5_2012.11.29")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class OrizonSlime 
 {

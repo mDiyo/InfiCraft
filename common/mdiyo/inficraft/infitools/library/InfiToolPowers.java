@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 
 import java.util.Random;
 import java.lang.reflect.Method;
@@ -94,7 +94,7 @@ public class InfiToolPowers
         }
         else
         {
-            if (id == mod_InfiBase.stoneShard.shiftedIndex)
+            if (id == InfiLibrary.stoneShard.shiftedIndex)
             {
                 id = Block.stone.blockID;
             }
@@ -108,7 +108,7 @@ public class InfiToolPowers
         switch (i)
         {
             case 1:
-                j = mod_InfiBase.stoneShard.shiftedIndex;
+                j = InfiLibrary.stoneShard.shiftedIndex;
                 break;
 
             case 4:

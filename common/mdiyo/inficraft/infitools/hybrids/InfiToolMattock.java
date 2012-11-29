@@ -2,10 +2,10 @@ package mDiyo.inficraft.infitools.hybrids;
 
 import java.util.Random;
 
-import mDiyo.inficraft.infitools.base.InfiHoeCore;
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.InfiToolPowers;
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
+import mDiyo.inficraft.infitools.library.InfiHoeCore;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
+import mDiyo.inficraft.infitools.library.InfiToolPowers;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
@@ -107,7 +107,7 @@ public class InfiToolMattock extends InfiHoeCore
         if ((bID == Block.dirt.blockID || bID == Block.grass.blockID) && 
         		InfiToolPowers.searchForBlock(world, Block.wood.blockID, 4, x, y, z) && random.nextInt(100) + 1 <= 20)
         {
-        	InfiToolPowers.spawnItem(x, y, z, mod_InfiBase.treeRoot.shiftedIndex, 1, 0, world);
+        	InfiToolPowers.spawnItem(x, y, z, InfiLibrary.treeRoot.shiftedIndex, 1, 0, world);
         }
 		return super.onBlockDestroyed(itemstack, bID, x, y, z, entityliving);
 	}

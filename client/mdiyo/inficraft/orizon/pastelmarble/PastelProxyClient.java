@@ -47,4 +47,9 @@ public class PastelProxyClient extends PastelProxyCommon
 	    	}
 	    }
 	}
+	
+	public File getMinecraftDir()
+	{
+		return Minecraft.getMinecraftDir();
+	}
 }

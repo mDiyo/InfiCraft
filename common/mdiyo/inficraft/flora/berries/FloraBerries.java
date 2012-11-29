@@ -17,7 +17,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "Anachrosim")
+@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.5_2012.11.29")
 public class FloraBerries
 {
 	/* Proxies for sides, used for client-only processing */

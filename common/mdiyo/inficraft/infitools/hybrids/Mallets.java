@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infitools.hybrids;
-import mDiyo.inficraft.infitools.base.InfiMaterialEnum;
-import mDiyo.inficraft.infitools.base.mod_InfiBase;
+import mDiyo.inficraft.infitools.library.InfiLibrary;
+import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -20,7 +20,7 @@ public class Mallets
 
     public static void init()
     {
-        if(mod_InfiHybrids.infitoolsPresent)
+        if(InfiHybrids.infitoolsPresent)
         {
         	createTools();
             addNames();
@@ -35,13 +35,13 @@ public class Mallets
     
     private static void createVanillaTools()
     {
-    	woodWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+0, 
+    	woodWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+0, 
                 InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMallet");
-    	woodStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+0, 
+    	woodStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+0, 
                 InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMallet");
-    	woodIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+0, 
+    	woodIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+0, 
                 InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronMallet");
-    	woodDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+0, 
+    	woodDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMallet");
     	
     	MinecraftForge.setToolClass(woodWoodMallet, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
@@ -66,21 +66,21 @@ public class Mallets
     
     private static void createTools()
     {
-    	if(PropsHelperInfiHybrids.enableWoodTools)
+    	if(PHInfiHybrids.enableWoodTools)
     	{
-    		woodWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+0, 
+    		woodWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+0, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodMallet");
-    		sandstoneWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+1, 
+    		sandstoneWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodMallet");
-    		boneWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+2, 
+    		boneWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+2, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Bone, "boneWoodMallet");
-    		paperWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+3, 
+    		paperWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+3, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Paper, "paperWoodMallet");
-    		iceWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+4, 
+    		iceWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+4, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Ice, "iceWoodMallet");
-    		slimeWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+5, 
+    		slimeWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+5, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodMallet");
-    		cactusWoodMallet = new InfiToolMallet(PropsHelperInfiHybrids.woodMalletID+6, 
+    		cactusWoodMallet = new InfiToolMallet(PHInfiHybrids.woodMalletID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodMallet");
     		
     		MinecraftForge.setToolClass(woodWoodMallet, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
@@ -92,25 +92,25 @@ public class Mallets
     		MinecraftForge.setToolClass(cactusWoodMallet, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
-        if(PropsHelperInfiHybrids.enableStoneTools)
+        if(PHInfiHybrids.enableStoneTools)
         {
-        	woodStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+0, 
+        	woodStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+0, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneMallet");
-        	stoneStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+1, 
+        	stoneStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneMallet");
-        	sandstoneStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+2, 
+        	sandstoneStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+2, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Sandstone, "sandstoneStoneMallet");
-        	boneStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+3, 
+        	boneStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+3, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Bone, "boneStoneMallet");
-        	netherrackStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+4, 
+        	netherrackStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+4, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Netherrack, "netherrackStoneMallet");
-        	iceStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+5, 
+        	iceStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+5, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Ice, "iceStoneMallet");
-        	slimeStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+6, 
+        	slimeStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+6, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Slime, "slimeStoneMallet");
-        	cactusStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+7, 
+        	cactusStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+7, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneMallet");
-        	flintStoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.stoneMalletID+8, 
+        	flintStoneMallet = new InfiToolMallet(PHInfiHybrids.stoneMalletID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneMallet");
             
             MinecraftForge.setToolClass(woodStoneMallet, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
@@ -124,25 +124,25 @@ public class Mallets
             MinecraftForge.setToolClass(flintStoneMallet, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableIronTools)
+        if(PHInfiHybrids.enableIronTools)
         {
-        	woodIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+0, 
+        	woodIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+0, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronMallet");
-        	stoneIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+1, 
+        	stoneIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronMallet");
-        	ironIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+2, 
+        	ironIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+2, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Iron, "ironIronMallet");
-        	boneIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+3, 
+        	boneIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+3, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bone, "boneIronMallet");
-        	netherrackIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+4, 
+        	netherrackIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+4, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Netherrack, "netherrackIronMallet");
-        	glowstoneIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+5, 
+        	glowstoneIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+5, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Glowstone, "glowstoneIronMallet");
-        	cactusIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+6, 
+        	cactusIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+6, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Cactus, "cactusIronMallet");
-        	copperIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+7, 
+        	copperIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+7, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronMallet");
-        	bronzeIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.ironMalletID+8, 
+        	bronzeIronMallet = new InfiToolMallet(PHInfiHybrids.ironMalletID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronMallet");
             
             MinecraftForge.setToolClass(woodIronMallet, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
@@ -156,51 +156,51 @@ public class Mallets
             MinecraftForge.setToolClass(bronzeIronMallet, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableDiamondTools)
+        if(PHInfiHybrids.enableDiamondTools)
         {
-        	woodDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+0, 
+        	woodDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+0, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMallet");
-        	stoneDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+1, 
+        	stoneDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondMallet");
-        	ironDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+2, 
+        	ironDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+2, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Iron, "ironDiamondMallet");
-        	diamondDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+3, 
+        	diamondDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+3, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Diamond, "diamondDiamondMallet");
-        	redstoneDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+4, 
+        	redstoneDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+4, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Redstone, "redstoneDiamondMallet");
-        	obsidianDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+5, 
+        	obsidianDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+5, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Obsidian, "obsidianDiamondMallet");
-        	boneDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+6, 
+        	boneDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+6, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bone, "boneDiamondMallet");
-        	mossyDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+7, 
+        	mossyDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+7, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Mossy, "mossyDiamondMallet");
-        	netherrackDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+8, 
+        	netherrackDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+8, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Netherrack, "netherrackDiamondMallet");
-        	glowstoneDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+9, 
+        	glowstoneDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+9, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Glowstone, "glowstoneDiamondMallet");
-        	lavaDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+10, 
+        	lavaDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+10, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Lava, "lavaDiamondMallet");
-        	cactusDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+11, 
+        	cactusDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+11, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cactus, "cactusDiamondMallet");
-        	flintDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+12, 
+        	flintDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+12, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Flint, "flintDiamondMallet");
-        	blazeDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+13, 
+        	blazeDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+13, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Blaze, "blazeDiamondMallet");
-            copperDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+14, 
+            copperDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+14, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Copper, "copperDiamondMallet");
-            bronzeDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+15, 
+            bronzeDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+15, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Bronze, "bronzeDiamondMallet");
-            workedDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+16, 
+            workedDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+16, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.WorkedIron, "workedDiamondMallet");
-            steelDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+17, 
+            steelDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+17, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Steel, "steelDiamondMallet");
-            cobaltDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+18, 
+            cobaltDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+18, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Cobalt, "cobaltDiamondMallet");
-            arditeDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+19, 
+            arditeDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+19, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Ardite, "arditeDiamondMallet");
-            manyullynDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+20, 
+            manyullynDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+20, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondMallet");
-            uraniumDiamondMallet = new InfiToolMallet(PropsHelperInfiHybrids.diamondMalletID+21, 
+            uraniumDiamondMallet = new InfiToolMallet(PHInfiHybrids.diamondMalletID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondMallet");
             
             MinecraftForge.setToolClass(woodDiamondMallet, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
@@ -227,47 +227,47 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumDiamondMallet, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableRedstoneTools)
+        if(PHInfiHybrids.enableRedstoneTools)
         {
-        	woodRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+0, 
+        	woodRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+0, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Wood, "woodRedstoneMallet");
-        	stoneRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+1, 
+        	stoneRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+1, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Stone, "stoneRedstoneMallet");
-        	ironRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+2, 
+        	ironRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+2, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Iron, "ironRedstoneMallet");
-        	redstoneRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+3, 
+        	redstoneRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+3, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Redstone, "redstoneRedstoneMallet");
-        	obsidianRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+4, 
+        	obsidianRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+4, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Obsidian, "obsidianRedstoneMallet");
-        	sandstoneRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+5, 
+        	sandstoneRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+5, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Sandstone, "sandstoneRedstoneMallet");
-        	boneRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+6, 
+        	boneRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+6, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bone, "boneRedstoneMallet");
-        	paperRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+7, 
+        	paperRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+7, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Paper, "paperRedstoneMallet");
-        	mossyRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+8, 
+        	mossyRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+8, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Mossy, "mossyRedstoneMallet");
-        	netherrackRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+9, 
+        	netherrackRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+9, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Netherrack, "netherrackRedstoneMallet");
-        	glowstoneRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+10, 
+        	glowstoneRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+10, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Glowstone, "glowstoneRedstoneMallet");
-        	iceRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+11, 
+        	iceRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+11, 
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Ice, "iceRedstoneMallet");
-        	lavaRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+12,
+        	lavaRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+12,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Lava, "lavaRedstoneMallet");
-        	slimeRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+13,
+        	slimeRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+13,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Slime, "slimeRedstoneMallet");
-        	cactusRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+14,
+        	cactusRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+14,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Cactus, "cactusRedstoneMallet");
-        	flintRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+15,
+        	flintRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+15,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Flint, "flintRedstoneMallet");
-        	copperRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+16,
+        	copperRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+16,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Copper, "copperRedstoneMallet");
-        	bronzeRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+17,
+        	bronzeRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+17,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Bronze, "bronzeRedstoneMallet");
-        	workedRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+18,
+        	workedRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+18,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneMallet");
-        	uraniumRedstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.redstoneMalletID+19,
+        	uraniumRedstoneMallet = new InfiToolMallet(PHInfiHybrids.redstoneMalletID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneMallet");
             
             MinecraftForge.setToolClass(woodRedstoneMallet, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
@@ -292,27 +292,27 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumRedstoneMallet, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableObsidianTools)
+        if(PHInfiHybrids.enableObsidianTools)
         {
-        	woodObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+0, 
+        	woodObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+0, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Wood, "woodObsidianMallet");
-        	stoneObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+1, 
+        	stoneObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+1, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Stone, "stoneObsidianMallet");
-        	redstoneObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+2, 
+        	redstoneObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+2, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Redstone, "redstoneObsidianMallet");
-        	obsidianObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+3, 
+        	obsidianObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+3, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Obsidian, "obsidianObsidianMallet");;
-        	boneObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+4, 
+        	boneObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+4, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Bone, "boneObsidianMallet");
-        	netherrackObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+5, 
+        	netherrackObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+5, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Netherrack, "netherrackObsidianMallet");
-        	glowstoneObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+6, 
+        	glowstoneObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+6, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Glowstone, "glowstoneObsidianMallet");
-        	iceObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+7, 
+        	iceObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+7, 
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Ice, "iceObsidianMallet");
-        	lavaObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+8,
+        	lavaObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+8,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianMallet");
-        	cactusObsidianMallet = new InfiToolMallet(PropsHelperInfiHybrids.obsidianMalletID+9,
+        	cactusObsidianMallet = new InfiToolMallet(PHInfiHybrids.obsidianMalletID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianMallet");
             
             MinecraftForge.setToolClass(woodObsidianMallet, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
@@ -327,23 +327,23 @@ public class Mallets
             MinecraftForge.setToolClass(cactusObsidianMallet, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableSandstoneTools)
+        if(PHInfiHybrids.enableSandstoneTools)
         {
-        	woodSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+0, 
+        	woodSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+0, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Wood, "woodSandstoneMallet");
-        	sandstoneSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+1, 
+        	sandstoneSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+1, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Sandstone, "sandstoneSandstoneMallet");
-        	boneSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+2, 
+        	boneSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+2, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Bone, "boneSandstoneMallet");
-        	netherrackSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+3, 
+        	netherrackSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+3, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Netherrack, "netherrackSandstoneMallet");
-        	iceSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+4, 
+        	iceSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+4, 
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Ice, "iceSandstoneMallet");
-        	slimeSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+5,
+        	slimeSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+5,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Slime, "slimeSandstoneMallet");
-        	cactusSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+6,
+        	cactusSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+6,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneMallet");
-        	flintSandstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.sandstoneMalletID+7,
+        	flintSandstoneMallet = new InfiToolMallet(PHInfiHybrids.sandstoneMalletID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneMallet");
             
             MinecraftForge.setToolClass(woodSandstoneMallet, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
@@ -356,25 +356,25 @@ public class Mallets
             MinecraftForge.setToolClass(flintSandstoneMallet, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableBoneTools)
+        if(PHInfiHybrids.enableBoneTools)
         {
-        	woodBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+0, 
+        	woodBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+0, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Wood, "woodBoneMallet");
-        	stoneBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+1, 
+        	stoneBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+1, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Stone, "stoneBoneMallet");
-        	sandstoneBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+2, 
+        	sandstoneBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+2, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Sandstone, "sandstoneBoneMallet");
-        	boneBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+3, 
+        	boneBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+3, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Bone, "boneBoneMallet");
-        	paperBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+4, 
+        	paperBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+4, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Paper, "paperBoneMallet");
-        	netherrackBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+5, 
+        	netherrackBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+5, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Netherrack, "netherrackBoneMallet");
-        	iceBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+6, 
+        	iceBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+6, 
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Ice, "iceBoneMallet");
-        	cactusBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+7,
+        	cactusBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+7,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneMallet");
-        	flintBoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.boneMalletID+8,
+        	flintBoneMallet = new InfiToolMallet(PHInfiHybrids.boneMalletID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneMallet");
             
             MinecraftForge.setToolClass(woodBoneMallet, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
@@ -388,17 +388,17 @@ public class Mallets
             MinecraftForge.setToolClass(flintBoneMallet, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enablePaperTools)
+        if(PHInfiHybrids.enablePaperTools)
         {
-        	woodPaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+0, 
+        	woodPaperMallet = new InfiToolMallet(PHInfiHybrids.paperMalletID+0, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Wood, "woodPaperMallet");
-        	bonePaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+1, 
+        	bonePaperMallet = new InfiToolMallet(PHInfiHybrids.paperMalletID+1, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Bone, "bonePaperMallet");
-        	paperPaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+2, 
+        	paperPaperMallet = new InfiToolMallet(PHInfiHybrids.paperMalletID+2, 
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Paper, "paperPaperMallet");
-        	slimePaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+3,
+        	slimePaperMallet = new InfiToolMallet(PHInfiHybrids.paperMalletID+3,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Slime, "slimePaperMallet");
-        	cactusPaperMallet = new InfiToolMallet(PropsHelperInfiHybrids.paperMalletID+4,
+        	cactusPaperMallet = new InfiToolMallet(PHInfiHybrids.paperMalletID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperMallet");
             
             MinecraftForge.setToolClass(woodPaperMallet, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
@@ -408,31 +408,31 @@ public class Mallets
             MinecraftForge.setToolClass(cactusPaperMallet, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableMossyTools)
+        if(PHInfiHybrids.enableMossyTools)
         {
-        	woodMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+0, 
+        	woodMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+0, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Wood, "woodMossyMallet");
-        	stoneMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+1, 
+        	stoneMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+1, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Stone, "stoneMossyMallet");
-        	diamondMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+2, 
+        	diamondMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+2, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Diamond, "diamondMossyMallet");
-        	redstoneMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+3, 
+        	redstoneMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+3, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Redstone, "redstoneMossyMallet");
-        	boneMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+4, 
+        	boneMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+4, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Bone, "boneMossyMallet");
-        	mossyMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+5, 
+        	mossyMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+5, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Mossy, "mossyMossyMallet");
-        	netherrackMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+6, 
+        	netherrackMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+6, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Netherrack, "netherrackMossyMallet");
-        	glowstoneMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+7, 
+        	glowstoneMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+7, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Glowstone, "glowstoneMossyMallet");
-        	cactusMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+8, 
+        	cactusMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+8, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Cactus, "cactusMossyMallet");
-        	blazeMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+9, 
+        	blazeMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+9, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Blaze, "blazeMossyMallet");
-        	manyullynMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+10, 
+        	manyullynMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+10, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Manyullyn, "manyullynMossyMallet");
-        	uraniumMossyMallet = new InfiToolMallet(PropsHelperInfiHybrids.mossyMalletID+11, 
+        	uraniumMossyMallet = new InfiToolMallet(PHInfiHybrids.mossyMalletID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyMallet");
             
             MinecraftForge.setToolClass(woodMossyMallet, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
@@ -449,33 +449,33 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumMossyMallet, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
         {
-        	woodNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+0, 
+        	woodNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+0, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Wood, "woodNetherrackMallet");
-        	stoneNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+1, 
+        	stoneNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+1, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Stone, "stoneNetherrackMallet");
-        	sandstoneNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+2, 
+        	sandstoneNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+2, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Sandstone, "sandstoneNetherrackMallet");
-        	boneNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+3, 
+        	boneNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+3, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bone, "boneNetherrackMallet");
-        	paperNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+4, 
+        	paperNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+4, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Paper, "paperNetherrackMallet");
-        	mossyNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+5, 
+        	mossyNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+5, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Mossy, "mossyNetherrackMallet");
-        	netherrackNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+6, 
+        	netherrackNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+6, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Netherrack, "netherrackNetherrackMallet");
-        	iceNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+7, 
+        	iceNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+7, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Ice, "iceNetherrackMallet");
-        	slimeNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+8, 
+        	slimeNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+8, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Slime, "slimeNetherrackMallet");
-        	cactusNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+9, 
+        	cactusNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+9, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Cactus, "cactusNetherrackMallet");
-        	flintNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+10, 
+        	flintNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+10, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Flint, "flintNetherrackMallet");
-        	copperNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+11, 
+        	copperNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+11, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Copper, "copperNetherrackMallet");
-        	bronzeNetherrackMallet = new InfiToolMallet(PropsHelperInfiHybrids.netherrackMalletID+12, 
+        	bronzeNetherrackMallet = new InfiToolMallet(PHInfiHybrids.netherrackMalletID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackMallet");
             
             MinecraftForge.setToolClass(woodNetherrackMallet, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
@@ -493,25 +493,25 @@ public class Mallets
             MinecraftForge.setToolClass(bronzeNetherrackMallet, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+        if(PHInfiHybrids.enableGlowstoneTools)
         {
-        	woodGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+0, 
+        	woodGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+0, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Wood, "woodGlowstoneMallet");
-        	redstoneGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+1, 
+        	redstoneGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+1, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Redstone, "redstoneGlowstoneMallet");
-        	obsidianGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+2, 
+        	obsidianGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+2, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Obsidian, "obsidianGlowstoneMallet");
-        	boneGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+3, 
+        	boneGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+3, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Bone, "boneGlowstoneMallet");
-        	netherrackGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+4, 
+        	netherrackGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+4, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Netherrack, "netherrackGlowstoneMallet");
-        	glowstoneGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+5, 
+        	glowstoneGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+5, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Glowstone, "glowstoneGlowstoneMallet");
-        	iceGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+6, 
+        	iceGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+6, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Ice, "iceGlowstoneMallet");
-        	slimeGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+7, 
+        	slimeGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+7, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Slime, "slimeGlowstoneMallet");
-        	cactusGlowstoneMallet = new InfiToolMallet(PropsHelperInfiHybrids.glowstoneMalletID+8, 
+        	cactusGlowstoneMallet = new InfiToolMallet(PHInfiHybrids.glowstoneMalletID+8, 
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneMallet");
             
             
@@ -526,19 +526,19 @@ public class Mallets
             MinecraftForge.setToolClass(cactusGlowstoneMallet, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableIceTools)
+        if(PHInfiHybrids.enableIceTools)
         {
-        	woodIceMallet = new InfiToolMallet(PropsHelperInfiHybrids.iceMalletID+0, 
+        	woodIceMallet = new InfiToolMallet(PHInfiHybrids.iceMalletID+0, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Wood, "woodIceMallet");
-        	boneIceMallet = new InfiToolMallet(PropsHelperInfiHybrids.iceMalletID+1, 
+        	boneIceMallet = new InfiToolMallet(PHInfiHybrids.iceMalletID+1, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Bone, "boneIceMallet");
-        	paperIceMallet = new InfiToolMallet(PropsHelperInfiHybrids.iceMalletID+2, 
+        	paperIceMallet = new InfiToolMallet(PHInfiHybrids.iceMalletID+2, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Paper, "paperIceMallet");
-        	iceIceMallet = new InfiToolMallet(PropsHelperInfiHybrids.iceMalletID+3, 
+        	iceIceMallet = new InfiToolMallet(PHInfiHybrids.iceMalletID+3, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Ice, "iceIceMallet");
-        	slimeIceMallet = new InfiToolMallet(PropsHelperInfiHybrids.iceMalletID+4, 
+        	slimeIceMallet = new InfiToolMallet(PHInfiHybrids.iceMalletID+4, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Slime, "slimeIceMallet");
-        	cactusIceMallet = new InfiToolMallet(PropsHelperInfiHybrids.iceMalletID+5, 
+        	cactusIceMallet = new InfiToolMallet(PHInfiHybrids.iceMalletID+5, 
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceMallet");
             
             
@@ -550,23 +550,23 @@ public class Mallets
             MinecraftForge.setToolClass(cactusIceMallet, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableLavaTools)
+        if(PHInfiHybrids.enableLavaTools)
         {
-        	diamondLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+0, 
+        	diamondLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+0, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Diamond, "diamondLavaMallet");
-        	obsidianLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+1, 
+        	obsidianLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+1, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Obsidian, "obsidianLavaMallet");
-        	netherrackLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+2, 
+        	netherrackLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+2, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Netherrack, "netherrackLavaMallet");
-        	lavaLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+3, 
+        	lavaLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+3, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Lava, "lavaLavaMallet");
-        	flintLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+4, 
+        	flintLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+4, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Flint, "flintLavaMallet");
-        	blazeLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+5, 
+        	blazeLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+5, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Blaze, "blazeLavaMallet");
-        	manyullynLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+6, 
+        	manyullynLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+6, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Manyullyn, "manyullynLavaMallet");
-            uraniumLavaMallet = new InfiToolMallet(PropsHelperInfiHybrids.lavaMalletID+7, 
+            uraniumLavaMallet = new InfiToolMallet(PHInfiHybrids.lavaMalletID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaMallet");
             
             MinecraftForge.setToolClass(diamondLavaMallet, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
@@ -579,19 +579,19 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumLavaMallet, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableSlimeTools)
+        if(PHInfiHybrids.enableSlimeTools)
         {
-        	woodSlimeMallet = new InfiToolMallet(PropsHelperInfiHybrids.slimeMalletID+0, 
+        	woodSlimeMallet = new InfiToolMallet(PHInfiHybrids.slimeMalletID+0, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Wood, "woodSlimeMallet");
-        	sandstoneSlimeMallet = new InfiToolMallet(PropsHelperInfiHybrids.slimeMalletID+1, 
+        	sandstoneSlimeMallet = new InfiToolMallet(PHInfiHybrids.slimeMalletID+1, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Sandstone, "sandstoneSlimeMallet");
-        	boneSlimeMallet = new InfiToolMallet(PropsHelperInfiHybrids.slimeMalletID+2, 
+        	boneSlimeMallet = new InfiToolMallet(PHInfiHybrids.slimeMalletID+2, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Bone, "boneSlimeMallet");
-        	paperSlimeMallet = new InfiToolMallet(PropsHelperInfiHybrids.slimeMalletID+3, 
+        	paperSlimeMallet = new InfiToolMallet(PHInfiHybrids.slimeMalletID+3, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Paper, "paperSlimeMallet");
-        	slimeSlimeMallet = new InfiToolMallet(PropsHelperInfiHybrids.slimeMalletID+4, 
+        	slimeSlimeMallet = new InfiToolMallet(PHInfiHybrids.slimeMalletID+4, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Slime, "slimeSlimeMallet");
-        	cactusSlimeMallet = new InfiToolMallet(PropsHelperInfiHybrids.slimeMalletID+5, 
+        	cactusSlimeMallet = new InfiToolMallet(PHInfiHybrids.slimeMalletID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeMallet");
             
             MinecraftForge.setToolClass(woodSlimeMallet, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
@@ -602,21 +602,21 @@ public class Mallets
             MinecraftForge.setToolClass(cactusSlimeMallet, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableCactusTools)
+        if(PHInfiHybrids.enableCactusTools)
         {
-        	woodCactusMallet = new InfiToolMallet(PropsHelperInfiHybrids.cactusMalletID+0, 
+        	woodCactusMallet = new InfiToolMallet(PHInfiHybrids.cactusMalletID+0, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Wood, "woodCactusMallet");
-        	sandstoneCactusMallet = new InfiToolMallet(PropsHelperInfiHybrids.cactusMalletID+1, 
+        	sandstoneCactusMallet = new InfiToolMallet(PHInfiHybrids.cactusMalletID+1, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Sandstone, "sandstoneCactusMallet");
-        	boneCactusMallet = new InfiToolMallet(PropsHelperInfiHybrids.cactusMalletID+2, 
+        	boneCactusMallet = new InfiToolMallet(PHInfiHybrids.cactusMalletID+2, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Bone, "boneCactusMallet");
-        	netherrackCactusMallet = new InfiToolMallet(PropsHelperInfiHybrids.cactusMalletID+3, 
+        	netherrackCactusMallet = new InfiToolMallet(PHInfiHybrids.cactusMalletID+3, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Netherrack, "netherrackCactusMallet");
-        	iceCactusMallet = new InfiToolMallet(PropsHelperInfiHybrids.cactusMalletID+4, 
+        	iceCactusMallet = new InfiToolMallet(PHInfiHybrids.cactusMalletID+4, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Ice, "iceCactusMallet");
-        	slimeCactusMallet = new InfiToolMallet(PropsHelperInfiHybrids.cactusMalletID+5, 
+        	slimeCactusMallet = new InfiToolMallet(PHInfiHybrids.cactusMalletID+5, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Slime, "slimeCactusMallet");
-        	cactusCactusMallet = new InfiToolMallet(PropsHelperInfiHybrids.cactusMalletID+6, 
+        	cactusCactusMallet = new InfiToolMallet(PHInfiHybrids.cactusMalletID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusMallet");
             
             MinecraftForge.setToolClass(woodCactusMallet, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
@@ -628,27 +628,27 @@ public class Mallets
             MinecraftForge.setToolClass(cactusCactusMallet, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableFlintTools)
+        if(PHInfiHybrids.enableFlintTools)
         {
-        	woodFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+0, 
+        	woodFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+0, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Wood, "woodFlintMallet");
-        	stoneFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+1, 
+        	stoneFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+1, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Stone, "stoneFlintMallet");
-        	sandstoneFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+2, 
+        	sandstoneFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+2, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Sandstone, "sandstoneFlintMallet");
-        	boneFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+3, 
+        	boneFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+3, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bone, "boneFlintMallet");
-        	netherrackFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+4, 
+        	netherrackFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+4, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Netherrack, "netherrackFlintMallet");
-        	slimeFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+5, 
+        	slimeFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+5, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Slime, "slimeFlintMallet");
-        	cactusFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+6, 
+        	cactusFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+6, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Cactus, "cactusFlintMallet");
-        	flintFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+7, 
+        	flintFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+7, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Flint, "flintFlintMallet");
-        	copperFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+8, 
+        	copperFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+8, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintMallet");
-        	bronzeFlintMallet = new InfiToolMallet(PropsHelperInfiHybrids.flintMalletID+9, 
+        	bronzeFlintMallet = new InfiToolMallet(PHInfiHybrids.flintMalletID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintMallet");
             
             MinecraftForge.setToolClass(woodFlintMallet, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
@@ -663,23 +663,23 @@ public class Mallets
             MinecraftForge.setToolClass(bronzeFlintMallet, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableBlazeTools)
+        if(PHInfiHybrids.enableBlazeTools)
         {
-        	diamondBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+0, 
+        	diamondBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+0, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Diamond, "diamondBlazeMallet");
-        	obsidianBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+1, 
+        	obsidianBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+1, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Obsidian, "obsidianBlazeMallet");
-        	netherrackBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+2, 
+        	netherrackBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+2, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Netherrack, "netherrackBlazeMallet");
-        	lavaBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+3, 
+        	lavaBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+3, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Lava, "lavaBlazeMallet");
-        	flintBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+4, 
+        	flintBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+4, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Flint, "flintBlazeMallet");
-        	blazeBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+5, 
+        	blazeBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+5, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Blaze, "blazeBlazeMallet");
-        	manyullynBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+6, 
+        	manyullynBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+6, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeMallet");
-            uraniumBlazeMallet = new InfiToolMallet(PropsHelperInfiHybrids.blazeMalletID+7, 
+            uraniumBlazeMallet = new InfiToolMallet(PHInfiHybrids.blazeMalletID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeMallet");
             
             MinecraftForge.setToolClass(diamondBlazeMallet, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
@@ -692,23 +692,23 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumBlazeMallet, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
-        if(PropsHelperInfiHybrids.enableCopperTools)
+        if(PHInfiHybrids.enableCopperTools)
         {
-        	woodCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+0, 
+        	woodCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+0, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Wood, "woodCopperMallet");
-            stoneCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+1, 
+            stoneCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+1, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Stone, "stoneCopperMallet");
-            boneCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+2, 
+            boneCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+2, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Bone, "boneCopperMallet");
-            netherrackCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+3, 
+            netherrackCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+3, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Netherrack, "netherrackCopperMallet");
-            slimeCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+4, 
+            slimeCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+4, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Slime, "slimeCopperMallet");
-            cactusCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+5, 
+            cactusCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+5, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Cactus, "cactusCopperMallet");
-            flintCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+6, 
+            flintCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+6, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperMallet");
-            copperCopperMallet = new InfiToolMallet(PropsHelperInfiHybrids.copperMalletID+7, 
+            copperCopperMallet = new InfiToolMallet(PHInfiHybrids.copperMalletID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperMallet");
             
             MinecraftForge.setToolClass(woodCopperMallet, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
@@ -721,25 +721,25 @@ public class Mallets
             MinecraftForge.setToolClass(copperCopperMallet, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableBronzeTools)
+        if(PHInfiHybrids.enableBronzeTools)
         {
-        	woodBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+0, 
+        	woodBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+0, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Wood, "woodBronzeMallet");
-            stoneBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+1, 
+            stoneBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+1, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Stone, "stoneBronzeMallet");
-            boneBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+2, 
+            boneBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+2, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bone, "boneBronzeMallet");
-            netherrackBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+3, 
+            netherrackBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+3, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Netherrack, "netherrackBronzeMallet");
-            slimeBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+4, 
+            slimeBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+4, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Slime, "slimeBronzeMallet");
-            cactusBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+5, 
+            cactusBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+5, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Cactus, "cactusBronzeMallet");
-            flintBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+6, 
+            flintBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+6, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Flint, "flintBronzeMallet");
-            copperBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+7, 
+            copperBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+7, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeMallet");
-            bronzeBronzeMallet = new InfiToolMallet(PropsHelperInfiHybrids.bronzeMalletID+8, 
+            bronzeBronzeMallet = new InfiToolMallet(PHInfiHybrids.bronzeMalletID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeMallet");
             
             MinecraftForge.setToolClass(woodBronzeMallet, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
@@ -753,43 +753,43 @@ public class Mallets
             MinecraftForge.setToolClass(bronzeBronzeMallet, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableWorkedIronTools)
+        if(PHInfiHybrids.enableWorkedIronTools)
         {
-        	woodWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+0, 
+        	woodWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+0, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Wood, "woodWorkedIronMallet");
-            stoneWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+1, 
+            stoneWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+1, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Stone, "stoneWorkedIronMallet");
-            ironWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+2,
+            ironWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+2,
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Iron, "ironWorkedIronMallet");
-            diamondWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+3, 
+            diamondWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+3, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Diamond, "diamondWorkedIronMallet");
-            redstoneWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+4, 
+            redstoneWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+4, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Redstone, "redstoneWorkedIronMallet");
-            obsidianWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+5, 
+            obsidianWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+5, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Obsidian, "obsidianWorkedIronMallet");
-            boneWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+6, 
+            boneWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+6, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bone, "boneWorkedIronMallet");
-            netherrackWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+7, 
+            netherrackWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+7, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Netherrack, "netherrackWorkedIronMallet");
-            glowstoneWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+8, 
+            glowstoneWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+8, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Glowstone, "glowstoneWorkedIronMallet");
-            iceWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+9, 
+            iceWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+9, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Ice, "iceWorkedIronMallet");
-            slimeWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+10, 
+            slimeWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+10, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Slime, "slimeWorkedIronMallet");
-            cactusWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+11, 
+            cactusWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+11, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Cactus, "cactusWorkedIronMallet");
-            blazeWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+12, 
+            blazeWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+12, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Blaze, "blazeWorkedIronMallet");
-            copperWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+13, 
+            copperWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+13, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Copper, "copperWorkedIronMallet");
-            bronzeWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+14, 
+            bronzeWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+14, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Bronze, "bronzeWorkedIronMallet");
-            workedWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+15, 
+            workedWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+15, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.WorkedIron, "workedWorkedIronMallet");
-            steelWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+16, 
+            steelWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+16, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronMallet");
-            uraniumWorkedIronMallet = new InfiToolMallet(PropsHelperInfiHybrids.workedIronMalletID+17, 
+            uraniumWorkedIronMallet = new InfiToolMallet(PHInfiHybrids.workedIronMalletID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronMallet");
             
             MinecraftForge.setToolClass(woodWorkedIronMallet, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
@@ -812,47 +812,47 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumWorkedIronMallet, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableSteelTools)
+        if(PHInfiHybrids.enableSteelTools)
         {
-        	woodSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+0, 
+        	woodSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+0, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Wood, "woodSteelMallet");
-            stoneSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+1, 
+            stoneSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+1, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Stone, "stoneSteelMallet");
-            ironSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+2, 
+            ironSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+2, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Iron, "ironSteelMallet");
-            diamondSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+3, 
+            diamondSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+3, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Diamond, "diamondSteelMallet");
-            redstoneSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+4, 
+            redstoneSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+4, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Redstone, "redstoneSteelMallet");
-            obsidianSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+5, 
+            obsidianSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+5, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Obsidian, "obsidianSteelMallet");
-            boneSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+6, 
+            boneSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+6, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bone, "boneSteelMallet");
-            netherrackSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+7, 
+            netherrackSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+7, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Netherrack, "netherrackSteelMallet");
-            glowstoneSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+8, 
+            glowstoneSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+8, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Glowstone, "glowstoneSteelMallet");
-            iceSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+9, 
+            iceSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+9, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ice, "iceSteelMallet");
-            slimeSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+10, 
+            slimeSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+10, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Slime, "slimeSteelMallet");
-            cactusSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+11, 
+            cactusSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+11, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cactus, "cactusSteelMallet");
-            blazeSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+12, 
+            blazeSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+12, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Blaze, "blazeSteelMallet");
-            copperSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+13, 
+            copperSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+13, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Copper, "copperSteelMallet");
-            bronzeSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+14, 
+            bronzeSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+14, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Bronze, "bronzeSteelMallet");
-            workedSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+15, 
+            workedSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+15, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.WorkedIron, "workedSteelMallet");
-            steelSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+16, 
+            steelSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+16, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Steel, "steelSteelMallet");
-            cobaltSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+17, 
+            cobaltSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+17, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Cobalt, "cobaltSteelMallet");
-            arditeSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+18, 
+            arditeSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+18, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelMallet");
-            uraniumSteelMallet = new InfiToolMallet(PropsHelperInfiHybrids.steelMalletID+19, 
+            uraniumSteelMallet = new InfiToolMallet(PHInfiHybrids.steelMalletID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelMallet");
 
             MinecraftForge.setToolClass(woodSteelMallet, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
@@ -877,43 +877,43 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumSteelMallet, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableCobaltTools)
+        if(PHInfiHybrids.enableCobaltTools)
         {
-        	woodCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+0, 
+        	woodCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+0, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Wood, "woodCobaltMallet");
-            stoneCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+1, 
+            stoneCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+1, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Stone, "stoneCobaltMallet");
-            ironCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+2, 
+            ironCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+2, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Iron, "ironCobaltMallet");
-            diamondCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+3,
+            diamondCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+3,
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Diamond, "diamondCobaltMallet");
-            redstoneCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+4, 
+            redstoneCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+4, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Redstone, "redstoneCobaltMallet");
-            obsidianCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+5, 
+            obsidianCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+5, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Obsidian, "obsidianCobaltMallet");
-            boneCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+6, 
+            boneCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+6, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bone, "boneCobaltMallet");
-            slimeCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+7, 
+            slimeCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+7, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Slime, "slimeCobaltMallet");
-            cactusCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+8, 
+            cactusCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+8, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cactus, "cactusCobaltMallet");
-            blazeCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+9, 
+            blazeCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+9, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Blaze, "blazeCobaltMallet");
-            copperCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+10, 
+            copperCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+10, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Copper, "copperCobaltMallet");
-            bronzeCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+11, 
+            bronzeCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+11, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Bronze, "bronzeCobaltMallet");
-            workedCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+12, 
+            workedCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+12, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.WorkedIron, "workedCobaltMallet");
-            steelCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+13, 
+            steelCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+13, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Steel, "steelCobaltMallet");
-            cobaltCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+14, 
+            cobaltCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+14, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cobalt, "cobaltCobaltMallet");
-            arditeCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+15, 
+            arditeCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltMallet");
-            manyullynCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+16, 
+            manyullynCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltMallet");
-            uraniumCobaltMallet = new InfiToolMallet(PropsHelperInfiHybrids.cobaltMalletID+17, 
+            uraniumCobaltMallet = new InfiToolMallet(PHInfiHybrids.cobaltMalletID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltMallet");
             
             MinecraftForge.setToolClass(woodCobaltMallet, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
@@ -936,43 +936,43 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumCobaltMallet, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableArditeTools)
+        if(PHInfiHybrids.enableArditeTools)
         {
-        	woodArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+0, 
+        	woodArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+0, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Wood, "woodArditeMallet");
-            stoneArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+1, 
+            stoneArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+1, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Stone, "stoneArditeMallet");
-            ironArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+2, 
+            ironArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+2, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Iron, "ironArditeMallet");
-            diamondArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+3,
+            diamondArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+3,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Diamond, "diamondArditeMallet");
-            redstoneArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+4, 
+            redstoneArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+4, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Redstone, "redstoneArditeMallet");
-            obsidianArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+5, 
+            obsidianArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+5, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Obsidian, "obsidianArditeMallet");
-            boneArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+6,
+            boneArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+6,
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bone, "boneArditeMallet");
-            slimeArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+7, 
+            slimeArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+7, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Slime, "slimeArditeMallet");
-            cactusArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+8, 
+            cactusArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+8, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cactus, "cactusArditeMallet");
-            blazeArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+9, 
+            blazeArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+9, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Blaze, "blazeArditeMallet");
-            copperArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+10, 
+            copperArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+10, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Copper, "copperArditeMallet");
-            bronzeArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+11, 
+            bronzeArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+11, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Bronze, "bronzeArditeMallet");
-            workedArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+12, 
+            workedArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+12, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.WorkedIron, "workedArditeMallet");
-            steelArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+13, 
+            steelArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+13, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Steel, "steelArditeMallet");
-            cobaltArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+14, 
+            cobaltArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+14, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Cobalt, "cobaltArditeMallet");
-            arditeArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+15, 
+            arditeArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+15, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Ardite, "arditeArditeMallet");
-            manyullynArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+16, 
+            manyullynArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+16, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeMallet");
-            uraniumArditeMallet = new InfiToolMallet(PropsHelperInfiHybrids.arditeMalletID+17, 
+            uraniumArditeMallet = new InfiToolMallet(PHInfiHybrids.arditeMalletID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeMallet");
             
             MinecraftForge.setToolClass(woodArditeMallet, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
@@ -995,43 +995,43 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumArditeMallet, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableManyullynTools)
+        if(PHInfiHybrids.enableManyullynTools)
         {
-        	woodManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+0, 
+        	woodManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+0, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Wood, "woodManyullynMallet");
-            stoneManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+1, 
+            stoneManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+1, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Stone, "stoneManyullynMallet");
-            ironManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+2, 
+            ironManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+2, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Iron, "ironManyullynMallet");
-            diamondManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+3,
+            diamondManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+3,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Diamond, "diamondManyullynMallet");
-            redstoneManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+4, 
+            redstoneManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+4, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Redstone, "redstoneManyullynMallet");
-            obsidianManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+5, 
+            obsidianManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+5, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Obsidian, "obsidianManyullynMallet");
-            boneManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+6, 
+            boneManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+6, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bone, "boneManyullynMallet");
-            slimeManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+7, 
+            slimeManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+7, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Slime, "slimeManyullynMallet");
-            cactusManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+8, 
+            cactusManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+8, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cactus, "cactusManyullynMallet");
-            blazeManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+9, 
+            blazeManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+9, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Blaze, "blazeManyullynMallet");
-            copperManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+10, 
+            copperManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+10, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Copper, "copperManyullynMallet");
-            bronzeManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+11, 
+            bronzeManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+11, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Bronze, "bronzeManyullynMallet");
-            workedManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+12, 
+            workedManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+12, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.WorkedIron, "workedManyullynMallet");
-            steelManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+13, 
+            steelManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+13, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Steel, "steelManyullynMallet");
-            cobaltManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+14, 
+            cobaltManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+14, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Cobalt, "cobaltManyullynMallet");
-            arditeManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+15, 
+            arditeManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+15, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Ardite, "arditeManyullynMallet");
-            manyullynManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+16, 
+            manyullynManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+16, 
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynMallet");
-            uraniumManyullynMallet = new InfiToolMallet(PropsHelperInfiHybrids.manyullynMalletID+17,
+            uraniumManyullynMallet = new InfiToolMallet(PHInfiHybrids.manyullynMalletID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynMallet");
             
             MinecraftForge.setToolClass(woodManyullynMallet, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
@@ -1054,27 +1054,27 @@ public class Mallets
             MinecraftForge.setToolClass(uraniumManyullynMallet, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
-        if(PropsHelperInfiHybrids.enableUraniumTools)
+        if(PHInfiHybrids.enableUraniumTools)
         {
-            diamondUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+0, 
+            diamondUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+0, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Diamond, "diamondUraniumMallet");
-            redstoneUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+1, 
+            redstoneUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+1, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Redstone, "redstoneUraniumMallet");
-            boneUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+2, 
+            boneUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+2, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Bone, "boneUraniumMallet");
-            netherrackUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+3, 
+            netherrackUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+3, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Netherrack, "netherrackUraniumMallet");
-            glowstoneUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+4, 
+            glowstoneUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+4, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Glowstone, "glowstoneUraniumMallet");
-            lavaUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+5, 
+            lavaUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+5, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Lava, "lavaUraniumMallet");
-            blazeUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+6, 
+            blazeUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+6, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Blaze, "blazeUraniumMallet");
-            cobaltUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+7, 
+            cobaltUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+7, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Cobalt, "cobaltUraniumMallet");
-            arditeUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+8, 
+            arditeUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+8, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumMallet");
-            uraniumUraniumMallet = new InfiToolMallet(PropsHelperInfiHybrids.uraniumMalletID+9, 
+            uraniumUraniumMallet = new InfiToolMallet(PHInfiHybrids.uraniumMalletID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumMallet");
             
             MinecraftForge.setToolClass(diamondUraniumMallet, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
@@ -1092,541 +1092,541 @@ public class Mallets
     
     private static void addNames()
     {
-    	if(PropsHelperInfiHybrids.enableWoodTools)
+    	if(PHInfiHybrids.enableWoodTools)
             ModLoader.addName(woodWoodMallet, "Wooden Mallet");
-        if(PropsHelperInfiHybrids.enableStoneTools)
+        if(PHInfiHybrids.enableStoneTools)
             ModLoader.addName(stoneStoneMallet, "Heavy Mallet");
-        if(PropsHelperInfiHybrids.enableIronTools)
+        if(PHInfiHybrids.enableIronTools)
             ModLoader.addName(ironIronMallet, "Ironic Mallet");
-        if(PropsHelperInfiHybrids.enableDiamondTools)
+        if(PHInfiHybrids.enableDiamondTools)
             ModLoader.addName(diamondDiamondMallet, "Diamondium Mallet");
-        if(PropsHelperInfiHybrids.enableRedstoneTools)
+        if(PHInfiHybrids.enableRedstoneTools)
             ModLoader.addName(redstoneRedstoneMallet, "Redredred Mallet");
-        if(PropsHelperInfiHybrids.enableObsidianTools)
+        if(PHInfiHybrids.enableObsidianTools)
             ModLoader.addName(obsidianObsidianMallet, "Ebony Mallet");
-        if(PropsHelperInfiHybrids.enableSandstoneTools)
+        if(PHInfiHybrids.enableSandstoneTools)
             ModLoader.addName(sandstoneSandstoneMallet, "Fragile Mallet");
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
             ModLoader.addName(boneBoneMallet, "Necrotic Mallet");
-        if(PropsHelperInfiHybrids.enablePaperTools)
+        if(PHInfiHybrids.enablePaperTools)
             ModLoader.addName(paperPaperMallet, "Soft Mallet");
-        if(PropsHelperInfiHybrids.enableMossyTools)
+        if(PHInfiHybrids.enableMossyTools)
             ModLoader.addName(mossyMossyMallet, "Living Mallet");
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
             ModLoader.addName(netherrackNetherrackMallet, "Bloodsoaked Mallet");
-        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+        if(PHInfiHybrids.enableGlowstoneTools)
             ModLoader.addName(glowstoneGlowstoneMallet, "Bright Mallet");
-        if(PropsHelperInfiHybrids.enableIceTools)
+        if(PHInfiHybrids.enableIceTools)
             ModLoader.addName(iceIceMallet, "Freezing Mallet");
-        if(PropsHelperInfiHybrids.enableLavaTools)
+        if(PHInfiHybrids.enableLavaTools)
             ModLoader.addName(lavaLavaMallet, "Burning Mallet");
-        if(PropsHelperInfiHybrids.enableSlimeTools)
+        if(PHInfiHybrids.enableSlimeTools)
             ModLoader.addName(slimeSlimeMallet, "Toy Mallet");
-        if(PropsHelperInfiHybrids.enableCactusTools)
+        if(PHInfiHybrids.enableCactusTools)
             ModLoader.addName(cactusCactusMallet, "Thorned Mallet");
-        if(PropsHelperInfiHybrids.enableFlintTools)
+        if(PHInfiHybrids.enableFlintTools)
             ModLoader.addName(flintFlintMallet, "Rough-hewn Mallet");
-        if(PropsHelperInfiHybrids.enableBlazeTools)
+        if(PHInfiHybrids.enableBlazeTools)
             ModLoader.addName(blazeBlazeMallet, "Netherite Mallet");
-        if(PropsHelperInfiHybrids.enableCopperTools)
+        if(PHInfiHybrids.enableCopperTools)
             ModLoader.addName(copperCopperMallet, "Orange-Tang Mallet");
-        if(PropsHelperInfiHybrids.enableBronzeTools)
+        if(PHInfiHybrids.enableBronzeTools)
             ModLoader.addName(bronzeBronzeMallet, "Polished Mallet");
-        if(PropsHelperInfiHybrids.enableWorkedIronTools)
+        if(PHInfiHybrids.enableWorkedIronTools)
             ModLoader.addName(workedWorkedIronMallet, "Reworked Iron Mallet");
-        if(PropsHelperInfiHybrids.enableSteelTools)
+        if(PHInfiHybrids.enableSteelTools)
             ModLoader.addName(steelSteelMallet, "Forge-Wrought Mallet");
-        if(PropsHelperInfiHybrids.enableCobaltTools)
+        if(PHInfiHybrids.enableCobaltTools)
             ModLoader.addName(cobaltCobaltMallet, "Beautiful Mallet");
-        if(PropsHelperInfiHybrids.enableArditeTools)
+        if(PHInfiHybrids.enableArditeTools)
             ModLoader.addName(arditeArditeMallet, "Rustic Mallet");
-        if(PropsHelperInfiHybrids.enableManyullynTools)
+        if(PHInfiHybrids.enableManyullynTools)
             ModLoader.addName(manyullynManyullynMallet, "False-Prophetic Mallet");
-        if(PropsHelperInfiHybrids.enableUraniumTools)
+        if(PHInfiHybrids.enableUraniumTools)
             ModLoader.addName(uraniumUraniumMallet, "Cancerous Mallet");
     }
     
     public static void registerInfiToolsRecipes()
     {
-    	if(PropsHelperInfiHybrids.enableWoodTools)
+    	if(PHInfiHybrids.enableWoodTools)
         {
             ModLoader.addRecipe(new ItemStack(woodWoodMallet), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneWoodMallet), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodMallet), new Object[] 
                     { recipe, '#', Block.planks, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneWoodMallet), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperWoodMallet), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceWoodMallet), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeWoodMallet), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusWoodMallet), new Object[] 
-                    { recipe, '#', Block.planks, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.planks, '|', InfiLibrary.cactusRod });
         }
     	
-        if(PropsHelperInfiHybrids.enableStoneTools)
+        if(PHInfiHybrids.enableStoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodStoneMallet), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStoneMallet), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStoneMallet), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
             ModLoader.addRecipe(new ItemStack(woodStoneMallet), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneStoneMallet), new Object[] 
                     { recipe, '#', Block.stone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintStoneMallet), new Object[] 
-                    { recipe, '#', Block.stone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.stone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiHybrids.enableIronTools)
+        if(PHInfiHybrids.enableIronTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodIronMallet), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(boneIronMallet), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(copperIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeIronMallet), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.ingotIron, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiHybrids.enableDiamondTools)
+        if(PHInfiHybrids.enableDiamondTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodDiamondMallet), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(diamondDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneDiamondMallet), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(lavaDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeDiamondMallet), new Object[] 
                     { recipe, '#', Item.diamond, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(copperDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(steelDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.steelRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.steelRod });
             ModLoader.addRecipe(new ItemStack(cobaltDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.cobaltRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.cobaltRod });
             ModLoader.addRecipe(new ItemStack(arditeDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.arditeRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.arditeRod });
             ModLoader.addRecipe(new ItemStack(manyullynDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumDiamondMallet), new Object[] 
-                    { recipe, '#', Item.diamond, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', Item.diamond, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiHybrids.enableRedstoneTools)
+        if(PHInfiHybrids.enableRedstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.ironRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.ironRod });
             ModLoader.addRecipe(new ItemStack(redstoneRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(sandstoneRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(slimeRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.bronzeRod });
             ModLoader.addRecipe(new ItemStack(workedRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.workedIronRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.workedIronRod });
             ModLoader.addRecipe(new ItemStack(uraniumRedstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.redstoneCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.redstoneCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiHybrids.enableObsidianTools)
+        if(PHInfiHybrids.enableObsidianTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodObsidianMallet), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(redstoneObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(obsidianObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneObsidianMallet), new Object[] 
                     { recipe, '#', Block.obsidian, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(lavaObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(cactusObsidianMallet), new Object[] 
-                    { recipe, '#', Block.obsidian, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.obsidian, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiHybrids.enableSandstoneTools)
+        if(PHInfiHybrids.enableSandstoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSandstoneMallet), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSandstoneMallet), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSandstoneMallet), new Object[] 
                     { recipe, '#', Block.sandStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSandstoneMallet), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.boneRod });      
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.boneRod });      
             ModLoader.addRecipe(new ItemStack(netherrackSandstoneMallet), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceSandstoneMallet), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeSandstoneMallet), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSandstoneMallet), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintSandstoneMallet), new Object[] 
-                    { recipe, '#', Block.sandStone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.sandStone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiHybrids.enableBoneTools)
+        if(PHInfiHybrids.enableBoneTools)
         {
             ModLoader.addRecipe(new ItemStack(woodBoneMallet), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(stoneBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneBoneMallet), new Object[] 
                     { recipe, '#', Item.bone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(netherrackBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(cactusBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintBoneMallet), new Object[] 
-                    { recipe, '#', Item.bone, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.bone, '|', InfiLibrary.flintRod });
         }
         
-        if(PropsHelperInfiHybrids.enablePaperTools)
+        if(PHInfiHybrids.enablePaperTools)
         {
             ModLoader.addRecipe(new ItemStack(woodPaperMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(bonePaperMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.paperStack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(bonePaperMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperPaperMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimePaperMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusPaperMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.paperStack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.paperStack, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiHybrids.enableMossyTools)
+        if(PHInfiHybrids.enableMossyTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(diamondMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(redstoneMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.redstoneRod });
             ModLoader.addRecipe(new ItemStack(boneMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(mossyMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(cactusMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(blazeMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumMossyMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.mossyStone, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.mossyStone, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiHybrids.enableNetherrackTools)
+        if(PHInfiHybrids.enableNetherrackTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodNetherrackMallet), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneNetherrackMallet), new Object[] 
                     { recipe, '#', Block.netherrack, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(mossyNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.mossyRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.mossyRod });
             ModLoader.addRecipe(new ItemStack(netherrackNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeNetherrackMallet), new Object[] 
-                    { recipe, '#', Block.netherrack, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Block.netherrack, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiHybrids.enableGlowstoneTools)
+        if(PHInfiHybrids.enableGlowstoneTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.redstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.redstoneRod });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(glowstoneGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.glowstoneRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.glowstoneRod });
             ModLoader.addRecipe(new ItemStack(iceGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusGlowstoneMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.glowstoneCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiHybrids.enableIceTools)
+        if(PHInfiHybrids.enableIceTools)
         {
             ModLoader.addRecipe(new ItemStack(woodIceMallet), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(boneIceMallet), new Object[] 
                     { recipe, '#', Block.ice, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneIceMallet), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperIceMallet), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(iceIceMallet), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeIceMallet), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusIceMallet), new Object[] 
-                    { recipe, '#', Block.ice, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.ice, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiHybrids.enableLavaTools)
+        if(PHInfiHybrids.enableLavaTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumLavaMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.lavaCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.lavaCrystal, '|', InfiLibrary.uraniumRod });
         }
         
-        if(PropsHelperInfiHybrids.enableSlimeTools)
+        if(PHInfiHybrids.enableSlimeTools)
         {
             ModLoader.addRecipe(new ItemStack(woodSlimeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.stick });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneSlimeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneSlimeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', Item.bone });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneSlimeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(paperSlimeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.paperRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.paperRod });
             ModLoader.addRecipe(new ItemStack(slimeSlimeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusSlimeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.slimeCrystal, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', InfiLibrary.slimeCrystal, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiHybrids.enableCactusTools)
+        if(PHInfiHybrids.enableCactusTools)
         {
             ModLoader.addRecipe(new ItemStack(woodCactusMallet), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.stick });
             ModLoader.addRecipe(new ItemStack(sandstoneCactusMallet), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneCactusMallet), new Object[] 
                     { recipe, '#', Block.cactus, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneCactusMallet), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackCactusMallet), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(iceCactusMallet), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.iceRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.iceRod });
             ModLoader.addRecipe(new ItemStack(slimeCactusMallet), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusCactusMallet), new Object[] 
-                    { recipe, '#', Block.cactus, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Block.cactus, '|', InfiLibrary.cactusRod });
         }
         
-        if(PropsHelperInfiHybrids.enableFlintTools)
+        if(PHInfiHybrids.enableFlintTools)
         {
         	ModLoader.addRecipe(new ItemStack(woodFlintMallet), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.stick });
         	ModLoader.addRecipe(new ItemStack(stoneFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.stoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.sandstoneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneFlintMallet), new Object[] 
                     { recipe, '#', Item.flint, '|', Item.bone });
             ModLoader.addRecipe(new ItemStack(boneFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.boneRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.boneRod });
             ModLoader.addRecipe(new ItemStack(netherrackFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(slimeFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.slimeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.slimeRod });
             ModLoader.addRecipe(new ItemStack(cactusFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.cactusRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.cactusRod });
             ModLoader.addRecipe(new ItemStack(flintFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(copperFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.copperRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.copperRod });
             ModLoader.addRecipe(new ItemStack(bronzeFlintMallet), new Object[] 
-                    { recipe, '#', Item.flint, '|', mod_InfiBase.bronzeRod });
+                    { recipe, '#', Item.flint, '|', InfiLibrary.bronzeRod });
         }
         
-        if(PropsHelperInfiHybrids.enableBlazeTools)
+        if(PHInfiHybrids.enableBlazeTools)
         {
             ModLoader.addRecipe(new ItemStack(diamondBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.diamondRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.diamondRod });
             ModLoader.addRecipe(new ItemStack(obsidianBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.obsidianRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.obsidianRod });
             ModLoader.addRecipe(new ItemStack(netherrackBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.netherrackRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.netherrackRod });
             ModLoader.addRecipe(new ItemStack(lavaBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.lavaRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.lavaRod });
             ModLoader.addRecipe(new ItemStack(flintBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.flintRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.flintRod });
             ModLoader.addRecipe(new ItemStack(blazeBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', Item.blazeRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', Item.blazeRod });
             ModLoader.addRecipe(new ItemStack(manyullynBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.manyullynRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.manyullynRod });
             ModLoader.addRecipe(new ItemStack(uraniumBlazeMallet), new Object[] 
-                    { recipe, '#', mod_InfiBase.blazeCrystal, '|', mod_InfiBase.uraniumRod });
+                    { recipe, '#', InfiLibrary.blazeCrystal, '|', InfiLibrary.uraniumRod });
         }
     }
     
@@ -1635,23 +1635,23 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodStoneMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
     	ModLoader.addRecipe(new ItemStack(stoneStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(sandstoneStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.sandstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.sandstoneRod });
         ModLoader.addRecipe(new ItemStack(boneStoneMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(iceStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintStoneMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
     }
     
     public static void addCopperTools(ItemStack stack)
@@ -1659,21 +1659,21 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodCopperMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCopperMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneCopperMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCopperMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackCopperMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeCopperMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCopperMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintCopperMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperCopperMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
     }
     
     public static void addBronzeTools(ItemStack stack)
@@ -1681,23 +1681,23 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodBronzeMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(boneBronzeMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(slimeBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(flintBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.flintRod });
+                { recipe, '#', stack, '|', InfiLibrary.flintRod });
         ModLoader.addRecipe(new ItemStack(copperBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeBronzeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
     }
     
     public static void addWorkedIronTools(ItemStack stack)
@@ -1705,41 +1705,41 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodWorkedIronMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeWorkedIronMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(uraniumWorkedIronMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addSteelTools(ItemStack stack)
@@ -1747,45 +1747,45 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodSteelMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneSteelMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(iceSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.iceRod });
+                { recipe, '#', stack, '|', InfiLibrary.iceRod });
         ModLoader.addRecipe(new ItemStack(slimeSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeSteelMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumSteelMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addCobaltTools(ItemStack stack)
@@ -1793,41 +1793,41 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodCobaltMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneCobaltMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeCobaltMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumCobaltMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addArditeTools(ItemStack stack)
@@ -1835,41 +1835,41 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodArditeMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneArditeMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeArditeMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumArditeMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addManyullynTools(ItemStack stack)
@@ -1877,67 +1877,67 @@ public class Mallets
     	ModLoader.addRecipe(new ItemStack(woodManyullynMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.stick });
         ModLoader.addRecipe(new ItemStack(stoneManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.stoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.stoneRod });
         ModLoader.addRecipe(new ItemStack(ironManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.ironRod });
+                { recipe, '#', stack, '|', InfiLibrary.ironRod });
         ModLoader.addRecipe(new ItemStack(diamondManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(obsidianManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.obsidianRod });
+                { recipe, '#', stack, '|', InfiLibrary.obsidianRod });
         ModLoader.addRecipe(new ItemStack(boneManyullynMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(slimeManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.slimeRod });
+                { recipe, '#', stack, '|', InfiLibrary.slimeRod });
         ModLoader.addRecipe(new ItemStack(cactusManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cactusRod });
+                { recipe, '#', stack, '|', InfiLibrary.cactusRod });
         ModLoader.addRecipe(new ItemStack(blazeManyullynMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(copperManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.copperRod });
+                { recipe, '#', stack, '|', InfiLibrary.copperRod });
         ModLoader.addRecipe(new ItemStack(bronzeManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.bronzeRod });
+                { recipe, '#', stack, '|', InfiLibrary.bronzeRod });
         ModLoader.addRecipe(new ItemStack(workedManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.workedIronRod });
+                { recipe, '#', stack, '|', InfiLibrary.workedIronRod });
         ModLoader.addRecipe(new ItemStack(steelManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.steelRod });
+                { recipe, '#', stack, '|', InfiLibrary.steelRod });
         ModLoader.addRecipe(new ItemStack(cobaltManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(manyullynManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.manyullynRod });
+                { recipe, '#', stack, '|', InfiLibrary.manyullynRod });
         ModLoader.addRecipe(new ItemStack(uraniumManyullynMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
     public static void addUraniumTools(ItemStack stack)
     {
         ModLoader.addRecipe(new ItemStack(diamondUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.diamondRod });
+                { recipe, '#', stack, '|', InfiLibrary.diamondRod });
         ModLoader.addRecipe(new ItemStack(redstoneUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.redstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.redstoneRod });
         ModLoader.addRecipe(new ItemStack(boneUraniumMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.bone });
         ModLoader.addRecipe(new ItemStack(boneUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.boneRod });
+                { recipe, '#', stack, '|', InfiLibrary.boneRod });
         ModLoader.addRecipe(new ItemStack(netherrackUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.netherrackRod });
+                { recipe, '#', stack, '|', InfiLibrary.netherrackRod });
         ModLoader.addRecipe(new ItemStack(glowstoneUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.glowstoneRod });
+                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod });
         ModLoader.addRecipe(new ItemStack(lavaUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.lavaRod });
+                { recipe, '#', stack, '|', InfiLibrary.lavaRod });
         ModLoader.addRecipe(new ItemStack(blazeUraniumMallet), new Object[] 
                 { recipe, '#', stack, '|', Item.blazeRod });
         ModLoader.addRecipe(new ItemStack(cobaltUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.cobaltRod });
+                { recipe, '#', stack, '|', InfiLibrary.cobaltRod });
         ModLoader.addRecipe(new ItemStack(arditeUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.arditeRod });
+                { recipe, '#', stack, '|', InfiLibrary.arditeRod });
         ModLoader.addRecipe(new ItemStack(uraniumUraniumMallet), new Object[] 
-                { recipe, '#', stack, '|', mod_InfiBase.uraniumRod });
+                { recipe, '#', stack, '|', InfiLibrary.uraniumRod });
     }
     
 	public static Item woodWoodMallet;

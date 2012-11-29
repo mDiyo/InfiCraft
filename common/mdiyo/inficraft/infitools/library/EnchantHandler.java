@@ -1,4 +1,4 @@
-package mDiyo.inficraft.infitools.base;
+package mDiyo.inficraft.infitools.library;
 
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.ItemStack;
