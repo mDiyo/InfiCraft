@@ -101,9 +101,9 @@ public class InfiBlockRecipes
 	{
 		redoVanillaRecipes();
 		
-		for (int iter = 0; iter < chestArray.length; ++iter)
+		/*for (int iter = 0; iter < chestArray.length; ++iter)
         	{ GameRegistry.addRecipe(new ItemStack(InfiBlockContent.chest, 1, iter), new Object[] 
-        		{chestRecipe, 'm', chestArray[iter], 'b', Block.stoneButton}); }
+        		{chestRecipe, 'm', chestArray[iter], 'b', Block.stoneButton}); }*/
 		
 		for (int iter = 0; iter < workbenchArray.length; iter++)
 		{

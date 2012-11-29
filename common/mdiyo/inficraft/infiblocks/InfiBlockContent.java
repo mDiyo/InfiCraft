@@ -23,7 +23,7 @@ public class InfiBlockContent
 		workbench = (new WorkbenchBlock(PHInfiBlocks.blockCraftingID)).setHardness(0.5F).setBlockName("infiCraftingTable");
 		woolCarpet = (new CarpetBlock(PHInfiBlocks.woolCarpetID)).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("woolCarpet");
 		furnace = (new FurnaceBlock(PHInfiBlocks.blockFurnaceID)).setBlockName("InfiFurnace");
-		chest = new ChestBlock(PHInfiBlocks.blockChestID);
+		//chest = new ChestBlock(PHInfiBlocks.blockChestID);
 		magicSlabStone = new MagicSlabStone(PHInfiBlocks.magicSlabStoneID, 23).setHardness(0.3F).setBlockName("Magic Slab Stone");
 		magicSlabSoil = new MagicSlabSoil(PHInfiBlocks.magicSlabSoilID, 23).setHardness(0.3F).setStepSound(Block.soundWoodFootstep).setBlockName("Magic Slab Soil");
 		magicSlabWool = new MagicSlabWool(PHInfiBlocks.magicSlabWoolID, 64).setHardness(0.3F).setStepSound(Block.soundClothFootstep).setBlockName("Magic Slab Wool");
@@ -47,15 +47,13 @@ public class InfiBlockContent
 		iceBrickMagicSlab = new BrickIceMagicSlab(PHInfiBlocks.iceBrickMagicSlabID, 112).setHardness(Block.ice.getBlockHardness(null, 0, 0, 0)).setBlockName("Ice Brick Magic Slab");
 		brownstoneMagicSlab = new BrownstoneMagicSlab(PHInfiBlocks.brownstoneMagicSlabID, 96).setHardness(Block.cobblestone.getBlockHardness(null, 0, 0, 0)).setBlockName("Brownstone Magic Slab");
 		
-		//stoneStairSlab = new StairSlabBlock(PropsHelperInfiBlocks.stoneStairSlabID, Material.rock);
-		
 		GameRegistry.registerBlock(workbench, mDiyo.inficraft.infiblocks.tech.WorkbenchItem.class);
 		GameRegistry.registerBlock(woolCarpet, mDiyo.inficraft.infiblocks.blocks.CarpetItem.class);
 		GameRegistry.registerBlock(furnace, mDiyo.inficraft.infiblocks.tech.FurnaceItem.class);
 		GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.FurnaceLogic.class, "InfiFurnace");
 		
-		GameRegistry.registerBlock(chest, mDiyo.inficraft.infiblocks.tech.ChestItem.class);
-		GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.ChestLogic.class, "InfiChest");
+		//GameRegistry.registerBlock(chest, mDiyo.inficraft.infiblocks.tech.ChestItem.class);
+		//GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.ChestLogic.class, "InfiChest");
 		
 		GameRegistry.registerBlock(magicSlabStone, mDiyo.inficraft.infiblocks.magicslabs.MagicSlabStoneItem.class);
 		GameRegistry.registerBlock(magicSlabSoil, mDiyo.inficraft.infiblocks.magicslabs.MagicSlabSoilItem.class);
