@@ -160,7 +160,7 @@ public class WorldGenSlimePools extends WorldGenerator implements IWorldGenerato
                 }
             }
             
-            if (Block.blocksList[this.blockIndex].blockMaterial == Material.plants)
+            if (Block.blocksList[this.blockIndex].blockMaterial == Material.water)
             {
                 for (var8 = 0; var8 < 16; ++var8)
                 {

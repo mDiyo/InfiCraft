@@ -55,7 +55,7 @@ public class PHPastel
         cSquareID = config.getBlock("Colored Square Brick", 3233).getInt(3233);
         marbleID = config.getBlock("Marble", 3238).getInt(3238);
         
-        genStratifiedStone = config.get("general", "Generate Stratified Stone", false).getBoolean(false);
+        genStratifiedStone = config.get("general", "Generate Stratified Stone", true).getBoolean(true);
 		genColoredStone = config.get("general", "Generate Colored Stone", true).getBoolean(true);
 		genMarble = config.get("general", "Generate Marble", true).getBoolean(true);
 		

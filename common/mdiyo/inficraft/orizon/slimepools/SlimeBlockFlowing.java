@@ -181,11 +181,11 @@ public class SlimeBlockFlowing extends LiquidBlockBase
            }
        }
        
-       if (par5Random.nextInt(150) == 0) {
+       /*if (par5Random.nextInt(150) == 0) {
     	   EntitySlime entityslime = new EntitySlime(world);
            entityslime.setPosition((double)x + 0.5D, (double)y + 1.5D, (double)z + 0.5D);
            world.spawnEntityInWorld(entityslime);
-   		}
+   		}*/
    }
 
    /**

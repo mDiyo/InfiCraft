@@ -252,7 +252,7 @@ public abstract class LiquidBlockBase extends BlockFluid
     
     public int getRenderType()
     {
-    	return 0;
+    	return 4;
         //return OrizonSlime.slimeModel;
     }
 }

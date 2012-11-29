@@ -10,6 +10,8 @@ import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.SidedProxy;
 
@@ -19,6 +21,7 @@ import cpw.mods.fml.common.SidedProxy;
  */
 
 @Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "0.2")
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class OrizonSlime 
 {
 	/* Proxies for sides, used for graphics processing */
@@ -33,20 +36,15 @@ public class OrizonSlime
 	{
 		PHSlime.initProps();
 		
-		slimeStill = new SlimeBlockStill(PHSlime.slimePoolID+1, 0, Material.plants).setBlockName("Slime Pool");
-        slimeFlowing = new SlimeBlockFlowing(PHSlime.slimePoolID, 0, Material.plants).setBlockName("Slime Pool Flowing");
+		slimeStill = new SlimeBlockStill(PHSlime.slimePoolID+1, 0, Material.water).setBlockName("Slime Pool");
+        slimeFlowing = new SlimeBlockFlowing(PHSlime.slimePoolID, 0, Material.water).setBlockName("Slime Pool Flowing");
         slimeGelBlock = new SlimeGelBlock(PHSlime.slimeGelID, 32).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setBlockName("Slime Gel");
 		
 		GameRegistry.registerBlock(slimeStill);
 		GameRegistry.registerBlock(slimeFlowing);
 		GameRegistry.registerBlock(slimeGelBlock);
-		/*
-        
-	            
-	            
-        acidStill = new LiquidBlockStill(acidPoolID+1, 3, Material.lava).setBlockName("Acid Pool");
-        acidFlowing = new LiquidBlockFlowing(acidPoolID, 3, Material.lava).setBlockName("Acid Pool Flowing");*/
 		
+		EntityRegistry.registerModEntity(mDiyo.inficraft.orizon.slimepools.AirwaterSlimeEntity.class, "Airwater Slime", 0, this, 32, 5, true);
 	}
 	
 	@Init

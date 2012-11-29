@@ -21,8 +21,9 @@ public class SlimeBlockStill extends LiquidBlockBase
     
     public void updateTick(World world, int x, int y, int z, Random rand)
     {
-    	if (rand.nextInt(100) == 0) {
-    		EntitySlime entityslime = new EntitySlime(world);
+    	if (rand.nextInt(20) == 0) 
+    	{
+    		AirwaterSlimeEntity entityslime = new AirwaterSlimeEntity(world);
             entityslime.setPosition((double)x + 0.5D, (double)y + 1.5D, (double)z + 0.5D);
             world.spawnEntityInWorld(entityslime);
     	}
