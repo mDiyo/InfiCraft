@@ -95,58 +95,54 @@ public class FurnaceBlock extends BlockMachineBase
         return true;
     }
 
-    public Integer getGui(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public Integer getGui(World world, int x, int y, int z, EntityPlayer entityplayer)
     {
         return Integer.valueOf(InfiBlocksCommonProxy.furnaceGuiID);
     }
 
-    public BlockLogicBase getBlockEntity(int i)
+    /*public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityliving)
     {
-        return new FurnaceLogic();
-    }
-
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityliving)
-    {
-        BlockLogicBase blocklogicbase = (BlockLogicBase)world.getBlockTileEntity(x, y, z);
+        BlockLogicBase logic = (BlockLogicBase)world.getBlockTileEntity(x, y, z);
+        System.out.println("Block logic: "+logic);
         if (entityliving == null)
         {
-            blocklogicbase.setFacing((byte)1);
+            logic.setFacing((byte) 1);
         }
         else
         {
-            int l = MathHelper.floor_double((double)((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
-            int i1 = Math.round(entityliving.rotationPitch);
-            if (i1 >= 65)
+            int facing = MathHelper.floor_double((double)((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
+            int pitch = Math.round(entityliving.rotationPitch);
+            if (pitch >= 65)
             {
-                blocklogicbase.setFacing((byte)1);
+                logic.setFacing((byte)1);
             }
-            else if (i1 <= -65)
+            else if (pitch <= -65)
             {
-                blocklogicbase.setFacing((byte)0);
+                logic.setFacing((byte)0);
             }
             else
             {
-                switch (l)
+                switch (facing)
                 {
                     case 0:
-                        blocklogicbase.setFacing((byte)2);
+                        logic.setFacing((byte)2);
                         break;
 
                     case 1:
-                        blocklogicbase.setFacing((byte)5);
+                        logic.setFacing((byte)5);
                         break;
 
                     case 2:
-                        blocklogicbase.setFacing((byte)3);
+                        logic.setFacing((byte)3);
                         break;
 
                     case 3:
-                        blocklogicbase.setFacing((byte)4);
+                        logic.setFacing((byte)4);
                         break;
                 }
             }
         }
-    }
+    }*/
 
     public void randomDisplayTick(World world, int i, int j, int k, Random random)
     {
@@ -231,9 +227,10 @@ public class FurnaceBlock extends BlockMachineBase
         super.onBlockRemoval(world, i, j, k);
     }*/
     
+    @Override
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
     {
-            TileEntityFurnace var7 = (TileEntityFurnace)par1World.getBlockTileEntity(par2, par3, par4);
+    	FurnaceLogic var7 = (FurnaceLogic)par1World.getBlockTileEntity(par2, par3, par4);
 
             if (var7 != null)
             {
@@ -279,7 +276,6 @@ public class FurnaceBlock extends BlockMachineBase
 
 	@Override
 	public TileEntity createNewTileEntity(World var1) {
-		// TODO Auto-generated method stub
-		return null;
+		return new FurnaceLogic();
 	}
 }

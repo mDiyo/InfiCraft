@@ -26,7 +26,7 @@ public class CraftingDamage implements ICraftingHandler
             Integer integer = (Integer)DetailManager.damageContainer.get(Integer.valueOf(itemstack1.itemID));
             if (integer != null)
             {
-                craftMatrix.setInventorySlotContents(i, new ItemStack(integer.intValue(), 1, 0));
+                craftMatrix.setInventorySlotContents(i, new ItemStack(integer.intValue(), 1, itemstack1.getItemDamage()));
             }
         }		
 	}

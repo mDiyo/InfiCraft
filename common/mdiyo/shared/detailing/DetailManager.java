@@ -35,13 +35,10 @@ public class DetailManager {
 	public void addDetailing(DetailInput detailinput)
 	{
 		detailing.add(detailinput);
-		for (Object stack : damageOnCraft)
+		for (Object id : damageOnCraft)
 		{
-			if (stack instanceof ItemStack)
-			{
-				GameRegistry.addShapelessRecipe(new ItemStack(detailinput.getReplacementID(), 1, detailinput.getReplacementMetadata()), 
-					new Object[] { stack, new ItemStack(detailinput.getBlockID(), 1, detailinput.getMetadata()) });
-			}
+			GameRegistry.addShapelessRecipe(new ItemStack(detailinput.getReplacementID(), 1, detailinput.getReplacementMetadata()), 
+				new ItemStack(((Integer) id).intValue(), 1, -1), new ItemStack(detailinput.getBlockID(), 1, detailinput.getMetadata()) );
 		}
 	}
 	

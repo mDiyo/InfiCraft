@@ -1,5 +1,6 @@
 package mDiyo.inficraft.infiblocks;
 
+import mDiyo.shared.detailing.CraftingDamage;
 import mDiyo.shared.detailing.DetailManager;
 import net.minecraft.src.*;
 
@@ -123,12 +124,12 @@ public class InfiBlockRecipes
 		
 		GameRegistry.addRecipe(new ItemStack(InfiBlockContent.furnace, 1, 0), new Object[]
 		{
-			"bxb", "x x", "bxb", 'b', Item.ingotIron, 'x', Block.cobblestone
+			"bbb", "x x", "bbb", 'b', Item.ingotIron, 'x', Block.cobblestone
 		});
 		
 		GameRegistry.addRecipe(new ItemStack(InfiBlockContent.furnace, 1, 0), new Object[]
 		{
-			"bxb", "x x", "bxb", 'b', Item.ingotIron, 'x', Block.stone
+			"bbb", "x x", "bbb", 'b', Item.ingotIron, 'x', Block.stone
 		});
 		
 		
@@ -259,6 +260,8 @@ public class InfiBlockRecipes
 		
 		/* Chisel Recipes */
 		
+		GameRegistry.registerCraftingHandler(new CraftingDamage());
+				
 		DetailManager.getInstance().addDetailingItem(InfiBlockContent.chiselIron);
 		DetailManager.getInstance().addDetailingItem(InfiBlockContent.chiselDiamond);
 		
@@ -593,14 +596,14 @@ public class InfiBlockRecipes
 		FurnaceRecipes.smelting().addSmelting(Block.gravel.blockID, 
 				new ItemStack(InfiBlockContent.brownstone, 1, 0), 0.3F);
 		FurnaceRecipes.smelting().addSmelting(InfiBlockContent.brownstone.blockID, 0,
-				new ItemStack(InfiBlockContent.brownstone, 1, 1)); //TODO: 0.3F
+				new ItemStack(InfiBlockContent.brownstone, 1, 1), 0.3f);
 		
 		FurnaceRecipes.smelting().addSmelting(Block.glass.blockID,
 				new ItemStack(InfiBlockContent.infiGlass, 1, 0), 0.1F);
 		FurnaceRecipes.smelting().addSmelting(Block.slowSand.blockID,
 				new ItemStack(InfiBlockContent.infiGlass, 1, 1), 0.8F);
 		FurnaceRecipes.smelting().addSmelting(InfiBlockContent.infiGlass.blockID, 1,
-				new ItemStack(InfiBlockContent.infiGlass, 1, 2)); //TODO: 0.8F
+				new ItemStack(InfiBlockContent.infiGlass, 1, 2), 0.8f);
 	}
 	
 	public static void initDetails()
@@ -616,8 +619,9 @@ public class InfiBlockRecipes
 		DetailManager.getInstance().addDetailing(Block.blockSnow, InfiBlocks.getContentInstance().brick, 1); //Snow
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 1, InfiBlocks.getContentInstance().fancyBrick, 1);
 		
-		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().storageBlock, 13, InfiBlocks.getContentInstance().brick, 2); //Sandstone
-		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 2, InfiBlocks.getContentInstance().fancyBrick, 2);
+		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().storageBlock, 13, Block.sandStone, 1); //Sandstone
+		DetailManager.getInstance().addDetailing( Block.sandStone, 1, InfiBlocks.getContentInstance().fancyBrick, 2);
+		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 2, InfiBlocks.getContentInstance().fancyBrick, 2);		
 		
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().storageBlock, 15, InfiBlocks.getContentInstance().brick, 11); //Brick
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 11, InfiBlocks.getContentInstance().brick, 3);
@@ -630,6 +634,10 @@ public class InfiBlockRecipes
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 5, InfiBlocks.getContentInstance().fancyBrick, 5); //Diamond
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 6, InfiBlocks.getContentInstance().fancyBrick, 6); //Gold
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 7, InfiBlocks.getContentInstance().fancyBrick, 7); //Lapis
+		
+		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 12, InfiBlocks.getContentInstance().fancyBrick, 12); //Iron
+		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 13, InfiBlocks.getContentInstance().fancyBrick, 13); //Redstone
+		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 14, InfiBlocks.getContentInstance().fancyBrick, 14); //Slime
 		
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().storageBlock, 14, InfiBlocks.getContentInstance().brick, 8); //Refined Stone
 		DetailManager.getInstance().addDetailing(InfiBlocks.getContentInstance().brick, 8, InfiBlocks.getContentInstance().brick, 10);

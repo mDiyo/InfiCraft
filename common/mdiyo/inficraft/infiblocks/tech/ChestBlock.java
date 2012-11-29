@@ -347,7 +347,6 @@ public class ChestBlock extends BlockMachineBase
             ++var5;
         }
 
-        System.out.println("Nearbychests:" + var5);
         return var5 > 1 ? false : (this.isThereANeighborChest(var1, var2 - 1, var3, var4) ? false : (this.isThereANeighborChest(var1, var2 + 1, var3, var4) ? false : (this.isThereANeighborChest(var1, var2, var3, var4 - 1) ? false : !this.isThereANeighborChest(var1, var2, var3, var4 + 1))));
     }
 
@@ -472,7 +471,7 @@ public class ChestBlock extends BlockMachineBase
     @Override
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
     {
-        Object var10 = (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4);
+        Object var10 = (ChestLogic)par1World.getBlockTileEntity(par2, par3, par4);
 
         if (var10 == null)
         {
@@ -506,22 +505,22 @@ public class ChestBlock extends BlockMachineBase
         {
             if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID)
             {
-                var10 = new InventoryLargeChest("container.chestDouble", (TileEntityChest)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)var10);
+                var10 = new InventoryLargeChest("container.chestDouble", (ChestLogic)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)var10);
             }
 
             if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
             {
-                var10 = new InventoryLargeChest("container.chestDouble", (IInventory)var10, (TileEntityChest)par1World.getBlockTileEntity(par2 + 1, par3, par4));
+                var10 = new InventoryLargeChest("container.chestDouble", (IInventory)var10, (ChestLogic)par1World.getBlockTileEntity(par2 + 1, par3, par4));
             }
 
             if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID)
             {
-                var10 = new InventoryLargeChest("container.chestDouble", (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)var10);
+                var10 = new InventoryLargeChest("container.chestDouble", (ChestLogic)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)var10);
             }
 
             if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)
             {
-                var10 = new InventoryLargeChest("container.chestDouble", (IInventory)var10, (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4 + 1));
+                var10 = new InventoryLargeChest("container.chestDouble", (IInventory)var10, (ChestLogic)par1World.getBlockTileEntity(par2, par3, par4 + 1));
             }
 
             if (par1World.isRemote)
@@ -602,15 +601,6 @@ public class ChestBlock extends BlockMachineBase
             }
         }
     }*/
-
-    /**
-     * Returns the TileEntity used by this block.
-     */
-    public TileEntity getBlockEntity()
-    {
-        return null;
-    }
-
     /**
      * Looks for a sitting ocelot within certain bounds. Such an ocelot is considered to be blocking access to the
      * chest.
@@ -638,15 +628,9 @@ public class ChestBlock extends BlockMachineBase
         return null;
     }
 
-    /*@Override
-    public TileEntity getBlockEntity(int var1)
-    {
-        return this.getBlockEntity(var1);
-    }*/
-
 	@Override
-	public TileEntity createNewTileEntity(World var1) {
-		// TODO Auto-generated method stub
-		return null;
+	public TileEntity createNewTileEntity(World var1) 
+	{
+		return new ChestLogic();
 	}
 }

@@ -52,8 +52,8 @@ public class InfiBlockContent
 		GameRegistry.registerBlock(furnace, mDiyo.inficraft.infiblocks.tech.FurnaceItem.class);
 		GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.FurnaceLogic.class, "InfiFurnace");
 		
-		//GameRegistry.registerBlock(chest, mDiyo.inficraft.infiblocks.tech.ChestItem.class);
-		//GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.ChestLogic.class, "InfiChest");
+		/*GameRegistry.registerBlock(chest, mDiyo.inficraft.infiblocks.tech.ChestItem.class);
+		GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.ChestLogic.class, "InfiChest");*/
 		
 		GameRegistry.registerBlock(magicSlabStone, mDiyo.inficraft.infiblocks.magicslabs.MagicSlabStoneItem.class);
 		GameRegistry.registerBlock(magicSlabSoil, mDiyo.inficraft.infiblocks.magicslabs.MagicSlabSoilItem.class);
@@ -87,8 +87,8 @@ public class InfiBlockContent
 	
 	public void setupItems()
 	{
-		chiselIron = new Chisel(PHInfiBlocks.chiselID, 250).setIconCoord(14, 15).setItemName("Iron Chisel");
-		chiselDiamond = new Chisel(PHInfiBlocks.chiselID+1, 2000).setIconCoord(15, 15).setItemName("Diamond Chisel");	
+		chiselIron = new Chisel(PHInfiBlocks.chiselID, 250).setIconCoord(14, 15).setItemName("chiselIron");
+		chiselDiamond = new Chisel(PHInfiBlocks.chiselID+1, 2000).setIconCoord(15, 15).setItemName("chiselDiamond");	
 	}
 
 	public static Block workbench;

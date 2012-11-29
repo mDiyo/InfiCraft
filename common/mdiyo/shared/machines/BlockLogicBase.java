@@ -7,19 +7,13 @@ import net.minecraft.src.TileEntity;
 
 public abstract class BlockLogicBase extends TileEntity
 {
-    //protected boolean created;
     private boolean active;
     private byte facing;
-    //public boolean prevActive;
-    //public short prevFacing;
 
     public BlockLogicBase()
     {
-        //created = false;
         active = false;
         facing = 0;
-        //prevActive = false;
-        //prevFacing = 0;
     }
 
     public void readFromNBT(NBTTagCompound nbttagcompound)
@@ -31,7 +25,7 @@ public abstract class BlockLogicBase extends TileEntity
     public void writeToNBT(NBTTagCompound nbttagcompound)
     {
         super.writeToNBT(nbttagcompound);
-        nbttagcompound.setShort("facing", facing);
+        nbttagcompound.setByte("facing", facing);
     }
 
     public boolean getActive()
@@ -44,20 +38,14 @@ public abstract class BlockLogicBase extends TileEntity
         active = flag;
     }
 
-    /*public void setActiveWithoutNotify(boolean flag)
-    {
-        active = flag;
-        prevActive = flag;
-    }*/
-
     public short getFacing()
     {
         return facing;
     }
 
-    public void setFacing(byte word0)
+    public void setFacing(byte num)
     {
-        facing = word0;
+        facing = num;
     }
     
     public abstract Container getGuiContainer(InventoryPlayer inventoryplayer);

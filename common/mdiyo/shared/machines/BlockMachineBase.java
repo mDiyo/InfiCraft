@@ -1,6 +1,8 @@
 package mDiyo.shared.machines;
 
 import java.util.ArrayList;
+
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.*;
 
 public abstract class BlockMachineBase extends BlockContainer
@@ -11,7 +13,8 @@ public abstract class BlockMachineBase extends BlockContainer
         super(i, material);
     }
 
-    /*public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player)
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
         if (player.isSneaking())
         {
@@ -24,10 +27,10 @@ public abstract class BlockMachineBase extends BlockContainer
         }
         else
         {
-        	player.openGui(mod_InfiBlocks.getInstance(), integer, world, x, y, z);
+        	player.openGui(InfiBlocks.instance, integer, world, x, y, z);
             return true;
         }
-    }*/
+    }
     
     public abstract Integer getGui(World world, int x, int y, int z, EntityPlayer entityplayer);
 
@@ -59,17 +62,18 @@ public abstract class BlockMachineBase extends BlockContainer
     /* Set the default facing of the block
      * Only respects horizontal placement by default
      */
-    public void onBlockPlacedBy(World world, int i, int j, int k, EntityLiving entityliving)
+    @Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityliving)
     {
-        BlockLogicBase blocklogicbase = (BlockLogicBase)world.getBlockTileEntity(i, j, k);
+        BlockLogicBase blocklogicbase = (BlockLogicBase)world.getBlockTileEntity(x, y, z);
         if (entityliving == null)
         {
             blocklogicbase.setFacing((byte)2);
         }
         else
         {
-            int l = MathHelper.floor_double((double)((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
-            switch (l)
+            int facing = MathHelper.floor_double((double)((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
+            switch (facing)
             {
                 case 0:
                     blocklogicbase.setFacing((byte)2);

@@ -35,7 +35,8 @@ public class WorkbenchBlock extends Block
         }
     }
 
-    public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player)
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
         if (world.isRemote)
         {
@@ -43,7 +44,7 @@ public class WorkbenchBlock extends Block
         }
         else
         {
-        	player.openGui(InfiBlocks.getContentInstance(), InfiBlocksCommonProxy.craftingGuiID, world, x, y, z);
+        	player.openGui(InfiBlocks.instance, InfiBlocksCommonProxy.craftingGuiID, world, x, y, z);
             return true;
         }
     }

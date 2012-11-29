@@ -6,6 +6,8 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.SidedProxy;
 
 /* InfiBlocks!
@@ -13,12 +15,16 @@ import cpw.mods.fml.common.SidedProxy;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.5_2012.11.29")
+@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.5_2012.11.29b")
+@NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class InfiBlocks
 {
 	/* Proxies for sides, used for graphics processing */
 	@SidedProxy(clientSide = "mDiyo.inficraft.infiblocks.client.InfiBlocksClientProxy", serverSide = "mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy")
 	public static InfiBlocksCommonProxy proxy;
+	
+	@Instance("InfiBlocks")
+	public static InfiBlocks instance;
 	
 	/* Instance of the content, used to grab blocks and such. */
     private static InfiBlockContent contentInstance;
@@ -44,10 +50,12 @@ public class InfiBlocks
 		InfiBlockRecipes.magicSlabFrenzy();
 		InfiBlockRecipes.furnaceBlaze();
 		InfiBlockRecipes.initDetails();
+		
+		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 	}
 	
 	/* Texture paths */
-	public static String bricksImage = "/mDiyo/inficraft/infiblocks/textures/bricks.png";
-	public static String blocksImage = "/mDiyo/inficraft/infiblocks/textures/blocks.png";
-	public static String techImage = "/mDiyo/inficraft/infiblocks/textures/tech.png";
+	public static String bricksImage = "/infitextures/bricks.png";
+	public static String blocksImage = "/infitextures/infiblocks.png";
+	public static String techImage = "/infitextures/tech.png";
 }
