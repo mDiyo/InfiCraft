@@ -1,4 +1,5 @@
 package mDiyo.inficraft.infitools.core.buckets;
+import mDiyo.inficraft.infitools.core.InfiCore;
 import mDiyo.inficraft.infitools.core.Items;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
@@ -57,6 +58,6 @@ public class InfiBucketIceMilk extends Item
     
     public String getTextureFile()
     {
-        return "/inficore/items.png";
+        return InfiCore.itemTexture;
     }
 }

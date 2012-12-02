@@ -28,7 +28,7 @@ public class InfiToolScythe extends InfiWeaponCore
 
     public String getTextureFile()
     {
-        return "/infihybrids/scythes.png";
+        return "/infitextures/scythes.png";
     }
     
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)

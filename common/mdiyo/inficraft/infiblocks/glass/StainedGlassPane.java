@@ -35,12 +35,4 @@ public class StainedGlassPane extends PaneBase
     {
         return blockIndexInTexture + md;
     }
-    
-    public void addCreativeItems(ArrayList arraylist)
-    {
-    	for (int iter = 0; iter < 16; iter++)
-    	{
-    		arraylist.add(new ItemStack(InfiBlocks.getContentInstance().stainedGlassPane, 1, 0));
-    	}
-    }
 }

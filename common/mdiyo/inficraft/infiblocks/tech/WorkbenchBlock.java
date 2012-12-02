@@ -1,7 +1,11 @@
 package mDiyo.inficraft.infiblocks.tech;
 
+import java.util.List;
+
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
@@ -13,6 +17,7 @@ public class WorkbenchBlock extends Block
     public WorkbenchBlock(int i)
     {
         super(i, 1, Material.wood);
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
 
     public int getBlockTextureFromSideAndMetadata(int side, int meta)
@@ -57,5 +62,14 @@ public class WorkbenchBlock extends Block
     public String getTextureFile()
     {
         return InfiBlocks.techImage;
+    }
+    
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
+    {
+    	for (int iter = 0; iter < 11; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
     }
 }

@@ -1,8 +1,10 @@
 package mDiyo.inficraft.infiblocks.magicslabs;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import mDiyo.inficraft.infiblocks.InfiBlocks;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
@@ -39,11 +41,12 @@ public class BrownstoneMagicSlab extends MagicSlabBase
         return InfiBlocks.blocksImage;
     }
     
-    public void addCreativeItems(ArrayList arraylist)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
     	for (int iter = 0; iter < 6; iter++)
     	{
-    		arraylist.add(new ItemStack(InfiBlocks.getContentInstance().brownstoneMagicSlab, 1, 0));
+    		list.add(new ItemStack(id, 1, iter));
     	}
     }
 }

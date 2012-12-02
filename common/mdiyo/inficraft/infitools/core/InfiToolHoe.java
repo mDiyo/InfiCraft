@@ -17,7 +17,7 @@ public class InfiToolHoe extends InfiHoeCore
 
     public String getTextureFile()
     {
-        return "/inficore/hoes.png";
+        return "/infitextures/hoes.png";
     }
 
     static

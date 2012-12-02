@@ -79,7 +79,7 @@ public class InfiToolIceAxe extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/infihybrids/iceaxes.png";
+        return "/infitextures/iceaxes.png";
     }
     
     public float getStrVsBlock(ItemStack itemstack, Block block, int meta)

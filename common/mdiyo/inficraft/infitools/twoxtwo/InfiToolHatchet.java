@@ -18,7 +18,7 @@ public class InfiToolHatchet extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/infi2x2/hatchets.png";
+        return "/infitextures/hatchets.png";
     }
     
     public float getStrVsBlock(ItemStack itemstack, Block block, int meta)

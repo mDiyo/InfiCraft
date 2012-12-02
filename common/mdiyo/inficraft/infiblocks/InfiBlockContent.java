@@ -64,7 +64,7 @@ public class InfiBlockContent
 		GameRegistry.registerBlock(stainedGlassMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.StainedGlassMagicSlabItem.class);
 		GameRegistry.registerBlock(infiGlass, mDiyo.inficraft.infiblocks.glass.InfiGlassItem.class);
 		GameRegistry.registerBlock(infiGlassPane, mDiyo.inficraft.infiblocks.glass.InfiGlassPaneItem.class);
-		GameRegistry.registerBlock(infiGlassMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.InfiGlassMagicSlabItem.class);
+		GameRegistry.registerBlock(infiGlassMagicSlab, mDiyo.inficraft.infiblocks.glass.InfiGlassMagicSlabItem.class);
 		
 		GameRegistry.registerBlock(brick, mDiyo.inficraft.infiblocks.bricks.BrickBlockItem.class);
 		GameRegistry.registerBlock(fancyBrick, mDiyo.inficraft.infiblocks.bricks.BrickFancyItem.class);
@@ -74,7 +74,7 @@ public class InfiBlockContent
 		
 		GameRegistry.registerBlock(brickMagicSlab, mDiyo.inficraft.infiblocks.bricks.BrickBlockMagicSlabItem.class);
 		GameRegistry.registerBlock(fancyBrickMagicSlab, mDiyo.inficraft.infiblocks.bricks.BrickFancyMagicSlabItem.class);
-		GameRegistry.registerBlock(storageBlockMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.StorageBlockMagicSlabItem.class);
+		GameRegistry.registerBlock(storageBlockMagicSlab, mDiyo.inficraft.infiblocks.blocks.StorageBlockMagicSlabItem.class);
 		GameRegistry.registerBlock(iceBrickMagicSlab, mDiyo.inficraft.infiblocks.bricks.BrickIceMagicSlabItem.class);
 		GameRegistry.registerBlock(brownstoneMagicSlab, mDiyo.inficraft.infiblocks.magicslabs.BrownstoneMagicSlabItem.class);
 		
@@ -87,8 +87,8 @@ public class InfiBlockContent
 	
 	public void setupItems()
 	{
-		chiselIron = new Chisel(PHInfiBlocks.chiselID, 250).setIconCoord(14, 15).setItemName("chiselIron");
-		chiselDiamond = new Chisel(PHInfiBlocks.chiselID+1, 2000).setIconCoord(15, 15).setItemName("chiselDiamond");	
+		chiselIron = new Chisel(PHInfiBlocks.chiselID, 256).setIconCoord(14, 15).setItemName("chiselIron");
+		chiselDiamond = new Chisel(PHInfiBlocks.chiselID+1, 2048).setIconCoord(15, 15).setItemName("chiselDiamond");	
 	}
 
 	public static Block workbench;

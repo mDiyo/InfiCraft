@@ -1,9 +1,11 @@
 package mDiyo.inficraft.infiblocks.bricks;
 import java.util.ArrayList;
+import java.util.List;
 
 import mDiyo.inficraft.infiblocks.InfiBlocks;
 import mDiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 
@@ -46,11 +48,16 @@ public class BrickFancyMagicSlab extends MagicSlabBase
         return InfiBlocks.blocksImage;
     }
     
-    public void addCreativeItems(ArrayList arraylist)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
-    	for (int iter = 0; iter < 15; iter++)
+    	for (int iter = 0; iter < 10; iter++)
     	{
-    		arraylist.add(new ItemStack(InfiBlocks.getContentInstance().fancyBrickMagicSlab, 1, 0));
+    		list.add(new ItemStack(id, 1, iter));
+    	}
+    	for (int iter = 11; iter < 15; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
     	}
     }
 }

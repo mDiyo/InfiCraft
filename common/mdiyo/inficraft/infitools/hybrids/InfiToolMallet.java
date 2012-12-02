@@ -152,7 +152,7 @@ public class InfiToolMallet extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/infihybrids/mallets.png";
+        return "/infitextures/mallets.png";
     }
     
     public float getStrVsBlock(ItemStack itemstack, Block block, int meta)

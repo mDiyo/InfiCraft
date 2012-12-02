@@ -1,5 +1,6 @@
 package mDiyo.inficraft.infitools.core.buckets;
 
+import mDiyo.inficraft.infitools.core.InfiCore;
 import mDiyo.inficraft.infitools.core.Items;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityCow;
@@ -127,6 +128,6 @@ public class InfiBucketGold extends Item
 
     public String getTextureFile()
     {
-        return "/inficore/items.png";
+        return InfiCore.itemTexture;
     }
 }

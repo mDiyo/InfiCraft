@@ -17,7 +17,7 @@ public class InfiToolShovel extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/inficore/shovels.png";
+        return "/infitextures/shovels.png";
     }
 
     static

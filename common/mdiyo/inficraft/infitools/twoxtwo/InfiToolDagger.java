@@ -34,7 +34,7 @@ public class InfiToolDagger extends InfiWeaponCore
     
     public String getTextureFile()
     {
-        return "/infi2x2/daggers.png";
+        return "/infitextures/daggers.png";
     }
 
     @Override

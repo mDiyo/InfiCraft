@@ -1,11 +1,13 @@
 package mDiyo.inficraft.infiblocks.bricks;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockBreakable;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumSkyBlock;
 import net.minecraft.src.IBlockAccess;
@@ -18,6 +20,7 @@ public class BrickIce extends BlockBreakable
     public BrickIce(int i, int j)
     {
         super(i, j, Material.ice, false);
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
     
     public int getRenderBlockPass()
@@ -78,11 +81,13 @@ public class BrickIce extends BlockBreakable
             return blockIndexInTexture + md + 23;
     }
     
-    public void addCreativeItems(ArrayList arraylist)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
-        arraylist.add(new ItemStack(InfiBlocks.getContentInstance().iceBrick, 1, 0));
-        arraylist.add(new ItemStack(InfiBlocks.getContentInstance().iceBrick, 1, 1));
-        arraylist.add(new ItemStack(InfiBlocks.getContentInstance().iceBrick, 1, 2));
+    	for (int iter = 0; iter < 3; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
     }
     
     public String getTextureFile()

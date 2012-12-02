@@ -1,10 +1,12 @@
 package mDiyo.inficraft.infiblocks.glass;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.BlockBreakable;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 
@@ -13,6 +15,7 @@ public class InfiGlass extends BlockBreakable
     public InfiGlass(int i, int j, Material material, boolean flag)
     {
         super(i, j, material, flag);
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
     
     public int idDropped(int i, Random random, int j)
@@ -35,10 +38,12 @@ public class InfiGlass extends BlockBreakable
         return InfiBlocks.blocksImage;
     }
     
-    public void addCreativeItems(ArrayList arraylist)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
-        arraylist.add(new ItemStack(InfiBlocks.getContentInstance().infiGlass, 1, 0));
-        arraylist.add(new ItemStack(InfiBlocks.getContentInstance().infiGlass, 1, 1));
-        arraylist.add(new ItemStack(InfiBlocks.getContentInstance().infiGlass, 1, 2));
+    	for (int iter = 0; iter < 3; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
     }
 }

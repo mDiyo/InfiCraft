@@ -38,6 +38,7 @@ public class ChestBlock extends BlockMachineBase
         this.setStepSound(Block.soundWoodFootstep);
         this.setBlockName("infiChest");
         this.setRequiresSelfNotify();
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
 
     /**

@@ -1,8 +1,10 @@
 package mDiyo.inficraft.infiblocks.blocks;
 import java.util.ArrayList;
+import java.util.List;
 
 import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 
@@ -11,6 +13,7 @@ public class StorageBlock extends Block
     public StorageBlock(int i, int j)
     {
         super(i, j, Material.rock);
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
     
     public float getHardness(int md) {
@@ -39,15 +42,16 @@ public class StorageBlock extends Block
         return blockIndexInTexture + md;
     }
     
-    public void addCreativeItems(ArrayList arraylist)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
     	for (int iter = 0; iter < 5; iter++)
     	{
-    		arraylist.add(new ItemStack(InfiBlocks.getContentInstance().storageBlock, 1, iter));
+    		list.add(new ItemStack(id, 1, iter));
     	}
     	for (int iter = 12; iter < 16; iter++)
     	{
-    		arraylist.add(new ItemStack(InfiBlocks.getContentInstance().storageBlock, 1, iter));
+    		list.add(new ItemStack(id, 1, iter));
     	}
     }
     

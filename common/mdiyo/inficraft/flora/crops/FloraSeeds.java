@@ -2,22 +2,18 @@ package mDiyo.inficraft.flora.crops;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
+import net.minecraft.src.ItemSeedFood;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
 
-public class FloraSeeds extends Item
+public class FloraSeeds extends ItemSeedFood
 {
-    private int blockType;
-    private int plantableBlock;
-
-    public FloraSeeds(int i, int j, int k)
+    public FloraSeeds(int id, int cropID, int soilID)
     {
-        super(i);
-        blockType = j;
-        plantableBlock = k;
+        super(id, 0, 0, cropID, soilID);
     }
 
-    @Override
+    /*@Override
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
         if (side != 1)
@@ -39,7 +35,7 @@ public class FloraSeeds extends Item
         {
             return false;
         }
-    }
+    }*/
 
     public String getTextureFile()
     {

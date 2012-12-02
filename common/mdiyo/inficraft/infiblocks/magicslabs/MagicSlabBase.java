@@ -1,11 +1,14 @@
 package mDiyo.inficraft.infiblocks.magicslabs;
 import java.util.ArrayList;
+import java.util.List;
 
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockDoor;
 import net.minecraft.src.BlockPane;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
@@ -18,6 +21,7 @@ public class MagicSlabBase extends Block
     public MagicSlabBase(int i, int j, Material material)
     {
         super(i, j, material);
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
 
     public boolean canPlaceBlockAt(World world, int i, int j, int k)
@@ -1564,5 +1568,14 @@ public class MagicSlabBase extends Block
         } else {
         	return false;
         }
+    }
+    
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
+    {
+    	for (int iter = 0; iter < 16; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
     }
 }

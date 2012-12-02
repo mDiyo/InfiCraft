@@ -53,7 +53,7 @@ public class InfiToolPickaxe extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/inficore/pickaxes.png";
+        return "/infitextures/pickaxes.png";
     }
     
     public float getStrVsBlock(ItemStack itemstack, Block block, int meta)

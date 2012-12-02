@@ -1,9 +1,15 @@
 package mDiyo.inficraft.flora.clouds;
 
+import java.util.List;
+
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
@@ -15,6 +21,7 @@ public class CloudBlock extends Block
         this.setHardness(0.3F);
         this.setStepSound(Block.soundClothFootstep);
         this.setBlockName("cloud");
+        setCreativeTab(CreativeTabs.tabDecorations);
     }
 
     @Override
@@ -102,5 +109,15 @@ public class CloudBlock extends Block
     public int getBlockTextureFromSideAndMetadata(int i, int j)
     {
         return blockIndexInTexture + j;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
+    {
+        for (int iter = 0; iter < 4; ++iter)
+        {
+            list.add(new ItemStack(id, 1, iter));
+        }
     }
 }

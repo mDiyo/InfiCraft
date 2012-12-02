@@ -17,7 +17,7 @@ public class InfiToolAxe extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/inficore/axes.png";
+        return "/infitextures/axes.png";
     }
     
     public float getStrVsBlock(ItemStack itemstack, Block block, int meta)

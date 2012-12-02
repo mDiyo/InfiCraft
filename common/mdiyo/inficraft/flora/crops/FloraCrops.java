@@ -44,7 +44,7 @@ public class FloraCrops
 		
 		seedBag = new SeedBag(PHCrops.seedBagID).setItemName("seedBag");
 		
-		food = new RecipeItem(PHCrops.foodID, "/floratex/seeds.png").setIconCoord(1, 3).setItemName("food");
+		food = new RecipeItem(PHCrops.foodID, seedTexture).setIconCoord(1, 3).setItemName("food");
 		floraCrops = new FloraCropBlock(PHCrops.floraCropsID, 80);
 		barleySeed = new FloraSeeds(PHCrops.barleySeedID, floraCrops.blockID, Block.tilledField.blockID).setIconCoord(1, 2).setItemName("barleySeed");
 		
@@ -213,4 +213,5 @@ public class FloraCrops
 
 	public static String cropTexture = "/infitextures/crops.png";
 	public static String seedTexture = "/infitextures/seeds.png";
+	public static String foodTexture = "/infitextures/food.png";
 }

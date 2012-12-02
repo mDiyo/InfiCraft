@@ -6,8 +6,10 @@ import mDiyo.inficraft.infiblocks.magicslabs.MagicSlabBase;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockPane;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
@@ -19,6 +21,7 @@ public class PaneBase extends Block
     {
         super(i, j, material);
         sideTextureIndex = k;
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
 
     public boolean isOpaqueCube()
@@ -142,5 +145,14 @@ public class PaneBase extends Block
         return Block.opaqueCubeLookup[bID] || Block.blocksList[bID] instanceof PaneBase 
         		|| Block.blocksList[bID] instanceof MagicSlabBase || bID == Block.glass.blockID
         		|| bID == InfiBlocks.getContentInstance().stainedGlass.blockID;
+    }
+    
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
+    {
+    	for (int iter = 0; iter < 16; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
     }
 }

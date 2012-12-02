@@ -1,9 +1,14 @@
 package mDiyo.inficraft.flora.corruptor;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
+
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
@@ -17,6 +22,7 @@ public class CorruptorBlock extends Block
         this.setTickRandomly(true);
         this.setHardness(1.0F);
         this.setBlockName("corruptor");
+        setCreativeTab(CreativeTabs.tabMisc);
     }
 
     public void updateTick(World world, int i, int j, int k, Random random)
@@ -153,23 +159,13 @@ public class CorruptorBlock extends Block
         return FloraCorruptor.texture;
     }
 
-    public void addCreativeItems(ArrayList arraylist)
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 0));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 1));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 2));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 3));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 4));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 5));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 6));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 7));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 8));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 9));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 10));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 11));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 12));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 13));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 14));
-        arraylist.add(new ItemStack(FloraCorruptor.corruptor, 1, 15));
+        for (int iter = 0; iter < 16; ++iter)
+        {
+            list.add(new ItemStack(id, 1, iter));
+        }
     }
 }

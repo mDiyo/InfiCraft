@@ -128,7 +128,7 @@ public class FloraCropBlock extends BlockFlower
         }
         else
         {
-            return -1;
+            return 0;
         }
     }
 

@@ -58,6 +58,8 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 	/* Ties an internal name to a visible one. */
 	public void addNames() 
 	{
+		LanguageRegistry.instance().addStringLocalization("itemGroup.InfiBlocks", "InfiBlocks");
+		
 		LanguageRegistry.instance().addStringLocalization("item.chiselIron.name", "Chisel");
 		LanguageRegistry.instance().addStringLocalization("item.chiselDiamond.name", "Diamond Chisel");
 		
@@ -329,6 +331,17 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("sandstoneStorage.name", "Smooth Sandstone");
 		LanguageRegistry.instance().addStringLocalization("slabStorage.name", "Refined Stone");
 		LanguageRegistry.instance().addStringLocalization("brickStorage.name", "Brick block");
+		
+		LanguageRegistry.instance().addStringLocalization("coalStorageMagicSlab.name", "Coal Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("charcoalStorageMagicSlab.name", "Charcoal Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("redstoneStorageMagicSlab.name", "Redstone Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("slimeStorageMagicSlab.name", "Slime Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("boneStorageMagicSlab.name", "Bone Magic Slab Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("wheatStorageMagicSlab.name", "Thatching Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("netherrackStorageMagicSlab.name", "Smooth Netherrack Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("sandstoneStorageMagicSlab.name", "Smooth Sandstone Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("slabStorageMagicSlab.name", "Refined Stone Magic Slab");
+		LanguageRegistry.instance().addStringLocalization("brickStorageMagicSlab.name", "Brick Magic Slab");
 		
 		LanguageRegistry.instance().addStringLocalization("oakChestInfi.name", "Oak Chest");
         LanguageRegistry.instance().addStringLocalization("birchChestInfi.name", "Birch Chest");

@@ -1,5 +1,6 @@
 package mDiyo.inficraft.infitools.core.buckets;
 
+import mDiyo.inficraft.infitools.core.InfiCore;
 import net.minecraft.src.*;
 
 public class InfiBucketIron extends ItemBucket 
@@ -15,7 +16,7 @@ public class InfiBucketIron extends ItemBucket
 	@Override
 	public String getTextureFile()
     {
-        return "/inficore/items.png";
+        return InfiCore.itemTexture;
     }
 
 }

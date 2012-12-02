@@ -26,7 +26,7 @@ public abstract class InfiWeaponCore extends ItemSword
     private String[] namePrefix = {
         	"", "Stony ", "Hard ", "Jeweled ", "Red ", "Glassy ", "Sandy ", "Occult ", "Fibery ",
         	"Mossy ", "Bloody ", "Glowing ", "Cold ", "Fiery ", "Slimy ", "Spiny ", "Rough ", "Hot ",
-        	"Cupric ", "Bronzed ", "Worked ", "Forged ", "Blue ", "Rustic ", "Exotic ", "Poisonous"
+        	"Cupric ", "Bronzed ", "Worked ", "Forged ", "Blue ", "Rustic ", "Exotic ", "Poisonous "
         };
         
         private String[] nameSuffix = {
@@ -59,6 +59,7 @@ public abstract class InfiWeaponCore extends ItemSword
         {
         	ModLoader.addName(this, namePrefix[handleType - 1] + nameSuffix[headType-1] + " " + getInvName());
         }
+        this.setCreativeTab(InfiLibrary.infitools);
 	}
 	
 	public abstract String getInvName();

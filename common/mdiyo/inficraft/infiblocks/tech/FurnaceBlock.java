@@ -1,5 +1,6 @@
 package mDiyo.inficraft.infiblocks.tech;
 
+import java.util.List;
 import java.util.Random;
 
 import mDiyo.inficraft.infiblocks.InfiBlocks;
@@ -7,6 +8,7 @@ import mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
 import mDiyo.shared.machines.BlockLogicBase;
 import mDiyo.shared.machines.BlockMachineBase;
 
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
@@ -31,6 +33,7 @@ public class FurnaceBlock extends BlockMachineBase
         setHardness(1.5F);
         setStepSound(soundMetalFootstep);
         rand = new Random();
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
 
     public String getTextureFile()
@@ -100,50 +103,6 @@ public class FurnaceBlock extends BlockMachineBase
         return Integer.valueOf(InfiBlocksCommonProxy.furnaceGuiID);
     }
 
-    /*public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityliving)
-    {
-        BlockLogicBase logic = (BlockLogicBase)world.getBlockTileEntity(x, y, z);
-        System.out.println("Block logic: "+logic);
-        if (entityliving == null)
-        {
-            logic.setFacing((byte) 1);
-        }
-        else
-        {
-            int facing = MathHelper.floor_double((double)((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
-            int pitch = Math.round(entityliving.rotationPitch);
-            if (pitch >= 65)
-            {
-                logic.setFacing((byte)1);
-            }
-            else if (pitch <= -65)
-            {
-                logic.setFacing((byte)0);
-            }
-            else
-            {
-                switch (facing)
-                {
-                    case 0:
-                        logic.setFacing((byte)2);
-                        break;
-
-                    case 1:
-                        logic.setFacing((byte)5);
-                        break;
-
-                    case 2:
-                        logic.setFacing((byte)3);
-                        break;
-
-                    case 3:
-                        logic.setFacing((byte)4);
-                        break;
-                }
-            }
-        }
-    }*/
-
     public void randomDisplayTick(World world, int i, int j, int k, Random random)
     {
         if (isActive(world, i, j, k))
@@ -184,48 +143,6 @@ public class FurnaceBlock extends BlockMachineBase
     {
         return !isActive(iblockaccess, i, j, k) ? 0 : 13;
     }
-    
-    /*@Override
-    public void onBlockRemoval(World world, int i, int j, int k)
-    {
-            FurnaceLogic furnaceLogic = (FurnaceLogic)world.getBlockTileEntity(i, j, k);
-            if (furnaceLogic != null)
-            {
-                label0:
-                for (int l = 0; l < furnaceLogic.getSizeInventory(); l++)
-                {
-                    ItemStack itemstack = furnaceLogic.getStackInSlot(l);
-                    if (itemstack == null)
-                    {
-                        continue;
-                    }
-                    float f = rand.nextFloat() * 0.8F + 0.1F;
-                    float f1 = rand.nextFloat() * 0.8F + 0.1F;
-                    float f2 = rand.nextFloat() * 0.8F + 0.1F;
-                    do
-                    {
-                        if (itemstack.stackSize <= 0)
-                        {
-                            continue label0;
-                        }
-                        int i1 = rand.nextInt(21) + 10;
-                        if (i1 > itemstack.stackSize)
-                        {
-                            i1 = itemstack.stackSize;
-                        }
-                        itemstack.stackSize -= i1;
-                        EntityItem entityitem = new EntityItem(world, (float)i + f, (float)j + f1, (float)k + f2, new ItemStack(itemstack.itemID, i1, itemstack.getItemDamage()));
-                        float f3 = 0.05F;
-                        entityitem.motionX = (float)rand.nextGaussian() * f3;
-                        entityitem.motionY = (float)rand.nextGaussian() * f3 + 0.2F;
-                        entityitem.motionZ = (float)rand.nextGaussian() * f3;
-                        world.spawnEntityInWorld(entityitem);
-                    }
-                    while (true);
-                }
-            }
-        super.onBlockRemoval(world, i, j, k);
-    }*/
     
     @Override
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
@@ -278,4 +195,13 @@ public class FurnaceBlock extends BlockMachineBase
 	public TileEntity createNewTileEntity(World var1) {
 		return new FurnaceLogic();
 	}
+	
+	@Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
+    {
+    	for (int iter = 0; iter < 9; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
+    }
 }

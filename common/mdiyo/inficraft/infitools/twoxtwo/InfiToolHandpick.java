@@ -78,7 +78,7 @@ public class InfiToolHandpick extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/infi2x2/handpicks.png";
+        return "/infitextures/handpicks.png";
     }
 
     static

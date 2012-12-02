@@ -135,6 +135,6 @@ public class MossBlock extends Block
 
 	@Override
 	public String getTextureFile() {
-		return "/infibase/items.png";
+		return InfiLibrary.itemTexture;
 	}
 }

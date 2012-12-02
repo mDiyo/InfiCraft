@@ -1,8 +1,10 @@
 package mDiyo.inficraft.infiblocks.blocks;
 import java.util.ArrayList;
+import java.util.List;
 
 import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
@@ -11,9 +13,10 @@ import net.minecraft.src.World;
 public class Brownstone extends Block
 {
 
-    public Brownstone(int i, int j)
+    public Brownstone(int id, int tex)
     {
-        super(i, j, Material.rock);
+        super(id, tex, Material.rock);
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
 
     public void onEntityWalking(World world, int i, int j, int k, Entity entity)
@@ -52,11 +55,12 @@ public class Brownstone extends Block
         return InfiBlocks.getContentInstance().brickModelID;
     }
     
-    public void addCreativeItems(ArrayList arraylist)
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
     	for (int iter = 0; iter < 6; iter++)
     	{
-    		arraylist.add(new ItemStack(InfiBlocks.getContentInstance().brownstone, 1, iter));
+    		list.add(new ItemStack(id, 1, iter));
     	}
     }
     

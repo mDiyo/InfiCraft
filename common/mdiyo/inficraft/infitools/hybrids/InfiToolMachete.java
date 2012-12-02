@@ -21,7 +21,7 @@ public class InfiToolMachete extends InfiWeaponCore
 
     public String getTextureFile()
     {
-        return "/infihybrids/machetes.png";
+        return "/infitextures/machetes.png";
     }
 
     

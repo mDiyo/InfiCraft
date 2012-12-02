@@ -19,7 +19,7 @@ public class InfiToolSword extends InfiWeaponCore
 
     public String getTextureFile()
     {
-        return "/inficore/swords.png";
+        return "/infitextures/swords.png";
     }
     
     public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)

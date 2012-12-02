@@ -23,7 +23,7 @@ public class InfiToolTrowel extends InfiToolCore
 
     public String getTextureFile()
     {
-        return "/infi2x2/trowels.png";
+        return "/infitextures/trowels.png";
     }
 
     static

@@ -1,5 +1,6 @@
 package mDiyo.inficraft.infiblocks;
 
+import net.minecraft.src.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -25,6 +26,8 @@ public class InfiBlocks
 	
 	@Instance("InfiBlocks")
 	public static InfiBlocks instance;
+	
+	public static CreativeTabs infiBlockTab = new TabInfiBlocks("InfiBlocks");
 	
 	/* Instance of the content, used to grab blocks and such. */
     private static InfiBlockContent contentInstance;

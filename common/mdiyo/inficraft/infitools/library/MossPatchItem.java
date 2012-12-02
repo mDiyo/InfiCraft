@@ -44,6 +44,6 @@ public class MossPatchItem extends Item
     @Override
     public String getTextureFile()
     {
-        return "/infibase/items.png";
+        return InfiLibrary.itemTexture;
     }
 }

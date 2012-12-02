@@ -1,7 +1,12 @@
 package mDiyo.inficraft.infiblocks.blocks;
 
+import java.util.List;
+
+import mDiyo.inficraft.infiblocks.InfiBlocks;
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
@@ -11,6 +16,7 @@ public class CarpetBlock extends Block
     {
         super(i, 64, Material.cloth);
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+        setCreativeTab(InfiBlocks.infiBlockTab);
     }
 
     public int getBlockTextureFromSideAndMetadata(int i, int j)
@@ -93,5 +99,14 @@ public class CarpetBlock extends Block
     public static int getDyeFromBlock(int i)
     {
         return ~i & 0xf;
+    }
+    
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
+    {
+    	for (int iter = 0; iter < 16; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
     }
 }

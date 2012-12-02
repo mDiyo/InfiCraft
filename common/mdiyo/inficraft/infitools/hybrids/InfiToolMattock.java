@@ -26,7 +26,7 @@ public class InfiToolMattock extends InfiHoeCore
 
     public String getTextureFile()
     {
-        return "/infihybrids/mattocks.png";
+        return "/infitextures/mattocks.png";
     }
 
     static

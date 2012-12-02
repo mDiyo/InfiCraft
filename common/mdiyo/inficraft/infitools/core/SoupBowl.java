@@ -1,6 +1,9 @@
 package mDiyo.inficraft.infitools.core;
 
+import java.util.List;
+
 import mDiyo.inficraft.infitools.library.InfiToolPowers;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemFood;
@@ -57,6 +60,14 @@ public class SoupBowl extends ItemFood
 	@Override
 	public String getTextureFile() 
 	{
-		return "/inficore/items.png";
+		return InfiCore.itemTexture;
 	}
+	
+	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    {
+        for (int var4 = 0; var4 < 7; ++var4)
+        {
+            par3List.add(new ItemStack(par1, 1, var4));
+        }
+    }
 }

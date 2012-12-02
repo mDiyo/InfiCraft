@@ -145,8 +145,8 @@ public class InfiCore
 			new ItemStack(Item.axeDiamond), new ItemStack(Item.pickaxeDiamond), new ItemStack(Item.shovelDiamond), 
 			new ItemStack(Item.swordDiamond),new ItemStack(Item.hoeDiamond),
 			
-			new ItemStack(Item.axeGold), new ItemStack(Item.pickaxeGold), new ItemStack(Item.shovelGold), 
-			new ItemStack(Item.swordGold),new ItemStack(Item.hoeGold),
+			/*new ItemStack(Item.axeGold), new ItemStack(Item.pickaxeGold), new ItemStack(Item.shovelGold), 
+			new ItemStack(Item.swordGold),new ItemStack(Item.hoeGold),*/
 			
 			new ItemStack(Item.bucketEmpty)
 		};
@@ -173,4 +173,5 @@ public class InfiCore
 		}
 	}
 
+	public static String itemTexture = "/infitextures/coreitems.png";
 }
