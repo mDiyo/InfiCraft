@@ -19,6 +19,7 @@ public class Planks extends Block
 		blockIndexInTexture = texPos;
 		texture = tex;
 		setBurnProperties(this.blockID, 5, 20);
+		this.setHardness(2.0f);
 	}
 	
 	@Override

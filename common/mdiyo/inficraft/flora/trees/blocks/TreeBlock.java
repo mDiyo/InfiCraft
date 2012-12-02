@@ -1,6 +1,7 @@
 package mDiyo.inficraft.flora.trees.blocks;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import mDiyo.inficraft.flora.trees.FloraTrees;
 import net.minecraft.src.Block;
@@ -45,6 +46,11 @@ public class TreeBlock extends BlockLog
     	}
     	
     	return tex;
+    }
+    
+    public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return this.blockID;
     }
 
     @Override
