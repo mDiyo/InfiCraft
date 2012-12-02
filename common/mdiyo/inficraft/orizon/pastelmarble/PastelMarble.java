@@ -1,6 +1,7 @@
 package mDiyo.inficraft.orizon.pastelmarble;
 
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
@@ -20,6 +21,7 @@ public class PastelMarble
 	/* Instance of this mod, used for grabbing prototype fields */
 	@Instance("OrizonPastels")
 	public static PastelMarble instance;
+	public static CreativeTabs stonetab = new TabOrizonStone("orizonStone");
 	
 	/* Initial loading, used to define blocks, items, and entities */	
 	@PreInit

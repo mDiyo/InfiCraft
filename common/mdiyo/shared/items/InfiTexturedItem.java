@@ -20,9 +20,10 @@ public class InfiTexturedItem extends Item
         setHasSubtypes(true);
         setMaxDamage(0);
         this.setItemName(itemName);
-        LanguageRegistry.instance().addStringLocalization(this.getItemName(), "en_US", itemName);
+        LanguageRegistry.instance().addNameForObject(this, "en_US", itemName);
         texturePath = texture;
         setCreativeTab(tab);
+        
     }
 
     public String getTextureFile()

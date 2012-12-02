@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.BlockBreakable;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
@@ -15,6 +16,7 @@ public class SlimeGelBlock extends BlockBreakable
         super(i, j, Material.sponge, false);
         enableStats = false;
         this.setBlockName("SlimeGel");
+        setCreativeTab(CreativeTabs.tabDecorations);
     }
     
 	public boolean getEnableStats() {return false;}

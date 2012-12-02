@@ -52,6 +52,6 @@ public class FloraBerries
 
 	public static int berryModelID;
 	
-	public static String bushTexture = "/mDiyo/inficraft/flora/textures/bushes.png";
-	public static String seedTexture = "/mDiyo/inficraft/flora/textures/seeds.png";
+	public static String bushTexture = "/infitextures/bushes.png";
+	public static String seedTexture = "/infitextures/seeds.png";
 }

@@ -22,7 +22,7 @@ public class CorruptorBlock extends Block
         this.setTickRandomly(true);
         this.setHardness(1.0F);
         this.setBlockName("corruptor");
-        setCreativeTab(CreativeTabs.tabMisc);
+        setCreativeTab(CreativeTabs.tabBlock);
     }
 
     public void updateTick(World world, int i, int j, int k, Random random)

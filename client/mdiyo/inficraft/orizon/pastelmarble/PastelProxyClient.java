@@ -16,14 +16,24 @@ public class PastelProxyClient extends PastelProxyCommon
 	}
 	public void addNames() 
 	{
+		LanguageRegistry.instance().addStringLocalization("itemGroup.orizonStone", "en_US", "Pastel Stone");
+		
 		LanguageRegistry.instance().addStringLocalization("whiteMarble.name", "en_US", "White Marble");
 		LanguageRegistry.instance().addStringLocalization("blackMarble.name", "en_US", "Black Marble");
 		LanguageRegistry.instance().addStringLocalization("roseMarble.name", "en_US", "Rose Marble");
 		LanguageRegistry.instance().addStringLocalization("emeraldMarble.name", "en_US", "Emerald Marble");
 		LanguageRegistry.instance().addStringLocalization("azureMarble.name", "en_US", "Azure Marble");
+		LanguageRegistry.instance().addStringLocalization("rubyMarble.name", "en_US", "Ruby Marble");
+		
+		LanguageRegistry.instance().addStringLocalization("whiteCobbleMarble.name", "en_US", "White Marble Cobblestone");
+		LanguageRegistry.instance().addStringLocalization("blackCobbleMarble.name", "en_US", "Black Marble Cobblestone");
+		LanguageRegistry.instance().addStringLocalization("roseCobbleMarble.name", "en_US", "Rose Marble Cobblestone");
+		LanguageRegistry.instance().addStringLocalization("emeraldCobbleMarble.name", "en_US", "Emerald Marble Cobblestone");
+		LanguageRegistry.instance().addStringLocalization("azureCobbleMarble.name", "en_US", "Azure Marble Cobblestone");
+		LanguageRegistry.instance().addStringLocalization("rubyCobbleMarble.name", "en_US", "Ruby Marble Cobblestone");
 		
 		String namePrefixArray[] = { "high", "medium", "low", "dark", "red", "blue", "yellow", "purple",
-	    	"aqua", "darkgreen", "orange", "pink", "blueGray", "mint", "violet", "cyan"	
+	    	"aqua", "darkgreen", "orange", "pink", "bluegray", "mint", "violet", "cyan"	
 	    };
 	    	
 	    String nameSuffixArray[] = { "Stone", "Cobblestone", "Brick", 

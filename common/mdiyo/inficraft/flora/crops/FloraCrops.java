@@ -44,14 +44,14 @@ public class FloraCrops
 		
 		seedBag = new SeedBag(PHCrops.seedBagID).setItemName("seedBag");
 		
-		food = new RecipeItem(PHCrops.foodID, seedTexture).setIconCoord(1, 3).setItemName("food");
+		food = new RecipeItem(PHCrops.foodID).setIconCoord(1, 3).setItemName("food");
 		floraCrops = new FloraCropBlock(PHCrops.floraCropsID, 80);
 		barleySeed = new FloraSeeds(PHCrops.barleySeedID, floraCrops.blockID, Block.tilledField.blockID).setIconCoord(1, 2).setItemName("barleySeed");
 		
 		waterDrop = new CactusJuice(PHCrops.ingredientsID + 0, 2, false, 16).setIconCoord(3, 0).setItemName("waterDrop");
 		
-		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, "/floratex/infifood.png", "Wheat Flour").setIconCoord(1, 0);
-		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, "/floratex/infifood.png", "Wheat Dough").setIconCoord(2, 0);
+		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, "/infitextures/food.png", "Wheat Flour").setIconCoord(1, 0);
+		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, "/infitextures/food.png", "Wheat Dough").setIconCoord(2, 0);
 		
 		ModLoader.registerBlock(floraCrops);
 	}
@@ -67,7 +67,7 @@ public class FloraCrops
 	}
 	
 	/* Render methods, used for saguaro */
-	public boolean renderWorldBlock(RenderBlocks renderblocks, IBlockAccess iblockaccess, int x, int y, int z, Block block, int modelID)
+	/*public boolean renderWorldBlock(RenderBlocks renderblocks, IBlockAccess iblockaccess, int x, int y, int z, Block block, int modelID)
 	{
 		
 		if (modelID == saguaroModel){
@@ -95,11 +95,11 @@ public class FloraCrops
 		int cactusAbove = iblockaccess.getBlockId(x, y+1, z);	
 		
 		if(airBelow == 0)
-			bY = offset;
+			bY = offset;*/
 		/*if(cactusAbove == saguaro.blockID)
 			tY = 1.0F;*/
 		
-		cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
+		/*cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
 		renderblocks.renderStandardBlock(cactus, x, y, z);
 		
 		bY = offset;
@@ -195,7 +195,7 @@ public class FloraCrops
 		renderblocks.renderSouthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(5, i));
 		tessellator.draw();
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-	}
+	}*/
 	
 	/* Prototype fields, used elsewhere */
 	

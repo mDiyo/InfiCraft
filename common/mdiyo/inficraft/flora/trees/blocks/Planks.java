@@ -47,6 +47,12 @@ public class Planks extends Block
 			return 0;
         return blockFireSpreadSpeed[blockID];
     }
+    
+    @Override
+    public int damageDropped(int meta)
+    {
+        return meta;
+    }
 
 	private String texture;
 }

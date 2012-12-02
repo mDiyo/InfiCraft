@@ -1,7 +1,10 @@
 package mDiyo.inficraft.orizon.pastelmarble;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
@@ -11,6 +14,7 @@ public class ColoredStone extends Block
     {
         super(i, j, Material.rock);
         enableStats = false;
+        setCreativeTab(PastelMarble.stonetab);
     }
     
 	public boolean getEnableStats() {return false;}
@@ -40,5 +44,14 @@ public class ColoredStone extends Block
     public boolean isGenMineableReplaceable(World world, int x, int y, int z)
     {
         return true;
+    }
+    
+    @Override
+    public void getSubBlocks(int id, CreativeTabs tab, List list)
+    {
+    	for (int iter = 0; iter < 16; iter++)
+    	{
+    		list.add(new ItemStack(id, 1, iter));
+    	}
     }
 }

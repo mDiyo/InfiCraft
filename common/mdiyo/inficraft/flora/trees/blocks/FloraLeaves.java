@@ -8,6 +8,7 @@ import net.minecraft.src.Block;
 import net.minecraft.src.BlockLeaves;
 import net.minecraft.src.BlockLeavesBase;
 import net.minecraft.src.ColorizerFoliage;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.IBlockAccess;
@@ -32,6 +33,7 @@ public class FloraLeaves extends BlockLeaves
         this.setStepSound(Block.soundGrassFootstep);
         this.setBlockName("floraLeaves");
         this.setRequiresSelfNotify();
+        setCreativeTab(CreativeTabs.tabDecorations);
     }
 
     public int getBlockColor()

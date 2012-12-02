@@ -1,6 +1,7 @@
 package mDiyo.inficraft.flora.trees.blocks;
 import mDiyo.inficraft.flora.trees.FloraTrees;
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -18,6 +19,7 @@ public class FloraDoorItem extends Item
         
         door = bID;
         //maxStackSize = 1;
+        setCreativeTab(CreativeTabs.tabRedstone);
     }
 
     public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side)

@@ -20,7 +20,7 @@ public class CorruptBrick extends Block
         blockIndexInTexture = 112;
         this.setHardness(2.0F);
         this.setBlockName("corruptbrick");
-        setCreativeTab(CreativeTabs.tabDecorations);
+        setCreativeTab(CreativeTabs.tabBlock);
     }
 
     public int getBlockTextureFromSideAndMetadata(int i, int j)

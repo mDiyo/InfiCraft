@@ -6,7 +6,7 @@ public class MarbleItem extends ItemBlock
 {
     public static final String blockType[] =
     {
-        "white", "black", "rose", "emerald", "azure", "ruby"
+        "white", "black", "rose", "emerald", "azure", "ruby", "whiteCobble", "blackCobble", "roseCobble", "emeraldCobble", "azureCobble", "rubyCobble"
     };
 
     public MarbleItem(int i)

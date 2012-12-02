@@ -5,6 +5,8 @@ import java.io.File;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.MinecraftForgeClient;
+import mDiyo.inficraft.flora.crops.FloraCrops;
 import mDiyo.inficraft.flora.trees.FloraTrees;
 import mDiyo.inficraft.flora.trees.FloraTreesCommonProxy;
 
@@ -14,7 +16,7 @@ public class FloraTreesClientProxy extends FloraTreesCommonProxy
 	@Override
 	public void registerRenderer() 
 	{
-		
+		MinecraftForgeClient.preloadTexture(FloraTrees.texture);
 	}
 	
 	/* Ties an internal name to a visible one. Does nothing server-side */
