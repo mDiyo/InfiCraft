@@ -23,7 +23,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.1")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.2")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */

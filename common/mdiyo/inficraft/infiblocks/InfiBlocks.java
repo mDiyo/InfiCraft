@@ -16,7 +16,7 @@ import cpw.mods.fml.common.SidedProxy;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.5_2012.11.29b")
+@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.5_2012.12.2")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class InfiBlocks
 {

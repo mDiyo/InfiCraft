@@ -19,7 +19,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.4.5_2012.11.29")
+@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.4.5_2012.12.2")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true, channels = {"infi2x2"})
 public class Infi2x2
 {
