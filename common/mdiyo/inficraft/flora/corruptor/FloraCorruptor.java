@@ -60,5 +60,5 @@ public class FloraCorruptor
 	public static Block corruptor;
 	public static Block corruptBrick;
 	
-	public static String texture = "/mDiyo/inficraft/flora/textures/stone.png";
+	public static String texture = "/infitextures/corruptstone.png";
 }

@@ -18,7 +18,7 @@ public class BerryBushGen extends WorldGenerator
         int height = findGround(world, x, y, z);
         if (height != 0)
         {
-        	System.out.println("Base point: "+x+" "+height+" "+z);
+        	//System.out.println("Base point: "+x+" "+height+" "+z);
             generateNode(world, random, x, height, z);
         }
         return true;

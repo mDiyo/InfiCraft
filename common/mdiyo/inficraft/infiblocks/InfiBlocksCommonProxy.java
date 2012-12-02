@@ -6,9 +6,11 @@ import mDiyo.inficraft.infiblocks.tech.FurnaceLogic;
 import mDiyo.inficraft.infiblocks.tech.WorkbenchContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.Packet;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 /**
@@ -53,4 +55,18 @@ public class InfiBlocksCommonProxy implements IGuiHandler
 	
 	public static int craftingGuiID = 1;
 	public static int furnaceGuiID = 2;
+	
+	/*
+	 * Methods provided by Bioxx
+	 */
+	
+	public void sendCustomPacket(Packet packet)
+	{
+		FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().sendPacketToAllPlayers(packet);
+	}
+	
+	public void sendCustomPacketToPlayersInRange(double X, double Y, double Z, Packet packet, double range)
+	{ 
+		FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().sendToAllNear(X, Y, Z, range, 0, packet);
+	}
 }

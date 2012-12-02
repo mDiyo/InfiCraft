@@ -71,5 +71,5 @@ public class PastelMarble
 	
 	public Block marble;
 	
-	public static String texture = "/mDiyo/inficraft/orizon/textures/stone.png";
+	public static String texture = "/infitextures/stone.png";
 }

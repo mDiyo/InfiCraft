@@ -211,6 +211,6 @@ public class FloraCrops
 	
 	public static int saguaroModel;
 
-	public static String cropTexture = "/mDiyo/inficraft/flora/textures/crops.png";
-	public static String seedTexture = "/mDiyo/inficraft/flora/textures/seeds.png";
+	public static String cropTexture = "/infitextures/crops.png";
+	public static String seedTexture = "/infitextures/seeds.png";
 }

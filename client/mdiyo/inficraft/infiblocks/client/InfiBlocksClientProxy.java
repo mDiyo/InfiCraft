@@ -10,9 +10,12 @@ import mDiyo.inficraft.infiblocks.client.tech.WorkbenchGui;
 import mDiyo.inficraft.infiblocks.tech.FurnaceLogic;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.Packet;
 import net.minecraft.src.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -348,5 +351,15 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 	public File getMinecraftDir()
 	{
 		return Minecraft.getMinecraftDir();
+	}
+	
+	/*
+	 * Methods provided by Bioxx
+	 */
+	
+	@Override
+	public void sendCustomPacket(Packet packet)
+	{
+		PacketDispatcher.sendPacketToServer(packet);     
 	}
 }

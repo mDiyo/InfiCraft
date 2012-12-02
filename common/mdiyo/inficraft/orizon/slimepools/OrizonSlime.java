@@ -63,5 +63,5 @@ public class OrizonSlime
     
     public static int slimeModel;
 	
-	public static String texture = "/mDiyo/inficraft/orizon/textures/slime.png";
+	public static String texture = "/infitextures/slime.png";
 }

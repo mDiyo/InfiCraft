@@ -43,7 +43,10 @@ public class PHTrees
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
         
-        redwoodID = config.getBlock("Wood Block", 3251).getInt(3251);
+        treeID = config.getBlock("Wood Block", 3251).getInt(3251);
+        redwoodID = config.getBlock("Redwood Block", 3261).getInt(3261);
+        planksID = config.getBlock("Planks Block", 3262).getInt(3262);
+        bloodwoodID = config.getBlock("Bloodwood Block", 3263).getInt(3263);
         floraLeavesID = config.getBlock("Flora Leaves", 3259).getInt(3259); 
         cherryLeavesID = config.getBlock("Sakura Leaves", 3258).getInt(3258);       
         
@@ -60,7 +63,7 @@ public class PHTrees
         generateBloodwood = config.get("general", "Generate Bloodwood Trees", true).getBoolean(true);
         generateGhost = config.get("general", "Generate Ghost Trees", true).getBoolean(true);
         
-        redwoodSpawnDensity = config.get("general", "Redwood Tree Spawn Density", 6).getInt(6);
+        redwoodSpawnDensity = config.get("general", "Redwood Tree Spawn Density", 60).getInt(60);
         redwoodSpawnHeight = config.get("general", "Redwood Tree Spawn Height", 64).getInt(64);
         redwoodSpawnRange = config.get("general", "Redwood Tree Spawn Range", 32).getInt(32);
         bloodSpawnDensity = config.get("general", "Bloodwood Tree Spawn Density", 5).getInt(5);
@@ -76,15 +79,20 @@ public class PHTrees
         whiteSpawnHeight = config.get("general", "Ghost Tree Spawn Height", 16).getInt(16);
         whiteSpawnRange  = config.get("general", "Ghost Tree Spawn Range", 80).getInt(80);
         
+        seaLevel = config.get("general", "Sea level", 64).getInt(64);
+        
         /* Save the configuration file */
         config.save();
     }
 	
+	public static int treeID;
 	public static int redwoodID;
-	public static int cherryLeavesID;
+	public static int planksID;
+	public static int bloodwoodID;
 	
 	public static int floraSaplingID;
 	public static int floraLeavesID;
+	public static int cherryLeavesID;
 	
 	public static int redwoodDoorID;
 	public static int redwoodDoorItemID;
@@ -112,4 +120,6 @@ public class PHTrees
 	public static int whiteSpawnDensity;
 	public static int whiteSpawnHeight;
 	public static int whiteSpawnRange;
+	
+	public static int seaLevel;
 }

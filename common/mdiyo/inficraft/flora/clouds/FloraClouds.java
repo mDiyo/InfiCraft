@@ -62,5 +62,5 @@ public class FloraClouds
 	public static Block cloud;
 	
 	/* Texture locations */
-	public static String texture = "/mDiyo/inficraft/flora/textures/clouds.png";
+	public static String texture = "/infitextures/clouds.png";
 }
