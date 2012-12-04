@@ -2,6 +2,7 @@ package mDiyo.inficraft.orizon.slimepools;
 
 import java.util.Random;
 
+import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.EntitySlime;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.Material;
@@ -21,7 +22,7 @@ public class SlimeBlockStill extends LiquidBlockBase
     
     public void updateTick(World world, int x, int y, int z, Random rand)
     {
-    	if (rand.nextInt(20) == 0) 
+    	if (rand.nextInt(300) == 0 && world.checkIfAABBIsClear(AxisAlignedBB.getBoundingBox(x - 1, y - 1, z - 1, x + 2, y + 2, z + 2)) )
     	{
     		AirwaterSlimeEntity entityslime = new AirwaterSlimeEntity(world);
             entityslime.setPosition((double)x + 0.5D, (double)y + 1.5D, (double)z + 0.5D);

@@ -105,8 +105,7 @@ public class HudSkills
 		}
 	}
 
-	private void drawSkillGet(PlayerSkills player, int scaledWidth, int scaledHeight) 
-	{
+	private void drawSkillGet(PlayerSkills player, int scaledWidth, int scaledHeight) {
 		if (player.skillJustLearnt != null)
 			if (this.skillGetTimer-- > 0) {
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.8F);

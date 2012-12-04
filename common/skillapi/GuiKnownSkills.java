@@ -269,8 +269,8 @@ public class GuiKnownSkills extends GuiScreen
 				this.heldSkill = null;
 			}
 		}
-	}	
-	
+	}
+
 	protected void keyTyped(char key, int keyCode)
 	{
 		if ((keyCode == 1) || (keyCode == this.mc.gameSettings.keyBindInventory.keyCode))
@@ -285,5 +285,5 @@ public class GuiKnownSkills extends GuiScreen
 	public boolean doesGuiPauseGame()
 	{
 		return false;
-	}
+	}	
 }

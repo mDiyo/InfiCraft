@@ -73,7 +73,7 @@ public abstract class Skill
 	{
 		if ((getManaCost() > playerskills.mana) || (this.cooldownFrame < 8) || (!canPlayerUseSkill(playerskills)))
 		{
-			playerskills.player.worldObj.playSoundAtEntity(playerskills.player, "note.bass", 1.0F, 0.0F);
+			playerskills.getPlayer().worldObj.playSoundAtEntity(playerskills.getPlayer(), "note.bass", 1.0F, 0.0F);
 			return false;
 		}
 		if (isSkillPassive())
@@ -116,7 +116,7 @@ public abstract class Skill
 				startCooldown();
 				return true;
 			}
-			playerskills.player.worldObj.playSoundAtEntity(playerskills.player, "note.bass", 1.0F, 0.0F);
+			playerskills.getPlayer().worldObj.playSoundAtEntity(playerskills.getPlayer(), "note.bass", 1.0F, 0.0F);
 			return false;
 		}
 		return mod_SkillsAPI.getSkillsAPIInstance().playerskills.chargeSkill(this);
@@ -131,7 +131,7 @@ public abstract class Skill
 	public void startCooldown()
 	{
 		this.cooldownTimer = new Timer();
-		//this.cooldownTimer.scheduleAtFixedRate(new SkillCooldown(), 0L, ()(getCooldownTime() / 8.0F * 1000.0F));
+		this.cooldownTimer.scheduleAtFixedRate(new SkillCooldown(), 0L, (long)(getCooldownTime() / 8.0F * 1000.0F));
 	}
 
 	public void endSkillIfActive(PlayerSkills playerskills)
@@ -167,13 +167,8 @@ public abstract class Skill
 		{
 			if (!Skill.this.theGame.isGamePaused)
 				Skill.this.timeLeft -= 1;
-			if ((Skill.this.timeLeft < 1) || (this.skills.player.isDead))
+			if ((Skill.this.timeLeft < 1) || (this.skills.getPlayer().isDead))
 				Skill.this.endSkillIfActive(this.skills);
 		}
 	}
 }
-
-/* Location:					 C:\Users\mDiyo\modding\mcp62skill\bin\minecraft\
- * Qualified Name:		 net.minecraft.src.Skill
- * JD-Core Version:		0.6.2
- */

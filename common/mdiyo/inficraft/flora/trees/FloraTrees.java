@@ -10,7 +10,6 @@ import mDiyo.inficraft.flora.trees.blocks.SimpleLog;
 import mDiyo.inficraft.flora.trees.blocks.TreeBlock;
 import mDiyo.inficraft.flora.trees.entities.FloraBoat;
 import mDiyo.inficraft.flora.trees.worldgen.TreeWorldgen;
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.Material;
@@ -23,7 +22,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.2")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.3")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */
@@ -103,11 +102,11 @@ public class FloraTrees
 	
 	/* Used for changing the leaf block's transparency and visible faces */
 	//@Override
-	public boolean onTickInGame(float tick, Minecraft game)
+	/*public boolean onTickInGame(float tick, Minecraft game)
 	{
 		floraLeaves.setGraphicsLevel(mc.gameSettings.fancyGraphics);
 		return true;
-	}
+	}*/
 	
 	/* Prototype fields, used elsewhere */
 	
@@ -125,7 +124,7 @@ public class FloraTrees
 	
 	public static Item floraBoat;
 	
-	private Minecraft mc;
+	//private Minecraft mc;
 	
 	public static String texture = "/infitextures/trees.png";
 }

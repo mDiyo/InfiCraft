@@ -57,6 +57,8 @@ public class CorruptorBlock extends Block
             int md = world.getBlockMetadata(posX, posY, posZ);
             Material material = world.getBlockMaterial(posX, posY, posZ);
             Block block = Block.blocksList[bID];
+            if (bID == 0 || block == null)
+            	return;
             if (bID == Block.netherrack.blockID)
             {
                 if (meta >= 8)

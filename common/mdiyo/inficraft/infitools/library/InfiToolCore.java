@@ -67,11 +67,12 @@ public abstract class InfiToolCore extends ItemTool
     public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
         World world = entityplayer.worldObj;
-        if (world.isRemote)
+        int bID = world.getBlockId(x, y, z);
+        Block block = Block.blocksList[bID];
+        if (world.isRemote || bID == 0 || block == null)
         {
             return false;
         }
-        int bID = world.getBlockId(x, y, z);
         int md = world.getBlockMetadata(x, y, z);
         boolean flag = true;
         boolean flag1 = true;
@@ -90,13 +91,13 @@ public abstract class InfiToolCore extends ItemTool
                 flag1 = powers(itemstack, bID, x, y, z, world, entityplayer, md, handleType);
             }
         }
-        if (!ForgeHooks.canHarvestBlock(Block.blocksList[bID], entityplayer, md))
+        if (!ForgeHooks.canHarvestBlock(block, entityplayer, md))
         {
             flag = false;
         }
         if (!flag || !flag1)
         {
-            world.playAuxSFX(2001, x, y, z, bID + (md << 12));
+            //world.playAuxSFX(2001, x, y, z, bID + (md << 12));
             world.setBlockWithNotify(x, y, z, 0);
             onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
             return true;
@@ -183,7 +184,7 @@ public abstract class InfiToolCore extends ItemTool
             case 7: InfiToolPowers.splinterAttack(player, InfiLibrary.sandstoneShard, world); break;
             case 11: InfiToolPowers.splinterAttack(player, InfiLibrary.netherrackShard, world); break;
             case 12: InfiToolPowers.splinterAttack(player, Item.lightStoneDust, world); break;
-            //case 13: mob.freeze(35); break;
+            case 13: InfiToolPowers.freezeMob(mob, 35); break;
             case 14: mob.setFire(40); break;
             case 15: InfiToolPowers.splinterAttack(player, Item.slimeBall, world); break;
             case 18: mob.setFire(100); break;

@@ -38,7 +38,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
      * Poison enchants have a chance to wear off when hitting mobs
      */
 
-@Mod(modid = "InfiLibrary", name = "InfiLibrary", version = "1.4.5_2012.12.2")
+@Mod(modid = "InfiLibrary", name = "InfiLibrary", version = "1.4.5_2012.12.3")
 public class InfiLibrary
 {
 	Random rand = new Random();
@@ -105,7 +105,7 @@ public class InfiLibrary
 		        { Item.paper, Item.redstone, Item.redstone, Item.lightStoneDust, Item.lightStoneDust });
 		
 		ModLoader.addRecipe(new ItemStack(grindstone, 1), new Object[]
-		        { "#", '#', Block.stone });
+		        { "#", "#", '#', Block.stone });
 		
 		ModLoader.addShapelessRecipe(new ItemStack(slimeSand, 1), new Object[]
 		        { Item.slimeBall, Block.sand });

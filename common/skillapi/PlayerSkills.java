@@ -10,13 +10,13 @@ import net.minecraft.src.DamageSource;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.PlayerAPI;
+import net.minecraft.src.PlayerBase;
 import net.minecraft.src.Session;
 import net.minecraft.src.World;
 
-//public class PlayerSkills extends PlayerBase
-public class PlayerSkills
+public class PlayerSkills extends PlayerBase
 {
-	EntityPlayer player;
 	private Minecraft game = ModLoader.getMinecraftInstance();
 	public ArrayList<Skill> knownSkills = new ArrayList();
 	public LinkedList<Skill> activeSkills = new LinkedList();
@@ -31,11 +31,11 @@ public class PlayerSkills
 	public int prevMana;
 	public int maxMana;
 
-	/*public PlayerSkills(PlayerAPI playerapi)
+	public PlayerSkills(PlayerAPI playerapi)
 	{
 		super(playerapi);
 		mod_SkillsAPI.getSkillsAPIInstance().playerskills = this;
-	}*/
+	}
 
 	public void afterLocalConstructing(Minecraft minecraft, World world, Session session, int i)
 	{
@@ -108,8 +108,8 @@ public class PlayerSkills
 	}
 
 	public void restoreMana(int amount) {
-		//if (this.player.getHealthField() <= 0)
-			//return;
+		if (this.player.getHealthField() <= 0)
+			return;
 		this.mana += amount;
 		if (this.mana > 20)
 			this.mana = 20;
@@ -197,7 +197,7 @@ public class PlayerSkills
 		}
 		this.chargingSkill = skill;
 		this.chargeupTimer = new Timer();
-		//this.chargeupTimer.scheduleAtFixedRate(new SkillChargeup(this, skill), 0L, ()(skill.getChargeupTime() * 10.0F));
+		this.chargeupTimer.scheduleAtFixedRate(new SkillChargeup(this, skill), 0L, (long) (skill.getChargeupTime() * 10.0F));
 		return true;
 	}
 

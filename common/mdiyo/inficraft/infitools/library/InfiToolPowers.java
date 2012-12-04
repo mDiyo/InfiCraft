@@ -10,6 +10,8 @@ import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntitySlime;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.Potion;
+import net.minecraft.src.PotionEffect;
 import net.minecraft.src.World;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -210,27 +212,35 @@ public class InfiToolPowers
         }
     }
     
-    /*public static void spawnItem(int x, int y, int z, int id, World world)
+    public static void freezeMob(EntityLiving mob, int time)
     {
-    	spawnItem(x, y, z, id, 1, 0, world);
-    }*/
-
-    public static void spawnItem(int x, int y, int z, int id, int num, int md, World world)
-    {
-        EntityItem entityitem = new EntityItem(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, new ItemStack(id, num, md));
-        entityitem.delayBeforeCanPickup = 10;
-        world.spawnEntityInWorld(entityitem);
+    	try
+    	{
+    		mob.freeze(time * 30);
+    	}
+    	catch (Exception e)
+    	{
+    		mob.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, time, 3));
+    	}
     }
     
-    /*public static void spawnItem(int x, int y, int z, ItemStack stack, World world)
+    public static void spawnItem(int x, int y, int z, int id, int num, int md, World world)
     {
-        spawnItem(x, y, z, stack, world);
-    }*/
+    	if (!world.isRemote)
+    	{
+	        EntityItem entityitem = new EntityItem(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, new ItemStack(id, num, md));
+	        entityitem.delayBeforeCanPickup = 10;
+	        world.spawnEntityInWorld(entityitem);
+    	}
+    }
     
     public static void spawnItem(double x, double y, double z, ItemStack stack, World world)
     {
-        EntityItem entityitem = new EntityItem(world, x + 0.5D, y + 0.5D, z + 0.5D, stack);
-        entityitem.delayBeforeCanPickup = 10;
-        world.spawnEntityInWorld(entityitem);
+    	if (!world.isRemote)
+    	{
+	        EntityItem entityitem = new EntityItem(world, x + 0.5D, y + 0.5D, z + 0.5D, stack);
+	        entityitem.delayBeforeCanPickup = 10;
+	        world.spawnEntityInWorld(entityitem);
+    	}
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.KeyBinding;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.PlayerAPI;
 import net.minecraft.src.ScaledResolution;
 import net.minecraft.src.World;
 
@@ -24,7 +25,7 @@ public final class mod_SkillsAPI
 
 	public mod_SkillsAPI()
 	{
-		//PlayerAPI.register("PlayerSkills", PlayerSkills.class);
+		PlayerAPI.register("PlayerSkills", PlayerSkills.class);
 	}
 
 	public static boolean registerSkill(Skill skill)
@@ -46,7 +47,7 @@ public final class mod_SkillsAPI
 			if ((skill != null) && (skill.canPlayerLearnSkill(this.playerskills)))
 			{
 				skillsAPI.playerskills.knownSkills.add(skill);
-				//skillsAPI.playerskills.skillGet(skill);
+				skillsAPI.playerskills.skillGet(skill);
 				return true;
 			}
 		}
@@ -99,7 +100,7 @@ public final class mod_SkillsAPI
 
 	public void load()
 	{
-		//loadSkillKeyBindings();
+		loadSkillKeyBindings();
 		//ModLoader.setInGameHook(this, true, false);
 		ModLoader.addLocalization("key.skillGui", "Skill Menu");
 		for (int i = 1; i <= 12; i++)
@@ -110,7 +111,7 @@ public final class mod_SkillsAPI
 
 	public void keyboardEvent(KeyBinding keybinding)
 	{
-		for (int i = 0; i < this.skillKeyBindings.length; i++)
+		/*for (int i = 0; i < this.skillKeyBindings.length; i++)
 			if ((this.skillKeyBindings[i] == keybinding) && (this.playerskills != null) && (this.playerskills.skillBar[i] != null))
 			{
 				this.playerskills.skillBar[i].triggerSkill(this.playerskills);
@@ -120,7 +121,7 @@ public final class mod_SkillsAPI
 			if (this.game.currentScreen == null)
 				ModLoader.openGUI(this.game.thePlayer, new GuiKnownSkills(this.playerskills));
 			else if ((this.game.currentScreen instanceof GuiKnownSkills))
-				this.game.thePlayer.closeScreen();
+				this.game.thePlayer.closeScreen();*/
 	}
 
 	public boolean onTickInGame(float partialTicks, Minecraft game)
@@ -128,24 +129,25 @@ public final class mod_SkillsAPI
 		ScaledResolution var5 = new ScaledResolution(this.game.gameSettings, this.game.displayWidth, this.game.displayHeight);
 		int var6 = var5.getScaledWidth();
 		int var7 = var5.getScaledHeight();
-		//getSkillsAPIInstance().renderHUD(var6, var7, partialTicks);
+		getSkillsAPIInstance().renderHUD(var6, var7, partialTicks);
 		return true;
 	}
 
-	/*public void renderHUD(int scaledWidth, int scaledHeight, float partialTicks) {
-		this.playerskills.renderHUD(scaledWidth, scaledHeight, partialTicks); }*/
-	
+	public void renderHUD(int scaledWidth, int scaledHeight, float partialTicks) {
+		this.playerskills.renderHUD(scaledWidth, scaledHeight, partialTicks); } 
+	// ERROR //
+	private void loadSkillKeyBindings() {
+		} 
 	public void updateKeyBindingTypes() { if (this.playerskills == null) {
 			return;
 		}
-		for (int i = 0; i < this.playerskills.skillBar.length; i++) {
+		/*for (int i = 0; i < this.playerskills.skillBar.length; i++) {
 			Skill skill = this.playerskills.skillBar[i];
-			/*if ((skill == null) || (skill.getChargeupTime() > 0.0F) || (skill.getCooldownTime() > 0.0F) || (skill.getDuration() > 0.0F))
+			if ((skill == null) || (skill.getChargeupTime() > 0.0F) || (skill.getCooldownTime() > 0.0F) || (skill.getDuration() > 0.0F))
 				ModLoader.registerKey(this, this.skillKeyBindings[i], false);
 			else
 				ModLoader.registerKey(this, this.skillKeyBindings[i], true);*/
-		} 
-	}
+		}
 
 	public static mod_SkillsAPI getSkillsAPIInstance()
 	{
@@ -173,8 +175,3 @@ public final class mod_SkillsAPI
 		return "before:*";
 	}
 }
-
-/* Location:					 C:\Users\mDiyo\modding\mcp62skill\bin\minecraft\
- * Qualified Name:		 net.minecraft.src.mod_SkillsAPI
- * JD-Core Version:		0.6.2
- */
