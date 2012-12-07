@@ -19,7 +19,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.4.5_2012.12.2")
+@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.4.5_2012.12.4")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true, channels = {"infi2x2"})
 public class Infi2x2
 {
@@ -29,7 +29,7 @@ public class Infi2x2
 	public static Infi2x2 instance;
 	
 	@SidedProxy(clientSide = "mDiyo.inficraft.infitools.twoxtwo.Infi2x2ProxyClient", serverSide = "mDiyo.inficraft.infitools.twoxtwo.Infi2x2ProxyCommon")
-	public static InfiProxy2x2Common proxy;
+	public static Infi2x2ProxyCommon proxy;
 	
 	@Init
 	public void load(FMLInitializationEvent event) 

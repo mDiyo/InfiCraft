@@ -30,12 +30,4 @@ public class WTContainer extends DummyModContainer
 		bus.register(this);
 		return true;
 	}
-	/*
-	 * Use this in place of @Init, @Preinit, @Postinit in the file.
-	 */
-	@Subscribe
-	public void onServerStarting(FMLServerStartingEvent ev) {
-	        //ev.getServer().worldServerForDimension(0).spawnHostileMobs = false;
-	       
-	}
 }

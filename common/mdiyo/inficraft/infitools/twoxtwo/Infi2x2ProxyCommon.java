@@ -2,7 +2,7 @@ package mDiyo.inficraft.infitools.twoxtwo;
 
 import java.io.File;
 
-public class InfiProxy2x2Common {
+public class Infi2x2ProxyCommon {
 
 	public void registerEntities() {}
 	

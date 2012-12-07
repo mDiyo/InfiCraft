@@ -2,6 +2,8 @@ package mDiyo.inficraft.flora.trees;
 
 import java.io.File;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
@@ -18,73 +20,45 @@ public class FloraTreesCommonProxy
 	
 	public void addRecipes()
 	{
-		int[] woodmeta = { 2, 4, 6, 8 }; //Full range of planks
-		int[] shortwoodmeta = { 2, 6, 8 }; //No bloodwood
-		for(int iter = 0; iter < woodmeta.length; iter++)
+		for (int i = 0; i < 3; i++) //Planks
+			GameRegistry.addRecipe(new ItemStack(FloraTrees.instance.planks, 4, i), "w", 'w', new ItemStack(FloraTrees.instance.tree, 1, i) );
+		GameRegistry.addRecipe(new ItemStack(FloraTrees.instance.planks, 4, 3), "w", 'w', new ItemStack(FloraTrees.instance.redwood, 1, 1) );
+		GameRegistry.addRecipe(new ItemStack(FloraTrees.instance.planks, 4, 4), "w", 'w', new ItemStack(FloraTrees.instance.bloodwood, 1, -1) );
+		
+		ItemStack[] planks = new ItemStack[] { new ItemStack(FloraTrees.instance.planks, 1, 0), new ItemStack(FloraTrees.instance.planks, 1, 1),
+			 new ItemStack(FloraTrees.instance.planks, 1, 2), new ItemStack(FloraTrees.instance.planks, 1, 3)};
+		
+		for (int i = 0; i < 4; i++)
 		{
-			ModLoader.addRecipe(new ItemStack(FloraTrees.instance.tree, 4, woodmeta[iter]), new Object[]
-				{ "w", 'w', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter] - 1) });
-			ModLoader.addRecipe(new ItemStack(Block.workbench), new Object[]
-				{ "ww", "ww", 'w', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[]
-				{ "#W#", "#W#", '#', Item.stick, Character.valueOf('W'), new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Block.jukebox, 1), new Object[]
-			    { "###", "#X#", "###", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), 'X', Item.diamond });
-			ModLoader.addRecipe(new ItemStack(Block.music, 1), new Object[]
-			    { "###", "#X#", "###", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), 'X', Item.redstone });
-			ModLoader.addRecipe(new ItemStack(Block.stoneSingleSlab, 3, 2), new Object[]
-			    { "###", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			/*ModLoader.addRecipe(new ItemStack(Item.doorWood, 1), new Object[]
-			    { "##", "##", "##", '#', new ItemStack(FloraTrees.instance.redwood, 1, woodmeta[iter]) });*/
-			ModLoader.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[]
-			    { "###", "###", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Item.sign, 1), new Object[]
-			    { "###", "###", " X ", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), 'X', Item.stick });
-			ModLoader.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[]
-			    { "# #", " # ", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Block.stairCompactPlanks, 4), new Object[]
-			    { "#  ", "## ", "###", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Block.chest), new Object[]
-					{ "###", "# #", "###", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[]
-			    { "##", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[]
-			{ "TTT", "#X#", "#R#", '#', Block.cobblestone, 'X', Item.ingotIron, 'R', Item.redstone, 'T',
-				new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Item.bed, 1), new Object[]
-			{ "###", "XXX", '#', Block.cloth, 'X', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(FloraTrees.instance.floraBoat, 1, iter), new Object[]
-			{ "# #", "###", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]) });
+		
+			GameRegistry.addRecipe(new ItemStack(Block.workbench), "ww", "ww", 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.fenceGate), "#W#", "#W#", '#', Item.stick, 'W', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.jukebox), "www", "w#w", "www", '#', Item.diamond, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.music), "www", "w#w", "www", '#', Item.redstone, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), "www", "www", 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.sign, 3), "www", "www", " s ", 's', Item.stick, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 3), "w w", " w ", 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.stairCompactPlanks, 6), "w  ", "ww ", "www", 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.chest), "www", "w w", "www", 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks), "ww", 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Block.pistonBase), "TTT", "#X#", "#R#", '#', Block.cobblestone, 'X', Item.ingotIron, 'R', Item.redstone, 'T', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.bed), "ccc", "www", 'c', Item.stick, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.stick, 4), "w", "w", 'w', planks[i] );
+			
+			GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood), "www", " | ", " | ", '|', Item.stick, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.shovelWood), "w", "|", "|", '|', Item.stick, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.axeWood), "ww", "w|", " |", '|', Item.stick, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.swordWood), "w", "w", "|", '|', Item.stick, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.hoeWood), "ww", "| ", "| ", '|', Item.stick, 'w', planks[i] );
 		}
-		for(int iter = 0; iter < shortwoodmeta.length; iter++)
-		{
-			ModLoader.addRecipe(new ItemStack(Item.stick, 4, 0), new Object[]
-			{ "w", "w", 'w', new ItemStack(FloraTrees.instance.tree, 8, shortwoodmeta[iter]) });
-			ModLoader.addRecipe(new ItemStack(Item.pickaxeWood), new Object[]
-			{ "www", " | ", " | ", 'w', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), '|', Item.stick });
-			ModLoader.addRecipe(new ItemStack(Item.shovelWood), new Object[]
-			{ "w", "|", "|", 'w', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), '|', Item.stick });
-			ModLoader.addRecipe(new ItemStack(Item.axeWood), new Object[]
-			{ "ww ", "w| ", " | ", 'w', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), '|', Item.stick });
-			ModLoader.addRecipe(new ItemStack(Item.swordWood), new Object[]
-			{ "w", "w", "|", 'w', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), '|', Item.stick });
-			ModLoader.addRecipe(new ItemStack(Item.hoeWood), new Object[]
-			{ "ww", "| ", "| ", 'w', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[iter]), '|', Item.stick });
-		}
-		ModLoader.addRecipe(new ItemStack(FloraTrees.instance.redwoodDoorItem, 1), new Object[]
-		{ "##", "##", "##", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[0]) });
-		ModLoader.addRecipe(new ItemStack(Item.doorWood, 1), new Object[]
-		{ "##", "##", "##", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[1]) });
-		ModLoader.addRecipe(new ItemStack(Item.doorWood, 1), new Object[]
-		{ "##", "##", "##", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[2]) });
-		ModLoader.addRecipe(new ItemStack(Item.doorWood, 1), new Object[]
-		{ "##", "##", "##", '#', new ItemStack(FloraTrees.instance.tree, 1, woodmeta[3]) });
 		
 		//Turn logs into charcoal
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 0, new ItemStack(Item.coal, 1, 1), 0.15f);
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 1, new ItemStack(Item.coal, 1, 1), 0.15f);
-		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 5, new ItemStack(Item.coal, 1, 1), 0.15f);
-		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 7, new ItemStack(Item.coal, 1, 1), 0.15f);
+		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 2, new ItemStack(Item.coal, 1, 1), 0.15f);
+		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.redwood.blockID, 0, new ItemStack(Item.coal, 1, 1), 0.15f);
+		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.redwood.blockID, 1, new ItemStack(Item.coal, 1, 1), 0.15f);
+		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.redwood.blockID, 2, new ItemStack(Item.coal, 1, 1), 0.15f);
 	}
 	
 	public File getMinecraftDir()

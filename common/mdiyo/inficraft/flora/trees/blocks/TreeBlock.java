@@ -1,11 +1,16 @@
 package mDiyo.inficraft.flora.trees.blocks;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 import mDiyo.inficraft.flora.trees.FloraTrees;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockLog;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
@@ -74,10 +79,11 @@ public class TreeBlock extends BlockLog
         return metadata % 4 != 2 ? blockFireSpreadSpeed[blockID] : 0;
     }
 
-    public void addCreativeItems(ArrayList arraylist)
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        arraylist.add(new ItemStack(FloraTrees.tree, 1, 0));
-        arraylist.add(new ItemStack(FloraTrees.tree, 1, 1));
-        arraylist.add(new ItemStack(FloraTrees.tree, 1, 2));
+        par3List.add(new ItemStack(par1, 1, 0));
+        par3List.add(new ItemStack(par1, 1, 1));
+        par3List.add(new ItemStack(par1, 1, 2));
     }
 }

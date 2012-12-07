@@ -17,41 +17,41 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.5_2012.12.2")
+@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.5_2012.12.6")
 public class FloraBerries
 {
 	/* Proxies for sides, used for client-only processing */
 	@SidedProxy(clientSide = "mDiyo.inficraft.flora.berries.client.FloraBerryClientProxy", serverSide = "mDiyo.inficraft.flora.berries.FloraBerryCommonProxy")
 	public static FloraBerryCommonProxy proxy;
-	
+
 	/* Instance of this mod, used for grabbing prototype fields */
 	@Instance("FloraBerries")
 	public static FloraBerries instance;
-	
+
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
 	{
-		PHBerries.initProps();		
+		PHBerries.initProps();
 		berryItem = new BerryItem(PHBerries.berryItemID, 2).setItemName("berry");
 		berryBush = new BerryBush(PHBerries.berryBlockID, 0);
 		GameRegistry.registerBlock(berryBush, mDiyo.inficraft.flora.berries.BerryBushItem.class);
 	}
 
 	@Init
-	public void init(FMLInitializationEvent evt) 
-	{		
+	public void init(FMLInitializationEvent evt)
+	{
 		GameRegistry.registerWorldGenerator(new BerryWorldgen());
-		
+
 		proxy.registerRenderer();
 		proxy.addNames();
 	}
-	
+
 	/* Prototype fields, used elsewhere */
 	public static Item berryItem;
 	public static Block berryBush;
 
 	public static int berryModelID;
-	
+
 	public static String bushTexture = "/infitextures/bushes.png";
 	public static String seedTexture = "/infitextures/seeds.png";
 }

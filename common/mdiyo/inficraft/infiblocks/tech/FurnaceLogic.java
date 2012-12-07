@@ -4,6 +4,7 @@ import mDiyo.shared.machines.BlockLogicMachine;
 import net.minecraft.src.Block;
 import net.minecraft.src.Container;
 import net.minecraft.src.FurnaceRecipes;
+import net.minecraft.src.INetworkManager;
 import net.minecraft.src.InventoryPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemBlock;
@@ -13,6 +14,9 @@ import net.minecraft.src.ItemSword;
 import net.minecraft.src.ItemTool;
 import net.minecraft.src.Material;
 import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.Packet;
+import net.minecraft.src.Packet130UpdateSign;
+import net.minecraft.src.Packet132TileEntityData;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ISidedInventory;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -266,5 +270,23 @@ public class FurnaceLogic extends BlockLogicMachine
 	public int getSizeInventorySide(ForgeDirection side) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public Packet getDescriptionPacket()
+    {
+    	NBTTagCompound compound = new NBTTagCompound();
+        this.writeToNBT(compound);
+        return new Packet132TileEntityData(this.xCoord, this.yCoord, this.zCoord, 1, compound);
+    }
+	
+	@Override
+	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt)
+	{
+		NBTTagCompound compundTag = pkt.customParam1;
+		facing = compundTag.getByte("facing");
+		active = compundTag.getBoolean("active");
+		fuel = compundTag.getShort("fuel");
+        fuelGague = compundTag.getShort("fuelGague");
 	}
 }

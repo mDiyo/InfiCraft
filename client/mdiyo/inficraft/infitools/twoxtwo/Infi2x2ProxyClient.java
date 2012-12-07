@@ -3,11 +3,11 @@ package mDiyo.inficraft.infitools.twoxtwo;
 import java.io.File;
 
 import net.minecraft.client.Minecraft;
-import mDiyo.inficraft.infitools.twoxtwo.InfiProxy2x2Common;
+import mDiyo.inficraft.infitools.twoxtwo.Infi2x2ProxyCommon;
 import mDiyo.inficraft.infitools.twoxtwo.DaggerRender;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class Infi2x2ProxyClient extends InfiProxy2x2Common
+public class Infi2x2ProxyClient extends Infi2x2ProxyCommon
 {
 
 	public void registerEntities() 

@@ -1,6 +1,8 @@
 package mDiyo.inficraft.flora.berries;
 
 import net.minecraft.src.*;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.IPlantable;
 
 public class BerryBushItem extends ItemBlock
 {
@@ -8,7 +10,7 @@ public class BerryBushItem extends ItemBlock
     public BerryBushItem(int i)
     {
         super(i);
-        setMaxDamage(0);
+        //setMaxDamage(0);
         setHasSubtypes(true);
     }
     
@@ -17,28 +19,33 @@ public class BerryBushItem extends ItemBlock
     {
         return md;
     }
-
+    
     /* Place bushes on dirt, grass, or other bushes only */
-    @Override
-    public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    @Override    
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
     {
-        if (!player.canPlayerEdit(x, y, z, side, stack) || !player.canPlayerEdit(x, y + 1, z, side, stack))
-        {
+        if (side != 1)
             return false;
-        }
-        int i1 = world.getBlockId(x, y, z);
-        if ((i1 == Block.dirt.blockID || i1 == Block.grass.blockID || i1 == FloraBerries.berryBush.blockID) && world.isAirBlock(x, y + 1, z))
+        
+        else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack))
         {
-            world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraBerries.berryBush.blockID, stack.getItemDamage());
-            if (!player.capabilities.isCreativeMode)
-            	stack.stackSize--;
-            world.playAuxSFX(2001, x, y, z, Block.grass.blockID);
-            return true;
+            int bID = world.getBlockId(x, y, z);
+            Block block = Block.blocksList[world.getBlockId(x, y, z)];
+
+            if (block != null && block.canSustainPlant(world, x, y, z, ForgeDirection.UP, (IPlantable) FloraBerries.instance.berryBush) && world.isAirBlock(x, y + 1, z))
+            {
+                world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraBerries.berryBush.blockID, stack.getItemDamage());
+                if (!player.capabilities.isCreativeMode)
+                	stack.stackSize--;
+                if (!world.isRemote)
+                	world.playAuxSFX(2001, x, y, z, Block.grass.blockID);
+                return true;
+            }
+            else
+                return false;
         }
         else
-        {
             return false;
-        }
     }
 
     /* Block name in inventory */
@@ -52,11 +59,4 @@ public class BerryBushItem extends ItemBlock
         "rasp", "blue", "black", "geo", "rasp", "blue", "black", "geo",
         "rasp", "blue", "black", "geo", "rasp", "blue", "black", "geo"
     };
-    
-    /* Render fix */
-    @Override
-    public int getIconFromDamage(int meta)
-    {
-        return FloraBerries.instance.berryBush.getBlockTextureFromSideAndMetadata(2, BlockCloth.getBlockFromDye(meta));
-    }
 }

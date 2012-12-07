@@ -214,14 +214,15 @@ public class InfiToolPowers
     
     public static void freezeMob(EntityLiving mob, int time)
     {
-    	try
+    	mob.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, time, 3));
+    	/*try
     	{
     		mob.freeze(time * 30);
     	}
     	catch (Exception e)
     	{
     		mob.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, time, 3));
-    	}
+    	}*/
     }
     
     public static void spawnItem(int x, int y, int z, int id, int num, int md, World world)

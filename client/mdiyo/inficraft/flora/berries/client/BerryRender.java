@@ -40,25 +40,28 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 	
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID,
-			RenderBlocks renderer) {
-		Tessellator tessellator = Tessellator.instance;
-		if (metadata < 4)
+			RenderBlocks renderer) 
+	{
+		if (modelID == FloraBerries.instance.berryModelID)
 		{
-			block.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
-			renderDo(renderer, block, modelID);
+			Tessellator tessellator = Tessellator.instance;
+			if (metadata < 4)
+			{
+				block.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
+				renderDo(renderer, block, metadata);
+				//renderer.renderBlockAsItem(block, metadata, modelID);
+			}
+			else if (metadata < 8)
+			{
+				block.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 0.75F, 0.875F);
+				renderDo(renderer, block, metadata);
+			}
+			else
+			{
+				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				renderDo(renderer, block, metadata);
+			}
 		}
-		else if (metadata < 8)
-		{
-			block.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 0.75F, 0.875F);
-			renderDo(renderer, block, modelID);
-		}
-		else
-		{
-			block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-			renderDo(renderer, block, modelID);
-		}
-		block.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
-		
 	}
 
 	@Override
@@ -71,33 +74,33 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 		return FloraBerries.instance.berryModelID;
 	}
 	
-	private void renderDo(RenderBlocks renderblocks, Block block, int i)
+	private void renderDo(RenderBlocks renderblocks, Block block, int meta)
 	{
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, -1F, 0.0F);
-		renderblocks.renderBottomFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(0, i));
+		renderblocks.renderBottomFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(0, meta));
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 1.0F, 0.0F);
-		renderblocks.renderTopFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(1, i));
+		renderblocks.renderTopFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(1, meta));
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 0.0F, -1F);
-		renderblocks.renderEastFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(2, i));
+		renderblocks.renderEastFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(2, meta));
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 0.0F, 1.0F);
-		renderblocks.renderWestFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(3, i));
+		renderblocks.renderWestFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(3, meta));
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(-1F, 0.0F, 0.0F);
-		renderblocks.renderNorthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(4, i));
+		renderblocks.renderNorthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(4, meta));
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(1.0F, 0.0F, 0.0F);
-		renderblocks.renderSouthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(5, i));
+		renderblocks.renderSouthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(5, meta));
 		tessellator.draw();
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 	}

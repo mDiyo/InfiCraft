@@ -213,6 +213,14 @@ public abstract class EntityLiving extends Entity
 
     /** How long to keep a specific target entity */
     protected int numTicksToChaseTarget = 0;
+    
+    /** Variables related to freezing */
+    protected boolean frozen;
+    protected boolean freezable;
+    protected int freezeTimer;
+    
+    // Added for RandomMobs
+    public int persistentId = rand.nextInt(1000000);
 
     public EntityLiving(World par1World)
     {
@@ -238,6 +246,64 @@ public abstract class EntityLiving extends Entity
         }
 
         this.stepHeight = 0.5F;
+        this.frozen = false;
+        this.freezable = true;
+        this.freezeTimer = 0;
+    }
+    
+    public boolean getFrozen()
+    {
+        return this.frozen;
+    }
+
+    public void freeze()
+    {
+        this.freeze(50);
+    }
+    
+    public void freeze(int time)
+    {
+    	for (int iter = 0; iter < 16; ++iter)
+        {
+            float tempX = this.rand.nextFloat()*2 - this.rand.nextFloat()*2;
+            float tempY = this.rand.nextFloat()*2 - this.rand.nextFloat()*2;
+            float tempZ = this.rand.nextFloat()*2 - this.rand.nextFloat()*2;
+            this.worldObj.spawnParticle("snowshovel", this.posX + (double)tempX, this.posY + (double)tempY, this.posZ + (double)tempZ, this.motionX, this.motionY, this.motionZ);
+        }
+    	if (freezable)
+    	{
+	        this.frozen = true;
+	        this.motionX = 0.0D;
+	        this.motionY = 0.0D;
+	        this.motionZ = 0.0D;
+	        this.prevPosX = this.posX;
+	        this.prevPosY = this.posY;
+	        this.prevPosZ = this.posZ;
+	        this.newPosX = this.posX;
+	        this.newPosY = this.posY;
+	        this.newPosZ = this.posZ;
+	        this.isJumping = false;
+	        this.lastTickPosX = this.posX;
+	        this.lastTickPosY = this.posY;
+	        this.lastTickPosZ = this.posZ;
+	        this.moveStrafing = 0.0F;
+	        this.moveForward = 0.0F;
+	        this.currentTarget = null;
+	        this.freezeTimer = time;
+	        this.extinguish();
+	    	}
+    }
+
+    public void defrost() { thaw(); }
+    public void thaw()
+    {
+        this.frozen = false;
+        this.freezeTimer = 0;
+    }
+    
+    public void setUnfreezable()
+    {
+    	this.freezable = false;
     }
 
     public EntityLookHelper getLookHelper()
@@ -470,7 +536,7 @@ public abstract class EntityLiving extends Entity
      */
     public String getTexture()
     {
-        return this.texture;
+        return this.frozen ? "/infitextures/icedover.png" : this.texture;
     }
 
     /**
@@ -507,12 +573,15 @@ public abstract class EntityLiving extends Entity
      */
     public void playLivingSound()
     {
-        String var1 = this.getLivingSound();
-
-        if (var1 != null)
-        {
-            this.func_85030_a(var1, this.getSoundVolume(), this.getSoundPitch());
-        }
+    	if (!frozen)
+    	{
+	        String var1 = this.getLivingSound();
+	
+	        if (var1 != null)
+	        {
+	            this.func_85030_a(var1, this.getSoundVolume(), this.getSoundPitch());
+	        }
+    	}
     }
 
     /**
@@ -1027,7 +1096,9 @@ public abstract class EntityLiving extends Entity
                         }
 
                         this.attackedAtYaw = (float)(Math.atan2(var7, var9) * 180.0D / Math.PI) - this.rotationYaw;
-                        this.knockBack(var4, par2, var9, var7);
+                        
+                        if (!this.frozen)
+                        	this.knockBack(var4, par2, var9, var7);
                     }
                     else
                     {
@@ -1047,6 +1118,8 @@ public abstract class EntityLiving extends Entity
                 else if (var3)
                 {
                     this.func_85030_a(this.getHurtSound(), this.getSoundVolume(), this.getSoundPitch());
+                    if (this.frozen)
+                    	this.thaw();
                 }
 
                 return true;
@@ -1069,7 +1142,10 @@ public abstract class EntityLiving extends Entity
      */
     public void performHurtAnimation()
     {
-        this.hurtTime = this.maxHurtTime = 10;
+    	if (this.frozen)
+    		this.hurtTime = this.maxHurtTime = 0;
+    	else
+    		this.hurtTime = this.maxHurtTime = 10;
         this.attackedAtYaw = 0.0F;
     }
 
@@ -1525,11 +1601,15 @@ public abstract class EntityLiving extends Entity
      */
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
     {
+    	par1NBTTagCompound.setBoolean("Frozen", this.frozen);
+        par1NBTTagCompound.setInteger("FreezeTimer", this.freezeTimer);
+        par1NBTTagCompound.setInteger("PersistentId", persistentId);
+        
         if (this.health < -32768)
         {
             this.health = -32768;
         }
-
+        
         par1NBTTagCompound.setShort("Health", (short)this.health);
         par1NBTTagCompound.setShort("HurtTime", (short)this.hurtTime);
         par1NBTTagCompound.setShort("DeathTime", (short)this.deathTime);
@@ -1588,6 +1668,10 @@ public abstract class EntityLiving extends Entity
         {
             this.health = this.getMaxHealth();
         }
+        
+        this.frozen = par1NBTTagCompound.getBoolean("Frozen");
+        this.freezeTimer = par1NBTTagCompound.getInteger("FreezeTimer");
+        this.persistentId = par1NBTTagCompound.getInteger("PersistentId");
 
         this.hurtTime = par1NBTTagCompound.getShort("HurtTime");
         this.deathTime = par1NBTTagCompound.getShort("DeathTime");
@@ -1662,6 +1746,26 @@ public abstract class EntityLiving extends Entity
         if (this.jumpTicks > 0)
         {
             --this.jumpTicks;
+        }
+        
+        if (this.freezeTimer > 0)
+        {
+            --this.freezeTimer;            
+            this.motionX = 0.0D;
+            this.motionZ = 0.0D;
+            
+            if (rand.nextInt(4) == 0)
+            {
+                float tempX = this.rand.nextFloat()*2 - this.rand.nextFloat()*2;
+                float tempY = this.rand.nextFloat()*2 - this.rand.nextFloat()*2;
+                float tempZ = this.rand.nextFloat()*2 - this.rand.nextFloat()*2;
+                this.worldObj.spawnParticle("snowshovel", this.posX + (double)tempX, this.posY + (double)tempY, this.posZ + (double)tempZ, this.motionX, this.motionY, this.motionZ);
+            }
+
+            if (this.freezeTimer <= 0)
+            {
+                this.thaw();
+            }
         }
 
         if (this.newPosRotationIncrements > 0)
@@ -1896,7 +2000,7 @@ public abstract class EntityLiving extends Entity
      */
     protected boolean isMovementBlocked()
     {
-        return this.health <= 0;
+        return this.health <= 0 || frozen;
     }
 
     public boolean isBlocking()

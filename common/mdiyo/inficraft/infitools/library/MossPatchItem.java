@@ -1,11 +1,14 @@
 package mDiyo.inficraft.infitools.library;
 
+import mDiyo.inficraft.flora.berries.FloraBerries;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.World;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.IPlantable;
 
 public class MossPatchItem extends Item
 {
@@ -17,28 +20,32 @@ public class MossPatchItem extends Item
         this.setItemName("mossPatchItem");
         ModLoader.addName(this, "Mossy Patch");
     }
-
-    public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    
+    @Override    
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
     {
         if (side != 1)
-        {
             return false;
-        }
-        if (!player.canPlayerEdit(x, y, z, side, stack) || !player.canPlayerEdit(x, y + 1, z, side, stack))
+        
+        else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack))
         {
-            return false;
-        }
-        int i1 = world.getBlockId(x, y, z);
-        if (Block.blocksList[i1].renderAsNormalBlock() && world.isAirBlock(x, y + 1, z))
-        {
-            world.setBlockWithNotify(x, y + 1, z, InfiLibrary.blockMoss.blockID);
-            stack.stackSize--;
-            return true;
+            int bID = world.getBlockId(x, y, z);
+            Block block = Block.blocksList[world.getBlockId(x, y, z)];
+
+            if (block != null && block.renderAsNormalBlock() && world.isAirBlock(x, y + 1, z))
+            {
+                world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraBerries.berryBush.blockID, stack.getItemDamage());
+                if (!player.capabilities.isCreativeMode)
+                	stack.stackSize--;
+                if (!world.isRemote)
+                	world.playAuxSFX(2001, x, y, z, InfiLibrary.blockMoss.blockID);
+                return true;
+            }
+            else
+                return false;
         }
         else
-        {
             return false;
-        }
     }
 
     @Override

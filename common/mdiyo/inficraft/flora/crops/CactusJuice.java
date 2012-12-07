@@ -13,7 +13,7 @@ public class CactusJuice extends ItemFood
 
     public String getTextureFile()
     {
-        return "/floratex/infifood.png";
+        return FloraCrops.foodTexture;
     }
     
     public int getMaxItemUseDuration(ItemStack itemstack)

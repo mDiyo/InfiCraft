@@ -19,7 +19,6 @@ public class WTClassOverride implements IClassTransformer
 	@Override
 	public byte[] transform(String name, byte[] bytes) 
 	{
-		//System.out.println("World Tweaks fake base edits activate!");
 		if (override.containsKey(name)) {
 			System.out.println("attempting override of " + name + " from " + WorldTweaks.coreLocation);
 			bytes = overrideBytes(name, bytes, WorldTweaks.coreLocation);

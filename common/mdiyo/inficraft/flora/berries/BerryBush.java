@@ -8,9 +8,12 @@ import java.util.Random;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.*;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.IPlantable;
 
 public class BerryBush extends BlockLeavesBase
+	implements IPlantable
 {
     private int icon;
     Random random;
@@ -261,5 +264,23 @@ public class BerryBush extends BlockLeavesBase
         {
             par3List.add(new ItemStack(par1, 1, var4));
         }
+    }
+
+	@Override
+	public EnumPlantType getPlantType(World world, int x, int y, int z) 
+	{
+		return EnumPlantType.Plains;
+	}
+
+	@Override
+	public int getPlantID(World world, int x, int y, int z)
+	{
+		return this.blockID;
+	}
+
+	@Override
+    public int getPlantMetadata(World world, int x, int y, int z)
+    {
+        return world.getBlockMetadata(x, y, z);
     }
 }

@@ -2,6 +2,8 @@ package mDiyo.inficraft.orizon.pastelmarble;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
@@ -11,7 +13,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.5_2012.12.2")
+@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.5_2012.12.6")
 public class PastelMarble 
 {
 	/* Proxies for sides, used for graphics processing */
@@ -50,6 +52,16 @@ public class PastelMarble
 		GameRegistry.registerBlock(cSquare, mDiyo.inficraft.orizon.pastelmarble.ColoredSquareBrickItem.class);
 		
 		GameRegistry.registerBlock(marble, mDiyo.inficraft.orizon.pastelmarble.MarbleItem.class);
+		
+		for (int i = 0; i < 16; i++)
+		{
+			OreDictionary.registerOre("customStone", new ItemStack(cStone, 1, i));
+			OreDictionary.registerOre("customCobble", new ItemStack(cCobble, 1, i));
+		}
+		for (int i = 0; i < 6; i++)
+		{
+			OreDictionary.registerOre("marble", new ItemStack(marble, 1, i));
+		}
 	}
 	
 	@Init

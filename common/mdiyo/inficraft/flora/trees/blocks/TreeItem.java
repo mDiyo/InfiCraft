@@ -7,7 +7,7 @@ public class TreeItem extends ItemBlock
 {
     public static final String blockType[] =
     {
-    	 "eucalyptusLog", "sakuraLog", "ghostLog", ""
+    	 "eucalyptus", "sakura", "ghost", ""
         /*"bark", "heart", "planks", "bloodbark", "bloodplanks", "sakurabark", "sakuraplanks", 
         "eucalyptusbark", "eucalyptusplanks"*/
     };
@@ -27,6 +27,6 @@ public class TreeItem extends ItemBlock
 
     public String getItemNameIS(ItemStack itemstack)
     {
-        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("Redwood").toString();
+        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("Log").toString();
     }
 }

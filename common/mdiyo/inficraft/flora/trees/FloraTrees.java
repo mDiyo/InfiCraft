@@ -1,13 +1,6 @@
 package mDiyo.inficraft.flora.trees;
 
-import mDiyo.inficraft.flora.trees.blocks.FloraDoor;
-import mDiyo.inficraft.flora.trees.blocks.FloraDoorItem;
-import mDiyo.inficraft.flora.trees.blocks.FloraLeaves;
-import mDiyo.inficraft.flora.trees.blocks.FloraLeavesNocolor;
-import mDiyo.inficraft.flora.trees.blocks.FloraSaplingBlock;
-import mDiyo.inficraft.flora.trees.blocks.LogTwoxTwo;
-import mDiyo.inficraft.flora.trees.blocks.SimpleLog;
-import mDiyo.inficraft.flora.trees.blocks.TreeBlock;
+import mDiyo.inficraft.flora.trees.blocks.*;
 import mDiyo.inficraft.flora.trees.entities.FloraBoat;
 import mDiyo.inficraft.flora.trees.worldgen.TreeWorldgen;
 import net.minecraft.src.Block;
@@ -22,7 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.3")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.6")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */
@@ -42,6 +35,7 @@ public class FloraTrees
 		
 		tree = new TreeBlock(PHTrees.treeID);
 		redwood = new SimpleLog(PHTrees.redwoodID, 32, texture);
+		planks = new Planks(PHTrees.planksID, 80, texture);
 		floraLeaves = new FloraLeaves(PHTrees.floraLeavesID, 112);
 		floraLeavesNoColor = new FloraLeavesNocolor(PHTrees.cherryLeavesID, 115);
 		floraSapling = new FloraSaplingBlock(PHTrees.floraSaplingID);
@@ -54,9 +48,10 @@ public class FloraTrees
 		floraBoat = new FloraBoat(PHTrees.boatItemID).setIconCoord(0, 3).setItemName("floraBoat");
 		
 		GameRegistry.registerBlock(tree, mDiyo.inficraft.flora.trees.blocks.TreeItem.class);
-		GameRegistry.registerBlock(redwood);
+		GameRegistry.registerBlock(redwood, mDiyo.inficraft.flora.trees.blocks.RedwoodItem.class);
+		GameRegistry.registerBlock(planks, mDiyo.inficraft.flora.trees.blocks.PlanksItem.class);
 		GameRegistry.registerBlock(floraLeaves, mDiyo.inficraft.flora.trees.blocks.FloraLeavesItem.class);
-		GameRegistry.registerBlock(floraLeavesNoColor);
+		GameRegistry.registerBlock(floraLeavesNoColor, mDiyo.inficraft.flora.trees.blocks.FloraLeavesNoColorItem.class);
 		GameRegistry.registerBlock(floraSapling, mDiyo.inficraft.flora.trees.blocks.FloraSaplingItem.class);
 		
 		GameRegistry.registerBlock(redwoodDoor);
@@ -69,7 +64,7 @@ public class FloraTrees
 	@Init
 	public void init(FMLInitializationEvent evt)
 	{
-		//proxy.addRecipes();
+		proxy.addRecipes();
 		proxy.addNames();
 		proxy.registerRenderer();
 		

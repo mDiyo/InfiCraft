@@ -41,7 +41,7 @@ public class FloraSaplingBlock extends BlockFlower
 
     public FloraSaplingBlock(int i)
     {
-        this(i, 52);
+        this(i, 128);
     }
 
     public void updateTick(World world, int i, int j, int k, Random random)

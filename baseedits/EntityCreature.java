@@ -25,143 +25,146 @@ public abstract class EntityCreature extends EntityLiving
      */
     protected boolean isMovementCeased()
     {
-        return false;
+        return frozen;
     }
 
     protected void updateEntityActionState()
     {
-        this.worldObj.theProfiler.startSection("ai");
-
-        if (this.fleeingTick > 0)
-        {
-            --this.fleeingTick;
-        }
-
-        this.hasAttacked = this.isMovementCeased();
-        float var1 = 16.0F;
-
-        if (this.entityToAttack == null)
-        {
-            this.entityToAttack = this.findPlayerToAttack();
-
-            if (this.entityToAttack != null)
-            {
-                this.pathToEntity = this.worldObj.getPathEntityToEntity(this, this.entityToAttack, var1, true, false, false, true);
-            }
-        }
-        else if (this.entityToAttack.isEntityAlive())
-        {
-            float var2 = this.entityToAttack.getDistanceToEntity(this);
-
-            if (this.canEntityBeSeen(this.entityToAttack))
-            {
-                this.attackEntity(this.entityToAttack, var2);
-            }
-        }
-        else
-        {
-            this.entityToAttack = null;
-        }
-
-        this.worldObj.theProfiler.endSection();
-
-        if (!this.hasAttacked && this.entityToAttack != null && (this.pathToEntity == null || this.rand.nextInt(20) == 0))
-        {
-            this.pathToEntity = this.worldObj.getPathEntityToEntity(this, this.entityToAttack, var1, true, false, false, true);
-        }
-        else if (!this.hasAttacked && (this.pathToEntity == null && this.rand.nextInt(180) == 0 || this.rand.nextInt(120) == 0 || this.fleeingTick > 0) && this.entityAge < 100)
-        {
-            this.updateWanderPath();
-        }
-
-        int var21 = MathHelper.floor_double(this.boundingBox.minY + 0.5D);
-        boolean var3 = this.isInWater();
-        boolean var4 = this.handleLavaMovement();
-        this.rotationPitch = 0.0F;
-
-        if (this.pathToEntity != null && this.rand.nextInt(100) != 0)
-        {
-            this.worldObj.theProfiler.startSection("followpath");
-            Vec3 var5 = this.pathToEntity.getPosition(this);
-            double var6 = (double)(this.width * 2.0F);
-
-            while (var5 != null && var5.squareDistanceTo(this.posX, var5.yCoord, this.posZ) < var6 * var6)
-            {
-                this.pathToEntity.incrementPathIndex();
-
-                if (this.pathToEntity.isFinished())
-                {
-                    var5 = null;
-                    this.pathToEntity = null;
-                }
-                else
-                {
-                    var5 = this.pathToEntity.getPosition(this);
-                }
-            }
-
-            this.isJumping = false;
-
-            if (var5 != null)
-            {
-                double var8 = var5.xCoord - this.posX;
-                double var10 = var5.zCoord - this.posZ;
-                double var12 = var5.yCoord - (double)var21;
-                float var14 = (float)(Math.atan2(var10, var8) * 180.0D / Math.PI) - 90.0F;
-                float var15 = MathHelper.wrapAngleTo180_float(var14 - this.rotationYaw);
-                this.moveForward = this.moveSpeed;
-
-                if (var15 > 30.0F)
-                {
-                    var15 = 30.0F;
-                }
-
-                if (var15 < -30.0F)
-                {
-                    var15 = -30.0F;
-                }
-
-                this.rotationYaw += var15;
-
-                if (this.hasAttacked && this.entityToAttack != null)
-                {
-                    double var16 = this.entityToAttack.posX - this.posX;
-                    double var18 = this.entityToAttack.posZ - this.posZ;
-                    float var20 = this.rotationYaw;
-                    this.rotationYaw = (float)(Math.atan2(var18, var16) * 180.0D / Math.PI) - 90.0F;
-                    var15 = (var20 - this.rotationYaw + 90.0F) * (float)Math.PI / 180.0F;
-                    this.moveStrafing = -MathHelper.sin(var15) * this.moveForward * 1.0F;
-                    this.moveForward = MathHelper.cos(var15) * this.moveForward * 1.0F;
-                }
-
-                if (var12 > 0.0D)
-                {
-                    this.isJumping = true;
-                }
-            }
-
-            if (this.entityToAttack != null)
-            {
-                this.faceEntity(this.entityToAttack, 30.0F, 30.0F);
-            }
-
-            if (this.isCollidedHorizontally && !this.hasPath())
-            {
-                this.isJumping = true;
-            }
-
-            if (this.rand.nextFloat() < 0.8F && (var3 || var4))
-            {
-                this.isJumping = true;
-            }
-
-            this.worldObj.theProfiler.endSection();
-        }
-        else
-        {
-            super.updateEntityActionState();
-            this.pathToEntity = null;
-        }
+    	if(!this.frozen)
+    	{
+	        this.worldObj.theProfiler.startSection("ai");
+	
+	        if (this.fleeingTick > 0)
+	        {
+	            --this.fleeingTick;
+	        }
+	
+	        this.hasAttacked = this.isMovementCeased();
+	        float var1 = 16.0F;
+	
+	        if (this.entityToAttack == null)
+	        {
+	            this.entityToAttack = this.findPlayerToAttack();
+	
+	            if (this.entityToAttack != null)
+	            {
+	                this.pathToEntity = this.worldObj.getPathEntityToEntity(this, this.entityToAttack, var1, true, false, false, true);
+	            }
+	        }
+	        else if (this.entityToAttack.isEntityAlive())
+	        {
+	            float var2 = this.entityToAttack.getDistanceToEntity(this);
+	
+	            if (this.canEntityBeSeen(this.entityToAttack))
+	            {
+	                this.attackEntity(this.entityToAttack, var2);
+	            }
+	        }
+	        else
+	        {
+	            this.entityToAttack = null;
+	        }
+	
+	        this.worldObj.theProfiler.endSection();
+	
+	        if (!this.hasAttacked && this.entityToAttack != null && (this.pathToEntity == null || this.rand.nextInt(20) == 0))
+	        {
+	            this.pathToEntity = this.worldObj.getPathEntityToEntity(this, this.entityToAttack, var1, true, false, false, true);
+	        }
+	        else if (!this.hasAttacked && (this.pathToEntity == null && this.rand.nextInt(180) == 0 || this.rand.nextInt(120) == 0 || this.fleeingTick > 0) && this.entityAge < 100)
+	        {
+	            this.updateWanderPath();
+	        }
+	
+	        int var21 = MathHelper.floor_double(this.boundingBox.minY + 0.5D);
+	        boolean var3 = this.isInWater();
+	        boolean var4 = this.handleLavaMovement();
+	        this.rotationPitch = 0.0F;
+	
+	        if (this.pathToEntity != null && this.rand.nextInt(100) != 0)
+	        {
+	            this.worldObj.theProfiler.startSection("followpath");
+	            Vec3 var5 = this.pathToEntity.getPosition(this);
+	            double var6 = (double)(this.width * 2.0F);
+	
+	            while (var5 != null && var5.squareDistanceTo(this.posX, var5.yCoord, this.posZ) < var6 * var6)
+	            {
+	                this.pathToEntity.incrementPathIndex();
+	
+	                if (this.pathToEntity.isFinished())
+	                {
+	                    var5 = null;
+	                    this.pathToEntity = null;
+	                }
+	                else
+	                {
+	                    var5 = this.pathToEntity.getPosition(this);
+	                }
+	            }
+	
+	            this.isJumping = false;
+	
+	            if (var5 != null)
+	            {
+	                double var8 = var5.xCoord - this.posX;
+	                double var10 = var5.zCoord - this.posZ;
+	                double var12 = var5.yCoord - (double)var21;
+	                float var14 = (float)(Math.atan2(var10, var8) * 180.0D / Math.PI) - 90.0F;
+	                float var15 = MathHelper.wrapAngleTo180_float(var14 - this.rotationYaw);
+	                this.moveForward = this.moveSpeed;
+	
+	                if (var15 > 30.0F)
+	                {
+	                    var15 = 30.0F;
+	                }
+	
+	                if (var15 < -30.0F)
+	                {
+	                    var15 = -30.0F;
+	                }
+	
+	                this.rotationYaw += var15;
+	
+	                if (this.hasAttacked && this.entityToAttack != null)
+	                {
+	                    double var16 = this.entityToAttack.posX - this.posX;
+	                    double var18 = this.entityToAttack.posZ - this.posZ;
+	                    float var20 = this.rotationYaw;
+	                    this.rotationYaw = (float)(Math.atan2(var18, var16) * 180.0D / Math.PI) - 90.0F;
+	                    var15 = (var20 - this.rotationYaw + 90.0F) * (float)Math.PI / 180.0F;
+	                    this.moveStrafing = -MathHelper.sin(var15) * this.moveForward * 1.0F;
+	                    this.moveForward = MathHelper.cos(var15) * this.moveForward * 1.0F;
+	                }
+	
+	                if (var12 > 0.0D)
+	                {
+	                    this.isJumping = true;
+	                }
+	            }
+	
+	            if (this.entityToAttack != null)
+	            {
+	                this.faceEntity(this.entityToAttack, 30.0F, 30.0F);
+	            }
+	
+	            if (this.isCollidedHorizontally && !this.hasPath())
+	            {
+	                this.isJumping = true;
+	            }
+	
+	            if (this.rand.nextFloat() < 0.8F && (var3 || var4))
+	            {
+	                this.isJumping = true;
+	            }
+	
+	            this.worldObj.theProfiler.endSection();
+	        }
+	        else
+	        {
+	            super.updateEntityActionState();
+	            this.pathToEntity = null;
+	        }
+    	}
     }
 
     /**

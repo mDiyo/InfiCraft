@@ -21,7 +21,7 @@ public class StoneGenColor extends WorldGenerator
         this.numberOfBlocks = par2;
     }
     
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+    public boolean generate(World world, Random par2Random, int par3, int par4, int par5)
     {
     	int minableBlockMeta = par2Random.nextInt(11) + 5;
         float var6 = par2Random.nextFloat() * (float)Math.PI;
@@ -47,26 +47,26 @@ public class StoneGenColor extends WorldGenerator
             int var36 = MathHelper.floor_double(var22 + var30 / 2.0D);
             int var37 = MathHelper.floor_double(var24 + var28 / 2.0D);
 
-            for (int var38 = var32; var38 <= var35; ++var38)
+            for (int iterX = var32; iterX <= var35; ++iterX)
             {
-                double var39 = ((double)var38 + 0.5D - var20) / (var28 / 2.0D);
+                double sqX = ((double)iterX + 0.5D - var20) / (var28 / 2.0D);
 
-                if (var39 * var39 < 1.0D)
+                if (sqX * sqX < 1.0D)
                 {
-                    for (int var41 = var33; var41 <= var36; ++var41)
+                    for (int iterY = var33; iterY <= var36; ++iterY)
                     {
-                        double var42 = ((double)var41 + 0.5D - var22) / (var30 / 2.0D);
+                        double sqY = ((double)iterY + 0.5D - var22) / (var30 / 2.0D);
 
-                        if (var39 * var39 + var42 * var42 < 1.0D)
+                        if (sqX * sqX + sqY * sqY < 1.0D)
                         {
-                            for (int var44 = var34; var44 <= var37; ++var44)
+                            for (int iterZ = var34; iterZ <= var37; ++iterZ)
                             {
-                                double var45 = ((double)var44 + 0.5D - var24) / (var28 / 2.0D);
+                                double sqZ = ((double)iterZ + 0.5D - var24) / (var28 / 2.0D);
 
-                                Block block = Block.blocksList[par1World.getBlockId(var38, var41, var44)];
-                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (block != null && block.isGenMineableReplaceable(par1World, var38, var41, var44)))
+                                Block block = Block.blocksList[world.getBlockId(iterX, iterY, iterZ)];
+                                if (sqX * sqX + sqY * sqY + sqZ * sqZ < 1.0D && (block != null && block.isGenMineableReplaceable(world, iterX, iterY, iterZ)))
                                 {
-                                    par1World.setBlockAndMetadata(var38, var41, var44, this.minableBlockId, minableBlockMeta);
+                                    world.setBlockAndMetadata(iterX, iterY, iterZ, this.minableBlockId, minableBlockMeta);
                                 }
                             }
                         }

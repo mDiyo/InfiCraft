@@ -7,8 +7,8 @@ import net.minecraft.src.TileEntity;
 
 public abstract class BlockLogicBase extends TileEntity
 {
-    private boolean active;
-    private byte facing;
+    protected boolean active;
+    protected byte facing;
 
     public BlockLogicBase()
     {
@@ -20,12 +20,14 @@ public abstract class BlockLogicBase extends TileEntity
     {
         super.readFromNBT(nbttagcompound);
         facing = nbttagcompound.getByte("facing");
+        active = nbttagcompound.getBoolean("active");
     }
 
     public void writeToNBT(NBTTagCompound nbttagcompound)
     {
         super.writeToNBT(nbttagcompound);
         nbttagcompound.setByte("facing", facing);
+        nbttagcompound.setBoolean("active", active);
     }
 
     public boolean getActive()

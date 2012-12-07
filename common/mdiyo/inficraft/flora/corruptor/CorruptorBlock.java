@@ -25,34 +25,34 @@ public class CorruptorBlock extends Block
         setCreativeTab(CreativeTabs.tabBlock);
     }
 
-    public void updateTick(World world, int i, int j, int k, Random random)
+    public void updateTick(World world, int x, int y, int z, Random random)
     {
         if (world.isRemote || !PHCorruptor.corruptionSpread)
         {
             return;
         }
-        int meta = world.getBlockMetadata(i, j, k);
-        int blockID = world.getBlockId(i, j + 1, k);
+        int meta = world.getBlockMetadata(x, y, z);
+        int blockID = world.getBlockId(x, y + 1, z);
         if (blockID != 0 && meta >= 8)
         {
-            world.setBlockMetadataWithNotify(i, j, k, meta - 8);
+            world.setBlockMetadataWithNotify(x, y, z, meta - 8);
         }
         if (meta >= 8 && blockID == 0 && random.nextInt(15) == 0)
         {
             if (random.nextInt(2) == 0)
             {
-                world.setBlock(i, j + 1, k, Block.mushroomBrown.blockID);
+                world.setBlock(x, y + 1, z, Block.mushroomBrown.blockID);
             }
             else
             {
-                world.setBlock(i, j + 1, k, Block.mushroomRed.blockID);
+                world.setBlock(x, y + 1, z, Block.mushroomRed.blockID);
             }
         }
         if (random.nextInt(PHCorruptor.corruptionSpeed) == 0)
         {
-            int posX = (i + random.nextInt(3)) - 1;
-            int posY = (j + random.nextInt(3)) - 1;
-            int posZ = (k + random.nextInt(3)) - 1;
+            int posX = (x + random.nextInt(3)) - 1;
+            int posY = (y + random.nextInt(3)) - 1;
+            int posZ = (z + random.nextInt(3)) - 1;
             int bID = world.getBlockId(posX, posY, posZ);
             int md = world.getBlockMetadata(posX, posY, posZ);
             Material material = world.getBlockMaterial(posX, posY, posZ);
