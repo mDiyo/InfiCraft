@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.src.Item;
 import net.minecraftforge.common.Configuration;
 
 public class PHCrops 
@@ -45,10 +46,15 @@ public class PHCrops
         
         floraCropsID = config.getBlock("Crops", 3260).getInt(3260); 
         
-        seedBagID = config.getItem("Seed Bag", 12401).getInt(12401);
         barleySeedID = config.getItem("Barley Seed", 12403).getInt(12403);
         foodID = config.getItem("Food Items", 12404).getInt(12404);
         ingredientsID = config.getItem("Ingredients", 12407).getInt(12407);
+        
+        wheatBagID = config.getItem("Wheat Bag", 12411).getInt(12411);
+        barleyBagID = config.getItem("Barley Bag", 12412).getInt(12412);
+        potatoBagID = config.getItem("Potato Bag", 12413).getInt(12413);
+        carrotBagID = config.getItem("Carrot Bag", 12414).getInt(12414);
+        netherWartBagID = config.getItem("Nether Wart Bag", 12415).getInt(12415);
 
         barleySpawnDensity = config.get("general", "Barley Spawn Density", 64).getInt(64);
         barleySpawnHeight = config.get("general", "Barley Spawn Height", 64).getInt(64);        
@@ -59,7 +65,11 @@ public class PHCrops
 	
 	/* Prototype fields, used elsewhere */
 	
-	public static int seedBagID;
+	public static int wheatBagID;
+	public static int barleyBagID;
+	public static int potatoBagID;
+	public static int carrotBagID;
+	public static int netherWartBagID;
 	
 	public static int barleySeedID;
 

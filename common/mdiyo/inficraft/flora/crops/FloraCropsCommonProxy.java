@@ -2,11 +2,13 @@ package mDiyo.inficraft.flora.crops;
 
 import java.io.File;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+
+import mDiyo.inficraft.infitools.core.Items;
 import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
 
 public class FloraCropsCommonProxy 
 {
@@ -18,52 +20,51 @@ public class FloraCropsCommonProxy
 	
 	public void addRecipes()
 	{
-		ModLoader.addRecipe(new ItemStack(FloraCrops.getInstance().seedBag, 1, 0), new Object[]
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.wheatBag, 1, 0), "sss", "sss", "sss", 's', Item.seeds );
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.barleyBag, 1, 0), "sss", "sss", "sss", 's', FloraCrops.instance.barleySeed );
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.potatoBag, 1, 0), "sss", "sss", "sss", 's', Item.potato );
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.carrotBag, 1, 0), "sss", "sss", "sss", 's', Item.carrot );
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.netherWartBag, 1, 0), "sss", "sss", "sss", 's', Item.netherStalkSeeds );
+		
+		GameRegistry.addRecipe(new ItemStack(Item.seeds, 9, 0), "s", 's', FloraCrops.instance.wheatBag );
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.barleySeed, 0, 9), "s", 's', FloraCrops.instance.barleyBag );
+		GameRegistry.addRecipe(new ItemStack(Item.potato, 9, 0), "s", 's', FloraCrops.instance.potatoBag );
+		GameRegistry.addRecipe(new ItemStack(Item.carrot, 9, 0), "s", 's', FloraCrops.instance.carrotBag );
+		GameRegistry.addRecipe(new ItemStack(Item.netherStalkSeeds, 9, 0), "s", 's', FloraCrops.instance.netherWartBag );
+		
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.waterDrop, 1), "X", 'X', Block.cactus );
+		GameRegistry.addRecipe(new ItemStack(Item.bucketWater, 1), "www", "wBw", "www", 'w', FloraCrops.instance.waterDrop, 'B', Item.bucketEmpty );
+		
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.wheatFlour, 1), "X", 'X', Item.wheat ); //Wheat
+		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.wheatDough, 1), FloraCrops.instance.wheatFlour, Item.bucketWater );
+		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.wheatDough, 2), FloraCrops.instance.wheatFlour, Item.egg );
+		GameRegistry.addSmelting(FloraCrops.instance.wheatDough.shiftedIndex, new ItemStack(Item.bread, 1), 1f);
+		
+		GameRegistry.addRecipe(new ItemStack(Item.bread), "bbb", 'b', new ItemStack(FloraCrops.instance.barleyItem, 1, 0) );
+		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.barleyItem, 1, 1), "X", 'X', new ItemStack(FloraCrops.instance.barleyItem, 1, 0) );
+		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.barleyItem, 1, 2), FloraCrops.instance.barleyItem, Item.bucketWater );
+		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.barleyItem, 2, 2), FloraCrops.instance.barleyItem, Item.egg );
+		FurnaceRecipes.smelting().addSmelting(FloraCrops.instance.barleyItem.shiftedIndex, 2, new ItemStack(Item.bread, 1), 1f);
+		
+		GameRegistry.addRecipe(new ItemStack(Item.cake, 1), "AAA", "BEB", " C ", 'A', Item.bucketMilk, 'B', Item.sugar, 
+				'C', FloraCrops.instance.wheatFlour, 'E', Item.egg );
+		
+		try
 		{
-			"sss", "sss", "sss", 's', Item.seeds
-		});
-		
-		ModLoader.addRecipe(new ItemStack(Item.bread), new Object[]
+			Class class1 = Class.forName("mDiyo.inficraft.infitools.core.Items");
+			
+			Item[] item = new Item[] { Items.getInstance().woodBucketWater, Items.getInstance().cactusBucketWater, 
+					Items.getInstance().goldBucketWater, Items.getInstance().obsidianBucketWater };
+			for (int i = 0; i < item.length; i++)
+			{
+				GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.wheatDough, 1), FloraCrops.instance.wheatFlour, item );
+				GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.wheatDough, 1), new ItemStack(FloraCrops.instance.wheatFlour, 1, 1), item );
+			}
+		}
+		catch (Exception e)	
 		{
-			"bbb", Character.valueOf('b'), new ItemStack(FloraCrops.getInstance().food, 1, 0)
-		});
-		ModLoader.addRecipe(new ItemStack(FloraCrops.getInstance().food, 1, 1), new Object[]
-		{
-			"b", Character.valueOf('b'), new ItemStack(FloraCrops.getInstance().food, 1, 0)
-		});
-		FurnaceRecipes.smelting().addSmelting(FloraCrops.getInstance().food.shiftedIndex, 1, new ItemStack(Item.bread, 1), 1f);
-		
-		ModLoader.addRecipe(new ItemStack(FloraCrops.getInstance().waterDrop, 1), new Object[]
-				{
-					"X", 'X', Block.cactus
-				});
-		
-		/*ModLoader.addName(wheatFlour, "Flour");
-		ModLoader.addRecipe(new ItemStack(wheatFlour, 1), new Object[]
-				{
-					"X", 'X', Item.wheat
-				});
-		ModLoader.addName(wheatDough, "Dough");
-		ModLoader.addShapelessRecipe(new ItemStack(wheatDough, 1), new Object[]
-				{
-					wheatFlour, Item.bucketWater
-				});
-		ModLoader.addShapelessRecipe(new ItemStack(wheatDough, 2), new Object[]
-				{
-					wheatFlour, Item.egg
-				});
-		ModLoader.addSmelting(wheatDough.shiftedIndex, new ItemStack(Item.bread, 1));
-		ModLoader.addSmelting(wheatFlour.shiftedIndex, new ItemStack(Item.bread, 1));
-		ModLoader.addRecipe(new ItemStack(Item.cake, 1), new Object[]
-				{
-					"AAA", "BEB", " C ", Character.valueOf('A'), Item.bucketMilk, Character.valueOf('B'), Item.sugar, Character.valueOf('C'), wheatFlour, Character.valueOf('E'),
-					Item.egg
-				});
-		ModLoader.addRecipe(new ItemStack(Item.bucketWater, 1), new Object[]
-				{
-					"www", "wBw", "www", 'w', waterDrop, Character.valueOf('B'), Item.bucketEmpty
-				});*/
-		
+			System.out.println("Flora & Soma: Crops had a problem finding InfiTools Base. "+e);
+		}
 	}
 	
 	public File getMinecraftDir()

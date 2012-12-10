@@ -22,10 +22,12 @@ public class FloraCropsClientProxy extends FloraCropsCommonProxy
 	
 	public void addNames()
 	{
-		LanguageRegistry.instance().addStringLocalization("item.seedBag.name", "en_US", "Seed Bag");
+		LanguageRegistry.instance().addStringLocalization("item.wheatBag.name", "en_US", "Wheat Seed Bag");
+		LanguageRegistry.instance().addStringLocalization("item.barleyBag.name", "en_US", "Barley Seed Bag");
 		LanguageRegistry.instance().addStringLocalization("item.barleySeed.name", "en_US", "Barley Seeds");
-		LanguageRegistry.instance().addStringLocalization("barleyFlora.name", "en_US", "Barley");
-		LanguageRegistry.instance().addStringLocalization("barleyflourFlora.namee", "en_US", "Barley Flour");
+		LanguageRegistry.instance().addStringLocalization("item.itemBarley.name", "en_US", "Barley");
+		LanguageRegistry.instance().addStringLocalization("item.flourBarley.name", "en_US", "Barley Flour");
+		LanguageRegistry.instance().addStringLocalization("item.doughBarley.name", "en_US", "Barley dough");
 		LanguageRegistry.instance().addStringLocalization("item.waterDrop.name", "en_US", "Drop of Water");
 	}
 	

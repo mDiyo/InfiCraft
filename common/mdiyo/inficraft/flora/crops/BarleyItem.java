@@ -8,14 +8,14 @@ import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 
-public class RecipeItem extends Item
+public class BarleyItem extends Item
 {
     public static final String blockType[] =
     {
-        "barley", "barleyflour"
+        "item", "flour", "dough"
     };
 
-    public RecipeItem(int i)
+    public BarleyItem(int i)
     {
         super(i);
         setHasSubtypes(true);
@@ -40,13 +40,13 @@ public class RecipeItem extends Item
 
     public String getItemNameIS(ItemStack itemstack)
     {
-        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("Flora").toString();
+        return (new StringBuilder()).append("item.").append(blockType[itemstack.getItemDamage()]).append("Barley").toString();
     }
     
     @SideOnly(Side.CLIENT)
     public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        for (int var4 = 0; var4 < 2; ++var4)
+        for (int var4 = 0; var4 < 3; ++var4)
         {
             par3List.add(new ItemStack(par1, 1, var4));
         }

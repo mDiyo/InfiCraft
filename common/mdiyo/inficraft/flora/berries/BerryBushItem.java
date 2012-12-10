@@ -29,7 +29,6 @@ public class BerryBushItem extends ItemBlock
         
         else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack))
         {
-            int bID = world.getBlockId(x, y, z);
             Block block = Block.blocksList[world.getBlockId(x, y, z)];
 
             if (block != null && block.canSustainPlant(world, x, y, z, ForgeDirection.UP, (IPlantable) FloraBerries.instance.berryBush) && world.isAirBlock(x, y + 1, z))

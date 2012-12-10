@@ -32,19 +32,13 @@ public class FloraCrops
 	/* Instance of this mod, used for grabbing prototype fields */
 	@Instance("Flora Crops")
 	public static FloraCrops instance;
-	public static FloraCrops getInstance()
-	{
-		return instance;
-	}
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		PHCrops.initProps();
 		
-		seedBag = new SeedBag(PHCrops.seedBagID).setItemName("seedBag");
-		
-		food = new RecipeItem(PHCrops.foodID).setIconCoord(1, 3).setItemName("food");
+		barleyItem = new BarleyItem(PHCrops.foodID).setIconCoord(1, 3).setItemName("barleyFood");
 		floraCrops = new FloraCropBlock(PHCrops.floraCropsID, 80);
 		barleySeed = new FloraSeeds(PHCrops.barleySeedID, floraCrops.blockID, Block.tilledField.blockID).setIconCoord(1, 2).setItemName("barleySeed");
 		
@@ -52,6 +46,12 @@ public class FloraCrops
 		
 		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, "/infitextures/food.png", "Wheat Flour").setIconCoord(1, 0);
 		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, "/infitextures/food.png", "Wheat Dough").setIconCoord(2, 0);
+		
+		wheatBag = new SeedBag(PHCrops.wheatBagID, Block.crops, 0).setItemName("wheatBag").setIconIndex(0);
+		barleyBag = new SeedBag(PHCrops.barleyBagID, floraCrops, 0).setItemName("barleyBag").setIconIndex(1);
+		potatoBag = new SeedBag(PHCrops.potatoBagID, Block.potato, 0).setItemName("barleyBag").setIconIndex(2);
+		carrotBag = new SeedBag(PHCrops.carrotBagID, Block.carrot, 0).setItemName("barleyBag").setIconIndex(5);
+		netherWartBag = new SeedBag(PHCrops.netherWartBagID, Block.netherStalk, 0).setItemName("barleyBag").setIconIndex(6);
 		
 		ModLoader.registerBlock(floraCrops);
 	}
@@ -66,152 +66,26 @@ public class FloraCrops
 		proxy.addNames();
 	}
 	
-	/* Render methods, used for saguaro */
-	/*public boolean renderWorldBlock(RenderBlocks renderblocks, IBlockAccess iblockaccess, int x, int y, int z, Block block, int modelID)
-	{
-		
-		if (modelID == saguaroModel){
-			return renderSaguaroWorld(renderblocks, iblockaccess, x, y, z, (SaguaroBlock)block);
-		} else
-
-		{	  	
-			return false;
-		}
-	}
-	
-	private boolean renderSaguaroWorld(RenderBlocks renderblocks, 
-			IBlockAccess iblockaccess, int x, int y, int z, SaguaroBlock cactus)
-	{
-		float offset = 0.125F;
-		
-		float bX = offset;
-		float bY = 0.0F;
-		float bZ = offset;
-		float tX = 1.0F - offset;
-		float tY = 1.0F - offset;
-		float tZ = 1.0F - offset;
-		
-		int airBelow = iblockaccess.getBlockId(x, y-1, z);
-		int cactusAbove = iblockaccess.getBlockId(x, y+1, z);	
-		
-		if(airBelow == 0)
-			bY = offset;*/
-		/*if(cactusAbove == saguaro.blockID)
-			tY = 1.0F;*/
-		
-		/*cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-		renderblocks.renderStandardBlock(cactus, x, y, z);
-		
-		bY = offset;
-		tY = 1.0F - offset;
-		
-		if(cactus.canConnectSuguaroTo(iblockaccess, x + 1, y, z) && 
-				(airBelow == 0 || iblockaccess.getBlockId(x+1, y-1, z) == 0) ) {
-			bX = 1F - offset;
-			tX = 1F;
-			cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-			renderblocks.renderStandardBlock(cactus, x, y, z);
-		}
-		
-		if(cactus.canConnectSuguaroTo(iblockaccess, x - 1, y, z) && 
-				(airBelow == 0 || iblockaccess.getBlockId(x-1, y-1, z) == 0)) {
-			bX = 0F;
-			tX = offset;
-			cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-			renderblocks.renderStandardBlock(cactus, x, y, z);
-		}
-		
-		bX = offset;
-		tX = 1.0F - offset;
-		
-		if(cactus.canConnectSuguaroTo(iblockaccess, x, y, z + 1) && 
-				(airBelow == 0 || iblockaccess.getBlockId(x, y-1, z+1) == 0)) {
-			bZ = 1F - offset;
-			tZ = 1F;
-			cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-			renderblocks.renderStandardBlock(cactus, x, y, z);
-		}
-		
-		if(cactus.canConnectSuguaroTo(iblockaccess, x, y, z - 1) && 
-				(airBelow == 0 || iblockaccess.getBlockId(x, y-1, z-1) == 0)) {
-			bZ = 0F;
-			tZ = offset;
-			cactus.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-			renderblocks.renderStandardBlock(cactus, x, y, z);
-		}
-		return false;
-	}
-
-	public void renderInvBlock(RenderBlocks renderblocks, Block block, int i, int j)
-	{
-		
-		if (j == saguaroModel)
-		{
-			renderSaguaroInv(renderblocks, block, i);
-		}
-	}
-	
-	private void renderSaguaroInv(RenderBlocks renderblocks, Block block, int i)
-	{
-		float offset = 0.125F;
-		
-		float bX = offset;
-		float bY = 0.0F;
-		float bZ = offset;
-		float tX = 1.0F - offset;
-		float tY = 1.0F - offset;
-		float tZ = 1.0F - offset;
-		
-		block.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-		RenderDo(renderblocks, block, i);
-	}
-
-	private void RenderDo(RenderBlocks renderblocks, Block block, int i)
-	{
-		Tessellator tessellator = Tessellator.instance;
-		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, -1F, 0.0F);
-		renderblocks.renderBottomFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(0, i));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 1.0F, 0.0F);
-		renderblocks.renderTopFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(1, i));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 0.0F, -1F);
-		renderblocks.renderEastFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(2, i));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 0.0F, 1.0F);
-		renderblocks.renderWestFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(3, i));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(-1F, 0.0F, 0.0F);
-		renderblocks.renderNorthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(4, i));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(1.0F, 0.0F, 0.0F);
-		renderblocks.renderSouthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSideAndMetadata(5, i));
-		tessellator.draw();
-		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-	}*/
-	
 	/* Prototype fields, used elsewhere */
 	
-	public static Item seedBag;
-	public static Item barleySeed;
-	public static Item food;
-
-	public static Item waterDrop;
-	public static Item wheatFlour;
-	public static Item wheatDough;	
+	public Item wheatBag;
+	public Item barleyBag;
+	public Item potatoBag;
+	public Item carrotBag;
+	public Item netherWartBag;
 	
-	public static Block floraCrops;
+	public Item barleySeed;
+	public Item barleyItem;
+
+	public Item waterDrop;
+	public Item wheatFlour;
+	public Item wheatDough;	
+	
+	public Block floraCrops;
 	
 	public static int saguaroModel;
 
 	public static String cropTexture = "/infitextures/crops.png";
-	public static String seedTexture = "/infitextures/seeds.png";
-	public static String foodTexture = "/infitextures/food.png";
+	public static String seedTexture = "/infitextures/crops.png";
+	public static String foodTexture = "/infitextures/crops.png";
 }

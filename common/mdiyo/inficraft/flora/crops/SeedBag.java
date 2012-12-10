@@ -1,64 +1,60 @@
 package mDiyo.inficraft.flora.crops;
 
+import mDiyo.inficraft.flora.berries.FloraBerries;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.IPlantable;
 
 public class SeedBag extends Item
 {
-    private int blockType;
-    private int soilBlock;
-
-    public SeedBag(int i)
+	Block crop;
+	int cropMetadata;
+    public SeedBag(int id, Block block, int cMD)
     {
-        super(i);
-        blockType = Block.crops.blockID;
-        soilBlock = Block.tilledField.blockID;
+        super(id);
+        crop = block;
+        cropMetadata = cMD;
     }
 
     @Override
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int meta, float par8, float par9, float par10)
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
     {
-        if (meta != 1)
-        {
+        if (side != 1)
             return false;
-        }
-        else if (player.canPlayerEdit(x, y, z, meta, itemstack) && player.canPlayerEdit(x, y + 1, z, meta, itemstack))
+        
+        boolean planted = false;
+        for (int posX = x - 1; posX <= x + 1; posX++)
         {
-            return false;
-        }
-        boolean flag = false;
-        for (int i1 = x - 1; i1 <= x + 1; i1++)
-        {
-            for (int j1 = y + 1; j1 <= y + 1; j1++)
+        	for (int posZ = z - 1; posZ <= z + 1; posZ++)
             {
-                for (int k1 = z - 1; k1 <= z + 1; k1++)
-                {
-                    int l1 = world.getBlockId(i1, j1 - 1, k1);
-                    if (l1 == soilBlock && world.isAirBlock(x, y + 1, z))
-                    {
-                        world.setBlockWithNotify(i1, j1, k1, blockType);
-                        flag = true;
-                    }
-                }
+		        if (player.canPlayerEdit(posX, y, posZ, side, stack) && player.canPlayerEdit(posX, y + 1, posZ, side, stack))
+		        {
+		            Block block = Block.blocksList[world.getBlockId(posX, y, posZ)];
+		
+		            if (block != null && block.canSustainPlant(world, posX, y, posZ, ForgeDirection.UP, (IPlantable)crop) && world.isAirBlock(posX, y + 1, posZ))
+		            {
+		                world.setBlockAndMetadataWithNotify(posX, y + 1, posZ, crop.blockID, cropMetadata);
+		                planted = true;
+		            }
+		        }
             }
         }
-
-        if (flag)
+        if (planted)
         {
-            itemstack.stackSize--;
-            return true;
+        	if (!player.capabilities.isCreativeMode)
+            	stack.stackSize--;
+            if (!world.isRemote)
+            	world.playAuxSFX(2001, x, y, z, crop.blockID);
         }
-        else
-        {
-            return false;
-        }
+        return planted;
     }
 
     public String getTextureFile()
     {
-        return "/floratex/seeds.png";
+        return FloraCrops.cropTexture;
     }
 }
