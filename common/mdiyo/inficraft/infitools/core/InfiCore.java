@@ -19,7 +19,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 
-@Mod(modid = "InfiTools", name = "InfiTools", version = "1.4.5_2012.12.2")
+@Mod(modid = "InfiTools", name = "InfiTools", version = "1.4.5_2012.12.10")
 public class InfiCore
 {
 	@Instance("InfiTools")
@@ -130,10 +130,10 @@ public class InfiCore
 	
 	private void removeVanillaRecipes()
 	{
-		System.out.println("Note: Some conflicts here are supposed to happen");
-		System.out.println("      if *Overwrite Vanilla Tools* is enabled");
+		/*System.out.println("Note: Some conflicts here are supposed to happen");
+		System.out.println("      if *Overwrite Vanilla Tools* is enabled");*/
 		ItemStack[] vanillaTools = {
-			new ItemStack(Item.axeWood), new ItemStack(Item.pickaxeWood), new ItemStack(Item.shovelWood), 
+			/*new ItemStack(Item.axeWood), new ItemStack(Item.pickaxeWood), new ItemStack(Item.shovelWood), 
 			new ItemStack(Item.swordWood),new ItemStack(Item.hoeWood),
 			
 			new ItemStack(Item.axeStone), new ItemStack(Item.pickaxeStone), new ItemStack(Item.shovelStone), 
@@ -143,7 +143,7 @@ public class InfiCore
 			new ItemStack(Item.swordSteel),new ItemStack(Item.hoeSteel),
 			
 			new ItemStack(Item.axeDiamond), new ItemStack(Item.pickaxeDiamond), new ItemStack(Item.shovelDiamond), 
-			new ItemStack(Item.swordDiamond),new ItemStack(Item.hoeDiamond),
+			new ItemStack(Item.swordDiamond),new ItemStack(Item.hoeDiamond),*/
 			
 			/*new ItemStack(Item.axeGold), new ItemStack(Item.pickaxeGold), new ItemStack(Item.shovelGold), 
 			new ItemStack(Item.swordGold),new ItemStack(Item.hoeGold),*/

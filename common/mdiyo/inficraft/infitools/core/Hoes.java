@@ -5,6 +5,7 @@ import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
+import net.minecraftforge.common.MinecraftForge;
 
 public class Hoes 
 {
@@ -19,17 +20,20 @@ public class Hoes
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+    	if(PHInfiTools.addInfiTools)
+        {
+    		createTools();
+    		addNames();
+    		registerInfiToolsRecipes();
+        }
     }
     
     private static void createTools()
     {
     	if(PHInfiTools.enableWoodTools)
     	{
-    		woodWoodHoe = new InfiToolHoe(34, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodHoe");
+    		if (PHInfiTools.overwriteVanillaTools)
+    			woodWoodHoe = new InfiToolHoe(14, InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodHoe");
     		sandstoneWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodHoe");
     		boneWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+2, 
@@ -42,12 +46,21 @@ public class Hoes
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Slime, "slimeWoodHoe");
     		cactusWoodHoe = new InfiToolHoe(PHInfiTools.woodHoeID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodHoe");
+    		
+    		if (PHInfiTools.overwriteVanillaTools)
+    			MinecraftForge.setToolClass(woodWoodHoe, "Hoe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(sandstoneWoodHoe, "Hoe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(boneWoodHoe, "Hoe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(paperWoodHoe, "Hoe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(iceWoodHoe, "Hoe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(slimeWoodHoe, "Hoe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(cactusWoodHoe, "Hoe", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
         if(PHInfiTools.enableStoneTools)
         {
-        	woodStoneHoe = new InfiToolHoe(35, 
-                    InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneHoe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodStoneHoe = new InfiToolHoe(18, InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneHoe");
         	stoneStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneHoe");
         	sandstoneStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+2, 
@@ -63,13 +76,24 @@ public class Hoes
         	cactusStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+7, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Cactus, "cactusStoneHoe");
         	flintStoneHoe = new InfiToolHoe(PHInfiTools.stoneHoeID+8, 
-                    InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneHoe");            
+                    InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneHoe");
+            
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintStoneHoe, "Hoe", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableIronTools)
         {
-        	woodIronHoe = new InfiToolHoe(36, 
-                    InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronHoe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodIronHoe = new InfiToolHoe(1, InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronHoe");
         	stoneIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronHoe");
         	ironIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+2, 
@@ -86,12 +110,23 @@ public class Hoes
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Copper, "copperIronHoe");
         	bronzeIronHoe = new InfiToolHoe(PHInfiTools.ironHoeID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronHoe");
+            
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeIronHoe, "Hoe", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	woodDiamondHoe = new InfiToolHoe(37, 
-                    InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondHoe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodDiamondHoe = new InfiToolHoe(22, InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondHoe");
         	stoneDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondHoe");
         	ironDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+2, 
@@ -134,6 +169,30 @@ public class Hoes
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Manyullyn, "manyullynDiamondHoe");
             uraniumDiamondHoe = new InfiToolHoe(PHInfiTools.diamondHoeID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondHoe");
+            
+            if (PHInfiTools.overwriteVanillaTools)
+            	MinecraftForge.setToolClass(woodDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(ironDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(boneDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(flintDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(copperDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(workedDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(steelDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumDiamondHoe, "Hoe", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
         if(PHInfiTools.enableRedstoneTools)
@@ -178,6 +237,27 @@ public class Hoes
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.WorkedIron, "workedRedstoneHoe");
         	uraniumRedstoneHoe = new InfiToolHoe(PHInfiTools.redstoneHoeID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneHoe");
+            
+            MinecraftForge.setToolClass(woodRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(ironRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(copperRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumRedstoneHoe, "Hoe", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableObsidianTools)
@@ -202,6 +282,17 @@ public class Hoes
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Lava, "lavaObsidianHoe");
         	cactusObsidianHoe = new InfiToolHoe(PHInfiTools.obsidianHoeID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianHoe");
+            
+            MinecraftForge.setToolClass(woodObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(boneObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(iceObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusObsidianHoe, "Hoe", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSandstoneTools)
@@ -222,6 +313,15 @@ public class Hoes
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Cactus, "cactusSandstoneHoe");
         	flintSandstoneHoe = new InfiToolHoe(PHInfiTools.sandstoneHoeID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneHoe");
+            
+            MinecraftForge.setToolClass(woodSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintSandstoneHoe, "Hoe", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBoneTools)
@@ -244,6 +344,16 @@ public class Hoes
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Cactus, "cactusBoneHoe");
         	flintBoneHoe = new InfiToolHoe(PHInfiTools.boneHoeID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneHoe");
+            
+            MinecraftForge.setToolClass(woodBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBoneHoe, "Hoe", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
         if(PHInfiTools.enablePaperTools)
@@ -259,11 +369,11 @@ public class Hoes
         	cactusPaperHoe = new InfiToolHoe(PHInfiTools.paperHoeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperHoe");
             
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(woodPaperHoe, "Hoe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(bonePaperHoe, "Hoe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(paperPaperHoe, "Hoe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimePaperHoe, "Hoe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusPaperHoe, "Hoe", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
         if(PHInfiTools.enableMossyTools)
@@ -293,18 +403,18 @@ public class Hoes
         	uraniumMossyHoe = new InfiToolHoe(PHInfiTools.mossyHoeID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyHoe");
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(woodMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(boneMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumMossyHoe, "Hoe", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
         if(PHInfiTools.enableNetherrackTools)
@@ -336,19 +446,19 @@ public class Hoes
         	bronzeNetherrackHoe = new InfiToolHoe(PHInfiTools.netherrackHoeID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackHoe");
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(woodNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(boneNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(paperNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(iceNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(flintNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(copperNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeNetherrackHoe, "Hoe", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
         if(PHInfiTools.enableGlowstoneTools)
@@ -373,15 +483,15 @@ public class Hoes
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneHoe");
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(woodGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusGlowstoneHoe, "Hoe", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableIceTools)
@@ -400,12 +510,12 @@ public class Hoes
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceHoe");
             
             
-            
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(woodIceHoe, "Hoe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIceHoe, "Hoe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(paperIceHoe, "Hoe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(iceIceHoe, "Hoe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeIceHoe, "Hoe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIceHoe, "Hoe", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
         if(PHInfiTools.enableLavaTools)
@@ -427,14 +537,14 @@ public class Hoes
             uraniumLavaHoe = new InfiToolHoe(PHInfiTools.lavaHoeID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaHoe");
             
-            
-            
-            
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(diamondLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(flintLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumLavaHoe, "Hoe", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSlimeTools)
@@ -452,12 +562,12 @@ public class Hoes
         	cactusSlimeHoe = new InfiToolHoe(PHInfiTools.slimeHoeID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeHoe");
             
-            
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(woodSlimeHoe, "Hoe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSlimeHoe, "Hoe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSlimeHoe, "Hoe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(paperSlimeHoe, "Hoe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSlimeHoe, "Hoe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSlimeHoe, "Hoe", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
         if(PHInfiTools.enableCactusTools)
@@ -477,13 +587,13 @@ public class Hoes
         	cactusCactusHoe = new InfiToolHoe(PHInfiTools.cactusHoeID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusHoe");
             
-            
-            
-            
-            
-            
-            
-            
+            MinecraftForge.setToolClass(woodCactusHoe, "Hoe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneCactusHoe, "Hoe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCactusHoe, "Hoe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCactusHoe, "Hoe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(iceCactusHoe, "Hoe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCactusHoe, "Hoe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCactusHoe, "Hoe", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
         if(PHInfiTools.enableFlintTools)
@@ -508,6 +618,17 @@ public class Hoes
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Copper, "copperFlintHoe");
         	bronzeFlintHoe = new InfiToolHoe(PHInfiTools.flintHoeID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintHoe");
+            
+            MinecraftForge.setToolClass(woodFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(boneFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(flintFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(copperFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeFlintHoe, "Hoe", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBlazeTools)
@@ -528,6 +649,15 @@ public class Hoes
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Manyullyn, "manyullynBlazeHoe");
             uraniumBlazeHoe = new InfiToolHoe(PHInfiTools.blazeHoeID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeHoe");
+            
+            MinecraftForge.setToolClass(diamondBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumBlazeHoe, "Hoe", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
         if(PHInfiTools.enableCopperTools)
@@ -548,6 +678,15 @@ public class Hoes
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Flint, "flintCopperHoe");
             copperCopperHoe = new InfiToolHoe(PHInfiTools.copperHoeID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperHoe");
+            
+            MinecraftForge.setToolClass(woodCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
+        	MinecraftForge.setToolClass(stoneCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(flintCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCopperHoe, "Hoe", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBronzeTools)
@@ -570,6 +709,16 @@ public class Hoes
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Copper, "copperBronzeHoe");
             bronzeBronzeHoe = new InfiToolHoe(PHInfiTools.bronzeHoeID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeHoe");
+            
+            MinecraftForge.setToolClass(woodBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(copperBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeBronzeHoe, "Hoe", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
         if(PHInfiTools.enableWorkedIronTools)
@@ -610,6 +759,25 @@ public class Hoes
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Steel, "steelWorkedIronHoe");
             uraniumWorkedIronHoe = new InfiToolHoe(PHInfiTools.workedIronHoeID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronHoe");
+            
+            MinecraftForge.setToolClass(woodWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(iceWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(steelWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumWorkedIronHoe, "Hoe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSteelTools)
@@ -654,6 +822,27 @@ public class Hoes
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Ardite, "arditeSteelHoe");
             uraniumSteelHoe = new InfiToolHoe(PHInfiTools.steelHoeID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelHoe");
+
+            MinecraftForge.setToolClass(woodSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(ironSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(copperSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSteelHoe, "Hoe", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
         if(PHInfiTools.enableCobaltTools)
@@ -694,6 +883,25 @@ public class Hoes
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltHoe");
             uraniumCobaltHoe = new InfiToolHoe(PHInfiTools.cobaltHoeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltHoe");
+            
+            MinecraftForge.setToolClass(woodCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(ironCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(workedCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(steelCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumCobaltHoe, "Hoe", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
         if(PHInfiTools.enableArditeTools)
@@ -734,6 +942,25 @@ public class Hoes
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Manyullyn, "manyullynArditeHoe");
             uraniumArditeHoe = new InfiToolHoe(PHInfiTools.arditeHoeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeHoe");
+            
+            MinecraftForge.setToolClass(woodArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(ironArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(boneArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(copperArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(workedArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(steelArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumArditeHoe, "Hoe", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
         if(PHInfiTools.enableManyullynTools)
@@ -774,6 +1001,25 @@ public class Hoes
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Manyullyn, "manyullynManyullynHoe");
             uraniumManyullynHoe = new InfiToolHoe(PHInfiTools.manyullynHoeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynHoe");
+            
+            MinecraftForge.setToolClass(woodManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(ironManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(boneManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(copperManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(workedManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(steelManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumManyullynHoe, "Hoe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
         if(PHInfiTools.enableUraniumTools)
@@ -798,12 +1044,23 @@ public class Hoes
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Ardite, "arditeUraniumHoe");
             uraniumUraniumHoe = new InfiToolHoe(PHInfiTools.uraniumHoeID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumHoe");
+            
+            MinecraftForge.setToolClass(diamondUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(boneUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumUraniumHoe, "Hoe", InfiMaterialEnum.Uranium.getHarvestLevel());
         }
     }
     
     private static void addNames()
     {
-    	if(PHInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
             ModLoader.addName(woodWoodHoe, "Wooden Hoe");
         if(PHInfiTools.enableStoneTools)
             ModLoader.addName(stoneStoneHoe, "Heavy Hoe");
@@ -861,8 +1118,8 @@ public class Hoes
     {
     	if(PHInfiTools.enableWoodTools)
         {
-            ModLoader.addRecipe(new ItemStack(woodWoodHoe), new Object[] 
-                    { recipe, '#', Block.planks, '|', Item.stick });
+    		if (PHInfiTools.overwriteVanillaTools)
+    			ModLoader.addRecipe(new ItemStack(woodWoodHoe), recipe, '#', Block.planks, '|', Item.stick );
             ModLoader.addRecipe(new ItemStack(sandstoneWoodHoe), new Object[] 
                     { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodHoe), new Object[] 
@@ -881,8 +1138,8 @@ public class Hoes
     	
         if(PHInfiTools.enableStoneTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodStoneHoe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodStoneHoe), recipe, '#', Block.cobblestone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStoneHoe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneHoe), new Object[] 
@@ -902,8 +1159,8 @@ public class Hoes
             ModLoader.addRecipe(new ItemStack(flintStoneHoe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
-            ModLoader.addRecipe(new ItemStack(woodStoneHoe), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.stick });
+            if (PHInfiTools.overwriteVanillaTools)
+            	ModLoader.addRecipe(new ItemStack(woodStoneHoe), recipe, '#', Block.stone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStoneHoe), new Object[] 
                     { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneHoe), new Object[] 
@@ -926,8 +1183,8 @@ public class Hoes
         
         if(PHInfiTools.enableIronTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodIronHoe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodIronHoe), recipe, '#', Item.ingotIron, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneIronHoe), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronHoe), new Object[] 
@@ -950,8 +1207,8 @@ public class Hoes
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodDiamondHoe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodDiamondHoe), recipe, '#', Item.diamond, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneDiamondHoe), new Object[] 
                     { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondHoe), new Object[] 

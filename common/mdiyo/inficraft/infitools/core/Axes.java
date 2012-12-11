@@ -20,17 +20,20 @@ public class Axes
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+    	if(PHInfiTools.addInfiTools)
+        {
+    		createTools();
+    		addNames();
+    		registerInfiToolsRecipes();
+        }
     }
     
     private static void createTools()
     {
     	if(PHInfiTools.enableWoodTools)
     	{
-    		woodWoodAxe = new InfiToolAxe(15, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodAxe");
+    		if (PHInfiTools.overwriteVanillaTools)
+    			woodWoodAxe = new InfiToolAxe(14, InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodAxe");
     		sandstoneWoodAxe = new InfiToolAxe(PHInfiTools.woodAxeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodAxe");
     		boneWoodAxe = new InfiToolAxe(PHInfiTools.woodAxeID+2, 
@@ -44,19 +47,20 @@ public class Axes
     		cactusWoodAxe = new InfiToolAxe(PHInfiTools.woodAxeID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodAxe");
     		
-    		MinecraftForge.setToolClass(woodWoodAxe, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(sandstoneWoodAxe, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(boneWoodAxe, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(paperWoodAxe, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(iceWoodAxe, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(slimeWoodAxe, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(cactusWoodAxe, "axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		if (PHInfiTools.overwriteVanillaTools)
+    			MinecraftForge.setToolClass(woodWoodAxe, "Axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(sandstoneWoodAxe, "Axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(boneWoodAxe, "Axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(paperWoodAxe, "Axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(iceWoodAxe, "Axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(slimeWoodAxe, "Axe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(cactusWoodAxe, "Axe", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
         if(PHInfiTools.enableStoneTools)
         {
-        	woodStoneAxe = new InfiToolAxe(19, 
-                    InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneAxe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodStoneAxe = new InfiToolAxe(18, InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneAxe");
         	stoneStoneAxe = new InfiToolAxe(PHInfiTools.stoneAxeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneAxe");
         	sandstoneStoneAxe = new InfiToolAxe(PHInfiTools.stoneAxeID+2, 
@@ -74,21 +78,22 @@ public class Axes
         	flintStoneAxe = new InfiToolAxe(PHInfiTools.stoneAxeID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneAxe");
             
-            MinecraftForge.setToolClass(woodStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintStoneAxe, "axe", InfiMaterialEnum.Stone.getHarvestLevel());
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintStoneAxe, "Axe", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableIronTools)
         {
-        	woodIronAxe = new InfiToolAxe(2, 
-                    InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronAxe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodIronAxe = new InfiToolAxe(1, InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronAxe");
         	stoneIronAxe = new InfiToolAxe(PHInfiTools.ironAxeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronAxe");
         	ironIronAxe = new InfiToolAxe(PHInfiTools.ironAxeID+2, 
@@ -106,21 +111,22 @@ public class Axes
         	bronzeIronAxe = new InfiToolAxe(PHInfiTools.ironAxeID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronAxe");
             
-            MinecraftForge.setToolClass(woodIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(ironIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(boneIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(copperIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeIronAxe, "axe", InfiMaterialEnum.Iron.getHarvestLevel());
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeIronAxe, "Axe", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	woodDiamondAxe = new InfiToolAxe(23, 
-                    InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondAxe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodDiamondAxe = new InfiToolAxe(22, InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondAxe");
         	stoneDiamondAxe = new InfiToolAxe(PHInfiTools.diamondAxeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondAxe");
         	ironDiamondAxe = new InfiToolAxe(PHInfiTools.diamondAxeID+2, 
@@ -164,28 +170,29 @@ public class Axes
             uraniumDiamondAxe = new InfiToolAxe(PHInfiTools.diamondAxeID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondAxe");
             
-            MinecraftForge.setToolClass(woodDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(ironDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(boneDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(flintDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(copperDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(workedDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(steelDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumDiamondAxe, "axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            if (PHInfiTools.overwriteVanillaTools)
+            	MinecraftForge.setToolClass(woodDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(ironDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(boneDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(flintDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(copperDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(workedDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(steelDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumDiamondAxe, "Axe", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
         if(PHInfiTools.enableRedstoneTools)
@@ -231,26 +238,26 @@ public class Axes
         	uraniumRedstoneAxe = new InfiToolAxe(PHInfiTools.redstoneAxeID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneAxe");
             
-            MinecraftForge.setToolClass(woodRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(ironRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(paperRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(copperRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(workedRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumRedstoneAxe, "axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(ironRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(copperRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumRedstoneAxe, "Axe", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableObsidianTools)
@@ -276,16 +283,16 @@ public class Axes
         	cactusObsidianAxe = new InfiToolAxe(PHInfiTools.obsidianAxeID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianAxe");
             
-            MinecraftForge.setToolClass(woodObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(boneObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(iceObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusObsidianAxe, "axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(woodObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(boneObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(iceObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusObsidianAxe, "Axe", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSandstoneTools)
@@ -307,14 +314,14 @@ public class Axes
         	flintSandstoneAxe = new InfiToolAxe(PHInfiTools.sandstoneAxeID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneAxe");
             
-            MinecraftForge.setToolClass(woodSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintSandstoneAxe, "axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintSandstoneAxe, "Axe", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBoneTools)
@@ -338,15 +345,15 @@ public class Axes
         	flintBoneAxe = new InfiToolAxe(PHInfiTools.boneAxeID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneAxe");
             
-            MinecraftForge.setToolClass(woodBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(paperBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBoneAxe, "axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBoneAxe, "Axe", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
         if(PHInfiTools.enablePaperTools)
@@ -362,11 +369,11 @@ public class Axes
         	cactusPaperAxe = new InfiToolAxe(PHInfiTools.paperAxeID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperAxe");
             
-            MinecraftForge.setToolClass(woodPaperAxe, "axe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(bonePaperAxe, "axe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(paperPaperAxe, "axe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(slimePaperAxe, "axe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusPaperAxe, "axe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(woodPaperAxe, "Axe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(bonePaperAxe, "Axe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(paperPaperAxe, "Axe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimePaperAxe, "Axe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusPaperAxe, "Axe", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
         if(PHInfiTools.enableMossyTools)
@@ -396,18 +403,18 @@ public class Axes
         	uraniumMossyAxe = new InfiToolAxe(PHInfiTools.mossyAxeID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyAxe");
             
-            MinecraftForge.setToolClass(woodMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(boneMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumMossyAxe, "axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(woodMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(boneMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumMossyAxe, "Axe", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
         if(PHInfiTools.enableNetherrackTools)
@@ -439,19 +446,19 @@ public class Axes
         	bronzeNetherrackAxe = new InfiToolAxe(PHInfiTools.netherrackAxeID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackAxe");
             
-            MinecraftForge.setToolClass(woodNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(boneNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(paperNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(iceNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(flintNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(copperNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeNetherrackAxe, "axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(woodNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(boneNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(paperNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(iceNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(flintNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(copperNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeNetherrackAxe, "Axe", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
         if(PHInfiTools.enableGlowstoneTools)
@@ -476,15 +483,15 @@ public class Axes
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneAxe");
             
             
-            MinecraftForge.setToolClass(woodGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusGlowstoneAxe, "axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusGlowstoneAxe, "Axe", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableIceTools)
@@ -503,12 +510,12 @@ public class Axes
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceAxe");
             
             
-            MinecraftForge.setToolClass(woodIceAxe, "axe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(boneIceAxe, "axe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(paperIceAxe, "axe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(iceIceAxe, "axe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeIceAxe, "axe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusIceAxe, "axe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(woodIceAxe, "Axe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIceAxe, "Axe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(paperIceAxe, "Axe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(iceIceAxe, "Axe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeIceAxe, "Axe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIceAxe, "Axe", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
         if(PHInfiTools.enableLavaTools)
@@ -530,14 +537,14 @@ public class Axes
             uraniumLavaAxe = new InfiToolAxe(PHInfiTools.lavaAxeID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaAxe");
             
-            MinecraftForge.setToolClass(diamondLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(flintLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumLavaAxe, "axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(flintLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumLavaAxe, "Axe", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSlimeTools)
@@ -555,12 +562,12 @@ public class Axes
         	cactusSlimeAxe = new InfiToolAxe(PHInfiTools.slimeAxeID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeAxe");
             
-            MinecraftForge.setToolClass(woodSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(paperSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSlimeAxe, "axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSlimeAxe, "Axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSlimeAxe, "Axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSlimeAxe, "Axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(paperSlimeAxe, "Axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSlimeAxe, "Axe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSlimeAxe, "Axe", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
         if(PHInfiTools.enableCactusTools)
@@ -580,13 +587,13 @@ public class Axes
         	cactusCactusAxe = new InfiToolAxe(PHInfiTools.cactusAxeID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusAxe");
             
-            MinecraftForge.setToolClass(woodCactusAxe, "axe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneCactusAxe, "axe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCactusAxe, "axe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackCactusAxe, "axe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(iceCactusAxe, "axe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCactusAxe, "axe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCactusAxe, "axe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCactusAxe, "Axe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneCactusAxe, "Axe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCactusAxe, "Axe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCactusAxe, "Axe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(iceCactusAxe, "Axe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCactusAxe, "Axe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCactusAxe, "Axe", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
         if(PHInfiTools.enableFlintTools)
@@ -612,16 +619,16 @@ public class Axes
         	bronzeFlintAxe = new InfiToolAxe(PHInfiTools.flintAxeID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintAxe");
             
-            MinecraftForge.setToolClass(woodFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(boneFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(flintFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(copperFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeFlintAxe, "axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(woodFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(boneFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(flintFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(copperFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeFlintAxe, "Axe", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBlazeTools)
@@ -643,14 +650,14 @@ public class Axes
             uraniumBlazeAxe = new InfiToolAxe(PHInfiTools.blazeAxeID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeAxe");
             
-            MinecraftForge.setToolClass(diamondBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumBlazeAxe, "axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumBlazeAxe, "Axe", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
         if(PHInfiTools.enableCopperTools)
@@ -672,14 +679,14 @@ public class Axes
             copperCopperAxe = new InfiToolAxe(PHInfiTools.copperAxeID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperAxe");
             
-            MinecraftForge.setToolClass(woodCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
-        	MinecraftForge.setToolClass(stoneCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(flintCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(copperCopperAxe, "axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
+        	MinecraftForge.setToolClass(stoneCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(flintCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCopperAxe, "Axe", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBronzeTools)
@@ -703,15 +710,15 @@ public class Axes
             bronzeBronzeAxe = new InfiToolAxe(PHInfiTools.bronzeAxeID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeAxe");
             
-            MinecraftForge.setToolClass(woodBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(boneBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(copperBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeBronzeAxe, "axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(woodBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(copperBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeBronzeAxe, "Axe", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
         if(PHInfiTools.enableWorkedIronTools)
@@ -753,24 +760,24 @@ public class Axes
             uraniumWorkedIronAxe = new InfiToolAxe(PHInfiTools.workedIronAxeID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronAxe");
             
-            MinecraftForge.setToolClass(woodWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(ironWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(boneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(iceWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(copperWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(workedWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(steelWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumWorkedIronAxe, "axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(woodWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(iceWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(steelWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumWorkedIronAxe, "Axe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSteelTools)
@@ -816,26 +823,26 @@ public class Axes
             uraniumSteelAxe = new InfiToolAxe(PHInfiTools.steelAxeID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelAxe");
 
-            MinecraftForge.setToolClass(woodSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(ironSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(iceSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(copperSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(workedSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(steelSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumSteelAxe, "axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(ironSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(copperSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSteelAxe, "Axe", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
         if(PHInfiTools.enableCobaltTools)
@@ -877,24 +884,24 @@ public class Axes
             uraniumCobaltAxe = new InfiToolAxe(PHInfiTools.cobaltAxeID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltAxe");
             
-            MinecraftForge.setToolClass(woodCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(ironCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(copperCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(workedCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(steelCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumCobaltAxe, "axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(ironCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(workedCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(steelCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumCobaltAxe, "Axe", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
         if(PHInfiTools.enableArditeTools)
@@ -936,24 +943,24 @@ public class Axes
             uraniumArditeAxe = new InfiToolAxe(PHInfiTools.arditeAxeID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeAxe");
             
-            MinecraftForge.setToolClass(woodArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(ironArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(boneArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(copperArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(workedArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(steelArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumArditeAxe, "axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(woodArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(ironArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(boneArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(copperArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(workedArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(steelArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumArditeAxe, "Axe", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
         if(PHInfiTools.enableManyullynTools)
@@ -995,24 +1002,24 @@ public class Axes
             uraniumManyullynAxe = new InfiToolAxe(PHInfiTools.manyullynAxeID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynAxe");
             
-            MinecraftForge.setToolClass(woodManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(ironManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(boneManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(copperManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(workedManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(steelManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumManyullynAxe, "axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(woodManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(ironManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(boneManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(copperManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(workedManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(steelManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumManyullynAxe, "Axe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
         if(PHInfiTools.enableUraniumTools)
@@ -1038,22 +1045,22 @@ public class Axes
             uraniumUraniumAxe = new InfiToolAxe(PHInfiTools.uraniumAxeID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumAxe");
             
-            MinecraftForge.setToolClass(diamondUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(boneUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumUraniumAxe, "axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(boneUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumUraniumAxe, "Axe", InfiMaterialEnum.Uranium.getHarvestLevel());
         }
     }
     
     private static void addNames()
     {
-    	if(PHInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
             ModLoader.addName(woodWoodAxe, "Wooden Axe");
         if(PHInfiTools.enableStoneTools)
             ModLoader.addName(stoneStoneAxe, "Heavy Axe");
@@ -1111,8 +1118,8 @@ public class Axes
     {
     	if(PHInfiTools.enableWoodTools)
         {
-            ModLoader.addRecipe(new ItemStack(woodWoodAxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', Item.stick });
+    		if (PHInfiTools.overwriteVanillaTools)
+    			ModLoader.addRecipe(new ItemStack(woodWoodAxe), recipe, '#', Block.planks, '|', Item.stick );
             ModLoader.addRecipe(new ItemStack(sandstoneWoodAxe), new Object[] 
                     { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodAxe), new Object[] 
@@ -1131,8 +1138,8 @@ public class Axes
     	
         if(PHInfiTools.enableStoneTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodStoneAxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodStoneAxe), recipe, '#', Block.cobblestone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStoneAxe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneAxe), new Object[] 
@@ -1152,8 +1159,8 @@ public class Axes
             ModLoader.addRecipe(new ItemStack(flintStoneAxe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
-            ModLoader.addRecipe(new ItemStack(woodStoneAxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.stick });
+            if (PHInfiTools.overwriteVanillaTools)
+            	ModLoader.addRecipe(new ItemStack(woodStoneAxe), recipe, '#', Block.stone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStoneAxe), new Object[] 
                     { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneAxe), new Object[] 
@@ -1176,8 +1183,8 @@ public class Axes
         
         if(PHInfiTools.enableIronTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodIronAxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodIronAxe), recipe, '#', Item.ingotIron, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneIronAxe), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronAxe), new Object[] 
@@ -1200,8 +1207,8 @@ public class Axes
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodDiamondAxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodDiamondAxe), recipe, '#', Item.diamond, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneDiamondAxe), new Object[] 
                     { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondAxe), new Object[] 

@@ -20,17 +20,20 @@ public class Pickaxes
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+    	if(PHInfiTools.addInfiTools)
+        {
+    		createTools();
+    		addNames();
+    		registerInfiToolsRecipes();
+        }
     }
     
     private static void createTools()
     {
     	if(PHInfiTools.enableWoodTools)
     	{
-    		woodWoodPickaxe = new InfiToolPickaxe(14, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodPickaxe");
+    		if (PHInfiTools.overwriteVanillaTools)
+    			woodWoodPickaxe = new InfiToolPickaxe(14, InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodPickaxe");
     		sandstoneWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodPickaxe");
     		boneWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+2, 
@@ -44,7 +47,8 @@ public class Pickaxes
     		cactusWoodPickaxe = new InfiToolPickaxe(PHInfiTools.woodPickaxeID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodPickaxe");
     		
-    		MinecraftForge.setToolClass(woodWoodPickaxe, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		if (PHInfiTools.overwriteVanillaTools)
+    			MinecraftForge.setToolClass(woodWoodPickaxe, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
     		MinecraftForge.setToolClass(sandstoneWoodPickaxe, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
     		MinecraftForge.setToolClass(boneWoodPickaxe, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
     		MinecraftForge.setToolClass(paperWoodPickaxe, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
@@ -55,8 +59,8 @@ public class Pickaxes
 
         if(PHInfiTools.enableStoneTools)
         {
-        	woodStonePickaxe = new InfiToolPickaxe(18, 
-                    InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStonePickaxe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodStonePickaxe = new InfiToolPickaxe(18, InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStonePickaxe");
         	stoneStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStonePickaxe");
         	sandstoneStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+2, 
@@ -74,7 +78,8 @@ public class Pickaxes
         	flintStonePickaxe = new InfiToolPickaxe(PHInfiTools.stonePickaxeID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStonePickaxe");
             
-            MinecraftForge.setToolClass(woodStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
             MinecraftForge.setToolClass(stoneStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
             MinecraftForge.setToolClass(sandstoneStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
             MinecraftForge.setToolClass(boneStonePickaxe, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
@@ -87,8 +92,8 @@ public class Pickaxes
         
         if(PHInfiTools.enableIronTools)
         {
-        	woodIronPickaxe = new InfiToolPickaxe(1, 
-                    InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronPickaxe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodIronPickaxe = new InfiToolPickaxe(1, InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronPickaxe");
         	stoneIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronPickaxe");
         	ironIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+2, 
@@ -106,7 +111,8 @@ public class Pickaxes
         	bronzeIronPickaxe = new InfiToolPickaxe(PHInfiTools.ironPickaxeID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronPickaxe");
             
-            MinecraftForge.setToolClass(woodIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
             MinecraftForge.setToolClass(stoneIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
             MinecraftForge.setToolClass(ironIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
             MinecraftForge.setToolClass(boneIronPickaxe, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
@@ -119,8 +125,8 @@ public class Pickaxes
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	woodDiamondPickaxe = new InfiToolPickaxe(22, 
-                    InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondPickaxe");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodDiamondPickaxe = new InfiToolPickaxe(22, InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondPickaxe");
         	stoneDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondPickaxe");
         	ironDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+2, 
@@ -164,7 +170,8 @@ public class Pickaxes
             uraniumDiamondPickaxe = new InfiToolPickaxe(PHInfiTools.diamondPickaxeID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondPickaxe");
             
-            MinecraftForge.setToolClass(woodDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            if (PHInfiTools.overwriteVanillaTools)
+            	MinecraftForge.setToolClass(woodDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
             MinecraftForge.setToolClass(stoneDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
             MinecraftForge.setToolClass(ironDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
             MinecraftForge.setToolClass(diamondDiamondPickaxe, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
@@ -1053,7 +1060,7 @@ public class Pickaxes
     
     private static void addNames()
     {
-    	if(PHInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
             ModLoader.addName(woodWoodPickaxe, "Wooden Pickaxe");
         if(PHInfiTools.enableStoneTools)
             ModLoader.addName(stoneStonePickaxe, "Heavy Pickaxe");
@@ -1111,8 +1118,8 @@ public class Pickaxes
     {
     	if(PHInfiTools.enableWoodTools)
         {
-            ModLoader.addRecipe(new ItemStack(woodWoodPickaxe), new Object[] 
-                    { recipe, '#', Block.planks, '|', Item.stick });
+    		if (PHInfiTools.overwriteVanillaTools)
+    			ModLoader.addRecipe(new ItemStack(woodWoodPickaxe), recipe, '#', Block.planks, '|', Item.stick );
             ModLoader.addRecipe(new ItemStack(sandstoneWoodPickaxe), new Object[] 
                     { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodPickaxe), new Object[] 
@@ -1131,8 +1138,8 @@ public class Pickaxes
     	
         if(PHInfiTools.enableStoneTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodStonePickaxe), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodStonePickaxe), recipe, '#', Block.cobblestone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStonePickaxe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStonePickaxe), new Object[] 
@@ -1152,8 +1159,8 @@ public class Pickaxes
             ModLoader.addRecipe(new ItemStack(flintStonePickaxe), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
-            ModLoader.addRecipe(new ItemStack(woodStonePickaxe), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.stick });
+            if (PHInfiTools.overwriteVanillaTools)
+            ModLoader.addRecipe(new ItemStack(woodStonePickaxe), recipe, '#', Block.stone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStonePickaxe), new Object[] 
                     { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStonePickaxe), new Object[] 
@@ -1176,8 +1183,8 @@ public class Pickaxes
         
         if(PHInfiTools.enableIronTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodIronPickaxe), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodIronPickaxe), recipe, '#', Item.ingotIron, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneIronPickaxe), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronPickaxe), new Object[] 
@@ -1200,8 +1207,8 @@ public class Pickaxes
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodDiamondPickaxe), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodDiamondPickaxe), recipe, '#', Item.diamond, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneDiamondPickaxe), new Object[] 
                     { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondPickaxe), new Object[] 

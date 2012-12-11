@@ -20,17 +20,20 @@ public class Shovels
 
     public static void init()
     {
-        createTools();
-        addNames();
-        registerInfiToolsRecipes();
+    	if(PHInfiTools.addInfiTools)
+        {
+    		createTools();
+    		addNames();
+    		registerInfiToolsRecipes();
+        }
     }
     
     private static void createTools()
     {
     	if(PHInfiTools.enableWoodTools)
     	{
-    		woodWoodShovel = new InfiToolShovel(13, 
-                    InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodShovel");
+    		if (PHInfiTools.overwriteVanillaTools)
+    			woodWoodShovel = new InfiToolShovel(14, InfiMaterialEnum.Wood, InfiMaterialEnum.Wood, "woodWoodShovel");
     		sandstoneWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+1, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Sandstone, "sandstoneWoodShovel");
     		boneWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+2, 
@@ -44,19 +47,20 @@ public class Shovels
     		cactusWoodShovel = new InfiToolShovel(PHInfiTools.woodShovelID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodShovel");
     		
-    		MinecraftForge.setToolClass(woodWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(sandstoneWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(boneWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(paperWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(iceWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(slimeWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(cactusWoodShovel, "shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    		if (PHInfiTools.overwriteVanillaTools)
+    			MinecraftForge.setToolClass(woodWoodShovel, "Shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(sandstoneWoodShovel, "Shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(boneWoodShovel, "Shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(paperWoodShovel, "Shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(iceWoodShovel, "Shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(slimeWoodShovel, "Shovel", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(cactusWoodShovel, "Shovel", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
         if(PHInfiTools.enableStoneTools)
         {
-        	woodStoneShovel = new InfiToolShovel(17, 
-                    InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneShovel");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodStoneShovel = new InfiToolShovel(18, InfiMaterialEnum.Stone, InfiMaterialEnum.Wood, "woodStoneShovel");
         	stoneStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+1, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Stone, "stoneStoneShovel");
         	sandstoneStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+2, 
@@ -74,21 +78,22 @@ public class Shovels
         	flintStoneShovel = new InfiToolShovel(PHInfiTools.stoneShovelID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneShovel");
             
-            MinecraftForge.setToolClass(woodStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintStoneShovel, "shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintStoneShovel, "Shovel", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableIronTools)
         {
-        	woodIronShovel = new InfiToolShovel(0, 
-                    InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronShovel");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodIronShovel = new InfiToolShovel(1, InfiMaterialEnum.Iron, InfiMaterialEnum.Wood, "woodIronShovel");
         	stoneIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+1, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Stone, "stoneIronShovel");
         	ironIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+2, 
@@ -106,21 +111,22 @@ public class Shovels
         	bronzeIronShovel = new InfiToolShovel(PHInfiTools.ironShovelID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronShovel");
             
-            MinecraftForge.setToolClass(woodIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(ironIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(boneIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(copperIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeIronShovel, "shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+        	if (PHInfiTools.overwriteVanillaTools)
+        		MinecraftForge.setToolClass(woodIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeIronShovel, "Shovel", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	woodDiamondShovel = new InfiToolShovel(21, 
-                    InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondShovel");
+        	if (PHInfiTools.overwriteVanillaTools)
+        		woodDiamondShovel = new InfiToolShovel(22, InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondShovel");
         	stoneDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+1, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Stone, "stoneDiamondShovel");
         	ironDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+2, 
@@ -164,28 +170,29 @@ public class Shovels
             uraniumDiamondShovel = new InfiToolShovel(PHInfiTools.diamondShovelID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondShovel");
             
-            MinecraftForge.setToolClass(woodDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(ironDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(boneDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(flintDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(copperDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(workedDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(steelDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumDiamondShovel, "shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            if (PHInfiTools.overwriteVanillaTools)
+            	MinecraftForge.setToolClass(woodDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(ironDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(boneDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(flintDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(copperDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(workedDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(steelDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumDiamondShovel, "Shovel", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
         if(PHInfiTools.enableRedstoneTools)
@@ -231,26 +238,26 @@ public class Shovels
         	uraniumRedstoneShovel = new InfiToolShovel(PHInfiTools.redstoneShovelID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneShovel");
             
-            MinecraftForge.setToolClass(woodRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(ironRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(paperRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(copperRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(workedRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumRedstoneShovel, "shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(ironRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(copperRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumRedstoneShovel, "Shovel", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableObsidianTools)
@@ -276,16 +283,16 @@ public class Shovels
         	cactusObsidianShovel = new InfiToolShovel(PHInfiTools.obsidianShovelID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianShovel");
             
-            MinecraftForge.setToolClass(woodObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(boneObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(iceObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusObsidianShovel, "shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(woodObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(boneObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(iceObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusObsidianShovel, "Shovel", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSandstoneTools)
@@ -307,14 +314,14 @@ public class Shovels
         	flintSandstoneShovel = new InfiToolShovel(PHInfiTools.sandstoneShovelID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneShovel");
             
-            MinecraftForge.setToolClass(woodSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintSandstoneShovel, "shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintSandstoneShovel, "Shovel", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBoneTools)
@@ -338,15 +345,15 @@ public class Shovels
         	flintBoneShovel = new InfiToolShovel(PHInfiTools.boneShovelID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneShovel");
             
-            MinecraftForge.setToolClass(woodBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(paperBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBoneShovel, "shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBoneShovel, "Shovel", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
         if(PHInfiTools.enablePaperTools)
@@ -362,11 +369,11 @@ public class Shovels
         	cactusPaperShovel = new InfiToolShovel(PHInfiTools.paperShovelID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperShovel");
             
-            MinecraftForge.setToolClass(woodPaperShovel, "shovel", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(bonePaperShovel, "shovel", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(paperPaperShovel, "shovel", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(slimePaperShovel, "shovel", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusPaperShovel, "shovel", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(woodPaperShovel, "Shovel", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(bonePaperShovel, "Shovel", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(paperPaperShovel, "Shovel", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimePaperShovel, "Shovel", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusPaperShovel, "Shovel", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
         if(PHInfiTools.enableMossyTools)
@@ -396,18 +403,18 @@ public class Shovels
         	uraniumMossyShovel = new InfiToolShovel(PHInfiTools.mossyShovelID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyShovel");
             
-            MinecraftForge.setToolClass(woodMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(boneMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumMossyShovel, "shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(woodMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(boneMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumMossyShovel, "Shovel", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
         if(PHInfiTools.enableNetherrackTools)
@@ -439,19 +446,19 @@ public class Shovels
         	bronzeNetherrackShovel = new InfiToolShovel(PHInfiTools.netherrackShovelID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackShovel");
             
-            MinecraftForge.setToolClass(woodNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(boneNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(paperNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(iceNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(flintNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(copperNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeNetherrackShovel, "shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(woodNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(boneNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(paperNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(iceNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(flintNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(copperNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeNetherrackShovel, "Shovel", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
         if(PHInfiTools.enableGlowstoneTools)
@@ -476,15 +483,15 @@ public class Shovels
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneShovel");
             
             
-            MinecraftForge.setToolClass(woodGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusGlowstoneShovel, "shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusGlowstoneShovel, "Shovel", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
         if(PHInfiTools.enableIceTools)
@@ -503,12 +510,12 @@ public class Shovels
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceShovel");
             
             
-            MinecraftForge.setToolClass(woodIceShovel, "shovel", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(boneIceShovel, "shovel", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(paperIceShovel, "shovel", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(iceIceShovel, "shovel", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeIceShovel, "shovel", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusIceShovel, "shovel", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(woodIceShovel, "Shovel", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIceShovel, "Shovel", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(paperIceShovel, "Shovel", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(iceIceShovel, "Shovel", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeIceShovel, "Shovel", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIceShovel, "Shovel", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
         if(PHInfiTools.enableLavaTools)
@@ -530,14 +537,14 @@ public class Shovels
             uraniumLavaShovel = new InfiToolShovel(PHInfiTools.lavaShovelID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaShovel");
             
-            MinecraftForge.setToolClass(diamondLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(flintLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumLavaShovel, "shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(flintLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumLavaShovel, "Shovel", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSlimeTools)
@@ -555,12 +562,12 @@ public class Shovels
         	cactusSlimeShovel = new InfiToolShovel(PHInfiTools.slimeShovelID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeShovel");
             
-            MinecraftForge.setToolClass(woodSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(paperSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSlimeShovel, "shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSlimeShovel, "Shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSlimeShovel, "Shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSlimeShovel, "Shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(paperSlimeShovel, "Shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSlimeShovel, "Shovel", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSlimeShovel, "Shovel", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
         if(PHInfiTools.enableCactusTools)
@@ -580,13 +587,13 @@ public class Shovels
         	cactusCactusShovel = new InfiToolShovel(PHInfiTools.cactusShovelID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusShovel");
             
-            MinecraftForge.setToolClass(woodCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(iceCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCactusShovel, "shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCactusShovel, "Shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneCactusShovel, "Shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCactusShovel, "Shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCactusShovel, "Shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(iceCactusShovel, "Shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCactusShovel, "Shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCactusShovel, "Shovel", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
         if(PHInfiTools.enableFlintTools)
@@ -612,16 +619,16 @@ public class Shovels
         	bronzeFlintShovel = new InfiToolShovel(PHInfiTools.flintShovelID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintShovel");
             
-            MinecraftForge.setToolClass(woodFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(boneFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(flintFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(copperFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeFlintShovel, "shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(woodFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(boneFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(flintFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(copperFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeFlintShovel, "Shovel", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBlazeTools)
@@ -643,14 +650,14 @@ public class Shovels
             uraniumBlazeShovel = new InfiToolShovel(PHInfiTools.blazeShovelID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeShovel");
             
-            MinecraftForge.setToolClass(diamondBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumBlazeShovel, "shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumBlazeShovel, "Shovel", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
         if(PHInfiTools.enableCopperTools)
@@ -672,14 +679,14 @@ public class Shovels
             copperCopperShovel = new InfiToolShovel(PHInfiTools.copperShovelID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperShovel");
             
-            MinecraftForge.setToolClass(woodCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
-        	MinecraftForge.setToolClass(stoneCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(flintCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(copperCopperShovel, "shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+        	MinecraftForge.setToolClass(stoneCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(flintCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCopperShovel, "Shovel", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
         if(PHInfiTools.enableBronzeTools)
@@ -703,15 +710,15 @@ public class Shovels
             bronzeBronzeShovel = new InfiToolShovel(PHInfiTools.bronzeShovelID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeShovel");
             
-            MinecraftForge.setToolClass(woodBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(boneBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(copperBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeBronzeShovel, "shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(woodBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(copperBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeBronzeShovel, "Shovel", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
         if(PHInfiTools.enableWorkedIronTools)
@@ -753,24 +760,24 @@ public class Shovels
             uraniumWorkedIronShovel = new InfiToolShovel(PHInfiTools.workedIronShovelID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronShovel");
             
-            MinecraftForge.setToolClass(woodWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(ironWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(boneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(iceWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(copperWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(workedWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(steelWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumWorkedIronShovel, "shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(woodWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(iceWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(steelWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumWorkedIronShovel, "Shovel", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
         if(PHInfiTools.enableSteelTools)
@@ -816,26 +823,26 @@ public class Shovels
             uraniumSteelShovel = new InfiToolShovel(PHInfiTools.steelShovelID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelShovel");
 
-            MinecraftForge.setToolClass(woodSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(ironSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(iceSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(copperSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(workedSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(steelSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumSteelShovel, "shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(ironSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(copperSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSteelShovel, "Shovel", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
         if(PHInfiTools.enableCobaltTools)
@@ -872,29 +879,29 @@ public class Shovels
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Cobalt, "cobaltCobaltShovel");
             arditeCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+15, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Ardite, "arditeCobaltShovel");
-            manyullynCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+16,
+            manyullynCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+16, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Manyullyn, "manyullynCobaltShovel");
             uraniumCobaltShovel = new InfiToolShovel(PHInfiTools.cobaltShovelID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltShovel");
             
-            MinecraftForge.setToolClass(woodCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(ironCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(copperCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(workedCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(steelCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumCobaltShovel, "shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(ironCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(workedCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(steelCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumCobaltShovel, "Shovel", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
         if(PHInfiTools.enableArditeTools)
@@ -936,24 +943,24 @@ public class Shovels
             uraniumArditeShovel = new InfiToolShovel(PHInfiTools.arditeShovelID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeShovel");
             
-            MinecraftForge.setToolClass(woodArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(ironArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(boneArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(copperArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(workedArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(steelArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumArditeShovel, "shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(woodArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(ironArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(boneArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(copperArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(workedArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(steelArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumArditeShovel, "Shovel", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
         if(PHInfiTools.enableManyullynTools)
@@ -995,24 +1002,24 @@ public class Shovels
             uraniumManyullynShovel = new InfiToolShovel(PHInfiTools.manyullynShovelID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynShovel");
             
-            MinecraftForge.setToolClass(woodManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(ironManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(boneManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(copperManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(workedManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(steelManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumManyullynShovel, "shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(woodManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(ironManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(boneManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(copperManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(workedManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(steelManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumManyullynShovel, "Shovel", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
         if(PHInfiTools.enableUraniumTools)
@@ -1038,22 +1045,22 @@ public class Shovels
             uraniumUraniumShovel = new InfiToolShovel(PHInfiTools.uraniumShovelID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumShovel");
             
-            MinecraftForge.setToolClass(diamondUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(boneUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumUraniumShovel, "shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(boneUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumUraniumShovel, "Shovel", InfiMaterialEnum.Uranium.getHarvestLevel());
         }
     }
     
     private static void addNames()
     {
-    	if(PHInfiTools.enableWoodTools)
+    	if(PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
             ModLoader.addName(woodWoodShovel, "Wooden Shovel");
         if(PHInfiTools.enableStoneTools)
             ModLoader.addName(stoneStoneShovel, "Heavy Shovel");
@@ -1111,8 +1118,8 @@ public class Shovels
     {
     	if(PHInfiTools.enableWoodTools)
         {
-            ModLoader.addRecipe(new ItemStack(woodWoodShovel), new Object[] 
-                    { recipe, '#', Block.planks, '|', Item.stick });
+    		if (PHInfiTools.overwriteVanillaTools)
+    			ModLoader.addRecipe(new ItemStack(woodWoodShovel), recipe, '#', Block.planks, '|', Item.stick );
             ModLoader.addRecipe(new ItemStack(sandstoneWoodShovel), new Object[] 
                     { recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod });
             ModLoader.addRecipe(new ItemStack(boneWoodShovel), new Object[] 
@@ -1131,8 +1138,8 @@ public class Shovels
     	
         if(PHInfiTools.enableStoneTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodStoneShovel), new Object[] 
-                    { recipe, '#', Block.cobblestone, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodStoneShovel), recipe, '#', Block.cobblestone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStoneShovel), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneShovel), new Object[] 
@@ -1152,8 +1159,8 @@ public class Shovels
             ModLoader.addRecipe(new ItemStack(flintStoneShovel), new Object[] 
                     { recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod });
             
-            ModLoader.addRecipe(new ItemStack(woodStoneShovel), new Object[] 
-                    { recipe, '#', Block.stone, '|', Item.stick });
+            if (PHInfiTools.overwriteVanillaTools)
+            	ModLoader.addRecipe(new ItemStack(woodStoneShovel), recipe, '#', Block.stone, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneStoneShovel), new Object[] 
                     { recipe, '#', Block.stone, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(sandstoneStoneShovel), new Object[] 
@@ -1176,8 +1183,8 @@ public class Shovels
         
         if(PHInfiTools.enableIronTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodIronShovel), new Object[] 
-                    { recipe, '#', Item.ingotIron, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodIronShovel), recipe, '#', Item.ingotIron, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneIronShovel), new Object[] 
                     { recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironIronShovel), new Object[] 
@@ -1200,8 +1207,8 @@ public class Shovels
         
         if(PHInfiTools.enableDiamondTools)
         {
-        	ModLoader.addRecipe(new ItemStack(woodDiamondShovel), new Object[] 
-                    { recipe, '#', Item.diamond, '|', Item.stick });
+        	if (PHInfiTools.overwriteVanillaTools)
+        		ModLoader.addRecipe(new ItemStack(woodDiamondShovel), recipe, '#', Item.diamond, '|', Item.stick );
         	ModLoader.addRecipe(new ItemStack(stoneDiamondShovel), new Object[] 
                     { recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod });
             ModLoader.addRecipe(new ItemStack(ironDiamondShovel), new Object[] 
