@@ -169,7 +169,7 @@ public class Items
 	public static void addStoneBowl(ItemStack stack)
 	{
 		ModLoader.addRecipe(new ItemStack(multiBowlEmpty, 4, 0), new Object[] 
-                { bowlrecipe, '#', stack });
+                { bowlrecipe, '#', "customCobblestone" });
 	}
 	
     public static Item woodBucketEmpty;

@@ -1,5 +1,6 @@
 package mDiyo.inficraft.orizon.pastelmarble;
 
+import mDiyo.api.detailing.DetailManager;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
@@ -13,7 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.5_2012.12.6")
+@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.5_2012.12.11")
 public class PastelMarble 
 {
 	/* Proxies for sides, used for graphics processing */
@@ -56,11 +57,15 @@ public class PastelMarble
 		for (int i = 0; i < 16; i++)
 		{
 			OreDictionary.registerOre("customStone", new ItemStack(cStone, 1, i));
-			OreDictionary.registerOre("customCobble", new ItemStack(cCobble, 1, i));
+			OreDictionary.registerOre("customCobblestone", new ItemStack(cCobble, 1, i));
+			DetailManager.addCracking(cStone, i, cCobble, i);
+			DetailManager.addDrilling(cStone, i, cCobble, i);
 		}
 		for (int i = 0; i < 6; i++)
 		{
 			OreDictionary.registerOre("marble", new ItemStack(marble, 1, i));
+			DetailManager.addCracking(marble, i, marble, i+6);
+			DetailManager.addDrilling(marble, i, marble, i+6);
 		}
 	}
 	

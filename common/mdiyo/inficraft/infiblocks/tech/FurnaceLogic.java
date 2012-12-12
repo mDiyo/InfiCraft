@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infiblocks.tech;
 
-import mDiyo.shared.machines.BlockLogicMachine;
+import mDiyo.api.machines.BlockLogicMachine;
 import net.minecraft.src.Block;
 import net.minecraft.src.Container;
 import net.minecraft.src.FurnaceRecipes;

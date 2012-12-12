@@ -1,6 +1,5 @@
 package mDiyo.inficraft.infitools.library;
 
-import mDiyo.inficraft.flora.berries.FloraBerries;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
@@ -34,7 +33,7 @@ public class MossPatchItem extends Item
 
             if (block != null && block.renderAsNormalBlock() && world.isAirBlock(x, y + 1, z))
             {
-                world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraBerries.berryBush.blockID, stack.getItemDamage());
+                world.setBlockAndMetadataWithNotify(x, y + 1, z, InfiLibrary.blockMoss.blockID, stack.getItemDamage());
                 if (!player.capabilities.isCreativeMode)
                 	stack.stackSize--;
                 if (!world.isRemote)

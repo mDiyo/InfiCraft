@@ -19,7 +19,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 
-@Mod(modid = "InfiTools", name = "InfiTools", version = "1.4.5_2012.12.10")
+@Mod(modid = "InfiTools", name = "InfiTools", version = "1.4.5_2012.12.11")
 public class InfiCore
 {
 	@Instance("InfiTools")
@@ -45,7 +45,7 @@ public class InfiCore
         MinecraftForge.EVENT_BUS.register(new BucketInteractHandler());
 	}
 
-	@ForgeSubscribe
+	/*@ForgeSubscribe
 	private void registerOre(OreRegisterEvent event)
 	{
 		String ore = event.Name;
@@ -126,7 +126,7 @@ public class InfiCore
 	    {
 	    	Items.addStoneBowl(itemstack);
 	    }
-	}
+	}*/
 	
 	private void removeVanillaRecipes()
 	{

@@ -18,7 +18,7 @@ public class InfiToolDagger extends InfiWeaponCore
     	this.setMaxDamage(this.getMaxDamage()/2);
     }
     
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    /*public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
     {
     	System.out.println("check " + this.headType);
         DaggerEntity dagger = new DaggerEntity(itemstack, world, entityplayer);
@@ -30,7 +30,7 @@ public class InfiToolDagger extends InfiWeaponCore
         is.stackSize--;
         return is;
         
-    }
+    }*/
     
     public String getTextureFile()
     {

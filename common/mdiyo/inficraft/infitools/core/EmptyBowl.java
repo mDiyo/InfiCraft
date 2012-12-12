@@ -2,7 +2,7 @@ package mDiyo.inficraft.infitools.core;
 
 import java.util.List;
 
-import mDiyo.shared.items.InfiTexturedItem;
+import mDiyo.api.items.InfiTexturedItem;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 

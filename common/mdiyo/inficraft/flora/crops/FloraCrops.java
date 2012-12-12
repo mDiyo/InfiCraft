@@ -1,7 +1,7 @@
 package mDiyo.inficraft.flora.crops;
 import java.util.Random;
 
-import mDiyo.shared.items.InfiTexturedItem;
+import mDiyo.api.items.InfiTexturedItem;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;

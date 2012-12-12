@@ -22,9 +22,9 @@ import net.minecraft.src.TileEntityChest;
 import net.minecraft.src.World;
 import net.minecraftforge.common.ForgeDirection;
 
+import mDiyo.api.machines.BlockLogicBase;
+import mDiyo.api.machines.BlockMachineBase;
 import mDiyo.inficraft.infiblocks.InfiBlocks;
-import mDiyo.shared.machines.BlockLogicBase;
-import mDiyo.shared.machines.BlockMachineBase;
 
 public class ChestBlock extends BlockMachineBase
 {

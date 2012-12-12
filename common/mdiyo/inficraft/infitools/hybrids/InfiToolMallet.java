@@ -1,10 +1,10 @@
 package mDiyo.inficraft.infitools.hybrids;
 import java.util.List;
 
+import mDiyo.api.detailing.DetailManager;
 import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import mDiyo.inficraft.infitools.library.InfiToolCore;
 import mDiyo.inficraft.infitools.library.InfiToolPowers;
-import mDiyo.shared.detailing.CrackManager;
 import net.minecraft.src.Block;
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.Entity;
@@ -22,12 +22,12 @@ import net.minecraftforge.common.ForgeHooks;
 public class InfiToolMallet extends InfiToolCore
 {
     private static Material materialEffectiveAgainst[];
-    CrackManager cm;
+    DetailManager dm;
 
     public InfiToolMallet(int itemID, InfiMaterialEnum head, InfiMaterialEnum handle, String internalName)
     {
     	super(itemID, 3, head, handle, internalName);
-    	cm = CrackManager.getInstance();
+    	dm = DetailManager.getInstance();
     }
     
     public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
@@ -70,7 +70,7 @@ public class InfiToolMallet extends InfiToolCore
         else
         {
         	ItemStack worldBlock = new ItemStack(blockID, 1, meta);
-    		List list = cm.findMatchingCrushRecipe(worldBlock);
+    		List list = dm.findMatchingCrushRecipe(worldBlock);
     		if (list != null)
     		{
     			for (int i = 0; i < list.size(); i++)
@@ -113,7 +113,7 @@ public class InfiToolMallet extends InfiToolCore
             int bID = world.getBlockId(x, y, z);
             int md = world.getBlockMetadata(x, y, z);
             
-            boolean damageItem = CrackManager.getInstance().crack(world, x, y, z, bID, md);
+            boolean damageItem = dm.crack(world, x, y, z, bID, md);
             if(damageItem) {
             	itemstack.damageItem(1, entityplayer);
             	world.playAuxSFX(2001, x, y, z, bID + (md >> 12));

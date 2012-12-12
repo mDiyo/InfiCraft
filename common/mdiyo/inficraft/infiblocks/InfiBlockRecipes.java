@@ -1,7 +1,7 @@
 package mDiyo.inficraft.infiblocks;
 
-import mDiyo.shared.detailing.CraftingDamage;
-import mDiyo.shared.detailing.DetailManager;
+import mDiyo.api.detailing.CraftingDamage;
+import mDiyo.api.detailing.DetailManager;
 import net.minecraft.src.*;
 
 import java.util.*;

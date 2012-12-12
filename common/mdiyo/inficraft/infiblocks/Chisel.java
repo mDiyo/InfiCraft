@@ -1,6 +1,6 @@
 package mDiyo.inficraft.infiblocks;
 
-import mDiyo.shared.detailing.DetailManager;
+import mDiyo.api.detailing.DetailManager;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumAction;
 import net.minecraft.src.EnumMovingObjectType;

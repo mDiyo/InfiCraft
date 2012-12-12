@@ -2,8 +2,8 @@ package mDiyo.inficraft.infitools.library;
 
 import java.util.Random;
 
+import mDiyo.api.items.InfiTexturedItem;
 import mDiyo.inficraft.infitools.core.InfiCoreProxyCommon;
-import mDiyo.shared.items.InfiTexturedItem;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Enchantment;
@@ -38,7 +38,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
      * Poison enchants have a chance to wear off when hitting mobs
      */
 
-@Mod(modid = "InfiLibrary", name = "InfiLibrary", version = "1.4.5_2012.12.6")
+@Mod(modid = "InfiLibrary", name = "InfiLibrary", version = "1.4.5_2012.12.11")
 public class InfiLibrary
 {
 	Random rand = new Random();

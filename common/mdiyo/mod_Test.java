@@ -14,6 +14,7 @@ import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 
+import mDiyo.bastion.Bastion;
 import mDiyo.inficraft.armory.InfiArmory;
 import mDiyo.inficraft.flora.crops.FloraCrops;
 import mDiyo.inficraft.flora.trees.FloraTrees;
@@ -32,7 +33,7 @@ public class mod_Test
 	@PostInit
     public void postInit(FMLPostInitializationEvent evt)
     {
-    	 GameRegistry.addRecipe(new ItemStack(xinstick, 64, 0), "s", 's', Block.dirt );
+    	 GameRegistry.addRecipe(new ItemStack(Bastion.contentInstance.drill, 64, 0), "s", 's', Block.dirt );
     	 GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.barleyBag, 64, 0), "s", 's', Block.grass );
     	 GameRegistry.addRecipe(new ItemStack(InfiBlocks.getContentInstance().chiselDiamond, 64, 0), "ss", 's', Block.dirt );
     	 GameRegistry.addRecipe(new ItemStack(InfiBlocks.getContentInstance().storageBlock, 64, 0), "s", "s", 's', Block.dirt );

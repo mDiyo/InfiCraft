@@ -19,7 +19,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.4.5_2012.12.4")
+@Mod(modid = "Infi2x2", name = "Infi2x2", version = "1.4.5_2012.12.11")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true, channels = {"infi2x2"})
 public class Infi2x2
 {
@@ -46,79 +46,6 @@ public class Infi2x2
 		proxy.registerEntities();
 		//EntityRegistry.registerModEntity(mDiyo.infi2x2.DaggerEntity.class, "dagger", 1, this, 20, 3, true);
 		//EntityRegistry.registerModEntity(mDiyo.infi2x2.DaggerEntity.class, this, 1, 20, 3, true);
-	}
-	
-	@ForgeSubscribe
-	private void oreDictionarySupport(OreRegisterEvent event)
-	{
-		String ore = event.Name;
-		ItemStack itemstack = event.Ore;
-		if (infitoolsPresent)
-		{
-            if(PropsHelperInfi2x2.enableCopperTools && ore.equals("ingotCopper"))
-            {
-            	Handpicks.addCopperTools(itemstack);
-            	Hatchets.addCopperTools(itemstack);
-            	Trowels.addCopperTools(itemstack);
-            	Daggers.addCopperTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableBronzeTools && ore.equals("ingotBronze"))
-            {
-	            Handpicks.addBronzeTools(itemstack);
-	            Hatchets.addBronzeTools(itemstack);
-	            Trowels.addBronzeTools(itemstack);
-	            Daggers.addBronzeTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableWorkedIronTools && ore.equals("ingotRefinedIron"))
-            {
-	            Handpicks.addWorkedIronTools(itemstack);
-	            Hatchets.addWorkedIronTools(itemstack);
-	            Trowels.addWorkedIronTools(itemstack);
-	            Daggers.addWorkedIronTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableSteelTools && ore.equals("ingotSteel"))
-            {
-	            Handpicks.addSteelTools(itemstack);
-	            Hatchets.addSteelTools(itemstack);
-	            Trowels.addSteelTools(itemstack);
-	            Daggers.addSteelTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableCobaltTools && ore.equals("ingotCobalt"))
-            {
-	            Handpicks.addCobaltTools(itemstack);
-	            Hatchets.addCobaltTools(itemstack);
-	            Trowels.addCobaltTools(itemstack);
-	            Daggers.addCobaltTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableArditeTools && ore.equals("ingotArdite"))
-            {
-	            Handpicks.addArditeTools(itemstack);
-	            Hatchets.addArditeTools(itemstack);
-	            Trowels.addArditeTools(itemstack);
-	            Daggers.addArditeTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableManyullynTools && ore.equals("ingotManyullyn"))
-            {
-            	Handpicks.addManyullynTools(itemstack);
-            	Hatchets.addManyullynTools(itemstack);
-            	Trowels.addManyullynTools(itemstack);
-            	Daggers.addManyullynTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableUraniumTools && ore.equals("ingotUranium"))
-            {
-	            Handpicks.addUraniumTools(itemstack);
-	            Hatchets.addUraniumTools(itemstack);
-	            Trowels.addUraniumTools(itemstack);
-	            Daggers.addUraniumTools(itemstack);
-            }
-            if(PropsHelperInfi2x2.enableStoneTools && (ore.equals("customCobblestone") || ore.equals("customStone")))
-            {
-	            Handpicks.addStoneTools(itemstack);
-	            Hatchets.addStoneTools(itemstack);
-	            Trowels.addStoneTools(itemstack);
-	            Daggers.addStoneTools(itemstack);
-            }
-		}
 	}
 	
 	public static void forceAddToInv(EntityPlayer entityplayer, ItemStack itemstack, int i, boolean flag)

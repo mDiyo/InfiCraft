@@ -3,10 +3,10 @@ package mDiyo.inficraft.infiblocks.tech;
 import java.util.List;
 import java.util.Random;
 
+import mDiyo.api.machines.BlockLogicBase;
+import mDiyo.api.machines.BlockMachineBase;
 import mDiyo.inficraft.infiblocks.InfiBlocks;
 import mDiyo.inficraft.infiblocks.InfiBlocksCommonProxy;
-import mDiyo.shared.machines.BlockLogicBase;
-import mDiyo.shared.machines.BlockMachineBase;
 
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityItem;

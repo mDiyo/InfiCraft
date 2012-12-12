@@ -1,4 +1,6 @@
 package mDiyo.inficraft.infitools.hybrids;
+import cpw.mods.fml.common.registry.GameRegistry;
+import mDiyo.inficraft.infitools.core.PHInfiTools;
 import mDiyo.inficraft.infitools.library.InfiLibrary;
 import mDiyo.inficraft.infitools.library.InfiMaterialEnum;
 import net.minecraft.src.Block;
@@ -6,6 +8,7 @@ import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class Mattocks 
 {
@@ -25,6 +28,7 @@ public class Mattocks
         	createTools();
             addNames();
         	registerInfiToolsRecipes();
+			oreDictionarySupport();
         }
         else
         {
@@ -32,6 +36,47 @@ public class Mattocks
         	registerVanillaRecipes();
         }
     }
+    
+    private static void oreDictionarySupport()
+	{
+		if (PHInfiTools.enableCopperTools)
+		{
+			addCopperTools("ingotCopper");
+		}
+		if (PHInfiTools.enableBronzeTools)
+		{
+			addBronzeTools("ingotBronze");
+		}
+		if (PHInfiTools.enableWorkedIronTools)
+		{
+			addWorkedIronTools("ingotRefinedIron");
+		}
+		if (PHInfiTools.enableSteelTools)
+		{
+			addSteelTools("ingotSteel");
+		}
+		if (PHInfiTools.enableCobaltTools)
+		{
+			addCobaltTools("ingotSteel");
+		}
+		if (PHInfiTools.enableArditeTools)
+		{
+			addArditeTools("ingotArdite");
+		}
+		if (PHInfiTools.enableManyullynTools)
+		{
+			addManyullynTools("ingotManyullyn");
+		}
+		if (PHInfiTools.enableUraniumTools)
+		{
+			addUraniumTools("ingotUranium");
+		}
+		if (PHInfiTools.enableStoneTools)
+		{
+			addStoneTools("customCobblestone");
+			addStoneTools("customStone");
+		}
+	}
     
     private static void createVanillaTools()
     {
@@ -44,10 +89,10 @@ public class Mattocks
     	woodDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+0, 
                 InfiMaterialEnum.Diamond, InfiMaterialEnum.Wood, "woodDiamondMattock");
     	
-    	MinecraftForge.setToolClass(woodWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
-    	MinecraftForge.setToolClass(woodStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-    	MinecraftForge.setToolClass(woodIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-    	MinecraftForge.setToolClass(woodDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+    	MinecraftForge.setToolClass(woodDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
     	
     	ModLoader.addName(woodWoodMattock, "Wooden Mattock");
     }
@@ -83,13 +128,13 @@ public class Mattocks
     		cactusWoodMattock = new InfiToolMattock(PHInfiHybrids.woodMattockID+6, 
                     InfiMaterialEnum.Wood, InfiMaterialEnum.Cactus, "cactusWoodMattock");
     		
-    		MinecraftForge.setToolClass(woodWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(sandstoneWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(boneWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(paperWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(iceWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(slimeWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
-    		MinecraftForge.setToolClass(cactusWoodMattock, "pickaxe", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(woodWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(sandstoneWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(boneWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(paperWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(iceWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(slimeWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
+    		MinecraftForge.setToolClass(cactusWoodMattock, "Mattock", InfiMaterialEnum.Wood.getHarvestLevel());
     	}
 
         if(PHInfiHybrids.enableStoneTools)
@@ -113,15 +158,15 @@ public class Mattocks
         	flintStoneMattock = new InfiToolMattock(PHInfiHybrids.stoneMattockID+8, 
                     InfiMaterialEnum.Stone, InfiMaterialEnum.Flint, "flintStoneMattock");
             
-            MinecraftForge.setToolClass(woodStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintStoneMattock, "pickaxe", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintStoneMattock, "Mattock", InfiMaterialEnum.Stone.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableIronTools)
@@ -145,15 +190,15 @@ public class Mattocks
         	bronzeIronMattock = new InfiToolMattock(PHInfiHybrids.ironMattockID+8, 
                     InfiMaterialEnum.Iron, InfiMaterialEnum.Bronze, "bronzeIronMattock");
             
-            MinecraftForge.setToolClass(woodIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(ironIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(boneIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(copperIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeIronMattock, "pickaxe", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(woodIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeIronMattock, "Mattock", InfiMaterialEnum.Iron.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableDiamondTools)
@@ -203,28 +248,28 @@ public class Mattocks
             uraniumDiamondMattock = new InfiToolMattock(PHInfiHybrids.diamondMattockID+21, 
                     InfiMaterialEnum.Diamond, InfiMaterialEnum.Uranium, "uraniumDiamondMattock");
             
-            MinecraftForge.setToolClass(woodDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(ironDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(boneDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(flintDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(copperDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(workedDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(steelDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumDiamondMattock, "pickaxe", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(woodDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(ironDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(boneDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(flintDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(copperDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(workedDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(steelDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumDiamondMattock, "Mattock", InfiMaterialEnum.Diamond.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableRedstoneTools)
@@ -270,26 +315,26 @@ public class Mattocks
         	uraniumRedstoneMattock = new InfiToolMattock(PHInfiHybrids.redstoneMattockID+19,
                     InfiMaterialEnum.Redstone, InfiMaterialEnum.Uranium, "uraniumRedstoneMattock");
             
-            MinecraftForge.setToolClass(woodRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(ironRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(paperRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(copperRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(workedRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumRedstoneMattock, "pickaxe", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(ironRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(copperRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(workedRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumRedstoneMattock, "Mattock", InfiMaterialEnum.Redstone.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableObsidianTools)
@@ -315,16 +360,16 @@ public class Mattocks
         	cactusObsidianMattock = new InfiToolMattock(PHInfiHybrids.obsidianMattockID+9,
                     InfiMaterialEnum.Obsidian, InfiMaterialEnum.Cactus, "cactusObsidianMattock");
             
-            MinecraftForge.setToolClass(woodObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(boneObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(iceObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusObsidianMattock, "pickaxe", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(woodObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(boneObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(iceObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusObsidianMattock, "Mattock", InfiMaterialEnum.Obsidian.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableSandstoneTools)
@@ -346,14 +391,14 @@ public class Mattocks
         	flintSandstoneMattock = new InfiToolMattock(PHInfiHybrids.sandstoneMattockID+7,
                     InfiMaterialEnum.Sandstone, InfiMaterialEnum.Flint, "flintSandstoneMattock");
             
-            MinecraftForge.setToolClass(woodSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintSandstoneMattock, "pickaxe", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintSandstoneMattock, "Mattock", InfiMaterialEnum.Sandstone.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableBoneTools)
@@ -377,15 +422,15 @@ public class Mattocks
         	flintBoneMattock = new InfiToolMattock(PHInfiHybrids.boneMattockID+8,
                     InfiMaterialEnum.Bone, InfiMaterialEnum.Flint, "flintBoneMattock");
             
-            MinecraftForge.setToolClass(woodBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(paperBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBoneMattock, "pickaxe", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(paperBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBoneMattock, "Mattock", InfiMaterialEnum.Bone.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enablePaperTools)
@@ -401,11 +446,11 @@ public class Mattocks
         	cactusPaperMattock = new InfiToolMattock(PHInfiHybrids.paperMattockID+4,
                     InfiMaterialEnum.Paper, InfiMaterialEnum.Cactus, "cactusPaperMattock");
             
-            MinecraftForge.setToolClass(woodPaperMattock, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(bonePaperMattock, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(paperPaperMattock, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(slimePaperMattock, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusPaperMattock, "pickaxe", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(woodPaperMattock, "Mattock", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(bonePaperMattock, "Mattock", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(paperPaperMattock, "Mattock", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimePaperMattock, "Mattock", InfiMaterialEnum.Paper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusPaperMattock, "Mattock", InfiMaterialEnum.Paper.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableMossyTools)
@@ -435,18 +480,18 @@ public class Mattocks
         	uraniumMossyMattock = new InfiToolMattock(PHInfiHybrids.mossyMattockID+11, 
                     InfiMaterialEnum.Mossy, InfiMaterialEnum.Uranium, "uraniumMossyMattock");
             
-            MinecraftForge.setToolClass(woodMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(boneMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumMossyMattock, "pickaxe", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(woodMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(boneMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumMossyMattock, "Mattock", InfiMaterialEnum.Mossy.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableNetherrackTools)
@@ -478,19 +523,19 @@ public class Mattocks
         	bronzeNetherrackMattock = new InfiToolMattock(PHInfiHybrids.netherrackMattockID+12, 
                     InfiMaterialEnum.Netherrack, InfiMaterialEnum.Bronze, "bronzeNetherrackMattock");
             
-            MinecraftForge.setToolClass(woodNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(boneNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(paperNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(mossyNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(iceNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(flintNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(copperNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeNetherrackMattock, "pickaxe", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(woodNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(boneNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(paperNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(mossyNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(iceNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(flintNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(copperNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeNetherrackMattock, "Mattock", InfiMaterialEnum.Netherrack.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableGlowstoneTools)
@@ -515,15 +560,15 @@ public class Mattocks
                     InfiMaterialEnum.Glowstone, InfiMaterialEnum.Cactus, "cactusGlowstoneMattock");
             
             
-            MinecraftForge.setToolClass(woodGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(boneGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(iceGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusGlowstoneMattock, "pickaxe", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(woodGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(boneGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(iceGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusGlowstoneMattock, "Mattock", InfiMaterialEnum.Glowstone.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableIceTools)
@@ -542,12 +587,12 @@ public class Mattocks
                     InfiMaterialEnum.Ice, InfiMaterialEnum.Cactus, "cactusIceMattock");
             
             
-            MinecraftForge.setToolClass(woodIceMattock, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(boneIceMattock, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(paperIceMattock, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(iceIceMattock, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeIceMattock, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusIceMattock, "pickaxe", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(woodIceMattock, "Mattock", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(boneIceMattock, "Mattock", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(paperIceMattock, "Mattock", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(iceIceMattock, "Mattock", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeIceMattock, "Mattock", InfiMaterialEnum.Ice.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusIceMattock, "Mattock", InfiMaterialEnum.Ice.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableLavaTools)
@@ -569,14 +614,14 @@ public class Mattocks
             uraniumLavaMattock = new InfiToolMattock(PHInfiHybrids.lavaMattockID+7, 
                     InfiMaterialEnum.Lava, InfiMaterialEnum.Uranium, "uraniumLavaMattock");
             
-            MinecraftForge.setToolClass(diamondLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(flintLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumLavaMattock, "pickaxe", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(flintLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumLavaMattock, "Mattock", InfiMaterialEnum.Lava.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableSlimeTools)
@@ -594,12 +639,12 @@ public class Mattocks
         	cactusSlimeMattock = new InfiToolMattock(PHInfiHybrids.slimeMattockID+5, 
                     InfiMaterialEnum.Slime, InfiMaterialEnum.Cactus, "cactusSlimeMattock");
             
-            MinecraftForge.setToolClass(woodSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(paperSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSlimeMattock, "pickaxe", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSlimeMattock, "Mattock", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneSlimeMattock, "Mattock", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSlimeMattock, "Mattock", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(paperSlimeMattock, "Mattock", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSlimeMattock, "Mattock", InfiMaterialEnum.Slime.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSlimeMattock, "Mattock", InfiMaterialEnum.Slime.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableCactusTools)
@@ -619,13 +664,13 @@ public class Mattocks
         	cactusCactusMattock = new InfiToolMattock(PHInfiHybrids.cactusMattockID+6, 
                     InfiMaterialEnum.Cactus, InfiMaterialEnum.Cactus, "cactusCactusMattock");
             
-            MinecraftForge.setToolClass(woodCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(iceCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCactusMattock, "pickaxe", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCactusMattock, "Mattock", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneCactusMattock, "Mattock", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCactusMattock, "Mattock", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCactusMattock, "Mattock", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(iceCactusMattock, "Mattock", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCactusMattock, "Mattock", InfiMaterialEnum.Cactus.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCactusMattock, "Mattock", InfiMaterialEnum.Cactus.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableFlintTools)
@@ -651,16 +696,16 @@ public class Mattocks
         	bronzeFlintMattock = new InfiToolMattock(PHInfiHybrids.flintMattockID+9, 
                     InfiMaterialEnum.Flint, InfiMaterialEnum.Bronze, "bronzeFlintMattock");
             
-            MinecraftForge.setToolClass(woodFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(sandstoneFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(boneFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(flintFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(copperFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeFlintMattock, "pickaxe", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(woodFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(sandstoneFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(boneFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(flintFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(copperFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeFlintMattock, "Mattock", InfiMaterialEnum.Flint.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableBlazeTools)
@@ -682,14 +727,14 @@ public class Mattocks
             uraniumBlazeMattock = new InfiToolMattock(PHInfiHybrids.blazeMattockID+7, 
                     InfiMaterialEnum.Blaze, InfiMaterialEnum.Uranium, "uraniumBlazeMattock");
             
-            MinecraftForge.setToolClass(diamondBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumBlazeMattock, "pickaxe", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumBlazeMattock, "Mattock", InfiMaterialEnum.Blaze.getHarvestLevel());
         }
     	
         if(PHInfiHybrids.enableCopperTools)
@@ -711,14 +756,14 @@ public class Mattocks
             copperCopperMattock = new InfiToolMattock(PHInfiHybrids.copperMattockID+7, 
                     InfiMaterialEnum.Copper, InfiMaterialEnum.Copper, "copperCopperMattock");
             
-            MinecraftForge.setToolClass(woodCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
-        	MinecraftForge.setToolClass(stoneCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(flintCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
-            MinecraftForge.setToolClass(copperCopperMattock, "pickaxe", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
+        	MinecraftForge.setToolClass(stoneCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(flintCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCopperMattock, "Mattock", InfiMaterialEnum.Copper.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableBronzeTools)
@@ -742,15 +787,15 @@ public class Mattocks
             bronzeBronzeMattock = new InfiToolMattock(PHInfiHybrids.bronzeMattockID+8, 
                     InfiMaterialEnum.Bronze, InfiMaterialEnum.Bronze, "bronzeBronzeMattock");
             
-            MinecraftForge.setToolClass(woodBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(boneBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(flintBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(copperBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeBronzeMattock, "pickaxe", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(woodBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(boneBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(flintBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(copperBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeBronzeMattock, "Mattock", InfiMaterialEnum.Bronze.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableWorkedIronTools)
@@ -792,24 +837,24 @@ public class Mattocks
             uraniumWorkedIronMattock = new InfiToolMattock(PHInfiHybrids.workedIronMattockID+17, 
                     InfiMaterialEnum.WorkedIron, InfiMaterialEnum.Uranium, "uraniumWorkedIronMattock");
             
-            MinecraftForge.setToolClass(woodWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(ironWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(boneWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(iceWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(copperWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(workedWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(steelWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumWorkedIronMattock, "pickaxe", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(woodWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(ironWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(boneWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(iceWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(copperWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(workedWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(steelWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumWorkedIronMattock, "Mattock", InfiMaterialEnum.WorkedIron.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableSteelTools)
@@ -855,26 +900,26 @@ public class Mattocks
             uraniumSteelMattock = new InfiToolMattock(PHInfiHybrids.steelMattockID+19, 
                     InfiMaterialEnum.Steel, InfiMaterialEnum.Uranium, "uraniumSteelMattock");
 
-            MinecraftForge.setToolClass(woodSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(ironSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(boneSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(iceSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(copperSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(workedSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(steelSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumSteelMattock, "pickaxe", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(woodSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(ironSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(boneSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(iceSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(copperSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(workedSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(steelSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumSteelMattock, "Mattock", InfiMaterialEnum.Steel.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableCobaltTools)
@@ -916,24 +961,24 @@ public class Mattocks
             uraniumCobaltMattock = new InfiToolMattock(PHInfiHybrids.cobaltMattockID+17, 
                     InfiMaterialEnum.Cobalt, InfiMaterialEnum.Uranium, "uraniumCobaltMattock");
             
-            MinecraftForge.setToolClass(woodCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(ironCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(boneCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(copperCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(workedCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(steelCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumCobaltMattock, "pickaxe", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(woodCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(ironCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(boneCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(copperCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(workedCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(steelCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumCobaltMattock, "Mattock", InfiMaterialEnum.Cobalt.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableArditeTools)
@@ -975,24 +1020,24 @@ public class Mattocks
             uraniumArditeMattock = new InfiToolMattock(PHInfiHybrids.arditeMattockID+17, 
                     InfiMaterialEnum.Ardite, InfiMaterialEnum.Uranium, "uraniumArditeMattock");
             
-            MinecraftForge.setToolClass(woodArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(ironArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(boneArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(copperArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(workedArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(steelArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumArditeMattock, "pickaxe", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(woodArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(ironArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(boneArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(copperArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(workedArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(steelArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumArditeMattock, "Mattock", InfiMaterialEnum.Ardite.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableManyullynTools)
@@ -1034,24 +1079,24 @@ public class Mattocks
             uraniumManyullynMattock = new InfiToolMattock(PHInfiHybrids.manyullynMattockID+17,
                     InfiMaterialEnum.Manyullyn, InfiMaterialEnum.Uranium, "uraniumManyullynMattock");
             
-            MinecraftForge.setToolClass(woodManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(stoneManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(ironManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(diamondManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(obsidianManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(boneManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(slimeManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(cactusManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(copperManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(bronzeManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(workedManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(steelManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(manyullynManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumManyullynMattock, "pickaxe", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(woodManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(stoneManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(ironManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(obsidianManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(boneManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(slimeManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cactusManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(copperManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(bronzeManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(workedManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(steelManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(manyullynManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumManyullynMattock, "Mattock", InfiMaterialEnum.Manyullyn.getHarvestLevel());
         }
         
         if(PHInfiHybrids.enableUraniumTools)
@@ -1077,16 +1122,16 @@ public class Mattocks
             uraniumUraniumMattock = new InfiToolMattock(PHInfiHybrids.uraniumMattockID+9, 
                     InfiMaterialEnum.Uranium, InfiMaterialEnum.Uranium, "uraniumUraniumMattock");
             
-            MinecraftForge.setToolClass(diamondUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(redstoneUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(boneUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(netherrackUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(glowstoneUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(lavaUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(blazeUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(cobaltUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(arditeUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
-            MinecraftForge.setToolClass(uraniumUraniumMattock, "pickaxe", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(diamondUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(redstoneUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(boneUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(netherrackUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(glowstoneUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(lavaUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(blazeUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(cobaltUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(arditeUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
+            MinecraftForge.setToolClass(uraniumUraniumMattock, "Mattock", InfiMaterialEnum.Uranium.getHarvestLevel());
         }
     }
     
@@ -1488,7 +1533,7 @@ public class Mattocks
         	ModLoader.addRecipe(new ItemStack(woodGlowstoneMattock), new Object[] 
                     { recipe, '#', InfiLibrary.glowstoneCrystal, '|', Item.stick, 's', InfiLibrary.glowstoneFragment });
         	ModLoader.addRecipe(new ItemStack(redstoneGlowstoneMattock), new Object[] 
-                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.glowstoneFragment });
+                    { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.glowstoneFragment });
         	ModLoader.addRecipe(new ItemStack(obsidianGlowstoneMattock), new Object[] 
                     { recipe, '#', InfiLibrary.glowstoneCrystal, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.glowstoneFragment });
             ModLoader.addRecipe(new ItemStack(boneGlowstoneMattock), new Object[] 
@@ -1630,315 +1675,178 @@ public class Mattocks
         }
     }
     
-    public static void addStoneTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.stoneShard });
-    	ModLoader.addRecipe(new ItemStack(stoneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(sandstoneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.sandstoneRod, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(boneStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(netherrackStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(iceStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.iceRod, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(slimeStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(cactusStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.stoneShard });
-        ModLoader.addRecipe(new ItemStack(flintStoneMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.flintRod, 's', InfiLibrary.stoneShard });
-    }
-    
-    public static void addCopperTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(stoneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(boneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(boneCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(netherrackCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(slimeCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(cactusCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(flintCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.flintRod, 's', InfiLibrary.copperChunk });
-        ModLoader.addRecipe(new ItemStack(copperCopperMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.copperChunk });
-    }
-    
-    public static void addBronzeTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(stoneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(boneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(boneBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(netherrackBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(slimeBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(cactusBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(flintBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.flintRod, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(copperBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.bronzeChunk });
-        ModLoader.addRecipe(new ItemStack(bronzeBronzeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.bronzeChunk });
-    }
-    
-    public static void addWorkedIronTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(stoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(ironWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(diamondWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(redstoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(obsidianWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(boneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(boneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(netherrackWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(glowstoneWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(iceWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.iceRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(slimeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(cactusWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(blazeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(copperWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(bronzeWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(workedWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(steelWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.workedIronChunk });
-        ModLoader.addRecipe(new ItemStack(uraniumWorkedIronMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.workedIronChunk });
-    }
-    
-    public static void addSteelTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(stoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(ironSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(diamondSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(redstoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(obsidianSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(boneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(boneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(netherrackSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(glowstoneSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(iceSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.iceRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(slimeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(cactusSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(blazeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(copperSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(bronzeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(workedSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(steelSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(cobaltSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(arditeSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.steelChunk });
-        ModLoader.addRecipe(new ItemStack(uraniumSteelMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.steelChunk });
-    }
-    
-    public static void addCobaltTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(stoneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(ironCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(diamondCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(redstoneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(obsidianCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(boneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(boneCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(slimeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(cactusCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(blazeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(copperCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(bronzeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(workedCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(steelCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(cobaltCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(arditeCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(manyullynCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.cobaltChunk });
-        ModLoader.addRecipe(new ItemStack(uraniumCobaltMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.cobaltChunk });
-    }
-    
-    public static void addArditeTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(stoneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(ironArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(diamondArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(redstoneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(obsidianArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(boneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(boneArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(slimeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(cactusArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(blazeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(copperArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(bronzeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(workedArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(steelArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(cobaltArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(arditeArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(manyullynArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.arditeChunk });
-        ModLoader.addRecipe(new ItemStack(uraniumArditeMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.arditeChunk });
-    }
-    
-    public static void addManyullynTools(ItemStack stack)
-    {
-    	ModLoader.addRecipe(new ItemStack(woodManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.stick, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(stoneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.stoneRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(ironManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.ironRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(diamondManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(redstoneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(obsidianManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.obsidianRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(boneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(boneManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(slimeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.slimeRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(cactusManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cactusRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(blazeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(copperManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.copperRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(bronzeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.bronzeRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(workedManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.workedIronRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(steelManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.steelRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(cobaltManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(arditeManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(manyullynManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.manyullynRod, 's', InfiLibrary.manyullynChunk });
-        ModLoader.addRecipe(new ItemStack(uraniumManyullynMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.manyullynChunk });
-    }
-    
-    public static void addUraniumTools(ItemStack stack)
-    {
-        ModLoader.addRecipe(new ItemStack(diamondUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.diamondRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(redstoneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.redstoneRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(boneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.bone, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(boneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.boneRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(netherrackUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.netherrackRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(glowstoneUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.glowstoneRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(lavaUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.lavaRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(blazeUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', Item.blazeRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(cobaltUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.cobaltRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(arditeUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.arditeRod, 's', InfiLibrary.uraniumChunk });
-        ModLoader.addRecipe(new ItemStack(uraniumUraniumMattock), new Object[] 
-                { recipe, '#', stack, '|', InfiLibrary.uraniumRod, 's', InfiLibrary.uraniumChunk });
-    }
+    public static void addStoneTools(String stack)
+	{
+		//GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodStoneMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneStoneMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(sandstoneStoneMattock), recipe, '#', stack, '|', InfiLibrary.sandstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneStoneMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneStoneMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(netherrackStoneMattock), recipe, '#', stack, '|', InfiLibrary.netherrackRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(iceStoneMattock), recipe, '#', stack, '|', InfiLibrary.iceRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeStoneMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusStoneMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(flintStoneMattock), recipe, '#', stack, '|', InfiLibrary.flintRod ) );
+	}
+
+	public static void addCopperTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodCopperMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneCopperMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneCopperMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneCopperMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(netherrackCopperMattock), recipe, '#', stack, '|', InfiLibrary.netherrackRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeCopperMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusCopperMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(flintCopperMattock), recipe, '#', stack, '|', InfiLibrary.flintRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(copperCopperMattock), recipe, '#', stack, '|', InfiLibrary.copperRod ) );
+	}
+
+	public static void addBronzeTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodBronzeMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneBronzeMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneBronzeMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneBronzeMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(netherrackBronzeMattock), recipe, '#', stack, '|', InfiLibrary.netherrackRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeBronzeMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusBronzeMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(flintBronzeMattock), recipe, '#', stack, '|', InfiLibrary.flintRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(copperBronzeMattock), recipe, '#', stack, '|', InfiLibrary.copperRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(bronzeBronzeMattock), recipe, '#', stack, '|', InfiLibrary.bronzeRod ) );
+	}
+
+	public static void addWorkedIronTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodWorkedIronMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(ironWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.ironRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(diamondWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.diamondRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(redstoneWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.redstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(obsidianWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.obsidianRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneWorkedIronMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(netherrackWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.netherrackRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(glowstoneWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.glowstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(iceWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.iceRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(blazeWorkedIronMattock), recipe, '#', stack, '|', Item.blazeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(copperWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.copperRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(bronzeWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.bronzeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(workedWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.workedIronRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(steelWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.steelRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(uraniumWorkedIronMattock), recipe, '#', stack, '|', InfiLibrary.uraniumRod ) );
+	}
+
+	public static void addSteelTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodSteelMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneSteelMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(ironSteelMattock), recipe, '#', stack, '|', InfiLibrary.ironRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(diamondSteelMattock), recipe, '#', stack, '|', InfiLibrary.diamondRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(redstoneSteelMattock), recipe, '#', stack, '|', InfiLibrary.redstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(obsidianSteelMattock), recipe, '#', stack, '|', InfiLibrary.obsidianRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneSteelMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneSteelMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(netherrackSteelMattock), recipe, '#', stack, '|', InfiLibrary.netherrackRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(glowstoneSteelMattock), recipe, '#', stack, '|', InfiLibrary.glowstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(iceSteelMattock), recipe, '#', stack, '|', InfiLibrary.iceRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeSteelMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusSteelMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(blazeSteelMattock), recipe, '#', stack, '|', Item.blazeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(copperSteelMattock), recipe, '#', stack, '|', InfiLibrary.copperRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(bronzeSteelMattock), recipe, '#', stack, '|', InfiLibrary.bronzeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(workedSteelMattock), recipe, '#', stack, '|', InfiLibrary.workedIronRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(steelSteelMattock), recipe, '#', stack, '|', InfiLibrary.steelRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cobaltSteelMattock), recipe, '#', stack, '|', InfiLibrary.cobaltRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(arditeSteelMattock), recipe, '#', stack, '|', InfiLibrary.arditeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(uraniumSteelMattock), recipe, '#', stack, '|', InfiLibrary.uraniumRod ) );
+	}
+
+	public static void addCobaltTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodCobaltMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneCobaltMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(ironCobaltMattock), recipe, '#', stack, '|', InfiLibrary.ironRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(diamondCobaltMattock), recipe, '#', stack, '|', InfiLibrary.diamondRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(redstoneCobaltMattock), recipe, '#', stack, '|', InfiLibrary.redstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(obsidianCobaltMattock), recipe, '#', stack, '|', InfiLibrary.obsidianRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneCobaltMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneCobaltMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeCobaltMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusCobaltMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(blazeCobaltMattock), recipe, '#', stack, '|', Item.blazeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(copperCobaltMattock), recipe, '#', stack, '|', InfiLibrary.copperRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(bronzeCobaltMattock), recipe, '#', stack, '|', InfiLibrary.bronzeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(workedCobaltMattock), recipe, '#', stack, '|', InfiLibrary.workedIronRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(steelCobaltMattock), recipe, '#', stack, '|', InfiLibrary.steelRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cobaltCobaltMattock), recipe, '#', stack, '|', InfiLibrary.cobaltRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(arditeCobaltMattock), recipe, '#', stack, '|', InfiLibrary.arditeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(manyullynCobaltMattock), recipe, '#', stack, '|', InfiLibrary.manyullynRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(uraniumCobaltMattock), recipe, '#', stack, '|', InfiLibrary.uraniumRod ) );
+	}
+
+	public static void addArditeTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodArditeMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneArditeMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(ironArditeMattock), recipe, '#', stack, '|', InfiLibrary.ironRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(diamondArditeMattock), recipe, '#', stack, '|', InfiLibrary.diamondRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(redstoneArditeMattock), recipe, '#', stack, '|', InfiLibrary.redstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(obsidianArditeMattock), recipe, '#', stack, '|', InfiLibrary.obsidianRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneArditeMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneArditeMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeArditeMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusArditeMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(blazeArditeMattock), recipe, '#', stack, '|', Item.blazeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(copperArditeMattock), recipe, '#', stack, '|', InfiLibrary.copperRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(bronzeArditeMattock), recipe, '#', stack, '|', InfiLibrary.bronzeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(workedArditeMattock), recipe, '#', stack, '|', InfiLibrary.workedIronRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(steelArditeMattock), recipe, '#', stack, '|', InfiLibrary.steelRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cobaltArditeMattock), recipe, '#', stack, '|', InfiLibrary.cobaltRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(arditeArditeMattock), recipe, '#', stack, '|', InfiLibrary.arditeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(manyullynArditeMattock), recipe, '#', stack, '|', InfiLibrary.manyullynRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(uraniumArditeMattock), recipe, '#', stack, '|', InfiLibrary.uraniumRod ) );
+	}
+
+	public static void addManyullynTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodManyullynMattock), recipe, '#', stack, '|', Item.stick ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(stoneManyullynMattock), recipe, '#', stack, '|', InfiLibrary.stoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(ironManyullynMattock), recipe, '#', stack, '|', InfiLibrary.ironRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(diamondManyullynMattock), recipe, '#', stack, '|', InfiLibrary.diamondRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(redstoneManyullynMattock), recipe, '#', stack, '|', InfiLibrary.redstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(obsidianManyullynMattock), recipe, '#', stack, '|', InfiLibrary.obsidianRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneManyullynMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneManyullynMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(slimeManyullynMattock), recipe, '#', stack, '|', InfiLibrary.slimeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cactusManyullynMattock), recipe, '#', stack, '|', InfiLibrary.cactusRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(blazeManyullynMattock), recipe, '#', stack, '|', Item.blazeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(copperManyullynMattock), recipe, '#', stack, '|', InfiLibrary.copperRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(bronzeManyullynMattock), recipe, '#', stack, '|', InfiLibrary.bronzeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(workedManyullynMattock), recipe, '#', stack, '|', InfiLibrary.workedIronRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(steelManyullynMattock), recipe, '#', stack, '|', InfiLibrary.steelRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cobaltManyullynMattock), recipe, '#', stack, '|', InfiLibrary.cobaltRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(arditeManyullynMattock), recipe, '#', stack, '|', InfiLibrary.arditeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(manyullynManyullynMattock), recipe, '#', stack, '|', InfiLibrary.manyullynRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(uraniumManyullynMattock), recipe, '#', stack, '|', InfiLibrary.uraniumRod ) );
+	}
+
+	public static void addUraniumTools(String stack)
+	{
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(diamondUraniumMattock), recipe, '#', stack, '|', InfiLibrary.diamondRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(redstoneUraniumMattock), recipe, '#', stack, '|', InfiLibrary.redstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneUraniumMattock), recipe, '#', stack, '|', Item.bone ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(boneUraniumMattock), recipe, '#', stack, '|', InfiLibrary.boneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(netherrackUraniumMattock), recipe, '#', stack, '|', InfiLibrary.netherrackRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(glowstoneUraniumMattock), recipe, '#', stack, '|', InfiLibrary.glowstoneRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(lavaUraniumMattock), recipe, '#', stack, '|', InfiLibrary.lavaRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(blazeUraniumMattock), recipe, '#', stack, '|', Item.blazeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(cobaltUraniumMattock), recipe, '#', stack, '|', InfiLibrary.cobaltRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(arditeUraniumMattock), recipe, '#', stack, '|', InfiLibrary.arditeRod ) );
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(uraniumUraniumMattock), recipe, '#', stack, '|', InfiLibrary.uraniumRod ) );
+	}
     
 	public static Item woodWoodMattock;
 	public static Item sandstoneWoodMattock;
