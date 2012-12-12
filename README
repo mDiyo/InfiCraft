@@ -1,9 +1,10 @@
 Welcome to the InfiCraft github! Please enjoy your stay; we have some nice things in store.
 
-Current version: Minecraft 1.2.5
-Beginning integration for 1.4.5
+Current version: Minecraft 1.4.5
 
-Current Mods: InfiTools, InfiBlocks, Flora & Soma, Orizon, World Tweaks, Hunger Tweaks
-InfiTools Modules: Core, Hybrids, 2x2 Extended, Deep Freese
-Flora & Soma Modules: Berries, Clouds, Corruptor, Crops, Trees
-Orizon Modules: Stone, Ores, Slime pools, Dimension
+Current Mods: InfiTools, InfiBlocks, Flora & Soma, Orizon, Tweaks
+
+InfiTools: Library, Base, Hybrids, 2x2 Extended
+Flora & Soma: Berries, Clouds, Corruptor, Crops, Trees
+Orizon: Stone, Slime pools, Dimension
+Tweaks: World, Hunger, Deep Freeze
