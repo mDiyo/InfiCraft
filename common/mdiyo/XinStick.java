@@ -2,6 +2,7 @@ package mDiyo;
 
 import mDiyo.inficraft.armory.ArmorStandEntity;
 import mDiyo.simplebackground.SimpleBGM;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityPlayer;
@@ -16,15 +17,18 @@ import net.minecraft.src.World;
 
 public class XinStick extends Item
 {
-	public XinStick(int id) { super(id); }
+	public XinStick(int id) { 
+		super(id);
+		setCreativeTab(CreativeTabs.tabMisc);
+		}
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-		System.out.println("Click");
+		System.out.println("Click2");
 		//SimpleBGM.instance.playBGM();
-		world.playSoundEffect(player.posX, player.posY, player.posZ, "day.bgm", 1f, 1f);
-		spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world);
+		world.playSoundEffect(player.posX, player.posY, player.posZ, SimpleBGM.jar, 1f, 1f);
+		//spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world);
         return stack;
     }
 	
