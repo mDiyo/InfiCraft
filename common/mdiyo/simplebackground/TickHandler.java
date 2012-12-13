@@ -48,7 +48,28 @@ public class TickHandler implements ITickHandler
 	void doStuff()
 	{
 		if (mc == null)
+		{
 			mc = FMLClientHandler.instance().getClient();
+			
+			underground = mc.thePlayer.posY < 58 ? true : false;			
+			if (underground)
+			{
+				SimpleBGM.instance.playBackgroundMusic("Lightless Dawn.ogg");
+				return;
+			}
+			else
+			{
+				day = mc.theWorld.getWorldTime() < 12000 ? true : false;
+				
+				if (day)
+					SimpleBGM.instance.playBackgroundMusic("Golden Wings.ogg");
+				
+				else
+					SimpleBGM.instance.playBackgroundMusic("Dragon and Toast.ogg");
+				
+				return;
+			}
+		}
 		
 		/*dimension = mc.thePlayer.dimension;
 		if (dimension == 1) //End
@@ -72,14 +93,27 @@ public class TickHandler implements ITickHandler
 		if (underground && !prevUnderground)
 		{
 			SimpleBGM.instance.playBackgroundMusic("Lightless Dawn.ogg");
+			prevUnderground = underground;
+			return;
 		}
-		day = mc.theWorld.getWorldTime() < 12000 ? true : false;
+		else
+		{
+			day = mc.theWorld.getWorldTime() < 12000 ? true : false;
+			
+			if (day && !prevDay)
+			{
+				SimpleBGM.instance.playBackgroundMusic("Golden Wings.ogg");
+			}
+			else if (!day && prevDay)
+			{
+				SimpleBGM.instance.playBackgroundMusic("Dragon and Toast.ogg");
+			}
+			
+			prevDay = day;
+		}
 		
-		//if (prevPosY )
-		SimpleBGM.instance.playBackgroundMusic("AlaFlair.ogg");
 		
-		prevUnderground = underground;
-		prevDay = day;
-		prevDimension = dimension;
+		
+		//prevDimension = dimension;
 	}
 }
