@@ -38,7 +38,11 @@ public class SoundHandler
 	
 	private static final String location = "bgm/";
 	public static String[] musicFiles = { "AlaFlair.ogg", "Windswept.ogg" };
-
-	public static final String alaflair = "AlaFlair.ogg";
-	public static final String windswept ="Windswept.ogg";
+	/* Menu: Windswept
+	 * Day: Golden Wingss
+	 * Night: Dragon and Toast
+	 * Underground: Lightless Dawn
+	 * Nether: Oppressive Gloom
+	 * Twilight Forest: The Other Side of the Door
+	 */
 }

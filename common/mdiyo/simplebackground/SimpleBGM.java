@@ -17,6 +17,10 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.TickRegistry;
 
+/* Constant background music
+ * Flavorlicious!
+ */
+
 @Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.5_2012.12.2")
 public class SimpleBGM
 {	
@@ -39,7 +43,7 @@ public class SimpleBGM
 	{
 		bgm = SoundManager.sndSystem;
 		options = FMLClientHandler.instance().getClient().gameSettings;
-		playBackgroundMusic(SoundHandler.windswept);
+		playBackgroundMusic("Windswept.ogg");
 		TickRegistry.registerTickHandler(new TickHandler(), Side.CLIENT);
 	}
 
@@ -61,9 +65,12 @@ public class SimpleBGM
 		if (options.musicVolume > 0f)
 		{
 			if (sound != currentMusic)
-				bgm.stop(currentMusic);
+			{
+				SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);
+				bgm.fadeOutIn(currentMusic, song.soundUrl, song.soundName, 1000, 2000);
+			}
 			
-			if (!bgm.playing(sound))
+			else if (!bgm.playing(sound))
 			{
 				SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);				
 				bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
