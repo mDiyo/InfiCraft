@@ -1,6 +1,9 @@
 package mDiyo.simplebackground;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 
 import net.minecraft.src.SoundPoolEntry;
@@ -13,30 +16,13 @@ public class SoundHandler
 	@ForgeSubscribe
 	public void onSoundLoad(SoundLoadEvent event)
 	{
-		// For each custom sound file we have defined in Sounds
-		for (String soundFile : SimpleBGM.soundFiles)
+		for (String soundFile : this.musicFiles)
 		{
 			// Try to add the custom sound file to the pool of sounds
 			try
 			{
-				URL path = SimpleBGM.instance.getClass().getResource("/" + soundFile);
-				event.manager.soundPoolSounds.addSound(soundFile, path);
-			}
-			// If we cannot add the custom sound file to the pool, log the
-			// exception
-			catch (Exception e)
-			{
-				FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "SimpleBGM Failed loading sound file: " + soundFile);
-			}
-		}
-		
-		for (String soundFile : SimpleBGM.musicFiles)
-		{
-			// Try to add the custom sound file to the pool of sounds
-			try
-			{
-				URL path = SimpleBGM.instance.getClass().getResource("/" + soundFile);
-				music = event.manager.soundPoolStreaming.addSound(soundFile, path);
+				URL path = SimpleBGM.instance.getClass().getResource("/" + location + soundFile);
+				music.put(soundFile, event.manager.soundPoolStreaming.addSound(soundFile, path));
 			}
 			// If we cannot add the custom sound file to the pool, log the
 			// exception
@@ -47,5 +33,12 @@ public class SoundHandler
 		}
 	}
 	
-	public static SoundPoolEntry music;
+	//public static SoundPoolEntry[] music;
+	public static HashMap music = new HashMap<String, SoundPoolEntry>();
+	
+	private static final String location = "bgm/";
+	public static String[] musicFiles = { "AlaFlair.ogg", "Windswept.ogg" };
+
+	public static final String alaflair = "AlaFlair.ogg";
+	public static final String windswept ="Windswept.ogg";
 }

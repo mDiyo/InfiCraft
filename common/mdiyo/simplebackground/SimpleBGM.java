@@ -1,21 +1,28 @@
 package mDiyo.simplebackground;
 
-import java.io.File;
-
+import paulscode.sound.SoundSystem;
+import net.minecraft.src.GameSettings;
 import net.minecraft.src.SoundManager;
+import net.minecraft.src.SoundPoolEntry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.TickRegistry;
 
 @Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.5_2012.12.2")
 public class SimpleBGM
-{
-	int dimension;
-	int height;
-	boolean dayNight;
-	boolean musicDisk;
+{	
+	SoundSystem bgm;
+	GameSettings options;
+	String currentMusic;
 
 	@Instance("SimpleBGM")
 	public static SimpleBGM instance;
@@ -23,22 +30,48 @@ public class SimpleBGM
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
 	{
+		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(new SoundHandler());
 	}
 	
-	public static void playBackgroundMusic(String music)
+	@PostInit
+	public void postInit(FMLPostInitializationEvent evt)
 	{
-		SoundManager.sndSystem.backgroundMusic(music, SoundHandler.music.soundUrl, SoundHandler.music.soundName, false);
-		SoundManager.sndSystem.setVolume(music, 1f);
-		SoundManager.sndSystem.play(music);
+		bgm = SoundManager.sndSystem;
+		options = FMLClientHandler.instance().getClient().gameSettings;
+		playBackgroundMusic(SoundHandler.windswept);
+		TickRegistry.registerTickHandler(new TickHandler(), Side.CLIENT);
 	}
 
-	private static final String location = "bgm/";
-	private static final String prefix = "bgm.";
+	/*@ForgeSubscribe
+	public void joinWorld(EntityJoinWorldEvent evt)
+	{
+		if (evt.ent)
+		playBackgroundMusic(SoundHandler.alaflair);
+	}*/
+	
+	@ForgeSubscribe
+	public void playerSleep(PlayerSleepInBedEvent evt)
+	{
+		
+	}
 
-	public static String[] soundFiles = { location + "cash.ogg" };
-	public static String[] musicFiles = { location + "AlaFlair.ogg" };
+	public void playBackgroundMusic(String sound)
+	{
+		if (options.musicVolume > 0f)
+		{
+			if (sound != currentMusic)
+				bgm.stop(currentMusic);
+			
+			if (!bgm.playing(sound))
+			{
+				SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);				
+				bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
+				bgm.setVolume(sound, options.musicVolume);
+				bgm.play(sound);
+				currentMusic = sound;
+			}
+		}
+	}
 
-	public static final String jar = prefix + "cash";
-	public static final String alaflair = prefix + "AlaFlair";
 }
