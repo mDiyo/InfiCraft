@@ -12,19 +12,16 @@ public class TickHandler implements ITickHandler
 	Minecraft mc;
 	int count;
 	
-	boolean day;
-	boolean prevDay;
+	long time;
 	boolean underground;
-	boolean prevUnderground;
 	int dimension;
-	int prevDimension;
 
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData)
 	{
 		count++;
 		if (count > 20)
-			doStuff();
+			decideMusic();
 	}
 
 	@Override
@@ -45,75 +42,46 @@ public class TickHandler implements ITickHandler
 		return null;
 	}
 
-	void doStuff()
+	void decideMusic()
 	{
 		if (mc == null)
-		{
 			mc = FMLClientHandler.instance().getClient();
-			
-			underground = mc.thePlayer.posY < 58 ? true : false;			
-			if (underground)
-			{
-				SimpleBGM.instance.playBackgroundMusic("Lightless Dawn.ogg");
-				return;
-			}
-			else
-			{
-				day = mc.theWorld.getWorldTime() < 12000 ? true : false;
-				
-				if (day)
-					SimpleBGM.instance.playBackgroundMusic("Golden Wings.ogg");
-				
-				else
-					SimpleBGM.instance.playBackgroundMusic("Dragon and Toast.ogg");
-				
-				return;
-			}
-		}
 		
-		/*dimension = mc.thePlayer.dimension;
-		if (dimension == 1) //End
-		{
-			
-		}
-		else if (dimension == -1) //Nether
-		{
-			
-		}
-		else if (dimension == 7) //Twilight Forest
-		{
-			
-		}
-		else if (dimension == 0) //Overworld
-		{
-			
-		}*/
+		dimension = mc.thePlayer.dimension;
+		if (dimension == -1) //Nether
+			SimpleBGM.instance.playBackgroundMusic("Oppressive Gloom.ogg");
 		
-		underground = mc.thePlayer.posY < 58 ? true : false;
-		if (underground && !prevUnderground)
+		else if (dimension == 0 || dimension == 7)
+		{
+			if (!checkUnderground())
+			{
+				if (dimension == 7) //Twilight Forest
+					SimpleBGM.instance.playBackgroundMusic("The Other Side of the Door.ogg");
+				else //Overworld
+				{
+					time = mc.theWorld.getWorldTime();
+					
+					if (time > 500 && time < 11500)
+						SimpleBGM.instance.playBackgroundMusic("Golden Wings.ogg"); //Day
+					else if (time > 11500 && time < 12500)
+						SimpleBGM.instance.playBackgroundMusic("Danse Morialta.ogg"); //Dusk
+					else if (time > 12500 && time < 23500)
+						SimpleBGM.instance.playBackgroundMusic("Dragon and Toast.ogg"); //Night
+					else
+						SimpleBGM.instance.playBackgroundMusic("Autumn Day.ogg"); //Dawn
+				}
+			}
+		}
+	}
+	
+	boolean checkUnderground()
+	{
+		underground = mc.thePlayer.posY < 60 ? true : false;
+		if (underground)
 		{
 			SimpleBGM.instance.playBackgroundMusic("Lightless Dawn.ogg");
-			prevUnderground = underground;
-			return;
+			return true;
 		}
-		else
-		{
-			day = mc.theWorld.getWorldTime() < 12000 ? true : false;
-			
-			if (day && !prevDay)
-			{
-				SimpleBGM.instance.playBackgroundMusic("Golden Wings.ogg");
-			}
-			else if (!day && prevDay)
-			{
-				SimpleBGM.instance.playBackgroundMusic("Dragon and Toast.ogg");
-			}
-			
-			prevDay = day;
-		}
-		
-		
-		
-		//prevDimension = dimension;
+		return false;
 	}
 }

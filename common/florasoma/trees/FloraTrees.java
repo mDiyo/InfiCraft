@@ -15,7 +15,7 @@ import florasoma.trees.blocks.*;
 import florasoma.trees.entities.FloraBoat;
 import florasoma.trees.worldgen.TreeWorldgen;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.12")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.5_2012.12.13")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */

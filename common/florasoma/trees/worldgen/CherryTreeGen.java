@@ -305,13 +305,13 @@ public class CherryTreeGen extends WorldGenerator
      */
     void generateLeaves()
     {
-        int var1 = 0;
+    	int length = this.leafNodes.length;        
 
-        for (int var2 = this.leafNodes.length; var1 < var2; ++var1)
+        for (int iter = 0; iter < length; iter++)
         {
-            int var3 = this.leafNodes[var1][0];
-            int var4 = this.leafNodes[var1][1];
-            int var5 = this.leafNodes[var1][2];
+            int var3 = this.leafNodes[iter][0];
+            int var4 = this.leafNodes[iter][1];
+            int var5 = this.leafNodes[iter][2];
             this.generateLeafNode(var3, var4, var5);
         }
     }

@@ -24,7 +24,7 @@ import cpw.mods.fml.common.registry.TickRegistry;
 
 @Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.5_2012.12.2")
 public class SimpleBGM
-{	
+{
 	SoundSystem bgm;
 	GameSettings options;
 	String currentMusic;
@@ -38,13 +38,13 @@ public class SimpleBGM
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(new SoundHandler());
 	}
-	
+
 	@PostInit
 	public void postInit(FMLPostInitializationEvent evt)
 	{
 		bgm = SoundManager.sndSystem;
 		options = FMLClientHandler.instance().getClient().gameSettings;
-		playBackgroundMusic("Windswept.ogg");
+		playMenuMusic("Windswept.ogg");
 		TickRegistry.registerTickHandler(new TickHandler(), Side.CLIENT);
 	}
 
@@ -54,37 +54,42 @@ public class SimpleBGM
 		if (evt.ent)
 		playBackgroundMusic(SoundHandler.alaflair);
 	}*/
-	
+
 	@ForgeSubscribe
 	public void playerSleep(PlayerSleepInBedEvent evt)
 	{
-		
+
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void playBackgroundMusic(String sound)
 	{
-		if (options.musicVolume > 0f)
+		if (options.musicVolume > 0f && sound != currentMusic)
 		{
-			System.out.println("Playing background music: "+sound);
-			if (sound != currentMusic)
-				bgm.stop(currentMusic);
-			/*{
-				SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);
-				bgm.fadeOutIn(currentMusic, song.soundUrl, song.soundName, 1000, 2000);
-			}*/
+			bgm.stop(currentMusic);
+			SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);
+			//bgm.fadeOutIn(currentMusic, song.soundUrl, song.soundName, 1500, 3000);
+
+			bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
+			bgm.setVolume(sound, options.musicVolume);
+			bgm.play(sound);
 			
-			if (!bgm.playing(sound))
-			{
-				SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);				
-				bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
-				bgm.setVolume(sound, options.musicVolume);
-				bgm.play(sound);
-				currentMusic = sound;
-			}
+			currentMusic = sound;
+			System.out.println("Playing background music: "+sound);
+			
 		}
 	}
-	
+
+	public void playMenuMusic(String sound)
+	{
+		bgm.stop(currentMusic);
+		SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);
+		bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
+		bgm.setVolume(sound, options.musicVolume);
+		bgm.play(sound);
+		currentMusic = sound;
+	}
+
 	public void stopMusic()
 	{
 		bgm.stop(currentMusic);
