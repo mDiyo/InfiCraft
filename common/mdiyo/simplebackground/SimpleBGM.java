@@ -1,5 +1,8 @@
 package mDiyo.simplebackground;
 
+import java.io.File;
+
+import net.minecraft.src.SoundManager;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,11 +25,20 @@ public class SimpleBGM
 	{
 		MinecraftForge.EVENT_BUS.register(new SoundHandler());
 	}
+	
+	public static void playBackgroundMusic(String music)
+	{
+		SoundManager.sndSystem.backgroundMusic(music, SoundHandler.music.soundUrl, SoundHandler.music.soundName, false);
+		SoundManager.sndSystem.setVolume(music, 1f);
+		SoundManager.sndSystem.play(music);
+	}
 
 	private static final String location = "bgm/";
 	private static final String prefix = "bgm.";
 
-	public static String[] soundFiles = { location + "jar1.ogg" };
+	public static String[] soundFiles = { location + "cash.ogg" };
+	public static String[] musicFiles = { location + "AlaFlair.ogg" };
 
-	public static final String jar = prefix + "jar1";
+	public static final String jar = prefix + "cash";
+	public static final String alaflair = prefix + "AlaFlair";
 }

@@ -1,6 +1,6 @@
 package mDiyo.bastion.items;
 
-import mDiyo.api.detailing.DetailManager;
+import inficraft.api.detailing.DetailManager;
 import net.minecraft.src.Block;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityItem;

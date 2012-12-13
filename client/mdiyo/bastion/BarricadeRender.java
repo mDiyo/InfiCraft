@@ -1,6 +1,6 @@
 package mDiyo.bastion;
 
-import mDiyo.api.InfiUtil;
+import inficraft.api.InfiUtil;
 import mDiyo.bastion.blocks.BarricadeBlock;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;

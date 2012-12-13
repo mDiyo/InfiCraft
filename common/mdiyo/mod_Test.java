@@ -1,5 +1,10 @@
 package mDiyo;
 
+import florasoma.crops.FloraCrops;
+import florasoma.trees.FloraTrees;
+import inficraft.armory.InfiArmory;
+import inficraft.infiblocks.InfiBlocks;
+
 import java.util.Map;
 
 //import alicedoll.AliceDolls;
@@ -16,10 +21,6 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 
 import mDiyo.bastion.Bastion;
-import mDiyo.inficraft.armory.InfiArmory;
-import mDiyo.inficraft.flora.crops.FloraCrops;
-import mDiyo.inficraft.flora.trees.FloraTrees;
-import mDiyo.inficraft.infiblocks.InfiBlocks;
 
 /*
  * mDiyo's development testing mod

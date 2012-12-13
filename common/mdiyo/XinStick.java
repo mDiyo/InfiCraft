@@ -1,6 +1,6 @@
 package mDiyo;
 
-import mDiyo.inficraft.armory.ArmorStandEntity;
+import inficraft.armory.ArmorStandEntity;
 import mDiyo.simplebackground.SimpleBGM;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
@@ -25,10 +25,11 @@ public class XinStick extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-		System.out.println("Click2");
+		//System.out.println("Click2");
 		//SimpleBGM.instance.playBGM();
-		world.playSoundEffect(player.posX, player.posY, player.posZ, SimpleBGM.jar, 1f, 1f);
-		//spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world);
+		//world.playSound(player.posX, player.posY, player.posZ, SimpleBGM.jar, 1f, 1f);
+		//SimpleBGM.playBackgroundMusic(SimpleBGM.alaflair);
+		spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world);
         return stack;
     }
 	
@@ -46,6 +47,7 @@ public class XinStick extends Item
     {
     	if (!world.isRemote)
     	{
+    		entity.setPosition(x, y, z);
 	        world.spawnEntityInWorld(entity);
     	}
     }

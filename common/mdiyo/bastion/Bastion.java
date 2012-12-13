@@ -1,6 +1,6 @@
 package mDiyo.bastion;
 
-import mDiyo.api.detailing.DetailManager;
+import inficraft.api.detailing.DetailManager;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import cpw.mods.fml.common.Mod;

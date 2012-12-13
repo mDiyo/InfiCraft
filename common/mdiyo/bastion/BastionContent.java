@@ -1,6 +1,6 @@
 package mDiyo.bastion;
 
-import mDiyo.api.InfiUtil;
+import inficraft.api.InfiUtil;
 import mDiyo.bastion.blocks.*;
 import mDiyo.bastion.items.DrillBase;
 import net.minecraft.src.Block;
