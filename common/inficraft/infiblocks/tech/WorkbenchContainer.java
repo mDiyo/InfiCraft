@@ -23,17 +23,17 @@ public class WorkbenchContainer extends Container
             }
         }
 
-        for (int j = 0; j < 3; j++)
+        for (int column = 0; column < 3; column++)
         {
-            for (int i1 = 0; i1 < 9; i1++)
+            for (int row = 0; row < 9; row++)
             {
-            	this.addSlotToContainer(new Slot(inventoryplayer, i1 + j * 9 + 9, 8 + i1 * 18, 84 + j * 18));
+            	this.addSlotToContainer(new Slot(inventoryplayer, row + column * 9 + 9, 8 + row * 18, 84 + column * 18));
             }
         }
 
-        for (int k = 0; k < 9; k++)
+        for (int column = 0; column < 9; column++)
         {
-        	this.addSlotToContainer(new Slot(inventoryplayer, k, 8 + k * 18, 142));
+        	this.addSlotToContainer(new Slot(inventoryplayer, column, 8 + column * 18, 142));
         }
 
         onCraftMatrixChanged(craftMatrix);

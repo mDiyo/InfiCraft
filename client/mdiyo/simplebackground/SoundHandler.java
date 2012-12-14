@@ -22,8 +22,8 @@ public class SoundHandler
 			try
 			{
 				URL path = SimpleBGM.instance.getClass().getResource("/" + location + soundFile);
-				System.out.println("Path: "+path);
 				music.put(soundFile, event.manager.soundPoolStreaming.addSound(soundFile, path));
+				System.out.println("Loaded sound at: "+path);
 			}
 			// If we cannot add the custom sound file to the pool, log the
 			// exception
@@ -38,9 +38,6 @@ public class SoundHandler
 	public static HashMap music = new HashMap<String, SoundPoolEntry>();
 	
 	private static final String location = "bgm/";
-	//public static String[] musicFiles = { "AlaFlair.ogg", "Windswept.ogg" };
-
-	//public static final String windswept ="Windswept.ogg";
 	
 	public static String[] musicFiles = { "Windswept.ogg", "Golden Wings.ogg", "Dragon and Toast.ogg", "Lightless Dawn.ogg",
 		"Oppressive Gloom.ogg", "The Other Side of the Door.ogg", "Autumn Day.ogg", "Danse Morialta.ogg" };

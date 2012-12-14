@@ -23,7 +23,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.5_2012.12.12")
+@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.5_2012.12.13")
 public class FloraCrops
 {
 	/* Proxies for sides, used for graphics processing */
@@ -39,11 +39,11 @@ public class FloraCrops
 	{
 		PHCrops.initProps();
 		
-		barleyItem = new BarleyItem(PHCrops.foodID).setIconCoord(1, 3).setItemName("barleyFood");
+		barleyItem = new BarleyItem(PHCrops.foodID).setIconCoord(0, 3).setItemName("barleyFood");
 		floraCrops = new FloraCropBlock(PHCrops.floraCropsID, 80);
 		barleySeed = new FloraSeeds(PHCrops.barleySeedID, floraCrops.blockID, Block.tilledField.blockID).setIconCoord(1, 2).setItemName("barleySeed");
 		
-		waterDrop = new CactusJuice(PHCrops.ingredientsID + 0, 2, false, 16).setIconCoord(3, 0).setItemName("waterDrop");
+		waterDrop = new CactusJuice(PHCrops.ingredientsID + 0, 2, false, 16).setIconCoord(3, 4).setItemName("waterDrop");
 		
 		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, "/infitextures/food.png", "Wheat Flour").setIconCoord(1, 0);
 		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, "/infitextures/food.png", "Wheat Dough").setIconCoord(2, 0);

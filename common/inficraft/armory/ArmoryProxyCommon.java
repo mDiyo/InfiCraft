@@ -29,7 +29,7 @@ public class ArmoryProxyCommon implements IGuiHandler
 			if (ID == entity.entityId)
 			{
 				System.out.println("Returning server entity with ID "+ID);
-				return ((EntityEquipment)entity).getContainer();
+				return ((EntityEquipment)entity).getContainer(player);
 			}
 		}
 		System.out.println("Returning a null server entity");

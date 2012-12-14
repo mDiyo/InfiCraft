@@ -26,7 +26,7 @@ public class ArmoryProxyClient extends ArmoryProxyCommon
 	{
 		RenderingRegistry.registerBlockHandler(new RenderToolrack());
 		ClientRegistry.bindTileEntitySpecialRenderer(ToolrackLogic.class, new ToolrackSpecialRender());
-		RenderingRegistry.registerEntityRenderingHandler(inficraft.armory.ArmorStandEntity.class, new RenderArmorStandEntity(new ModelBiped(), 0));
+		RenderingRegistry.registerEntityRenderingHandler(inficraft.armory.ArmorStandEntity.class, new RenderArmorStandEntity(new ArmorStandModelStatue(), 0));
 	}
 	
 	@Override

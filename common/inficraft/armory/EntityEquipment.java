@@ -25,7 +25,7 @@ public abstract class EntityEquipment extends EntityLiving
 		super(par1World);
 	}
 	
-	public abstract Container getContainer();
+	public abstract Container getContainer(EntityPlayer player);
 	
 	public String getTexture()
 	{

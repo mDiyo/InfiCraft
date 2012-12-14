@@ -14,7 +14,7 @@ public class ArmorStandGui extends GuiContainer
 {
     public ArmorStandGui(EntityPlayer player, EntityEquipment equipment)
 	{
-    	super(player.inventoryContainer);
+    	super(equipment.getContainer(player));
         this.allowUserInput = true;
 	}
     
@@ -23,7 +23,7 @@ public class ArmorStandGui extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
-        this.fontRenderer.drawString("Armor Stand", 86, 16, 4210752);
+        this.fontRenderer.drawString("Armor Stand", 8, 8, 4210752);
     }
 
 	@Override
@@ -35,6 +35,5 @@ public class ArmorStandGui extends GuiContainer
         int var5 = this.guiLeft;
         int var6 = this.guiTop;
         this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, this.ySize);
-        System.out.println("Rendering armor stand gui");
 	}
 }

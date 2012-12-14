@@ -9,12 +9,12 @@ import net.minecraft.src.World;
 
 public class ArmorStandEntity extends EntityEquipment
 {
-	Container inventory;
+	//Container inventory;
 	public ArmorStandEntity(World world) 
 	{
 		super(world);
-		this.texture = "/infitextures/icedover.png";
-		inventory = new ArmorStandContainer(this);
+		this.texture = "/infitextures/mob/armorstandtexture.png";
+		//inventory = new ArmorStandContainer(this);
 	}
 	
 	public boolean interact(EntityPlayer player)
@@ -24,9 +24,9 @@ public class ArmorStandEntity extends EntityEquipment
     }
 
 	@Override
-	public Container getContainer()
+	public Container getContainer(EntityPlayer player)
 	{
-		return inventory;
+		return new ArmorStandContainer(this, player.inventory);
 	}
 
 	@Override
@@ -42,9 +42,27 @@ public class ArmorStandEntity extends EntityEquipment
 	}
 
 	@Override
-	public ItemStack decrStackSize(int var1, int var2)
+	public ItemStack decrStackSize(int slot, int stackSize)
 	{
-		return null;
+		if (getCurrentItemOrArmor(slot) != null)
+        {
+            if (getCurrentItemOrArmor(slot).stackSize <= stackSize)
+            {
+                ItemStack itemstack = getCurrentItemOrArmor(slot);
+                setCurrentItemOrArmor(slot,  null);
+                return itemstack;
+            }
+            ItemStack itemstack1 = getCurrentItemOrArmor(slot).splitStack(stackSize);
+            if (getCurrentItemOrArmor(slot).stackSize == 0)
+            {
+            	setCurrentItemOrArmor(slot,  null);
+            }
+            return itemstack1;
+        }
+        else
+        {
+            return null;
+        }
 	}
 
 	@Override
@@ -54,9 +72,13 @@ public class ArmorStandEntity extends EntityEquipment
 	}
 
 	@Override
-	public void setInventorySlotContents(int var1, ItemStack var2)
+	public void setInventorySlotContents(int slot, ItemStack itemstack)
 	{
-		
+		setCurrentItemOrArmor(slot,  itemstack);
+        if (itemstack != null && itemstack.stackSize > getInventoryStackLimit())
+        {
+            itemstack.stackSize = getInventoryStackLimit();
+        }
 	}
 
 	@Override

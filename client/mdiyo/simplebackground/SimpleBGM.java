@@ -48,19 +48,6 @@ public class SimpleBGM
 		TickRegistry.registerTickHandler(new TickHandler(), Side.CLIENT);
 	}
 
-	/*@ForgeSubscribe
-	public void joinWorld(EntityJoinWorldEvent evt)
-	{
-		if (evt.ent)
-		playBackgroundMusic(SoundHandler.alaflair);
-	}*/
-
-	@ForgeSubscribe
-	public void playerSleep(PlayerSleepInBedEvent evt)
-	{
-
-	}
-
 	@SideOnly(Side.CLIENT)
 	public void playBackgroundMusic(String sound)
 	{
@@ -82,12 +69,13 @@ public class SimpleBGM
 
 	public void playMenuMusic(String sound)
 	{
-		bgm.stop(currentMusic);
+		//bgm.stop(currentMusic);
 		SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);
 		bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
 		bgm.setVolume(sound, options.musicVolume);
 		bgm.play(sound);
 		currentMusic = sound;
+		System.out.println("Playing menu music: "+sound);
 	}
 
 	public void stopMusic()
