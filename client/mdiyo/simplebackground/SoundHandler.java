@@ -25,8 +25,7 @@ public class SoundHandler
 		{
 			ArrayList<SoundPoolEntry> soundFiles = new ArrayList<SoundPoolEntry>();
 			
-			String basePath = Minecraft.getMinecraftDir() + "bgm/" + folderLocations[i] + "/";
-			basePath = basePath.replace(".", "");
+			String basePath = Minecraft.getMinecraftDir() + "/bgm/" + folderLocations[i] + "/";
 			File folder = new File(basePath);
 			
 			//Do some error checking
