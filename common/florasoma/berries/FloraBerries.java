@@ -17,11 +17,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.5_2012.12.12")
+@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.5_2012.12.14")
 public class FloraBerries
 {
 	/* Proxies for sides, used for client-only processing */
-	@SidedProxy(clientSide = "florasoma.berries.FloraBerryClientProxy", serverSide = "mDiyo.inficraft.flora.berries.FloraBerryCommonProxy")
+	@SidedProxy(clientSide = "florasoma.berries.FloraBerryClientProxy", serverSide = "florasoma.berries.FloraBerryCommonProxy")
 	public static FloraBerryCommonProxy proxy;
 
 	/* Instance of this mod, used for grabbing prototype fields */

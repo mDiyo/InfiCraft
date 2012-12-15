@@ -6,6 +6,7 @@ import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PastelProxyCommon 
@@ -59,10 +60,16 @@ public class PastelProxyCommon
         for(int i = 0; i < 16; i++) {
         	GameRegistry.addRecipe(new ItemStack(PastelMarble.instance.cBrick, 4, i), 
         		"##", "##", '#', new ItemStack(PastelMarble.instance.cStone, 1, i));
-        }
-        for(int i = 0; i < 16; i++) {
+
         	FurnaceRecipes.smelting().addSmelting(PHPastel.cCobbleID, i, new ItemStack(PastelMarble.instance.cStone, 1, i), 0.15f);
+        	GameRegistry.addRecipe( new ShapelessOreRecipe(new ItemStack(PHPastel.cMossyID, 1, i), new ItemStack(PHPastel.cBrickID, 1, i), "mossyPatch" ));
         }
+        for(int i = 0; i < 6; i++) 
+        {
+        	FurnaceRecipes.smelting().addSmelting(PHPastel.marbleID, i+6, new ItemStack(PastelMarble.instance.marble, 1, i), 0.15f);
+        }
+        
+       
 	}
 
 	public File getMinecraftDir()

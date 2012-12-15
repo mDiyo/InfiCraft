@@ -795,8 +795,6 @@ public class Pickaxes
 
 	private static void addNames()
 	{
-		if (PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
-			LanguageRegistry.instance().addName(woodWoodPickaxe, "Wooden Pickaxe");
 		if (PHInfiTools.enableStoneTools)
 			LanguageRegistry.instance().addName(stoneStonePickaxe, "Heavy Pickaxe");
 		if (PHInfiTools.enableIronTools)

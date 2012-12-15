@@ -20,7 +20,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 
-@Mod(modid = "InfiTools", name = "InfiTools", version = "1.4.5_2012.12.12")
+@Mod(modid = "InfiTools", name = "InfiTools", version = "1.4.5_2012.12.14")
 public class InfiBase
 {
 	@Instance("InfiTools")

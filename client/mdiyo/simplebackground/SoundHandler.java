@@ -1,47 +1,105 @@
 package mDiyo.simplebackground;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.logging.Level;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.src.SoundPoolEntry;
+import net.minecraftforge.client.event.sound.PlayBackgroundMusicEvent;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class SoundHandler
 {
 	@ForgeSubscribe
 	public void onSoundLoad(SoundLoadEvent event)
 	{
-		for (String soundFile : this.musicFiles)
+		for (int i = 0; i < folderLocations.length; i++)
 		{
-			// Try to add the custom sound file to the pool of sounds
-			try
+			ArrayList<SoundPoolEntry> soundFiles = new ArrayList<SoundPoolEntry>();
+			
+			String basePath = Minecraft.getMinecraftDir() + "bgm/" + folderLocations[i] + "/";
+			basePath = basePath.replace(".", "");
+			File folder = new File(basePath);
+			
+			//Do some error checking
+			if (!folder.exists())
 			{
-				URL path = SimpleBGM.instance.getClass().getResource("/" + location + soundFile);
-				music.put(soundFile, event.manager.soundPoolStreaming.addSound(soundFile, path));
-				System.out.println("Loaded sound at: "+path);
+				FMLCommonHandler.instance().getFMLLogger().log(Level.SEVERE, "The /bgm/"+folderLocations[i]+" folder was missing, creating a new one.");
+				folder.mkdirs();
 			}
-			// If we cannot add the custom sound file to the pool, log the
-			// exception
-			catch (Exception e)
+			if (folder.isFile())
 			{
-				FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "SimpleBGM Failed loading sound file: " + soundFile);
+				FMLCommonHandler.instance().getFMLLogger().log(Level.SEVERE, "/bgm/"+folderLocations[i]+" is a file! Error error crashy crashy 1011010011101001");
+				throw new RuntimeException("/bgm/"+folderLocations[i]+" is a file!");
 			}
+			if (!folder.canRead())
+			{
+				FMLCommonHandler.instance().getFMLLogger().log(Level.SEVERE, "The /bgm/"+folderLocations[i]+" folder is not readable, skipping.");
+				continue;
+			}
+			
+			File[] listOfFiles = folder.listFiles();
+			String soundFile;
+			
+			for (int fileNum = 0; fileNum < listOfFiles.length; fileNum++)
+			{
+				if (listOfFiles[fileNum].isFile() && isValidFile(listOfFiles[fileNum]))
+				{
+					soundFile = listOfFiles[fileNum].getName();
+					
+					// Try to add the custom sound file to the pool of sounds
+					try
+					{
+						URL path = listOfFiles[fileNum].toURI().toURL();
+						soundFiles.add(event.manager.soundPoolStreaming.addSound(soundFile, path));
+						System.out.println("Loaded sound at: "+path);
+					}
+					// If we cannot add the custom sound file to the pool, log the exception
+					catch (Exception e)
+					{
+						FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "SimpleBGM Failed loading sound file: " + soundFile);
+					}
+				}
+			}
+			
+			String key = "bgm."+folderLocations[i];
+			music.put(key, soundFiles);
 		}
 	}
 	
-	//public static SoundPoolEntry[] music;
-	public static HashMap music = new HashMap<String, SoundPoolEntry>();
+	boolean isValidFile(File file)
+	{
+		String filename = file.getName();
+		if (filename.toLowerCase().endsWith(".midi") || filename.toLowerCase().endsWith(".ogg")
+				|| filename.toLowerCase().endsWith(".mus") || filename.toLowerCase().endsWith(".wav"))
+			return true;
+		return false;
+	}
 	
-	private static final String location = "bgm/";
+	public static ArrayList<SoundPoolEntry> getMusicList(String key)
+	{
+		return (ArrayList<SoundPoolEntry>) music.get(key);
+	}
 	
-	public static String[] musicFiles = { "Windswept.ogg", "Golden Wings.ogg", "Dragon and Toast.ogg", "Lightless Dawn.ogg",
-		"Oppressive Gloom.ogg", "The Other Side of the Door.ogg", "Autumn Day.ogg", "Danse Morialta.ogg" };
-	/* Menu: Windswept
+	@ForgeSubscribe
+	public Void onBackgroundMusicPlayed(PlayBackgroundMusicEvent evt)
+	{
+		return null;
+	}
+	
+	private static HashMap music = new HashMap<String,  ArrayList<SoundPoolEntry>>();
+	private static final String[] folderLocations = { "battle", "dawn", "day", "death", "dusk", "menu", "nether", "night", "other", "sleep", "twilightforest", "underground" };
+	
+	/* Default music
+	 * Menu: Windswept
 	 * Day: Golden Wings
 	 * Night: Dragon and Toast
 	 * Dawn: Autumn Day

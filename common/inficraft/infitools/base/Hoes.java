@@ -795,8 +795,6 @@ public class Hoes
 
 	private static void addNames()
 	{
-		if (PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
-			LanguageRegistry.instance().addName(woodWoodHoe, "Wooden Hoe");
 		if (PHInfiTools.enableStoneTools)
 			LanguageRegistry.instance().addName(stoneStoneHoe, "Heavy Hoe");
 		if (PHInfiTools.enableIronTools)

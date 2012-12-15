@@ -795,8 +795,6 @@ public class Axes
 
 	private static void addNames()
 	{
-		if (PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
-			LanguageRegistry.instance().addName(woodWoodAxe, "Wooden Axe");
 		if (PHInfiTools.enableStoneTools)
 			LanguageRegistry.instance().addName(stoneStoneAxe, "Heavy Axe");
 		if (PHInfiTools.enableIronTools)

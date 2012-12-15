@@ -1,11 +1,12 @@
 package mDiyo.simplebackground;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import net.minecraft.src.GameSettings;
 import net.minecraft.src.SoundManager;
 import net.minecraft.src.SoundPoolEntry;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import paulscode.sound.SoundSystem;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.Mod;
@@ -23,11 +24,13 @@ import cpw.mods.fml.common.registry.TickRegistry;
  */
 
 @Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.5_2012.12.2")
+@SideOnly(Side.CLIENT)
 public class SimpleBGM
 {
 	SoundSystem bgm;
 	GameSettings options;
 	String currentMusic;
+	Random musicRand = new Random();
 
 	@Instance("SimpleBGM")
 	public static SimpleBGM instance;
@@ -35,7 +38,6 @@ public class SimpleBGM
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
 	{
-		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(new SoundHandler());
 	}
 
@@ -44,43 +46,68 @@ public class SimpleBGM
 	{
 		bgm = SoundManager.sndSystem;
 		options = FMLClientHandler.instance().getClient().gameSettings;
-		playMenuMusic("Windswept.ogg");
+		playMenuMusic("bgm.menu");
 		TickRegistry.registerTickHandler(new TickHandler(), Side.CLIENT);
 	}
-
-	@SideOnly(Side.CLIENT)
+	
 	public void playBackgroundMusic(String sound)
 	{
-		if (options.musicVolume > 0f && sound != currentMusic)
+		if (options.musicVolume == 0f)
 		{
-			bgm.stop(currentMusic);
-			SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);
-			//bgm.fadeOutIn(currentMusic, song.soundUrl, song.soundName, 1500, 3000);
-
-			bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
-			bgm.setVolume(sound, options.musicVolume);
-			bgm.play(sound);
+			if (bgm.playing(sound))
+				bgm.stop(sound);
+			if (bgm.playing(currentMusic))
+				bgm.stop(currentMusic);
+			currentMusic = "";
+		}
+		else
+		{
+			if (sound == currentMusic && bgm.playing(sound))
+				bgm.setVolume(sound, options.musicVolume);
 			
-			currentMusic = sound;
-			System.out.println("Playing background music: "+sound);
-			
+			else if (sound != currentMusic || currentMusic == null || !bgm.playing(currentMusic))
+			{
+				if (bgm.playing(currentMusic))
+					bgm.stop(currentMusic);
+				
+				ArrayList<SoundPoolEntry> songList = SoundHandler.getMusicList(sound);
+				if (songList.size() == 0)
+					return;
+				int songNum = musicRand.nextInt(songList.size());
+				
+				bgm.backgroundMusic(sound, songList.get(songNum).soundUrl, songList.get(songNum).soundName, false);
+				bgm.setVolume(sound, options.musicVolume);
+				bgm.play(sound);
+				currentMusic = sound;
+				
+				System.out.println("Playing background music: "+songList.get(songNum).soundName);
+			}
 		}
 	}
-
+	
 	public void playMenuMusic(String sound)
 	{
-		//bgm.stop(currentMusic);
-		SoundPoolEntry song = (SoundPoolEntry) SoundHandler.music.get(sound);
-		bgm.backgroundMusic(sound, song.soundUrl, song.soundName, true);
-		bgm.setVolume(sound, options.musicVolume);
+		ArrayList<SoundPoolEntry> songList = SoundHandler.getMusicList(sound);
+		if (songList.size() == 0)
+			return;
+		int songNum = musicRand.nextInt(songList.size());
+		
+		bgm.backgroundMusic(sound, songList.get(songNum).soundUrl, songList.get(songNum).soundName, true);
+		bgm.setVolume(sound, 0.3f);
 		bgm.play(sound);
 		currentMusic = sound;
-		System.out.println("Playing menu music: "+sound);
+		
+		System.out.println("Playing menu music: "+songList.get(songNum).soundName);
 	}
 
 	public void stopMusic()
 	{
 		bgm.stop(currentMusic);
+	}
+	
+	public void stopMusic(String sound)
+	{
+		bgm.stop(sound);
 	}
 
 }

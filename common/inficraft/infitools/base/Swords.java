@@ -795,8 +795,6 @@ public class Swords
 
 	private static void addNames()
 	{
-		if (PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
-			LanguageRegistry.instance().addName(woodWoodSword, "Wooden Sword");
 		if (PHInfiTools.enableStoneTools)
 			LanguageRegistry.instance().addName(stoneStoneSword, "Heavy Sword");
 		if (PHInfiTools.enableIronTools)

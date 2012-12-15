@@ -795,8 +795,6 @@ public class Shovels
 
 	private static void addNames()
 	{
-		if (PHInfiTools.enableWoodTools && PHInfiTools.overwriteVanillaTools)
-			LanguageRegistry.instance().addName(woodWoodShovel, "Wooden Shovel");
 		if (PHInfiTools.enableStoneTools)
 			LanguageRegistry.instance().addName(stoneStoneShovel, "Heavy Shovel");
 		if (PHInfiTools.enableIronTools)
