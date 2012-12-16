@@ -2,18 +2,20 @@ package inficraft.armory;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * InfiBlocks: Armory
@@ -22,7 +24,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "Test")
+@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "A1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class InfiArmory 
 {
@@ -38,15 +40,20 @@ public class InfiArmory
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		PHArmory.initProps();
-		stoneRack = new Toolrack(1500, Material.rock);
+		stoneRack = new Toolrack(PHArmory.rackBlock, Material.rock);
 		GameRegistry.registerBlock(stoneRack, inficraft.armory.ToolrackItem.class);
 		GameRegistry.registerTileEntity(inficraft.armory.ToolrackLogic.class, "InfiToolrack");
 		/*armorStand = new ArmorStand(1501, Material.rock);
 		GameRegistry.registerBlock(armorStand, mDiyo.inficraft.armory.ArmorStandItem.class);
 		GameRegistry.registerTileEntity(mDiyo.inficraft.armory.ArmorStandLogic.class, "InfiArmorStand");*/
 		
+		armorStandItem = new ArmorStandItem(PHArmory.armorItem).setItemName("infiarmorstand");
+		LanguageRegistry.instance().addName(armorStandItem, "Armor Stand");
+		
 		EntityRegistry.registerModEntity(inficraft.armory.ArmorStandEntity.class, "Armor Stand", 0, this, 32, 5, true);
-		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+		NetworkRegistry.instance().registerGuiHandler(instance, new GuiHandler());
+		
+		GameRegistry.addRecipe(new ItemStack(InfiArmory.instance.armorStandItem, 1, 0), " c ", "csc", " b ", 's', Item.stick, 'c', Block.cobblestone, 'b', Block.stoneSingleSlab);
 	}
 
 	@Init
@@ -62,4 +69,8 @@ public class InfiArmory
 	public static Block woodRack;
 	public static Block armorStand;
 	public static Block pedestal;
+	
+	public static Item armorStandItem;
+	
+	public static String texture = "/infitextures/armory.png";
 }

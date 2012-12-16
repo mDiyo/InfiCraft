@@ -41,17 +41,17 @@ public abstract class EntityEquipment extends EntityLiving
 	public boolean canBePushed() { return false; }	
 	protected int decreaseAirSupply(int par1) { return 0; }	
 	public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) { return false; }	
-	protected void damageEntity(DamageSource par1DamageSource, int par2) {}
+	protected void damageEntity(DamageSource par1DamageSource, int par2) { super.damageEntity(par1DamageSource, par2); }
 	protected void updateFallState(double par1, boolean par3) {}
 	public void knockBack(Entity par1Entity, int par2, double par3, double par5) {}
 	protected void fall(float par1) {}
 	public void moveEntityWithHeading(float par1, float par2) {}
 	public boolean canBreatheUnderwater() { return true; }
-	public void onLivingUpdate() {}
+	public void onLivingUpdate() { super.onLivingUpdate(); }
 	public boolean isBlocking() { return true; }
 	protected void jump() {}
-	protected boolean canDespawn() { return false; }
-	protected void despawnEntity() {}
+	protected boolean canDespawn() { return true; }
+	protected void despawnEntity() { super.despawnEntity(); }
 	protected void updateAITasks() {}
 	protected void updateEntityActionState() {}
 	protected void updateArmSwingProgress() {}

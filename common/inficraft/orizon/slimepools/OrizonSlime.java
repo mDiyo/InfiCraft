@@ -20,7 +20,7 @@ import cpw.mods.fml.common.SidedProxy;
  * @author mDiyo
  */
 
-@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "1.4.5_2012.12.2")
+@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "1.4.5_2012.12.14")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class OrizonSlime 
 {
@@ -38,7 +38,7 @@ public class OrizonSlime
 		
 		slimeStill = new SlimeBlockStill(PHSlime.slimePoolID+1, 0, Material.water).setBlockName("Slime Pool");
         slimeFlowing = new SlimeBlockFlowing(PHSlime.slimePoolID, 0, Material.water).setBlockName("Slime Pool Flowing");
-        slimeGelBlock = new SlimeGelBlock(PHSlime.slimeGelID, 32).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setBlockName("Slime Gel");
+        slimeGelBlock = new SlimeGelBlock(PHSlime.slimeGelID, 32).setStepSound(Block.soundStoneFootstep).setHardness(1.5F);
 		
 		GameRegistry.registerBlock(slimeStill);
 		GameRegistry.registerBlock(slimeFlowing);

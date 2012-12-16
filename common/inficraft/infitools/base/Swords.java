@@ -851,8 +851,6 @@ public class Swords
 	{
 		if (PHInfiTools.enableWoodTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodWoodSword), recipe, '#', Block.planks, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(sandstoneWoodSword), recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneWoodSword), recipe, '#', Block.planks, '|', Item.bone );
 			GameRegistry.addRecipe(new ItemStack(boneWoodSword), recipe, '#', Block.planks, '|', InfiLibrary.boneRod );
@@ -864,8 +862,6 @@ public class Swords
 
 		if (PHInfiTools.enableStoneTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneSword), recipe, '#', Block.cobblestone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneSword), recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneSword), recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneSword), recipe, '#', Block.cobblestone, '|', Item.bone );
@@ -876,8 +872,6 @@ public class Swords
 			GameRegistry.addRecipe(new ItemStack(cactusStoneSword), recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod );
 			GameRegistry.addRecipe(new ItemStack(flintStoneSword), recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod );
 
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneSword), recipe, '#', Block.stone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneSword), recipe, '#', Block.stone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneSword), recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneSword), recipe, '#', Block.stone, '|', Item.bone );
@@ -891,8 +885,6 @@ public class Swords
 
 		if (PHInfiTools.enableIronTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodIronSword), recipe, '#', Item.ingotIron, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneIronSword), recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironIronSword), recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(boneIronSword), recipe, '#', Item.ingotIron, '|', Item.bone );
@@ -906,8 +898,6 @@ public class Swords
 
 		if (PHInfiTools.enableDiamondTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodDiamondSword), recipe, '#', Item.diamond, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneDiamondSword), recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironDiamondSword), recipe, '#', Item.diamond, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(diamondDiamondSword), recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod );

@@ -48,18 +48,18 @@ public class ArmorStandModelStatue extends ModelBase
 		setRotation(leftarm, 0F, 0F, 0F);
 		bottompedestal = new ModelRenderer(this, 56, 15);
 		bottompedestal.addBox(0F, 0F, 0F, 16, 2, 16);
-		bottompedestal.setRotationPoint(-8F, 22F, -8F);
+		bottompedestal.setRotationPoint(-8F, 26F, -8F);
 		bottompedestal.setTextureSize(128, 64);
 		bottompedestal.mirror = true;
 		setRotation(bottompedestal, 0F, 0F, 0F);
 		toppedestal = new ModelRenderer(this, 60, 0);
 		toppedestal.addBox(0F, 0F, 0F, 14, 1, 14);
-		toppedestal.setRotationPoint(-7F, 21F, -7F);
+		toppedestal.setRotationPoint(-7F, 25F, -7F);
 		toppedestal.setTextureSize(128, 64);
 		toppedestal.mirror = true;
 		setRotation(toppedestal, 0F, 0F, 0F);
 		standstick = new ModelRenderer(this, 0, 16);
-		standstick.addBox(0F, 0F, 0F, 2, 9, 2);
+		standstick.addBox(0F, 0F, 0F, 2, 13, 2);
 		standstick.setRotationPoint(-1F, 12F, -1F);
 		standstick.setTextureSize(128, 64);
 		standstick.mirror = true;
@@ -67,17 +67,17 @@ public class ArmorStandModelStatue extends ModelBase
 	}
 	
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float rotation)
 	{
-		super.render(entity, f, f1, f2, f3, f4, f5);
-		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		head.render(f5);
-		body.render(f5);
-		rightarm.render(f5);
-		leftarm.render(f5);
-		bottompedestal.render(f5);
-		toppedestal.render(f5);
-		standstick.render(f5);
+		super.render(entity, f, f1, f2, f3, f4, rotation);
+		setRotationAngles(f, f1, f2, f3, f4, rotation, entity);
+		head.render(rotation);
+		body.render(rotation);
+		rightarm.render(rotation);
+		leftarm.render(rotation);
+		bottompedestal.render(rotation);
+		toppedestal.render(rotation);
+		standstick.render(rotation);
 	}
 	
 	void setRotation(ModelRenderer model, float x, float y, float z)

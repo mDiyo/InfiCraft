@@ -1,26 +1,17 @@
 package mDiyo;
 
-import florasoma.crops.FloraCrops;
-import florasoma.trees.FloraTrees;
 import inficraft.armory.InfiArmory;
 import inficraft.infiblocks.InfiBlocks;
-
-import java.util.Map;
-
-//import alicedoll.AliceDolls;
-
+import net.minecraft.src.Block;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-
-import net.minecraft.src.Block;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
-
-import mDiyo.bastion.Bastion;
+import florasoma.crops.FloraCrops;
+import florasoma.trees.FloraTrees;
 
 /*
  * mDiyo's development testing mod
@@ -35,7 +26,7 @@ public class mod_Test
 	@PostInit
 	public void postInit(FMLPostInitializationEvent evt)
 	{
-		GameRegistry.addRecipe(new ItemStack(xinstick, 64, 0), "s", 's', Block.dirt);
+		GameRegistry.addRecipe(new ItemStack(InfiArmory.instance.armorStandItem, 64, 0), "ss", 's', Block.dirt);
 		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.barleyBag, 64, 0), "s", 's', Block.grass);
 		GameRegistry.addRecipe(new ItemStack(InfiBlocks.getContentInstance().chiselDiamond, 64, 0), "ss", 's', Block.dirt);
 		GameRegistry.addRecipe(new ItemStack(InfiBlocks.getContentInstance().storageBlock, 64, 0), "s", "s", 's', Block.dirt);

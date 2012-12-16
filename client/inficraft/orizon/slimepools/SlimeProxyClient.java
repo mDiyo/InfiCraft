@@ -23,7 +23,7 @@ public class SlimeProxyClient extends SlimeProxyCommon
 	
 	public void addNames() 
 	{
-		LanguageRegistry.instance().addStringLocalization(OrizonSlime.instance.slimeGelBlock.getBlockName(), "en_US", "Congealed Slime");
+		LanguageRegistry.instance().addStringLocalization("tile.SlimeGel.name", "en_US", "Congealed Slime");
 		LanguageRegistry.instance().addStringLocalization(OrizonSlime.instance.slimeFlowing.getBlockName(), "en_US", "Flowing Slime");
 		LanguageRegistry.instance().addStringLocalization(OrizonSlime.instance.slimeStill.getBlockName(), "en_US", "SlimeSourceLiquid");
 	}

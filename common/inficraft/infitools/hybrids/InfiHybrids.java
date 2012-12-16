@@ -16,7 +16,7 @@ import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
-@Mod(modid = "InfiHybrids", name = "InfiHybrids", version = "1.4.5_2012.12.12")
+@Mod(modid = "InfiHybrids", name = "InfiHybrids", version = "1.4.5_2012.12.14")
 public class InfiHybrids
 {
 	public static boolean infitoolsPresent;

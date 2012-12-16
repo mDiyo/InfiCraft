@@ -851,8 +851,6 @@ public class Shovels
 	{
 		if (PHInfiTools.enableWoodTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodWoodShovel), recipe, '#', Block.planks, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(sandstoneWoodShovel), recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneWoodShovel), recipe, '#', Block.planks, '|', Item.bone );
 			GameRegistry.addRecipe(new ItemStack(boneWoodShovel), recipe, '#', Block.planks, '|', InfiLibrary.boneRod );
@@ -864,8 +862,6 @@ public class Shovels
 
 		if (PHInfiTools.enableStoneTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneShovel), recipe, '#', Block.cobblestone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneShovel), recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneShovel), recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneShovel), recipe, '#', Block.cobblestone, '|', Item.bone );
@@ -876,8 +872,6 @@ public class Shovels
 			GameRegistry.addRecipe(new ItemStack(cactusStoneShovel), recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod );
 			GameRegistry.addRecipe(new ItemStack(flintStoneShovel), recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod );
 
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneShovel), recipe, '#', Block.stone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneShovel), recipe, '#', Block.stone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneShovel), recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneShovel), recipe, '#', Block.stone, '|', Item.bone );
@@ -891,8 +885,6 @@ public class Shovels
 
 		if (PHInfiTools.enableIronTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodIronShovel), recipe, '#', Item.ingotIron, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneIronShovel), recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironIronShovel), recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(boneIronShovel), recipe, '#', Item.ingotIron, '|', Item.bone );
@@ -906,8 +898,6 @@ public class Shovels
 
 		if (PHInfiTools.enableDiamondTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodDiamondShovel), recipe, '#', Item.diamond, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneDiamondShovel), recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironDiamondShovel), recipe, '#', Item.diamond, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(diamondDiamondShovel), recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod );

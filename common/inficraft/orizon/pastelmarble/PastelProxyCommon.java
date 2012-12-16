@@ -34,7 +34,7 @@ public class PastelProxyCommon
 		GameRegistry.addRecipe(new ItemStack(Block.lever, 1), 
 				"X", "#", '#', new ItemStack(PastelMarble.instance.cCobble, 1, -1), 'X', Item.stick);
 		GameRegistry.addRecipe(new ItemStack(Block.stoneButton, 1), 
-				"#", "#", '#', new ItemStack(PastelMarble.instance.cStone, 1, -1));
+				"#", '#', new ItemStack(PastelMarble.instance.cStone, 1, -1));
 		GameRegistry.addRecipe(new ItemStack(Item.redstoneRepeater, 1), 
 				"#X#", "III", '#', Block.torchRedstoneActive, 'X', Item.redstone, 'I', new ItemStack(PastelMarble.instance.cStone, 1, -1));
 		GameRegistry.addRecipe(new ItemStack(Block.pressurePlateStone, 1), 

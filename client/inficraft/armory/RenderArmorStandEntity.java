@@ -70,29 +70,29 @@ public class RenderArmorStandEntity extends RenderLiving
             {
                 ItemArmor itemarmor = (ItemArmor)item;
                 this.loadTexture(ForgeHooksClient.getArmorTexture(stack, "/armor/" + bipedArmorFilenamePrefix[itemarmor.renderIndex] + "_" + (par2 == 2 ? 2 : 1) + ".png"));
-                ModelBiped var7 = par2 == 2 ? this.armorBody : this.armorChestplate;
-                var7.bipedHead.showModel = par2 == 0;
-                var7.bipedHeadwear.showModel = par2 == 0;
-                var7.bipedBody.showModel = par2 == 1 || par2 == 2;
-                var7.bipedRightArm.showModel = par2 == 1;
-                var7.bipedLeftArm.showModel = par2 == 1;
-                var7.bipedRightLeg.showModel = par2 == 2 || par2 == 3;
-                var7.bipedLeftLeg.showModel = par2 == 2 || par2 == 3;
-                this.setRenderPassModel(var7);
+                ModelBiped biped = par2 == 2 ? this.armorBody : this.armorChestplate;
+                biped.bipedHead.showModel = par2 == 0;
+                biped.bipedHeadwear.showModel = par2 == 0;
+                biped.bipedBody.showModel = par2 == 1 || par2 == 2;
+                biped.bipedRightArm.showModel = par2 == 1;
+                biped.bipedLeftArm.showModel = par2 == 1;
+                biped.bipedRightLeg.showModel = par2 == 2 || par2 == 3;
+                biped.bipedLeftLeg.showModel = par2 == 2 || par2 == 3;
+                this.setRenderPassModel(biped);
 
-                if (var7 != null)
+                if (biped != null)
                 {
-                    var7.onGround = this.mainModel.onGround;
+                    biped.onGround = this.mainModel.onGround;
                 }
 
-                if (var7 != null)
+                if (biped != null)
                 {
-                    var7.isRiding = this.mainModel.isRiding;
+                    biped.isRiding = this.mainModel.isRiding;
                 }
 
-                if (var7 != null)
+                if (biped != null)
                 {
-                    var7.isChild = this.mainModel.isChild;
+                    biped.isChild = this.mainModel.isChild;
                 }
 
                 float var8 = 1.0F;
@@ -151,7 +151,7 @@ public class RenderArmorStandEntity extends RenderLiving
         GL11.glColor3f(var10, var10, var10);
         ItemStack var11 = par1EntityLiving.getHeldItem();
         this.func_82420_a(par1EntityLiving, var11);
-        double var12 = par4 - (double)par1EntityLiving.yOffset;
+        double var12 = par4 - (double)par1EntityLiving.yOffset+0.25;
         super.doRenderLiving(par1EntityLiving, par2, var12, par6, par8, par9);
     }
 

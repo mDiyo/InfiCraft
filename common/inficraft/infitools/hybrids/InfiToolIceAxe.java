@@ -30,7 +30,8 @@ public class InfiToolIceAxe extends InfiToolCore
         if (bID == Block.ice.blockID)
         {
         	InfiToolPowers.spawnItem(x, y, z, Block.ice.blockID, 1, 0, world);
-        	world.playAuxSFX(2001, x, y, z, bID + (0 << 12));
+        	InfiToolPowers.freezing(x, y, z, bID, 0, world, entityplayer);
+        	//world.playAuxSFX(2001, x, y, z, bID + (0 << 12));
             world.setBlockWithNotify(x, y, z, 0);
             onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
             return true;

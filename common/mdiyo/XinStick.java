@@ -29,7 +29,8 @@ public class XinStick extends Item
 		//SimpleBGM.instance.playBGM();
 		//world.playSound(player.posX, player.posY, player.posZ, SimpleBGM.jar, 1f, 1f);
 		//SimpleBGM.playBackgroundMusic(SimpleBGM.alaflair);
-		spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world);
+		spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world, player);
+		//removeChunk(world, player.posX, player.posZ);
         return stack;
     }
 	
@@ -43,12 +44,27 @@ public class XinStick extends Item
     	}
     }
 	
-	public static void spawnEntity(double x, double y, double z, Entity entity, World world)
+	public static void spawnEntity(double x, double y, double z, Entity entity, World world, EntityPlayer player)
     {
     	if (!world.isRemote)
     	{
     		entity.setPosition(x, y, z);
+    		entity.setAngles(player.cameraYaw, player.cameraYaw);
 	        world.spawnEntityInWorld(entity);
     	}
     }
+	
+	public void removeChunk(World world, double dx, double dz)
+	{
+		for (int x = 0; x < 16; x++)
+		{
+			for (int z = 0; z < 16; z++)
+			{
+				for (int y = 0; y < 128; y++)
+				{
+					world.setBlockWithNotify((int)(x + dx), y, (int)(z + dz), 0);
+				}
+			}
+		}
+	}
 }

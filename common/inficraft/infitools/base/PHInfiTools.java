@@ -42,7 +42,6 @@ public class PHInfiTools {
          * Avoid values below 4096 for items and in the 256-385 range for blocks
          */
         addInfiTools = config.get("general", "Add InfiTool Combinations", true).getBoolean(true);
-        overwriteVanillaTools = config.get("general", "Overwrite Vanilla Tools", false).getBoolean(false);
         
         enableWoodTools = config.get("general", "Enable Wooden Tools", true).getBoolean(true);
         enableStoneTools = config.get("general", "Enable Stone Tools", true).getBoolean(true);
@@ -230,7 +229,6 @@ public class PHInfiTools {
 
     /* Prototype fields, used elsewhere */
     
-    public static boolean overwriteVanillaTools;
     public static boolean addInfiTools;
     
     public static boolean enableWoodTools;

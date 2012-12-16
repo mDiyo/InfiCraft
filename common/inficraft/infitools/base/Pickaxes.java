@@ -851,8 +851,6 @@ public class Pickaxes
 	{
 		if (PHInfiTools.enableWoodTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodWoodPickaxe), recipe, '#', Block.planks, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(sandstoneWoodPickaxe), recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneWoodPickaxe), recipe, '#', Block.planks, '|', Item.bone );
 			GameRegistry.addRecipe(new ItemStack(boneWoodPickaxe), recipe, '#', Block.planks, '|', InfiLibrary.boneRod );
@@ -864,8 +862,6 @@ public class Pickaxes
 
 		if (PHInfiTools.enableStoneTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStonePickaxe), recipe, '#', Block.cobblestone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStonePickaxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStonePickaxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStonePickaxe), recipe, '#', Block.cobblestone, '|', Item.bone );
@@ -876,8 +872,6 @@ public class Pickaxes
 			GameRegistry.addRecipe(new ItemStack(cactusStonePickaxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod );
 			GameRegistry.addRecipe(new ItemStack(flintStonePickaxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod );
 
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStonePickaxe), recipe, '#', Block.stone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStonePickaxe), recipe, '#', Block.stone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStonePickaxe), recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStonePickaxe), recipe, '#', Block.stone, '|', Item.bone );
@@ -891,8 +885,6 @@ public class Pickaxes
 
 		if (PHInfiTools.enableIronTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodIronPickaxe), recipe, '#', Item.ingotIron, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneIronPickaxe), recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironIronPickaxe), recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(boneIronPickaxe), recipe, '#', Item.ingotIron, '|', Item.bone );
@@ -906,8 +898,6 @@ public class Pickaxes
 
 		if (PHInfiTools.enableDiamondTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodDiamondPickaxe), recipe, '#', Item.diamond, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneDiamondPickaxe), recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironDiamondPickaxe), recipe, '#', Item.diamond, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(diamondDiamondPickaxe), recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod );

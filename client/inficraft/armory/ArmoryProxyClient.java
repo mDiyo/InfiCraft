@@ -30,28 +30,6 @@ public class ArmoryProxyClient extends ArmoryProxyCommon
 	}
 	
 	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) 
-	{
-		List<Entity> list = world.getLoadedEntityList();
-		for (Entity entity : list)
-		{
-			if (ID == entity.entityId)
-			{
-				System.out.println("Returning client entity with ID "+ID);
-				return new ArmorStandGui(player, (EntityEquipment)entity);
-			}
-		}
-		System.out.println("Returning a null client entity");
-		return null;
-	}
-	
-	@Override
-	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
-	{
-		return null;
-	}
-	
-	@Override
 	public File getMinecraftDir()
 	{
 		return Minecraft.getMinecraftDir();

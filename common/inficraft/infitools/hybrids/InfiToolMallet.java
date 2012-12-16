@@ -31,16 +31,19 @@ public class InfiToolMallet extends InfiToolCore
     	dm = DetailManager.getInstance();
     }
     
+    @Override
     public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer)
     {
+    	
     	World world = entityplayer.worldObj;
     	if (world.isRemote)
     	{
     		return false;
     	}
+    	System.out.println("Harvesting a block");
     	int blockID = world.getBlockId(x, y, z);
     	int meta = world.getBlockMetadata(x, y, z);
-    	boolean headPower = true;
+    	boolean headPower = ForgeHooks.canHarvestBlock(Block.blocksList[blockID], entityplayer, meta);
         boolean handlePower = true;
         if (headType == handleType)
         {
@@ -57,13 +60,10 @@ public class InfiToolMallet extends InfiToolCore
                 handlePower = powers(itemstack, blockID, x, y, z, world, entityplayer, meta, handleType);
             }
         }
-        if (!ForgeHooks.canHarvestBlock(Block.blocksList[blockID], entityplayer, meta))
-        {
-            headPower = false;
-        }
+        
         if (!headPower || !handlePower)
         {
-            world.playAuxSFX(2001, x, y, z, blockID + (meta << 12));
+            System.out.println("Harvest power go!");
             world.setBlockWithNotify(x, y, z, 0);
             onBlockDestroyed(itemstack, blockID, x, y, z, entityplayer);
             return true;
@@ -79,14 +79,13 @@ public class InfiToolMallet extends InfiToolCore
     				ItemStack stack = (ItemStack)list.get(i);
     				InfiToolPowers.spawnItem(x, y, z, stack, world);
     			}
-    			world.playAuxSFX(2001, x, y, z, blockID + (meta << 12));
+    			//world.playAuxSFX(2001, x, y, z, blockID + (meta << 12));
                 world.setBlockWithNotify(x, y, z, 0);
                 onBlockDestroyed(itemstack, blockID, x, y, z, entityplayer);
                 return true;
     		}
-        }
-		
-    	return false;   	
+    		return false;
+        } 	
     }
     
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
@@ -97,6 +96,13 @@ public class InfiToolMallet extends InfiToolCore
         	entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
         }
         return itemstack;
+    }
+    
+    public boolean powers(ItemStack itemstack, int blockID, int x, int y, int z, World world, EntityLiving entityliving,
+            int metadata, int materialType)
+    {
+    	super.powers(itemstack, blockID, x, y, z, world, entityliving, metadata, materialType);
+    	return materialType != 14;
     }
     
     public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int useTime)
@@ -117,7 +123,8 @@ public class InfiToolMallet extends InfiToolCore
             boolean damageItem = dm.crack(world, x, y, z, bID, md);
             if(damageItem) {
             	itemstack.damageItem(1, entityplayer);
-            	world.playAuxSFX(2001, x, y, z, bID + (md >> 12));
+            	if (!world.isRemote)
+            		world.playAuxSFX(2001, x, y, z, bID + (md >> 12));
             }
         	entityplayer.swingItem();
         }

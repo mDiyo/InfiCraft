@@ -60,7 +60,7 @@ public class PHPastel
 		
 		marbleRarity = config.get("general", "Marble Rarity", 22).getInt(22);
 	    marbleHeight = config.get("general", "Marble Height", 64).getInt(64);
-	    coloredStoneChance = config.get("general", "Colored Stone Chance", 7).getInt(7);
+	    coloredStoneChance = config.get("general", "Colored Stone Chance", 18).getInt(18);
 	    coloredStoneHeight = config.get("general", "Colored Stone Height", 64).getInt(64);
         
         /* Save the configuration file */

@@ -851,8 +851,6 @@ public class Axes
 	{
 		if (PHInfiTools.enableWoodTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodWoodAxe), recipe, '#', Block.planks, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(sandstoneWoodAxe), recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneWoodAxe), recipe, '#', Block.planks, '|', Item.bone );
 			GameRegistry.addRecipe(new ItemStack(boneWoodAxe), recipe, '#', Block.planks, '|', InfiLibrary.boneRod );
@@ -864,8 +862,6 @@ public class Axes
 
 		if (PHInfiTools.enableStoneTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneAxe), recipe, '#', Block.cobblestone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneAxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneAxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneAxe), recipe, '#', Block.cobblestone, '|', Item.bone );
@@ -876,8 +872,6 @@ public class Axes
 			GameRegistry.addRecipe(new ItemStack(cactusStoneAxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod );
 			GameRegistry.addRecipe(new ItemStack(flintStoneAxe), recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod );
 
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneAxe), recipe, '#', Block.stone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneAxe), recipe, '#', Block.stone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneAxe), recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneAxe), recipe, '#', Block.stone, '|', Item.bone );
@@ -891,8 +885,6 @@ public class Axes
 
 		if (PHInfiTools.enableIronTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodIronAxe), recipe, '#', Item.ingotIron, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneIronAxe), recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironIronAxe), recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(boneIronAxe), recipe, '#', Item.ingotIron, '|', Item.bone );
@@ -906,8 +898,6 @@ public class Axes
 
 		if (PHInfiTools.enableDiamondTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodDiamondAxe), recipe, '#', Item.diamond, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneDiamondAxe), recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironDiamondAxe), recipe, '#', Item.diamond, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(diamondDiamondAxe), recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod );

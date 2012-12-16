@@ -52,14 +52,16 @@ public class FloraCropsCommonProxy
 		
 		try
 		{
-			Class class1 = Class.forName("mDiyo.inficraft.infitools.core.Items");
+			Class class1 = Class.forName("inficraft.infitools.base.Items");
 			
-			Item[] item = new Item[] { Items.getInstance().woodBucketWater, Items.getInstance().cactusBucketWater, 
+			Item[] emptyBucket = new Item[] { Items.getInstance().woodBucketEmpty, Items.getInstance().cactusBucketEmpty, 
+					Items.getInstance().goldBucketEmpty, Items.getInstance().obsidianBucketEmpty };
+			Item[] waterBucket = new Item[] { Items.getInstance().woodBucketWater, Items.getInstance().cactusBucketWater, 
 					Items.getInstance().goldBucketWater, Items.getInstance().obsidianBucketWater };
-			for (int i = 0; i < item.length; i++)
+			for (int i = 0; i < waterBucket.length; i++)
 			{
-				GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.wheatDough, 1), FloraCrops.instance.wheatFlour, item );
-				GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.wheatDough, 1), new ItemStack(FloraCrops.instance.wheatFlour, 1, 1), item );
+				GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.barleyItem, 1, 1), waterBucket[i] );
+				GameRegistry.addRecipe(new ItemStack(Item.bucketWater, 1), "www", "wBw", "www", 'w', FloraCrops.instance.waterDrop, 'B',  emptyBucket[i] );
 			}
 		}
 		catch (Exception e)	

@@ -19,6 +19,10 @@ public class ArmorStandEntity extends EntityEquipment
 	
 	public boolean interact(EntityPlayer player)
     {
+		if (player.getCurrentEquippedItem() == null)
+		{
+			setRotation(player.rotationYawHead+180, 0);
+		}			
 		player.openGui(InfiArmory.instance, entityId, worldObj, (int)posX, (int)posY, (int)posZ);
 		return true;
     }
@@ -26,7 +30,7 @@ public class ArmorStandEntity extends EntityEquipment
 	@Override
 	public Container getContainer(EntityPlayer player)
 	{
-		return new ArmorStandContainer(this, player.inventory);
+		return new ArmorStandContainer(player.inventory, this);
 	}
 
 	@Override

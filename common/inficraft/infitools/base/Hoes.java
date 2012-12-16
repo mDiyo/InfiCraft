@@ -851,8 +851,6 @@ public class Hoes
 	{
 		if (PHInfiTools.enableWoodTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodWoodHoe), recipe, '#', Block.planks, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(sandstoneWoodHoe), recipe, '#', Block.planks, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneWoodHoe), recipe, '#', Block.planks, '|', Item.bone );
 			GameRegistry.addRecipe(new ItemStack(boneWoodHoe), recipe, '#', Block.planks, '|', InfiLibrary.boneRod );
@@ -864,8 +862,6 @@ public class Hoes
 
 		if (PHInfiTools.enableStoneTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneHoe), recipe, '#', Block.cobblestone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneHoe), recipe, '#', Block.cobblestone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneHoe), recipe, '#', Block.cobblestone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneHoe), recipe, '#', Block.cobblestone, '|', Item.bone );
@@ -876,8 +872,6 @@ public class Hoes
 			GameRegistry.addRecipe(new ItemStack(cactusStoneHoe), recipe, '#', Block.cobblestone, '|', InfiLibrary.cactusRod );
 			GameRegistry.addRecipe(new ItemStack(flintStoneHoe), recipe, '#', Block.cobblestone, '|', InfiLibrary.flintRod );
 
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodStoneHoe), recipe, '#', Block.stone, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneStoneHoe), recipe, '#', Block.stone, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(sandstoneStoneHoe), recipe, '#', Block.stone, '|', InfiLibrary.sandstoneRod );
 			GameRegistry.addRecipe(new ItemStack(boneStoneHoe), recipe, '#', Block.stone, '|', Item.bone );
@@ -891,8 +885,6 @@ public class Hoes
 
 		if (PHInfiTools.enableIronTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodIronHoe), recipe, '#', Item.ingotIron, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneIronHoe), recipe, '#', Item.ingotIron, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironIronHoe), recipe, '#', Item.ingotIron, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(boneIronHoe), recipe, '#', Item.ingotIron, '|', Item.bone );
@@ -906,8 +898,6 @@ public class Hoes
 
 		if (PHInfiTools.enableDiamondTools)
 		{
-			if (PHInfiTools.overwriteVanillaTools)
-				GameRegistry.addRecipe(new ItemStack(woodDiamondHoe), recipe, '#', Item.diamond, '|', Item.stick);
 			GameRegistry.addRecipe(new ItemStack(stoneDiamondHoe), recipe, '#', Item.diamond, '|', InfiLibrary.stoneRod );
 			GameRegistry.addRecipe(new ItemStack(ironDiamondHoe), recipe, '#', Item.diamond, '|', InfiLibrary.ironRod );
 			GameRegistry.addRecipe(new ItemStack(diamondDiamondHoe), recipe, '#', Item.diamond, '|', InfiLibrary.diamondRod );
