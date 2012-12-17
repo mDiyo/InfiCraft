@@ -39,7 +39,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
      * Poison enchants have a chance to wear off when hitting mobs
      */
 
-@Mod(modid = "InfiLibrary", name = "InfiLibrary", version = "1.4.5_2012.12.11")
+@Mod(modid = "InfiLibrary", name = "InfiLibrary", version = "1.4.5_2012.12.16")
 public class InfiLibrary
 {
 	Random rand = new Random();
@@ -59,6 +59,7 @@ public class InfiLibrary
 	{
 		GameRegistry.registerBlock(blockMoss);
 		GameRegistry.registerBlock(slimeSand);
+		//GameRegistry.registerBlock(lightBlock);
 		this.addBaseRecipes();
 		this.addMaterialRecipes();
 		this.oreDictionarySupport();
@@ -69,7 +70,7 @@ public class InfiLibrary
         GameRegistry.registerFuelHandler(new InfiFuelHandler());
 	}
 	
-	public void addCustomName(ItemStack stack, String name)
+	public void addCustomName(ItemStack stack, String name) //Not used
     {
         if (stack.stackTagCompound == null)
         {
@@ -558,6 +559,7 @@ public class InfiLibrary
 
 	public static Block blockMoss;
 	public static Block slimeSand;
+	//public static Block lightBlock;
 	public static Item treeRoot;
 	public static Item grindstone;
     
@@ -636,6 +638,7 @@ public class InfiLibrary
     	
     	blockMoss = new MossBlock(PHInfiLibrary.mossBlockID, 0);
     	slimeSand = new SlimeSandBlock(PHInfiLibrary.slimeSandID, 240);
+    	//lightBlock = new LightBlock(PHInfiLibrary.lightBlockID);
     	treeRoot = new InfiTexturedItem(PHInfiLibrary.treeRootID,
     			itemTexture, "Tree Root").setIconCoord(3, 4);
     	

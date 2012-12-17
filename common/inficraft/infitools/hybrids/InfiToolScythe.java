@@ -100,7 +100,7 @@ public class InfiToolScythe extends InfiWeaponCore
 	    		        crops.harvestBlock(world, entityplayer, x, y, z, md);
 	    		        world.playAuxSFX(2001, x, y, z, bID + (md << 12));
 	    		        
-	    		        onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+	    		        onBlockDestroyed(itemstack, world, bID, x, y, z, entityplayer);
 	    		        if (md == 7)
 	    		        {
 	    		        	world.setBlockWithNotify(x, y, z, 0);
@@ -161,7 +161,7 @@ public class InfiToolScythe extends InfiWeaponCore
         {
             world.playAuxSFX(2001, x, y, z, bID + (md << 12));
             world.setBlockWithNotify(x, y, z, Block.dirt.blockID);
-            onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+            onBlockDestroyed(itemstack, world, bID, x, y, z, entityplayer);
             return true;
         }
         else if (bID == Block.tallGrass.blockID)
@@ -171,7 +171,7 @@ public class InfiToolScythe extends InfiWeaponCore
             tallGrass.harvestBlock(world, entityplayer, x, y, z, md);
             world.playAuxSFX(2001, x, y, z, bID + (md << 12));
             world.setBlockWithNotify(x, y, z, 0);
-            onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+            onBlockDestroyed(itemstack, world, bID, x, y, z, entityplayer);
             return true;
         }
         else
@@ -201,7 +201,7 @@ public class InfiToolScythe extends InfiWeaponCore
             {
                 world.playAuxSFX(2001, x, y, z, bID + (md << 12));
                 world.setBlockWithNotify(x, y, z, 0);
-                onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+                onBlockDestroyed(itemstack, world, bID, x, y, z, entityplayer);
                 return true;
             }
             else

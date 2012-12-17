@@ -65,7 +65,7 @@ public class InfiToolMallet extends InfiToolCore
         {
             System.out.println("Harvest power go!");
             world.setBlockWithNotify(x, y, z, 0);
-            onBlockDestroyed(itemstack, blockID, x, y, z, entityplayer);
+            onBlockDestroyed(itemstack, world, blockID, x, y, z, entityplayer);
             return true;
         }
         else
@@ -81,7 +81,7 @@ public class InfiToolMallet extends InfiToolCore
     			}
     			//world.playAuxSFX(2001, x, y, z, blockID + (meta << 12));
                 world.setBlockWithNotify(x, y, z, 0);
-                onBlockDestroyed(itemstack, blockID, x, y, z, entityplayer);
+                onBlockDestroyed(itemstack, world, blockID, x, y, z, entityplayer);
                 return true;
     		}
     		return false;

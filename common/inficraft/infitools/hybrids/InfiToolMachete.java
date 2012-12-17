@@ -3,11 +3,11 @@ package inficraft.infitools.hybrids;
 import inficraft.infitools.library.InfiMaterialEnum;
 import inficraft.infitools.library.InfiWeaponCore;
 import net.minecraft.src.Block;
-import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
+import net.minecraft.src.World;
 
 public class InfiToolMachete extends InfiWeaponCore
 {
@@ -59,7 +59,7 @@ public class InfiToolMachete extends InfiWeaponCore
 	}
 	
 	@Override
-	public boolean onBlockDestroyed(ItemStack itemstack, int bID, int x, int y, int z, EntityLiving entityliving)
+	public boolean onBlockDestroyed(ItemStack itemstack, World world, int bID, int x, int y, int z, EntityLiving entityliving)
     {
         int unbreaking = headUnbreaking;
         if (handleUnbreaking > unbreaking)

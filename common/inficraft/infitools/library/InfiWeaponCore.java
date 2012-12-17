@@ -1,8 +1,12 @@
 package inficraft.infitools.library;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.Entity;
@@ -99,7 +103,7 @@ public abstract class InfiWeaponCore extends ItemSword
         {
             //world.playAuxSFX(2001, x, y, z, bID + (md << 12));
             world.setBlockWithNotify(x, y, z, 0);
-            onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+            onBlockDestroyed(itemstack, world, bID, x, y, z, entityplayer);
             return true;
         }
         else
@@ -108,7 +112,7 @@ public abstract class InfiWeaponCore extends ItemSword
         }
     }
 
-    public boolean onBlockDestroyed(ItemStack itemstack, int bID, int x, int y, int z, EntityLiving player)
+    public boolean onBlockDestroyed(ItemStack itemstack, World world, int bID, int x, int y, int z, EntityLiving player)
     {
         int unbreaking = headUnbreaking;
         if (handleUnbreaking > unbreaking)
@@ -293,6 +297,120 @@ public abstract class InfiWeaponCore extends ItemSword
     public int getHandleType() {
     	return handleType;
     }
+    
+    @Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
+	{
+		List info = new ArrayList();
+		int durability = 0;
+		getToolInformation(info, headType, durability);
+		if (headType != handleType)
+			getToolInformation(info, handleType, durability);
+		for (Object obj : info)
+			list.add(obj);
+
+		if (list.contains("Durability I") && (list.contains("Durability II") || list.contains("Durability V")))
+			list.remove("Durability I");
+		if (list.contains("Durability II") && list.contains("Durability V"))
+			list.remove("Durability II");
+	}
+
+	@SideOnly(Side.CLIENT)
+	List getToolInformation(List list, int type, int dur)
+	{
+		switch (type)
+		{
+		case 1:
+			list.add("\u00A7eSplintering - Wood Splinters");
+			break;
+		case 2:
+			list.add("\u00A78Splintering - Stone Shards");
+			list.add("\u00A78Shoddy");
+			break;
+		case 3:
+			list.add("Durability I");
+			break;
+		case 4:
+			list.add("Durability II");
+			break;
+		case 5:
+			break;
+		case 6:
+			list.add("\u00A78Splintering");
+			list.add("Durability V");
+			break;
+		case 7:
+			list.add("\u00A76Splintering - Sandstone Shards");
+			list.add("\u00A76Shoddy");
+			break;
+		case 8:
+			break;
+		case 9:
+			list.add("\u00A7fShoddy");
+			break;
+		case 10:
+			list.add("\u00A72Auto Repair");
+			break;
+		case 11:
+			list.add("\u00A74Splintering");
+			list.add("\u00A74Shoddy");
+			break;
+		case 12:
+			list.add("\u00A76Splintering");
+			list.add("\u00A76Glowing");
+			break;
+		case 13:
+			list.add("\u00A7bFreezing");
+			break;
+		case 14:
+			list.add("\u00A7cShoddy");
+			list.add("\u00A7cBurning");
+			list.add("\u00A7cAuto Smelt");
+			list.add("\u00A7cGlowing");
+			break;
+		case 15:
+			list.add("\u00A7aSlime Spawning");
+			break;
+		case 16:
+			list.add("\u00A72Shoddy");
+			break;
+		case 17:
+			break;
+		case 18:
+			list.add("\u00A74Shoddy");
+			list.add("\u00A74Burning");
+			break;
+		case 19:
+			list.add("Durability I");
+			break;
+		case 20:
+			list.add("Durability I");
+			break;
+		case 21:
+			list.add("Durability I");
+			break;
+		case 22:
+			list.add("Durability II");
+			break;
+		case 23:
+			list.add("Durability I");
+			break;
+		case 24:
+			list.add("Durability I");
+			break;
+		case 25:
+			list.add("\u00A75Creeper Awareness");
+			list.add("Durability II");
+			break;
+		case 26:
+			list.add("\u00A7aShoddy");
+			list.add("\u00A7aPoisonous");
+			list.add("Durability I");
+			break;
+		}
+		return list;
+	}
 
     protected float efficiencyOnProperMaterial;
     public int toolHarvestLevel;

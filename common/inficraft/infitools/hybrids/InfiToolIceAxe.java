@@ -33,7 +33,7 @@ public class InfiToolIceAxe extends InfiToolCore
         	InfiToolPowers.freezing(x, y, z, bID, 0, world, entityplayer);
         	//world.playAuxSFX(2001, x, y, z, bID + (0 << 12));
             world.setBlockWithNotify(x, y, z, 0);
-            onBlockDestroyed(itemstack, bID, x, y, z, entityplayer);
+            onBlockDestroyed(itemstack, world, bID, x, y, z, entityplayer);
             return true;
         }
         else

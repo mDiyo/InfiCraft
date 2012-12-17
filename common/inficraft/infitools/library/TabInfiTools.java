@@ -1,6 +1,5 @@
 package inficraft.infitools.library;
 
-import inficraft.infitools.base.Swords;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.Block;
@@ -17,7 +16,7 @@ public class TabInfiTools extends CreativeTabs
 	@SideOnly(Side.CLIENT)
     public int getTabIconItemIndex()
     {
-        return Swords.mossyMossySword.shiftedIndex;
+        return InfiLibrary.mossyStone.shiftedIndex;
     }
 
 }

@@ -44,6 +44,7 @@ public class PHInfiLibrary {
         
         mossBlockID = config.getBlock("Moss Block", 1401).getInt(1401);
         slimeSandID = config.getBlock("Slime Sand", 1402).getInt(1402);
+        //lightBlockID = config.getBlock("Light", 1403).getInt(1403);
         treeRootID = config.getItem("Tree Root", 14000).getInt(14000);
         
         mossBallID = config.getItem("Moss Ball", 13951).getInt(13951);
@@ -124,6 +125,7 @@ public class PHInfiLibrary {
     
     public static int mossBlockID;
     public static int slimeSandID;
+    public static int lightBlockID;
     public static int treeRootID;
     public static int grindstoneID;
     
