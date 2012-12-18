@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,6 +50,7 @@ public class ToolCore extends ItemTool
 		super(itemID, 0, EnumToolMaterial.WOOD, new Block[] {});
 		this.maxStackSize = 1;
 		this.setItemName("InfiTool");
+		this.setCreativeTab(InfiTools.tab);
 	}
 
 	/* Texture */
@@ -198,6 +200,33 @@ public class ToolCore extends ItemTool
 		case 13: return "Awareness"; //Manyullyn
 		default: return "";
 		}
+	}
+	
+	/* Creative mode tools */
+    public void getSubItems(int id, CreativeTabs tab, List list)
+    {
+		System.out.println("Adding subitems");
+		for (int i = 0; i < 13; i++)
+			list.add(getDefaultItem(id, i));
+    }
+	
+	ItemStack getDefaultItem(int id, int type)
+	{
+		ItemStack tool = new ItemStack(id, 1, 0);
+
+		NBTTagCompound compound = new NBTTagCompound();
+		compound.setCompoundTag("InfiTool", new NBTTagCompound());
+		compound.getCompoundTag("InfiTool").setInteger("Head", type);
+		compound.getCompoundTag("InfiTool").setInteger("Handle", 0);
+		compound.getCompoundTag("InfiTool").setInteger("Accessory", type);
+		
+		compound.getCompoundTag("InfiTool").setInteger("Damage", 0);
+		compound.getCompoundTag("InfiTool").setInteger("MaxDamage", 20);
+		compound.getCompoundTag("InfiTool").setBoolean("Broken", false);
+		
+		compound.getCompoundTag("display").setString("Name", "Sword of Testing");
+		tool.setTagCompound(compound);
+		return tool;
 	}
 	
 	/* Tool uses */

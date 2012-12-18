@@ -24,10 +24,11 @@ import cpw.mods.fml.common.registry.TickRegistry;
  */
 
 @Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.5_2012.12.2")
-@SideOnly(Side.CLIENT)
 public class SimpleBGM
 {
+	@SideOnly(Side.CLIENT)
 	SoundSystem bgm;
+	@SideOnly(Side.CLIENT)
 	GameSettings options;
 	String currentMusic;
 	Random musicRand = new Random();
@@ -36,14 +37,17 @@ public class SimpleBGM
 	public static SimpleBGM instance;
 
 	@PreInit
+	@SideOnly(Side.CLIENT)
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		MinecraftForge.EVENT_BUS.register(new SoundHandler());
 	}
 
 	@PostInit
+	@SideOnly(Side.CLIENT)
 	public void postInit(FMLPostInitializationEvent evt)
 	{
+		System.out.println("Derrrrp");
 		bgm = SoundManager.sndSystem;
 		options = FMLClientHandler.instance().getClient().gameSettings;
 		playMenuMusic("bgm.menu");
