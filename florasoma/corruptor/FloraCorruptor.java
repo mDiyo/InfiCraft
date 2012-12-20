@@ -17,7 +17,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: Merdiwen Tirelle Diyo
  */
 
-@Mod(modid = "Soma Corruptor", name = "Flora and Soma Corruptor", version = "1.4.5_2012.12.12")
+@Mod(modid = "Soma Corruptor", name = "Flora and Soma Corruptor", version = "1.4.6_2012.12.18")
 public class FloraCorruptor
 {
 	/* Proxies for sides, used for graphics processing */

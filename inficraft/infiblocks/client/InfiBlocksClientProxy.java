@@ -20,27 +20,26 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 {
 	/* Registers any rendering code. */
-	public void registerRenderer() 
+	public void registerRenderer()
 	{
 		MinecraftForgeClient.preloadTexture(InfiBlocks.blocksImage);
 		MinecraftForgeClient.preloadTexture(InfiBlocks.techImage);
 		MinecraftForgeClient.preloadTexture(InfiBlocks.bricksImage);
-		
+
 		InfiBlocks.getContentInstance().chestModelID = RenderingRegistry.getNextAvailableRenderId();
 		InfiBlocks.getContentInstance().magicSlabModel = RenderingRegistry.getNextAvailableRenderId();
 		InfiBlocks.getContentInstance().paneModelID = RenderingRegistry.getNextAvailableRenderId();
 		InfiBlocks.getContentInstance().brickModelID = RenderingRegistry.getNextAvailableRenderId();
-		
+
 		RenderingRegistry.registerBlockHandler(new MagicSlabRender());
 		RenderingRegistry.registerBlockHandler(new PaneRender());
 		RenderingRegistry.registerBlockHandler(new BrickRender());
-		
-		//new ChestSpecialRenderer()
+
+		// new ChestSpecialRenderer()
 	}
-	
+
 	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
-			int x, int y, int z) 
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
 		if (ID == craftingGuiID)
 		{
@@ -48,19 +47,19 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		}
 		if (ID == furnaceGuiID)
 		{
-			return new FurnaceGui(player.inventory, (FurnaceLogic)world.getBlockTileEntity(x, y, z));
+			return new FurnaceGui(player.inventory, (FurnaceLogic) world.getBlockTileEntity(x, y, z));
 		}
 		return null;
 	}
-	
+
 	/* Ties an internal name to a visible one. */
-	public void addNames() 
+	public void addNames()
 	{
 		LanguageRegistry.instance().addStringLocalization("itemGroup.InfiBlocks", "InfiBlocks");
-		
+
 		LanguageRegistry.instance().addStringLocalization("item.chiselIron.name", "Chisel");
 		LanguageRegistry.instance().addStringLocalization("item.chiselDiamond.name", "Diamond Chisel");
-		
+
 		LanguageRegistry.instance().addStringLocalization("cobblestoneWorkbench.name", "Cobblestone Workbench");
 		LanguageRegistry.instance().addStringLocalization("ironWorkbench.name", "Iron Workbench");
 		LanguageRegistry.instance().addStringLocalization("redstoneWorkbench.name", "Redstone Workbench");
@@ -72,7 +71,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("netherrackWorkbench.name", "Netherrack Workbench");
 		LanguageRegistry.instance().addStringLocalization("iceWorkbench.name", "Ice Workbench");
 		LanguageRegistry.instance().addStringLocalization("stoneBrickWorkbench.name", "Brick Workbench");
-		
+
 		LanguageRegistry.instance().addStringLocalization("whiteCarpet.name", "Carpet");
 		LanguageRegistry.instance().addStringLocalization("orangeCarpet.name", "Orange Carpet");
 		LanguageRegistry.instance().addStringLocalization("magentaCarpet.name", "Magenta Carpet");
@@ -89,7 +88,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("greenCarpet.name", "Green Carpet");
 		LanguageRegistry.instance().addStringLocalization("redCarpet.name", "Red Carpet");
 		LanguageRegistry.instance().addStringLocalization("blackCarpet.name", "Black Carpet");
-		
+
 		LanguageRegistry.instance().addStringLocalization("ironFurnaceInfi.name", "Iron Furnace");
 		LanguageRegistry.instance().addStringLocalization("brickFurnaceInfi.name", "Brick Furnace");
 		LanguageRegistry.instance().addStringLocalization("sandstoneFurnaceInfi.name", "Sandstone Furnace");
@@ -99,7 +98,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("stonebrickFurnaceInfi.name", "Brick Furnace");
 		LanguageRegistry.instance().addStringLocalization("endstoneFurnaceInfi.name", "White Stone Furnace");
 		LanguageRegistry.instance().addStringLocalization("glowstoneFurnaceInfi.name", "Glowstone Furnace");
-		
+
 		LanguageRegistry.instance().addStringLocalization("stoneMagicSlab.name", "Stone Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("slabstoneMagicSlab.name", "Magic Slab o' Stone");
 		LanguageRegistry.instance().addStringLocalization("cobblestoneMagicSlab.name", "Cobbled Magic Slab");
@@ -116,7 +115,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("diamondMagicSlab.name", "Diamond Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("endstoneMagicSlab.name", "White Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("netherBrickMagicSlab.name", "Nether Brick Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("dirtMagicSlab.name", "Dirt Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("grassMagicSlab.name", "Grass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("myceliumMagicSlab.name", "Mycelium Magic Slab");
@@ -133,7 +132,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("glowstoneMagicSlab.name", "Glowstone Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("glassMagicSlab.name", "Glass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("oakLeavesMagicSlab.name", "Leaves Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("whiteMagicSlab.name", "Wool Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("orangeMagicSlab.name", "Orange Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("magentaMagicSlab.name", "Magenta Magic Slab");
@@ -150,7 +149,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("greenMagicSlab.name", "Green Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("redMagicSlab.name", "Red Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("blackMagicSlab.name", "Black Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("whiteGlass.name", "White Glass");
 		LanguageRegistry.instance().addStringLocalization("orangeGlass.name", "Orange Glass");
 		LanguageRegistry.instance().addStringLocalization("magentaGlass.name", "Magenta Glass");
@@ -167,7 +166,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("greenGlass.name", "Green Glass");
 		LanguageRegistry.instance().addStringLocalization("redGlass.name", "Red Glass");
 		LanguageRegistry.instance().addStringLocalization("blackGlass.name", "Black Glass");
-		
+
 		LanguageRegistry.instance().addStringLocalization("whiteGlassPane.name", "White Glass Pane");
 		LanguageRegistry.instance().addStringLocalization("orangeGlassPane.name", "Orange Glass Pane");
 		LanguageRegistry.instance().addStringLocalization("magentaGlassPane.name", "Magenta Glass Pane");
@@ -184,7 +183,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("greenGlassPane.name", "Green Glass Pane");
 		LanguageRegistry.instance().addStringLocalization("redGlassPane.name", "Red Glass Pane");
 		LanguageRegistry.instance().addStringLocalization("blackGlassPane.name", "Black Glass Pane");
-		
+
 		LanguageRegistry.instance().addStringLocalization("whiteGlassSlab.name", "White Glass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("orangeGlassSlab.name", "Orange Glass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("magentaGlassSlab.name", "Magenta Glass Magic Slab");
@@ -201,7 +200,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("greenGlassSlab.name", "Green Glass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("redGlassSlab.name", "Red Glass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("blackGlassSlab.name", "Black Glass Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("whiteGlassStair.name", "White Glass Magic Stair");
 		LanguageRegistry.instance().addStringLocalization("orangeGlassStair.name", "Orange Glass Magic Stair");
 		LanguageRegistry.instance().addStringLocalization("magentaGlassStair.name", "Magenta Glass Magic Stair");
@@ -218,7 +217,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("greenGlassStair.name", "Green Glass Magic Stair");
 		LanguageRegistry.instance().addStringLocalization("redGlassStair.name", "Red Glass Magic Stair");
 		LanguageRegistry.instance().addStringLocalization("blackGlassStair.name", "Black Glass Magic Stair");
-		
+
 		LanguageRegistry.instance().addStringLocalization("obsidianBrick.name", "Obsidian Brick");
 		LanguageRegistry.instance().addStringLocalization("snowBrick.name", "Snow Brick");
 		LanguageRegistry.instance().addStringLocalization("sandstoneBrick.name", "Sandstone Brick");
@@ -235,7 +234,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("redstoneBrick.name", "Redstone Brick");
 		LanguageRegistry.instance().addStringLocalization("slimeBrick.name", "Slime Brick");
 		LanguageRegistry.instance().addStringLocalization("boneBrick.name", "Bone Brick");
-		
+
 		LanguageRegistry.instance().addStringLocalization("obsidianBrickMagicSlab.name", "Obsidian Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("snowBrickMagicSlab.name", "Snow Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("sandstoneBrickMagicSlab.name", "Sandstone Brick Magic Slab");
@@ -252,7 +251,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("redstoneBrickMagicSlab.name", "Redstone Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("slimeBrickMagicSlab.name", "Slime Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("boneBrickMagicSlab.name", "Bone Brick Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("obsidianFancyBrick.name", "Fancy Obsidian Brick");
 		LanguageRegistry.instance().addStringLocalization("snowFancyBrick.name", "Fancy Snow Brick");
 		LanguageRegistry.instance().addStringLocalization("sandstoneFancyBrick.name", "Fancy Sandstone Brick");
@@ -268,7 +267,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("redstoneFancyBrick.name", "Fancy Redstone Brick");
 		LanguageRegistry.instance().addStringLocalization("slimeFancyBrick.name", "Fancy Slime Brick");
 		LanguageRegistry.instance().addStringLocalization("boneFancyBrick.name", "Fancy Bone Brick");
-		
+
 		LanguageRegistry.instance().addStringLocalization("obsidianFancyBrickMagicSlab.name", "Fancy Obsidian Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("snowFancyBrickMagicSlab.name", "Fancy Snow Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("sandstoneFancyBrickMagicSlab.name", "Fancy Sandstone Brick Magic Slab");
@@ -284,41 +283,41 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("redstoneFancyBrickMagicSlab.name", "Fancy Redstone Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("slimeFancyBrickMagicSlab.name", "Fancy Slime Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("boneFancyBrickMagicSlab.name", "Fancy Bone Brick Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("clearGlass.name", "Clear Glass");
 		LanguageRegistry.instance().addStringLocalization("soulGlass.name", "Soul Glass");
 		LanguageRegistry.instance().addStringLocalization("clearSoulGlass.name", "Clear Soul Glass");
-		
+
 		LanguageRegistry.instance().addStringLocalization("clearGlassPane.name", "Clear Glass Pane");
 		LanguageRegistry.instance().addStringLocalization("soulGlassPane.name", "Soul Glass Pane");
 		LanguageRegistry.instance().addStringLocalization("clearSoulGlassPane.name", "Clear Soul Glass Pane");
-		
+
 		LanguageRegistry.instance().addStringLocalization("clearGlassMagicSlab.name", "Clear Glass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("soulGlassMagicSlab.name", "Soul Glass Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("clearSoulGlassMagicSlab.name", "Clear Soul Glass Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("rawBrownstone.name", "Rough Brownstone");
 		LanguageRegistry.instance().addStringLocalization("smeltedBrownstone.name", "Brownstone");
 		LanguageRegistry.instance().addStringLocalization("roadBrownstone.name", "Brownstone Road");
 		LanguageRegistry.instance().addStringLocalization("brickBrownstone.name", "Brownstone Brick");
 		LanguageRegistry.instance().addStringLocalization("brickSmallBrownstone.name", "Small Brownstone Brick");
 		LanguageRegistry.instance().addStringLocalization("fancyBrownstone.name", "Fancy Brownstone Brick");
-		
+
 		LanguageRegistry.instance().addStringLocalization("rawBrownstoneMagicSlab.name", "Rough Brownstone Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("smeltedBrownstoneMagicSlab.name", "Brownstone Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("roadBrownstoneMagicSlab.name", "Brownstone Road Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("brickBrownstoneMagicSlab.name", "Brownstone Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("brickSmallBrownstoneMagicSlab.name", "Small Brownstone Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("fancyBrownstoneMagicSlab.name", "Fancy Brownstone Brick Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("iceBrick.name", "Ice Brick");
 		LanguageRegistry.instance().addStringLocalization("smallIceBrick.name", "Fancy Ice Brick");
 		LanguageRegistry.instance().addStringLocalization("fancyIceBrick.name", "Fancy Ice Brick");
-		
+
 		LanguageRegistry.instance().addStringLocalization("iceBrickMagicSlab.name", "Ice Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("smallIceBrickMagicSlab.name", "Fancy Ice Brick Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("fancyIceBrickMagicSlab.name", "Fancy Ice Brick Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("coalStorage.name", "Coal Block");
 		LanguageRegistry.instance().addStringLocalization("charcoalStorage.name", "Charcoal Block");
 		LanguageRegistry.instance().addStringLocalization("redstoneStorage.name", "Redstone Block");
@@ -329,7 +328,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("sandstoneStorage.name", "Smooth Sandstone");
 		LanguageRegistry.instance().addStringLocalization("slabStorage.name", "Refined Stone");
 		LanguageRegistry.instance().addStringLocalization("brickStorage.name", "Brick block");
-		
+
 		LanguageRegistry.instance().addStringLocalization("coalStorageMagicSlab.name", "Coal Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("charcoalStorageMagicSlab.name", "Charcoal Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("redstoneStorageMagicSlab.name", "Redstone Magic Slab");
@@ -340,37 +339,37 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		LanguageRegistry.instance().addStringLocalization("sandstoneStorageMagicSlab.name", "Smooth Sandstone Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("slabStorageMagicSlab.name", "Refined Stone Magic Slab");
 		LanguageRegistry.instance().addStringLocalization("brickStorageMagicSlab.name", "Brick Magic Slab");
-		
+
 		LanguageRegistry.instance().addStringLocalization("oakChestInfi.name", "Oak Chest");
-        LanguageRegistry.instance().addStringLocalization("birchChestInfi.name", "Birch Chest");
-        LanguageRegistry.instance().addStringLocalization("pineChestInfi.name", "Pine Chest");
-        LanguageRegistry.instance().addStringLocalization("jungleChestInfi.name", "Cecropia Chest");
-        LanguageRegistry.instance().addStringLocalization("cactusChestInfi.name", "Cactus Chest");
-        LanguageRegistry.instance().addStringLocalization("weatheredChestInfi.name", "Weathered Chest");
-        LanguageRegistry.instance().addStringLocalization("ruinedstoneChestInfi.name", "Ruined Chest");
-        LanguageRegistry.instance().addStringLocalization("stoneChestInfi.name", "Stone Chest");
-        LanguageRegistry.instance().addStringLocalization("stonebrickChestInfi.name", "Stone Brick Chest");
-        LanguageRegistry.instance().addStringLocalization("obsidianChestInfi.name", "Obsidian Chest");
-        LanguageRegistry.instance().addStringLocalization("iceChestInfi.name", "Ice Chest");
-        LanguageRegistry.instance().addStringLocalization("ironChestInfi.name", "Iron Chest");
-        LanguageRegistry.instance().addStringLocalization("jeweledChestInfi.name", "Jeweled Chest");
-        LanguageRegistry.instance().addStringLocalization("slimeChestInfi.name", "Slime Chest");
-        LanguageRegistry.instance().addStringLocalization("endstoneChestInfi.name", "Endstone Chest");
+		LanguageRegistry.instance().addStringLocalization("birchChestInfi.name", "Birch Chest");
+		LanguageRegistry.instance().addStringLocalization("pineChestInfi.name", "Pine Chest");
+		LanguageRegistry.instance().addStringLocalization("jungleChestInfi.name", "Cecropia Chest");
+		LanguageRegistry.instance().addStringLocalization("cactusChestInfi.name", "Cactus Chest");
+		LanguageRegistry.instance().addStringLocalization("weatheredChestInfi.name", "Weathered Chest");
+		LanguageRegistry.instance().addStringLocalization("ruinedstoneChestInfi.name", "Ruined Chest");
+		LanguageRegistry.instance().addStringLocalization("stoneChestInfi.name", "Stone Chest");
+		LanguageRegistry.instance().addStringLocalization("stonebrickChestInfi.name", "Stone Brick Chest");
+		LanguageRegistry.instance().addStringLocalization("obsidianChestInfi.name", "Obsidian Chest");
+		LanguageRegistry.instance().addStringLocalization("iceChestInfi.name", "Ice Chest");
+		LanguageRegistry.instance().addStringLocalization("ironChestInfi.name", "Iron Chest");
+		LanguageRegistry.instance().addStringLocalization("jeweledChestInfi.name", "Jeweled Chest");
+		LanguageRegistry.instance().addStringLocalization("slimeChestInfi.name", "Slime Chest");
+		LanguageRegistry.instance().addStringLocalization("endstoneChestInfi.name", "Endstone Chest");
 	}
-	
+
 	@Override
 	public File getMinecraftDir()
 	{
 		return Minecraft.getMinecraftDir();
 	}
-	
+
 	/*
 	 * Methods provided by Bioxx
 	 */
-	
+
 	@Override
 	public void sendCustomPacket(Packet packet)
 	{
-		PacketDispatcher.sendPacketToServer(packet);     
+		PacketDispatcher.sendPacketToServer(packet);
 	}
 }

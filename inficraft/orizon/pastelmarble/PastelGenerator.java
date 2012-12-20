@@ -27,10 +27,15 @@ public class PastelGenerator implements IWorldGenerator
 	{
 		if(PHPastel.superfun)
     	{
-    		for(int iterX = chunkX; iterX < chunkX + 16; iterX++) {
-    			for (int iterZ = chunkZ; iterZ < chunkZ + 16; iterZ++) {
-    				for(int iterY = 0; iterY < 121; iterY++) {
-    					world.setBlock(iterX, iterY, iterZ, Block.oreDiamond.blockID);
+    		for(int iterX = chunkX*16; iterX < chunkX*16 + 16; iterX++) {
+    			for (int iterZ = chunkZ*16; iterZ < chunkZ*16 + 16; iterZ++) {
+    				for(int iterY = 0; iterY < 121; iterY++) 
+    				{
+    					int bID = world.getBlockId(iterX, iterY, iterZ);
+    					if (bID == Block.waterStill.blockID)
+    						world.setBlock(iterX, iterY, iterZ, Block.oreEmerald.blockID);
+    					else if (bID != 0)
+    						world.setBlock(iterX, iterY, iterZ, Block.oreDiamond.blockID);
     				}
     			}
     		}

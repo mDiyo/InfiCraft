@@ -2,6 +2,7 @@ package inficraft.infitools.tools;
 
 import inficraft.infitools.AbilityHelper;
 import inficraft.infitools.InfiTools;
+import inficraft.infitools.ToolItems;
 
 import java.util.List;
 import java.util.Random;
@@ -16,8 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /* NBTTags
  * Main tag - InfiTool
@@ -29,6 +30,7 @@ import cpw.mods.fml.common.asm.SideOnly;
  * Damage: Replacement for metadata
  * MaxDamage: ItemStacks only read setMaxDamage()
  * Broken: Represents whether the tool is broken (boolean)
+ * Attack: How much damage a mob will take
  * 
  * Others: 
  * Accessory: Render tag, above head. Sword guards, binding, etc
@@ -36,45 +38,50 @@ import cpw.mods.fml.common.asm.SideOnly;
  * Render order: Handle > Head > Accessory > Effect1 > Effect2 > Effect3
  * 
  * Durability: 10% chance to not use damage per level
- * Shoddy
- * Spiny
- * Awareness
+ * Shoddy: Mines slower, does more damage
+ * Spiny: Mines faster, does less damage
+ * Awareness: Glows in the presence of mobs
  */
 
 public class ToolCore extends ItemTool
 {
 	Random random = new Random();
+	String toolTexture;
 	
-	public ToolCore(int itemID)
+	public ToolCore(int itemID, int baseDamage, String texture)
 	{
-		super(itemID, 0, EnumToolMaterial.WOOD, new Block[] {});
+		super(itemID, baseDamage, EnumToolMaterial.WOOD, new Block[] {});
 		this.maxStackSize = 1;
 		this.setItemName("InfiTool");
-		this.setCreativeTab(InfiTools.tab);
+		this.setCreativeTab(InfiTools.toolTab);
+		toolTexture = texture;
 	}
 
 	/* Texture */
 	@Override
 	public String getTextureFile()
 	{
-		return InfiTools.pickaxeTexture;
+		return toolTexture;
 	}
 
 	/* Rendering */
 	@SideOnly(Side.CLIENT)
+	@Override
 	public boolean requiresMultipleRenderPasses()
 	{
 		return true;
 	}
 
 	@SideOnly(Side.CLIENT)
+	@Override
 	public int getRenderPasses(int metadata)
 	{
-		return 3; //6 late
+		return 3; //6
 	}
 
 	@SideOnly(Side.CLIENT)
-	public int getIconFromItemStackForMultiplePasses(ItemStack stack, int pass)
+	@Override
+	public int getIconIndex(ItemStack stack, int pass)
 	{
 		if (!stack.hasTagCompound())
 			return 255;
@@ -84,21 +91,38 @@ public class ToolCore extends ItemTool
 		{
 			if (pass == 0) // Handle
 			{
+				//toolTexture = ToolItems.swordTexture;
+				//texture = ToolItems.shovelTexture;
 				return tags.getCompoundTag("InfiTool").getInteger("Handle");
 			}
 
-			if (pass == 1) // Blade
+			if (pass == 1) // Head
 			{
+				//toolTexture = ToolItems.shovelTexture;
+				//texture = ToolItems.pickaxeTexture;
 				if (tags.getCompoundTag("InfiTool").getBoolean("Broken"))
 					return tags.getCompoundTag("InfiTool").getInteger("Head") + 192;
 				
-				return tags.getCompoundTag("InfiTool").getInteger("Head") + 64;
+				return tags.getCompoundTag("InfiTool").getInteger("Head") + 128;
 			}
 			
-			if (pass == 2) // Guard
-				return tags.getCompoundTag("InfiTool").getInteger("Accessory") + 32;
+			if (pass == 2) // Accessory
+			{
+				//toolTexture = ToolItems.craftingTexture;
+				//texture = ToolItems.swordTexture;
+				if (tags.getCompoundTag("InfiTool").hasKey("Accessory"))
+					return tags.getCompoundTag("InfiTool").getInteger("Accessory") + 64;
+			}
+			
+			/*if (pass == 3)
+			{
+				//texture = ToolItems.pickaxeTexture;
+				return renderDamageBar(tags.getCompoundTag("InfiTool").getInteger("Damage"), 
+						tags.getCompoundTag("InfiTool").getInteger("MaxDamage"),
+						tags.getCompoundTag("InfiTool").getBoolean("Broken"));
+			}*/
 
-			if (pass == 3)
+			/*if (pass == 3)
 			{
 				if (tags.getCompoundTag("InfiTool").hasKey("Effect1"))
 					return tags.getCompoundTag("InfiTool").getInteger("Effect") + 240;
@@ -120,10 +144,18 @@ public class ToolCore extends ItemTool
 					return tags.getCompoundTag("InfiTool").getInteger("Effect3") + 240;
 				else
 					return 255;
-			}
+			}*/
 		}
 
 		return 255; //Keep 255 blank
+	}
+	
+	int renderDamageBar(int damage, int maxDamage, boolean broken)
+	{
+		//setTextureFile(ToolItems.craftingTexture);
+		if (damage == 0 || broken)
+			return 255;
+		return 240 + (damage * 13 / maxDamage);
 	}
 	
 	/* Tags and information about the tool */
@@ -155,7 +187,7 @@ public class ToolCore extends ItemTool
 				String bindingName =  getAbilityNameForType(binding);
 				if (bindingName != "" && bindingName != headName && bindingName != handleName)
 					list.add( getColorCodeForType(binding)+bindingName);
-			}
+			}			
 		}
 	}
 	
@@ -190,7 +222,7 @@ public class ToolCore extends ItemTool
 		case 3: return "Durability I"; //Iron
 		case 4: return "Shoddy"; //Flint
 		case 5: return "Spiny"; //Cactus
-		case 6: return "Durability II"; //Obsidian
+		case 6: return "Durability V"; //Obsidian
 		case 7: return ""; //Bone
 		case 8: return ""; //Slime
 		case 9: return "Effective"; //Paper
@@ -205,7 +237,6 @@ public class ToolCore extends ItemTool
 	/* Creative mode tools */
     public void getSubItems(int id, CreativeTabs tab, List list)
     {
-		System.out.println("Adding subitems");
 		for (int i = 0; i < 13; i++)
 			list.add(getDefaultItem(id, i));
     }
@@ -237,10 +268,16 @@ public class ToolCore extends ItemTool
 	}
 	
 	@Override
-	public boolean hitEntity(ItemStack itemstack, EntityLiving mob, EntityLiving player)
+	public boolean hitEntity(ItemStack stack, EntityLiving mob, EntityLiving player)
 	{
-		return false;
+		AbilityHelper.hitEntity(stack, mob, player, damageVsEntity);
+		return true;
 	}
+	
+	public int getDamageVsEntity(Entity par1Entity)
+    {
+        return 1;
+    }
 	
 	@Override
 	public float getStrVsBlock(ItemStack stack, Block block, int meta)
@@ -251,12 +288,15 @@ public class ToolCore extends ItemTool
 		return 1f;
 	}
 	
-	/* Updating */
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5)
-	{
-		
-	}
+	public boolean isItemTool(ItemStack par1ItemStack)
+    {
+		return false;
+    }
+	
+	/*public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
+    {
+        return true;
+    }*/
 	
 	/* Enchanting */
 	public int getItemEnchantability()

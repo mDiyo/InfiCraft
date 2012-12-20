@@ -1,5 +1,6 @@
 package inficraft.api.machines;
 
+import inficraft.infitools.crafting.ToolBuilder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -31,6 +32,11 @@ public abstract class BlockLogicMachine extends BlockLogicBase
     public ItemStack getStackInSlot(int i)
     {
         return inventory[i];
+    }
+    
+    public boolean isStackInSlot(int slot)
+    {
+    	return inventory[slot] != null;
     }
 
     public ItemStack decrStackSize(int i, int j)

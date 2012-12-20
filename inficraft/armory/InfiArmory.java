@@ -24,7 +24,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "A1")
+@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "1.4.6_A1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class InfiArmory 
 {

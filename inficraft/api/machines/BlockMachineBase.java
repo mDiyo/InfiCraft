@@ -64,6 +64,12 @@ public abstract class BlockMachineBase extends BlockContainer
         }
         return arraylist;
     }
+    
+    @Override
+	public TileEntity createNewTileEntity(World var1) 
+	{
+		return null;
+	}
 
 
     /* Set the default facing of the block

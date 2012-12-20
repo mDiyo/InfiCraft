@@ -1,18 +1,13 @@
 package florasoma.berries;
 
-import florasoma.berries.FloraBerries;
-import florasoma.berries.FloraBerryCommonProxy;
-
 import java.io.File;
 
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.src.ModLoader;
-import net.minecraftforge.client.MinecraftForgeClient;
+import cpw.mods.fml.relauncher.Side;
 
 public class FloraBerryClientProxy extends FloraBerryCommonProxy 
 {

@@ -18,7 +18,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: Merdiwen Tirelle Diyo
  */
 
-@Mod(modid = "Flora Clouds", name = "Flora and Soma Clouds", version = "1.4.5_2012.12.12")
+@Mod(modid = "Flora Clouds", name = "Flora and Soma Clouds", version = "1.4.6_2012.12.18")
 public class FloraClouds
 {
 	/* Proxies for sides, used for client-only processing*/

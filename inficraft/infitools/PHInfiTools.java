@@ -40,17 +40,24 @@ public class PHInfiTools {
          */
         
         forge = config.getBlock("Lava Forge", 1471).getInt(1471);
+        crafter = config.getBlock("Tool Station", 1472).getInt(1472);
         
         toolRod = config.getItem("Tool Rod", 14001).getInt(14001);
-        woodPattern = config.getItem("Wood Pattern", 14002).getInt(14002);
-        stonePattern = config.getItem("Stone Pattern", 14003).getInt(14032);
+        toolRod = config.getItem("Tool Shard", 14002).getInt(14002);
+        woodPattern = config.getItem("Wood Pattern", 14003).getInt(14003);
+        stonePattern = config.getItem("Stone Pattern", 14004).getInt(14004);
+        
+        pickaxeHead = config.getItem("Pickaxe Head", 14005).getInt(14005);
+        shovelHead = config.getItem("Shovel Head", 14006).getInt(14006);
+        axeHead = config.getItem("Axe Head", 14007).getInt(14007);
+        swordBlade = config.getItem("Sword Blade", 14008).getInt(14008);
         
         pickaxe = config.getItem("Pickaxe", 14051).getInt(14051);
-        pickaxe = config.getItem("Shovel", 14052).getInt(14052);
-        pickaxe = config.getItem("Axe", 14053).getInt(14053);
-        pickaxe = config.getItem("Sword", 14054).getInt(14054);
+        shovel = config.getItem("Shovel", 14052).getInt(14052);
+        axe = config.getItem("Axe", 14053).getInt(14053);
+        sword = config.getItem("Sword", 14054).getInt(14054);
         
-        pickaxe = config.getItem("Mattock", 14055).getInt(14055);
+        /*pickaxe = config.getItem("Mattock", 14055).getInt(14055);
         pickaxe = config.getItem("Ice Axe", 14056).getInt(14056);
         pickaxe = config.getItem("Scythe", 14057).getInt(14057);
         pickaxe = config.getItem("Hammer", 14058).getInt(14058);
@@ -63,7 +70,7 @@ public class PHInfiTools {
         pickaxe = config.getItem("Machete", 14063).getInt(14063);
         pickaxe = config.getItem("Spear", 14064).getInt(14064);
         pickaxe = config.getItem("Battleaxe", 14065).getInt(14065);
-        pickaxe = config.getItem("Fryingpan", 14066).getInt(14066);
+        pickaxe = config.getItem("Fryingpan", 14066).getInt(14066);*/
 
         /* Save the configuration file */
         config.save();
@@ -73,6 +80,7 @@ public class PHInfiTools {
     public static int crafter;
     
     public static int toolRod;
+    public static int toolShard;
     public static int woodPattern;
     public static int stonePattern;
     
@@ -95,4 +103,26 @@ public class PHInfiTools {
     public static int spear;
     public static int battleaxe;
     public static int fryingpan;
+    
+    public static int swordGuard;
+    public static int swordBlade;
+    public static int pickaxeHead;
+    public static int axeHead;
+    
+    public static int shovelHead;
+    public static int iceaxeHead;
+    public static int macheteHead;
+
+    public static int hammerHead;
+    public static int mattockHead;
+    public static int scytheHead;
+    
+    public static int daggerHead;
+    public static int handpickHead;
+    public static int trowelHead;
+    public static int hatchetHead;
+
+    public static int spearHead;
+    public static int battleaxeHead;
+    public static int fryingpanHead;
 }

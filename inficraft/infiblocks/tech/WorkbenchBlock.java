@@ -17,7 +17,7 @@ public class WorkbenchBlock extends Block
 {
     public WorkbenchBlock(int i)
     {
-        super(i, 1, Material.wood);
+        super(i, 1, Material.cactus);
         setCreativeTab(InfiBlocks.infiBlockTab);
     }
 

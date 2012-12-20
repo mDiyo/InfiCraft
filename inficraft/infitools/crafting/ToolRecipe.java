@@ -1,5 +1,6 @@
 package inficraft.infitools.crafting;
 
+import inficraft.infitools.ToolItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -11,35 +12,42 @@ public class ToolRecipe
 {
 	Item head;
 	Item accessory;
-	String type;
+	Item item;
 	
-	public ToolRecipe(Item h, Item acc, String t)
+	public ToolRecipe(Item h, Item acc, Item i)
 	{
 		head = h;
 		accessory = acc;
-		type = t;
+		item = i;
 	}
 	
-	public boolean isValidHead(Item item)
+	public boolean validHead(Item he)
 	{
-		if (head == item)
+		if (head == he)
 			return true;
 		else
 			return false;
 	}
 	
-	public boolean isValidAccessory(Item item)
+	public boolean validHandle(Item handle)
 	{
-		if (accessory == null && item == null)
+		return (handle == ToolItems.toolRod || handle == Item.stick || handle == Item.bone);
+	}
+	
+	public boolean validAccessory(Item acc)
+	{
+		if (accessory == null && acc == null)
 			return true;
-		else if (accessory == item)
+		else if (accessory == ToolItems.toolRod)
+			return validHandle(acc);
+		else if (accessory == acc)
 			return true;
 		else
 			return false;
 	}
 	
-	public String getType()
+	public Item getType()
 	{
-		return type;
+		return item;
 	}
 }

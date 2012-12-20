@@ -12,9 +12,9 @@ import net.minecraftforge.common.MinecraftForge;
 public abstract class HarvestTool extends ToolCore
 {
 
-	public HarvestTool(int itemID)
+	public HarvestTool(int itemID, int baseDamage, String tex)
 	{
-		super(itemID);
+		super(itemID, baseDamage, tex);
 	}
 	
 	@Override
@@ -27,12 +27,12 @@ public abstract class HarvestTool extends ToolCore
 		Block block = Block.blocksList[bID];
 		int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, "pickaxe");
 		
-		onBlockDestroyed(stack, world, bID, x, y, z, player);
-		
 		if (hlvl < EnumMaterial.harvestLevel(tags.getCompoundTag("InfiTool").getInteger("Head")))
 			return false;
 		else
 		{
+			if (!player.capabilities.isCreativeMode)
+				onBlockDestroyed(stack, world, bID, x, y, z, player);
 			world.setBlockWithNotify(x, y, z, 0);
 			if (!world.isRemote)
 				world.playAuxSFX(2001, x, y, z, bID + (meta << 12));
@@ -55,7 +55,11 @@ public abstract class HarvestTool extends ToolCore
 			{				
 				int headType = tags.getCompoundTag("InfiTool").getInteger("Head");
 				float speed = EnumMaterial.toolSpeed(headType);				
-				int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, "pickaxe");
+				int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, getHarvestType());
+				int durability = tags.getCompoundTag("InfiTool").getInteger("Damage");
+				
+				float shoddy = tags.getCompoundTag("InfiTool").getFloat("Shoddy");
+				speed += shoddy*durability/100f;
 				
 				if (hlvl <= EnumMaterial.harvestLevel(headType))
 					return speed;
@@ -65,5 +69,11 @@ public abstract class HarvestTool extends ToolCore
 		return super.getStrVsBlock(stack, block, meta);
 	}
 	
+	public boolean canHarvestBlock(Block block)
+    {
+		return true;
+    }
+	
 	protected abstract Material[] getEffectiveMaterials();
+	protected abstract String getHarvestType();
 }

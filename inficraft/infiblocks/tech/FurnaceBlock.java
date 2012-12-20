@@ -80,9 +80,9 @@ public class FurnaceBlock extends BlockMachineBase
         }
     }
 
-    public int damageDropped(int i)
+    public int damageDropped(int meta)
     {
-        return i;
+        return meta;
     }
 
     public int quantityDropped(Random random)
@@ -172,7 +172,7 @@ public class FurnaceBlock extends BlockMachineBase
 
                             if (var9.hasTagCompound())
                             {
-                                var14.item.setTagCompound((NBTTagCompound)var9.getTagCompound().copy());
+                                var14.func_92014_d().setTagCompound((NBTTagCompound)var9.getTagCompound().copy());
                             }
 
                             float var15 = 0.05F;

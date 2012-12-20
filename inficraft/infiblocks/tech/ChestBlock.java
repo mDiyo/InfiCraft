@@ -391,9 +391,9 @@ public class ChestBlock extends BlockMachineBase
                 {
                     float var10 = this.random.nextFloat() * 0.8F + 0.1F;
                     float var11 = this.random.nextFloat() * 0.8F + 0.1F;
-                    EntityItem var14;
+                    EntityItem entityitem;
 
-                    for (float var12 = this.random.nextFloat() * 0.8F + 0.1F; var9.stackSize > 0; par1World.spawnEntityInWorld(var14))
+                    for (float var12 = this.random.nextFloat() * 0.8F + 0.1F; var9.stackSize > 0; par1World.spawnEntityInWorld(entityitem))
                     {
                         int var13 = this.random.nextInt(21) + 10;
 
@@ -403,15 +403,15 @@ public class ChestBlock extends BlockMachineBase
                         }
 
                         var9.stackSize -= var13;
-                        var14 = new EntityItem(par1World, (double)((float)par2 + var10), (double)((float)par3 + var11), (double)((float)par4 + var12), new ItemStack(var9.itemID, var13, var9.getItemDamage()));
+                        entityitem = new EntityItem(par1World, (double)((float)par2 + var10), (double)((float)par3 + var11), (double)((float)par4 + var12), new ItemStack(var9.itemID, var13, var9.getItemDamage()));
                         float var15 = 0.05F;
-                        var14.motionX = (double)((float)this.random.nextGaussian() * var15);
-                        var14.motionY = (double)((float)this.random.nextGaussian() * var15 + 0.2F);
-                        var14.motionZ = (double)((float)this.random.nextGaussian() * var15);
+                        entityitem.motionX = (double)((float)this.random.nextGaussian() * var15);
+                        entityitem.motionY = (double)((float)this.random.nextGaussian() * var15 + 0.2F);
+                        entityitem.motionZ = (double)((float)this.random.nextGaussian() * var15);
 
                         if (var9.hasTagCompound())
                         {
-                            var14.item.setTagCompound((NBTTagCompound)var9.getTagCompound().copy());
+                            entityitem.func_92014_d().setTagCompound((NBTTagCompound)var9.getTagCompound().copy());
                         }
                     }
                 }

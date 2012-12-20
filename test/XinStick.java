@@ -1,6 +1,6 @@
 package test;
 
-import inficraft.infitools.InfiTools;
+import inficraft.infitools.ToolItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -29,11 +29,11 @@ public class XinStick extends Item
 		// System.out.println("Click2");
 		// spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world, player);
 		// removeChunk(world, player.posX, player.posZ);
-		ItemStack tool = new ItemStack(InfiTools.instance.theOneTool);
+		ItemStack tool = new ItemStack(ToolItems.pickaxe);
 
 		NBTTagCompound compound = new NBTTagCompound();
 		compound.setCompoundTag("InfiTool", new NBTTagCompound());
-		compound.getCompoundTag("InfiTool").setInteger("Head", 12);
+		compound.getCompoundTag("InfiTool").setInteger("Head", 2);
 		compound.getCompoundTag("InfiTool").setInteger("Handle", 1);
 		compound.getCompoundTag("InfiTool").setInteger("Accessory", 5);
 		/*compound.getCompoundTag("InfiTool").setInteger("Effect", 0);

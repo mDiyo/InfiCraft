@@ -4,10 +4,14 @@ import inficraft.infitools.crafting.*;
 import inficraft.infitools.tools.*;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /* InfiTools
@@ -16,6 +20,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  */
 
 @Mod(modid = "InfiTools", name = "InfiTools", version = "Test")
+@NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class InfiTools 
 {
 	/* Instance of this mod, used for grabbing prototype fields */
@@ -28,24 +33,23 @@ public class InfiTools
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
 	{
-		theOneTool = new Pickaxe(PHInfiTools.pickaxe);
-		LanguageRegistry.addName(theOneTool, "Unnamed Sword");
-		toolRod = new ToolRod(PHInfiTools.toolRod).setItemName("ToolRod");
-		woodPattern = new Pattern(PHInfiTools.woodPattern, 128).setItemName("WoodPattern");
-		stonePattern = new Pattern(PHInfiTools.woodPattern, 144).setItemName("StonePattern");
-		tab = new TabInfiTools("InfiTools");
+		PHInfiTools.initProps();
+		items = new ToolItems();
+		materialTab = new TabInfiTools("InfiMaterials", ToolItems.pickaxeHead.shiftedIndex);
+		toolTab = new TabInfiTools("InfiTools", ToolItems.pickaxe.shiftedIndex);
+		
+		NetworkRegistry.instance().registerGuiHandler(instance, new GuiHandler());
 	}
 	
-	public Item theOneTool;
-	public Item toolRod;
-	public Item woodPattern;
-	public Item stonePattern;
+	@Init
+	public void load(FMLInitializationEvent evt) 
+	{
+		proxy.registerRenderer();
+		proxy.addNames();
+	}
 	
-	public static TabInfiTools tab;
+	ToolItems items;
 	
-	public static String craftingTexture = "/infitextures/baseItems.png";
-	public static String pickaxeTexture = "/infitextures/pickaxes.png";
-	public static String swordTexture = "/infitextures/swordsinvert.png";
-	public static String shovelTexture = "/infitextures/shovels.png";
-	public static String axeTexture = "/infitextures/axes.png";
+	public static TabInfiTools toolTab;
+	public static TabInfiTools materialTab;
 }

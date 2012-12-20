@@ -3,8 +3,8 @@ import net.minecraft.block.BlockFluid;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class LiquidBlockBase extends BlockFluid
 {
