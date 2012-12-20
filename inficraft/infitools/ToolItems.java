@@ -1,10 +1,8 @@
 package inficraft.infitools;
 
-import inficraft.infitools.crafting.ToolBuilder;
-import inficraft.infitools.crafting.ToolStationBlock;
-import inficraft.infitools.items.Pattern;
-import inficraft.infitools.items.ToolPart;
-import inficraft.infitools.tools.Pickaxe;
+import inficraft.infitools.crafting.*;
+import inficraft.infitools.items.*;
+import inficraft.infitools.tools.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -52,7 +50,7 @@ public class ToolItems
 		LanguageRegistry.addName(pickaxe, "Pickaxe");		
 		pickaxeHead = new ToolPart(PHInfiTools.pickaxeHead, 0, baseHeads).setItemName("infitools.PickaxeHead");
 		
-		shovel = new Pickaxe(PHInfiTools.shovel, shovelTexture);
+		shovel = new Shovel(PHInfiTools.shovel, shovelTexture);
 		LanguageRegistry.addName(shovel, "Shovel");		
 		shovelHead = new ToolPart(PHInfiTools.shovelHead, 64, baseHeads).setItemName("infitools.ShovelHead");
 		

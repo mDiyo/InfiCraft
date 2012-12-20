@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 public class Axe extends HarvestTool
 {
 
-	public Axe(int itemID, int baseDamage, String tex)
+	public Axe(int itemID, String tex)
 	{
-		super(itemID, baseDamage, tex);
+		super(itemID, 3, tex);
 	}
 
 	@Override

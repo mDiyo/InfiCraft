@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 public class Shovel extends HarvestTool
 {
 
-	public Shovel(int itemID, int baseDamage, String tex)
+	public Shovel(int itemID, String tex)
 	{
-		super(itemID, baseDamage, tex);
+		super(itemID, 2, tex);
 	}
 
 	@Override
