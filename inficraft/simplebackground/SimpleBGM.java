@@ -47,7 +47,6 @@ public class SimpleBGM
 	@SideOnly(Side.CLIENT)
 	public void postInit(FMLPostInitializationEvent evt)
 	{
-		System.out.println("Derrrrp");
 		bgm = SoundManager.sndSystem;
 		options = FMLClientHandler.instance().getClient().gameSettings;
 		playMenuMusic("bgm.menu");

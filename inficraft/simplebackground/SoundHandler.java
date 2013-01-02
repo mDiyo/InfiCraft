@@ -94,7 +94,7 @@ public class SoundHandler
 		return null;
 	}
 	
-	private static HashMap music = new HashMap<String,  ArrayList<SoundPoolEntry>>();
+	private static HashMap music = new HashMap<String, ArrayList<SoundPoolEntry>>();
 	private static final String[] folderLocations = { "battle", "dawn", "day", "death", "dusk", "menu", "nether", "night", "other", "sleep", "twilightforest", "underground" };
 	
 	/* Default music

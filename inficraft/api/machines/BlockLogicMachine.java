@@ -1,6 +1,6 @@
 package inficraft.api.machines;
 
-import inficraft.infitools.crafting.ToolBuilder;
+import inficraft.toolconstruct.crafting.ToolBuilder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -39,20 +39,20 @@ public abstract class BlockLogicMachine extends BlockLogicBase
     	return inventory[slot] != null;
     }
 
-    public ItemStack decrStackSize(int i, int j)
+    public ItemStack decrStackSize(int slot, int quantity)
     {
-        if (inventory[i] != null)
+        if (inventory[slot] != null)
         {
-            if (inventory[i].stackSize <= j)
+            if (inventory[slot].stackSize <= quantity)
             {
-                ItemStack itemstack = inventory[i];
-                inventory[i] = null;
+                ItemStack itemstack = inventory[slot];
+                inventory[slot] = null;
                 return itemstack;
             }
-            ItemStack itemstack1 = inventory[i].splitStack(j);
-            if (inventory[i].stackSize == 0)
+            ItemStack itemstack1 = inventory[slot].splitStack(quantity);
+            if (inventory[slot].stackSize == 0)
             {
-                inventory[i] = null;
+                inventory[slot] = null;
             }
             return itemstack1;
         }
@@ -62,9 +62,9 @@ public abstract class BlockLogicMachine extends BlockLogicBase
         }
     }
 
-    public void setInventorySlotContents(int i, ItemStack itemstack)
+    public void setInventorySlotContents(int slot, ItemStack itemstack)
     {
-        inventory[i] = itemstack;
+        inventory[slot] = itemstack;
         if (itemstack != null && itemstack.stackSize > getInventoryStackLimit())
         {
             itemstack.stackSize = getInventoryStackLimit();
@@ -131,4 +131,9 @@ public abstract class BlockLogicMachine extends BlockLogicBase
     public void closeChest()
     {
     }
+    
+	public ItemStack getStackInSlotOnClosing (int var1)
+	{
+		return null;
+	}
 }

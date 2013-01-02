@@ -12,7 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2012.12.18")
+@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2012.12.21")
 public class FloraCrops
 {
 	/* Proxies for sides, used for graphics processing */
@@ -39,9 +39,9 @@ public class FloraCrops
 		
 		wheatBag = new SeedBag(PHCrops.wheatBagID, Block.crops, 0).setItemName("wheatBag").setIconIndex(0);
 		barleyBag = new SeedBag(PHCrops.barleyBagID, floraCrops, 0).setItemName("barleyBag").setIconIndex(1);
-		potatoBag = new SeedBag(PHCrops.potatoBagID, Block.potato, 0).setItemName("barleyBag").setIconIndex(2);
-		carrotBag = new SeedBag(PHCrops.carrotBagID, Block.carrot, 0).setItemName("barleyBag").setIconIndex(5);
-		netherWartBag = new SeedBag(PHCrops.netherWartBagID, Block.netherStalk, 0).setItemName("barleyBag").setIconIndex(6);
+		potatoBag = new SeedBag(PHCrops.potatoBagID, Block.potato, 0).setItemName("potatoBag").setIconIndex(2);
+		carrotBag = new SeedBag(PHCrops.carrotBagID, Block.carrot, 0).setItemName("carrotBag").setIconIndex(5);
+		netherWartBag = new SeedBag(PHCrops.netherWartBagID, Block.netherStalk, 0).setItemName("wartBag").setIconIndex(6);
 		
 		ModLoader.registerBlock(floraCrops);
 	}
@@ -73,9 +73,13 @@ public class FloraCrops
 	
 	public Block floraCrops;
 	
-	public static int saguaroModel;
+	public Block baseHerb;
+	public Block bloodyHerb;
+	public Block manaHerb;
+	public Block whiteHerb;
+	public Block poisonHerb;
+	public Block leafyHerb;
+	public Block orangeHerb;
 
 	public static String cropTexture = "/infitextures/crops.png";
-	public static String seedTexture = "/infitextures/crops.png";
-	public static String foodTexture = "/infitextures/crops.png";
 }

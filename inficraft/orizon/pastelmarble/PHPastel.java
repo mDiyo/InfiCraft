@@ -42,6 +42,7 @@ public class PHPastel
          */
         
         superfun = config.get("general", "All the world is Superfun", false).getBoolean(false);
+        superfun = config.get("general", "The sky is Superfun", false).getBoolean(false);
         
         cStoneID = config.getBlock("Colored Stone", 3226).getInt(3226);
         cCobbleID = config.getBlock("Colored Cobblestone", 3227).getInt(3227);
@@ -66,6 +67,7 @@ public class PHPastel
         config.save();
     }
 	public static boolean superfun;
+	public static boolean lavafun;
 	
 	public static int cStoneID;
     public static int cCobbleID;

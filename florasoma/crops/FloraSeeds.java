@@ -35,6 +35,6 @@ public class FloraSeeds extends ItemSeedFood
 
     public String getTextureFile()
     {
-        return FloraCrops.seedTexture;
+        return FloraCrops.cropTexture;
     }
 }

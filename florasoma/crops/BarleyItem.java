@@ -25,7 +25,7 @@ public class BarleyItem extends Item
 
     public String getTextureFile()
     {
-        return FloraCrops.seedTexture;
+        return FloraCrops.cropTexture;
     }
 
     public int getMetadata(int i)

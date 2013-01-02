@@ -10,7 +10,6 @@ public class FloraCropsClientProxy extends FloraCropsCommonProxy
 {
 	public void registerRenderer()
 	{
-		MinecraftForgeClient.preloadTexture(FloraCrops.seedTexture);
 		MinecraftForgeClient.preloadTexture(FloraCrops.cropTexture);
 		//TODO: Saguaro Cactus
 		//FloraCrops.getInstance().saguaroModel = ModLoader.getUniqueBlockModelID(this, true);

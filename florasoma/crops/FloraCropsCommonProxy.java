@@ -40,8 +40,8 @@ public class FloraCropsCommonProxy
 		
 		GameRegistry.addRecipe(new ItemStack(Item.bread), "bbb", 'b', new ItemStack(FloraCrops.instance.barleyItem, 1, 0) );
 		GameRegistry.addRecipe(new ItemStack(FloraCrops.instance.barleyItem, 1, 1), "X", 'X', new ItemStack(FloraCrops.instance.barleyItem, 1, 0) );
-		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.barleyItem, 1, 2), FloraCrops.instance.barleyItem, Item.bucketWater );
-		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.barleyItem, 2, 2), FloraCrops.instance.barleyItem, Item.egg );
+		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.barleyItem, 1, 2), new ItemStack(FloraCrops.instance.barleyItem, 1, 1), Item.bucketWater );
+		GameRegistry.addShapelessRecipe(new ItemStack(FloraCrops.instance.barleyItem, 2, 2), new ItemStack(FloraCrops.instance.barleyItem, 1, 1), Item.egg );
 		FurnaceRecipes.smelting().addSmelting(FloraCrops.instance.barleyItem.shiftedIndex, 2, new ItemStack(Item.bread, 1), 1f);
 		
 		GameRegistry.addRecipe(new ItemStack(Item.cake, 1), "AAA", "BEB", " C ", 'A', Item.bucketMilk, 'B', Item.sugar, 

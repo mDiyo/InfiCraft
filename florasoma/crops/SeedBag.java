@@ -36,7 +36,7 @@ public class SeedBag extends Item
 		
 		            if (block != null && block.canSustainPlant(world, posX, y, posZ, ForgeDirection.UP, (IPlantable)crop) && world.isAirBlock(posX, y + 1, posZ))
 		            {
-		                world.setBlockAndMetadataWithNotify(posX, y + 1, posZ, crop.blockID, cropMetadata);
+		            	world.setBlockAndMetadataWithNotify(posX, y + 1, posZ, crop.blockID, cropMetadata);
 		                planted = true;
 		            }
 		        }

@@ -6,9 +6,7 @@ Current Mods: InfiTools, InfiBlocks, Flora & Soma, Orizon, Tweaks
 WiP Mods: Bastion, Simple BGM
 Adopted from others: Airship
 
-InfiTools: Library, Base, Hybrids, 2x2 Extended
+InfiTools: Undergoing rewrite
 Flora & Soma: Berries, Clouds, Corruptor, Crops, Trees
 Orizon: Stone, Slime pools, Dimension
 Tweaks: World, Hunger, Deep Freeze
-
-Code prior to Forge .445 is found in the clientprev and commonprev folders

@@ -13,7 +13,7 @@ public class CactusJuice extends ItemFood
 
     public String getTextureFile()
     {
-        return FloraCrops.foodTexture;
+        return FloraCrops.cropTexture;
     }
     
     public int getMaxItemUseDuration(ItemStack itemstack)

@@ -1,6 +1,6 @@
 package test;
 
-import inficraft.infitools.ToolItems;
+import inficraft.toolconstruct.ToolItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -43,7 +43,8 @@ public class XinStick extends Item
 		compound.getCompoundTag("InfiTool").setInteger("MaxDamage", 20);
 		compound.getCompoundTag("InfiTool").setBoolean("Broken", false);
 		
-		compound.getCompoundTag("display").setString("Name", "Sword of Testing");
+		compound.setCompoundTag("display", new NBTTagCompound());
+		compound.getCompoundTag("display").setString("Name", "\u00A7fTool \u00A78of \u00A7dTesting");
 		tool.setTagCompound(compound);
 		spawnItem(player.posX, player.posY, player.posZ, tool, world);
 		return stack;
