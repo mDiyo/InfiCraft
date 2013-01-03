@@ -123,15 +123,15 @@ public class ToolStationGui extends GuiContainer
 			setSlotType(2);
 			iconX = new int[] { 1, 0, 3 };
 			iconY = new int[] { 2, 3, 3 };
-			title = "\u00A7nFencing Sword";
-			body = "The Fencing Sword is a balanced weapon. It is useful for knocking enemies away or getting in and out of battle quickly.\n\nSpecial ability: Lunge\nDamage: Moderate\nDurability: Moderate\n\nRequired parts:\n- Sword Blade\n- Medium Guard\n- Handle";
+			title = "\u00A7nLongsword";
+			body = "The Longsword is a balanced weapon. It is useful for knocking enemies away or getting in and out of battle quickly.\n\nSpecial ability: Lunge\nDamage: Moderate\nDurability: Moderate\n\nRequired parts:\n- Sword Blade\n- Medium Guard\n- Handle";
 			break;
 		case 7: // Rapier
 			setSlotType(2);
 			iconX = new int[] { 1, 0, 4 };
 			iconY = new int[] { 2, 3, 3 };
 			title = "\u00A7nRapier";
-			body = "The Rapier is an offensive weapon that relies on quick strikes to defeat foes.\n\nNatural Ability:\nArmor Pierce\nDamage: High\nDurability: Low\n\nRequired parts:\n- Sword Blade\n- Crossbar\n- Handle";
+			body = "The Rapier is an offensive weapon that relies on quick strikes to defeat foes.\n\nNatural Abilities:\nArmor Pierce\nZero damage delay\nDamage: High\nDurability: Low\n\nRequired parts:\n- Sword Blade\n- Crossbar\n- Handle";
 			break;
 		}
 	}

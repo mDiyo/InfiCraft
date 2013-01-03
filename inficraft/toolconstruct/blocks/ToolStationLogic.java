@@ -1,6 +1,5 @@
 package inficraft.toolconstruct.blocks;
 
-import florasoma.berries.FloraBerries;
 import inficraft.api.machines.BlockLogicMachine;
 import inficraft.toolconstruct.crafting.ToolBuilder;
 import net.minecraft.entity.item.EntityItem;

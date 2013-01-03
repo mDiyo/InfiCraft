@@ -1,6 +1,5 @@
 package inficraft.toolconstruct.blocks;
 
-import inficraft.infiblocks.InfiBlocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 

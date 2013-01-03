@@ -23,6 +23,8 @@ public class TProxyClient extends TProxyCommon
 		MinecraftForgeClient.preloadTexture(ToolItems.broadswordTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.shovelTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.axeTexture);
+		MinecraftForgeClient.preloadTexture(ToolItems.longswordTexture);
+		MinecraftForgeClient.preloadTexture(ToolItems.rapierTexture);
 	}
 	
 	
@@ -57,6 +59,8 @@ public class TProxyClient extends TProxyCommon
 		LanguageRegistry.addName(ToolItems.shovel, "Shovel");
 		LanguageRegistry.addName(ToolItems.axe, "Axe");
 		LanguageRegistry.addName(ToolItems.broadsword, "Broadsword");
+		LanguageRegistry.addName(ToolItems.longsword, "Longsword");
+		LanguageRegistry.addName(ToolItems.rapier, "Rapier");
 	}
 	
 	@Override

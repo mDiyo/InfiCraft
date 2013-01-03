@@ -41,25 +41,25 @@ public class PHTools {
         
         woodCrafter = config.getBlock("Wood Tool Station", 1471).getInt(1471);
         stoneCrafter = config.getBlock("Stone Tool Station", 1472).getInt(1472);
-        //netherCrafter = config.getBlock("Nether Tool Station", 1473).getInt(1473);
+        netherCrafter = config.getBlock("Nether Tool Station", 1473).getInt(1473);
         
-        materials = config.getItem("Patterns and Misc", "Materials", 14000).getInt(14000);
-        toolRod = config.getItem("Patterns and Misc", "Tool Rod", 14001).getInt(14001);
-        toolShard = config.getItem("Patterns and Misc", "Tool Shard", 14002).getInt(14002);
-        woodPattern = config.getItem("Patterns and Misc", "Wood Pattern", 14003).getInt(14003);
-        stonePattern = config.getItem("Patterns and Misc", "Stone Pattern", 14004).getInt(14004);
-        //netherPattern = config.getItem("Patterns and Misc", "Nether Pattern", 14005).getInt(14005);
+        materials = config.getItem("Patterns and Misc", "Materials", 14020).getInt(14020);
+        toolRod = config.getItem("Patterns and Misc", "Tool Rod", 14021).getInt(14021);
+        toolShard = config.getItem("Patterns and Misc", "Tool Shard", 14022).getInt(14022);
+        woodPattern = config.getItem("Patterns and Misc", "Wood Pattern", 14023).getInt(14023);
+        stonePattern = config.getItem("Patterns and Misc", "Stone Pattern", 14024).getInt(14024);
+        netherPattern = config.getItem("Patterns and Misc", "Nether Pattern", 14005).getInt(14005);
         
-        pickaxeHead = config.getItem("Tool Parts", "Pickaxe Head", 14006).getInt(14006);
-        shovelHead = config.getItem("Tool Parts", "Shovel Head", 14007).getInt(14007);
-        axeHead = config.getItem("Tool Parts", "Axe Head", 14008).getInt(14008);
-        hoeHead = config.getItem("Tool Parts", "Hoe Head", 14009).getInt(14009);
+        pickaxeHead = config.getItem("Tool Parts", "Pickaxe Head", 14026).getInt(14026);
+        shovelHead = config.getItem("Tool Parts", "Shovel Head", 14027).getInt(14027);
+        axeHead = config.getItem("Tool Parts", "Axe Head", 14028).getInt(14028);
+        hoeHead = config.getItem("Tool Parts", "Hoe Head", 14029).getInt(14029);
         
-        swordBlade = config.getItem("Tool Parts", "Sword Blade", 14010).getInt(14010);
-        largeGuard = config.getItem("Tool Parts", "Large Guard", 14011).getInt(14011);
-        medGuard = config.getItem("Tool Parts", "Medium Guard", 14012).getInt(14012);
-        crossbar = config.getItem("Tool Parts", "Crossbar", 14013).getInt(14013);
-        binding = config.getItem("Tool Parts", "Tool Binding", 14014).getInt(14014);
+        swordBlade = config.getItem("Tool Parts", "Sword Blade", 14030).getInt(14030);
+        largeGuard = config.getItem("Tool Parts", "Large Guard", 14031).getInt(14031);
+        medGuard = config.getItem("Tool Parts", "Medium Guard", 14032).getInt(14032);
+        crossbar = config.getItem("Tool Parts", "Crossbar", 14033).getInt(14033);
+        binding = config.getItem("Tool Parts", "Tool Binding", 14034).getInt(14034);
         
         pickaxe = config.getItem("Tools", "Pickaxe", 14051).getInt(14051);
         shovel = config.getItem("Tools", "Shovel", 14052).getInt(14052);
@@ -67,7 +67,7 @@ public class PHTools {
         hoe = config.getItem("Tools", "Hoe", 14054).getInt(14054);
         
         broadsword = config.getItem("Tools", "Broadsword", 14055).getInt(14055);
-        fencingsword = config.getItem("Tools", "Fencing Sword", 14056).getInt(14056);
+        longsword = config.getItem("Tools", "Longsword", 14056).getInt(14056);
         rapier = config.getItem("Tools", "Rapier", 14057).getInt(14057);
 
         /* Save the configuration file */
@@ -94,7 +94,7 @@ public class PHTools {
     public static int hoe;
     
     public static int broadsword;
-    public static int fencingsword;
+    public static int longsword;
     public static int rapier;
 
     //Tool parts

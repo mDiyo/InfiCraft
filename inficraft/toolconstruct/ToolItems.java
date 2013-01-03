@@ -1,14 +1,9 @@
 package inficraft.toolconstruct;
 
-import inficraft.toolconstruct.blocks.ToolStationBlock;
-import inficraft.toolconstruct.crafting.PatternBuilder;
-import inficraft.toolconstruct.crafting.ToolBuilder;
-import inficraft.toolconstruct.items.Pattern;
-import inficraft.toolconstruct.items.ToolPart;
-import inficraft.toolconstruct.tools.Axe;
-import inficraft.toolconstruct.tools.Broadsword;
-import inficraft.toolconstruct.tools.Pickaxe;
-import inficraft.toolconstruct.tools.Shovel;
+import inficraft.toolconstruct.blocks.*;
+import inficraft.toolconstruct.crafting.*;
+import inficraft.toolconstruct.items.*;
+import inficraft.toolconstruct.tools.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -30,7 +25,7 @@ public class ToolItems
 	public static Item shovel;
 	public static Item axe;
 	public static Item broadsword;
-	public static Item fencingSword;
+	public static Item longsword;
 	public static Item rapier;
 	
 	//Tool parts
@@ -63,7 +58,7 @@ public class ToolItems
 		GameRegistry.registerTileEntity(inficraft.toolconstruct.blocks.ToolStationLogic.class, "ToolStation");
 		GameRegistry.registerTileEntity(inficraft.toolconstruct.blocks.PartCrafterLogic.class, "PartCrafter");
 
-		materials = new ToolPart(PHTools.materials, 0, craftingTexture).setItemName("tconstruct.ToolRod");
+		//materials = new ToolPart(PHTools.materials, 64, craftingTexture).setItemName("tconstruct.Materials");
 		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture).setItemName("tconstruct.ToolRod");
 		toolShard = new ToolPart(PHTools.toolShard, 64, craftingTexture).setItemName("tconstruct.ToolShard");
 		woodPattern = new Pattern(PHTools.woodPattern, 0, patternTexture).setItemName("tconstruct.WoodPattern");
@@ -71,7 +66,9 @@ public class ToolItems
 		pickaxe = new Pickaxe(PHTools.pickaxe, pickaxeTexture);
 		shovel = new Shovel(PHTools.shovel, shovelTexture);
 		axe = new Axe(PHTools.axe, axeTexture);
-		broadsword = new Broadsword(PHTools.broadsword, broadswordTexture);		
+		broadsword = new Broadsword(PHTools.broadsword, broadswordTexture);
+		longsword = new Longsword(PHTools.longsword, longswordTexture);
+		rapier = new Rapier(PHTools.rapier, rapierTexture);
 				
 		pickaxeHead = new ToolPart(PHTools.pickaxeHead, 0, baseHeads).setItemName("tconstruct.PickaxeHead");
 		shovelHead = new ToolPart(PHTools.shovelHead, 64, baseHeads).setItemName("tconstruct.ShovelHead");
@@ -80,7 +77,7 @@ public class ToolItems
 		largeGuard = new ToolPart(PHTools.largeGuard, 64, swordparts).setItemName("tconstruct.LargeGuard");
 		medGuard = new ToolPart(PHTools.medGuard, 128, swordparts).setItemName("tconstruct.MediumGuard");
 		crossbar = new ToolPart(PHTools.crossbar, 192, swordparts).setItemName("tconstruct.Crossbar");
-		binding = new ToolPart(PHTools.binding, 192, baseHeads).setItemName("tconstruct.Binding");
+		binding = new ToolPart(PHTools.binding, 0, baseAccessories).setItemName("tconstruct.Binding");
 	}
 	
 	void registerMaterials ()
@@ -99,7 +96,7 @@ public class ToolItems
 		pb.registerFullMaterial(Item.paper, 2, "paper", new ItemStack(Item.paper), new ItemStack(toolRod, 1, 9), 9); //TODO: Register a better material
 		
 		Item[] items = { toolRod, pickaxeHead, shovelHead, axeHead, swordBlade, largeGuard, medGuard, crossbar, binding };
-		for (int iter = 0; iter < items.length-1; iter++)
+		for (int iter = 0; iter < items.length; iter++)
 		{
 			pb.addToolPattern(new ItemStack(woodPattern, 1, iter+1), items[iter]);
 		}
@@ -112,24 +109,32 @@ public class ToolItems
 		tb.addToolRecipe(broadsword, swordBlade, largeGuard);
 		tb.addToolRecipe(axe, axeHead);
 		tb.addToolRecipe(shovel, shovelHead);
+		tb.addToolRecipe(longsword, swordBlade, medGuard);
+		tb.addToolRecipe(rapier, swordBlade, crossbar);
 	}
 	
 	void addCraftingRecipes ()
 	{
-		GameRegistry.addRecipe(new ItemStack(woodCrafter), "c", 'c', Block.workbench);
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 0), "c", 'c', Block.workbench);
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 1), "cc", 'c', Block.workbench);
 		GameRegistry.addRecipe(new ItemStack(woodPattern, 1, 0), "ps", "sp", 'p', Block.planks, 's', Item.stick);
+		
+		for (int i = 0; i < 10; i++)
+		{
+			GameRegistry.addRecipe(new ItemStack(ToolItems.woodPattern, 1, i + 1), "s", 's', new ItemStack(ToolItems.woodPattern, 1, i));
+		}
 	}
 	
 	void setupToolTabs ()
 	{
-		ToolConstruct.materialTab.init(new ItemStack(ToolItems.woodPattern, 1, 127));
-		ItemStack tool = new ItemStack(pickaxe, 1, 0);
+		ToolConstruct.materialTab.init(new ItemStack(ToolItems.woodPattern, 1, 0));
+		ItemStack tool = new ItemStack(longsword, 1, 0);
 
 		NBTTagCompound compound = new NBTTagCompound();
 		compound.setCompoundTag("InfiTool", new NBTTagCompound());
-		compound.getCompoundTag("InfiTool").setInteger("Head", 11);
+		compound.getCompoundTag("InfiTool").setInteger("Head", 2);
 		compound.getCompoundTag("InfiTool").setInteger("Handle", 0);
-		compound.getCompoundTag("InfiTool").setInteger("Accessory", 4);
+		compound.getCompoundTag("InfiTool").setInteger("Accessory", 10);
 		tool.setTagCompound(compound);
 
 		ToolConstruct.toolTab.init(tool);
@@ -142,10 +147,13 @@ public class ToolItems
 	public static String craftingTexture = "/infitextures/tools/materials.png";
 	public static String patternTexture = "/infitextures/tools/patterns.png";
 	public static String baseHeads = "/infitextures/tools/baseheads.png";
+	public static String baseAccessories = "/infitextures/tools/baseaccessories.png";
 	public static String swordparts = "/infitextures/tools/swordparts.png";
 
 	public static String pickaxeTexture = "/infitextures/tools/pickaxes.png";
 	public static String broadswordTexture = "/infitextures/tools/swordbroad.png";
 	public static String shovelTexture = "/infitextures/tools/shovels.png";
 	public static String axeTexture = "/infitextures/tools/axes.png";
+	public static String longswordTexture = "/infitextures/tools/swordfencing.png";
+	public static String rapierTexture = "/infitextures/tools/swordrapier.png";
 }

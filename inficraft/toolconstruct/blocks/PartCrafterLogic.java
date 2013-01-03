@@ -84,8 +84,6 @@ public class PartCrafterLogic extends BlockLogicMachine
 		{
 			inventory[4] = parts[0];
 			inventory[5] = parts[1];
-			System.out.println("Part: "+inventory[5]);
-			System.out.println("Size: "+inventory[5].stackSize);
 		}
 		else
 		{

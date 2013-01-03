@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * Flavorlicious!
  */
 
-@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.6_2012.12.18")
+@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.6_2012.1.2")
 public class SimpleBGM
 {
 	@SideOnly(Side.CLIENT)
@@ -41,6 +41,7 @@ public class SimpleBGM
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		MinecraftForge.EVENT_BUS.register(new SoundHandler());
+		currentMusic = "";
 	}
 
 	@PostInit
@@ -53,6 +54,7 @@ public class SimpleBGM
 		TickRegistry.registerTickHandler(new TickHandler(), Side.CLIENT);
 	}
 	
+	@SideOnly(Side.CLIENT)
 	public void playBackgroundMusic(String sound)
 	{
 		if (options.musicVolume == 0f)
@@ -70,7 +72,7 @@ public class SimpleBGM
 			
 			else if (sound != currentMusic || currentMusic == null || !bgm.playing(currentMusic))
 			{
-				if (bgm.playing(currentMusic))
+				if (bgm.playing(currentMusic) && currentMusic != null)
 					bgm.stop(currentMusic);
 				
 				ArrayList<SoundPoolEntry> songList = SoundHandler.getMusicList(sound);

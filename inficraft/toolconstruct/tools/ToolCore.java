@@ -295,11 +295,13 @@ public class ToolCore extends ItemTool
 		return 1f;
 	}
 	
+	//Vanilla repairs
 	public boolean isItemTool(ItemStack par1ItemStack)
     {
 		return false;
     }
 	
+	//Complete override of attacking
 	/*public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
     {
         return true;
