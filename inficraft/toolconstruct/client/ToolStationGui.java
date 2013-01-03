@@ -68,12 +68,13 @@ public class ToolStationGui extends GuiContainer
 		button.enabled = false;
 		this.controlList.add(button);
 
-		this.controlList.add(new GuiButtonTool(2, cornerX - 88, cornerY, 4, 0));
-		this.controlList.add(new GuiButtonTool(3, cornerX - 66, cornerY, 5, 0));
-		this.controlList.add(new GuiButtonTool(4, cornerX - 44, cornerY, 6, 0));
-		this.controlList.add(new GuiButtonTool(5, cornerX - 22, cornerY, 7, 0));
-		this.controlList.add(new GuiButtonTool(6, cornerX - 110, cornerY + 22, 8, 0));
-		this.controlList.add(new GuiButtonTool(7, cornerX - 88, cornerY + 22, 9, 0));
+		this.controlList.add(new GuiButtonTool(2, cornerX - 88, cornerY, 4, 0)); //Pickaxe
+		this.controlList.add(new GuiButtonTool(3, cornerX - 66, cornerY, 5, 0)); //Shovel
+		this.controlList.add(new GuiButtonTool(4, cornerX - 44, cornerY, 6, 0)); //Axe
+		this.controlList.add(new GuiButtonTool(5, cornerX - 22, cornerY, 0, 1)); //Broadsword
+		this.controlList.add(new GuiButtonTool(6, cornerX - 110, cornerY + 22, 1, 1)); //Longsword
+		this.controlList.add(new GuiButtonTool(7, cornerX - 88, cornerY + 22, 2, 1)); //Rapier
+		this.controlList.add(new GuiButtonTool(8, cornerX - 66, cornerY + 22, 3, 1)); //Frypan
 	}
 
 	protected void actionPerformed (GuiButton button)
@@ -100,15 +101,15 @@ public class ToolStationGui extends GuiContainer
 			break;
 		case 3: // Shovel
 			setSlotType(3);
-			iconX = new int[] { 3, 0 };
-			iconY = new int[] { 2, 3 };
+			iconX = new int[] { 3, 0, 13 };
+			iconY = new int[] { 2, 3, 13 };
 			title = "\u00A7nShovel";
 			body = "The Shovel is a basic digging tool. It is effective on dirt and sand.\n\nRequired parts:\n- Shovel Head\n- Handle";
 			break;
 		case 4: // Axe
 			setSlotType(3);
-			iconX = new int[] { 2, 0 };
-			iconY = new int[] { 2, 3 };
+			iconX = new int[] { 2, 0, 13 };
+			iconY = new int[] { 2, 3, 13 };
 			title = "\u00A7nAxe";
 			body = "The Axe is a basic chopping tool. It is effective on wood and leaves.\n\nRequired parts:\n- Axe Head\n- Handle";
 			break;
@@ -133,6 +134,13 @@ public class ToolStationGui extends GuiContainer
 			title = "\u00A7nRapier";
 			body = "The Rapier is an offensive weapon that relies on quick strikes to defeat foes.\n\nNatural Abilities:\nArmor Pierce\nZero damage delay\nDamage: High\nDurability: Low\n\nRequired parts:\n- Sword Blade\n- Crossbar\n- Handle";
 			break;
+		case 8: // Frypan
+			setSlotType(3);
+			iconX = new int[] { 5, 0, 13 };
+			iconY = new int[] { 3, 3, 13 };
+			title = "\u00A7nFrying Pan";
+			body = "The Frying is a heavy weapon that uses sheer weight to stun foes.\n\nSpecial Ability: Block\nNatural Ability: Bash\nDamage: High\nDurability: High\n\nRequired parts:\n- Pan\n- Handle";
+			break;
 		}
 	}
 
@@ -149,8 +157,8 @@ public class ToolStationGui extends GuiContainer
 			slotY = new int[] { 19, 55, 37 };
 			break;
 		case 3:
-			slotX = new int[] { 56, 56 }; // Two parts
-			slotY = new int[] { 28, 46 };
+			slotX = new int[] { 56, 56, 14 }; // Two parts
+			slotY = new int[] { 28, 46, 37 };
 			break;
 		case 4:
 			slotX = new int[] { 38, 47, 56 }; // Double head

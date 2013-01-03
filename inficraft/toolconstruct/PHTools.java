@@ -61,6 +61,8 @@ public class PHTools {
         crossbar = config.getItem("Tool Parts", "Crossbar", 14033).getInt(14033);
         binding = config.getItem("Tool Parts", "Tool Binding", 14034).getInt(14034);
         
+        binding = config.getItem("Tool Parts", "Frypan Head", 14035).getInt(14035);
+        
         pickaxe = config.getItem("Tools", "Pickaxe", 14051).getInt(14051);
         shovel = config.getItem("Tools", "Shovel", 14052).getInt(14052);
         axe = config.getItem("Tools", "Axe", 14053).getInt(14053);
@@ -69,6 +71,7 @@ public class PHTools {
         broadsword = config.getItem("Tools", "Broadsword", 14055).getInt(14055);
         longsword = config.getItem("Tools", "Longsword", 14056).getInt(14056);
         rapier = config.getItem("Tools", "Rapier", 14057).getInt(14057);
+        frypan = config.getItem("Tools", "Frying Pan", 14058).getInt(14058);
 
         /* Save the configuration file */
         config.save();
@@ -96,6 +99,8 @@ public class PHTools {
     public static int broadsword;
     public static int longsword;
     public static int rapier;
+    
+    public static int frypan;
 
     //Tool parts
     public static int swordBlade;
@@ -107,6 +112,8 @@ public class PHTools {
     public static int axeHead;
     public static int shovelHead;
     public static int hoeHead;
+    
+    public static int frypanHead;
     
     public static int binding;
 }

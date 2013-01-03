@@ -128,7 +128,7 @@ public class AbilityHelper
 	public static void knockbackEntity (EntityLiving living, double boost)
 	{
 		living.motionX *= boost;
-		living.motionY *= boost/2;
+		//living.motionY *= boost/2;
 		living.motionZ *= boost;
 	}
 }

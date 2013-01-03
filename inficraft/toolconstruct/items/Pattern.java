@@ -32,7 +32,7 @@ public class Pattern extends CraftingItem
 
 	public void getSubItems (int id, CreativeTabs tab, List list)
 	{
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 11; i++)
 			list.add(new ItemStack(id, 1, i));
 	}
 
@@ -79,6 +79,7 @@ public class Pattern extends CraftingItem
 		case 7: return 1;
 		case 8: return 1;
 		case 9: return 1;
+		case 10: return 2;
 		default: return 0;
 		}
 	}

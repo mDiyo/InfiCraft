@@ -37,6 +37,9 @@ public class TProxyClient extends TProxyCommon
 		LanguageRegistry.instance().addStringLocalization("crafters.ToolStation", "Tool Station");
 		LanguageRegistry.instance().addStringLocalization("crafters.PartBuilder", "Part Builder");
 		
+		LanguageRegistry.instance().addStringLocalization("ToolStation.Crafter.name", "Tool Station");
+		LanguageRegistry.instance().addStringLocalization("ToolStation.Parts.name", "Tool Part Station");
+		
 		for (int mat = 0; mat < materialTypes.length; mat++)
 		{
 			for (int type = 0; type < toolMaterialNames.length; type++)
@@ -49,9 +52,8 @@ public class TProxyClient extends TProxyCommon
 		
 		for (int i = 0; i < patterns.length; i++)
 		{
-			String internalName = "item.tconstruct.WoodPattern."+patterns[i]+".name"; //Remember the .name dammit!
+			String internalName = "item.tconstruct.Pattern."+patterns[i]+".name";
 			String visibleName = patternNames[i]+" Pattern";
-			System.out.println("Internal Name: "+internalName+" Visible Name: "+visibleName);
 			LanguageRegistry.instance().addStringLocalization(internalName, "en_US", visibleName);
 		}
 		
@@ -61,6 +63,7 @@ public class TProxyClient extends TProxyCommon
 		LanguageRegistry.addName(ToolItems.broadsword, "Broadsword");
 		LanguageRegistry.addName(ToolItems.longsword, "Longsword");
 		LanguageRegistry.addName(ToolItems.rapier, "Rapier");
+		LanguageRegistry.addName(ToolItems.frypan, "Frying Pan");
 	}
 	
 	@Override
@@ -74,14 +77,14 @@ public class TProxyClient extends TProxyCommon
 		"Wood", "Stone", "Iron", "Flint", "Cactus", "Bone", "Obsidian", "Netherrack", "Slime", "Paper", "Cobalt", "Ardite", "Manyullyn" };
 	
 	public static final String[] materialTypes = new String[] {
-		"ToolRod", "PickaxeHead", "ToolShard", "ShovelHead", "AxeHead", "SwordBlade", "LargeGuard", "MediumGuard", "Crossbar", "Binding" };
+		"ToolRod", "PickaxeHead", "ToolShard", "ShovelHead", "AxeHead", "SwordBlade", "LargeGuard", "MediumGuard", "Crossbar", "Binding", "FrypanHead" };
 	
 	public static final String[] materialNames = new String[] {
-		" Rod", " Pickaxe Head", " Shard", " Shovel Head", " Axe Head", " Sword Blade", " Wide Guard", " Cover", " Crossbar", " Binding" };
+		" Rod", " Pickaxe Head", " Shard", " Shovel Head", " Axe Head", " Sword Blade", " Wide Guard", " Cover", " Crossbar", " Binding", " Pan" };
 	
 	public static final String[] patterns = new String[] {
-		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding" };
+		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding", "frypan" };
 	
 	public static final String[] patternNames = new String[] {
-		"Blank", "Tool Rod","Pickaxe Head", "Shovel Head", "Axe Head", "Sword Blade", "Large Guard", "Medium Guard", "Crossbar", "Tool Binding" };
+		"Blank", "Tool Rod","Pickaxe Head", "Shovel Head", "Axe Head", "Sword Blade", "Large Guard", "Medium Guard", "Crossbar", "Tool Binding", "Pan" };
 }

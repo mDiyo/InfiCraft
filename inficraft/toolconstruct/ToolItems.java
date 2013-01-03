@@ -19,6 +19,7 @@ public class ToolItems
 	public static Item toolShard;
 	public static Item woodPattern;
 	public static Item stonePattern;
+	public static Item netherPattern;
 	
 	//Tools
 	public static Item pickaxe;
@@ -27,6 +28,8 @@ public class ToolItems
 	public static Item broadsword;
 	public static Item longsword;
 	public static Item rapier;
+	
+	public static Item frypan;
 	
 	//Tool parts
 	public static Item pickaxeHead;
@@ -37,6 +40,8 @@ public class ToolItems
 	public static Item medGuard;
 	public static Item crossbar;
 	public static Item binding;
+	
+	public static Item frypanHead;
 	
 	//Crafting blocks
 	public static Block woodCrafter;
@@ -61,7 +66,8 @@ public class ToolItems
 		//materials = new ToolPart(PHTools.materials, 64, craftingTexture).setItemName("tconstruct.Materials");
 		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture).setItemName("tconstruct.ToolRod");
 		toolShard = new ToolPart(PHTools.toolShard, 64, craftingTexture).setItemName("tconstruct.ToolShard");
-		woodPattern = new Pattern(PHTools.woodPattern, 0, patternTexture).setItemName("tconstruct.WoodPattern");
+		woodPattern = new Pattern(PHTools.woodPattern, 0, patternTexture).setItemName("tconstruct.Pattern");
+		stonePattern = new Pattern(PHTools.stonePattern, 64, patternTexture).setItemName("tconstruct.Pattern");
 		
 		pickaxe = new Pickaxe(PHTools.pickaxe, pickaxeTexture);
 		shovel = new Shovel(PHTools.shovel, shovelTexture);
@@ -69,6 +75,7 @@ public class ToolItems
 		broadsword = new Broadsword(PHTools.broadsword, broadswordTexture);
 		longsword = new Longsword(PHTools.longsword, longswordTexture);
 		rapier = new Rapier(PHTools.rapier, rapierTexture);
+		frypan = new FryingPan(PHTools.frypan, frypanTexture);
 				
 		pickaxeHead = new ToolPart(PHTools.pickaxeHead, 0, baseHeads).setItemName("tconstruct.PickaxeHead");
 		shovelHead = new ToolPart(PHTools.shovelHead, 64, baseHeads).setItemName("tconstruct.ShovelHead");
@@ -78,6 +85,8 @@ public class ToolItems
 		medGuard = new ToolPart(PHTools.medGuard, 128, swordparts).setItemName("tconstruct.MediumGuard");
 		crossbar = new ToolPart(PHTools.crossbar, 192, swordparts).setItemName("tconstruct.Crossbar");
 		binding = new ToolPart(PHTools.binding, 0, baseAccessories).setItemName("tconstruct.Binding");
+		
+		frypanHead = new ToolPart(PHTools.binding, 0, weaponparts).setItemName("tconstruct.FrypanHead");
 	}
 	
 	void registerMaterials ()
@@ -95,10 +104,11 @@ public class ToolItems
 		pb.registerFullMaterial(Item.slimeBall, 2, "slime", 8); //TODO: Register a better material
 		pb.registerFullMaterial(Item.paper, 2, "paper", new ItemStack(Item.paper), new ItemStack(toolRod, 1, 9), 9); //TODO: Register a better material
 		
-		Item[] items = { toolRod, pickaxeHead, shovelHead, axeHead, swordBlade, largeGuard, medGuard, crossbar, binding };
+		Item[] items = { toolRod, pickaxeHead, shovelHead, axeHead, swordBlade, largeGuard, medGuard, crossbar, binding, frypanHead };
 		for (int iter = 0; iter < items.length; iter++)
 		{
 			pb.addToolPattern(new ItemStack(woodPattern, 1, iter+1), items[iter]);
+			pb.addToolPattern(new ItemStack(stonePattern, 1, iter+1), items[iter]);
 		}
 	}
 	
@@ -111,6 +121,7 @@ public class ToolItems
 		tb.addToolRecipe(shovel, shovelHead);
 		tb.addToolRecipe(longsword, swordBlade, medGuard);
 		tb.addToolRecipe(rapier, swordBlade, crossbar);
+		tb.addToolRecipe(frypan, frypanHead);
 	}
 	
 	void addCraftingRecipes ()
@@ -118,10 +129,13 @@ public class ToolItems
 		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 0), "c", 'c', Block.workbench);
 		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 1), "cc", 'c', Block.workbench);
 		GameRegistry.addRecipe(new ItemStack(woodPattern, 1, 0), "ps", "sp", 'p', Block.planks, 's', Item.stick);
+		GameRegistry.addRecipe(new ItemStack(stonePattern, 1, 0), "ps", "sp", 'p', Block.cobblestone, 's', new ItemStack(toolRod, 1, 1));
+		GameRegistry.addRecipe(new ItemStack(stonePattern, 1, 0), "ps", "sp", 'p', Block.stone, 's', new ItemStack(toolRod, 1, 1));
 		
 		for (int i = 0; i < 10; i++)
 		{
 			GameRegistry.addRecipe(new ItemStack(ToolItems.woodPattern, 1, i + 1), "s", 's', new ItemStack(ToolItems.woodPattern, 1, i));
+			GameRegistry.addRecipe(new ItemStack(ToolItems.stonePattern, 1, i + 1), "s", 's', new ItemStack(ToolItems.stonePattern, 1, i));
 		}
 	}
 	
@@ -149,6 +163,7 @@ public class ToolItems
 	public static String baseHeads = "/infitextures/tools/baseheads.png";
 	public static String baseAccessories = "/infitextures/tools/baseaccessories.png";
 	public static String swordparts = "/infitextures/tools/swordparts.png";
+	public static String weaponparts = "/infitextures/tools/weaponparts.png";
 
 	public static String pickaxeTexture = "/infitextures/tools/pickaxes.png";
 	public static String broadswordTexture = "/infitextures/tools/swordbroad.png";
@@ -156,4 +171,5 @@ public class ToolItems
 	public static String axeTexture = "/infitextures/tools/axes.png";
 	public static String longswordTexture = "/infitextures/tools/swordfencing.png";
 	public static String rapierTexture = "/infitextures/tools/swordrapier.png";
+	public static String frypanTexture = "/infitextures/tools/frypans.png";
 }
