@@ -48,7 +48,7 @@ public class PHTools {
         toolShard = config.getItem("Patterns and Misc", "Tool Shard", 14022).getInt(14022);
         woodPattern = config.getItem("Patterns and Misc", "Wood Pattern", 14023).getInt(14023);
         stonePattern = config.getItem("Patterns and Misc", "Stone Pattern", 14024).getInt(14024);
-        netherPattern = config.getItem("Patterns and Misc", "Nether Pattern", 14005).getInt(14005);
+        netherPattern = config.getItem("Patterns and Misc", "Nether Pattern", 14025).getInt(14025);
         
         pickaxeHead = config.getItem("Tool Parts", "Pickaxe Head", 14026).getInt(14026);
         shovelHead = config.getItem("Tool Parts", "Shovel Head", 14027).getInt(14027);
@@ -61,7 +61,8 @@ public class PHTools {
         crossbar = config.getItem("Tool Parts", "Crossbar", 14033).getInt(14033);
         binding = config.getItem("Tool Parts", "Tool Binding", 14034).getInt(14034);
         
-        binding = config.getItem("Tool Parts", "Frypan Head", 14035).getInt(14035);
+        frypanHead = config.getItem("Tool Parts", "Frypan Head", 14035).getInt(14035);
+        signHead = config.getItem("Tool Parts", "Sign Head", 14036).getInt(14036);
         
         pickaxe = config.getItem("Tools", "Pickaxe", 14051).getInt(14051);
         shovel = config.getItem("Tools", "Shovel", 14052).getInt(14052);
@@ -71,7 +72,9 @@ public class PHTools {
         broadsword = config.getItem("Tools", "Broadsword", 14055).getInt(14055);
         longsword = config.getItem("Tools", "Longsword", 14056).getInt(14056);
         rapier = config.getItem("Tools", "Rapier", 14057).getInt(14057);
+        
         frypan = config.getItem("Tools", "Frying Pan", 14058).getInt(14058);
+        battlesign = config.getItem("Tools", "Battlesign", 14059).getInt(14059);
 
         /* Save the configuration file */
         config.save();
@@ -101,6 +104,7 @@ public class PHTools {
     public static int rapier;
     
     public static int frypan;
+    public static int battlesign;
 
     //Tool parts
     public static int swordBlade;
@@ -114,6 +118,7 @@ public class PHTools {
     public static int hoeHead;
     
     public static int frypanHead;
+    public static int signHead;
     
     public static int binding;
 }

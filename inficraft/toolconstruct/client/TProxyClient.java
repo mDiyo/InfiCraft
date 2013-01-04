@@ -17,7 +17,10 @@ public class TProxyClient extends TProxyCommon
 	{
 		MinecraftForgeClient.preloadTexture(ToolItems.craftingTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.baseHeads);
+		MinecraftForgeClient.preloadTexture(ToolItems.baseAccessories);
+		MinecraftForgeClient.preloadTexture(ToolItems.patternTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.swordparts);
+		MinecraftForgeClient.preloadTexture(ToolItems.jokeparts);
 		
 		MinecraftForgeClient.preloadTexture(ToolItems.pickaxeTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.broadswordTexture);
@@ -25,6 +28,9 @@ public class TProxyClient extends TProxyCommon
 		MinecraftForgeClient.preloadTexture(ToolItems.axeTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.longswordTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.rapierTexture);
+		
+		MinecraftForgeClient.preloadTexture(ToolItems.frypanTexture);
+		MinecraftForgeClient.preloadTexture(ToolItems.signTexture);
 	}
 	
 	
@@ -64,6 +70,7 @@ public class TProxyClient extends TProxyCommon
 		LanguageRegistry.addName(ToolItems.longsword, "Longsword");
 		LanguageRegistry.addName(ToolItems.rapier, "Rapier");
 		LanguageRegistry.addName(ToolItems.frypan, "Frying Pan");
+		LanguageRegistry.addName(ToolItems.battlesign, "Battlesign");
 	}
 	
 	@Override
@@ -77,14 +84,14 @@ public class TProxyClient extends TProxyCommon
 		"Wood", "Stone", "Iron", "Flint", "Cactus", "Bone", "Obsidian", "Netherrack", "Slime", "Paper", "Cobalt", "Ardite", "Manyullyn" };
 	
 	public static final String[] materialTypes = new String[] {
-		"ToolRod", "PickaxeHead", "ToolShard", "ShovelHead", "AxeHead", "SwordBlade", "LargeGuard", "MediumGuard", "Crossbar", "Binding", "FrypanHead" };
+		"ToolRod", "PickaxeHead", "ToolShard", "ShovelHead", "AxeHead", "SwordBlade", "LargeGuard", "MediumGuard", "Crossbar", "Binding", "FrypanHead", "SignHead" };
 	
 	public static final String[] materialNames = new String[] {
-		" Rod", " Pickaxe Head", " Shard", " Shovel Head", " Axe Head", " Sword Blade", " Wide Guard", " Cover", " Crossbar", " Binding", " Pan" };
+		" Rod", " Pickaxe Head", " Shard", " Shovel Head", " Axe Head", " Sword Blade", " Wide Guard", " Cover", " Crossbar", " Binding", " Pan", " Board" };
 	
 	public static final String[] patterns = new String[] {
-		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding", "frypan" };
+		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding", "frypan", "sign" };
 	
 	public static final String[] patternNames = new String[] {
-		"Blank", "Tool Rod","Pickaxe Head", "Shovel Head", "Axe Head", "Sword Blade", "Large Guard", "Medium Guard", "Crossbar", "Tool Binding", "Pan" };
+		"Blank", "Tool Rod","Pickaxe Head", "Shovel Head", "Axe Head", "Sword Blade", "Large Guard", "Medium Guard", "Crossbar", "Tool Binding", "Pan", "Board" };
 }

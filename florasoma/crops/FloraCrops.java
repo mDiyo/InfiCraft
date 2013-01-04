@@ -1,6 +1,7 @@
 package florasoma.crops;
 import inficraft.api.InfiTexturedItem;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.src.ModLoader;
 import cpw.mods.fml.common.Mod;
@@ -12,7 +13,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2012.12.21")
+@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2013.1.3")
 public class FloraCrops
 {
 	/* Proxies for sides, used for graphics processing */
@@ -34,8 +35,8 @@ public class FloraCrops
 		
 		waterDrop = new CactusJuice(PHCrops.ingredientsID + 0, 2, false, 16).setIconCoord(3, 4).setItemName("waterDrop");
 		
-		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, "/infitextures/food.png", "Wheat Flour").setIconCoord(1, 0);
-		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, "/infitextures/food.png", "Wheat Dough").setIconCoord(2, 0);
+		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, "/infitextures/food.png", "Wheat Flour", CreativeTabs.tabFood).setIconCoord(1, 0);
+		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, "/infitextures/food.png", "Wheat Dough", CreativeTabs.tabFood).setIconCoord(2, 0);
 		
 		wheatBag = new SeedBag(PHCrops.wheatBagID, Block.crops, 0).setItemName("wheatBag").setIconIndex(0);
 		barleyBag = new SeedBag(PHCrops.barleyBagID, floraCrops, 0).setItemName("barleyBag").setIconIndex(1);

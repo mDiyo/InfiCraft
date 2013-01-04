@@ -99,7 +99,8 @@ public class AbilityHelper
 			else
 				mob.attackEntityFrom(DamageSource.causeMobDamage(player), attack);
 		}
-		damageTool(stack, 1, tags, player);
+		if (mob.hurtResistantTime <= 0)
+			damageTool(stack, 1, tags, player);
 	}
 
 	public static DamageSource causePiercingDamage (EntityLiving mob)

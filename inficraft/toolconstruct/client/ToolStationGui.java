@@ -71,10 +71,13 @@ public class ToolStationGui extends GuiContainer
 		this.controlList.add(new GuiButtonTool(2, cornerX - 88, cornerY, 4, 0)); //Pickaxe
 		this.controlList.add(new GuiButtonTool(3, cornerX - 66, cornerY, 5, 0)); //Shovel
 		this.controlList.add(new GuiButtonTool(4, cornerX - 44, cornerY, 6, 0)); //Axe
-		this.controlList.add(new GuiButtonTool(5, cornerX - 22, cornerY, 0, 1)); //Broadsword
-		this.controlList.add(new GuiButtonTool(6, cornerX - 110, cornerY + 22, 1, 1)); //Longsword
-		this.controlList.add(new GuiButtonTool(7, cornerX - 88, cornerY + 22, 2, 1)); //Rapier
-		this.controlList.add(new GuiButtonTool(8, cornerX - 66, cornerY + 22, 3, 1)); //Frypan
+		this.controlList.add(new GuiButtonTool(5, cornerX - 22, cornerY, 7, 0)); //Ice Axe
+		this.controlList.add(new GuiButtonTool(6, cornerX - 110, cornerY + 22, 8, 0)); //Mattock
+		this.controlList.add(new GuiButtonTool(7, cornerX - 88, cornerY + 22, 0, 1)); //Broadsword
+		this.controlList.add(new GuiButtonTool(8, cornerX - 66, cornerY + 22, 1, 1)); //Longsword
+		this.controlList.add(new GuiButtonTool(9, cornerX - 44, cornerY + 22, 2, 1)); //Rapier
+		this.controlList.add(new GuiButtonTool(10, cornerX - 22, cornerY + 22, 3, 1)); //Frypan
+		this.controlList.add(new GuiButtonTool(11, cornerX - 110, cornerY + 44, 4, 1)); //Battlesign
 	}
 
 	protected void actionPerformed (GuiButton button)
@@ -113,33 +116,56 @@ public class ToolStationGui extends GuiContainer
 			title = "\u00A7nAxe";
 			body = "The Axe is a basic chopping tool. It is effective on wood and leaves.\n\nRequired parts:\n- Axe Head\n- Handle";
 			break;
-		case 5: // Broadsword
+		case 5: // Ice Axe
+			setSlotType(2);
+			iconX = new int[] { 0, 0, 5 };
+			iconY = new int[] { 2, 3, 3 };
+			title = "\u00A7nIce Axe";
+			body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\n<Not available>";
+			//body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\nSpecial Ability:\n- Wall Climb\nNatural Ability:\n- Ice Harvest\nDamage: Moderate\n\nRequired parts:\n- Pickaxe Head\n- Spike\n- Handle";
+			break;
+		case 6: // Mattock
+			setSlotType(4);
+			iconX = new int[] { 2, 0, 3 };
+			iconY = new int[] { 2, 3, 2 };
+			title = "\u00A7nMattock";
+			body = "The Cutter Mattock is a multi-use tool.\n\n<Not available>";
+			//body = "The Cutter Mattock is a multi-use tool. It is effective on wood, leaves, dirt, and sand.\n\nSpecial Ability: Hoe\n\nRequired parts:\n- Axe Head\n- Shovel Head\n- Handle";
+			break;
+		case 7: // Broadsword
 			setSlotType(2);
 			iconX = new int[] { 1, 0, 2 };
 			iconY = new int[] { 2, 3, 3 };
 			title = "\u00A7nBroadsword";
-			body = "The Broadsword is a defensive weapon. Blocking cuts damage in half.\n\nSpecial ability: Block\nDamage: Moderate\nDurability: High\n\nRequired parts:\n- Sword Blade\n- Large Guard\n- Handle";
+			body = "The Broadsword is a defensive weapon. Blocking cuts damage in half.\n\nSpecial Ability: Block\nDamage: Moderate\nDurability: High\n\nRequired parts:\n- Sword Blade\n- Large Guard\n- Handle";
 			break;
-		case 6: // Fencing Sword
+		case 8: // Fencing Sword
 			setSlotType(2);
 			iconX = new int[] { 1, 0, 3 };
 			iconY = new int[] { 2, 3, 3 };
 			title = "\u00A7nLongsword";
-			body = "The Longsword is a balanced weapon. It is useful for knocking enemies away or getting in and out of battle quickly.\n\nSpecial ability: Lunge\nDamage: Moderate\nDurability: Moderate\n\nRequired parts:\n- Sword Blade\n- Medium Guard\n- Handle";
+			body = "The Longsword is a balanced weapon. It is useful for knocking enemies away or getting in and out of battle quickly.\n\nSpecial Ability: Lunge\nDamage: Moderate\nDurability: Moderate\n\nRequired parts:\n- Sword Blade\n- Medium Guard\n- Handle";
 			break;
-		case 7: // Rapier
+		case 9: // Rapier
 			setSlotType(2);
 			iconX = new int[] { 1, 0, 4 };
 			iconY = new int[] { 2, 3, 3 };
 			title = "\u00A7nRapier";
-			body = "The Rapier is an offensive weapon that relies on quick strikes to defeat foes.\n\nNatural Abilities:\nArmor Pierce\nZero damage delay\nDamage: High\nDurability: Low\n\nRequired parts:\n- Sword Blade\n- Crossbar\n- Handle";
+			body = "The Rapier is an offensive weapon that relies on quick strikes to defeat foes.\n\nNatural Abilities:\n- Armor Pierce\n- Zero damage delay\nDamage: High\nDurability: Low\n\nRequired parts:\n- Sword Blade\n- Crossbar\n- Handle";
 			break;
-		case 8: // Frypan
+		case 10: // Frypan
 			setSlotType(3);
-			iconX = new int[] { 5, 0, 13 };
-			iconY = new int[] { 3, 3, 13 };
+			iconX = new int[] { 4, 0, 13 };
+			iconY = new int[] { 2, 3, 13 };
 			title = "\u00A7nFrying Pan";
 			body = "The Frying is a heavy weapon that uses sheer weight to stun foes.\n\nSpecial Ability: Block\nNatural Ability: Bash\nDamage: High\nDurability: High\n\nRequired parts:\n- Pan\n- Handle";
+			break;
+		case 11: // Battlesign
+			setSlotType(3);
+			iconX = new int[] { 5, 0, 13 };
+			iconY = new int[] { 2, 3, 13 };
+			title = "\u00A7nBattlesign";
+			body = "The Battlesign is an advance in weapon technology worthy of Zombie Pigmen everywhere.\n\nSpecial Ability: Block\nShift-rClick: Place sign\nDamage: Low\nDurability: Average\n\nRequired parts:\n- Board\n- Handle";
 			break;
 		}
 	}

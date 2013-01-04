@@ -28,11 +28,11 @@ public class Pattern extends CraftingItem
 	}
 
 	public static final String[] patternName = new String[] { 
-		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding", "iceaxe", "machete", "hammer", "mattock", "scythe" };
+		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding", "frypan", "sign" };
 
 	public void getSubItems (int id, CreativeTabs tab, List list)
 	{
-		for (int i = 0; i < 11; i++)
+		for (int i = 0; i < patternName.length; i++)
 			list.add(new ItemStack(id, 1, i));
 	}
 
@@ -80,6 +80,7 @@ public class Pattern extends CraftingItem
 		case 8: return 1;
 		case 9: return 1;
 		case 10: return 2;
+		case 11: return 2;
 		default: return 0;
 		}
 	}

@@ -27,7 +27,7 @@ public abstract class HarvestTool extends ToolCore
 		Block block = Block.blocksList[bID];
 		int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, "pickaxe");
 		
-		if (hlvl < EnumMaterial.harvestLevel(tags.getCompoundTag("InfiTool").getInteger("Head")))
+		if (hlvl <= EnumMaterial.harvestLevel(tags.getCompoundTag("InfiTool").getInteger("Head")))
 			return false;
 		else
 		{
