@@ -18,7 +18,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "TConstruct", name = "Tool Construct", version = "A6")
+@Mod(modid = "TConstruct", name = "Tool Construct", version = "A7")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class ToolConstruct 
 {

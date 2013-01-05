@@ -25,6 +25,6 @@ public class ColoredMossyBrickItem extends ItemBlock
 
     public String getItemNameIS(ItemStack itemstack)
     {
-        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("Stone").toString();
+        return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("Mossy").toString();
     }
 }

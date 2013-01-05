@@ -41,8 +41,8 @@ public class ToolBuilder
 	//Builds a tool from the parts given
 	public ItemStack buildTool (ItemStack headStack, ItemStack handleStack, ItemStack accessoryStack, String name)
 	{		
-		if (headStack != null && headStack.getItem() instanceof ToolCore)
-			return modifyTool(headStack, handleStack, accessoryStack);
+		/*if (headStack != null && headStack.getItem() instanceof ToolCore)
+			return modifyTool(headStack, handleStack, accessoryStack);*/
 		
 		if (headStack == null || handleStack == null) //Nothing to build without these. All tools need at least two parts!
 			return null;

@@ -1,15 +1,15 @@
 package inficraft.toolconstruct.tools;
 
+import ic2.api.IBoxable;
+import ic2.api.IElectricItem;
 import inficraft.toolconstruct.AbilityHelper;
 import inficraft.toolconstruct.ToolConstruct;
-import inficraft.toolconstruct.ToolItems;
 
 import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -44,6 +44,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  */
 
 public class ToolCore extends ItemTool
+	implements IElectricItem, IBoxable
 {
 	Random random = new Random();
 	String toolTexture;
@@ -52,7 +53,7 @@ public class ToolCore extends ItemTool
 	{
 		super(itemID, baseDamage, EnumToolMaterial.WOOD, new Block[] {});
 		this.maxStackSize = 1;
-		this.setMaxDamage(100);
+		this.setMaxDamage(12);
 		this.setItemName("InfiTool");
 		this.setCreativeTab(ToolConstruct.toolTab);
 		toolTexture = texture;
@@ -172,6 +173,11 @@ public class ToolCore extends ItemTool
 			return;
 
 		NBTTagCompound tags = stack.getTagCompound();
+		if (tags.hasKey("charge"))
+		{
+			String charge = new StringBuilder().append(tags.getInteger("charge")).append("/").append(getMaxCharge()).append(" EU").toString(); 
+			list.add(charge);
+		}
 		if (tags.hasKey("InfiTool"))
 		{
 			boolean broken = tags.getCompoundTag("InfiTool").getBoolean("Broken");
@@ -312,5 +318,47 @@ public class ToolCore extends ItemTool
 	public float getDurabilityModifier()
 	{
 		return 1f;
+	}
+
+	@Override
+	public boolean canBeStoredInToolbox (ItemStack itemstack)
+	{
+		return true;
+	}
+
+	@Override
+	public boolean canProvideEnergy ()
+	{
+		return false;
+	}
+
+	@Override
+	public int getChargedItemId ()
+	{
+		return this.shiftedIndex;
+	}
+
+	@Override
+	public int getEmptyItemId ()
+	{
+		return this.shiftedIndex;
+	}
+
+	@Override
+	public int getMaxCharge ()
+	{
+		return 10000;
+	}
+
+	@Override
+	public int getTier ()
+	{
+		return 0;
+	}
+
+	@Override
+	public int getTransferLimit ()
+	{
+		return 32;
 	}
 }

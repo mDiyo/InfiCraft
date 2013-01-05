@@ -18,7 +18,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.6_2013.1.4")
+@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.6_2013.1.5")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class InfiBlocks
 {
