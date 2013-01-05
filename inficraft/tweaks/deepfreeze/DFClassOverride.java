@@ -26,14 +26,14 @@ public class DFClassOverride implements IClassTransformer
 			try
 			{
 				Class c = Class.forName(name);
-				System.out.println("Attempting override of: "+name + " " + DFClassOverride.override.get(name));
+				System.out.println("Attempting override of: " + name + " " + DFClassOverride.override.get(name));
 			}
 			catch (Exception ex)
 			{
-				System.out.println("Files were missing!");
+				System.out.println("Files were missing! Good job breaking it you numpty");
 				ex.printStackTrace();
 			}
-			
+
 			//Do the real thing
 			bytes = overrideBytes(name, bytes, DeepFreeze.coreLocation);
 		}

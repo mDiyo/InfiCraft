@@ -1,5 +1,7 @@
 package inficraft.tweaks.world;
 
+import inficraft.tweaks.deepfreeze.DFClassOverride;
+
 import java.io.*;
 import java.lang.reflect.*;
 import java.util.*;
@@ -22,7 +24,19 @@ public class WTClassOverride implements IClassTransformer
 	{
 		if (override.containsKey(name))
 		{
-			System.out.println("attempting override of " + name + " from " + WorldTweaks.coreLocation);
+			//This is a debug measure. Sometimes the files aren't found, we'll tell Java where they are. No, I don't know why the **** you need this.
+			try
+			{
+				Class c = Class.forName(name);
+				System.out.println("Attempting override of: " + name + " " + DFClassOverride.override.get(name));
+			}
+			catch (Exception ex)
+			{
+				System.out.println("Files were missing! Good job breaking it you numpty");
+				ex.printStackTrace();
+			}
+
+			//Do the real thing
 			bytes = overrideBytes(name, bytes, WorldTweaks.coreLocation);
 		}
 		return bytes;
@@ -46,7 +60,6 @@ public class WTClassOverride implements IClassTransformer
 				bytes = new byte[(int) entry.getSize()];
 				zin.read(bytes);
 				zin.close();
-				System.out.println(name + " was overriden from " + location.getName());
 			}
 			zip.close();
 		}

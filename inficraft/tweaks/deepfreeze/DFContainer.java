@@ -2,9 +2,8 @@ package inficraft.tweaks.deepfreeze;
 
 import java.util.Arrays;
 
+import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-
-import net.minecraftforge.event.EventBus;
 
 import cpw.mods.fml.common.DummyModContainer;
 import cpw.mods.fml.common.LoadController;
@@ -15,16 +14,16 @@ public class DFContainer extends DummyModContainer
 {
 	public DFContainer() {
         super(new ModMetadata());
-        /* ModMetadata is the same as mcmod.info */
         ModMetadata myMeta = super.getMetadata();
         myMeta.authorList = Arrays.asList(new String[] { "mDiyo" });
         myMeta.description = "Deep Freeze, Core mod";
         myMeta.modId = "DeepFreeze";
-        myMeta.version = "1.4.5";
+        myMeta.version = "1.4.6";
         myMeta.name = "Deep Freeze";
-	    //myMeta.url = "http://minecraftforge.net/wiki/Using_Access_Transformers";
+        myMeta.url = "http://www.minecraftforum.net/topic/521617-inficraft";
 	}
 	
+	@Override
 	public boolean registerBus(EventBus bus, LoadController controller) 
 	{
 		bus.register(this);

@@ -11,13 +11,12 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
 /* Hunger Tweaks
- * Put on hold until I figure out why classes with subclasses don't load properly.
  * @author: mDiyo
  */
 
-@TransformerExclusions("mDiyo.inficraft.tweaks.hunger")
+@TransformerExclusions("inficraft.tweaks.hunger")
 public class HungerTweaks 
-	implements IFMLLoadingPlugin, IFMLCallHook
+	implements IFMLLoadingPlugin
 {
 	@Override
 	public String[] getLibraryRequestClass() 
@@ -28,19 +27,19 @@ public class HungerTweaks
 	@Override
 	public String[] getASMTransformerClass() 
 	{
-		return new String[] {"mDiyo.inficraft.tweaks.hunger.HTClassOverride"};
+		return new String[] {"inficraft.tweaks.hunger.HTClassOverride"};
 	}
 
 	@Override
 	public String getModContainerClass()
 	{
-		return "mDiyo.inficraft.tweaks.hunger.HTContainer";
+		return "inficraft.tweaks.hunger.HTContainer";
 	}
 
 	@Override
 	public String getSetupClass() 
 	{
-		return "mDiyo.inficraft.tweaks.hunger.HungerTweaks";
+		return null;
 	}
 
 	@Override
@@ -51,12 +50,4 @@ public class HungerTweaks
 	}
 	
 	public static File coreLocation;
-
-	@Override
-	public Void call() throws Exception 
-	{
-		HTClassOverride.addClassOverride("qx", "EntityPlayer, Sprinting drains less hunger");
-		HTClassOverride.addClassOverride("ro", "FoodStats, full hunger no longer required");
-		return null;
-	}
 }
