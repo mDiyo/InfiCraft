@@ -1,8 +1,8 @@
 package inficraft.toolconstruct.crafting;
 
 import inficraft.toolconstruct.ToolItems;
+import inficraft.toolconstruct.tools.ToolCore;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 /*
  * Small class for checking if a particular tool combination is this one
@@ -12,9 +12,9 @@ public class ToolRecipe
 {
 	Item head;
 	Item accessory;
-	Item item;
+	ToolCore item;
 	
-	public ToolRecipe(Item h, Item acc, Item i)
+	public ToolRecipe(Item h, Item acc, ToolCore i)
 	{
 		head = h;
 		accessory = acc;
@@ -46,7 +46,7 @@ public class ToolRecipe
 			return false;
 	}
 	
-	public Item getType()
+	public ToolCore getType()
 	{
 		return item;
 	}

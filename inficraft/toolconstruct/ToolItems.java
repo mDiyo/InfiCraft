@@ -22,15 +22,15 @@ public class ToolItems
 	public static Item netherPattern;
 	
 	//Tools
-	public static Item pickaxe;
-	public static Item shovel;
-	public static Item axe;
-	public static Item broadsword;
-	public static Item longsword;
-	public static Item rapier;
+	public static ToolCore pickaxe;
+	public static ToolCore shovel;
+	public static ToolCore axe;
+	public static ToolCore broadsword;
+	public static ToolCore longsword;
+	public static ToolCore rapier;
 	
-	public static Item frypan;
-	public static Item battlesign;
+	public static ToolCore frypan;
+	public static ToolCore battlesign;
 	
 	//Tool parts
 	public static Item pickaxeHead;
@@ -66,8 +66,8 @@ public class ToolItems
 		GameRegistry.registerTileEntity(inficraft.toolconstruct.blocks.PartCrafterLogic.class, "PartCrafter");
 
 		//materials = new ToolPart(PHTools.materials, 64, craftingTexture).setItemName("tconstruct.Materials");
-		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture).setItemName("tconstruct.ToolRod");
-		toolShard = new ToolPart(PHTools.toolShard, 64, craftingTexture).setItemName("tconstruct.ToolShard");
+		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture, false).setItemName("tconstruct.ToolRod");
+		toolShard = new ToolPart(PHTools.toolShard, 64, craftingTexture, false).setItemName("tconstruct.ToolShard");
 		woodPattern = new Pattern(PHTools.woodPattern, 0, patternTexture).setItemName("tconstruct.Pattern");
 		stonePattern = new Pattern(PHTools.stonePattern, 64, patternTexture).setItemName("tconstruct.Pattern");
 		netherPattern = new Pattern(PHTools.netherPattern, 128, patternTexture).setItemName("tconstruct.Pattern");
@@ -80,19 +80,19 @@ public class ToolItems
 		rapier = new Rapier(PHTools.rapier, rapierTexture);
 		
 		frypan = new FryingPan(PHTools.frypan, frypanTexture);
-		battlesign = new BattleSign(PHTools.frypan, signTexture);
+		battlesign = new BattleSign(PHTools.battlesign, signTexture);
 				
-		pickaxeHead = new ToolPart(PHTools.pickaxeHead, 0, baseHeads).setItemName("tconstruct.PickaxeHead");
-		shovelHead = new ToolPart(PHTools.shovelHead, 64, baseHeads).setItemName("tconstruct.ShovelHead");
-		axeHead = new ToolPart(PHTools.axeHead, 128, baseHeads).setItemName("tconstruct.AxeHead");
-		swordBlade = new ToolPart(PHTools.swordBlade, 0, swordparts).setItemName("tconstruct.SwordBlade");
-		largeGuard = new ToolPart(PHTools.largeGuard, 64, swordparts).setItemName("tconstruct.LargeGuard");
-		medGuard = new ToolPart(PHTools.medGuard, 128, swordparts).setItemName("tconstruct.MediumGuard");
-		crossbar = new ToolPart(PHTools.crossbar, 192, swordparts).setItemName("tconstruct.Crossbar");
-		binding = new ToolPart(PHTools.binding, 0, baseAccessories).setItemName("tconstruct.Binding");
+		pickaxeHead = new ToolPart(PHTools.pickaxeHead, 0, baseHeads, true).setItemName("tconstruct.PickaxeHead");
+		shovelHead = new ToolPart(PHTools.shovelHead, 64, baseHeads, true).setItemName("tconstruct.ShovelHead");
+		axeHead = new ToolPart(PHTools.axeHead, 128, baseHeads, true).setItemName("tconstruct.AxeHead");
+		swordBlade = new ToolPart(PHTools.swordBlade, 0, swordparts, true).setItemName("tconstruct.SwordBlade");
+		largeGuard = new ToolPart(PHTools.largeGuard, 64, swordparts, false).setItemName("tconstruct.LargeGuard");
+		medGuard = new ToolPart(PHTools.medGuard, 128, swordparts, false).setItemName("tconstruct.MediumGuard");
+		crossbar = new ToolPart(PHTools.crossbar, 192, swordparts, false).setItemName("tconstruct.Crossbar");
+		binding = new ToolPart(PHTools.binding, 0, baseAccessories, false).setItemName("tconstruct.Binding");
 		
-		frypanHead = new ToolPart(PHTools.frypanHead, 0, jokeparts).setItemName("tconstruct.FrypanHead");
-		signHead = new ToolPart(PHTools.signHead, 64, jokeparts).setItemName("tconstruct.SignHead");
+		frypanHead = new ToolPart(PHTools.frypanHead, 0, jokeparts, true).setItemName("tconstruct.FrypanHead");
+		signHead = new ToolPart(PHTools.signHead, 64, jokeparts, true).setItemName("tconstruct.SignHead");
 	}
 	
 	void registerMaterials ()

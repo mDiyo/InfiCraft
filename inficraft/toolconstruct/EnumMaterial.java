@@ -9,9 +9,9 @@ public enum EnumMaterial
     Cactus(1, 150, 5.0F, 2, 1.0F, 0, -1f),
     Obsidian(3, 89, 8F, 2, 0.8F, 5, 0),
     Bone(1, 200, 5.0F, 2, 1.0F, 0, 0),
+    Netherrack(2, 131, 4.0F, 1, 1.2F, 0, 1f),
     Slime(3, 1500, 1.5F, 0, 5.0F, 0, 0),
     Paper(0, 131, 2.0F, 0, 0.1F, 0, 0),
-    Netherrack(2, 131, 4.0F, 1, 1.2F, 0, 1f),
     Cobalt(4, 800, 8.0F, 3, 1.8F, 2, 0),
     Ardite(4, 800, 8.0F, 3, 1.8F, 0, 0),
     Manyullyn(5, 1200, 12.0F, 4, 2.5F, 0, 0),
@@ -68,14 +68,14 @@ public enum EnumMaterial
     /**
      * Damage versus entities.
      */
-    public int damage()
+    public int attack()
     {
         return this.damageVsEntity;
     }
     
-    public static int damage(int type)
+    public static int attack(int type)
     {
-    	return getEnumByType(type).damage();
+    	return getEnumByType(type).attack();
     }
     
     /*
@@ -137,9 +137,9 @@ public enum EnumMaterial
     	case 4: return Cactus;
     	case 5: return Obsidian;
     	case 6: return Bone;
-    	case 7: return Slime;
-    	case 8: return Paper;
-    	case 9: return Netherrack;
+    	case 7: return Netherrack;
+    	case 8: return Slime;
+    	case 9: return Paper;
     	case 10: return Cobalt;
     	case 11: return Ardite;
     	case 12: return Manyullyn;

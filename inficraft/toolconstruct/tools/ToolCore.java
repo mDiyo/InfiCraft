@@ -52,6 +52,7 @@ public class ToolCore extends ItemTool
 	{
 		super(itemID, baseDamage, EnumToolMaterial.WOOD, new Block[] {});
 		this.maxStackSize = 1;
+		this.setMaxDamage(100);
 		this.setItemName("InfiTool");
 		this.setCreativeTab(ToolConstruct.toolTab);
 		toolTexture = texture;
@@ -96,15 +97,11 @@ public class ToolCore extends ItemTool
 		{
 			if (pass == 0) // Handle
 			{
-				//toolTexture = ToolItems.swordTexture;
-				//texture = ToolItems.shovelTexture;
 				return tags.getCompoundTag("InfiTool").getInteger("Handle");
 			}
 
 			if (pass == 1) // Head
 			{
-				//toolTexture = ToolItems.shovelTexture;
-				//texture = ToolItems.pickaxeTexture;
 				if (tags.getCompoundTag("InfiTool").getBoolean("Broken"))
 					return tags.getCompoundTag("InfiTool").getInteger("Head") + 192;
 				
@@ -113,10 +110,13 @@ public class ToolCore extends ItemTool
 			
 			if (pass == 2) // Accessory
 			{
-				//toolTexture = ToolItems.craftingTexture;
-				//texture = ToolItems.swordTexture;
 				if (tags.getCompoundTag("InfiTool").hasKey("Accessory"))
-					return tags.getCompoundTag("InfiTool").getInteger("Accessory") + 32;
+				{
+					int index =  tags.getCompoundTag("InfiTool").getInteger("Accessory");
+					if (index == -1)
+						return 32;
+					return index + 32;
+				}
 			}
 			
 			/*if (pass == 3)
@@ -127,7 +127,7 @@ public class ToolCore extends ItemTool
 						tags.getCompoundTag("InfiTool").getBoolean("Broken"));
 			}*/
 
-			/*if (pass == 3)
+			if (pass == 3)
 			{
 				if (tags.getCompoundTag("InfiTool").hasKey("Effect1"))
 					return tags.getCompoundTag("InfiTool").getInteger("Effect") + 240;
@@ -149,7 +149,7 @@ public class ToolCore extends ItemTool
 					return tags.getCompoundTag("InfiTool").getInteger("Effect3") + 240;
 				else
 					return 255;
-			}*/
+			}
 		}
 
 		return 255; //Keep 255 blank
@@ -233,7 +233,7 @@ public class ToolCore extends ItemTool
 		case 7: return "Durability V"; //Obsidian
 		case 8: return "Shoddy"; //Netherrack
 		case 9: return ""; //Slime
-		case 10: return ""; //Paper
+		case 10: return "Writable"; //Paper
 		case 11: return "Durability II"; //Cobalt
 		case 12: return ""; //Ardite
 		case 13: return "Awareness"; //Manyullyn
@@ -244,8 +244,8 @@ public class ToolCore extends ItemTool
 	/* Creative mode tools */
     public void getSubItems(int id, CreativeTabs tab, List list)
     {
-		for (int i = 0; i < 13; i++)
-			list.add(getDefaultItem(id, i));
+		/*for (int i = 0; i < 13; i++)
+			list.add(getDefaultItem(id, i));*/
     }
 	
 	ItemStack getDefaultItem(int id, int type)
@@ -277,14 +277,9 @@ public class ToolCore extends ItemTool
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLiving mob, EntityLiving player)
 	{
-		AbilityHelper.hitEntity(stack, mob, player, damageVsEntity);
+		AbilityHelper.hitEntity(stack, mob, player);
 		return true;
 	}
-	
-	public int getDamageVsEntity(Entity par1Entity)
-    {
-        return 1;
-    }
 	
 	@Override
 	public float getStrVsBlock(ItemStack stack, Block block, int meta)
@@ -311,5 +306,11 @@ public class ToolCore extends ItemTool
 	public int getItemEnchantability()
 	{
 		return 0;
+	}
+	
+	//Changes how much durability the base tool has
+	public float getDurabilityModifier()
+	{
+		return 1f;
 	}
 }

@@ -595,8 +595,8 @@ public class InfiBlockRecipes
 				new ItemStack(InfiBlockContent.storageBlock, 1, 12), 0.1F);
 		FurnaceRecipes.smelting().addSmelting(Block.sandStone.blockID, 
 				new ItemStack(InfiBlockContent.storageBlock, 1, 13), 0.5F);
-		FurnaceRecipes.smelting().addSmelting(Block.stone.blockID, 
-				new ItemStack(InfiBlockContent.storageBlock, 1, 14), 0.1F);
+		FurnaceRecipes.smelting().addSmelting(Block.stone.blockID, new ItemStack(InfiBlockContent.storageBlock, 1, 14), 0.1F);
+		FurnaceRecipes.smelting().addSmelting(Block.stone.blockID, 0, new ItemStack(InfiBlockContent.storageBlock, 1, 14), 0.1F);
 		FurnaceRecipes.smelting().addSmelting(Block.blockClay.blockID, 
 				new ItemStack(InfiBlockContent.storageBlock, 1, 15), 0.8F);
 		FurnaceRecipes.smelting().addSmelting(Block.gravel.blockID, 

@@ -22,9 +22,14 @@ import inficraft.infiblocks.magicslabs.MagicSlabWool;
 import inficraft.infiblocks.magicslabs.StainedGlassMagicSlab;
 import inficraft.infiblocks.tech.FurnaceBlock;
 import inficraft.infiblocks.tech.WorkbenchBlock;
+
+import java.lang.reflect.*;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class InfiBlockContent
@@ -106,6 +111,20 @@ public class InfiBlockContent
 	{
 		chiselIron = new Chisel(PHInfiBlocks.chiselID, 256).setIconCoord(14, 15).setItemName("chiselIron");
 		chiselDiamond = new Chisel(PHInfiBlocks.chiselID+1, 2048).setIconCoord(15, 15).setItemName("chiselDiamond");	
+	}
+	
+	public void resolveModConflicts()
+	{
+		FurnaceRecipes.smelting().addSmelting(Block.stone.blockID, new ItemStack(InfiBlockContent.storageBlock, 1, 14), 0.1F);
+		FurnaceRecipes.smelting().addSmelting(Block.stone.blockID, 0, new ItemStack(InfiBlockContent.storageBlock, 1, 14), 0.1F);
+		try
+		{
+			Class c = Class.forName("com.eloraam.redpower.RedPowerLogic");
+			GameRegistry.addRecipe(new ItemStack(com.eloraam.redpower.RedPowerLogic.itemWafer.getItem(), 2, 0), "#",  '#', new ItemStack(storageBlock, 1, 14) );
+		}
+		catch (Exception e)
+		{
+		}
 	}
 
 	public static Block workbench;

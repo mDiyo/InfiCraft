@@ -4,9 +4,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -16,7 +18,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.6_2012.12.18")
+@Mod(modid = "InfiBlocks", name = "InfiBlocks", version = "1.4.6_2013.1.4")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class InfiBlocks
 {
@@ -55,6 +57,12 @@ public class InfiBlocks
 		InfiBlockRecipes.initDetails();
 		
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+	}
+	
+	@PostInit
+	public void postInit(FMLPostInitializationEvent evt)
+	{
+		contentInstance.resolveModConflicts();
 	}
 	
 	/* Texture paths */

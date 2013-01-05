@@ -83,7 +83,7 @@ public class PatternBuilder
 		return null;
 	}
 	
-	ItemKey getMaterialSet (ItemStack material)
+	public ItemKey getMaterialSet (ItemStack material)
 	{
 		Item mat = material.getItem();
 		int damage = material.getItemDamage();
@@ -95,7 +95,7 @@ public class PatternBuilder
 		return null;
 	}
 	
-	Item getMatchingPattern (ItemStack pattern)
+	public Item getMatchingPattern (ItemStack pattern)
 	{
 		Item pat = pattern.getItem();
 		int damage = pattern.getItemDamage();

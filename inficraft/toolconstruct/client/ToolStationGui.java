@@ -93,7 +93,7 @@ public class ToolStationGui extends GuiContainer
 			iconX = new int[] { 0, 1, 2 };
 			iconY = new int[] { 13, 13, 13 };
 			title = "\u00A7nRepair and Modification";
-			body = "The main way to repair or change your tools. Place a tool in the large slot to get started.\n\nThis window not done yet, stay tuned.";
+			body = "The main way to repair or change your tools. Place a tool and a material on the left to get started.";
 			break;
 		case 2: // Pickaxe
 			setSlotType(2);
@@ -175,8 +175,8 @@ public class ToolStationGui extends GuiContainer
 		switch (type)
 		{
 		case 1:
-			slotX = new int[] { 56, 38, 56 }; // Repair
-			slotY = new int[] { 28, 37, 46 };
+			slotX = new int[] { 56, 38, 38 }; // Repair
+			slotY = new int[] { 37, 28, 46 };
 			break;
 		case 2:
 			slotX = new int[] { 56, 56, 56 }; // Three parts
@@ -226,13 +226,13 @@ public class ToolStationGui extends GuiContainer
 		NBTTagCompound tags = stack.getTagCompound().getCompoundTag("InfiTool");
 		this.drawCenteredString(fontRenderer, "\u00A7n"+tool.getToolName(), xSize + 63, 8, 16777215);
 		int dur = tags.getInteger("Damage");
-		int maxDur = tags.getInteger("MaxDamage");
+		int maxDur = tags.getInteger("TotalDurability");
 		dur = maxDur - dur;
 		fontRenderer.drawString("Durability: " + dur + "/" + maxDur, xSize + 8, 24, 16777215);
-		int damage = tags.getInteger("Attack") + tool.damageVsEntity;
+		int damage = tags.getInteger("Attack");
 		fontRenderer.drawString("Damage: " + damage, xSize + 8, 36, 16777215);
 		int head = tags.getInteger("Head");
-		fontRenderer.drawString("Mining Speed: " + EnumMaterial.toolSpeed(head), xSize + 8, 48, 16777215);
+		fontRenderer.drawString("Mining Speed: " +tags.getFloat("MiningSpeed"), xSize + 8, 48, 16777215);
 		fontRenderer.drawString("Mining Level: " + getHarvestLevelName(EnumMaterial.harvestLevel(head)), xSize + 8, 60, 16777215);
 
 		fontRenderer.drawString("Modifiers remaining: " + tags.getInteger("Modifiers"), xSize + 8, 80, 16777215);
@@ -257,7 +257,8 @@ public class ToolStationGui extends GuiContainer
 		case 3:
 			return "Obsidian";
 		default:
-			return "More data required";
+			return String.valueOf(num);
+			//return "More data required";
 		}
 	}
 

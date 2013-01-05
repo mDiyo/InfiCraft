@@ -20,14 +20,14 @@ public abstract class HarvestTool extends ToolCore
 	@Override
 	public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player)
 	{
-		NBTTagCompound tags = stack.getTagCompound();
+		NBTTagCompound tags = stack.getTagCompound().getCompoundTag("InfiTool");
 		World world = player.worldObj;
 		int bID = player.worldObj.getBlockId(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
 		Block block = Block.blocksList[bID];
-		int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, "pickaxe");
+		int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, getHarvestType());
 		
-		if (hlvl <= EnumMaterial.harvestLevel(tags.getCompoundTag("InfiTool").getInteger("Head")))
+		if (hlvl <= tags.getInteger("HarvestLevel"))
 			return false;
 		else
 		{
@@ -44,7 +44,7 @@ public abstract class HarvestTool extends ToolCore
 	public float getStrVsBlock(ItemStack stack, Block block, int meta)
 	{
 
-		NBTTagCompound tags = stack.getTagCompound();
+		NBTTagCompound tags = stack.getTagCompound().getCompoundTag("InfiTool");
 		if (tags.getCompoundTag("InfiTool").getBoolean("Broken"))
 			return 0.1f;
 		
@@ -53,15 +53,14 @@ public abstract class HarvestTool extends ToolCore
 		{
 			if (materials[i] == block.blockMaterial )
 			{				
-				int headType = tags.getCompoundTag("InfiTool").getInteger("Head");
-				float speed = EnumMaterial.toolSpeed(headType);				
+				float speed = tags.getInteger("MiningSpeed");				
 				int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, getHarvestType());
-				int durability = tags.getCompoundTag("InfiTool").getInteger("Damage");
+				int durability = tags.getInteger("Damage");
 				
-				float shoddy = tags.getCompoundTag("InfiTool").getFloat("Shoddy");
+				float shoddy = tags.getFloat("Shoddy");
 				speed += shoddy*durability/100f;
 				
-				if (hlvl <= EnumMaterial.harvestLevel(headType))
+				if (hlvl <= tags.getInteger("HarvestLevel"))
 					return speed;
 				return 0.1f;
 			}

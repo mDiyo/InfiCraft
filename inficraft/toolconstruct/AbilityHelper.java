@@ -27,8 +27,8 @@ public class AbilityHelper
 		int durability = 0;
 		NBTTagCompound tags = stack.getTagCompound();
 
-		if (tags.getCompoundTag("InfiTool").hasKey("Durability"))
-			durability = tags.getCompoundTag("InfiTool").getInteger("Durability");
+		if (tags.getCompoundTag("InfiTool").hasKey("Unbreaking"))
+			durability = tags.getCompoundTag("InfiTool").getInteger("Unbreaking");
 
 		if (random.nextInt(10) < 10 - durability)
 		{
@@ -48,9 +48,7 @@ public class AbilityHelper
 	public static void damageTool (ItemStack stack, int dam, NBTTagCompound tags, Entity entity)
 	{
 		int damage = tags.getCompoundTag("InfiTool").getInteger("Damage");
-		int maxDamage = tags.getCompoundTag("InfiTool").getInteger("MaxDamage");
-
-		//System.out.println("Damage: "+damage);
+		int maxDamage = tags.getCompoundTag("InfiTool").getInteger("TotalDurability");
 
 		if ((damage + dam) > maxDamage)
 			breakTool(stack, tags, entity);
@@ -76,12 +74,12 @@ public class AbilityHelper
 
 	/* Entities */
 
-	public static void hitEntity (ItemStack stack, EntityLiving mob, EntityLiving player, int baseDamage)
+	public static void hitEntity (ItemStack stack, EntityLiving mob, EntityLiving player)
 	{
-		hitEntity (stack, mob, player, baseDamage, 1f);
+		hitEntity (stack, mob, player, 1f);
 	}
 
-	public static void hitEntity (ItemStack stack, EntityLiving mob, EntityLiving player, int baseDamage, float bonusDamage)
+	public static void hitEntity (ItemStack stack, EntityLiving mob, EntityLiving player, float bonusDamage)
 	{
 		NBTTagCompound tags = stack.getTagCompound();
 		if (!tags.getCompoundTag("InfiTool").getBoolean("Broken"))
@@ -91,8 +89,7 @@ public class AbilityHelper
 			float shoddy = tags.getCompoundTag("InfiTool").getFloat("Shoddy");
 			float damageModifier = -shoddy * durability / 100f;
 
-			int attack = (int) ((baseDamage + tags.getCompoundTag("InfiTool").getInteger("Attack") + damageModifier) * bonusDamage);
-			System.out.println("Attack: " + attack);
+			int attack = (int) ((tags.getCompoundTag("InfiTool").getInteger("Attack") + damageModifier) * bonusDamage);
 
 			if (player instanceof EntityPlayer)
 				mob.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) player), attack);

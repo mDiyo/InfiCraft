@@ -1,10 +1,10 @@
 package inficraft.toolconstruct.crafting;
 
 import inficraft.toolconstruct.EnumMaterial;
+import inficraft.toolconstruct.items.ToolPart;
+import inficraft.toolconstruct.tools.ToolCore;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,19 +15,20 @@ public class ToolBuilder
 	// Item metadata = tool type
 	public static ToolBuilder instance = new ToolBuilder();
 	List<ToolRecipe> combos = new ArrayList<ToolRecipe>();
+	HashMap<String, String> modifiers = new HashMap<String, String>();
 
 	/* Build tools */
-	public void addToolRecipe (Item output, Item head)
+	public void addToolRecipe (ToolCore output, Item head)
 	{
 		addToolRecipe(output, head, null);
 	}
 
-	public void addToolRecipe (Item output, Item head, Item accessory)
+	public void addToolRecipe (ToolCore output, Item head, Item accessory)
 	{
 		combos.add(new ToolRecipe(head, accessory, output));
 	}
 
-	Item getMatchingItem (Item head, Item handle, Item accessory)
+	public ToolCore getMatchingRecipe (Item head, Item handle, Item accessory)
 	{
 		for (ToolRecipe recipe : combos)
 		{
@@ -38,84 +39,66 @@ public class ToolBuilder
 	}
 
 	//Builds a tool from the parts given
-	public ItemStack buildTool (ItemStack headItem, ItemStack handleItem, ItemStack accessoryItem, String name)
-	{
-		if (accessoryItem == null)
-			return buildToolTwoParts(headItem, handleItem, name);
-		return buildToolThreeParts(headItem, handleItem, accessoryItem, name);
-	}
-
-	public ItemStack buildToolTwoParts (ItemStack headItem, ItemStack handleItem, String name)
-	{
-		if (headItem == null || handleItem == null)
+	public ItemStack buildTool (ItemStack headStack, ItemStack handleStack, ItemStack accessoryStack, String name)
+	{		
+		if (headStack != null && headStack.getItem() instanceof ToolCore)
+			return modifyTool(headStack, handleStack, accessoryStack);
+		
+		if (headStack == null || handleStack == null) //Nothing to build without these. All tools need at least two parts!
 			return null;
-
-		Item item = getMatchingItem(headItem.getItem(), handleItem.getItem(), null);
+		
+		ToolCore item;
+		if (accessoryStack == null)
+			item = getMatchingRecipe(headStack.getItem(), handleStack.getItem(), null);
+		else
+			item = getMatchingRecipe(headStack.getItem(), handleStack.getItem(), accessoryStack.getItem());
 		if (item == null)
 			return null;
-
-		int head = headItem.getItemDamage();
-		int handle = handleItem.getItemDamage();
-		if (handleItem.getItem() == Item.bone)
+		
+		System.out.println("Tool name: "+item.getToolName());
+		int head = headStack.getItemDamage();
+		int handle = handleStack.getItemDamage();
+		int accessory = -1;
+		if (accessoryStack != null)
+			accessory = accessoryStack.getItemDamage();
+		if (handleStack.getItem() == Item.bone) //Don't worry about stick, it should be metadata 0.
 			handle = 6;
 
-		int maxDamage = (int) (EnumMaterial.durability(head) * EnumMaterial.handleDurability(handle));
+		int durability = (int) (EnumMaterial.durability(head) * EnumMaterial.handleDurability(handle) * item.getDurabilityModifier());
+		if (accessoryStack != null)
+		{
+			Item accessoryItem = accessoryStack.getItem();
+			if (accessoryItem instanceof ToolPart && ((ToolPart)accessoryItem).isHead) //Two heads
+				durability = (int) ((EnumMaterial.durability(head) + EnumMaterial.durability(accessory))/2 * EnumMaterial.handleDurability(handle) * item.getDurabilityModifier());
+		}
 
 		ItemStack tool = new ItemStack(item);
-		NBTTagCompound compound = new NBTTagCompound();
-		compound.setCompoundTag("InfiTool", new NBTTagCompound());
-		compound.getCompoundTag("InfiTool").setInteger("Head", head);
-		compound.getCompoundTag("InfiTool").setInteger("Handle", handle);
-
-		compound.getCompoundTag("InfiTool").setInteger("Damage", 0);
-		compound.getCompoundTag("InfiTool").setInteger("MaxDamage", maxDamage);
-		compound.getCompoundTag("InfiTool").setBoolean("Broken", false);
-		compound.getCompoundTag("InfiTool").setInteger("Attack", EnumMaterial.damage(head));
-
-		compound.getCompoundTag("InfiTool").setInteger("Durability", buildDurability(head, handle, 0));
-		compound.getCompoundTag("InfiTool").setFloat("Shoddy", buildShoddy(head, handle, 0));
-
-		int modifiers = 3 + (head == 9 ? 2 : 0) + (handle == 9 ? 2 : 0);
-		compound.getCompoundTag("InfiTool").setInteger("Modifiers", modifiers);
-
-		tool.setTagCompound(compound);
-
-		return tool;
-	}
-
-	public ItemStack buildToolThreeParts (ItemStack headItem, ItemStack handleItem, ItemStack accessoryItem, String name)
-	{
-		if (headItem == null || handleItem == null || accessoryItem == null)
-			return null;
-
-		Item item = getMatchingItem(headItem.getItem(), handleItem.getItem(), accessoryItem.getItem());
-		if (item == null)
-			return null;
-
-		int head = headItem.getItemDamage();
-		int handle = handleItem.getItemDamage();
-		int accessory = accessoryItem.getItemDamage();
-		if (handleItem.getItem() == Item.bone)
-			handle = 6;
-
-		int maxDamage = (int) (EnumMaterial.durability(head) * EnumMaterial.handleDurability(handle));
-
-		ItemStack tool = new ItemStack(item);
+		System.out.println("Stack name: "+tool);
 		NBTTagCompound compound = new NBTTagCompound();
 		compound.setCompoundTag("InfiTool", new NBTTagCompound());
 		compound.getCompoundTag("InfiTool").setInteger("Head", head);
 		compound.getCompoundTag("InfiTool").setInteger("Handle", handle);
 		compound.getCompoundTag("InfiTool").setInteger("Accessory", accessory);
 
-		compound.getCompoundTag("InfiTool").setInteger("Damage", 0);
-		compound.getCompoundTag("InfiTool").setInteger("MaxDamage", maxDamage);
+		compound.getCompoundTag("InfiTool").setInteger("Damage", 0); //Damage is damage to the tool
+		compound.getCompoundTag("InfiTool").setInteger("TotalDurability", durability);
+		compound.getCompoundTag("InfiTool").setInteger("BaseDurability", durability);
+		compound.getCompoundTag("InfiTool").setInteger("BonusDurability", 0); //Modifier
+		compound.getCompoundTag("InfiTool").setFloat("ModDurability", 0f); //Modifier
 		compound.getCompoundTag("InfiTool").setBoolean("Broken", false);
-		compound.getCompoundTag("InfiTool").setInteger("Attack", EnumMaterial.damage(head));
+		compound.getCompoundTag("InfiTool").setInteger("Attack", EnumMaterial.attack(head) + item.getDamageVsEntity(null));
+		
+		compound.getCompoundTag("InfiTool").setFloat("MiningSpeed", EnumMaterial.toolSpeed(head));
+		compound.getCompoundTag("InfiTool").setInteger("HarvestLevel", EnumMaterial.harvestLevel(head));
 
-		compound.getCompoundTag("InfiTool").setInteger("Durability", buildDurability(head, handle, accessory));
+		compound.getCompoundTag("InfiTool").setInteger("Unbreaking", buildUnbreaking(head, handle, accessory));
 		compound.getCompoundTag("InfiTool").setFloat("Shoddy", buildShoddy(head, handle, accessory));
 
-		int modifiers = 3 + (head == 9 ? 2 : 0) + (handle == 9 ? 1 : 0) + (accessory == 9 ? 1 : 0);
+		int modifiers = 3;
+		if (accessory == -1)
+			modifiers += (head == 9 ? 2 : 0) + (handle == 9 ? 1 : 0);
+		else
+			modifiers += (head == 9 ? 1 : 0) + (handle == 9 ? 1 : 0) + (accessory == 9 ? 1 : 0);
 		compound.getCompoundTag("InfiTool").setInteger("Modifiers", modifiers);
 
 		if (name != "" && name != null)
@@ -129,14 +112,22 @@ public class ToolBuilder
 		return tool;
 	}
 
-	int buildDurability (int head, int handle, int accessory)
+	public ItemStack modifyTool (ItemStack input, ItemStack topSlot, ItemStack bottomSlot)
+	{
+		ItemStack tool = input.copy();
+		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
+		tags.removeTag("Built");
+		return tool;
+	}
+
+	int buildUnbreaking (int head, int handle, int accessory)
 	{
 		int durability = 0;
 
 		int dHead = EnumMaterial.unbreaking(head);
 		int dHandle = EnumMaterial.unbreaking(handle);
 		int dAccessory = 0;
-		if (accessory != 0)
+		if (accessory != -1)
 			dAccessory = EnumMaterial.unbreaking(accessory);
 
 		if (dHead > durability)
@@ -153,7 +144,7 @@ public class ToolBuilder
 	{
 		float sHead = EnumMaterial.shoddy(head);
 		float sHandle = EnumMaterial.shoddy(handle);
-		if (accessory != 0)
+		if (accessory != -1)
 		{
 			float sAccessory = EnumMaterial.shoddy(accessory);
 			return (sHead + sHandle + sAccessory) / 3f;
