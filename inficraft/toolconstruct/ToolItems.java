@@ -130,6 +130,9 @@ public class ToolItems
 		tb.addToolRecipe(rapier, swordBlade, crossbar);
 		tb.addToolRecipe(frypan, frypanHead);
 		tb.addToolRecipe(battlesign, signHead);
+		
+		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.diamond)}, 0, 500, 0f, 3));
+		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.emerald)}, 1, 0, 0.5f, 2));
 	}
 	
 	void addCraftingRecipes ()

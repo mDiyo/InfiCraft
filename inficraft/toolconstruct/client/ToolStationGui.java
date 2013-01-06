@@ -232,8 +232,8 @@ public class ToolStationGui extends GuiContainer
 		int damage = tags.getInteger("Attack");
 		fontRenderer.drawString("Damage: " + damage, xSize + 8, 36, 16777215);
 		int head = tags.getInteger("Head");
-		fontRenderer.drawString("Mining Speed: " +tags.getFloat("MiningSpeed"), xSize + 8, 48, 16777215);
-		fontRenderer.drawString("Mining Level: " + getHarvestLevelName(EnumMaterial.harvestLevel(head)), xSize + 8, 60, 16777215);
+		fontRenderer.drawString("Mining Speed: " + tags.getFloat("MiningSpeed"), xSize + 8, 48, 16777215);
+		fontRenderer.drawString("Mining Level: " + getHarvestLevelName(tags.getInteger("HarvestLevel")), xSize + 8, 60, 16777215);
 
 		fontRenderer.drawString("Modifiers remaining: " + tags.getInteger("Modifiers"), xSize + 8, 80, 16777215);
 	}

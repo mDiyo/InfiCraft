@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * Flavorlicious!
  */
 
-@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.6_2012.1.2")
+@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "A3")
 public class SimpleBGM
 {
 	@SideOnly(Side.CLIENT)
@@ -67,12 +67,15 @@ public class SimpleBGM
 		}
 		else
 		{
-			if (sound == currentMusic && bgm.playing(sound))
-				bgm.setVolume(sound, options.musicVolume);
-			
-			else if (sound != currentMusic || currentMusic == null || !bgm.playing(currentMusic))
+			//System.out.println("Playing1 "+sound+": "+bgm.playing(sound)+" equal "+sound.equals(currentMusic));
+			if (sound.equals(currentMusic) && bgm.playing(currentMusic))
 			{
-				if (bgm.playing(currentMusic) && currentMusic != null)
+				bgm.setVolume(sound, options.musicVolume);
+			}
+			
+			else //if (sound != currentMusic || !bgm.playing(currentMusic))
+			{
+				if (bgm.playing(currentMusic))
 					bgm.stop(currentMusic);
 				
 				ArrayList<SoundPoolEntry> songList = SoundHandler.getMusicList(sound);

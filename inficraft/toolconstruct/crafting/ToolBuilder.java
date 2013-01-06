@@ -12,20 +12,21 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class ToolBuilder
 {
-	// Item metadata = tool type
 	public static ToolBuilder instance = new ToolBuilder();
+	
 	List<ToolRecipe> combos = new ArrayList<ToolRecipe>();
 	HashMap<String, String> modifiers = new HashMap<String, String>();
+	List<ToolMod> toolMods = new ArrayList<ToolMod>();
 
 	/* Build tools */
-	public void addToolRecipe (ToolCore output, Item head)
+	public static void addToolRecipe (ToolCore output, Item head)
 	{
 		addToolRecipe(output, head, null);
 	}
 
-	public void addToolRecipe (ToolCore output, Item head, Item accessory)
+	public static void addToolRecipe (ToolCore output, Item head, Item accessory)
 	{
-		combos.add(new ToolRecipe(head, accessory, output));
+		instance.combos.add(new ToolRecipe(head, accessory, output));
 	}
 
 	public ToolCore getMatchingRecipe (Item head, Item handle, Item accessory)
@@ -41,8 +42,8 @@ public class ToolBuilder
 	//Builds a tool from the parts given
 	public ItemStack buildTool (ItemStack headStack, ItemStack handleStack, ItemStack accessoryStack, String name)
 	{		
-		/*if (headStack != null && headStack.getItem() instanceof ToolCore)
-			return modifyTool(headStack, handleStack, accessoryStack);*/
+		if (headStack != null && headStack.getItem() instanceof ToolCore)
+			return modifyTool(headStack, handleStack, accessoryStack);
 		
 		if (headStack == null || handleStack == null) //Nothing to build without these. All tools need at least two parts!
 			return null;
@@ -117,6 +118,16 @@ public class ToolBuilder
 		ItemStack tool = input.copy();
 		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
 		tags.removeTag("Built");
+		
+		for (ToolMod mod : toolMods)
+		{
+			if (mod.matches(new ItemStack[] {topSlot, bottomSlot}, tool))
+			{
+				mod.modify(tool);
+				mod.addMatchingEffect(tool);
+			}
+		}
+		
 		return tool;
 	}
 
@@ -150,5 +161,10 @@ public class ToolBuilder
 			return (sHead + sHandle + sAccessory) / 3f;
 		}
 		return (sHead + sHandle) / 2f;
+	}
+	
+	public static void registerToolMod(ToolMod mod)
+	{
+		instance.toolMods.add(mod);
 	}
 }

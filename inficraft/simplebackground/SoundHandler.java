@@ -77,8 +77,7 @@ public class SoundHandler
 	boolean isValidFile(File file)
 	{
 		String filename = file.getName();
-		if (filename.toLowerCase().endsWith(".midi") || filename.toLowerCase().endsWith(".ogg")
-				|| filename.toLowerCase().endsWith(".mus") || filename.toLowerCase().endsWith(".wav"))
+		if (filename.toLowerCase().endsWith(".ogg") || filename.toLowerCase().endsWith(".mus") || filename.toLowerCase().endsWith(".wav"))
 			return true;
 		return false;
 	}
@@ -89,9 +88,9 @@ public class SoundHandler
 	}
 	
 	@ForgeSubscribe
-	public Void onBackgroundMusicPlayed(PlayBackgroundMusicEvent evt)
+	public SoundPoolEntry onBackgroundMusicPlayed(PlayBackgroundMusicEvent evt)
 	{
-		return null;
+		return new SoundPoolEntry(null, null);
 	}
 	
 	private static HashMap music = new HashMap<String, ArrayList<SoundPoolEntry>>();
