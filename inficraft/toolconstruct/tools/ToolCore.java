@@ -100,22 +100,22 @@ public class ToolCore extends ItemTool
 		{
 			if (pass == 0) // Handle
 			{
-				return tags.getCompoundTag("InfiTool").getInteger("Handle");
+				return tags.getCompoundTag("InfiTool").getInteger("RenderHandle");
 			}
 
 			if (pass == 1) // Head
 			{
 				if (tags.getCompoundTag("InfiTool").getBoolean("Broken"))
-					return tags.getCompoundTag("InfiTool").getInteger("Head") + 192;
+					return tags.getCompoundTag("InfiTool").getInteger("RenderHead") + 192;
 
-				return tags.getCompoundTag("InfiTool").getInteger("Head") + 64;
+				return tags.getCompoundTag("InfiTool").getInteger("RenderHead") + 64;
 			}
 
 			if (pass == 2) // Accessory
 			{
-				if (tags.getCompoundTag("InfiTool").hasKey("Accessory"))
+				if (tags.getCompoundTag("InfiTool").hasKey("RenderAccessory"))
 				{
-					int index = tags.getCompoundTag("InfiTool").getInteger("Accessory");
+					int index = tags.getCompoundTag("InfiTool").getInteger("RenderAccessory");
 					if (index == -1)
 						return 32;
 					return index + 32;
@@ -360,13 +360,13 @@ public class ToolCore extends ItemTool
 	@Override
 	public int getChargedItemId ()
 	{
-		return this.shiftedIndex;
+		return this.itemID;
 	}
 
 	@Override
 	public int getEmptyItemId ()
 	{
-		return this.shiftedIndex;
+		return this.itemID;
 	}
 
 	@Override
@@ -389,11 +389,12 @@ public class ToolCore extends ItemTool
 
 	@Override
 	public int charge (ItemStack stack, int amount, int tier, boolean ignoreTransferLimit, boolean simulate)
-	{
+	{		
 		NBTTagCompound tags = stack.getTagCompound();
-		if (!tags.hasKey("charge") || !tags.getCompoundTag("InfiTool").getBoolean("Electric"))
+		if (!tags.hasKey("charge")) //|| !tags.getCompoundTag("InfiTool").getBoolean("Electric"))
 			return 0;
-
+		System.out.println("Attempting to charge");
+		
 		if (amount > 0)
 		{
 			if (amount > getTransferLimit() && !ignoreTransferLimit)
@@ -427,7 +428,7 @@ public class ToolCore extends ItemTool
 	public int discharge (ItemStack stack, int amount, int tier, boolean ignoreTransferLimit, boolean simulate)
 	{
 		NBTTagCompound tags = stack.getTagCompound();
-		if (!tags.hasKey("charge") || !tags.getCompoundTag("InfiTool").getBoolean("Electric"))
+		if (!tags.hasKey("charge"))// || !tags.getCompoundTag("InfiTool").getBoolean("Electric"))
 			return 0;
 		
 		if (amount > 0)

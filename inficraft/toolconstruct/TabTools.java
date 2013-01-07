@@ -26,9 +26,9 @@ public class TabTools extends CreativeTabs
     {
 		switch (index)
 		{
-		case 1: return ToolItems.pickaxeHead.shiftedIndex;
-		case 2: return ToolItems.pickaxe.shiftedIndex;
-		default: return Item.pickaxeSteel.shiftedIndex;
+		case 1: return ToolItems.pickaxeHead.itemID;
+		case 2: return ToolItems.pickaxe.itemID;
+		default: return Item.pickaxeSteel.itemID;
 		}				
     }*/
 	

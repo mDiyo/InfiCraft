@@ -255,10 +255,13 @@ public class ToolStationGui extends GuiContainer
 		case 2:
 			return "Redstone";
 		case 3:
-			return "Obsidian";
+			return "Obsidian"; //Mithril
+		case 4:
+			return "Vulcanite";
+		case 5:
+			return "Adamantine";
 		default:
 			return String.valueOf(num);
-			//return "More data required";
 		}
 	}
 

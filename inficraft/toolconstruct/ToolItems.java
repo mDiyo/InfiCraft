@@ -1,5 +1,6 @@
 package inficraft.toolconstruct;
 
+import ic2.core.Ic2Items;
 import inficraft.toolconstruct.blocks.*;
 import inficraft.toolconstruct.crafting.*;
 import inficraft.toolconstruct.items.*;
@@ -133,6 +134,7 @@ public class ToolItems
 		
 		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.diamond)}, 0, 500, 0f, 3));
 		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.emerald)}, 1, 0, 0.5f, 2));
+		//tb.registerToolMod(new ModElectric(new ItemStack[] { Ic2Items.reBattery, Ic2Items.electronicCircuit }));
 	}
 	
 	void addCraftingRecipes ()
@@ -159,9 +161,9 @@ public class ToolItems
 
 		NBTTagCompound compound = new NBTTagCompound();
 		compound.setCompoundTag("InfiTool", new NBTTagCompound());
-		compound.getCompoundTag("InfiTool").setInteger("Head", 2);
-		compound.getCompoundTag("InfiTool").setInteger("Handle", 0);
-		compound.getCompoundTag("InfiTool").setInteger("Accessory", 10);
+		compound.getCompoundTag("InfiTool").setInteger("RenderHead", 2);
+		compound.getCompoundTag("InfiTool").setInteger("RenderHandle", 0);
+		compound.getCompoundTag("InfiTool").setInteger("RenderAccessory", 10);
 		tool.setTagCompound(compound);
 
 		ToolConstruct.toolTab.init(tool);

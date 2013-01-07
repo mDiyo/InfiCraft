@@ -590,7 +590,7 @@ public class InfiBlockRecipes
 	
 	public static void furnaceBlaze()
 	{
-		//FurnaceRecipes.smelting().addSmelting(Item.dyePowder.shiftedIndex, 2, new ItemStack(Item.coal, 1, 1));
+		//FurnaceRecipes.smelting().addSmelting(Item.dyePowder.itemID, 2, new ItemStack(Item.coal, 1, 1));
 		FurnaceRecipes.smelting().addSmelting(Block.netherrack.blockID, 
 				new ItemStack(InfiBlockContent.storageBlock, 1, 12), 0.1F);
 		FurnaceRecipes.smelting().addSmelting(Block.sandStone.blockID, 

@@ -9,7 +9,7 @@ public class ModElectric extends ModBoolean
 {	
 	public ModElectric(ItemStack[] items)
 	{
-		super(items, 254, "Electric");
+		super(items, 9, "Electric");
 	}
 	
 	@Override

@@ -97,7 +97,7 @@ public class DetailManager
 
 	public void addDetailingItem(Item item)
 	{
-		damageOnCraft.add(Integer.valueOf(item.shiftedIndex));
+		damageOnCraft.add(Integer.valueOf(item.itemID));
 		for (int i = 0; i < detailing.size(); i++)
 		{
 			DetailInput detail = (DetailInput) detailing.get(i);
@@ -107,8 +107,8 @@ public class DetailManager
 
 	public void addDetailingContainer(Item item, Item item1)
 	{
-		damageOnCraft.add(Integer.valueOf(item.shiftedIndex));
-		damageContainer.put(Integer.valueOf(item.shiftedIndex), Integer.valueOf(item1.shiftedIndex));
+		damageOnCraft.add(Integer.valueOf(item.itemID));
+		damageContainer.put(Integer.valueOf(item.itemID), Integer.valueOf(item1.itemID));
 		for (int i = 0; i < detailing.size(); i++)
 		{
 			DetailInput detail = (DetailInput) detailing.get(i);

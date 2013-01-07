@@ -37,9 +37,10 @@ public class FurnaceContainer extends Container
         }
     }
 
-    public void updateCraftingResults()
+    @Override
+    public void detectAndSendChanges()
     {
-        super.updateCraftingResults();
+        super.detectAndSendChanges();
         for (int i = 0; i < crafters.size(); i++)
         {
             ICrafting icrafting = (ICrafting)crafters.get(i);

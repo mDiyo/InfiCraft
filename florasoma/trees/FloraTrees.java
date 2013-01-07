@@ -49,7 +49,7 @@ public class FloraTrees
 		floraSapling = new FloraSaplingBlock(PHTrees.floraSaplingID);
 		
 		redwoodDoorItem = new FloraDoorItem(PHTrees.redwoodDoorItemID, PHTrees.redwoodDoorID).setIconCoord(3, 9).setItemName("redwoodDoorItem");
-		redwoodDoor = new FloraDoor(PHTrees.redwoodDoorID, 162, Material.wood, redwoodDoorItem.shiftedIndex);		
+		redwoodDoor = new FloraDoor(PHTrees.redwoodDoorID, 162, Material.wood, redwoodDoorItem.itemID);		
 		
 		bloodwood = new LogTwoxTwo(2000, 48, texture, 8f).setBlockName("bloodwood");
 		

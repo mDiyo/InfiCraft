@@ -108,12 +108,12 @@ public class FloraCropBlock extends BlockFlower
     
     protected int getCropItem(int meta)
     {
-        return FloraCrops.instance.barleyItem.shiftedIndex;
+        return FloraCrops.instance.barleyItem.itemID;
     }
 
     protected int getSeedItem(int meta)
     {
-        return FloraCrops.instance.barleySeed.shiftedIndex;
+        return FloraCrops.instance.barleySeed.itemID;
     }
     
     public int damageDropped(int meta)

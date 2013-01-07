@@ -43,7 +43,7 @@ public class SlotArmorCopy extends Slot
      */
     public boolean isItemValid(ItemStack par1ItemStack)
     {
-        return par1ItemStack == null ? false : (par1ItemStack.getItem() instanceof ItemArmor ? ((ItemArmor)par1ItemStack.getItem()).armorType == this.armorType : (par1ItemStack.getItem().shiftedIndex != Block.pumpkin.blockID && par1ItemStack.getItem().shiftedIndex != Item.skull.shiftedIndex ? false : this.armorType == 0));
+        return par1ItemStack == null ? false : (par1ItemStack.getItem() instanceof ItemArmor ? ((ItemArmor)par1ItemStack.getItem()).armorType == this.armorType : (par1ItemStack.getItem().itemID != Block.pumpkin.blockID && par1ItemStack.getItem().itemID != Item.skull.itemID ? false : this.armorType == 0));
     }
 
     @SideOnly(Side.CLIENT)

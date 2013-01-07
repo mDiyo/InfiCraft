@@ -133,7 +133,7 @@ public class BerryBush extends BlockLeavesBase implements IPlantable
 			if (meta >= 12)
 			{
 				world.setBlockAndMetadataWithNotify(x, y, z, blockID, meta - 4);
-				EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraBerries.berryItem.shiftedIndex, 1, meta - 12));
+				EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraBerries.berryItem.itemID, 1, meta - 12));
 				world.spawnEntityInWorld(entityitem);
 				entityitem.onCollideWithPlayer(player);
 			}
@@ -151,7 +151,7 @@ public class BerryBush extends BlockLeavesBase implements IPlantable
 		if (meta >= 12)
 		{
 			world.setBlockAndMetadataWithNotify(x, y, z, blockID, meta - 4);
-			EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraBerries.berryItem.shiftedIndex, 1, meta - 12));
+			EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraBerries.berryItem.itemID, 1, meta - 12));
 			world.spawnEntityInWorld(entityitem);
 			entityitem.onCollideWithPlayer(player);
 		}

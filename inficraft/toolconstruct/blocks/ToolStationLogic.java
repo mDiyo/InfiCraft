@@ -66,7 +66,7 @@ public class ToolStationLogic extends BlockLogicMachine
 			}
 		}
 		if (container != null)
-			container.updateCraftingResults();
+			container.detectAndSendChanges();
 	}
 
 	void consumeItems ()
@@ -75,7 +75,7 @@ public class ToolStationLogic extends BlockLogicMachine
 			super.decrStackSize(i, 1);
 
 		if (container != null)
-			container.updateCraftingResults();
+			container.detectAndSendChanges();
 	}
 
 	public void dumpExtraItems (int usedSlots, EntityPlayer player)

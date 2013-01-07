@@ -188,7 +188,7 @@ public class RenderArmorStandEntity extends RenderLiving
 
                 this.renderManager.itemRenderer.renderItem(par1EntityLiving, var5, 0);
             }
-            else if (var5.getItem().shiftedIndex == Item.skull.shiftedIndex)
+            else if (var5.getItem().itemID == Item.skull.itemID)
             {
                 var6 = 1.0625F;
                 GL11.glScalef(var6, -var6, -var6);
@@ -232,7 +232,7 @@ public class RenderArmorStandEntity extends RenderLiving
                 GL11.glRotatef(45.0F, 0.0F, 1.0F, 0.0F);
                 GL11.glScalef(-var6, -var6, var6);
             }
-            else if (var4.itemID == Item.bow.shiftedIndex)
+            else if (var4.itemID == Item.bow.itemID)
             {
                 var6 = 0.625F;
                 GL11.glTranslatef(0.0F, 0.125F, 0.3125F);

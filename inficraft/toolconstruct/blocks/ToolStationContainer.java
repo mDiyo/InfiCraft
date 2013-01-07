@@ -99,6 +99,6 @@ public class ToolStationContainer extends Container
 	{
 		toolName = name;
 		logic.buildTool(name);
-		updateCraftingResults();
+		detectAndSendChanges();
 	}
 }

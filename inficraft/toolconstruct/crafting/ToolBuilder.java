@@ -80,6 +80,9 @@ public class ToolBuilder
 		compound.getCompoundTag("InfiTool").setInteger("Head", head);
 		compound.getCompoundTag("InfiTool").setInteger("Handle", handle);
 		compound.getCompoundTag("InfiTool").setInteger("Accessory", accessory);
+		compound.getCompoundTag("InfiTool").setInteger("RenderHead", head);
+		compound.getCompoundTag("InfiTool").setInteger("RenderHandle", handle);
+		compound.getCompoundTag("InfiTool").setInteger("RenderAccessory", accessory);
 
 		compound.getCompoundTag("InfiTool").setInteger("Damage", 0); //Damage is damage to the tool
 		compound.getCompoundTag("InfiTool").setInteger("TotalDurability", durability);

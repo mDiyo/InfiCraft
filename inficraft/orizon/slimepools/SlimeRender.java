@@ -224,8 +224,8 @@ public class SlimeRender implements ISimpleBlockRenderingHandler
                 }
             }
 
-            render.customMinY = var18;
-            render.customMaxY = var20;
+            render.renderMinY = var18;
+            render.renderMaxY = var20;
             return var13;
         }
     }
