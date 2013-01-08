@@ -1,6 +1,6 @@
 package inficraft.api.machines;
 
-import inficraft.toolconstruct.crafting.ToolBuilder;
+import tinker.toolconstruct.crafting.ToolBuilder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;

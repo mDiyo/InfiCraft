@@ -1,11 +1,11 @@
 package test;
 
+import tinker.toolconstruct.ToolConstruct;
+import tinker.toolconstruct.ToolItems;
 import florasoma.crops.FloraCrops;
 import florasoma.trees.FloraTrees;
 import inficraft.armory.InfiArmory;
 import inficraft.infiblocks.InfiBlocks;
-import inficraft.toolconstruct.ToolConstruct;
-import inficraft.toolconstruct.ToolItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

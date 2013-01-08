@@ -1,6 +1,6 @@
 package test;
 
-import inficraft.toolconstruct.ToolItems;
+import tinker.toolconstruct.ToolItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
