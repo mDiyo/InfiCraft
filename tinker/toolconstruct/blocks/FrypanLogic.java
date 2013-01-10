@@ -23,14 +23,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * 2-9: Food
  */
 
-public class FrypanLogic extends InventoryLogic
+public class FrypanLogic extends HeldItemLogic 
 	implements IActiveLogic
 {
 	boolean active;
 	public int fuel;
-    public int fuelGague;
-    public int progress;
-    
+	public int fuelGague;
+	public int progress;
+
 	public FrypanLogic()
 	{
 		super(10);
@@ -40,7 +40,7 @@ public class FrypanLogic extends InventoryLogic
 	@Override
 	public String getInvName ()
 	{
-		return "tconstruct.frypan";
+		return "crafters.frypan";
 	}
 
 	@Override
@@ -54,237 +54,235 @@ public class FrypanLogic extends InventoryLogic
 	{
 		active = flag;
 	}
-	
+
 	/* Fuel gauge */
-	public int gaugeProgressScaled(int scale)
-    {
-        return (progress * scale) / 10000;
-    }
+	public int gaugeProgressScaled (int scale)
+	{
+		return (progress * scale) / 1000;
+	}
 
-    public int gaugeFuelScaled(int scale)
-    {
-        if (fuelGague == 0)
-        {
-            fuelGague = fuel;
-            if (fuelGague == 0)
-            {
-                fuelGague = 1000;
-            }
-        }
-        return (fuel * scale) / fuelGague;
-    }
-    
-    /* Item cooking */
-    public void updateEntity()
-    {
-        boolean burning = isBurning();
-        boolean updateInventory = false;
-        if (fuel <= 0 && canCook())
-        {
-            fuel = fuelGague = getItemBurnTime(inventory[1]) * 10;
-            if (fuel > 0)
-            {
-                if (inventory[1].getItem().hasContainerItem()) //Fuel slot
-                {
-                    inventory[1] = new ItemStack(inventory[1].getItem().getContainerItem());
-                }
-                else
-                {
-                    inventory[1].stackSize--;
-                }
-                if (inventory[1].stackSize <= 0)
-                {
-                    inventory[1] = null;
-                }
-                updateInventory = true;
-            }
-        }
-        if (isBurning() && canCook())
-        {
-            progress++;
-            if (progress >= 1000)
-            {
-                progress = 0;
-                cookItems();
-                updateInventory = true;
-            }
-        }
-        else
-        {
-            progress = 0;
-        }
-        if (fuel > 0)
-        {
-            fuel--;
-        }
-        if (burning != isBurning())
-        {
-            setActive(isBurning());
-            updateInventory = true;
-        }
-        if (updateInventory)
-        {
-            onInventoryChanged();
-        }
-    }
-    
-    public void cookItems()
-    {
-        if (!canCook())
-            return;
-        
-        for (int id = 2; id < 10; id++) //Check every slot
-    	{
-        	if (!canCook())
-        		break;
-        	ItemStack result = getResultFor(inventory[id]);
-        	
-        	int ids = 2;
-        	boolean placed = false;
-        	while (ids < 10 && !placed) //Try to merge stacks first
-        	{
-        		if (inventory[ids].isItemEqual(result) && inventory[ids].stackSize < inventory[ids].getMaxStackSize())
-        		{
-        			if (inventory[ids].stackSize + result.stackSize <= inventory[ids].getMaxStackSize())
-        			{
-        				inventory[ids].stackSize += result.stackSize;
-        				placed = true;
-        			}
-        			else
-        			{
-        				int decrement = inventory[ids].getMaxStackSize() - inventory[ids].stackSize;
-        				inventory[ids].stackSize = inventory[ids].getMaxStackSize();
-        				result.stackSize -= decrement;
-        			}
-        		}
-        	}
-        	
-        	ids = 2;
-        	while (!placed && ids < 10) //Place remaining in slot
-        	{
-        		if (inventory[ids] == null)
-        		{
-        			inventory[ids] = result;
-        			placed = true;
-        		}
-        	}
-    	}
-    }
-    
-    public boolean canCook()
-    {
-    	for (int id = 2; id < 10; id++)
-    	{
-    		if (inventory[id] == null) //Nothing here!
-    			continue;
-    		
-    		ItemStack result = getResultFor(inventory[id]);
-    		if (result == null) //Doesn't cook into anything
-    			continue;
-    		
-    		for (int slotid = 2; slotid < 10; slotid++)
-    		{
-    			if (inventory[slotid] == null)
-    				return true;
-    			
-    			else if (inventory[slotid].isItemEqual(result) && inventory[slotid].stackSize + result.stackSize <= inventory[slotid].getMaxStackSize())
-    				return true;
-    		}
-    	}
-    	return false;
-    }
+	public int gaugeFuelScaled (int scale)
+	{
+		if (fuelGague == 0)
+		{
+			fuelGague = fuel;
+			if (fuelGague == 0)
+			{
+				fuelGague = 1000;
+			}
+		}
+		return (fuel * scale) / fuelGague;
+	}
 
-    public boolean isBurning()
-    {
-        return fuel > 0;
-    }    
-    
-    public ItemStack getResultFor(ItemStack stack)
-    {
-    	ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(stack);
-    	if (result.getItem() instanceof ItemFood) //Only valid for food
-        	return result;
-    	
-        return null;
-    }
+	/* Item cooking */
+	public void updateEntity ()
+	{
+		boolean burning = isBurning();
+		boolean updateInventory = false;
+		if (fuel <= 0 && canCook())
+		{
+			fuel = fuelGague = getItemBurnTime(inventory[1]) * 10;
+			if (fuel > 0)
+			{
+				if (inventory[1].getItem().hasContainerItem()) //Fuel slot
+				{
+					inventory[1] = new ItemStack(inventory[1].getItem().getContainerItem());
+				}
+				else
+				{
+					inventory[1].stackSize--;
+				}
+				if (inventory[1].stackSize <= 0)
+				{
+					inventory[1] = null;
+				}
+				updateInventory = true;
+			}
+		}
+		if (isBurning() && canCook())
+		{
+			progress++;
+			if (progress >= 1000)
+			{
+				progress = 0;
+				cookItems();
+				updateInventory = true;
+			}
+		}
+		else
+		{
+			progress = 0;
+		}
+		if (fuel > 0)
+		{
+			fuel--;
+		}
+		if (burning != isBurning())
+		{
+			setActive(isBurning());
+			updateInventory = true;
+		}
+		if (updateInventory)
+		{
+			onInventoryChanged();
+		}
+	}
 
-    public static int getItemBurnTime(ItemStack stack)
-    {
-        if (stack == null)
-        {
-            return 0;
-        }
-        else
-        {
-            int itemID = stack.getItem().itemID;
-            Item item = stack.getItem();
+	public void cookItems ()
+	{
+		System.out.println("Trying to cook");
+		if (!canCook())
+			return;
 
-            if (stack.getItem() instanceof ItemBlock && Block.blocksList[itemID] != null)
-            {
-                Block var3 = Block.blocksList[itemID];
+		System.out.println("Can cook");
+		for (int id = 2; id < 10; id++) //Check every slot
+		{
+			if (canCook())
+			{
+				ItemStack result = getResultFor(inventory[id]);
+				if (result != null)
+				{
+					int ids = 2;
+					boolean placed = false;
+					while (ids < 10 && !placed) //Try to merge stacks first
+					{
+						if (inventory[ids] != null && inventory[ids].isItemEqual(result) && inventory[ids].stackSize < inventory[ids].getMaxStackSize())
+						{
+							if (inventory[ids].stackSize + result.stackSize <= inventory[ids].getMaxStackSize())
+							{
+								inventory[ids].stackSize += result.stackSize;
+								placed = true;
+							}
+							else
+							{
+								int decrement = inventory[ids].getMaxStackSize() - inventory[ids].stackSize;
+								inventory[ids].stackSize = inventory[ids].getMaxStackSize();
+								result.stackSize -= decrement;
+							}
+						}
+						ids++;
+					}
 
-                if (var3 == Block.woodSingleSlab)
-                {
-                    return 150;
-                }
+					ids = 2;
+					while (!placed && ids < 10) //Place remaining in slot
+					{
+						if (inventory[ids] == null)
+						{
+							inventory[ids] = result;
+							placed = true;
+						}
+						ids++;
+					}
+					
+					if (placed)
+						decrStackSize(id, 1);
+				}
+			}
+		}
+	}
 
-                if (var3.blockMaterial == Material.wood)
-                {
-                    return 300;
-                }
-            }
-            if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 200;
-            if (item instanceof ItemSword && ((ItemSword) item).func_77825_f().equals("WOOD")) return 200;
-            if (item instanceof ItemHoe && ((ItemHoe) item).func_77842_f().equals("WOOD")) return 200;
-            if (itemID == Item.stick.itemID) return 100;
-            if (itemID == Item.coal.itemID) return 1600;
-            if (itemID == Item.bucketLava.itemID) return 20000;
-            if (itemID == Block.sapling.blockID) return 100;
-            if (itemID == Item.blazeRod.itemID) return 2400;
-            return GameRegistry.getFuelValue(stack);
-        }
-    }
-    
-    /* Inventory management */
-	
-	@Override
-	public ItemStack getStackInSlot(int slot)
-    {
-        return inventory[slot+1];
-    }
-    
-    public boolean isStackInSlot(int slot)
-    {
-    	return inventory[slot+1] != null;
-    }
-	
-    @Override
-	public int getSizeInventory()
-    {
-        return inventory.length-1;
-    }
-	
+	public boolean canCook ()
+	{
+		for (int id = 2; id < 10; id++)
+		{
+			if (inventory[id] == null) //Nothing here!
+				continue;
+
+			ItemStack result = getResultFor(inventory[id]);
+			if (result == null) //Doesn't cook into anything
+				continue;
+
+			for (int slotid = 2; slotid < 10; slotid++)
+			{
+				if (inventory[slotid] == null)
+					return true;
+
+				else if (inventory[slotid].isItemEqual(result) && inventory[slotid].stackSize + result.stackSize <= inventory[slotid].getMaxStackSize())
+					return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean isBurning ()
+	{
+		return fuel > 0;
+	}
+
+	public ItemStack getResultFor (ItemStack stack)
+	{
+		ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(stack);
+		if (result != null && result.getItem() instanceof ItemFood) //Only valid for food
+			return result.copy();
+
+		return null;
+	}
+
+	public static int getItemBurnTime (ItemStack stack)
+	{
+		if (stack == null)
+		{
+			return 0;
+		}
+		else
+		{
+			int itemID = stack.getItem().itemID;
+			Item item = stack.getItem();
+
+			if (stack.getItem() instanceof ItemBlock && Block.blocksList[itemID] != null)
+			{
+				Block var3 = Block.blocksList[itemID];
+
+				if (var3 == Block.woodSingleSlab)
+				{
+					return 150;
+				}
+
+				if (var3.blockMaterial == Material.wood)
+				{
+					return 300;
+				}
+			}
+			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD"))
+				return 200;
+			if (item instanceof ItemSword && ((ItemSword) item).func_77825_f().equals("WOOD"))
+				return 200;
+			if (item instanceof ItemHoe && ((ItemHoe) item).func_77842_f().equals("WOOD"))
+				return 200;
+			if (itemID == Item.stick.itemID)
+				return 100;
+			if (itemID == Item.coal.itemID)
+				return 1600;
+			if (itemID == Item.bucketLava.itemID)
+				return 20000;
+			if (itemID == Block.sapling.blockID)
+				return 100;
+			if (itemID == Item.blazeRod.itemID)
+				return 2400;
+			return GameRegistry.getFuelValue(stack);
+		}
+	}
+
 	/* NBT */
-	public void readFromNBT(NBTTagCompound tags)
-    {
-        super.readFromNBT(tags);
-        active = tags.getBoolean("Active");
-        fuel = tags.getInteger("Fuel");
-        fuelGague = tags.getInteger("FuelGague");
-    }
+	public void readFromNBT (NBTTagCompound tags)
+	{
+		super.readFromNBT(tags);
+		active = tags.getBoolean("Active");
+		fuel = tags.getInteger("Fuel");
+		fuelGague = tags.getInteger("FuelGague");
+	}
 
-    public void writeToNBT(NBTTagCompound tags)
-    {
-        super.writeToNBT(tags);
-        tags.setBoolean("Active", active);
-        tags.setInteger("Fuel", fuel);
-        tags.setInteger("FuelGague", fuelGague);
-    }
+	public void writeToNBT (NBTTagCompound tags)
+	{
+		super.writeToNBT(tags);
+		tags.setBoolean("Active", active);
+		tags.setInteger("Fuel", fuel);
+		tags.setInteger("FuelGague", fuelGague);
+	}
 
 	@Override
 	public Container getGuiContainer (InventoryPlayer inventoryplayer)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return new FrypanContainer(inventoryplayer, this);
 	}
 }

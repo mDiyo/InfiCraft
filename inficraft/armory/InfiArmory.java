@@ -24,7 +24,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "1.4.6_A2")
+@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "1.4.6_A2.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class InfiArmory 
 {
@@ -72,5 +72,5 @@ public class InfiArmory
 	
 	public static Item armorStandItem;
 	
-	public static String texture = "/infitextures/armory.png";
+	public static String texture = "/tinkertextures/armory.png";
 }

@@ -40,8 +40,10 @@ public class PHTools {
          */
         
         woodCrafter = config.getBlock("Wood Tool Station", 1471).getInt(1471);
-        stoneCrafter = config.getBlock("Stone Tool Station", 1472).getInt(1472);
-        netherCrafter = config.getBlock("Nether Tool Station", 1473).getInt(1473);
+        /*stoneCrafter = config.getBlock("Stone Tool Station", 1472).getInt(1472);
+        netherCrafter = config.getBlock("Nether Tool Station", 1473).getInt(1473);*/
+        
+        heldItemBlock = config.getBlock("Held Item Block", 1472).getInt(1472);
         
         materials = config.getItem("Patterns and Misc", "Materials", 14020).getInt(14020);
         toolRod = config.getItem("Patterns and Misc", "Tool Rod", 14021).getInt(14021);
@@ -84,6 +86,7 @@ public class PHTools {
     public static int woodCrafter;
     public static int stoneCrafter;
     public static int netherCrafter;
+    public static int heldItemBlock;
     
     //Patterns and misc
     public static int materials;

@@ -1,16 +1,14 @@
 package tinker.toolconstruct.tools;
 
-import tinker.toolconstruct.AbilityHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import tinker.toolconstruct.AbilityHelper;
+import tinker.toolconstruct.ToolItems;
+import tinker.toolconstruct.blocks.HeldItemLogic;
 
 public class FryingPan extends Weapon
 {
@@ -34,4 +32,62 @@ public class FryingPan extends Weapon
 	{
 		return "Frying Pan";
 	}
+	
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float clickX, float clickY, float clickZ)
+    {
+        if (side == 0 || !player.isSneaking())
+        {
+            return false;
+        }
+        else if (!world.getBlockMaterial(x, y, z).isSolid())
+        {
+            return false;
+        }
+        else
+        {
+            if (side == 1)
+            {
+                ++y;
+            }
+
+            if (side == 2)
+            {
+                --z;
+            }
+
+            if (side == 3)
+            {
+                ++z;
+            }
+
+            if (side == 4)
+            {
+                --x;
+            }
+
+            if (side == 5)
+            {
+                ++x;
+            }
+
+            if (!player.canPlayerEdit(x, y, z, side, stack))
+            {
+                return false;
+            }
+            else if (!ToolItems.heldItemBlock.canPlaceBlockAt(world, x, y, z))
+            {
+                return false;
+            }
+            else
+            {
+                world.setBlockAndMetadataWithNotify(x, y, z, ToolItems.heldItemBlock.blockID, 0);
+
+                HeldItemLogic logic = (HeldItemLogic) world.getBlockTileEntity(x, y, z);
+    			logic.setEquipmentItem(stack);
+                //--par1ItemStack.stackSize;
+
+                return true;
+            }
+        }
+    }
 }

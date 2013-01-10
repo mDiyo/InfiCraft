@@ -1,19 +1,19 @@
 package tinker.toolconstruct;
 
-import tinker.toolconstruct.blocks.PartCrafterLogic;
-import tinker.toolconstruct.blocks.ToolStationLogic;
-import tinker.toolconstruct.client.*;
-import tinker.toolconstruct.crafting.*;
 import inficraft.api.machines.BlockLogicBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import tinker.common.*;
+import tinker.toolconstruct.blocks.*;
+import tinker.toolconstruct.client.*;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler
 {
 	int stationID = 0;
 	int partID = 1;
+	int frypanID = 3;
 
 	@Override
 	public Object getServerGuiElement (int ID, EntityPlayer player, World world, int x, int y, int z)
@@ -21,6 +21,8 @@ public class GuiHandler implements IGuiHandler
 		TileEntity tile = world.getBlockTileEntity(x, y, z);
 		if (tile != null && tile instanceof BlockLogicBase)
 			return ((BlockLogicBase) tile).getGuiContainer(player.inventory);
+		if (tile != null && tile instanceof InventoryLogic)
+			return ((InventoryLogic) tile).getGuiContainer(player.inventory);
 		return null;
 	}
 
@@ -31,6 +33,8 @@ public class GuiHandler implements IGuiHandler
 			return new ToolStationGui(player.inventory, (ToolStationLogic) world.getBlockTileEntity(x, y, z));
 		if (ID == partID)
 			return new PartCrafterGui(player.inventory, (PartCrafterLogic) world.getBlockTileEntity(x, y, z));
+		if (ID == frypanID)
+			return new FrypanGui(player.inventory, (FrypanLogic) world.getBlockTileEntity(x, y, z));
 		return null;
 	}
 

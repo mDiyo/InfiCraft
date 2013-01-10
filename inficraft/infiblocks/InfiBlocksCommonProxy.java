@@ -16,6 +16,8 @@ import cpw.mods.fml.common.network.IGuiHandler;
  * Common proxy class for InfiBlocks
  */
 
+//This class should not implement IGuiHandler. It's a wonder the thing works.
+//TODO: Undo IGuiHandler
 public class InfiBlocksCommonProxy implements IGuiHandler
 {
 	/* Registers any rendering code. Does nothing server-side */

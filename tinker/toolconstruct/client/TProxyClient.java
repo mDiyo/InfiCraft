@@ -44,6 +44,7 @@ public class TProxyClient extends TProxyCommon
 		
 		LanguageRegistry.instance().addStringLocalization("crafters.ToolStation", "Tool Station");
 		LanguageRegistry.instance().addStringLocalization("crafters.PartBuilder", "Part Builder");
+		LanguageRegistry.instance().addStringLocalization("crafters.Frypan", "Frying Pan");
 		
 		LanguageRegistry.instance().addStringLocalization("ToolStation.Crafter.name", "Tool Station");
 		LanguageRegistry.instance().addStringLocalization("ToolStation.Parts.name", "Tool Part Station");

@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -19,6 +20,7 @@ public abstract class EntityEquipment extends EntityLiving
 	public EntityEquipment(World par1World) 
 	{
 		super(par1World);
+		equipmentDropChances = new float[] { 1f, 1f, 1f, 1f, 1f };
 	}
 	
 	public abstract Container getContainer(EntityPlayer player);
@@ -33,7 +35,44 @@ public abstract class EntityEquipment extends EntityLiving
         this.attackEntityFrom(DamageSource.outOfWorld, 1000);
     }
 	
-	public int getMaxHealth() { return 10; }	
+	protected void dropFewItems(boolean par1, int par2)
+    {
+        this.dropItem(this.getDropItemId(), 1);
+    }
+	
+	protected void dropEquipment(boolean par1, int par2)
+    {
+        for (int var3 = 0; var3 < this.getLastActiveItems().length; ++var3)
+        {
+            ItemStack var4 = this.getCurrentItemOrArmor(var3);
+            boolean var5 = this.equipmentDropChances[var3] > 1.0F;
+
+            if (var4 != null && (par1 || var5) && this.rand.nextFloat() - (float)par2 * 0.01F < this.equipmentDropChances[var3])
+            {
+                if (!var5 && var4.isItemStackDamageable())
+                {
+                    int var6 = Math.max(var4.getMaxDamage() - 25, 1);
+                    int var7 = var4.getMaxDamage() - this.rand.nextInt(this.rand.nextInt(var6) + 1);
+
+                    if (var7 > var6)
+                    {
+                        var7 = var6;
+                    }
+
+                    if (var7 < 1)
+                    {
+                        var7 = 1;
+                    }
+
+                    //var4.setItemDamage(var7);
+                }
+
+                this.entityDropItem(var4, 0.0F);
+            }
+        }
+    }
+	
+	public int getMaxHealth() { return 1; }	
 	public boolean canBePushed() { return false; }	
 	protected int decreaseAirSupply(int par1) { return 0; }	
 	//public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) { return false; }	
@@ -43,11 +82,11 @@ public abstract class EntityEquipment extends EntityLiving
 	protected void fall(float par1) {}
 	public void moveEntityWithHeading(float par1, float par2) {}
 	public boolean canBreatheUnderwater() { return true; }
-	public void onLivingUpdate() { super.onLivingUpdate(); }
+	//public void onLivingUpdate() { super.onLivingUpdate(); }
 	public boolean isBlocking() { return true; }
 	protected void jump() {}
 	protected boolean canDespawn() { return true; }
-	protected void despawnEntity() { super.despawnEntity(); }
+	//protected void despawnEntity() { super.despawnEntity(); }
 	protected void updateAITasks() {}
 	protected void updateEntityActionState() {}
 	//protected void updateArmSwingProgress() {}

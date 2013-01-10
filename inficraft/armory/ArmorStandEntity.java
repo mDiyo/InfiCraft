@@ -125,4 +125,9 @@ public class ArmorStandEntity extends EntityEquipment
 	public void closeChest ()
 	{
 	}
+	
+	protected int getDropItemId()
+    {
+        return InfiArmory.armorStandItem.itemID;
+    }
 }

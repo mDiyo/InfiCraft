@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import tinker.toolconstruct.blocks.EquipBlock;
 import tinker.toolconstruct.blocks.ToolStationBlock;
 import tinker.toolconstruct.crafting.ModDurability;
 import tinker.toolconstruct.crafting.ModElectric;
@@ -62,6 +63,9 @@ public class ToolItems
 	//Crafting blocks
 	public static Block woodCrafter;
 	public static Block stoneCrafter;
+	public static Block netherCrafter;
+	
+	public static Block heldItemBlock;
 	
 	//Tool modifiers
 	public static ModElectric modE;
@@ -81,6 +85,10 @@ public class ToolItems
 		GameRegistry.registerBlock(woodCrafter, tinker.toolconstruct.blocks.ToolStationItemBlock.class, "ToolStationBlock");
 		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.ToolStationLogic.class, "ToolStation");
 		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.PartCrafterLogic.class, "PartCrafter");
+		
+		heldItemBlock = new EquipBlock(PHTools.heldItemBlock, Material.wood);
+		GameRegistry.registerBlock(heldItemBlock, "HeldItemBlock");
+		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.FrypanLogic.class, "FrypanLogic");
 
 		//materials = new ToolPart(PHTools.materials, 64, craftingTexture).setItemName("tconstruct.Materials");
 		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture, false).setItemName("tconstruct.ToolRod");

@@ -19,6 +19,7 @@ public class ToolStationBlock extends BlockMachineBase
 	{
 		super(id, material);
 		this.setCreativeTab(ToolConstruct.materialTab);
+		this.setHardness(2f);
 	}
 
     public String getTextureFile()
