@@ -23,7 +23,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * 2-9: Food
  */
 
-public class FrypanLogic extends HeldItemLogic 
+public class FrypanLogic extends EquipLogic 
 	implements IActiveLogic
 {
 	boolean active;

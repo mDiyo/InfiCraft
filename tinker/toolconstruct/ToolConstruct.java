@@ -1,5 +1,7 @@
 package tinker.toolconstruct;
 
+import java.util.Random;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary.OreRegisterEvent;
@@ -18,7 +20,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "TConstruct", name = "Tool Construct", version = "A10.1")
+@Mod(modid = "TConstruct", name = "Tool Construct", version = "A11")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class ToolConstruct 
 {
@@ -60,6 +62,7 @@ public class ToolConstruct
 	
 	ToolItems items;
 	
+	public static Random tRand = new Random();
 	public static TabTools toolTab;
 	public static TabTools materialTab;
 }

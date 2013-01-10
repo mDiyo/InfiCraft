@@ -8,7 +8,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import tinker.toolconstruct.AbilityHelper;
 import tinker.toolconstruct.ToolItems;
-import tinker.toolconstruct.blocks.HeldItemLogic;
+import tinker.toolconstruct.blocks.EquipLogic;
 
 public class FryingPan extends Weapon
 {
@@ -82,9 +82,9 @@ public class FryingPan extends Weapon
             {
                 world.setBlockAndMetadataWithNotify(x, y, z, ToolItems.heldItemBlock.blockID, 0);
 
-                HeldItemLogic logic = (HeldItemLogic) world.getBlockTileEntity(x, y, z);
+                EquipLogic logic = (EquipLogic) world.getBlockTileEntity(x, y, z);
     			logic.setEquipmentItem(stack);
-                //--par1ItemStack.stackSize;
+                --stack.stackSize;
 
                 return true;
             }

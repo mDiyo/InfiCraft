@@ -23,10 +23,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * 2-9: Food
  */
 
-public abstract class HeldItemLogic extends InventoryLogic 
+public abstract class EquipLogic extends InventoryLogic 
 {
 	
-	public HeldItemLogic(int invSize)
+	public EquipLogic(int invSize)
 	{
 		super(invSize);
 	}
@@ -46,7 +46,7 @@ public abstract class HeldItemLogic extends InventoryLogic
 		return inventory[0];
 	}
 	
-	@Override
+	/*@Override
 	public ItemStack getStackInSlot(int slot)
     {
         return inventory[slot +1];
@@ -61,5 +61,5 @@ public abstract class HeldItemLogic extends InventoryLogic
 	public int getSizeInventory()
     {
         return inventory.length - 1;
-    }
+    }*/
 }

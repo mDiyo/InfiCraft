@@ -22,10 +22,10 @@ public class FrypanContainer extends Container
         logic = frypan;
         //this.addSlotToContainer(new Slot(frypan, 0, 56, 17));
         //this.addSlotToContainer(new Slot(frypan, 0, 44, 45));
-        this.addSlotToContainer(new Slot(frypan, 0, 26, 45));
+        this.addSlotToContainer(new Slot(frypan, 1, 26, 45));
     	for (int y = 0; y < 2; y++)
     		for (int x = 0; x < 4; x++)
-        		this.addSlotToContainer(new Slot(frypan, 1 + x + y*4, 70 + x*18, 27 + y*18));
+        		this.addSlotToContainer(new Slot(frypan, 2 + x + y*4, 70 + x*18, 27 + y*18));
         
         /* Player inventory */
 		for (int column = 0; column < 3; column++)
