@@ -7,7 +7,7 @@ public class PlanksItem extends ItemBlock
 {
     public static final String blockType[] =
     {
-        "eucalyptus", "sakura", "ghost", "redwood", "blood", "", "", "", "", "", "", "", "", "", "", ""
+        "eucalyptus", "sakura", "ghost", "redwood", "blood", "bush", "", "", "", "", "", "", "", "", "", ""
     };
 
     public PlanksItem(int i)

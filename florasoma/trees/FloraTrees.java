@@ -1,8 +1,14 @@
 package florasoma.trees;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.Event;
+import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.player.BonemealEvent;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -23,7 +29,7 @@ import florasoma.trees.blocks.TreeBlock;
 import florasoma.trees.entities.FloraBoat;
 import florasoma.trees.worldgen.TreeWorldgen;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2012.12.18")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.9")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */
@@ -40,6 +46,7 @@ public class FloraTrees
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		PHTrees.initProps();
+		MinecraftForge.EVENT_BUS.register(this);
 		
 		tree = new TreeBlock(PHTrees.treeID);
 		redwood = new SimpleLog(PHTrees.redwoodID, 32, texture);
@@ -55,16 +62,16 @@ public class FloraTrees
 		
 		floraBoat = new FloraBoat(PHTrees.boatItemID).setIconCoord(0, 3).setItemName("floraBoat");
 		
-		GameRegistry.registerBlock(tree, florasoma.trees.blocks.TreeItem.class);
-		GameRegistry.registerBlock(redwood, florasoma.trees.blocks.RedwoodItem.class);
-		GameRegistry.registerBlock(planks, florasoma.trees.blocks.PlanksItem.class);
-		GameRegistry.registerBlock(floraLeaves, florasoma.trees.blocks.FloraLeavesItem.class);
-		GameRegistry.registerBlock(floraLeavesNoColor, florasoma.trees.blocks.FloraLeavesNoColorItem.class);
-		GameRegistry.registerBlock(floraSapling, florasoma.trees.blocks.FloraSaplingItem.class);
+		GameRegistry.registerBlock(tree, florasoma.trees.blocks.TreeItem.class, "tree");
+		GameRegistry.registerBlock(redwood, florasoma.trees.blocks.RedwoodItem.class, "redwood");
+		GameRegistry.registerBlock(planks, florasoma.trees.blocks.PlanksItem.class, "planks");
+		GameRegistry.registerBlock(floraLeaves, florasoma.trees.blocks.FloraLeavesItem.class, "floraleaves");
+		GameRegistry.registerBlock(floraLeavesNoColor, florasoma.trees.blocks.FloraLeavesNoColorItem.class, "floraleavsnocolor");
+		GameRegistry.registerBlock(floraSapling, florasoma.trees.blocks.FloraSaplingItem.class, "florasapling");
 		
-		GameRegistry.registerBlock(redwoodDoor);
+		GameRegistry.registerBlock(redwoodDoor, "redwood door");
 		
-		GameRegistry.registerBlock(bloodwood, florasoma.trees.blocks.LogTwoxTwoItem.class);
+		GameRegistry.registerBlock(bloodwood, florasoma.trees.blocks.LogTwoxTwoItem.class, "bloodwood");
 	}
 	
 
@@ -91,6 +98,17 @@ public class FloraTrees
 		ModLoader.setInGameHook(this, true, false);*/
 	}
 	
+	@ForgeSubscribe
+	public void bonemealEvent(BonemealEvent evt)
+	{
+		//System.out.println("Firing bonemeal event");
+		if (evt.ID == floraSapling.blockID)
+		{
+			floraSapling.growTree(evt.world, evt.X, evt.Y, evt.Z, random);
+			evt.setResult(Event.Result.ALLOW);
+		}
+	}
+	
 	/* Renderers for boats */
 	/*@Override
 	public void addRenderer(Map map)
@@ -113,6 +131,8 @@ public class FloraTrees
 	
 	/* Prototype fields, used elsewhere */
 	
+	static Random random = new Random();
+	
 	public static Block tree;
 	public static Block redwood;
 	public static Block planks;
@@ -120,14 +140,12 @@ public class FloraTrees
 	
 	public static FloraLeaves floraLeaves;
 	public static FloraLeaves floraLeavesNoColor;
-	public static Block floraSapling;
+	public static FloraSaplingBlock floraSapling;
 	
 	public static Block redwoodDoor;
 	public static Item redwoodDoorItem;
 	
 	public static Item floraBoat;
 	
-	//private Minecraft mc;
-	
-	public static String texture = "/infitextures/trees.png";
+	public static String texture = "/floratextures/trees.png";
 }

@@ -1,10 +1,15 @@
 package florasoma.trees.blocks;
 
+import java.util.List;
 import java.util.Random;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import florasoma.trees.FloraTrees;
@@ -109,7 +114,8 @@ public class FloraLeaves extends BlockLeaves
     public int getBlockTextureFromSideAndMetadata(int side, int metadata)
     {
         //return (var2) == 1 ? this.blockIndexInTexture + 1 : ((var2) == 2 ? this.blockIndexInTexture + 2 : this.blockIndexInTexture);
-    	return (metadata & 3) == 1 ? this.blockIndexInTexture + 1 : ((metadata & 3) == 3 ? this.blockIndexInTexture + 2 : this.blockIndexInTexture);
+    	return  blockIndexInTexture + (metadata & 3);
+    	//return (metadata & 3) == 1 ? this.blockIndexInTexture + 1 : ((metadata & 3) == 3 ? this.blockIndexInTexture + 2 : this.blockIndexInTexture);
     	//return super.getBlockTextureFromSideAndMetadata(side, metadata);
     }
 
@@ -147,10 +153,15 @@ public class FloraLeaves extends BlockLeaves
         return this.graphicsLevel ? super.shouldSideBeRendered(var1, var2, var3, var4, var5) : true;
     }*/
 
-    /*public void addCreativeItems(ArrayList var1)
+    @SideOnly(Side.CLIENT)
+
+    /**
+     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
+     */
+    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        var1.add(new ItemStack(FloraTrees.floraLeaves, 1, 0));
-        var1.add(new ItemStack(FloraTrees.floraLeaves, 1, 1));
-        var1.add(new ItemStack(FloraTrees.floraLeaves, 1, 2));
-    }*/
+        par3List.add(new ItemStack(par1, 1, 0));
+        par3List.add(new ItemStack(par1, 1, 1));
+        par3List.add(new ItemStack(par1, 1, 2));
+    }
 }

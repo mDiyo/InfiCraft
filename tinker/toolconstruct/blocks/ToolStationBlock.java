@@ -18,17 +18,42 @@ public class ToolStationBlock extends BlockMachineBase
 	public ToolStationBlock(int id, Material material)
 	{
 		super(id, material);
+		this.setCreativeTab(ToolConstruct.materialTab);
 	}
 
-    /*public String getTextureFile()
+    public String getTextureFile()
     {
-        return InfiBlocks.techImage;
-    }*/
+        return "/tinkertextures/ConstructBlocks.png";
+    }
 	
 	public int getBlockTextureFromSideAndMetadata(int side, int meta)
     {
-		return 43 + meta;
+		if (meta == 0)
+		{
+			if (side == 0)
+				return 3;
+			else if (side == 1)
+				return 0;
+			else if (side == 2 || side == 3)
+				return 1;
+			else
+				return 2;
+		}
+		else
+		{
+			return 1 + meta*3 + getBlockTextureFromSide(side);
+		}
     }
+	
+	public int getBlockTextureFromSide(int side)
+	{
+		if (side == 0)
+			return 2;
+		if (side == 1)
+			return 0;
+		
+		return 1;
+	}
 	
 	public int damageDropped(int meta)
     {
@@ -41,6 +66,9 @@ public class ToolStationBlock extends BlockMachineBase
 		{
 		case 0: return new ToolStationLogic();
 		case 1: return new PartCrafterLogic();
+		case 2: return new PartCrafterLogic();
+		case 3: return new PartCrafterLogic();
+		case 4: return new PartCrafterLogic();
 		default: return null;
 		}
         
@@ -49,7 +77,13 @@ public class ToolStationBlock extends BlockMachineBase
 	@Override
 	public Integer getGui(World world, int x, int y, int z, EntityPlayer entityplayer)
 	{
-		return world.getBlockMetadata(x, y, z);
+		int md = world.getBlockMetadata(x, y, z);
+		if (md == 0)
+			return 0;
+		else if (md < 5)
+			return 1;
+		
+		return -1;
 	}
 
 	@Override
@@ -61,7 +95,7 @@ public class ToolStationBlock extends BlockMachineBase
 	@Override
     public void getSubBlocks(int id, CreativeTabs tab, List list)
     {
-    	for (int iter = 0; iter < 2; iter++)
+    	for (int iter = 0; iter < 5; iter++)
     	{
     		list.add(new ItemStack(id, 1, iter));
     	}

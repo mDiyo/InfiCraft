@@ -1,14 +1,11 @@
 package test;
 
-import tinker.toolconstruct.ToolConstruct;
-import tinker.toolconstruct.ToolItems;
-import florasoma.crops.FloraCrops;
-import florasoma.trees.FloraTrees;
-import inficraft.armory.InfiArmory;
 import inficraft.infiblocks.InfiBlocks;
+import inficraft.orizon.dimension.OrizonDreamscape;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import tinker.toolconstruct.ToolItems;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -28,7 +25,7 @@ public class mod_Test
 	@PostInit
 	public void postInit(FMLPostInitializationEvent evt)
 	{
-		GameRegistry.addRecipe(new ItemStack(ToolItems.woodCrafter, 64, 0), "s", 's', Block.dirt);
+		GameRegistry.addRecipe(new ItemStack(OrizonDreamscape.plank, 64, 0), "s", 's', Block.dirt);
 		GameRegistry.addRecipe(new ItemStack(ToolItems.woodCrafter, 64, 1), "ss", 's', Block.dirt);
 		GameRegistry.addRecipe(new ItemStack(ToolItems.woodPattern, 1, 0), "s", 's', Block.grass);
 		GameRegistry.addRecipe(new ItemStack(InfiBlocks.getContentInstance().chiselDiamond, 64, 0), "ss", 's', Block.dirt);

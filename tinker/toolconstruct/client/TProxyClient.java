@@ -32,6 +32,7 @@ public class TProxyClient extends TProxyCommon
 		
 		MinecraftForgeClient.preloadTexture(ToolItems.frypanTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.signTexture);
+		MinecraftForgeClient.preloadTexture("/tinkertextures/ConstructBlocks.png");
 	}
 	
 	

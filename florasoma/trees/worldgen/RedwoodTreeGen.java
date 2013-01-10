@@ -12,69 +12,64 @@ import florasoma.trees.PHTrees;
 public class RedwoodTreeGen extends WorldGenerator
 {
 
-		public boolean drawCircle(World par1World, int radius, int x, int y, int z)
-		{
-				int	 tempX=x;
-				int tempZ=z;
-				int tempRadius=radius;
-				int aTrig = 0;
-				int bTrig = 0;
-			   
-				for(int loopCount = 0; loopCount <= radius; loopCount++)
-				{
-				// draw quadrants
-						aTrig = (radius - loopCount);
-						bTrig = (int)(Math.sqrt(radius*radius - aTrig*aTrig));
-						//if ( par1World.getBlockId(x + aTrig, y, z + bTrig) != 56) // top right
-						//{
-								par1World.setBlock(x + aTrig, y, z + bTrig, 56);
-								for(int i=z+bTrig; i >= z; i--)
-								{
-										par1World.setBlock(x + aTrig, y, i, 56);
-								}
-						//}
-					   
-						//if ( par1World.getBlockId(x - aTrig, y, z - bTrig) != 56) // bottom left
-						//{
-								par1World.setBlock(x - aTrig, y, z - bTrig, 56);
-								for(int i=z-bTrig; i <= z; i++)
-								{
-										par1World.setBlock(x - aTrig, y, i, 56);
-								}
-						//}
-					   
-						//if ( par1World.getBlockId(x - aTrig, y, z + bTrig) != 56) // top left
-						//{
-								par1World.setBlock(x - aTrig, y, z + bTrig, 56);
-								for(int i=z+bTrig; i >= z; i--)
-								{
-										par1World.setBlock(x - aTrig, y, i, 56);
-								}
-						//}
-					   
-						//if ( par1World.getBlockId(x + aTrig, y, z - bTrig) != 56) // bottom right
-						//{
-								par1World.setBlock(x + aTrig, y, z - bTrig, 56);
-								for(int i=z-bTrig; i <= z; i++)
-								{
-										par1World.setBlock(x + aTrig, y, i, 56);
-								}
-						//}
-	   
-				}
-	   
-				return true;
-		}
-	static final byte otherCoordPairs[] =
+	public boolean drawCircle (World par1World, int radius, int x, int y, int z)
 	{
-		2, 0, 0, 1, 2, 1
-	};
+		int tempX = x;
+		int tempZ = z;
+		int tempRadius = radius;
+		int aTrig = 0;
+		int bTrig = 0;
+
+		for (int loopCount = 0; loopCount <= radius; loopCount++)
+		{
+			// draw quadrants
+			aTrig = (radius - loopCount);
+			bTrig = (int) (Math.sqrt(radius * radius - aTrig * aTrig));
+			//if ( par1World.getBlockId(x + aTrig, y, z + bTrig) != 56) // top right
+			//{
+			par1World.setBlock(x + aTrig, y, z + bTrig, 56);
+			for (int i = z + bTrig; i >= z; i--)
+			{
+				par1World.setBlock(x + aTrig, y, i, 56);
+			}
+			//}
+
+			//if ( par1World.getBlockId(x - aTrig, y, z - bTrig) != 56) // bottom left
+			//{
+			par1World.setBlock(x - aTrig, y, z - bTrig, 56);
+			for (int i = z - bTrig; i <= z; i++)
+			{
+				par1World.setBlock(x - aTrig, y, i, 56);
+			}
+			//}
+
+			//if ( par1World.getBlockId(x - aTrig, y, z + bTrig) != 56) // top left
+			//{
+			par1World.setBlock(x - aTrig, y, z + bTrig, 56);
+			for (int i = z + bTrig; i >= z; i--)
+			{
+				par1World.setBlock(x - aTrig, y, i, 56);
+			}
+			//}
+
+			//if ( par1World.getBlockId(x + aTrig, y, z - bTrig) != 56) // bottom right
+			//{
+			par1World.setBlock(x + aTrig, y, z - bTrig, 56);
+			for (int i = z - bTrig; i <= z; i++)
+			{
+				par1World.setBlock(x + aTrig, y, i, 56);
+			}
+			//}
+
+		}
+
+		return true;
+	}
+
+	static final byte otherCoordPairs[] = { 2, 0, 0, 1, 2, 1 };
 	Random rand;
 	World worldObj;
-	int basePos[] =
-	{
-		0, 0, 0
-	};
+	int basePos[] = { 0, 0, 0 };
 	int heightLimit;
 	int height;
 	double heightAttenuation;
@@ -105,8 +100,8 @@ public class RedwoodTreeGen extends WorldGenerator
 		genWoodID = bID;
 		genWoodMetadata = bMD;
 	}
-	
-	int findGround(World world, int x, int y, int z)
+
+	int findGround (World world, int x, int y, int z)
 	{
 		boolean foundGround = false;
 		int height = PHTrees.seaLevel + 64;
@@ -115,71 +110,68 @@ public class RedwoodTreeGen extends WorldGenerator
 			height--;
 			int underID = world.getBlockId(x, height, z);
 			if (underID == Block.dirt.blockID || underID == Block.grass.blockID || height < PHTrees.seaLevel)
-				foundGround = true;		
-		}
-		while (!foundGround);
+				foundGround = true;
+		} while (!foundGround);
 		return height;
 	}
-	
-	public boolean isValidSpawn(World world, int x, int y, int z)
+
+	public boolean isValidSpawn (World world, int x, int y, int z)
 	{
 		int bID = world.getBlockId(x, y, z);
 		boolean ground = bID == Block.dirt.blockID || bID == Block.grass.blockID;
 		boolean transparent = !Block.opaqueCubeLookup[world.getBlockId(x, y + 1, z)];
 		boolean valid = ground && transparent;
-		System.out.println("Redwood spawn is "+valid+" at x: "+x+" y: "+y+" z: "+z);
 		return ground && transparent;
 	}
 
-	public boolean generate(World world, Random random, int x, int yPos, int z)
+	public boolean generate (World world, Random random, int x, int yPos, int z)
 	{
-		//System.out.println("Generating a redwood");
 		int groundPoint = findGround(world, x, yPos, z);
 		if (!isValidSpawn(world, x, groundPoint, z))
 			return false;
-		
+
 		int treeHeight = random.nextInt(60) + 80;
 		worldObj = world;
 		long ran = random.nextLong();
-		rand.setSeed(ran);		
+		rand.setSeed(ran);
 		basePos[0] = x;
 		basePos[1] = groundPoint;
 		basePos[2] = z;
 		heightLimit = 5 + rand.nextInt(heightLimitLimit);
-		
+
 		if (treeHeight > 120)
 		{
 			for (int currentHeight = 0; currentHeight < treeHeight; currentHeight++)
 			{
-				if (currentHeight < treeHeight * 1/10)
+				if (currentHeight < treeHeight * 1 / 10)
 					genRing13(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 2/10)
+				else if (currentHeight < treeHeight * 2 / 10)
 					genRing12(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 3/10)
+				else if (currentHeight < treeHeight * 3 / 10)
 					genRing11(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 4/10)
+				else if (currentHeight < treeHeight * 4 / 10)
 					genRing10(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 5/10)
+				else if (currentHeight < treeHeight * 5 / 10)
 				{
 					genRing9(world, random, x, currentHeight + groundPoint, z);
 					growLowBranch(world, random, x, currentHeight + groundPoint, z);
 				}
-				else if (currentHeight < treeHeight * 6/10)
+				else if (currentHeight < treeHeight * 6 / 10)
 				{
 					genRing8(world, random, x, currentHeight + groundPoint, z);
 					growLowBranch(world, random, x, currentHeight + groundPoint, z);
 				}
-				else if (currentHeight < treeHeight * 7/10)
+				else if (currentHeight < treeHeight * 7 / 10)
 				{
 					genRing7(world, random, x, currentHeight + groundPoint, z);
 					growMiddleBranch(world, random, x, currentHeight + groundPoint, z);
 				}
-				else if (currentHeight < treeHeight * 8/10)
+				else if (currentHeight < treeHeight * 8 / 10)
 				{
 					genRing6(world, random, x, currentHeight + groundPoint, z);
 					growMiddleBranch(world, random, x, currentHeight + groundPoint, z);
 				}
-				else if (currentHeight < treeHeight * 9/10)
+				else if (currentHeight < treeHeight * 9 / 10)
 				{
 					genRing5(world, random, x, currentHeight + groundPoint, z);
 					growHighBranch(world, random, x, currentHeight + groundPoint, z);
@@ -187,10 +179,10 @@ public class RedwoodTreeGen extends WorldGenerator
 				else
 				{
 					genRing3(world, random, x, currentHeight + groundPoint, z);
-					growHighBranch(world, random, x, currentHeight + groundPoint, z);					
+					growHighBranch(world, random, x, currentHeight + groundPoint, z);
 				}
 			}
-			
+
 			growBigRoots(world, random, x, groundPoint - 1, z);
 			growTop(world, random, x, height + groundPoint, z);
 		}
@@ -198,25 +190,25 @@ public class RedwoodTreeGen extends WorldGenerator
 		{
 			for (int currentHeight = 0; currentHeight < treeHeight; currentHeight++)
 			{
-				if (currentHeight < treeHeight * 1/8)
+				if (currentHeight < treeHeight * 1 / 8)
 					genRing11(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 2/8)
+				else if (currentHeight < treeHeight * 2 / 8)
 					genRing10(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 3/8)
+				else if (currentHeight < treeHeight * 3 / 8)
 					genRing9(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 4/8)
+				else if (currentHeight < treeHeight * 4 / 8)
 					genRing8(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 5/8)
+				else if (currentHeight < treeHeight * 5 / 8)
 				{
 					genRing7(world, random, x, currentHeight + groundPoint, z);
 					growMiddleBranch(world, random, x, currentHeight + groundPoint, z);
 				}
-				else if (currentHeight < treeHeight * 6/8)
+				else if (currentHeight < treeHeight * 6 / 8)
 				{
 					genRing6(world, random, x, currentHeight + groundPoint, z);
 					growMiddleBranch(world, random, x, currentHeight + groundPoint, z);
 				}
-				else if (currentHeight < treeHeight * 7/8)
+				else if (currentHeight < treeHeight * 7 / 8)
 				{
 					genRing5(world, random, x, currentHeight + groundPoint, z);
 					growHighBranch(world, random, x, currentHeight + groundPoint, z);
@@ -227,27 +219,27 @@ public class RedwoodTreeGen extends WorldGenerator
 					growHighBranch(world, random, x, currentHeight + groundPoint, z);
 				}
 			}
-			
+
 			growMediumRoots(world, random, x, groundPoint - 1, z);
 			growTop(world, random, x, height + groundPoint, z);
 		}
-		
+
 		else
 		{
 			for (int currentHeight = 0; currentHeight < treeHeight; currentHeight++)
 			{
-				if (currentHeight < treeHeight * 1/6)
+				if (currentHeight < treeHeight * 1 / 6)
 					genRing9(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 2/6)
+				else if (currentHeight < treeHeight * 2 / 6)
 					genRing8(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 3/6)
+				else if (currentHeight < treeHeight * 3 / 6)
 					genRing7(world, random, x, currentHeight + groundPoint, z);
-				else if (currentHeight < treeHeight * 4/6)
+				else if (currentHeight < treeHeight * 4 / 6)
 				{
 					genRing6(world, random, x, currentHeight + groundPoint, z);
 					growMiddleBranch(world, random, x, currentHeight + groundPoint, z);
 				}
-				else if (currentHeight < treeHeight * 5/6)
+				else if (currentHeight < treeHeight * 5 / 6)
 				{
 					genRing5(world, random, x, currentHeight + groundPoint, z);
 					growHighBranch(world, random, x, currentHeight + groundPoint, z);
@@ -263,98 +255,96 @@ public class RedwoodTreeGen extends WorldGenerator
 		}
 		return true;
 	}
-			
-			
-			
-			/*else if (height > 70)
-			{
-				if (heightPos >= 70)
-				{
-					for (int j3 = currentHeight + groundPoint; j3 <= (groundPoint + heightPos) - 70; j3++)
-					{
-						genRing11(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						currentHeight + groundPoint++;
-					}
-				}
-				if (heightPos >= 58)
-				{
-					for (int k3 = currentHeight + groundPoint; k3 <= (groundPoint + heightPos) - 58; k3++)
-					{
-						genRing10(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						currentHeight + groundPoint++;
-					}
-				}
-				if (heightPos >= 35)
-				{
-					for (int l3 = currentHeight + groundPoint; l3 <= (groundPoint + heightPos) - 35; l3++)
-					{
-						genRing9(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						growMediumLowerBranch(world, random, x, currentHeight + groundPoint, z);
-						currentHeight + groundPoint++;
-					}
-				}
-				if (heightPos >= 15)
-				{
-					for (int i4 = currentHeight + groundPoint; i4 <= (groundPoint + heightPos) - 15; i4++)
-					{
-						genRing8(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						growMediumUpperBranch(world, random, x, currentHeight + groundPoint, z);
-						currentHeight + groundPoint++;
-					}
-				}
-				if (heightPos >= 0)
-				{
-					for (int j4 = currentHeight + groundPoint; j4 <= (groundPoint + heightPos) - 0; j4++)
-					{
-						genRing7(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						growMediumUpperBranch(world, random, x, currentHeight + groundPoint, z);
-						currentHeight + groundPoint++;
-					}
-				}
-				growMediumRoots(world, random, x, groundPoint - 1, z);
-				growMediumTop(world, random, x, currentHeight + groundPoint, z);
-			}
-			else
-			{
-				if (heightPos >= 50)
-				{
-					for (int k4 = currentHeight + groundPoint; k4 <= (groundPoint + heightPos) - 50; k4++)
-					{
-						genRing9(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						currentHeight + groundPoint++;
-					}
-				}
-				if (heightPos >= 25)
-				{
-					for (int l4 = currentHeight + groundPoint; l4 <= (groundPoint + heightPos) - 25; l4++)
-					{
-						genRing8(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						growSmallLowerBranch(world, random, x, currentHeight + groundPoint, z);
-						currentHeight + groundPoint++;
-					}
-				}
-				if (heightPos >= 0)
-				{
-					for (int i5 = currentHeight + groundPoint; i5 <= (groundPoint + heightPos) - 0; i5++)
-					{
-						genRing7(world, random, x, currentHeight + groundPoint, z);
-						heightPos--;
-						growSmallUpperBranch(world, random, x, currentHeight + groundPoint, z);
-						currentHeight + groundPoint++;
-					}
-				}
-				growSmallRoots(world, random, x, groundPoint - 1, z);
-				growSmallTop(world, random, x, currentHeight + groundPoint, z);
-			}*/
 
-	public boolean growTop(World world, Random random, int x, int y, int z)
+	/*else if (height > 70)
+	{
+		if (heightPos >= 70)
+		{
+			for (int j3 = currentHeight + groundPoint; j3 <= (groundPoint + heightPos) - 70; j3++)
+			{
+				genRing11(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				currentHeight + groundPoint++;
+			}
+		}
+		if (heightPos >= 58)
+		{
+			for (int k3 = currentHeight + groundPoint; k3 <= (groundPoint + heightPos) - 58; k3++)
+			{
+				genRing10(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				currentHeight + groundPoint++;
+			}
+		}
+		if (heightPos >= 35)
+		{
+			for (int l3 = currentHeight + groundPoint; l3 <= (groundPoint + heightPos) - 35; l3++)
+			{
+				genRing9(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				growMediumLowerBranch(world, random, x, currentHeight + groundPoint, z);
+				currentHeight + groundPoint++;
+			}
+		}
+		if (heightPos >= 15)
+		{
+			for (int i4 = currentHeight + groundPoint; i4 <= (groundPoint + heightPos) - 15; i4++)
+			{
+				genRing8(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				growMediumUpperBranch(world, random, x, currentHeight + groundPoint, z);
+				currentHeight + groundPoint++;
+			}
+		}
+		if (heightPos >= 0)
+		{
+			for (int j4 = currentHeight + groundPoint; j4 <= (groundPoint + heightPos) - 0; j4++)
+			{
+				genRing7(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				growMediumUpperBranch(world, random, x, currentHeight + groundPoint, z);
+				currentHeight + groundPoint++;
+			}
+		}
+		growMediumRoots(world, random, x, groundPoint - 1, z);
+		growMediumTop(world, random, x, currentHeight + groundPoint, z);
+	}
+	else
+	{
+		if (heightPos >= 50)
+		{
+			for (int k4 = currentHeight + groundPoint; k4 <= (groundPoint + heightPos) - 50; k4++)
+			{
+				genRing9(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				currentHeight + groundPoint++;
+			}
+		}
+		if (heightPos >= 25)
+		{
+			for (int l4 = currentHeight + groundPoint; l4 <= (groundPoint + heightPos) - 25; l4++)
+			{
+				genRing8(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				growSmallLowerBranch(world, random, x, currentHeight + groundPoint, z);
+				currentHeight + groundPoint++;
+			}
+		}
+		if (heightPos >= 0)
+		{
+			for (int i5 = currentHeight + groundPoint; i5 <= (groundPoint + heightPos) - 0; i5++)
+			{
+				genRing7(world, random, x, currentHeight + groundPoint, z);
+				heightPos--;
+				growSmallUpperBranch(world, random, x, currentHeight + groundPoint, z);
+				currentHeight + groundPoint++;
+			}
+		}
+		growSmallRoots(world, random, x, groundPoint - 1, z);
+		growSmallTop(world, random, x, currentHeight + groundPoint, z);
+	}*/
+
+	public boolean growTop (World world, Random random, int x, int y, int z)
 	{
 		basePos[0] = x;
 		basePos[1] = y + 4;
@@ -382,8 +372,8 @@ public class RedwoodTreeGen extends WorldGenerator
 		generateLeafNodeBases();
 		return false;
 	}
-	
-	public boolean growHighBranch(World world, Random random, int x, int y, int z)
+
+	public boolean growHighBranch (World world, Random random, int x, int y, int z)
 	{
 		for (int iter = 0; iter < 3; iter++)
 		{
@@ -397,7 +387,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return false;
 	}
 
-	public boolean growMiddleBranch(World world, Random random, int x, int y, int z)
+	public boolean growMiddleBranch (World world, Random random, int x, int y, int z)
 	{
 		for (int iter = 0; iter < 6; iter++)
 		{
@@ -408,11 +398,11 @@ public class RedwoodTreeGen extends WorldGenerator
 			generateLeaves();
 			generateLeafNodeBases();
 		}
-		
+
 		return false;
 	}
 
-	public boolean growLowBranch(World world, Random random, int i, int j, int k)
+	public boolean growLowBranch (World world, Random random, int i, int j, int k)
 	{
 		basePos[0] = (i + random.nextInt(17)) - 8;
 		basePos[1] = j;
@@ -438,7 +428,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return false;
 	}
 
-	public boolean growSmallRoots(World world, Random random, int i, int j, int k)
+	public boolean growSmallRoots (World world, Random random, int i, int j, int k)
 	{
 		genRing9(world, random, i, j, k);
 		smallRoot1(world, random, i, j - 1, k);
@@ -455,7 +445,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean growMediumRoots(World world, Random random, int i, int j, int k)
+	public boolean growMediumRoots (World world, Random random, int i, int j, int k)
 	{
 		genRing11(world, random, i, j, k);
 		mediumRoot1(world, random, i, j - 1, k);
@@ -475,7 +465,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean growBigRoots(World world, Random random, int i, int j, int k)
+	public boolean growBigRoots (World world, Random random, int i, int j, int k)
 	{
 		genRing13(world, random, i, j, k);
 		bigRoot1(world, random, i, j - 1, k);
@@ -499,7 +489,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean smallRoot1(World world, Random random, int i, int j, int k)
+	public boolean smallRoot1 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 4, j, k - 1, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 4, j, k + 1, genWoodID, genWoodMetadata + 2);
@@ -548,7 +538,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean smallRoot2(World world, Random random, int i, int j, int k)
+	public boolean smallRoot2 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 4, j, k - 1, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 4, j, k + 1, genWoodID, genWoodMetadata + 2);
@@ -589,7 +579,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean smallRoot3(World world, Random random, int i, int j, int k)
+	public boolean smallRoot3 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 2, j, k - 2, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 2, j, k + 2, genWoodID, genWoodMetadata + 2);
@@ -606,7 +596,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean smallRoot4(World world, Random random, int i, int j, int k)
+	public boolean smallRoot4 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 1, j, k - 2, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 1, j, k + 2, genWoodID, genWoodMetadata + 2);
@@ -615,7 +605,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean mediumRoot1(World world, Random random, int i, int j, int k)
+	public boolean mediumRoot1 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 5, j, k - 1, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 5, j, k + 1, genWoodID, genWoodMetadata + 2);
@@ -688,7 +678,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean mediumRoot2(World world, Random random, int i, int j, int k)
+	public boolean mediumRoot2 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 4, j, k - 1, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 4, j, k + 1, genWoodID, genWoodMetadata + 2);
@@ -733,7 +723,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean mediumRoot3(World world, Random random, int i, int j, int k)
+	public boolean mediumRoot3 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 3, j, k - 2, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 3, j, k + 2, genWoodID, genWoodMetadata + 2);
@@ -758,7 +748,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean mediumRoot4(World world, Random random, int i, int j, int k)
+	public boolean mediumRoot4 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 2, j, k - 2, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 2, j, k + 2, genWoodID, genWoodMetadata + 2);
@@ -771,7 +761,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean mediumRoot5(World world, Random random, int i, int j, int k)
+	public boolean mediumRoot5 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 1, j, k - 3, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 1, j, k + 3, genWoodID, genWoodMetadata + 2);
@@ -780,7 +770,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean bigRoot1(World world, Random random, int i, int j, int k)
+	public boolean bigRoot1 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 6, j, k - 2, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 6, j, k - 1, genWoodID, genWoodMetadata + 2);
@@ -897,7 +887,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean bigRoot2(World world, Random random, int i, int j, int k)
+	public boolean bigRoot2 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 5, j, k - 4, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 5, j, k - 3, genWoodID, genWoodMetadata + 2);
@@ -1006,7 +996,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean bigRoot3(World world, Random random, int i, int j, int k)
+	public boolean bigRoot3 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 4, j, k - 3, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 4, j, k - 2, genWoodID, genWoodMetadata + 2);
@@ -1059,7 +1049,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean bigRoot4(World world, Random random, int i, int j, int k)
+	public boolean bigRoot4 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 4, j, k - 3, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 4, j, k + 3, genWoodID, genWoodMetadata + 2);
@@ -1092,7 +1082,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean bigRoot5(World world, Random random, int i, int j, int k)
+	public boolean bigRoot5 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 3, j, k - 3, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 3, j, k + 3, genWoodID, genWoodMetadata + 2);
@@ -1113,7 +1103,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean bigRoot6(World world, Random random, int i, int j, int k)
+	public boolean bigRoot6 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 2, j, k - 4, genWoodID, genWoodMetadata + 2);
 		setBlockAndMetadata(world, i - 2, j, k - 3, genWoodID, genWoodMetadata + 2);
@@ -1126,7 +1116,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing13(World world, Random random, int i, int j, int k)
+	public boolean genRing13 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 6, j, k - 2, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 6, j, k - 1, genWoodID, genWoodMetadata);
@@ -1268,7 +1258,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing12(World world, Random random, int i, int j, int k)
+	public boolean genRing12 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 6, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 6, j, k, genWoodID, genWoodMetadata);
@@ -1398,7 +1388,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing11(World world, Random random, int i, int j, int k)
+	public boolean genRing11 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 5, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 5, j, k, genWoodID, genWoodMetadata);
@@ -1492,7 +1482,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing10(World world, Random random, int i, int j, int k)
+	public boolean genRing10 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 4, j, k - 2, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 4, j, k - 1, genWoodID, genWoodMetadata);
@@ -1566,7 +1556,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing9(World world, Random random, int i, int j, int k)
+	public boolean genRing9 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 4, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 4, j, k, genWoodID, genWoodMetadata);
@@ -1632,7 +1622,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing8(World world, Random random, int i, int j, int k)
+	public boolean genRing8 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 3, j, k - 2, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 3, j, k - 1, genWoodID, genWoodMetadata);
@@ -1682,7 +1672,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing7(World world, Random random, int i, int j, int k)
+	public boolean genRing7 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 3, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 3, j, k, genWoodID, genWoodMetadata);
@@ -1724,7 +1714,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing6(World world, Random random, int i, int j, int k)
+	public boolean genRing6 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 2, j, k - 2, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 2, j, k - 1, genWoodID, genWoodMetadata);
@@ -1754,7 +1744,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing5(World world, Random random, int i, int j, int k)
+	public boolean genRing5 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 2, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 2, j, k, genWoodID, genWoodMetadata);
@@ -1780,7 +1770,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing4(World world, Random random, int i, int j, int k)
+	public boolean genRing4 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 2, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 2, j, k, genWoodID, genWoodMetadata);
@@ -1797,7 +1787,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing3s(World world, Random random, int i, int j, int k)
+	public boolean genRing3s (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 1, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 1, j, k, genWoodID, genWoodMetadata);
@@ -1810,7 +1800,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing3(World world, Random random, int i, int j, int k)
+	public boolean genRing3 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 1, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 1, j, k, genWoodID, genWoodMetadata);
@@ -1824,7 +1814,7 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing2(World world, Random random, int i, int j, int k)
+	public boolean genRing2 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i - 1, j, k - 1, genWoodID, genWoodMetadata);
 		setBlockAndMetadata(world, i - 1, j, k, genWoodID, genWoodMetadata);
@@ -1833,20 +1823,20 @@ public class RedwoodTreeGen extends WorldGenerator
 		return true;
 	}
 
-	public boolean genRing1(World world, Random random, int i, int j, int k)
+	public boolean genRing1 (World world, Random random, int i, int j, int k)
 	{
 		setBlockAndMetadata(world, i, j, k, genWoodID, genWoodMetadata);
 		return true;
 	}
 
-	void generateLeafNodeList()
+	void generateLeafNodeList ()
 	{
-		height = (int)((double)heightLimit * heightAttenuation);
+		height = (int) ((double) heightLimit * heightAttenuation);
 		if (height >= heightLimit)
 		{
 			height = heightLimit - 1;
 		}
-		int i = (int)(1.3819999999999999D + Math.pow((field_872_k * (double)heightLimit) / 13D, 2D));
+		int i = (int) (1.3819999999999999D + Math.pow((field_872_k * (double) heightLimit) / 13D, 2D));
 		if (i < 1)
 		{
 			i = 1;
@@ -1875,35 +1865,26 @@ public class RedwoodTreeGen extends WorldGenerator
 				double d = 0.5D;
 				for (; j1 < i; j1++)
 				{
-					double d1 = field_873_j * ((double)f * ((double)rand.nextFloat() + 0.32800000000000001D));
-					double d2 = (double)rand.nextFloat() * 2D * 3.1415899999999999D;
-					int k1 = MathHelper.floor_double(d1 * Math.sin(d2) + (double)basePos[0] + d);
-					int l1 = MathHelper.floor_double(d1 * Math.cos(d2) + (double)basePos[2] + d);
-					int ai1[] =
-					{
-						k1, j, l1
-					};
-					int ai2[] =
-					{
-						k1, j + leafDistanceLimit, l1
-					};
+					double d1 = field_873_j * ((double) f * ((double) rand.nextFloat() + 0.32800000000000001D));
+					double d2 = (double) rand.nextFloat() * 2D * 3.1415899999999999D;
+					int k1 = MathHelper.floor_double(d1 * Math.sin(d2) + (double) basePos[0] + d);
+					int l1 = MathHelper.floor_double(d1 * Math.cos(d2) + (double) basePos[2] + d);
+					int ai1[] = { k1, j, l1 };
+					int ai2[] = { k1, j + leafDistanceLimit, l1 };
 					if (checkBlockLine(ai1, ai2) != -1)
 					{
 						continue;
 					}
-					int ai3[] =
-					{
-						basePos[0], basePos[1], basePos[2]
-					};
+					int ai3[] = { basePos[0], basePos[1], basePos[2] };
 					double d3 = Math.sqrt(Math.pow(Math.abs(basePos[0] - ai1[0]), 2D) + Math.pow(Math.abs(basePos[2] - ai1[2]), 2D));
 					double d4 = d3 * field_874_i;
-					if ((double)ai1[1] - d4 > (double)l)
+					if ((double) ai1[1] - d4 > (double) l)
 					{
 						ai3[1] = l;
 					}
 					else
 					{
-						ai3[1] = (int)((double)ai1[1] - d4);
+						ai3[1] = (int) ((double) ai1[1] - d4);
 					}
 					if (checkBlockLine(ai3, ai1) == -1)
 					{
@@ -1923,19 +1904,13 @@ public class RedwoodTreeGen extends WorldGenerator
 		System.arraycopy(ai, 0, leafNodes, 0, k);
 	}
 
-	void func_523_a(int i, int j, int k, float f, byte byte0, int l)
+	void func_523_a (int i, int j, int k, float f, byte byte0, int l)
 	{
-		int i1 = (int)((double)f + 0.61799999999999999D);
+		int i1 = (int) ((double) f + 0.61799999999999999D);
 		byte byte1 = otherCoordPairs[byte0];
 		byte byte2 = otherCoordPairs[byte0 + 3];
-		int ai[] =
-		{
-			i, j, k
-		};
-		int ai1[] =
-		{
-			0, 0, 0
-		};
+		int ai[] = { i, j, k };
+		int ai1[] = { 0, 0, 0 };
 		int j1 = -i1;
 		int k1 = -i1;
 		ai1[byte0] = ai[byte0];
@@ -1944,8 +1919,8 @@ public class RedwoodTreeGen extends WorldGenerator
 			ai1[byte1] = ai[byte1] + j1;
 			for (int l1 = -i1; l1 <= i1;)
 			{
-				double d = Math.sqrt(Math.pow((double)Math.abs(j1) + 0.5D, 2D) + Math.pow((double)Math.abs(l1) + 0.5D, 2D));
-				if (d > (double)f)
+				double d = Math.sqrt(Math.pow((double) Math.abs(j1) + 0.5D, 2D) + Math.pow((double) Math.abs(l1) + 0.5D, 2D));
+				if (d > (double) f)
 				{
 					l1++;
 				}
@@ -1967,14 +1942,14 @@ public class RedwoodTreeGen extends WorldGenerator
 		}
 	}
 
-	float func_528_a(int i)
+	float func_528_a (int i)
 	{
-		if ((double)i < (double)(float)heightLimit * 0.29999999999999999D)
+		if ((double) i < (double) (float) heightLimit * 0.29999999999999999D)
 		{
 			return -1.618F;
 		}
-		float f = (float)heightLimit / 2.0F;
-		float f1 = (float)heightLimit / 2.0F - (float)i;
+		float f = (float) heightLimit / 2.0F;
+		float f1 = (float) heightLimit / 2.0F - (float) i;
 		float f2;
 		if (f1 == 0.0F)
 		{
@@ -1986,13 +1961,13 @@ public class RedwoodTreeGen extends WorldGenerator
 		}
 		else
 		{
-			f2 = (float)Math.sqrt(Math.pow(Math.abs(f), 2D) - Math.pow(Math.abs(f1), 2D));
+			f2 = (float) Math.sqrt(Math.pow(Math.abs(f), 2D) - Math.pow(Math.abs(f1), 2D));
 		}
 		f2 *= 0.5F;
 		return f2;
 	}
 
-	float func_526_b(int i)
+	float func_526_b (int i)
 	{
 		if (i < 0 || i >= leafDistanceLimit)
 		{
@@ -2004,22 +1979,19 @@ public class RedwoodTreeGen extends WorldGenerator
 		}
 	}
 
-	void generateLeafNode(int i, int j, int k)
+	void generateLeafNode (int i, int j, int k)
 	{
 		int l = j;
 		for (int i1 = j + leafDistanceLimit; l < i1; l++)
 		{
 			float f = func_526_b(l - j);
-			func_523_a(i, l, k, f, (byte)1, FloraTrees.floraLeaves.blockID);
+			func_523_a(i, l, k, f, (byte) 1, FloraTrees.floraLeaves.blockID);
 		}
 	}
 
-	void placeBlockLine(int ai[], int ai1[], int i)
+	void placeBlockLine (int ai[], int ai1[], int i)
 	{
-		int ai2[] =
-		{
-			0, 0, 0
-		};
+		int ai2[] = { 0, 0, 0 };
 		byte byte0 = 0;
 		int j = 0;
 		for (; byte0 < 3; byte0++)
@@ -2046,28 +2018,26 @@ public class RedwoodTreeGen extends WorldGenerator
 		{
 			byte3 = -1;
 		}
-		double d = (double)ai2[byte1] / (double)ai2[j];
-		double d1 = (double)ai2[byte2] / (double)ai2[j];
-		int ai3[] =
-		{
-			0, 0, 0
-		};
+		double d = (double) ai2[byte1] / (double) ai2[j];
+		double d1 = (double) ai2[byte2] / (double) ai2[j];
+		int ai3[] = { 0, 0, 0 };
 		int k = 0;
 		for (int l = ai2[j] + byte3; k != l; k += byte3)
 		{
-			ai3[j] = MathHelper.floor_double((double)(ai[j] + k) + 0.5D);
-			ai3[byte1] = MathHelper.floor_double((double)ai[byte1] + (double)k * d + 0.5D);
-			ai3[byte2] = MathHelper.floor_double((double)ai[byte2] + (double)k * d1 + 0.5D);
+			ai3[j] = MathHelper.floor_double((double) (ai[j] + k) + 0.5D);
+			ai3[byte1] = MathHelper.floor_double((double) ai[byte1] + (double) k * d + 0.5D);
+			ai3[byte2] = MathHelper.floor_double((double) ai[byte2] + (double) k * d1 + 0.5D);
 			setBlockAndMetadata(worldObj, ai3[0], ai3[1], ai3[2], i, 0);
 		}
 	}
 
-	void generateLeaves()
+	void generateLeaves ()
 	{
 		int i = 0;
 		for (int j = leafNodes.length; i < j; i++)
 		{
-			if(i < leafNodes.length) {
+			if (i < leafNodes.length)
+			{
 				int k = leafNodes[i][0];
 				int l = leafNodes[i][1];
 				int i1 = leafNodes[i][2];
@@ -2076,41 +2046,32 @@ public class RedwoodTreeGen extends WorldGenerator
 		}
 	}
 
-	boolean leafNodeNeedsBase(int i)
+	boolean leafNodeNeedsBase (int i)
 	{
-		return (double)i >= (double)heightLimit * 0.20000000000000001D;
+		return (double) i >= (double) heightLimit * 0.20000000000000001D;
 	}
 
-	void generateLeafNodeBases()
+	void generateLeafNodeBases ()
 	{
 		int i = 0;
 		int j = leafNodes.length;
-		int ai[] =
-		{
-			basePos[0], basePos[1], basePos[2]
-		};
+		int ai[] = { basePos[0], basePos[1], basePos[2] };
 		for (; i < j; i++)
 		{
 			int ai1[] = leafNodes[i];
-			int ai2[] =
-			{
-				ai1[0], ai1[1], ai1[2]
-			};
+			int ai2[] = { ai1[0], ai1[1], ai1[2] };
 			ai[1] = ai1[3];
 			int k = ai[1] - basePos[1];
 			if (leafNodeNeedsBase(k))
 			{
-				placeBlockLine(ai, ai2, FloraTrees.tree.blockID);
+				placeBlockLine(ai, ai2, FloraTrees.redwood.blockID);
 			}
 		}
 	}
 
-	int checkBlockLine(int ai[], int ai1[])
+	int checkBlockLine (int ai[], int ai1[])
 	{
-		int ai2[] =
-		{
-			0, 0, 0
-		};
+		int ai2[] = { 0, 0, 0 };
 		byte byte0 = 0;
 		int i = 0;
 		for (; byte0 < 3; byte0++)
@@ -2137,12 +2098,9 @@ public class RedwoodTreeGen extends WorldGenerator
 		{
 			byte3 = -1;
 		}
-		double d = (double)ai2[byte1] / (double)ai2[i];
-		double d1 = (double)ai2[byte2] / (double)ai2[i];
-		int ai3[] =
-		{
-			0, 0, 0
-		};
+		double d = (double) ai2[byte1] / (double) ai2[i];
+		double d1 = (double) ai2[byte2] / (double) ai2[i];
+		int ai3[] = { 0, 0, 0 };
 		int j = 0;
 		int k = ai2[i] + byte3;
 		do
@@ -2152,16 +2110,15 @@ public class RedwoodTreeGen extends WorldGenerator
 				break;
 			}
 			ai3[i] = ai[i] + j;
-			ai3[byte1] = MathHelper.floor_double((double)ai[byte1] + (double)j * d);
-			ai3[byte2] = MathHelper.floor_double((double)ai[byte2] + (double)j * d1);
+			ai3[byte1] = MathHelper.floor_double((double) ai[byte1] + (double) j * d);
+			ai3[byte2] = MathHelper.floor_double((double) ai[byte2] + (double) j * d1);
 			int l = worldObj.getBlockId(ai3[0], ai3[1], ai3[2]);
 			if (l != 0 && l != 18)
 			{
 				break;
 			}
 			j += byte3;
-		}
-		while (true);
+		} while (true);
 		if (j == k)
 		{
 			return -1;
@@ -2172,16 +2129,10 @@ public class RedwoodTreeGen extends WorldGenerator
 		}
 	}
 
-	boolean validTreeLocation()
+	boolean validTreeLocation ()
 	{
-		int ai[] =
-		{
-			basePos[0], basePos[1], basePos[2]
-		};
-		int ai1[] =
-		{
-			basePos[0], (basePos[1] + heightLimit) - 1, basePos[2]
-		};
+		int ai[] = { basePos[0], basePos[1], basePos[2] };
+		int ai1[] = { basePos[0], (basePos[1] + heightLimit) - 1, basePos[2] };
 		int i = worldObj.getBlockId(basePos[0], basePos[1] - 1, basePos[2]);
 		if (i != 2 && i != 3)
 		{
@@ -2203,9 +2154,9 @@ public class RedwoodTreeGen extends WorldGenerator
 		}
 	}
 
-	public void func_517_a(double d, double d1, double d2)
+	public void func_517_a (double d, double d1, double d2)
 	{
-		heightLimitLimit = (int)(d * 12D);
+		heightLimitLimit = (int) (d * 12D);
 		if (d > 0.5D)
 		{
 			leafDistanceLimit = 5;

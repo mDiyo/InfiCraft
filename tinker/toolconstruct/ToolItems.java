@@ -1,17 +1,28 @@
 package tinker.toolconstruct;
 
-import java.util.LinkedList;
-
-import tinker.toolconstruct.blocks.*;
-import tinker.toolconstruct.crafting.*;
-import tinker.toolconstruct.items.*;
-import tinker.toolconstruct.tools.*;
-import ic2.core.Ic2Items;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import tinker.toolconstruct.blocks.ToolStationBlock;
+import tinker.toolconstruct.crafting.ModDurability;
+import tinker.toolconstruct.crafting.ModElectric;
+import tinker.toolconstruct.crafting.ModRedstone;
+import tinker.toolconstruct.crafting.PatternBuilder;
+import tinker.toolconstruct.crafting.ToolBuilder;
+import tinker.toolconstruct.items.Pattern;
+import tinker.toolconstruct.items.ToolPart;
+import tinker.toolconstruct.tools.Axe;
+import tinker.toolconstruct.tools.BattleSign;
+import tinker.toolconstruct.tools.Broadsword;
+import tinker.toolconstruct.tools.FryingPan;
+import tinker.toolconstruct.tools.Longsword;
+import tinker.toolconstruct.tools.Pickaxe;
+import tinker.toolconstruct.tools.Rapier;
+import tinker.toolconstruct.tools.Shovel;
+import tinker.toolconstruct.tools.ToolCore;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ToolItems
@@ -156,9 +167,16 @@ public class ToolItems
 	
 	void addCraftingRecipes ()
 	{
-		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 0), "c", 'c', Block.workbench);
-		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 1), "cc", 'c', Block.workbench);
-		GameRegistry.addRecipe(new ItemStack(woodPattern, 1, 0), "ps", "sp", 'p', Block.planks, 's', Item.stick);
+		/*GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 0), "c", 'c', Block.workbench);
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 1), "cc", 'c', Block.workbench);*/
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 0), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', Block.workbench);
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 1), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', new ItemStack(Block.wood, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 2), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', new ItemStack(Block.wood, 1, 1));
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 3), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', new ItemStack(Block.wood, 1, 2));
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 4), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', new ItemStack(Block.wood, 1, 3));
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodCrafter, 1, 1), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', "logWood"));
+		
+		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodPattern, 1, 0), "ps", "sp", 'p', "plankWood", 's', Item.stick));
 		GameRegistry.addRecipe(new ItemStack(stonePattern, 1, 0), "ps", "sp", 'p', Block.cobblestone, 's', new ItemStack(toolRod, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(stonePattern, 1, 0), "ps", "sp", 'p', Block.stone, 's', new ItemStack(toolRod, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(netherPattern, 1, 0), "ps", "sp", 'p', Block.netherrack, 's', new ItemStack(toolRod, 1, 7));

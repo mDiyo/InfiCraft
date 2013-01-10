@@ -33,11 +33,11 @@ public abstract class EntityEquipment extends EntityLiving
         this.attackEntityFrom(DamageSource.outOfWorld, 1000);
     }
 	
-	public int getMaxHealth() { return 500; }	
+	public int getMaxHealth() { return 10; }	
 	public boolean canBePushed() { return false; }	
 	protected int decreaseAirSupply(int par1) { return 0; }	
-	public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) { return false; }	
-	protected void damageEntity(DamageSource par1DamageSource, int par2) { super.damageEntity(par1DamageSource, par2); }
+	//public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) { return false; }	
+	//protected void damageEntity(DamageSource par1DamageSource, int par2) { super.damageEntity(par1DamageSource, par2); }
 	protected void updateFallState(double par1, boolean par3) {}
 	public void knockBack(Entity par1Entity, int par2, double par3, double par5) {}
 	protected void fall(float par1) {}
@@ -50,7 +50,7 @@ public abstract class EntityEquipment extends EntityLiving
 	protected void despawnEntity() { super.despawnEntity(); }
 	protected void updateAITasks() {}
 	protected void updateEntityActionState() {}
-	protected void updateArmSwingProgress() {}
+	//protected void updateArmSwingProgress() {}
 	public boolean getCanSpawnHere() { return false; }
 	protected void updatePotionEffects() {}
 	public void addPotionEffect(PotionEffect par1PotionEffect) {}

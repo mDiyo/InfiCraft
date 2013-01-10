@@ -55,6 +55,7 @@ public abstract class ToolMod
 
 	/** Modifies the tool. Adds nbttags, changes existing ones, ticks down modification counter, etc
 	 * 
+	 * @param input ItemStacks to pull info from
 	 * @param tool The tool to modify
 	 */
 	public abstract void modify (ItemStack[] input, ItemStack tool);
@@ -68,17 +69,14 @@ public abstract class ToolMod
 		else if (tags.hasKey("Effect2"))
 		{
 			tags.setInteger("Effect3", effectIndex);
-			System.out.println("Adding an effect3");
 		}
 		else if (tags.hasKey("Effect1"))
 		{
 			tags.setInteger("Effect2", effectIndex);
-			System.out.println("Adding an effect2");
 		}
 		else
 		{
 			tags.setInteger("Effect1", effectIndex);
-			System.out.println("Adding an effect1");
 		}
 	}
 }

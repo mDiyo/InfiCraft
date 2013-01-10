@@ -2,8 +2,6 @@ package tinker.toolconstruct;
 
 import java.util.Random;
 
-import cpw.mods.fml.client.FMLClientHandler;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -13,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.world.World;
+import tinker.toolconstruct.tools.ToolCore;
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class AbilityHelper
 {
@@ -47,14 +47,38 @@ public class AbilityHelper
 
 	public static void damageTool (ItemStack stack, int dam, NBTTagCompound tags, Entity entity)
 	{
-		int damage = tags.getCompoundTag("InfiTool").getInteger("Damage");
-		int maxDamage = tags.getCompoundTag("InfiTool").getInteger("TotalDurability");
+		if (!damageElectricTool(stack, tags))
+		{
+			int damage = tags.getCompoundTag("InfiTool").getInteger("Damage");
+			int maxDamage = tags.getCompoundTag("InfiTool").getInteger("TotalDurability");
 
-		if ((damage + dam) > maxDamage)
-			breakTool(stack, tags, entity);
+			if ((damage + dam) > maxDamage)
+				breakTool(stack, tags, entity);
 
-		else
-			tags.getCompoundTag("InfiTool").setInteger("Damage", damage + dam);
+			else
+				tags.getCompoundTag("InfiTool").setInteger("Damage", damage + dam);
+			
+			stack.setItemDamage(1 + (maxDamage - damage) * (stack.getMaxDamage() - 1) / maxDamage);
+		}
+	}
+
+	public static boolean damageElectricTool (ItemStack stack, NBTTagCompound tags)
+	{
+		if (!tags.hasKey("charge"))
+			return false;
+		
+		int charge = tags.getInteger("charge");
+		if (charge < 50)
+		{
+			if (charge > 0)
+				tags.setInteger("charge", 0);
+			return false;
+		}
+		charge -= 50;
+		ToolCore tool = (ToolCore) stack.getItem();
+		stack.setItemDamage(1 + (tool.getMaxCharge() - charge) * (stack.getMaxDamage() - 1) / tool.getMaxCharge());
+		tags.setInteger("charge", charge);
+		return true;
 	}
 
 	public static void breakTool (ItemStack stack, NBTTagCompound tags, Entity player)
@@ -76,7 +100,7 @@ public class AbilityHelper
 
 	public static void hitEntity (ItemStack stack, EntityLiving mob, EntityLiving player)
 	{
-		hitEntity (stack, mob, player, 1f);
+		hitEntity(stack, mob, player, 1f);
 	}
 
 	public static void hitEntity (ItemStack stack, EntityLiving mob, EntityLiving player, float bonusDamage)

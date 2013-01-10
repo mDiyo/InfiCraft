@@ -1,9 +1,5 @@
 package tinker.toolconstruct;
 
-import inficraft.simplebackground.SoundHandler;
-import tinker.toolconstruct.crafting.ToolBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary.OreRegisterEvent;
@@ -22,7 +18,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "TConstruct", name = "Tool Construct", version = "A8")
+@Mod(modid = "TConstruct", name = "Tool Construct", version = "A10.1")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class ToolConstruct 
 {

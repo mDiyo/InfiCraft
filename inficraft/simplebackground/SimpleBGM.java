@@ -83,6 +83,7 @@ public class SimpleBGM
 					return;
 				int songNum = musicRand.nextInt(songList.size());
 				
+				bgm.fadeOutIn(currentMusic, songList.get(songNum).soundUrl, songList.get(songNum).soundName, 1000, 2000);
 				bgm.backgroundMusic(sound, songList.get(songNum).soundUrl, songList.get(songNum).soundName, false);
 				bgm.setVolume(sound, options.musicVolume);
 				bgm.play(sound);

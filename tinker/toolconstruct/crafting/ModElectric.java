@@ -53,6 +53,7 @@ public class ModElectric extends ModBoolean
 			modifiers -= 1;
 			tags.getCompoundTag("InfiTool").setInteger("Modifiers", modifiers);
 			tags.setInteger("charge", 0);
+			tags.setDouble("electricity", 0);
 		}
 	}
 }

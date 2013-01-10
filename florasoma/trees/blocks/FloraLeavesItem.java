@@ -7,7 +7,7 @@ public class FloraLeavesItem extends ItemBlock
 {
     public static final String blockType[] =
     {
-        "redwood", "eucalyptus", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+        "redwood", "eucalyptus", "bush", "", "", "", "", "", "", "", "", "", "", "", "", ""
     };
 
 	//TODO: Have names tied to this item

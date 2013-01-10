@@ -28,7 +28,7 @@ public class ArmorStandGui extends GuiContainer
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3)
 	{
-		int var4 = this.mc.renderEngine.getTexture("/infitextures/gui/armorstand.png");
+		int var4 = this.mc.renderEngine.getTexture("/tinkertextures/gui/armorstand.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.renderEngine.bindTexture(var4);
         int var5 = this.guiLeft;

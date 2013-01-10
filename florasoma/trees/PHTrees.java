@@ -59,6 +59,7 @@ public class PHTrees
         generateRedwood = config.get("general", "Generate Redwood Trees", true).getBoolean(true);
         generateSakura = config.get("general", "Generate Sakura Trees", true).getBoolean(true);
         generateSmallEucalyptus = config.get("general", "Generate Small Eucalyptus Trees", true).getBoolean(true);
+        generateBush = config.get("general", "Generate Bush Trees", true).getBoolean(true);
         generateBloodwood = config.get("general", "Generate Bloodwood Trees", true).getBoolean(true);
         generateGhost = config.get("general", "Generate Ghost Trees", true).getBoolean(true);
         
@@ -77,6 +78,9 @@ public class PHTrees
         whiteSpawnDensity = config.get("general", "Ghost Tree Spawn Density", 25).getInt(25);
         whiteSpawnHeight = config.get("general", "Ghost Tree Spawn Height", 16).getInt(16);
         whiteSpawnRange  = config.get("general", "Ghost Tree Spawn Range", 80).getInt(80);
+        bushSpawnDensity = config.get("general", "Bush Tree Spawn Density", 10).getInt(10);
+        bushSpawnHeight = config.get("general", "Bush Tree Spawn Height", 64).getInt(64);
+        bushSpawnRange = config.get("general", "Bush Tree Spawn Range", 20).getInt(20);
         
         seaLevel = config.get("general", "Sea level", 64).getInt(64);
         
@@ -103,6 +107,7 @@ public class PHTrees
 	public static boolean generateSmallEucalyptus;
 	public static boolean generateBloodwood;
 	public static boolean generateGhost;
+	public static boolean generateBush;
 	
 	public static int redwoodSpawnDensity;
 	public static int redwoodSpawnHeight;
@@ -119,6 +124,9 @@ public class PHTrees
 	public static int whiteSpawnDensity;
 	public static int whiteSpawnHeight;
 	public static int whiteSpawnRange;
+	public static int bushSpawnDensity;
+	public static int bushSpawnHeight;
+	public static int bushSpawnRange;
 	
 	public static int seaLevel;
 }

@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import florasoma.trees.FloraTrees;
 import florasoma.trees.PHTrees;
 
-public class CherryTreeGen extends WorldGenerator
+public class BushTreeGen extends WorldGenerator
 {
     /** The base height of the tree */
     private final int baseHeight;
@@ -20,7 +20,7 @@ public class CherryTreeGen extends WorldGenerator
     /** Sets the metadata for the leaves used in huge trees */
     private final int leavesMetadata;
 
-    public CherryTreeGen(boolean par1, int height, int mdwood, int mdleaves)
+    public BushTreeGen(boolean par1, int height, int mdwood, int mdleaves)
     {
         super(par1);
         this.baseHeight = height;
@@ -136,7 +136,7 @@ public class CherryTreeGen extends WorldGenerator
                         {
                             this.setBlockAndMetadata(world, x, y + var10, z, FloraTrees.tree.blockID, this.woodMetadata);
 
-                            if (var10 > 0)
+                            /*if (var10 > 0)
                             {
                                 if (random.nextInt(3) > 0 && world.isAirBlock(x - 1, y + var10, z))
                                 {
@@ -147,7 +147,7 @@ public class CherryTreeGen extends WorldGenerator
                                 {
                                     this.setBlockAndMetadata(world, x, y + var10, z - 1, Block.vine.blockID, 1);
                                 }
-                            }
+                            }*/
                         }
 
                         if (var10 < var6 - 1)
@@ -158,7 +158,7 @@ public class CherryTreeGen extends WorldGenerator
                             {
                                 this.setBlockAndMetadata(world, x + 1, y + var10, z, FloraTrees.tree.blockID, this.woodMetadata);
 
-                                if (var10 > 0)
+                                /*if (var10 > 0)
                                 {
                                     if (random.nextInt(3) > 0 && world.isAirBlock(x + 2, y + var10, z))
                                     {
@@ -169,7 +169,7 @@ public class CherryTreeGen extends WorldGenerator
                                     {
                                         this.setBlockAndMetadata(world, x + 1, y + var10, z - 1, Block.vine.blockID, 1);
                                     }
-                                }
+                                }*/
                             }
 
                             var11 = world.getBlockId(x + 1, y + var10, z + 1);
@@ -178,7 +178,7 @@ public class CherryTreeGen extends WorldGenerator
                             {
                                 this.setBlockAndMetadata(world, x + 1, y + var10, z + 1, FloraTrees.tree.blockID, this.woodMetadata);
 
-                                if (var10 > 0)
+                                /*if (var10 > 0)
                                 {
                                     if (random.nextInt(3) > 0 && world.isAirBlock(x + 2, y + var10, z + 1))
                                     {
@@ -189,7 +189,7 @@ public class CherryTreeGen extends WorldGenerator
                                     {
                                         this.setBlockAndMetadata(world, x + 1, y + var10, z + 2, Block.vine.blockID, 4);
                                     }
-                                }
+                                }*/
                             }
 
                             var11 = world.getBlockId(x, y + var10, z + 1);
@@ -198,7 +198,7 @@ public class CherryTreeGen extends WorldGenerator
                             {
                                 this.setBlockAndMetadata(world, x, y + var10, z + 1, FloraTrees.tree.blockID, this.woodMetadata);
 
-                                if (var10 > 0)
+                                /*if (var10 > 0)
                                 {
                                     if (random.nextInt(3) > 0 && world.isAirBlock(x - 1, y + var10, z + 1))
                                     {
@@ -209,7 +209,7 @@ public class CherryTreeGen extends WorldGenerator
                                     {
                                         this.setBlockAndMetadata(world, x, y + var10, z + 2, Block.vine.blockID, 4);
                                     }
-                                }
+                                }*/
                             }
                         }
                     }
@@ -252,7 +252,7 @@ public class CherryTreeGen extends WorldGenerator
                         (par6Random.nextInt(4) != 0 || var12 * var12 + var14 * var14 <= (var10 - 1) * (var10 - 1)) && 
                         (block == null || block.canBeReplacedByLeaves(par1World, var11, var8, var13)))
                     {
-                        this.setBlockAndMetadata(par1World, var11, var8, var13, Block.leaves.blockID, this.leavesMetadata);
+                        this.setBlockAndMetadata(par1World, var11, var8, var13, FloraTrees.floraLeaves.blockID, this.leavesMetadata);
                     }
                 }
             }

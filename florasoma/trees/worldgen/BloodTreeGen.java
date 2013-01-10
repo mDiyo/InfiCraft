@@ -12,10 +12,10 @@ public class BloodTreeGen extends WorldGenerator
     private int mdWood;
     private int mdLeaves;
 
-    public BloodTreeGen(int i, int j)
+    public BloodTreeGen(int wood, int leaves)
     {
-        mdWood = i;
-        mdLeaves = j;
+        mdWood = wood;
+        mdLeaves = leaves;
     }
 
     public boolean generate(World world, Random random, int i, int j, int k)

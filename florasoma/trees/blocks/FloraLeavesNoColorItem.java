@@ -7,7 +7,7 @@ public class FloraLeavesNoColorItem extends ItemBlock
 {
     public static final String blockType[] =
     {
-    	 "sakura", "ghost", "", "blood",  "", "", "", "", "", "", "", "", "", "", "", "", ""
+    	 "sakura", "ghost", "blood", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     };
 
     public FloraLeavesNoColorItem(int i)

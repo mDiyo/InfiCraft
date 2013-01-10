@@ -24,7 +24,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "1.4.6_A1")
+@Mod(modid = "InfiArmory", name = "InfiTools Armory", version = "1.4.6_A2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class InfiArmory 
 {
@@ -41,7 +41,7 @@ public class InfiArmory
 	{
 		PHArmory.initProps();
 		stoneRack = new Toolrack(PHArmory.rackBlock, Material.rock);
-		GameRegistry.registerBlock(stoneRack, inficraft.armory.ToolrackItem.class);
+		GameRegistry.registerBlock(stoneRack, inficraft.armory.ToolrackItem.class, "ToolRack");
 		GameRegistry.registerTileEntity(inficraft.armory.ToolrackLogic.class, "InfiToolrack");
 		/*armorStand = new ArmorStand(1501, Material.rock);
 		GameRegistry.registerBlock(armorStand, mDiyo.inficraft.armory.ArmorStandItem.class);
