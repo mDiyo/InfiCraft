@@ -13,9 +13,11 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import florasoma.trees.blocks.FloraDoor;
@@ -30,7 +32,7 @@ import florasoma.trees.blocks.TreeBlock;
 import florasoma.trees.entities.FloraBoat;
 import florasoma.trees.worldgen.TreeWorldgen;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.11")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.11b")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */
@@ -97,6 +99,12 @@ public class FloraTrees
 		
 		mc = ModLoader.getMinecraftInstance();
 		ModLoader.setInGameHook(this, true, false);*/
+	}
+	
+	@PostInit
+	public void postInit(FMLPostInitializationEvent evt)
+	{
+		addMicroBlocks();
 	}
 	
 	public void addMicroBlocks()

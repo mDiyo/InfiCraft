@@ -99,11 +99,11 @@ public class MicroblockSystem implements IMicroblockSystem {
 		registerManualParts(24, Block.glass);
 		registerManualParts(25, Block.oreLapis);
 		registerManualParts(26, Block.blockLapis);
-		//registerManualParts(27, Block.dispenser);
+		registerManualParts(27, Block.dispenser);
 		registerManualParts(28, Block.sandStone);
-		//registerManualParts(29, Block.music);
-		//registerManualParts(30, Block.pistonStickyBase);
-		//registerManualParts(31, Block.pistonBase);
+		registerManualParts(29, Block.music);
+		registerManualParts(30, Block.pistonStickyBase);
+		registerManualParts(31, Block.pistonBase);
 		registerManualParts(32, Block.cloth, 0);
 		registerManualParts(33, Block.cloth, 1);
 		registerManualParts(34, Block.cloth, 2);
@@ -123,19 +123,19 @@ public class MicroblockSystem implements IMicroblockSystem {
 		registerManualParts(48, Block.blockGold);
 		registerManualParts(49, Block.blockSteel);
 		registerManualParts(50, Block.brick);
-		//registerManualParts(51, Block.tnt);
+		registerManualParts(51, Block.tnt);
 		registerManualParts(52, Block.bookShelf);
 		registerManualParts(53, Block.cobblestoneMossy);
 		registerManualParts(54, Block.obsidian);
-		//registerManualParts(55, Block.mobSpawner);
+		registerManualParts(55, Block.mobSpawner);
 		registerManualParts(56, Block.oreDiamond);
 		registerManualParts(57, Block.blockDiamond);
-		//registerManualParts(58, Block.workbench);
-		//registerManualParts(59, Block.stoneOvenIdle);
+		registerManualParts(58, Block.workbench);
+		registerManualParts(59, Block.stoneOvenIdle);
 		registerManualParts(60, Block.oreRedstone);
 		registerManualParts(61, Block.blockSnow);
 		registerManualParts(62, Block.blockClay);
-		//registerManualParts(63, Block.jukebox);
+		registerManualParts(63, Block.jukebox);
 		registerManualParts(64, Block.pumpkin);
 		registerManualParts(65, Block.netherrack);
 		registerManualParts(66, Block.slowSand);
@@ -152,7 +152,7 @@ public class MicroblockSystem implements IMicroblockSystem {
 		registerManualParts(77, Block.commandBlock);
 		registerManualParts(78, Block.sandStone, 1);
 		registerManualParts(79, Block.sandStone, 2);
-		//registerManualParts(80, Block.redstoneLampIdle);
+		registerManualParts(80, Block.redstoneLampIdle);
 		
 		
 		//autoDetectParts();
@@ -241,7 +241,7 @@ public class MicroblockSystem implements IMicroblockSystem {
 				recipes.add(new RecipeCombineTwo());
 				recipes.add(new RecipeCombineSeveral());
 				
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemSaw), "IIP", "IIs", 'I', Item.ingotIron, 'p', "plankWood", 's', Item.stick));
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemSaw), "IIP", "IIs", 'I', Item.ingotIron, 's', Item.stick, 'P', "plankWood"));
 			}
 		});
 	}
