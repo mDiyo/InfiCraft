@@ -50,4 +50,9 @@ public class FloraLeavesNocolor extends FloraLeaves
     {
         return metadata % 4 == 0 ? blockFireSpreadSpeed[blockID] : 0;
     }
+    
+    public int damageDropped(int par1)
+    {
+        return (par1 & 3)+3;
+    }
 }

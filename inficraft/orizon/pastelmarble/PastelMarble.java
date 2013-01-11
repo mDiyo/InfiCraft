@@ -1,5 +1,7 @@
 package inficraft.orizon.pastelmarble;
 
+import java.lang.reflect.Method;
+
 import inficraft.api.detailing.DetailManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -8,13 +10,15 @@ import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.6_2013.1.5")
+@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.6_2013.1.11")
 public class PastelMarble 
 {
 	/* Proxies for sides, used for graphics processing */
@@ -43,16 +47,16 @@ public class PastelMarble
 		
 		marble = new Marble(PHPastel.marbleID, 176).setHardness(5F).setBlockName("Marble");
 		
-		GameRegistry.registerBlock(cStone, inficraft.orizon.pastelmarble.ColoredStoneItem.class);
-		GameRegistry.registerBlock(cCobble, inficraft.orizon.pastelmarble.ColoredCobblestoneItem.class);
-		GameRegistry.registerBlock(cBrick, inficraft.orizon.pastelmarble.ColoredBrickItem.class);
-		GameRegistry.registerBlock(cMossy, inficraft.orizon.pastelmarble.ColoredMossyBrickItem.class);
-		GameRegistry.registerBlock(cCracked, inficraft.orizon.pastelmarble.ColoredCrackedBrickItem.class);
-		GameRegistry.registerBlock(cTile, inficraft.orizon.pastelmarble.ColoredTileItem.class);
-		GameRegistry.registerBlock(cFancy, inficraft.orizon.pastelmarble.ColoredFancyBrickItem.class);
-		GameRegistry.registerBlock(cSquare, inficraft.orizon.pastelmarble.ColoredSquareBrickItem.class);
+		GameRegistry.registerBlock(cStone, inficraft.orizon.pastelmarble.ColoredStoneItem.class, "cStone");
+		GameRegistry.registerBlock(cCobble, inficraft.orizon.pastelmarble.ColoredCobblestoneItem.class, "cCobble");
+		GameRegistry.registerBlock(cBrick, inficraft.orizon.pastelmarble.ColoredBrickItem.class, "cBrick");
+		GameRegistry.registerBlock(cMossy, inficraft.orizon.pastelmarble.ColoredMossyBrickItem.class, "cMossy");
+		GameRegistry.registerBlock(cCracked, inficraft.orizon.pastelmarble.ColoredCrackedBrickItem.class, "cCracked");
+		GameRegistry.registerBlock(cTile, inficraft.orizon.pastelmarble.ColoredTileItem.class, "cTile");
+		GameRegistry.registerBlock(cFancy, inficraft.orizon.pastelmarble.ColoredFancyBrickItem.class, "cFancy");
+		GameRegistry.registerBlock(cSquare, inficraft.orizon.pastelmarble.ColoredSquareBrickItem.class, "cSquare");
 		
-		GameRegistry.registerBlock(marble, inficraft.orizon.pastelmarble.MarbleItem.class);
+		GameRegistry.registerBlock(marble, inficraft.orizon.pastelmarble.MarbleItem.class, "marble");
 		
 		for (int i = 0; i < 16; i++)
 		{
@@ -77,6 +81,54 @@ public class PastelMarble
 		proxy.registerRenderer();
 		proxy.addNames();
 		proxy.addRecipes();
+	}
+	
+	@PostInit
+	public void postInit(FMLPostInitializationEvent evt)
+	{
+		addMicroBlocks();
+	}
+	
+	public void addMicroBlocks()
+	{
+		try
+		{
+			Class clazz = Class.forName("inficraft.microblocks.core.microblock.MicroblockSystem");
+			Method method = clazz.getMethod("registerManualParts", int.class, Block.class, int.class);
+			
+			//Block ID multiplied by 16 (metadata), then add all the relevant metadata
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cStone.blockID*16 + iter, cStone, iter);
+			
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cCobble.blockID*16 + iter, cCobble, iter);
+			
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cBrick.blockID*16 + iter, cBrick, iter);
+			
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cMossy.blockID*16 + iter, cMossy, iter);
+			
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cCracked.blockID*16 + iter, cCracked, iter);
+			
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cTile.blockID*16 + iter, cTile, iter);
+			
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cFancy.blockID*16 + iter, cFancy, iter);
+			
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, cSquare.blockID*16 + iter, cSquare, iter);
+			
+			for (int iter = 0; iter < 12; iter++) 
+				method.invoke(null, marble.blockID*16 + iter, marble, iter);
+		}
+		catch (Exception e)
+		{
+			System.out.println("Microblock api was missing for PastelMarble");
+			e.printStackTrace();
+		}
 	}
 	
 	public Block cStone;

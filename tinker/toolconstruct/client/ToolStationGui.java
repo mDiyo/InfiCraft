@@ -159,7 +159,7 @@ public class ToolStationGui extends GuiContainer
 			iconX = new int[] { 4, 0, 13 };
 			iconY = new int[] { 2, 3, 13 };
 			title = "\u00A7nFrying Pan";
-			body = "The Frying is a heavy weapon that uses sheer weight to stun foes.\n\nSpecial Ability: Block\nNatural Ability: Bash\nDamage: High\nDurability: High\n\nRequired parts:\n- Pan\n- Handle";
+			body = "The Frying is a heavy weapon that uses sheer weight to stun foes.\n\nSpecial Ability: Block\nNatural Ability: Bash\nShift+rClick: Place Frying Pan\nDamage: High\nDurability: High\n\nRequired parts:\n- Pan\n- Handle";
 			break;
 		case 11: // Battlesign
 			setSlotType(3);

@@ -53,12 +53,21 @@ public class AbilityHelper
 			int maxDamage = tags.getCompoundTag("InfiTool").getInteger("TotalDurability");
 
 			if ((damage + dam) > maxDamage)
+			{
 				breakTool(stack, tags, entity);
+				stack.setItemDamage(0);
+			}
 
 			else
+			{
 				tags.getCompoundTag("InfiTool").setInteger("Damage", damage + dam);
+				int damer = damage * 100 / maxDamage + 1;
+				System.out.println("Damage: " + damer);
+				stack.setItemDamage(damage * 100 / maxDamage + 1);
+			}
 			
-			stack.setItemDamage(1 + (maxDamage - damage) * (stack.getMaxDamage() - 1) / maxDamage);
+			
+			//stack.setItemDamage(1 + (maxDamage - damage) * (stack.getMaxDamage() - 1) / maxDamage);
 		}
 	}
 
@@ -83,11 +92,8 @@ public class AbilityHelper
 
 	public static void breakTool (ItemStack stack, NBTTagCompound tags, Entity player)
 	{
-		if (!tags.getCompoundTag("InfiTool").getBoolean("Broken"))
-		{
-			tags.getCompoundTag("InfiTool").setBoolean("Broken", true);
-			player.worldObj.playSound(player.posX, player.posY, player.posZ, "random.break", 1f, 1f, true);
-		}
+		tags.getCompoundTag("InfiTool").setBoolean("Broken", true);
+		player.worldObj.playSound(player.posX, player.posY, player.posZ, "random.break", 1f, 1f, true);
 	}
 
 	public static void repairTool (ItemStack stack, NBTTagCompound tags)

@@ -22,11 +22,12 @@ public class FloraTreesCommonProxy
 			GameRegistry.addRecipe(new ItemStack(FloraTrees.instance.planks, 4, i), "w", 'w', new ItemStack(FloraTrees.instance.tree, 1, i) );
 		GameRegistry.addRecipe(new ItemStack(FloraTrees.instance.planks, 4, 3), "w", 'w', new ItemStack(FloraTrees.instance.redwood, 1, 1) );
 		GameRegistry.addRecipe(new ItemStack(FloraTrees.instance.planks, 4, 4), "w", 'w', new ItemStack(FloraTrees.instance.bloodwood, 1, -1) );
+		GameRegistry.addRecipe(new ItemStack(FloraTrees.instance.planks, 4, 5), "w", 'w', new ItemStack(FloraTrees.instance.tree, 1, 3) );
 		
 		ItemStack[] planks = new ItemStack[] { new ItemStack(FloraTrees.instance.planks, 1, 0), new ItemStack(FloraTrees.instance.planks, 1, 1),
-			 new ItemStack(FloraTrees.instance.planks, 1, 2), new ItemStack(FloraTrees.instance.planks, 1, 3)};
+			 new ItemStack(FloraTrees.instance.planks, 1, 2), new ItemStack(FloraTrees.instance.planks, 1, 3), new ItemStack(FloraTrees.instance.planks, 1, 5)};
 		
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < planks.length; i++)
 		{
 		
 			GameRegistry.addRecipe(new ItemStack(Block.workbench), "ww", "ww", 'w', planks[i] );

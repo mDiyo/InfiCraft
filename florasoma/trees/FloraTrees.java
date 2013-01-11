@@ -1,5 +1,6 @@
 package florasoma.trees;
 
+import java.lang.reflect.Method;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -29,7 +30,7 @@ import florasoma.trees.blocks.TreeBlock;
 import florasoma.trees.entities.FloraBoat;
 import florasoma.trees.worldgen.TreeWorldgen;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.9")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.11")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */
@@ -96,6 +97,30 @@ public class FloraTrees
 		
 		mc = ModLoader.getMinecraftInstance();
 		ModLoader.setInGameHook(this, true, false);*/
+	}
+	
+	public void addMicroBlocks()
+	{
+		try
+		{
+			Class clazz = Class.forName("inficraft.microblocks.core.microblock.MicroblockSystem");
+			Method method = clazz.getMethod("registerManualParts", int.class, Block.class, int.class);
+			
+			//Block ID multiplied by 16 (metadata), then add all the relevant metadata
+			for (int iter = 0; iter < 3; iter++) 
+				method.invoke(null, tree.blockID*16 + iter, tree, iter);
+			
+			for (int iter = 0; iter < 2; iter++) 
+				method.invoke(null, redwood.blockID*16 + iter, redwood, iter);
+			
+			for (int iter = 0; iter < 6; iter++) 
+				method.invoke(null, planks.blockID*16 + iter, planks, iter);
+		}
+		catch (Exception e)
+		{
+			System.out.println("Microblock api was missing for PastelMarble");
+			e.printStackTrace();
+		}
 	}
 	
 	@ForgeSubscribe

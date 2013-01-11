@@ -69,36 +69,36 @@ public class InfiBlockContent
 		iceBrickMagicSlab = new BrickIceMagicSlab(PHInfiBlocks.iceBrickMagicSlabID, 112).setHardness(Block.ice.getBlockHardness(null, 0, 0, 0)).setBlockName("Ice Brick Magic Slab");
 		brownstoneMagicSlab = new BrownstoneMagicSlab(PHInfiBlocks.brownstoneMagicSlabID, 96).setHardness(Block.cobblestone.getBlockHardness(null, 0, 0, 0)).setBlockName("Brownstone Magic Slab");
 		
-		GameRegistry.registerBlock(workbench, inficraft.infiblocks.tech.WorkbenchItem.class);
-		GameRegistry.registerBlock(woolCarpet, inficraft.infiblocks.blocks.CarpetItem.class);
-		GameRegistry.registerBlock(furnace, inficraft.infiblocks.tech.FurnaceItem.class);
+		GameRegistry.registerBlock(workbench, inficraft.infiblocks.tech.WorkbenchItem.class, "Workbench");
+		GameRegistry.registerBlock(woolCarpet, inficraft.infiblocks.blocks.CarpetItem.class, "Carpet");
+		GameRegistry.registerBlock(furnace, inficraft.infiblocks.tech.FurnaceItem.class, "Furnace");
 		GameRegistry.registerTileEntity(inficraft.infiblocks.tech.FurnaceLogic.class, "InfiFurnace");
 		
 		/*GameRegistry.registerBlock(chest, mDiyo.inficraft.infiblocks.tech.ChestItem.class);
 		GameRegistry.registerTileEntity(mDiyo.inficraft.infiblocks.tech.ChestLogic.class, "InfiChest");*/
 		
-		GameRegistry.registerBlock(magicSlabStone, inficraft.infiblocks.magicslabs.MagicSlabStoneItem.class);
-		GameRegistry.registerBlock(magicSlabSoil, inficraft.infiblocks.magicslabs.MagicSlabSoilItem.class);
-		GameRegistry.registerBlock(magicSlabWool, inficraft.infiblocks.magicslabs.MagicSlabWoolItem.class);
+		GameRegistry.registerBlock(magicSlabStone, inficraft.infiblocks.magicslabs.MagicSlabStoneItem.class, "MagicSlabStone");
+		GameRegistry.registerBlock(magicSlabSoil, inficraft.infiblocks.magicslabs.MagicSlabSoilItem.class, "MagicSlabSoil");
+		GameRegistry.registerBlock(magicSlabWool, inficraft.infiblocks.magicslabs.MagicSlabWoolItem.class, "MagicSlabWool");
 		
-		GameRegistry.registerBlock(stainedGlass, inficraft.infiblocks.glass.StainedGlassItem.class);
-		GameRegistry.registerBlock(stainedGlassPane, inficraft.infiblocks.glass.StainedGlassPaneItem.class);
-		GameRegistry.registerBlock(stainedGlassMagicSlab, inficraft.infiblocks.magicslabs.StainedGlassMagicSlabItem.class);
-		GameRegistry.registerBlock(infiGlass, inficraft.infiblocks.glass.InfiGlassItem.class);
-		GameRegistry.registerBlock(infiGlassPane, inficraft.infiblocks.glass.InfiGlassPaneItem.class);
-		GameRegistry.registerBlock(infiGlassMagicSlab, inficraft.infiblocks.glass.InfiGlassMagicSlabItem.class);
+		GameRegistry.registerBlock(stainedGlass, inficraft.infiblocks.glass.StainedGlassItem.class, "StainedGlass");
+		GameRegistry.registerBlock(stainedGlassPane, inficraft.infiblocks.glass.StainedGlassPaneItem.class, "StainedGlassPane");
+		GameRegistry.registerBlock(stainedGlassMagicSlab, inficraft.infiblocks.magicslabs.StainedGlassMagicSlabItem.class, "StainedGlassMagicSlab");
+		GameRegistry.registerBlock(infiGlass, inficraft.infiblocks.glass.InfiGlassItem.class, "ExGlass");
+		GameRegistry.registerBlock(infiGlassPane, inficraft.infiblocks.glass.InfiGlassPaneItem.class, "ExGlassPane");
+		GameRegistry.registerBlock(infiGlassMagicSlab, inficraft.infiblocks.glass.InfiGlassMagicSlabItem.class, "ExGlassMagicSlab");
 		
-		GameRegistry.registerBlock(brick, inficraft.infiblocks.bricks.BrickBlockItem.class);
-		GameRegistry.registerBlock(fancyBrick, inficraft.infiblocks.bricks.BrickFancyItem.class);
-		GameRegistry.registerBlock(storageBlock, inficraft.infiblocks.blocks.StorageBlockItem.class);
-		GameRegistry.registerBlock(iceBrick, inficraft.infiblocks.bricks.BrickIceItem.class);
-		GameRegistry.registerBlock(brownstone, inficraft.infiblocks.blocks.BrownstoneItem.class);
+		GameRegistry.registerBlock(brick, inficraft.infiblocks.bricks.BrickBlockItem.class, "Brick");
+		GameRegistry.registerBlock(fancyBrick, inficraft.infiblocks.bricks.BrickFancyItem.class, "BrickFancy");
+		GameRegistry.registerBlock(storageBlock, inficraft.infiblocks.blocks.StorageBlockItem.class, "StorageBlock");
+		GameRegistry.registerBlock(iceBrick, inficraft.infiblocks.bricks.BrickIceItem.class, "BrickIce");
+		GameRegistry.registerBlock(brownstone, inficraft.infiblocks.blocks.BrownstoneItem.class, "Brownstone");
 		
-		GameRegistry.registerBlock(brickMagicSlab, inficraft.infiblocks.bricks.BrickBlockMagicSlabItem.class);
-		GameRegistry.registerBlock(fancyBrickMagicSlab, inficraft.infiblocks.bricks.BrickFancyMagicSlabItem.class);
-		GameRegistry.registerBlock(storageBlockMagicSlab, inficraft.infiblocks.blocks.StorageBlockMagicSlabItem.class);
-		GameRegistry.registerBlock(iceBrickMagicSlab, inficraft.infiblocks.bricks.BrickIceMagicSlabItem.class);
-		GameRegistry.registerBlock(brownstoneMagicSlab, inficraft.infiblocks.magicslabs.BrownstoneMagicSlabItem.class);
+		GameRegistry.registerBlock(brickMagicSlab, inficraft.infiblocks.bricks.BrickBlockMagicSlabItem.class, "BrickMagicSlab");
+		GameRegistry.registerBlock(fancyBrickMagicSlab, inficraft.infiblocks.bricks.BrickFancyMagicSlabItem.class, "BrickFancyMagicSlab");
+		GameRegistry.registerBlock(storageBlockMagicSlab, inficraft.infiblocks.blocks.StorageBlockMagicSlabItem.class, "StorageMagicSlab");
+		GameRegistry.registerBlock(iceBrickMagicSlab, inficraft.infiblocks.bricks.BrickIceMagicSlabItem.class, "IceMagicSlab");
+		GameRegistry.registerBlock(brownstoneMagicSlab, inficraft.infiblocks.magicslabs.BrownstoneMagicSlabItem.class, "BrownstoneMagicSlab");
 		
 		//GameRegistry.registerBlock(stoneStairSlab, mDiyo.inficraft.infiblocks.stairs.StairSlabItem.class);
 		
@@ -124,6 +124,42 @@ public class InfiBlockContent
 		}
 		catch (Exception e)
 		{
+		}
+	}
+	
+	public void addMicroBlocks()
+	{
+		try
+		{
+			Class clazz = Class.forName("inficraft.microblocks.core.microblock.MicroblockSystem");
+			Method method = clazz.getMethod("registerManualParts", int.class, Block.class, int.class);
+			
+			//Block ID multiplied by 16 (metadata), then add all the relevant metadata
+			for (int iter = 0; iter < 16; iter++) 
+				method.invoke(null, brick.blockID*16 + iter, brick, iter);
+			
+			for (int iter = 0; iter < 10; iter++) 
+				method.invoke(null, fancyBrick.blockID*16 + iter, fancyBrick, iter);
+			
+			for (int iter = 11; iter < 14; iter++) 
+				method.invoke(null, fancyBrick.blockID*16 + iter, fancyBrick, iter);
+			
+			for (int iter = 0; iter < 5; iter++)
+				method.invoke(null, storageBlock.blockID*16 + iter, storageBlock, iter);
+	    	
+	    	for (int iter = 12; iter < 16; iter++)
+	    		method.invoke(null, storageBlock.blockID*16 + iter, storageBlock, iter);
+	    	
+	    	for (int iter = 0; iter < 6; iter++)
+	    		method.invoke(null, brownstone.blockID*16 + iter, brownstone, iter);
+	    	
+	    	for (int iter = 0; iter < 3; iter++)
+	    		method.invoke(null, infiGlass.blockID*16 + iter, infiGlass, iter);
+		}
+		catch (Exception e)
+		{
+			System.out.println("Microblock api was missing for InfiBlocks");
+			e.printStackTrace();
 		}
 	}
 

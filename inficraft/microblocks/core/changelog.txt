@@ -1,0 +1,46 @@
+52.2.0:
+* Refactored microblock API.
+* Improved handling of invalid microblock IDs.
+* Allowed microblock IDs over 32767 by storing them in NBT. Old ones will not stack with new ones unless you place and break them.
+
+52.1.0:
+* Included some microblock fixes, and an experimental mod framework used by InfiniTubes.
+
+52.0.5:
+* Recompiled with Java 6.
+
+52.0.4:
+* Re-added missing registration of microblock tile entity. Existing placed microblocks will disappear. Sorry :( 
+
+52.0.3:
+* Fixed packaging again.
+
+52.0.2:
+* Fixed mcmod.info
+
+52.0.1:
+* Fixed packaging.
+
+52.0.0:
+* Updated to 1.4.6.
+* For FML's ID mismatch detection, all blocks registered by my mods will count as being registered by Immibis Core,
+  instead of sometimes Immibis Core and sometimes the actual mod. This may result in ID mismatch warnings the first
+  time you load an old world, which can be safely ignored.
+* API rearrangements.
+* Blocks and items now use consistent default IDs based on the hashcode of their name. Before this, all blocks
+  had the same default ID, which was pretty pointless as all but the first would get autoassigned.
+  This might need to be changed again if it causes too many conflicts.
+
+51.0.6:
+* Fixed IndexOutOfBoundsException caused by breaking the same part twice (caused by lag).
+* Internal changes to microblock API.
+* Added chiseled sandstone, smooth sandstone and redstone lamp microblocks.
+
+51.0.5:
+* Fixed microblocks not being placeable.
+* "Microblock container" blocks with no microblocks in them will now destroy themselves.
+
+51.0.4:
+* Started changelog.
+* Now splits packets bigger than 32kiB and reassembles them on the other end. (fixes Immibis's Peripherals speakers in SMP)
+* Fixed an ID allocation typo which made it easier for conflicts to happen when adding new mods.

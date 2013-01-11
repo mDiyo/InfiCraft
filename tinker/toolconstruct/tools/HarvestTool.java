@@ -45,7 +45,7 @@ public abstract class HarvestTool extends ToolCore
 	{
 
 		NBTTagCompound tags = stack.getTagCompound().getCompoundTag("InfiTool");
-		if (tags.getCompoundTag("InfiTool").getBoolean("Broken"))
+		if (tags.getBoolean("Broken"))
 			return 0.1f;
 		
 		Material[] materials = getEffectiveMaterials();
