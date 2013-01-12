@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author mDiyo
  */
 
-@Mod(modid = "OrizonDreamscape", name = "Orizon Dreamscape", version = "Test")
+//@Mod(modid = "OrizonDreamscape", name = "Orizon Dreamscape", version = "Test")
 public class OrizonDreamscape 
 {
 	@Instance("OrizonDreamscape")

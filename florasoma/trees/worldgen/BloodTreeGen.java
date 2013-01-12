@@ -18,20 +18,19 @@ public class BloodTreeGen extends WorldGenerator
         mdLeaves = leaves;
     }
 
-    public boolean generate(World world, Random random, int i, int j, int k)
+    public boolean generate(World world, Random random, int x, int y, int z)
     {
-        int l = findGround(world, i, j, k);
-        generateRandomTree(world, random, i, l, k);
-        return true;
+        int height = findGround(world, x, y, z);
+        return generateRandomTree(world, random, x, height, z);
     }
 
-    int findGround(World world, int i, int j, int k)
+    int findGround(World world, int x, int y, int z)
     {
         int l = 0;
-        int i1 = world.getBlockId(i, j - 1, k);
-        if (!Block.opaqueCubeLookup[world.getBlockId(i, j, k)] && (i1 == Block.netherrack.blockID || i1 == Block.slowSand.blockID))
+        int bID = world.getBlockId(x, y - 1, z);
+        if (!Block.opaqueCubeLookup[world.getBlockId(x, y, z)] && (bID == Block.netherrack.blockID || bID == Block.slowSand.blockID))
         {
-            return j;
+            return y;
         }
         int k1 = 96;
         do
@@ -40,8 +39,8 @@ public class BloodTreeGen extends WorldGenerator
             {
                 break;
             }
-            int j1 = world.getBlockId(i, k1, k);
-            if ((j1 == Block.netherrack.blockID || j1 == Block.slowSand.blockID) && !Block.opaqueCubeLookup[world.getBlockId(i, k1 + 1, k)])
+            int j1 = world.getBlockId(x, k1, z);
+            if ((j1 == Block.netherrack.blockID || j1 == Block.slowSand.blockID) && !Block.opaqueCubeLookup[world.getBlockId(x, k1 + 1, z)])
             {
                 l = k1 + 1;
                 break;
@@ -52,39 +51,39 @@ public class BloodTreeGen extends WorldGenerator
         return l;
     }
 
-    public boolean generateRandomTree(World world, Random random, int i, int j, int k)
+    public boolean generateRandomTree(World world, Random random, int x, int y, int z)
     {
-        int l = random.nextInt(5) + 8;
+        int treeHeight = random.nextInt(5) + 8;
         boolean flag = true;
-        if (j < 1 || j + l + 1 > 256)
+        if (y < 1 || y + treeHeight + 1 > 256)
         {
             return false;
         }
-        for (int i1 = j; i1 <= j + 1 + l; i1++)
+        for (int i1 = y; i1 <= y + 1 + treeHeight; i1++)
         {
             byte byte0 = 1;
-            if (i1 == j)
+            if (i1 == y)
             {
                 byte0 = 0;
             }
-            if (i1 >= (j + 1 + l) - 2)
+            if (i1 >= (y + 1 + treeHeight) - 2)
             {
                 byte0 = 2;
             }
             label0:
-            for (int l1 = i - byte0; l1 <= i + byte0 && flag; l1++)
+            for (int l1 = x - byte0; l1 <= x + byte0 && flag; l1++)
             {
-                int j2 = k - byte0;
+                int j2 = z - byte0;
                 do
                 {
-                    if (j2 > k + byte0 || !flag)
+                    if (j2 > z + byte0 || !flag)
                     {
                         continue label0;
                     }
                     if (i1 >= 0 && i1 < 256)
                     {
                         int k2 = world.getBlockId(l1, i1, j2);
-                        if (k2 != 0 && k2 != FloraTrees.floraLeaves.blockID)
+                        if (k2 != 0 && k2 != FloraTrees.floraLeavesNoColor.blockID)
                         {
                             flag = false;
                             continue label0;
@@ -105,35 +104,35 @@ public class BloodTreeGen extends WorldGenerator
         {
             return false;
         }
-        int j1 = world.getBlockId(i, j - 1, k);
-        if (j1 != Block.netherrack.blockID && j1 != Block.slowSand.blockID || j >= 256 - l - 1)
+        int j1 = world.getBlockId(x, y - 1, z);
+        if (j1 != Block.netherrack.blockID && j1 != Block.slowSand.blockID || y >= 256 - treeHeight - 1)
         {
             return false;
         }
-        world.setBlock(i, j - 1, k, Block.slowSand.blockID);
-        world.setBlock(i + 1, j - 1, k, Block.slowSand.blockID);
-        world.setBlock(i, j - 1, k + 1, Block.slowSand.blockID);
-        world.setBlock(i + 1, j - 1, k + 1, Block.slowSand.blockID);
-        for (int k1 = 0; k1 < l; k1++)
+        world.setBlock(x, y - 1, z, Block.slowSand.blockID);
+        world.setBlock(x + 1, y - 1, z, Block.slowSand.blockID);
+        world.setBlock(x, y - 1, z + 1, Block.slowSand.blockID);
+        world.setBlock(x + 1, y - 1, z + 1, Block.slowSand.blockID);
+        for (int k1 = 0; k1 < treeHeight; k1++)
         {
-            int i2 = world.getBlockId(i, j + k1, k);
+            int i2 = world.getBlockId(x, y + k1, z);
             if (i2 == 0 || i2 == FloraTrees.floraLeaves.blockID)
             {
-                setBlockAndMetadata(world, i, j + k1, k, FloraTrees.bloodwood.blockID, 0);
-                setBlockAndMetadata(world, i + 1, j + k1, k, FloraTrees.bloodwood.blockID, 1);
-                setBlockAndMetadata(world, i, j + k1, k + 1, FloraTrees.bloodwood.blockID, 2);
-                setBlockAndMetadata(world, i + 1, j + k1, k + 1, FloraTrees.bloodwood.blockID, 3);
+                setBlockAndMetadata(world, x, y + k1, z, FloraTrees.bloodwood.blockID, 0);
+                setBlockAndMetadata(world, x + 1, y + k1, z, FloraTrees.bloodwood.blockID, 1);
+                setBlockAndMetadata(world, x, y + k1, z + 1, FloraTrees.bloodwood.blockID, 2);
+                setBlockAndMetadata(world, x + 1, y + k1, z + 1, FloraTrees.bloodwood.blockID, 3);
             }
         }
 
-        genBranch(world, random, i, j, k, l, 1);
-        genBranch(world, random, i + 1, j, k, l, 2);
-        genBranch(world, random, i, j, k + 1, l, 3);
-        genBranch(world, random, i + 1, j, k + 1, l, 4);
-        genStraightBranch(world, random, i, j, k, l, 1);
-        genStraightBranch(world, random, i + 1, j, k, l, 2);
-        genStraightBranch(world, random, i, j, k + 1, l, 3);
-        genStraightBranch(world, random, i + 1, j, k + 1, l, 4);
+        genBranch(world, random, x, y, z, treeHeight, 1);
+        genBranch(world, random, x + 1, y, z, treeHeight, 2);
+        genBranch(world, random, x, y, z + 1, treeHeight, 3);
+        genBranch(world, random, x + 1, y, z + 1, treeHeight, 4);
+        genStraightBranch(world, random, x, y, z, treeHeight, 1);
+        genStraightBranch(world, random, x + 1, y, z, treeHeight, 2);
+        genStraightBranch(world, random, x, y, z + 1, treeHeight, 3);
+        genStraightBranch(world, random, x + 1, y, z + 1, treeHeight, 4);
         return true;
     }
 
@@ -233,7 +232,7 @@ public class BloodTreeGen extends WorldGenerator
 
     public boolean generateNode(World world, Random random, int i, int j, int k)
     {
-        setBlockAndMetadata(world, i, j, k, FloraTrees.tree.blockID, mdWood);
+        setBlockAndMetadata(world, i, j, k, FloraTrees.bloodwood.blockID, 15);
         for (int l = i - 1; l <= i + 1; l++)
         {
             for (int k1 = k - 1; k1 <= k + 1; k1++)
@@ -243,7 +242,7 @@ public class BloodTreeGen extends WorldGenerator
                     int i3 = world.getBlockId(l, j2, k1);
                     if (i3 != FloraTrees.floraLeaves.blockID && !Block.opaqueCubeLookup[i3])
                     {
-                        setBlockAndMetadata(world, l, j2, k1, FloraTrees.floraLeaves.blockID, mdLeaves);
+                        setBlockAndMetadata(world, l, j2, k1, FloraTrees.floraLeavesNoColor.blockID, mdLeaves);
                     }
                 }
             }
@@ -256,7 +255,7 @@ public class BloodTreeGen extends WorldGenerator
                 int k2 = world.getBlockId(i1, j, l1);
                 if (k2 != FloraTrees.floraLeaves.blockID && !Block.opaqueCubeLookup[k2])
                 {
-                    setBlockAndMetadata(world, i1, j, l1, FloraTrees.floraLeaves.blockID, mdLeaves);
+                    setBlockAndMetadata(world, i1, j, l1, FloraTrees.floraLeavesNoColor.blockID, mdLeaves);
                 }
             }
         }
@@ -268,7 +267,7 @@ public class BloodTreeGen extends WorldGenerator
                 int l2 = world.getBlockId(j1, j+1, i2);
                 if (l2 != FloraTrees.floraLeaves.blockID && !Block.opaqueCubeLookup[l2])
                 {
-                    setBlockAndMetadata(world, j1, j, i2, FloraTrees.floraLeaves.blockID, mdLeaves);
+                    setBlockAndMetadata(world, j1, j, i2, FloraTrees.floraLeavesNoColor.blockID, mdLeaves);
                 }
             }
         }

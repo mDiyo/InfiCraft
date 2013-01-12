@@ -10,6 +10,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.ForgeDirection;
 import florasoma.trees.FloraTrees;
 import florasoma.trees.PHTrees;
 import florasoma.trees.worldgen.BloodTreeGen;
@@ -32,20 +34,45 @@ public class FloraSaplingBlock extends BlockFlower
 		this.setRequiresSelfNotify();
 	}
 
-	public boolean canPlaceBlockAt (World world, int i, int j, int k)
+	public boolean canPlaceBlockAt (World world, int x, int y, int z)
 	{
-		return super.canPlaceBlockAt(world, i, j, k) && canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
+		//int var5 = world.getBlockId(x, y, z);
+        //if (var5 == 0 || blocksList[var5].blockMaterial.isReplaceable());
+        return canBlockStay(world, x, y, z);
+		//return super.canPlaceBlockAt(world, i, j, k) && canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID (int i)
 	{
 		return i == Block.grass.blockID || i == Block.dirt.blockID || i == Block.slowSand.blockID || i == Block.netherrack.blockID;
 	}
+	
+	@Override
+	public boolean canBlockStay(World world, int x, int y, int z)
+    {
+		int md = world.getBlockMetadata(x, y, z) % 8;
+		if (md >= 4)
+			return true;
+		
+        Block soil = blocksList[world.getBlockId(x, y - 1, z)];
+        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && 
+                (soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this));
+    }
 
 	public FloraSaplingBlock(int i)
 	{
 		this(i, 128);
 	}
+	
+	@Override
+    public EnumPlantType getPlantType(World world, int x, int y, int z)
+    {
+		int meta = world.getBlockMetadata(x, y, z) % 8;
+		if (meta <= 3)
+			return EnumPlantType.Plains;
+		else
+			return EnumPlantType.Nether;
+    }
 
 	public void updateTick (World world, int x, int y, int z, Random random)
 	{
@@ -60,75 +87,31 @@ public class FloraSaplingBlock extends BlockFlower
 			if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(120) == 0)
 			{
 				if ((md & 8) == 0)
-				{
 					world.setBlockMetadataWithNotify(x, y, z, md | 8);
-				}
+				
 				else
-				{
 					growTree(world, x, y, z, random);
-				}
 			}
 		}
-		else if (md % 8 == 2 && random.nextInt(10) == 0)
+		else if (md % 8 <= 3 && random.nextInt(10) == 0)
 		{
-			if ((md & 8) == 0)
+			if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(120) == 0)
 			{
-				world.setBlockMetadataWithNotify(x, y, z, md | 8);
-				int i1 = world.getBlockMetadata(x, y, z);
-			}
-			else
-			{
-				growTree(world, x, y, z, random);
+				if ((md & 8) == 0)
+					world.setBlockMetadataWithNotify(x, y, z, md | 8);
+				
+				else
+					growTree(world, x, y, z, random);
 			}
 		}
 		else
 		{
 			if ((md & 8) == 0)
-			{
 				world.setBlockMetadataWithNotify(x, y, z, md | 8);
-				int i1 = world.getBlockMetadata(x, y, z);
-			}
+			
 			else
-			{
 				growTree(world, x, y, z, random);
-			}
 		}
-		/*else if (md % 8 == 2 && random.nextInt(10) == 0)
-		{
-			if ((md & 8) == 0)
-			{
-				world.setBlockMetadataWithNotify(x, y, z, md | 8);
-				int i1 = world.getBlockMetadata(x, y, z);
-			}
-			else
-			{
-				growTree(world, x, y, z, random);
-			}
-		}
-		else if (md % 8 == 3 && random.nextInt(7) == 0)
-		{
-			if ((md & 8) == 0)
-			{
-				world.setBlockMetadataWithNotify(x, y, z, md | 8);
-				int i1 = world.getBlockMetadata(x, y, z);
-			}
-			else
-			{
-				growTree(world, x, y, z, random);
-			}
-		}
-		else if (md % 8 == 4 && random.nextInt(7) == 0)
-		{
-			if ((md & 8) == 0)
-			{
-				world.setBlockMetadataWithNotify(x, y, z, md | 8);
-				int i1 = world.getBlockMetadata(x, y, z);
-			}
-			else
-			{
-				growTree(world, x, y, z, random);
-			}
-		}*/
 	}
 
 	public int getBlockTextureFromSideAndMetadata (int side, int md)
@@ -169,7 +152,7 @@ public class FloraSaplingBlock extends BlockFlower
 			obj = new WhiteTreeGen(true, FloraTrees.tree.blockID, 1);
 
 		else if (md == 5)
-			obj = new BloodTreeGen(3, 1);
+			obj = new BloodTreeGen(3, 2);
 		
 		else
 			obj = new RedwoodTreeGen(true, PHTrees.redwoodID, 0);

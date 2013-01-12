@@ -12,10 +12,10 @@ public class TreeWorldgen implements IWorldGenerator
 	public TreeWorldgen()
 	{
 		genRedwood = new RedwoodTreeGen(false, PHTrees.redwoodID, 0);
-		genBlood = new BloodTreeGen(3, 1);
+		genBlood = new BloodTreeGen(3, 2);
 		bush = new BushTreeGen(false, 2, 3, 2);
 		pinkSakura = new SakuraTreeGen(false, 1, 0);
-		whiteSakura = new WhiteTreeGen(false, PHTrees.treeID, 2);
+		whiteSakura = new WhiteTreeGen(false, 2, 1);
 		eucalyptusShort = new EucalyptusTreeGenShort(0, 1);
 	}
 
@@ -29,25 +29,10 @@ public class TreeWorldgen implements IWorldGenerator
 	@Override
 	public void generate (Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
-		//if (world.)
 		int xSpawn, ySpawn, zSpawn;
 		int xPos = chunkX * 16, zPos = chunkZ * 16;
 		String biomeName = world.getWorldChunkManager().getBiomeGenAt(xPos, zPos).biomeName;
-		//System.out.println("Biome name: "+biomeName);
-
-		/*if(random.nextInt((int)PHTrees.redwoodSpawnDensity) == 0)
-		{
-			xSpawn = xPos + random.nextInt(16);
-			zSpawn = zPos + random.nextInt(16);
-			genRedwood.generate(world, random, xSpawn, 80, zSpawn);
-		}*/
-		/*if (true)
-		{
-			xSpawn = xChunk + random.nextInt(16) + 8;
-			ySpawn = random.nextInt(48) + 64;
-			zSpawn = zChunk + random.nextInt(16) + 8;
-			sakura.generate(world, random, xSpawn, ySpawn, zSpawn);
-		}*/
+		
 		if (biomeName == "Forest" || biomeName == "AutumnWoods" || biomeName == "BirchForest" || biomeName == "PineForest" || biomeName == "Rainforest" 
 				|| biomeName == "TemperateRainforest" || biomeName == "Woodlands")
 		{
@@ -110,13 +95,24 @@ public class TreeWorldgen implements IWorldGenerator
 				xSpawn = xPos + random.nextInt(16);
 				zSpawn = zPos + random.nextInt(16);
 				pinkSakura.generate(world, random, xSpawn, ySpawn, zSpawn);
-				/*for (int iter = 0; iter < PHTrees.sakuraSpawnDensity; iter++)
-				{
-					ySpawn = random.nextInt(PHTrees.sakuraSpawnRange) + PHTrees.sakuraSpawnHeight;
-					xSpawn = xPos + random.nextInt(16);
-					zSpawn = zPos + random.nextInt(16);
-					pinkSakura.generate(world, random, xSpawn, ySpawn, zSpawn);
-				}*/
+			}
+		}
+		
+		if (biomeName.equals("Hell"))
+		{
+			if (random.nextInt(PHTrees.bloodSpawnDensity) == 0)
+			{
+				ySpawn = random.nextInt(PHTrees.bloodSpawnRange) + PHTrees.bloodSpawnHeight;
+				xSpawn = xPos + random.nextInt(16);
+				zSpawn = zPos + random.nextInt(16);
+				genBlood.generate(world, random, xSpawn, ySpawn, zSpawn);
+			}
+			for (int iter = 0; iter < PHTrees.whiteSpawnDensity; iter++)
+			{
+				ySpawn = random.nextInt(PHTrees.whiteSpawnRange) + PHTrees.whiteSpawnHeight;
+				xSpawn = xPos + random.nextInt(16);
+				zSpawn = zPos + random.nextInt(16);
+				whiteSakura.generate(world, random, xSpawn, ySpawn, zSpawn);
 			}
 		}
 	}

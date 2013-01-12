@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * Flavorlicious!
  */
 
-@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "A3")
+@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.7_2013.1.11")
 public class SimpleBGM
 {
 	@SideOnly(Side.CLIENT)
@@ -56,14 +56,17 @@ public class SimpleBGM
 	
 	@SideOnly(Side.CLIENT)
 	public void playBackgroundMusic(String sound)
-	{
+	{		
 		if (options.musicVolume == 0f)
 		{
-			if (bgm.playing(sound))
-				bgm.stop(sound);
-			if (bgm.playing(currentMusic))
-				bgm.stop(currentMusic);
-			currentMusic = "";
+			if (bgm != null)
+			{
+				if (bgm.playing(sound))
+					bgm.stop(sound);
+				if (bgm.playing(currentMusic))
+					bgm.stop(currentMusic);
+				currentMusic = "";
+			}
 		}
 		else
 		{

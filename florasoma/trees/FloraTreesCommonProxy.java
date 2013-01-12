@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class FloraTreesCommonProxy 
@@ -26,11 +27,14 @@ public class FloraTreesCommonProxy
 		
 		ItemStack[] planks = new ItemStack[] { new ItemStack(FloraTrees.instance.planks, 1, 0), new ItemStack(FloraTrees.instance.planks, 1, 1),
 			 new ItemStack(FloraTrees.instance.planks, 1, 2), new ItemStack(FloraTrees.instance.planks, 1, 3), new ItemStack(FloraTrees.instance.planks, 1, 5)};
+		ItemStack[] logs = new ItemStack[] { new ItemStack(FloraTrees.instance.tree, 4, 0), new ItemStack(FloraTrees.instance.tree, 4, 1),
+				new ItemStack(FloraTrees.instance.tree, 4, 2), new ItemStack(FloraTrees.instance.tree, 4, 3), new ItemStack(FloraTrees.instance.redwood, 1, 1)  };
 		
 		for (int i = 0; i < planks.length; i++)
 		{
-		
-			GameRegistry.addRecipe(new ItemStack(Block.workbench), "ww", "ww", 'w', planks[i] );
+			OreDictionary.registerOre("plankWood", planks[i]);
+			OreDictionary.registerOre("logWood", logs[i]);
+			/*GameRegistry.addRecipe(new ItemStack(Block.workbench), "ww", "ww", 'w', planks[i] );
 			GameRegistry.addRecipe(new ItemStack(Block.fenceGate), "#W#", "#W#", '#', Item.stick, 'W', planks[i] );
 			GameRegistry.addRecipe(new ItemStack(Block.jukebox), "www", "w#w", "www", '#', Item.diamond, 'w', planks[i] );
 			GameRegistry.addRecipe(new ItemStack(Block.music), "www", "w#w", "www", '#', Item.redstone, 'w', planks[i] );
@@ -48,13 +52,14 @@ public class FloraTreesCommonProxy
 			GameRegistry.addRecipe(new ItemStack(Item.shovelWood), "w", "|", "|", '|', Item.stick, 'w', planks[i] );
 			GameRegistry.addRecipe(new ItemStack(Item.axeWood), "ww", "w|", " |", '|', Item.stick, 'w', planks[i] );
 			GameRegistry.addRecipe(new ItemStack(Item.swordWood), "w", "w", "|", '|', Item.stick, 'w', planks[i] );
-			GameRegistry.addRecipe(new ItemStack(Item.hoeWood), "ww", "| ", "| ", '|', Item.stick, 'w', planks[i] );
+			GameRegistry.addRecipe(new ItemStack(Item.hoeWood), "ww", "| ", "| ", '|', Item.stick, 'w', planks[i] );*/
 		}
 		
 		//Turn logs into charcoal
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 0, new ItemStack(Item.coal, 1, 1), 0.15f);
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 1, new ItemStack(Item.coal, 1, 1), 0.15f);
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 2, new ItemStack(Item.coal, 1, 1), 0.15f);
+		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.tree.blockID, 3, new ItemStack(Item.coal, 1, 1), 0.15f);
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.redwood.blockID, 0, new ItemStack(Item.coal, 1, 1), 0.15f);
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.redwood.blockID, 1, new ItemStack(Item.coal, 1, 1), 0.15f);
 		FurnaceRecipes.smelting().addSmelting(FloraTrees.instance.redwood.blockID, 2, new ItemStack(Item.coal, 1, 1), 0.15f);
