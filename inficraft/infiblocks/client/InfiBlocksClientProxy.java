@@ -34,6 +34,7 @@ public class InfiBlocksClientProxy extends InfiBlocksCommonProxy
 		RenderingRegistry.registerBlockHandler(new MagicSlabRender());
 		RenderingRegistry.registerBlockHandler(new PaneRender());
 		RenderingRegistry.registerBlockHandler(new BrickRender());
+		RenderingRegistry.registerBlockHandler(new WorkbenchRender());
 
 		// new ChestSpecialRenderer()
 	}

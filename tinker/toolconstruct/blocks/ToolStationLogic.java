@@ -1,18 +1,18 @@
 package tinker.toolconstruct.blocks;
 
-import tinker.toolconstruct.crafting.ToolBuilder;
-import inficraft.api.machines.BlockLogicMachine;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import tinker.common.InventoryLogic;
+import tinker.toolconstruct.crafting.ToolBuilder;
 
 /* Simple class for storing items in the block
  */
 
-public class ToolStationLogic extends BlockLogicMachine
+public class ToolStationLogic extends InventoryLogic
 {
 	ToolStationContainer container;
 	ItemStack previousTool;

@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
-public class InfiBlocksRender implements ISimpleBlockRenderingHandler
+public class ChestRender implements ISimpleBlockRenderingHandler
 {
 
 	@Override

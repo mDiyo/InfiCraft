@@ -17,7 +17,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.6_2012.12.18")
+@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.6_2013.1.11")
 public class FloraBerries
 {
 	/* Proxies for sides, used for client-only processing */
@@ -34,7 +34,7 @@ public class FloraBerries
 		PHBerries.initProps();
 		berryItem = new BerryItem(PHBerries.berryItemID, 2).setItemName("berry");
 		berryBush = new BerryBush(PHBerries.berryBlockID, 0);
-		GameRegistry.registerBlock(berryBush, florasoma.berries.BerryBushItem.class);
+		GameRegistry.registerBlock(berryBush, florasoma.berries.BerryBushItem.class, "BerryBush");
 	}
 
 	@Init

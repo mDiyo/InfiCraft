@@ -2,17 +2,18 @@ package tinker.toolconstruct.blocks;
 
 import java.util.List;
 
-import tinker.toolconstruct.ToolConstruct;
-
-import inficraft.api.machines.BlockMachineBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import tinker.common.InventoryBlock;
+import tinker.toolconstruct.ToolConstruct;
+import tinker.toolconstruct.client.TableRender;
 
-public class ToolStationBlock extends BlockMachineBase
+public class ToolStationBlock extends InventoryBlock
 {
 
 	public ToolStationBlock(int id, Material material)
@@ -55,6 +56,30 @@ public class ToolStationBlock extends BlockMachineBase
 		
 		return 1;
 	}
+	
+	@Override
+	public boolean renderAsNormalBlock ()
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube ()
+	{
+		return false;
+	}
+
+	@Override
+	public int getRenderType ()
+	{
+		return TableRender.tabelModelID;
+	}
+	
+	@Override
+	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+		return true;
+    }
 	
 	public int damageDropped(int meta)
     {

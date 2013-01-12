@@ -2,6 +2,7 @@ package inficraft.infiblocks.tech;
 
 import inficraft.infiblocks.InfiBlocks;
 import inficraft.infiblocks.InfiBlocksCommonProxy;
+import inficraft.infiblocks.client.WorkbenchRender;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 
@@ -73,4 +75,28 @@ public class WorkbenchBlock extends Block
     		list.add(new ItemStack(id, 1, iter));
     	}
     }
+    
+    /*@Override
+	public boolean renderAsNormalBlock ()
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube ()
+	{
+		return false;
+	}
+
+	@Override
+	public int getRenderType ()
+	{
+		return WorkbenchRender.workbenchModelID;
+	}
+	
+	@Override
+	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+		return true;
+    }*/
 }

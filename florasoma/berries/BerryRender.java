@@ -20,17 +20,17 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 			int md = world.getBlockMetadata(x, y, z);
 			if (md < 4)
 			{
-				block.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
+				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (md < 8)
 			{
-				block.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 0.75F, 0.875F);
+				renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 0.875F, 0.75F, 0.875F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else
 			{
-				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 		}
@@ -46,18 +46,18 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 			Tessellator tessellator = Tessellator.instance;
 			if (metadata < 4)
 			{
-				block.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
+				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
 				renderDo(renderer, block, metadata);
 				//renderer.renderBlockAsItem(block, metadata, modelID);
 			}
 			else if (metadata < 8)
 			{
-				block.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 0.75F, 0.875F);
+				renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 0.875F, 0.75F, 0.875F);
 				renderDo(renderer, block, metadata);
 			}
 			else
 			{
-				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				renderDo(renderer, block, metadata);
 			}
 		}

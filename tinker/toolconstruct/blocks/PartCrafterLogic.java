@@ -1,13 +1,13 @@
 package tinker.toolconstruct.blocks;
 
-import tinker.toolconstruct.crafting.PatternBuilder;
-import inficraft.api.machines.BlockLogicMachine;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import tinker.common.InventoryLogic;
+import tinker.toolconstruct.crafting.PatternBuilder;
 
-public class PartCrafterLogic extends BlockLogicMachine
+public class PartCrafterLogic extends InventoryLogic
 {
 	boolean craftedTop;
 	boolean craftedBottom;

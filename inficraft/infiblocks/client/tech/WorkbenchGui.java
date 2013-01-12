@@ -19,7 +19,8 @@ public class WorkbenchGui extends GuiContainer
         super.onGuiClosed();
     }
 
-    protected void drawGuiContainerForegroundLayer()
+    @Override
+    protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
         fontRenderer.drawString("Crafting", 28, 6, 0x404040);
         fontRenderer.drawString("Inventory", 8, (ySize - 96) + 2, 0x404040);

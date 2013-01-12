@@ -16,7 +16,7 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
 	{
 		if (modelID == InfiBlocks.getContentInstance().magicSlabModel)
 		{
-			block.setBlockBounds(0.3125F, 0.1875F, 0.1875F, 0.6875F, 0.8125F, 0.8125F);
+			renderer.setRenderBounds(0.3125F, 0.1875F, 0.1875F, 0.6875F, 0.8125F, 0.8125F);
 	        BlockRenderHelper.renderDo(renderer, block, metadata);
 		}
 	}
@@ -46,7 +46,7 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
 		return InfiBlocks.getContentInstance().magicSlabModel;
 	}
 	
-	public static boolean renderMagicWorld(RenderBlocks renderblocks, 
+	public static boolean renderMagicWorld(RenderBlocks renderer, 
             IBlockAccess iblockaccess, int x, int y, int z, MagicSlabBase slab)
     {
         boolean east = slab.canConnectSlabTo(iblockaccess, x, y, z - 1);
@@ -614,8 +614,8 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
                 if(slabsAbove == 2)
                 {
                     tY = highOffset;
-                    slab.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-                    renderblocks.renderStandardBlock(slab, x, y, z);
+                    renderer.setRenderBounds(bX, bY, bZ, tX, tY, tZ);
+                    renderer.renderStandardBlock(slab, x, y, z);
                                         
                     bX = lowOffset;
                     tX = highOffset;
@@ -639,8 +639,8 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
                 {
                     bY = lowOffset;
                     //bY = 0F;
-                    slab.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-                    renderblocks.renderStandardBlock(slab, x, y, z);
+                    renderer.setRenderBounds(bX, bY, bZ, tX, tY, tZ);
+                    renderer.renderStandardBlock(slab, x, y, z);
                                         
                     bX = lowOffset;
                     tX = highOffset;
@@ -663,8 +663,8 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
                 if(slabsNorth == 2)
                 {
                     tX = highOffset;
-                    slab.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-                    renderblocks.renderStandardBlock(slab, x, y, z);
+                    renderer.setRenderBounds(bX, bY, bZ, tX, tY, tZ);
+                    renderer.renderStandardBlock(slab, x, y, z);
                                         
                     bY = lowOffset;
                     tY = highOffset;
@@ -688,8 +688,8 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
                 if(slabsSouth == 2)
                 {
                     bX = lowOffset;
-                    slab.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-                    renderblocks.renderStandardBlock(slab, x, y, z);
+                    renderer.setRenderBounds(bX, bY, bZ, tX, tY, tZ);
+                    renderer.renderStandardBlock(slab, x, y, z);
                                         
                     bY = lowOffset;
                     tY = highOffset;
@@ -713,8 +713,8 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
                 if(slabsWest == 2)
                 {
                     tZ = highOffset;
-                    slab.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-                    renderblocks.renderStandardBlock(slab, x, y, z);
+                    renderer.setRenderBounds(bX, bY, bZ, tX, tY, tZ);
+                    renderer.renderStandardBlock(slab, x, y, z);
                                         
                     bY = lowOffset;
                     tY = highOffset;
@@ -737,8 +737,8 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
                 if(slabsEast == 2)
                 {
                     bZ = lowOffset;
-                    slab.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-                    renderblocks.renderStandardBlock(slab, x, y, z);
+                    renderer.setRenderBounds(bX, bY, bZ, tX, tY, tZ);
+                    renderer.renderStandardBlock(slab, x, y, z);
                                         
                     bX = lowOffset;
                     tX = highOffset;
@@ -750,8 +750,8 @@ public class MagicSlabRender implements ISimpleBlockRenderingHandler
             }
         }
 
-        slab.setBlockBounds(bX, bY, bZ, tX, tY, tZ);
-        renderblocks.renderStandardBlock(slab, x, y, z);
+        renderer.setRenderBounds(bX, bY, bZ, tX, tY, tZ);
+        renderer.renderStandardBlock(slab, x, y, z);
         return false;
     }
 

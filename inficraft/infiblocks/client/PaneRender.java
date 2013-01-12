@@ -18,7 +18,7 @@ public class PaneRender implements ISimpleBlockRenderingHandler
 		
 		if (modelID == InfiBlocks.getContentInstance().paneModelID)
 		{
-			block.setBlockBounds(0.0F, 0.0F, 0.4375F, 1.0F, 1.0F, 0.5625F);
+			renderer.setRenderBounds(0.0F, 0.0F, 0.4375F, 1.0F, 1.0F, 0.5625F);
 	        BlockRenderHelper.renderDo(renderer, block, metadata);
 		}
 	}

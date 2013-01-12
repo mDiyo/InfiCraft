@@ -3,12 +3,11 @@ package tinker.toolconstruct.client;
 
 import java.io.File;
 
-import tinker.toolconstruct.TProxyCommon;
-import tinker.toolconstruct.ToolConstruct;
-import tinker.toolconstruct.ToolItems;
-
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.MinecraftForgeClient;
+import tinker.toolconstruct.TProxyCommon;
+import tinker.toolconstruct.ToolItems;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class TProxyClient extends TProxyCommon
@@ -16,6 +15,8 @@ public class TProxyClient extends TProxyCommon
 	/* Registers any rendering code. */
 	public void registerRenderer() 
 	{
+		RenderingRegistry.registerBlockHandler(new TableRender());
+		
 		MinecraftForgeClient.preloadTexture(ToolItems.craftingTexture);
 		MinecraftForgeClient.preloadTexture(ToolItems.baseHeads);
 		MinecraftForgeClient.preloadTexture(ToolItems.baseAccessories);
