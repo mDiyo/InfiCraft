@@ -143,15 +143,15 @@ public class FloraLeaves extends BlockLeaves
      * coordinates.  Args: blockAccess, x, y, z, side
      */
     
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    /*public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
         return par5 == 0 && this.minY > 0.0D ? true : (par5 == 1 && this.maxY < 1.0D ? true : (par5 == 2 && this.minZ > 0.0D ? true : (par5 == 3 && this.maxZ < 1.0D ? true : (par5 == 4 && this.minX > 0.0D ? true : (par5 == 5 && this.maxX < 1.0D ? true : !par1IBlockAccess.isBlockOpaqueCube(par2, par3, par4))))));
-    }
-    /*@Override
+    }*/
+    @Override
     public boolean shouldSideBeRendered(IBlockAccess var1, int var2, int var3, int var4, int var5)
     {
         return this.graphicsLevel ? super.shouldSideBeRendered(var1, var2, var3, var4, var5) : true;
-    }*/
+    }
 
     @SideOnly(Side.CLIENT)
 

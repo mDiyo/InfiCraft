@@ -32,7 +32,7 @@ import florasoma.trees.blocks.TreeBlock;
 import florasoma.trees.entities.FloraBoat;
 import florasoma.trees.worldgen.TreeWorldgen;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.11b")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.12")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */
@@ -54,8 +54,8 @@ public class FloraTrees
 		tree = new TreeBlock(PHTrees.treeID);
 		redwood = new SimpleLog(PHTrees.redwoodID, 32, texture);
 		planks = new Planks(PHTrees.planksID, 80, texture);
-		floraLeaves = new FloraLeaves(PHTrees.floraLeavesID, 112);
-		floraLeavesNoColor = new FloraLeavesNocolor(PHTrees.cherryLeavesID, 115);
+		floraLeaves = new FloraLeaves(PHTrees.floraLeavesID, 96);
+		floraLeavesNoColor = new FloraLeavesNocolor(PHTrees.cherryLeavesID, 99);
 		floraSapling = new FloraSaplingBlock(PHTrees.floraSaplingID);
 		
 		redwoodDoorItem = new FloraDoorItem(PHTrees.redwoodDoorItemID, PHTrees.redwoodDoorID).setIconCoord(3, 9).setItemName("redwoodDoorItem");

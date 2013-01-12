@@ -5,6 +5,9 @@ import java.io.File;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
+import florasoma.berries.FloraBerryTickHandler;
 
 public class FloraTreesClientProxy extends FloraTreesCommonProxy
 {
@@ -13,6 +16,7 @@ public class FloraTreesClientProxy extends FloraTreesCommonProxy
 	public void registerRenderer() 
 	{
 		MinecraftForgeClient.preloadTexture(FloraTrees.texture);
+		TickRegistry.registerTickHandler(new FloraTreesTickHandler(), Side.CLIENT);
 	}
 	
 	/* Ties an internal name to a visible one. Does nothing server-side */

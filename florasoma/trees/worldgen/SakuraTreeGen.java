@@ -51,10 +51,12 @@ public class SakuraTreeGen extends WorldGenerator
     
 	int metaWood;
 	int metaLeaves;
+	boolean dontFindHeight;
 
     public SakuraTreeGen(boolean notify, int mdwood, int mdleaves)
     {
         super(notify);
+        dontFindHeight = notify;
         metaWood = mdwood;
         metaLeaves = mdleaves;
     }
@@ -310,15 +312,13 @@ public class SakuraTreeGen extends WorldGenerator
      */
     void generateLeaves()
     {
-        int var1 = 0;
-
-        for (int var2 = this.leafNodes.length; var1 < var2; ++var1)
-        {
-            int var3 = this.leafNodes[var1][0];
-            int var4 = this.leafNodes[var1][1];
-            int var5 = this.leafNodes[var1][2];
-            this.generateLeafNode(var3, var4, var5);
-        }
+    	for (int iter = 0; iter < this.leafNodes.length; iter++)
+    	{
+    		int posX = this.leafNodes[iter][0];
+            int posY = this.leafNodes[iter][1];
+            int posZ = this.leafNodes[iter][2];
+            this.generateLeafNode(posX, posY, posZ);
+    	}
     }
 
     /**
@@ -512,7 +512,10 @@ public class SakuraTreeGen extends WorldGenerator
         long var6 = random.nextLong();
         this.rand.setSeed(var6);
         this.basePos[0] = x;
-        this.basePos[1] = findGround(world, x, y, z);
+        if (this.dontFindHeight)
+        	this.basePos[1] = y;
+        else
+        	this.basePos[1] = findGround(world, x, y, z);
         this.basePos[2] = z;
 
         if (this.heightLimit == 0)

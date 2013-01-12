@@ -44,7 +44,7 @@ public class PHClouds
         
         cloudID = config.getBlock("Cloud Block", 3253).getInt(3253);
         
-        cloudSpawnDensity = config.get("general", "Cloud Spawn Density", 10).getInt(10);
+
         cloudSpawnHeight = config.get("general", "Cloud Spawn Height", 192).getInt(192);
         cloudSpawnRange = config.get("general", "Cloud Spawn Range", 48).getInt(48);
         darkCloudSpawnDensity = config.get("general", "Dark Cloud Spawn Density", 10).getInt(10);

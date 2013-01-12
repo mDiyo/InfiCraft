@@ -45,13 +45,13 @@ public class CloudWorldgen implements IWorldGenerator
 	{
 		//Overworld
 		int xCh, yCh, zCh;		
-		int xChunk = chunkX * 16, zChunk = chunkX * 16;
+		int xChunk = chunkX * 16, zChunk = chunkZ * 16;
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(xChunk + 16, zChunk + 16);
 
 		if (biome.rainfall > 0.15f && random.nextInt(PHClouds.cloudSpawnDensity) == 0)
 		{
-			xCh = xChunk + random.nextInt(16) + 8;
-			zCh = zChunk + random.nextInt(16) + 8;
+			xCh = xChunk + random.nextInt(16);
+			zCh = zChunk + random.nextInt(16);
 			yCh = random.nextInt(PHClouds.cloudSpawnRange) + PHClouds.cloudSpawnHeight;
 			int size = random.nextInt(12);
 			if (size < 5)
@@ -73,12 +73,12 @@ public class CloudWorldgen implements IWorldGenerator
 		}
 		
 		//End Generation
-		if (biome == BiomeGenBase.sky && random.nextInt(PHClouds.darkCloudSpawnDensity) < PHClouds.darkCloudSpawnDensity / 4)
+		if (biome == BiomeGenBase.sky && random.nextInt(4) == 0)
 		{
-			xCh = xChunk * 16 + random.nextInt(16) + 8;
-			zCh = zChunk * 16 + random.nextInt(16) + 8;
-			for(int iter = 0; iter < PHClouds.darkCloudSpawnDensity / 4; iter++)
-			{
+			xCh = xChunk * 16 + random.nextInt(16);
+			zCh = zChunk * 16 + random.nextInt(16);
+			//for(int iter = 0; iter < PHClouds.darkCloudSpawnDensity; iter++)
+			//{
 				int height = random.nextInt(PHClouds.darkCloudSpawnRange);
 				if (random.nextInt(5) == 0)
 				{
@@ -96,85 +96,64 @@ public class CloudWorldgen implements IWorldGenerator
 				{
 					hugedarkcloud.generate(world, random, xCh, height + PHClouds.darkCloudSpawnHeight - 64, zCh);
 				}
-			}
+			//}
 		}
 		
 		//Nether
 		if (biome == BiomeGenBase.hell)
-		{
-			int xCor = xChunk * 16 + random.nextInt(16) + 8;
-			int yCor = random.nextInt(128);
-			int zCor = zChunk * 16 + random.nextInt(16) + 8;
+		{			
+			if (random.nextInt(4) == 0)
+			{
+				//for (int i = 0; i < PHClouds.ashSpawnDensity; i++)
+				//{
+					xCh = xChunk + random.nextInt(16);
+					yCh = random.nextInt(PHClouds.ashSpawnRange) + PHClouds.ashSpawnHeight;
+					zCh = zChunk + random.nextInt(16);
+					int size = random.nextInt(12);
+					if (size < 5)
+					{
+						tinyashcloud.generate(world, random, xCh, yCh, zCh);
+					}
+					else if (size < 9)
+					{
+						smallashcloud.generate(world, random, xCh, yCh, zCh);
+					}
+					else if (size < 11)
+					{
+						largeashcloud.generate(world, random, xCh, yCh, zCh);
+					}
+					else
+					{
+						hugeashcloud.generate(world, random, xCh, yCh, zCh);
+					}
+				//}
+			}
 			
-			if (random.nextInt(PHClouds.ashSpawnDensity) < 5)
+			if (random.nextInt(4) == 0)
 			{
-				int j1 = xChunk + random.nextInt(16) + 8;
-				int i4 = random.nextInt(PHClouds.ashSpawnRange) + PHClouds.ashSpawnHeight;
-				int k6 = zChunk + random.nextInt(16) + 8;
-				tinyashcloud.generate(world, random, j1, i4, k6);
-			}
-			if (random.nextInt(PHClouds.ashSpawnDensity) < 4)
-			{
-				int k1 = xChunk + random.nextInt(16) + 8;
-				int j4 = random.nextInt(PHClouds.ashSpawnRange) + PHClouds.ashSpawnHeight;
-				int l6 = zChunk + random.nextInt(16) + 8;
-				smallashcloud.generate(world, random, k1, j4, l6);
-			}
-			else if (random.nextInt(PHClouds.ashSpawnDensity) < 3)
-			{
-				int l1 = xChunk + random.nextInt(16) + 8;
-				int k4 = random.nextInt(PHClouds.ashSpawnRange) + PHClouds.ashSpawnHeight;
-				int i7 = zChunk + random.nextInt(16) + 8;
-				mediumashcloud.generate(world, random, l1, k4, i7);
-			}
-			else if (random.nextInt(PHClouds.ashSpawnDensity) < 2)
-			{
-				int i2 = xChunk + random.nextInt(16) + 8;
-				int l4 = random.nextInt(PHClouds.ashSpawnRange) + PHClouds.ashSpawnHeight;
-				int j7 = zChunk + random.nextInt(16) + 8;
-				largeashcloud.generate(world, random, i2, l4, j7);
-			}
-			else if (random.nextInt(PHClouds.ashSpawnDensity) < 1)
-			{
-				int j2 = xChunk + random.nextInt(16) + 8;
-				int i5 = random.nextInt(PHClouds.ashSpawnRange) + PHClouds.ashSpawnHeight;
-				int k7 = zChunk + random.nextInt(16) + 8;
-				hugeashcloud.generate(world, random, j2, i5, k7);
-			}
-			if (random.nextInt(PHClouds.sulfurSpawnDensity) < 5)
-			{
-				int k2 = xChunk + random.nextInt(16) + 8;
-				int j5 = random.nextInt(PHClouds.sulfurSpawnRange) + PHClouds.sulfurSpawnHeight;
-				int l7 = zChunk + random.nextInt(16) + 8;
-				tinysulfurcloud.generate(world, random, k2, j5, l7);
-			}
-			if (random.nextInt(PHClouds.sulfurSpawnDensity) < 4)
-			{
-				int l2 = xChunk + random.nextInt(16) + 8;
-				int k5 = random.nextInt(PHClouds.sulfurSpawnRange) + PHClouds.sulfurSpawnHeight;
-				int i8 = zChunk + random.nextInt(16) + 8;
-				smallsulfurcloud.generate(world, random, l2, k5, i8);
-			}
-			else if (random.nextInt(PHClouds.sulfurSpawnDensity) < 3)
-			{
-				int i3 = xChunk + random.nextInt(16) + 8;
-				int l5 = random.nextInt(PHClouds.sulfurSpawnRange) + PHClouds.sulfurSpawnHeight;
-				int j8 = zChunk + random.nextInt(16) + 8;
-				mediumsulfurcloud.generate(world, random, i3, l5, j8);
-			}
-			else if (random.nextInt(PHClouds.sulfurSpawnDensity) < 2)
-			{
-				int j3 = xChunk + random.nextInt(16) + 8;
-				int i6 = random.nextInt(PHClouds.sulfurSpawnRange) + PHClouds.sulfurSpawnHeight;
-				int k8 = zChunk + random.nextInt(16) + 8;
-				largesulfurcloud.generate(world, random, j3, i6, k8);
-			}
-			else if (random.nextInt(PHClouds.sulfurSpawnDensity) < 1)
-			{
-				int k3 = xChunk + random.nextInt(16) + 8;
-				int j6 = random.nextInt(PHClouds.sulfurSpawnRange) + PHClouds.sulfurSpawnHeight;
-				int l8 = zChunk + random.nextInt(16) + 8;
-				hugesulfurcloud.generate(world, random, k3, j6, l8);
+				//for (int i = 0; i < PHClouds.sulfurSpawnDensity; i++)
+				//{
+					xCh = xChunk + random.nextInt(16);
+					yCh = random.nextInt(PHClouds.sulfurSpawnRange) + PHClouds.sulfurSpawnHeight;
+					zCh = zChunk + random.nextInt(16);
+					int size = random.nextInt(12);
+					if (size < 5)
+					{
+						tinysulfurcloud.generate(world, random, xCh, yCh, zCh);
+					}
+					else if (size < 9)
+					{
+						smallsulfurcloud.generate(world, random, xCh, yCh, zCh);
+					}
+					else if (size < 11)
+					{
+						largesulfurcloud.generate(world, random, xCh, yCh, zCh);
+					}
+					else
+					{
+						hugesulfurcloud.generate(world, random, xCh, yCh, zCh);
+					}
+				//}
 			}
 		}
 	}

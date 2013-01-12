@@ -38,7 +38,7 @@ public class TreeWorldgen implements IWorldGenerator
 		{
 			if (random.nextInt((int) (PHTrees.sakuraSpawnDensity * 5)) == 0)
 			{
-				for (int iter = 0; iter < PHTrees.sakuraSpawnDensity; iter++)
+				for (int iter = 0; iter < 3; iter++)
 				{
 					ySpawn = random.nextInt(PHTrees.sakuraSpawnRange) + PHTrees.sakuraSpawnHeight;
 					xSpawn = xPos + random.nextInt(16);
@@ -91,10 +91,13 @@ public class TreeWorldgen implements IWorldGenerator
 		{
 			if (random.nextInt((int) (PHTrees.sakuraSpawnDensity)) == 0)
 			{
-				ySpawn = random.nextInt(PHTrees.sakuraSpawnRange) + PHTrees.sakuraSpawnHeight;
-				xSpawn = xPos + random.nextInt(16);
-				zSpawn = zPos + random.nextInt(16);
-				pinkSakura.generate(world, random, xSpawn, ySpawn, zSpawn);
+				for (int iter = 0; iter < 3; iter++)
+				{
+					ySpawn = random.nextInt(PHTrees.sakuraSpawnRange) + PHTrees.sakuraSpawnHeight;
+					xSpawn = xPos + random.nextInt(16);
+					zSpawn = zPos + random.nextInt(16);
+					pinkSakura.generate(world, random, xSpawn, ySpawn, zSpawn);
+				}
 			}
 		}
 		
@@ -107,12 +110,15 @@ public class TreeWorldgen implements IWorldGenerator
 				zSpawn = zPos + random.nextInt(16);
 				genBlood.generate(world, random, xSpawn, ySpawn, zSpawn);
 			}
-			for (int iter = 0; iter < PHTrees.whiteSpawnDensity; iter++)
+			if (random.nextInt(PHTrees.whiteSpawnDensity) == 0)
 			{
-				ySpawn = random.nextInt(PHTrees.whiteSpawnRange) + PHTrees.whiteSpawnHeight;
-				xSpawn = xPos + random.nextInt(16);
-				zSpawn = zPos + random.nextInt(16);
-				whiteSakura.generate(world, random, xSpawn, ySpawn, zSpawn);
+				for (int iter = 0; iter < 3; iter++)
+				{
+					ySpawn = random.nextInt(PHTrees.whiteSpawnRange) + PHTrees.whiteSpawnHeight;
+					xSpawn = xPos + random.nextInt(16);
+					zSpawn = zPos + random.nextInt(16);
+					whiteSakura.generate(world, random, xSpawn, ySpawn, zSpawn);
+				}
 			}
 		}
 	}

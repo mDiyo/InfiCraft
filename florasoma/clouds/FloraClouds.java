@@ -18,7 +18,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: Merdiwen Tirelle Diyo
  */
 
-@Mod(modid = "Flora Clouds", name = "Flora and Soma Clouds", version = "1.4.6_2012.12.18")
+@Mod(modid = "Flora Clouds", name = "Flora and Soma Clouds", version = "1.4.6_2013.1.12")
 public class FloraClouds
 {
 	/* Proxies for sides, used for client-only processing*/
@@ -37,7 +37,7 @@ public class FloraClouds
 		PHClouds.initProps();
 		
 		cloud = new CloudBlock(PHClouds.cloudID);
-		GameRegistry.registerBlock(cloud, florasoma.clouds.CloudItem.class);
+		GameRegistry.registerBlock(cloud, florasoma.clouds.CloudItem.class, "Cloud");
 	}
 	
 	@Init

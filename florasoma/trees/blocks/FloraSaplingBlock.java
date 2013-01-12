@@ -36,9 +36,10 @@ public class FloraSaplingBlock extends BlockFlower
 
 	public boolean canPlaceBlockAt (World world, int x, int y, int z)
 	{
+		return true;
 		//int var5 = world.getBlockId(x, y, z);
         //if (var5 == 0 || blocksList[var5].blockMaterial.isReplaceable());
-        return canBlockStay(world, x, y, z);
+        //return canBlockStay(world, x, y, z);
 		//return super.canPlaceBlockAt(world, i, j, k) && canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
 	}
 
