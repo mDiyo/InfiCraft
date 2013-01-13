@@ -10,6 +10,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import florasoma.common.FloraSomaTab;
 
 /**
  * Flora & Soma: Berries
@@ -17,7 +18,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.6_2013.1.11")
+@Mod(modid = "Flora Berries", name = "Flora and Soma Berries", version = "1.4.6_2013.1.12")
 public class FloraBerries
 {
 	/* Proxies for sides, used for client-only processing */
@@ -41,7 +42,7 @@ public class FloraBerries
 	public void init(FMLInitializationEvent evt)
 	{
 		GameRegistry.registerWorldGenerator(new BerryWorldgen());
-
+		FloraSomaTab.init(berryItem.itemID);
 		proxy.registerRenderer();
 		proxy.addNames();
 	}
@@ -52,6 +53,6 @@ public class FloraBerries
 
 	public static int berryModelID;
 
-	public static String bushTexture = "/infitextures/bushes.png";
-	public static String seedTexture = "/infitextures/seeds.png";
+	public static String bushTexture = "/floratextures/bushes.png";
+	public static String seedTexture = "/floratextures/seeds.png";
 }

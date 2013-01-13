@@ -18,7 +18,7 @@ public class PHBerries
 		
 		File file = new File(FloraBerries.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(FloraBerries.proxy.getMinecraftDir() + "/config/InfiCraft/FloraBerries.txt");
+        File newFile = new File(FloraBerries.proxy.getMinecraftDir() + "/config/InfiCraft/FloraSoma.txt");
         
         /* Some basic debugging will go a long way */
         try
@@ -45,18 +45,18 @@ public class PHBerries
         berryBlockID = config.getBlock("Berry_Bush", 3257).getInt(3257);
         berryItemID = config.getItem("Berry_Food", 12402).getInt(12402);
         
-        raspSpawnDensity = config.get("general", "Raspberry_Spawn_Density", 14).getInt(14);
-        raspSpawnHeight = config.get("general", "Raspberry_Spawn_Height", 64).getInt(64);
-        raspSpawnRange = config.get("general", "Raspberry_Spawn_Range", 128).getInt(128);
-        blueSpawnDensity = config.get("general", "Blueberry_Spawn_Density", 12).getInt(12);
-        blueSpawnHeight = config.get("general", "Blueberry_Spawn_Height", 64).getInt(64);
-        blueSpawnRange = config.get("general", "Blueberry_Spawn_Range", 128).getInt(128);
-        blackSpawnDensity = config.get("general", "Blackberry_Spawn_Density", 10).getInt(10);
-        blackSpawnHeight = config.get("general", "Blackberry_Spawn_Height", 64).getInt(64);
-        blackSpawnRange = config.get("general", "Blackberry_Spawn_Range", 128).getInt(128);
-        geoSpawnDensity = config.get("general", "Geoberry_Spawn_Density", 14).getInt(14);
-        geoSpawnHeight = config.get("general", "Geoberry_Spawn_Height", 64).getInt(64);
-        geoSpawnRange = config.get("general", "Geoberry_Spawn_Range", 128).getInt(128);
+        raspSpawnDensity = config.get("Berries", "Raspberry_Spawn_Density", 14).getInt(14);
+        raspSpawnHeight = config.get("Berries", "Raspberry_Spawn_Height", 64).getInt(64);
+        raspSpawnRange = config.get("Berries", "Raspberry_Spawn_Range", 128).getInt(128);
+        blueSpawnDensity = config.get("Berries", "Blueberry_Spawn_Density", 12).getInt(12);
+        blueSpawnHeight = config.get("Berries", "Blueberry_Spawn_Height", 64).getInt(64);
+        blueSpawnRange = config.get("Berries", "Blueberry_Spawn_Range", 128).getInt(128);
+        blackSpawnDensity = config.get("Berries", "Blackberry_Spawn_Density", 10).getInt(10);
+        blackSpawnHeight = config.get("Berries", "Blackberry_Spawn_Height", 64).getInt(64);
+        blackSpawnRange = config.get("Berries", "Blackberry_Spawn_Range", 128).getInt(128);
+        geoSpawnDensity = config.get("Berries", "Geoberry_Spawn_Density", 14).getInt(14);
+        geoSpawnHeight = config.get("Berries", "Geoberry_Spawn_Height", 64).getInt(64);
+        geoSpawnRange = config.get("Berries", "Geoberry_Spawn_Range", 128).getInt(128);
         
         /* Save the configuration file */
         config.save();

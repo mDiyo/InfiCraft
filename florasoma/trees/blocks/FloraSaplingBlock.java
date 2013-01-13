@@ -1,6 +1,5 @@
 package florasoma.trees.blocks;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -12,6 +11,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
+import florasoma.common.FloraSomaTab;
 import florasoma.trees.FloraTrees;
 import florasoma.trees.PHTrees;
 import florasoma.trees.worldgen.BloodTreeGen;
@@ -32,6 +32,7 @@ public class FloraSaplingBlock extends BlockFlower
 		this.setStepSound(Block.soundGrassFootstep);
 		this.setBlockName("floraSapling");
 		this.setRequiresSelfNotify();
+		this.setCreativeTab(FloraSomaTab.tab);
 	}
 
 	public boolean canPlaceBlockAt (World world, int x, int y, int z)
@@ -150,7 +151,7 @@ public class FloraSaplingBlock extends BlockFlower
 			obj = new SakuraTreeGen(true, 1, 0);
 		
 		else if (md == 4)
-			obj = new WhiteTreeGen(true, FloraTrees.tree.blockID, 1);
+			obj = new WhiteTreeGen(true, 2, 1);
 
 		else if (md == 5)
 			obj = new BloodTreeGen(3, 2);

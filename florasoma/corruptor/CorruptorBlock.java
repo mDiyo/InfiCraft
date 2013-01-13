@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class CorruptorBlock extends Block
 {
@@ -20,7 +21,7 @@ public class CorruptorBlock extends Block
         this.setTickRandomly(true);
         this.setHardness(1.0F);
         this.setBlockName("corruptor");
-        setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     public void updateTick(World world, int x, int y, int z, Random random)

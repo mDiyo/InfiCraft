@@ -18,7 +18,7 @@ public class PHCrops
 		
 		File file = new File(FloraCrops.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(FloraCrops.proxy.getMinecraftDir() + "/config/InfiCraft/FloraCrops.txt");
+        File newFile = new File(FloraCrops.proxy.getMinecraftDir() + "/config/InfiCraft/FloraSoma.txt");
         
         /* Some basic debugging will go a long way */
         try
@@ -54,8 +54,8 @@ public class PHCrops
         carrotBagID = config.getItem("Carrot Bag", 12414).getInt(12414);
         netherWartBagID = config.getItem("Nether Wart Bag", 12415).getInt(12415);
 
-        barleySpawnDensity = config.get("general", "Barley Spawn Density", 64).getInt(64);
-        barleySpawnHeight = config.get("general", "Barley Spawn Height", 64).getInt(64);        
+        barleySpawnDensity = config.get("Crops", "Barley Spawn Density", 64).getInt(64);
+        barleySpawnHeight = config.get("Crops", "Barley Spawn Height", 64).getInt(64);        
        
         /* Save the configuration file */
         config.save();

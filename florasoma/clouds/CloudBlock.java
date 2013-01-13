@@ -12,6 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class CloudBlock extends Block
 {
@@ -21,7 +22,7 @@ public class CloudBlock extends Block
         this.setHardness(0.3F);
         this.setStepSound(Block.soundClothFootstep);
         this.setBlockName("cloud");
-        setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     @Override

@@ -18,7 +18,7 @@ public class PHCorruptor
 		
 		File file = new File(FloraCorruptor.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(FloraCorruptor.proxy.getMinecraftDir() + "/config/InfiCraft/FloraCorruptor.txt");
+        File newFile = new File(FloraCorruptor.proxy.getMinecraftDir() + "/config/InfiCraft/FloraSoma.txt");
         
         /* Some basic debugging will go a long way */
         try
@@ -45,12 +45,12 @@ public class PHCorruptor
         corruptorID = config.getBlock("Corruptor", 3254).getInt(3254);
         corruptBrickID = config.getBlock("Corrupt Brick", 3255).getInt(3255);        
 
-        corruptorSpawnDensity = config.get("general", "Corruptor Spawn Density", 1).getInt(1);
-        corruptorSpawnHeight = config.get("general", "Corruptor Spawn Height", 0).getInt(0);
-        corruptorSpawnRange = config.get("general", "Corruptor Spawn Range", 128).getInt(128);
-        corruptorSpawnSize = config.get("general", "Corruptor Spawn Slize", 8).getInt(8);
-        corruptionSpeed = config.get("general", "Corruption Speed", 5).getInt(5);
-        corruptionSpread = config.get("general", "Spread Corruption", true).getBoolean(true);
+        corruptorSpawnDensity = config.get("Corruptor", "Corruptor Spawn Density", 1).getInt(1);
+        corruptorSpawnHeight = config.get("Corruptor", "Corruptor Spawn Height", 0).getInt(0);
+        corruptorSpawnRange = config.get("Corruptor", "Corruptor Spawn Range", 128).getInt(128);
+        corruptorSpawnSize = config.get("Corruptor", "Corruptor Spawn Slize", 8).getInt(8);
+        corruptionSpeed = config.get("Corruptor", "Corruption Speed", 5).getInt(5);
+        corruptionSpread = config.get("Corruptor", "Spread Corruption", true).getBoolean(true);
         
         /* Save the configuration file */
         config.save();

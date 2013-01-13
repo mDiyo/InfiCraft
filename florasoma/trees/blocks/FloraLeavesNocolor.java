@@ -5,6 +5,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class FloraLeavesNocolor extends FloraLeaves
 {
@@ -12,6 +13,7 @@ public class FloraLeavesNocolor extends FloraLeaves
 	public FloraLeavesNocolor(int id, int tex) 
 	{
 		super(id, tex);
+		this.setCreativeTab(FloraSomaTab.tab);
 	}
 	
 	@SideOnly(Side.CLIENT)

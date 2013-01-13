@@ -12,8 +12,9 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import florasoma.common.FloraSomaTab;
 
-@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2013.1.3")
+@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2013.1.12")
 public class FloraCrops
 {
 	/* Proxies for sides, used for graphics processing */
@@ -51,7 +52,7 @@ public class FloraCrops
 	public void init(FMLInitializationEvent evt)
 	{
 		GameRegistry.registerWorldGenerator(new CropWorldgen());
-
+		FloraSomaTab.init(wheatBag.itemID);
 		proxy.registerRenderer();
 		proxy.addRecipes();
 		proxy.addNames();
@@ -82,5 +83,5 @@ public class FloraCrops
 	public Block leafyHerb;
 	public Block orangeHerb;
 
-	public static String cropTexture = "/infitextures/crops.png";
+	public static String cropTexture = "/floratextures/crops.png";
 }

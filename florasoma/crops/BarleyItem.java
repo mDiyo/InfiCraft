@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class BarleyItem extends Item
 {
@@ -20,7 +21,7 @@ public class BarleyItem extends Item
         super(i);
         setHasSubtypes(true);
         setMaxDamage(0);
-        setCreativeTab(CreativeTabs.tabFood);
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     public String getTextureFile()

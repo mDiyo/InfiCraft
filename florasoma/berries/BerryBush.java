@@ -18,6 +18,7 @@ import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class BerryBush extends BlockLeavesBase implements IPlantable
 {
@@ -33,7 +34,7 @@ public class BerryBush extends BlockLeavesBase implements IPlantable
 		this.setHardness(0.3F);
 		this.setStepSound(Block.soundGrassFootstep);
 		this.setBlockName("berrybush");
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(FloraSomaTab.tab);
 	}
 
 	/* Berries show up at meta 12-15 */

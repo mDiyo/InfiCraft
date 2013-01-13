@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 import florasoma.trees.FloraTrees;
 
 public class TreeBlock extends BlockLog
@@ -25,6 +26,7 @@ public class TreeBlock extends BlockLog
         this.setStepSound(Block.soundWoodFootstep);        
         this.setRequiresSelfNotify();
         setBurnProperties(this.blockID, 5, 20);
+        this.setCreativeTab(FloraSomaTab.tab);
     }
     
     public int getBlockTextureFromSideAndMetadata(int side, int metadata)

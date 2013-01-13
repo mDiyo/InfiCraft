@@ -18,7 +18,7 @@ public class PHClouds
 		
 		File file = new File(FloraClouds.proxy.getMinecraftDir() + "/config/InfiCraft");
         file.mkdir();
-        File newFile = new File(FloraClouds.proxy.getMinecraftDir() + "/config/InfiCraft/FloraClouds.txt");
+        File newFile = new File(FloraClouds.proxy.getMinecraftDir() + "/config/InfiCraft/FloraSoma.txt");
         
         /* Some basic debugging will go a long way */
         try
@@ -44,18 +44,18 @@ public class PHClouds
         
         cloudID = config.getBlock("Cloud Block", 3253).getInt(3253);
         
-        cloudSpawnDensity = config.get("general", "Cloud Spawn Density", 10).getInt(10);
-        cloudSpawnHeight = config.get("general", "Cloud Spawn Height", 192).getInt(192);
-        cloudSpawnRange = config.get("general", "Cloud Spawn Range", 48).getInt(48);
-        darkCloudSpawnDensity = config.get("general", "Dark Cloud Spawn Density", 10).getInt(10);
-        darkCloudSpawnHeight = config.get("general", "Dark Cloud Spawn Height", 64).getInt(64);
-        darkCloudSpawnRange = config.get("general", "Dark Cloud Spawn Range", 128).getInt(128);
-        sulfurSpawnDensity = config.get("general", "Sulfur Cloud Spawn Density", 3).getInt(3);
-        sulfurSpawnHeight = config.get("general", "Sulfur Cloud Spawn Height", 40).getInt(40);
-        sulfurSpawnRange = config.get("general", "Sulfur Cloud Spawn Range", 78).getInt(78);
-        ashSpawnDensity = config.get("general", "Ash Cloud Spawn Density", 3).getInt(3);
-        ashSpawnHeight = config.get("general", "Ash Cloud Spawn Height", 40).getInt(40);
-        ashSpawnRange = config.get("general", "Ash Cloud Spawn Range", 78).getInt(78);
+        cloudSpawnDensity = config.get("Clouds", "Cloud Spawn Density", 10).getInt(10);
+        cloudSpawnHeight = config.get("Clouds", "Cloud Spawn Height", 192).getInt(192);
+        cloudSpawnRange = config.get("Clouds", "Cloud Spawn Range", 48).getInt(48);
+        darkCloudSpawnDensity = config.get("Clouds", "Dark Cloud Spawn Density", 10).getInt(10);
+        darkCloudSpawnHeight = config.get("Clouds", "Dark Cloud Spawn Height", 64).getInt(64);
+        darkCloudSpawnRange = config.get("Clouds", "Dark Cloud Spawn Range", 128).getInt(128);
+        sulfurSpawnDensity = config.get("Clouds", "Sulfur Cloud Spawn Density", 3).getInt(3);
+        sulfurSpawnHeight = config.get("Clouds", "Sulfur Cloud Spawn Height", 40).getInt(40);
+        sulfurSpawnRange = config.get("Clouds", "Sulfur Cloud Spawn Range", 78).getInt(78);
+        ashSpawnDensity = config.get("Clouds", "Ash Cloud Spawn Density", 3).getInt(3);
+        ashSpawnHeight = config.get("Clouds", "Ash Cloud Spawn Height", 40).getInt(40);
+        ashSpawnRange = config.get("Clouds", "Ash Cloud Spawn Range", 78).getInt(78);
         
         /* Save the configuration file */
         config.save();

@@ -110,11 +110,11 @@ public class TreeWorldgen implements IWorldGenerator
 				zSpawn = zPos + random.nextInt(16);
 				genBlood.generate(world, random, xSpawn, ySpawn, zSpawn);
 			}
-			if (random.nextInt(PHTrees.whiteSpawnDensity) == 0)
+			if (random.nextInt(PHTrees.ghostSpawnDensity) == 0)
 			{
 				for (int iter = 0; iter < 3; iter++)
 				{
-					ySpawn = random.nextInt(PHTrees.whiteSpawnRange) + PHTrees.whiteSpawnHeight;
+					ySpawn = random.nextInt(PHTrees.ghostSpawnRange) + PHTrees.ghostSpawnHeight;
 					xSpawn = xPos + random.nextInt(16);
 					zSpawn = zPos + random.nextInt(16);
 					whiteSakura.generate(world, random, xSpawn, ySpawn, zSpawn);

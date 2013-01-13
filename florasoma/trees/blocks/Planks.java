@@ -4,6 +4,7 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,11 +26,23 @@ public class Planks extends Block
 		texture = tex;
 		setBurnProperties(this.blockID, 5, 20);
 		this.setHardness(2.0f);
+		this.setCreativeTab(FloraSomaTab.tab);
 	}
 	
 	@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int meta)
     {
+		if (meta < 2)
+			return blockIndexInTexture + meta + 1;
+		if (meta == 2)
+			return blockIndexInTexture + 4;
+		if (meta == 3)
+			return blockIndexInTexture;
+		if (meta == 4)
+			return blockIndexInTexture + 5;
+		if (meta == 5)
+			return blockIndexInTexture + 3;
+		
 		return blockIndexInTexture + meta;
     }
 	

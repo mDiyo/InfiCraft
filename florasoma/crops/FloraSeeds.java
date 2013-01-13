@@ -1,5 +1,6 @@
 package florasoma.crops;
 
+import florasoma.common.FloraSomaTab;
 import net.minecraft.item.ItemSeedFood;
 
 public class FloraSeeds extends ItemSeedFood
@@ -7,6 +8,7 @@ public class FloraSeeds extends ItemSeedFood
     public FloraSeeds(int id, int cropID, int soilID)
     {
         super(id, 0, 0, cropID, soilID);
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     /*@Override

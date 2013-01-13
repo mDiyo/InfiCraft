@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class HerbBlock extends FloraCropBlock
 {
@@ -25,6 +26,7 @@ public class HerbBlock extends FloraCropBlock
         this.setStepSound(soundGrassFootstep);
         this.disableStats();
         this.setRequiresSelfNotify();
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     /**

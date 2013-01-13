@@ -11,6 +11,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import florasoma.common.FloraSomaTab;
 
 /**
  * Flora & Soma: Clouds
@@ -44,7 +45,7 @@ public class FloraClouds
 	public void init(FMLInitializationEvent evt) 
 	{
 		GameRegistry.registerWorldGenerator(new CloudWorldgen());
-		
+		FloraSomaTab.init(cloud.blockID);
 		proxy.registerRenderer();
 		proxy.addNames();
 		addRecipes();
@@ -62,5 +63,5 @@ public class FloraClouds
 	public static Block cloud;
 	
 	/* Texture locations */
-	public static String texture = "/infitextures/clouds.png";
+	public static String texture = "/floratextures/clouds.png";
 }

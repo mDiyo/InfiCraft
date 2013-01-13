@@ -7,6 +7,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class BerryItem extends ItemFood
 {
@@ -16,7 +17,7 @@ public class BerryItem extends ItemFood
         setHasSubtypes(true);
         setMaxDamage(0);
         iconIndex = 16;
-        //this.setTabToDisplayOn(CreativeTabs.tabFood);
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     @Override

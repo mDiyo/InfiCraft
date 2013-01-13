@@ -1,5 +1,6 @@
 package florasoma.crops;
 
+import florasoma.common.FloraSomaTab;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
@@ -9,6 +10,7 @@ public class CactusJuice extends ItemFood
     {
         super(i, j, flag);
         maxStackSize = 64;
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     public String getTextureFile()

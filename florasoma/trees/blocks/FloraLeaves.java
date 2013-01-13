@@ -12,6 +12,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
+import florasoma.common.FloraSomaTab;
 import florasoma.trees.FloraTrees;
 
 public class FloraLeaves extends BlockLeaves
@@ -31,6 +32,7 @@ public class FloraLeaves extends BlockLeaves
         this.setRequiresSelfNotify();
         setCreativeTab(CreativeTabs.tabDecorations);
 		setBurnProperties(this.blockID, 30, 60);
+		this.setCreativeTab(FloraSomaTab.tab);
     }
 
     public int getBlockColor()

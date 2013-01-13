@@ -1,5 +1,6 @@
 package florasoma.crops;
 
+import florasoma.common.FloraSomaTab;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -17,6 +18,7 @@ public class SeedBag extends Item
         super(id);
         crop = block;
         cropMetadata = cMD;
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     @Override

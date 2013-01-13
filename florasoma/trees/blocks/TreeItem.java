@@ -7,9 +7,7 @@ public class TreeItem extends ItemBlock
 {
     public static final String blockType[] =
     {
-    	 "eucalyptus", "sakura", "ghost", ""
-        /*"bark", "heart", "planks", "bloodbark", "bloodplanks", "sakurabark", "sakuraplanks", 
-        "eucalyptusbark", "eucalyptusplanks"*/
+    	 "eucalyptus", "sakura", "ghost", "hopseed"
     };
 
     public TreeItem(int i)

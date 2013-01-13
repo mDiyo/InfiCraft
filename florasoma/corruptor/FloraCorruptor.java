@@ -10,6 +10,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import florasoma.common.FloraSomaTab;
 
 /**
  * Flora & Soma: Corruptor
@@ -17,7 +18,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: Merdiwen Tirelle Diyo
  */
 
-@Mod(modid = "Soma Corruptor", name = "Flora and Soma Corruptor", version = "1.4.6_2012.12.18")
+@Mod(modid = "Soma Corruptor", name = "Flora and Soma Corruptor", version = "1.4.6_2013.1.12")
 public class FloraCorruptor
 {
 	/* Proxies for sides, used for graphics processing */
@@ -44,7 +45,7 @@ public class FloraCorruptor
 	public void init(FMLInitializationEvent evt)
 	{
 		GameRegistry.registerWorldGenerator(new CorruptorWorldgen());
-		
+		FloraSomaTab.init(corruptor.blockID);
 		proxy.addNames();
 		proxy.addRecipes();
 	}
@@ -54,5 +55,5 @@ public class FloraCorruptor
 	public static Block corruptor;
 	public static Block corruptBrick;
 	
-	public static String texture = "/infitextures/corruptstone.png";
+	public static String texture = "/floratextures/corruptstone.png";
 }

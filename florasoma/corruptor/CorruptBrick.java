@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 
 public class CorruptBrick extends Block
 {
@@ -18,7 +19,7 @@ public class CorruptBrick extends Block
         blockIndexInTexture = 112;
         this.setHardness(2.0F);
         this.setBlockName("corruptbrick");
-        setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(FloraSomaTab.tab);
     }
 
     public int getBlockTextureFromSideAndMetadata(int i, int j)

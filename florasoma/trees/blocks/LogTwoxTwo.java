@@ -1,6 +1,13 @@
 package florasoma.trees.blocks;
 
+import java.util.List;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.common.FloraSomaTab;
 import net.minecraft.block.BlockLog;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /*
@@ -15,6 +22,7 @@ public class LogTwoxTwo extends BlockLog
 		blockIndexInTexture = texPos;
 		texture = tex;
 		this.setHardness(hardness);
+		this.setCreativeTab(FloraSomaTab.tab);
 	}
 
 	public int damageDropped (int meta)
@@ -310,6 +318,18 @@ public class LogTwoxTwo extends BlockLog
 	{
 		return texture;
 	}
+	
+	@SideOnly(Side.CLIENT)
+
+    /**
+     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
+     */
+    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    {
+        par3List.add(new ItemStack(par1, 1, 0));
+        par3List.add(new ItemStack(par1, 1, 12));
+        par3List.add(new ItemStack(par1, 1, 15));
+    }
 
 	private String texture;
 }
