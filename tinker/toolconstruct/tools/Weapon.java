@@ -34,9 +34,9 @@ public class Weapon extends ToolCore
 		if (stack.getTagCompound().getCompoundTag("InfiTool").getBoolean("Broken"))
 			return 0.1f;
 		
-		for (int i = 0; i < materials.length; i++)
+		for (int i = 0; i < web.length; i++)
 		{
-			if (materials[i] == block.blockMaterial )
+			if (web[i] == block.blockMaterial )
 			{
 				return effectiveSpeed();
 			}
@@ -74,14 +74,24 @@ public class Weapon extends ToolCore
      */
     public boolean canHarvestBlock(Block block)
     {
-    	for (int i = 0; i < materials.length; i++)
+    	for (int i = 0; i < web.length; i++)
 		{
-    		if (block.blockMaterial == materials[i])
+    		if (block.blockMaterial == web[i])
     			return true;
 		}
         return super.canHarvestBlock(block);
     }
+    
+    protected Material[] getEffectiveMaterials()
+    {
+    	return web;
+    }
+    
+    @Override
+	public int getHeadType ()
+	{
+		return 1;
+	}
 	
-	static Material[] materials = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston };
-
+	private static Material[] web = new Material[] { Material.web };
 }

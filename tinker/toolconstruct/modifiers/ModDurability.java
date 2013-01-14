@@ -1,5 +1,6 @@
-package tinker.toolconstruct.crafting;
+package tinker.toolconstruct.modifiers;
 
+import tinker.toolconstruct.crafting.ToolMod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -7,16 +8,31 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class ModDurability extends ToolMod
 {
+	String key;
+	String tooltipName;
+	String color;
 	int durability;
 	float modifier;
 	int miningLevel;
 	
-	public ModDurability(ItemStack[] items, int effect, int dur, float mod, int level)
+	public ModDurability(ItemStack[] items, int effect, int dur, float mod, int level, String k, String tip, String c)
 	{
 		super(items, effect);
 		durability = dur;
 		modifier = mod;
 		miningLevel = level;
+		key = k;
+		tooltipName = tip;
+		color = c;
+	}
+	
+	@Override
+	protected boolean canModify (ItemStack tool)
+	{
+		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
+		if (tags.hasKey(key))
+			return false;
+		return super.canModify(tool);
 	}
 
 	@Override
@@ -46,6 +62,10 @@ public class ModDurability extends ToolMod
 		int modifiers = tags.getInteger("Modifiers");
 		modifiers -= 1;
 		tags.setInteger("Modifiers", modifiers);
+		
+		tags.setBoolean(key, true);
+		String modTip = color+key;
+		addToolTip(tool, tooltipName, modTip);
 	}
 
 }

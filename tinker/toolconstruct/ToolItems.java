@@ -6,24 +6,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import tinker.toolconstruct.blocks.EquipBlock;
-import tinker.toolconstruct.blocks.ToolStationBlock;
-import tinker.toolconstruct.crafting.ModDurability;
-import tinker.toolconstruct.crafting.ModElectric;
-import tinker.toolconstruct.crafting.ModRedstone;
-import tinker.toolconstruct.crafting.PatternBuilder;
-import tinker.toolconstruct.crafting.ToolBuilder;
-import tinker.toolconstruct.items.Pattern;
-import tinker.toolconstruct.items.ToolPart;
-import tinker.toolconstruct.tools.Axe;
-import tinker.toolconstruct.tools.BattleSign;
-import tinker.toolconstruct.tools.Broadsword;
-import tinker.toolconstruct.tools.FryingPan;
-import tinker.toolconstruct.tools.Longsword;
-import tinker.toolconstruct.tools.Pickaxe;
-import tinker.toolconstruct.tools.Rapier;
-import tinker.toolconstruct.tools.Shovel;
-import tinker.toolconstruct.tools.ToolCore;
+import tinker.toolconstruct.blocks.*;
+import tinker.toolconstruct.crafting.*;
+import tinker.toolconstruct.items.*;
+import tinker.toolconstruct.modifiers.*;
+import tinker.toolconstruct.tools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ToolItems
@@ -46,6 +33,8 @@ public class ToolItems
 	
 	public static ToolCore frypan;
 	public static ToolCore battlesign;
+	
+	public static ToolCore mattock;
 	
 	//Tool parts
 	public static Item pickaxeHead;
@@ -91,8 +80,8 @@ public class ToolItems
 		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.FrypanLogic.class, "FrypanLogic");
 
 		//materials = new ToolPart(PHTools.materials, 64, craftingTexture).setItemName("tconstruct.Materials");
-		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture, false).setItemName("tconstruct.ToolRod");
-		toolShard = new ToolPart(PHTools.toolShard, 64, craftingTexture, false).setItemName("tconstruct.ToolShard");
+		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture).setItemName("tconstruct.ToolRod");
+		toolShard = new ToolPart(PHTools.toolShard, 64, craftingTexture).setItemName("tconstruct.ToolShard");
 		woodPattern = new Pattern(PHTools.woodPattern, 0, patternTexture).setItemName("tconstruct.Pattern");
 		stonePattern = new Pattern(PHTools.stonePattern, 64, patternTexture).setItemName("tconstruct.Pattern");
 		netherPattern = new Pattern(PHTools.netherPattern, 128, patternTexture).setItemName("tconstruct.Pattern");
@@ -106,18 +95,19 @@ public class ToolItems
 		
 		frypan = new FryingPan(PHTools.frypan, frypanTexture);
 		battlesign = new BattleSign(PHTools.battlesign, signTexture);
+		mattock = new Mattock(PHTools.mattock, mattockTexture);
 				
-		pickaxeHead = new ToolPart(PHTools.pickaxeHead, 0, baseHeads, true).setItemName("tconstruct.PickaxeHead");
-		shovelHead = new ToolPart(PHTools.shovelHead, 64, baseHeads, true).setItemName("tconstruct.ShovelHead");
-		axeHead = new ToolPart(PHTools.axeHead, 128, baseHeads, true).setItemName("tconstruct.AxeHead");
-		swordBlade = new ToolPart(PHTools.swordBlade, 0, swordparts, true).setItemName("tconstruct.SwordBlade");
-		largeGuard = new ToolPart(PHTools.largeGuard, 64, swordparts, false).setItemName("tconstruct.LargeGuard");
-		medGuard = new ToolPart(PHTools.medGuard, 128, swordparts, false).setItemName("tconstruct.MediumGuard");
-		crossbar = new ToolPart(PHTools.crossbar, 192, swordparts, false).setItemName("tconstruct.Crossbar");
-		binding = new ToolPart(PHTools.binding, 0, baseAccessories, false).setItemName("tconstruct.Binding");
+		pickaxeHead = new ToolPart(PHTools.pickaxeHead, 0, baseHeads).setItemName("tconstruct.PickaxeHead");
+		shovelHead = new ToolPart(PHTools.shovelHead, 64, baseHeads).setItemName("tconstruct.ShovelHead");
+		axeHead = new ToolPart(PHTools.axeHead, 128, baseHeads).setItemName("tconstruct.AxeHead");
+		swordBlade = new ToolPart(PHTools.swordBlade, 0, swordparts).setItemName("tconstruct.SwordBlade");
+		largeGuard = new ToolPart(PHTools.largeGuard, 64, swordparts).setItemName("tconstruct.LargeGuard");
+		medGuard = new ToolPart(PHTools.medGuard, 128, swordparts).setItemName("tconstruct.MediumGuard");
+		crossbar = new ToolPart(PHTools.crossbar, 192, swordparts).setItemName("tconstruct.Crossbar");
+		binding = new ToolPart(PHTools.binding, 0, baseAccessories).setItemName("tconstruct.Binding");
 		
-		frypanHead = new ToolPart(PHTools.frypanHead, 0, jokeparts, true).setItemName("tconstruct.FrypanHead");
-		signHead = new ToolPart(PHTools.signHead, 64, jokeparts, true).setItemName("tconstruct.SignHead");
+		frypanHead = new ToolPart(PHTools.frypanHead, 0, jokeparts).setItemName("tconstruct.FrypanHead");
+		signHead = new ToolPart(PHTools.signHead, 64, jokeparts).setItemName("tconstruct.SignHead");
 	}
 	
 	void registerMaterials ()
@@ -155,12 +145,16 @@ public class ToolItems
 		tb.addToolRecipe(rapier, swordBlade, crossbar);
 		tb.addToolRecipe(frypan, frypanHead);
 		tb.addToolRecipe(battlesign, signHead);
+		tb.addToolRecipe(mattock, axeHead, shovelHead);
 		
-		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.diamond)}, 0, 500, 0f, 3));
-		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.emerald)}, 1, 0, 0.5f, 2));
+		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.diamond)}, 0, 500, 0f, 3, "Diamond", "\u00a7bDurability +500", "\u00a7b"));
+		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.emerald)}, 1, 0, 0.5f, 2, "Emerald", "\u00a72Durability +50%", "\u00a72"));
 		modE = new ModElectric();
 		tb.registerToolMod(modE);
-		tb.registerToolMod(new ModRedstone(new ItemStack[] {new ItemStack(Item.redstone)}, 2, 1, 3));
+		tb.registerToolMod(new ModRedstone(new ItemStack[] {new ItemStack(Item.redstone)}, 2, 1));
+		//tb.registerToolMod(new ModLapisBase(new ItemStack[] {new ItemStack(Block.blockLapis), new ItemStack(Block.blockLapis)}, 10));
+		//tb.registerToolMod(new ModLapisIncrease(new ItemStack[] {new ItemStack(Item.dyePowder, 1, 4)}, 10, 1));
+		//tb.registerToolMod(new ModLapisIncrease(new ItemStack[] {new ItemStack(Block.blockLapis)}, 10, 9));
 		
 		ItemStack reBattery = ic2.api.Items.getItem("reBattery");
 		if (reBattery != null)
@@ -231,4 +225,5 @@ public class ToolItems
 	public static String rapierTexture = "/tinkertextures/tools/swordrapier.png";
 	public static String frypanTexture = "/tinkertextures/tools/frypans.png";
 	public static String signTexture = "/tinkertextures/tools/battlesigns.png";
+	public static String mattockTexture = "/tinkertextures/tools/mattock.png";
 }

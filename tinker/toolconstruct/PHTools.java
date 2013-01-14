@@ -77,6 +77,7 @@ public class PHTools {
         
         frypan = config.getItem("Tools", "Frying Pan", 14058).getInt(14058);
         battlesign = config.getItem("Tools", "Battlesign", 14059).getInt(14059);
+        mattock = config.getItem("Tools", "Mattock", 14060).getInt(14060);
 
         /* Save the configuration file */
         config.save();
@@ -108,6 +109,8 @@ public class PHTools {
     
     public static int frypan;
     public static int battlesign;
+    
+    public static int mattock;
 
     //Tool parts
     public static int swordBlade;

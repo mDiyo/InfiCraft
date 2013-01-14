@@ -1,5 +1,6 @@
-package tinker.toolconstruct.crafting;
+package tinker.toolconstruct.modifiers;
 
+import tinker.toolconstruct.crafting.ToolMod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 

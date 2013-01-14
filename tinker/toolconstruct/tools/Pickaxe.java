@@ -6,11 +6,16 @@ import net.minecraft.block.material.Material;
 
 public class Pickaxe extends HarvestTool
 {
-
 	public Pickaxe(int itemID, String tex)
 	{
 		super(itemID, 1, tex);
 		this.setItemName("InfiTool.Pickaxe");
+	}
+	
+	@Override
+	public int getHeadType ()
+	{
+		return 1;
 	}
 	
 	@Override
@@ -25,7 +30,5 @@ public class Pickaxe extends HarvestTool
 		return materials;
 	}
 
-	static Material[] materials = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston };
-
-	
+	static Material[] materials = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil };
 }

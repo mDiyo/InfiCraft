@@ -2,6 +2,7 @@ package tinker.toolconstruct;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -11,6 +12,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.Event.Result;
+import net.minecraftforge.event.entity.player.UseHoeEvent;
 import tinker.toolconstruct.tools.ToolCore;
 import cpw.mods.fml.client.FMLClientHandler;
 
@@ -19,7 +23,7 @@ public class AbilityHelper
 	static Minecraft mc;
 
 	/* Blocks */
-	public static boolean onBlockDestroyed (ItemStack stack, World world, int bID, int x, int y, int z, EntityLiving player, Random random)
+	public static boolean onBlockChanged (ItemStack stack, World world, int bID, int x, int y, int z, EntityLiving player, Random random)
 	{
 		if (!stack.hasTagCompound())
 			return false;
@@ -159,4 +163,51 @@ public class AbilityHelper
 		//living.motionY *= boost/2;
 		living.motionZ *= boost;
 	}
+	
+	public static boolean hoeGround (ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, Random random)
+    {
+        if (!player.canPlayerEdit(x, y, z, side, stack))
+        {
+            return false;
+        }
+        else
+        {
+            UseHoeEvent event = new UseHoeEvent(player, stack, world, x, y, z);
+            if (MinecraftForge.EVENT_BUS.post(event))
+            {
+                return false;
+            }
+
+            if (event.getResult() == Result.ALLOW)
+            {
+            	onBlockChanged(stack, world, 0, x, y, z, player, random);
+                return true;
+            }
+
+            int bID = world.getBlockId(x, y, z);
+            int bIDabove = world.getBlockId(x, y + 1, z);
+
+            if ((side == 0 || bIDabove != 0 || bID != Block.grass.blockID) && bID != Block.dirt.blockID)
+            {
+                return false;
+            }
+            else
+            {
+                Block block = Block.tilledField;
+                world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), block.stepSound.getStepSound(),
+                		(block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
+
+                if (world.isRemote)
+                {
+                    return true;
+                }
+                else
+                {
+                    world.setBlockWithNotify(x, y, z, block.blockID);
+                    onBlockChanged(stack, world, 0, x, y, z, player, random);
+                    return true;
+                }
+            }
+        }
+    }
 }

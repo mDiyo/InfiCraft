@@ -31,7 +31,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.relauncher.RelaunchClassLoader;
 
-@Mod(version="1.4.6_2013.11", modid="InfiCraftMicroblocks", name="InfiCraft MicroBlocks")
+@Mod(version="1.4.6_2013.13", modid="InfiCraftMicroblocks", name="InfiCraft MicroBlocks")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 @FMLModInfo(
 		url="http://www.minecraftforum.net/topic/1001131-110-immibiss-mods-smp/",

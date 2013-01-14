@@ -1,4 +1,4 @@
-package tinker.toolconstruct.crafting;
+package tinker.toolconstruct.modifiers;
 
 import java.util.*;
 

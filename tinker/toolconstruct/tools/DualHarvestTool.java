@@ -9,14 +9,19 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
-/* Base class for tools that should be harvesting blocks */
+/* Base class for harvest tools with each head having a different purpose */
 
-public abstract class HarvestTool extends ToolCore
+public abstract class DualHarvestTool extends HarvestTool
 {
-
-	public HarvestTool(int itemID, int baseDamage, String tex)
+	public DualHarvestTool(int itemID, int baseDamage, String tex)
 	{
 		super(itemID, baseDamage, tex);
+	}
+	
+	@Override
+	public int getHeadType ()
+	{
+		return 3;
 	}
 	
 	@Override
@@ -28,8 +33,9 @@ public abstract class HarvestTool extends ToolCore
 		int meta = world.getBlockMetadata(x, y, z);
 		Block block = Block.blocksList[bID];
 		int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, getHarvestType());
+		int shlvl = MinecraftForge.getBlockHarvestLevel(block, meta, getSecondHarvestType());
 		
-		if (hlvl <= tags.getInteger("HarvestLevel"))
+		if (hlvl <= tags.getInteger("HarvestLevel") && shlvl <= tags.getInteger("HarvestLevel2"))
 			return false;
 		else
 		{
@@ -68,6 +74,24 @@ public abstract class HarvestTool extends ToolCore
 				return 0.1f;
 			}
 		}
+		materials = getEffectiveSecondaryMaterials();
+		for (int i = 0; i < materials.length; i++)
+		{
+			if (materials[i] == block.blockMaterial )
+			{				
+				float speed = tags.getInteger("MiningSpeed2");
+				speed /= 100f;
+				int hlvl = MinecraftForge.getBlockHarvestLevel(block, meta, getHarvestType());
+				int durability = tags.getInteger("Damage");
+				
+				float shoddy = tags.getFloat("Shoddy");
+				speed += shoddy*durability/100f;
+				
+				if (hlvl <= tags.getInteger("HarvestLevel2"))
+					return speed;
+				return 0.1f;
+			}
+		}
 		return super.getStrVsBlock(stack, block, meta);
 	}
 	
@@ -76,6 +100,6 @@ public abstract class HarvestTool extends ToolCore
 		return true;
     }
 	
-	protected abstract Material[] getEffectiveMaterials();
-	protected abstract String getHarvestType();
+	protected abstract Material[] getEffectiveSecondaryMaterials();
+	protected abstract String getSecondHarvestType();
 }

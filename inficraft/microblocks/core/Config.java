@@ -13,18 +13,21 @@ public class Config {
 	private static File configFile;
 	public static Configuration config;
 	private static boolean autoAssign;
+	public static int sawID;
+	public static int microblockID;
 	
 	static {
 		File configFile;
 		{
 			File configDir = new File(SidedProxy.instance.getMinecraftDir(), "config");
 			configDir.mkdir();
-			configFile = new File(configDir, "InfiCraft/microblocks.cfg");
+			configFile = new File(configDir, "InfiCraft/Microblocks.txt");
 		}
 		config = new Configuration(configFile);
 		config.load();
-		
-		autoAssign = getBoolean("autoAssign", true);
+		sawID = config.getItem("Handsaw", 4825).getInt(4825);
+		microblockID = config.getBlock("Microblock", 3201).getInt(3201);
+		//autoAssign = getBoolean("autoAssign", true);
 		
 		config.get(Configuration.CATEGORY_GENERAL, "autoAssign", false).value = "false";
 		config.save();

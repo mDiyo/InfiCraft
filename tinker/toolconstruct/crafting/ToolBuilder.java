@@ -64,14 +64,15 @@ public class ToolBuilder
 		if (accessoryStack != null)
 			accessory = accessoryStack.getItemDamage();
 		if (handleStack.getItem() == Item.bone) //Don't worry about stick, it should be metadata 0.
-			handle = 6;
+			handle = 5;
 
 		int durability = (int) (EnumMaterial.durability(head) * EnumMaterial.handleDurability(handle) * item.getDurabilityModifier());
-		if (accessoryStack != null)
+		if (accessoryStack != null && (item.getHeadType() == 2 || item.getHeadType() == 3) )
+			durability = (int) ((EnumMaterial.durability(head) + EnumMaterial.durability(accessory))/2 * EnumMaterial.handleDurability(handle) * item.getDurabilityModifier());
 		{
-			Item accessoryItem = accessoryStack.getItem();
+			/*Item accessoryItem = accessoryStack.getItem();
 			if (accessoryItem instanceof ToolPart && ((ToolPart)accessoryItem).isHead) //Two heads
-				durability = (int) ((EnumMaterial.durability(head) + EnumMaterial.durability(accessory))/2 * EnumMaterial.handleDurability(handle) * item.getDurabilityModifier());
+				durability = (int) ((EnumMaterial.durability(head) + EnumMaterial.durability(accessory))/2 * EnumMaterial.handleDurability(handle) * item.getDurabilityModifier());*/
 		}
 
 		ItemStack tool = new ItemStack(item);
@@ -93,8 +94,20 @@ public class ToolBuilder
 		compound.getCompoundTag("InfiTool").setBoolean("Broken", false);
 		compound.getCompoundTag("InfiTool").setInteger("Attack", EnumMaterial.attack(head) + item.getDamageVsEntity(null));
 		
-		compound.getCompoundTag("InfiTool").setFloat("MiningSpeed", EnumMaterial.toolSpeed(head));
-		compound.getCompoundTag("InfiTool").setInteger("HarvestLevel", EnumMaterial.harvestLevel(head));
+		compound.getCompoundTag("InfiTool").setInteger("MiningSpeed", EnumMaterial.toolSpeed(head));
+		if (item.getHeadType() == 2)
+		{
+			int hLvl = EnumMaterial.harvestLevel(head);
+			int shLvl = EnumMaterial.harvestLevel(accessory);
+		}
+		else
+			compound.getCompoundTag("InfiTool").setInteger("HarvestLevel", EnumMaterial.harvestLevel(head));
+		
+		if (item.getHeadType() == 3)
+		{
+			compound.getCompoundTag("InfiTool").setInteger("MiningSpeed2", EnumMaterial.toolSpeed(accessory));
+			compound.getCompoundTag("InfiTool").setInteger("HarvestLevel2", EnumMaterial.harvestLevel(accessory));
+		}
 
 		compound.getCompoundTag("InfiTool").setInteger("Unbreaking", buildUnbreaking(head, handle, accessory));
 		compound.getCompoundTag("InfiTool").setFloat("Shoddy", buildShoddy(head, handle, accessory));

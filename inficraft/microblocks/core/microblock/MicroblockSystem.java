@@ -210,10 +210,20 @@ public class MicroblockSystem implements IMicroblockSystem {
 		}
 		// compatibility end
 		
-		APILocator.getIDAllocator().requestBlock(ImmibisCore.instance, "blockMultipart", new IIDCallback() {
+		microblockContainerBlock = new BlockMicroblockContainer(Config.microblockID, Material.rock);
+		microblockContainerBlock.setBlockName("inficraft.microblocks.microblock.container");
+		LanguageRegistry.addName(microblockContainerBlock, "Microblock Container");
+		GameRegistry.registerBlock(microblockContainerBlock, ItemMicroblock.class, "MicroblockContainer");
+		
+		if(!SidedProxy.instance.isDedicatedServer())
+			MinecraftForgeClient.registerItemRenderer(microblockContainerBlock.blockID, new MicroblockItemRenderer());
+		
+		itemSaw = new ItemSaw(Config.sawID);
+		
+		/*APILocator.getIDAllocator().requestBlock(ImmibisCore.instance, "blockMultipart", new IIDCallback() {
 			@Override
 			public void register(int id) {
-				microblockContainerBlock = new BlockMicroblockContainer(id, Material.rock);
+				microblockContainerBlock = new BlockMicroblockContainer(Config.microblockID, Material.rock);
 				microblockContainerBlock.setBlockName("inficraft.microblocks.microblock.container");
 				LanguageRegistry.addName(microblockContainerBlock, "Microblock Container");
 				GameRegistry.registerBlock(microblockContainerBlock, ItemMicroblock.class, "MicroblockContainer");
@@ -225,9 +235,9 @@ public class MicroblockSystem implements IMicroblockSystem {
 		APILocator.getIDAllocator().requestItem(ImmibisCore.instance, "itemSaw", new IIDCallback() {
 			@Override
 			public void register(int id) {
-				itemSaw = new ItemSaw(id - 256);
+				itemSaw = new ItemSaw(Config.sawID);
 			}
-		});
+		});*/
 		APILocator.getIDAllocator().addRecipes(new Runnable() {
 			@Override
 			public void run() {

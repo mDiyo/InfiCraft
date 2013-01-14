@@ -8,16 +8,16 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import tinker.toolconstruct.AbilityHelper;
 import tinker.toolconstruct.ToolConstruct;
-import universalelectricity.core.implement.IItemElectric;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -44,21 +44,32 @@ import cpw.mods.fml.relauncher.SideOnly;
  * Awareness: Glows in the presence of mobs
  */
 
-public class ToolCore extends ItemTool 
-	implements ICustomElectricItem, IBoxable, IItemElectric
+public abstract class ToolCore extends Item 
+	implements ICustomElectricItem, IBoxable//, IItemElectric
 {
 	Random random = new Random();
 	String toolTexture;
+	public int damageVsEntity;
 
 	public ToolCore(int itemID, int baseDamage, String texture)
 	{
-		super(itemID, baseDamage, EnumToolMaterial.WOOD, new Block[] {});
+		super(itemID);
 		this.maxStackSize = 1;
 		this.setMaxDamage(100);
 		this.setItemName("InfiTool");
 		this.setCreativeTab(ToolConstruct.toolTab);
 		toolTexture = texture;
+		damageVsEntity = baseDamage;
 	}
+	
+	/** Determines what type of heads the tool has.
+	 * 0: no heads
+	 * 1: one head
+	 * 2: two heads
+	 * 3: Two heads, different uses
+	 * @return The head type
+	 */
+	public abstract int getHeadType();
 
 	/* Texture */
 	@Override
@@ -169,13 +180,14 @@ public class ToolCore extends ItemTool
 		if (tags.hasKey("charge"))
 		{
 			String color = "";
-			double joules = this.getJoules(stack);
+			//double joules = this.getJoules(stack);
+			int power = tags.getInteger("charge");
 
-			if (joules != 0)
+			if (power != 0)
 			{
-				if (joules <= this.getMaxJoules(stack) / 3)
+				if (power <= this.getMaxCharge() / 3)
 					color = "\u00a74";			
-				else if (joules > this.getMaxJoules(stack) * 2 / 3)
+				else if (power > this.getMaxCharge() * 2 / 3)
 					color = "\u00a72";			
 				else
 					color = "\u00a76";
@@ -206,6 +218,21 @@ public class ToolCore extends ItemTool
 				String bindingName = getAbilityNameForType(binding);
 				if (bindingName != "" && bindingName != headName && bindingName != handleName)
 					list.add(getColorCodeForType(binding) + bindingName);
+				
+				boolean displayToolTips = true;
+				int tipNum = 0;
+				while (displayToolTips)
+				{
+					tipNum++;
+					String tooltip = "Tooltip"+tipNum;
+					if (tags.getCompoundTag("InfiTool").hasKey(tooltip))
+					{
+						String tipName = tags.getCompoundTag("InfiTool").getString(tooltip);
+						list.add(tipName);
+					}
+					else
+						displayToolTips = false;
+				}
 			}
 		}
 	}
@@ -254,7 +281,7 @@ public class ToolCore extends ItemTool
 		case 2:
 			return "Shoddy"; //Stone
 		case 3:
-			return "Durability I"; //Iron
+			return "Unbreaking I"; //Iron
 		case 4:
 			return "Shoddy"; //Flint
 		case 5:
@@ -262,7 +289,7 @@ public class ToolCore extends ItemTool
 		case 6:
 			return ""; //Bone
 		case 7:
-			return "Durability V"; //Obsidian
+			return "Unbreaking III"; //Obsidian
 		case 8:
 			return "Shoddy"; //Netherrack
 		case 9:
@@ -270,7 +297,7 @@ public class ToolCore extends ItemTool
 		case 10:
 			return "Writable"; //Paper
 		case 11:
-			return "Durability II"; //Cobalt
+			return "Unbreaking II"; //Cobalt
 		case 12:
 			return ""; //Ardite
 		case 13:
@@ -310,7 +337,7 @@ public class ToolCore extends ItemTool
 	@Override
 	public boolean onBlockDestroyed (ItemStack itemstack, World world, int bID, int x, int y, int z, EntityLiving player)
 	{
-		return AbilityHelper.onBlockDestroyed(itemstack, world, bID, x, y, z, player, random);
+		return AbilityHelper.onBlockChanged(itemstack, world, bID, x, y, z, player, random);
 	}
 
 	@Override
@@ -334,12 +361,23 @@ public class ToolCore extends ItemTool
 	{
 		return false;
 	}
+	
+	@Override
+	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+    {
+		return false;
+    }
 
 	//Complete override of attacking
 	/*public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
 	{
 	    return true;
 	}*/
+	
+	public int getDamageVsEntity(Entity par1Entity)
+    {
+        return this.damageVsEntity;
+    }
 
 	/* Enchanting */
 	public int getItemEnchantability ()
@@ -352,6 +390,11 @@ public class ToolCore extends ItemTool
 	{
 		return 1f;
 	}
+	
+	public boolean isFull3D()
+    {
+        return true;
+    }
 
 	/*
 	 * IC2 Support
@@ -478,9 +521,11 @@ public class ToolCore extends ItemTool
 		return false;
 	}
 	
-	/* Universal Electricity Support */
+	/* Universal Electricity Support 
+	 * Temporarily disabled due to bugginess
+	 */
 	
-	@Override
+	/*@Override
 	public double getJoules (Object... data)
 	{
 		if (data[0] instanceof ItemStack)
@@ -559,5 +604,5 @@ public class ToolCore extends ItemTool
 	public boolean canProduceElectricity ()
 	{
 		return true;
-	}
+	}*/
 }

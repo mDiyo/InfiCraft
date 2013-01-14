@@ -79,4 +79,22 @@ public abstract class ToolMod
 			tags.setInteger("Effect1", effectIndex);
 		}
 	}
+	
+	protected int addToolTip(ItemStack tool, String tooltip, String modifierTip)
+	{
+		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
+		int tipNum = 0;
+		while (true)
+		{
+			tipNum++;
+			String tip = "Tooltip"+tipNum;
+			if (!tags.hasKey(tip))
+			{
+				tags.setString(tip, tooltip);
+				String modTip = "ModifierTip"+tipNum;
+				tags.setString(modTip, modifierTip);
+				return tipNum;
+			}
+		}
+	}
 }

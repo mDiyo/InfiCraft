@@ -14,13 +14,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ToolPart extends CraftingItem
 {
-	public final boolean isHead;
-	public ToolPart(int id, int icon, String tex, boolean head)
+	public ToolPart(int id, int icon, String tex)
 	{
 		super(id, icon, tex);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		isHead = head;
 	}
 
 	public String getItemNameIS(ItemStack stack)

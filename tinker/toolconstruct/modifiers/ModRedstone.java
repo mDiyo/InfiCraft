@@ -1,20 +1,23 @@
-package tinker.toolconstruct.crafting;
+package tinker.toolconstruct.modifiers;
 
+import tinker.toolconstruct.crafting.ToolMod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class ModRedstone extends ToolMod
 {
 	String key;
+	String tooltipName;
 	int increase;
 	int max;
 
-	public ModRedstone(ItemStack[] items, int effect, int inc, int maximum)
+	public ModRedstone(ItemStack[] items, int effect, int inc)
 	{
 		super(items, effect);
 		key = "Redstone";
+		tooltipName = "\u00a74Speed";
 		increase = inc;
-		max = maximum;
+		max = 30;
 	}
 
 	@Override
@@ -33,7 +36,6 @@ public class ModRedstone extends ToolMod
 
 		else
 			return false;
-
 	}
 
 	@Override
@@ -58,18 +60,36 @@ public class ModRedstone extends ToolMod
 				keyPair[0] += increase;
 				tags.setIntArray(key, keyPair);
 			}
+			updateModTag(tool, keyPair);
 		}
 		else
 		{
-			int[] keyPair = new int[] { increase, max };
-			tags.setIntArray(key, keyPair);
 			int modifiers = tags.getInteger("Modifiers");
 			modifiers -= 1;
 			tags.setInteger("Modifiers", modifiers);
+			String modName = "\u00a74Redstone ("+increase+"/"+max+")";
+			int tooltipIndex = addToolTip(tool, tooltipName, modName);
+			int[] keyPair = new int[] { increase, max, tooltipIndex };
+			tags.setIntArray(key, keyPair);
 		}
 		
-		float miningSpeed = tags.getFloat("MiningSpeed");
-		miningSpeed += (increase * 0.1f);
-		tags.setFloat("MiningSpeed", miningSpeed);
+		int miningSpeed = tags.getInteger("MiningSpeed");
+		miningSpeed += (increase*10);
+		tags.setInteger("MiningSpeed", miningSpeed);
+		
+		if (tags.hasKey("MiningSpeed2"))
+		{
+			int miningSpeed2 = tags.getInteger("MiningSpeed2");
+			miningSpeed2 += (increase*10);
+			tags.setInteger("MiningSpeed", miningSpeed2);
+		}
+	}
+	
+	void updateModTag(ItemStack tool, int[] keys)
+	{
+		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
+		String tip = "ModifierTip"+keys[2];
+		String modName = "\u00a74Redstone ("+keys[0]+"/"+keys[1]+")";
+		tags.setString(tip, modName);
 	}
 }

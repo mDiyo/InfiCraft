@@ -4,18 +4,14 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
-import tinker.toolconstruct.EnumMaterial;
-import tinker.toolconstruct.blocks.ToolStationContainer;
-import tinker.toolconstruct.blocks.ToolStationLogic;
-import tinker.toolconstruct.tools.ToolCore;
-
+import tinker.toolconstruct.blocks.*;
+import tinker.toolconstruct.tools.*;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -122,16 +118,16 @@ public class ToolStationGui extends GuiContainer
 			iconX = new int[] { 0, 0, 5 };
 			iconY = new int[] { 2, 3, 3 };
 			title = "\u00A7nIce Axe";
-			body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\n<Not available>";
-			//body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\nSpecial Ability:\n- Wall Climb\nNatural Ability:\n- Ice Harvest\nDamage: Moderate\n\nRequired parts:\n- Pickaxe Head\n- Spike\n- Handle";
+			//body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\n<Not available>";
+			body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\nSpecial Ability:\n- Wall Climb\nNatural Ability:\n- Ice Harvest\nDamage: Moderate\n\nRequired parts:\n- Pickaxe Head\n- Spike\n- Handle";
 			break;
 		case 6: // Mattock
 			setSlotType(4);
 			iconX = new int[] { 2, 0, 3 };
 			iconY = new int[] { 2, 3, 2 };
 			title = "\u00A7nMattock";
-			body = "The Cutter Mattock is a multi-use tool.\n\n<Not available>";
-			//body = "The Cutter Mattock is a multi-use tool. It is effective on wood, leaves, dirt, and sand.\n\nSpecial Ability: Hoe\n\nRequired parts:\n- Axe Head\n- Shovel Head\n- Handle";
+			//body = "The Cutter Mattock is a multi-use tool.\n\n<Not available>";
+			body = "The Cutter Mattock is a multi-use tool. It is effective on wood, leaves, dirt, and sand.\n\nSpecial Ability: Hoe\n\nRequired parts:\n- Axe Head\n- Shovel Head\n- Handle";
 			break;
 		case 7: // Broadsword
 			setSlotType(2);
@@ -226,17 +222,107 @@ public class ToolStationGui extends GuiContainer
 		ToolCore tool = (ToolCore) stack.getItem();
 		NBTTagCompound tags = stack.getTagCompound().getCompoundTag("InfiTool");
 		this.drawCenteredString(fontRenderer, "\u00A7n"+tool.getToolName(), xSize + 63, 8, 16777215);
+		if (tool instanceof Weapon)
+			drawWeaponStats(stack, tool, tags);
+		else if (tool.getHeadType() == 3)
+			drawDualStats(stack, tool, tags);
+		else
+			drawHarvestStats(stack, tool, tags);
+	}
+	
+	void drawWeaponStats(ItemStack stack, ToolCore tool, NBTTagCompound tags) 
+	{
 		int dur = tags.getInteger("Damage");
 		int maxDur = tags.getInteger("TotalDurability");
 		dur = maxDur - dur;
 		fontRenderer.drawString("Durability: " + dur + "/" + maxDur, xSize + 8, 24, 16777215);
 		int damage = tags.getInteger("Attack");
-		fontRenderer.drawString("Damage: " + damage, xSize + 8, 36, 16777215);
-		int head = tags.getInteger("Head");
-		fontRenderer.drawString("Mining Speed: " + tags.getFloat("MiningSpeed"), xSize + 8, 48, 16777215);
-		fontRenderer.drawString("Mining Level: " + getHarvestLevelName(tags.getInteger("HarvestLevel")), xSize + 8, 60, 16777215);
+		fontRenderer.drawString("Damage: " + damage, xSize + 8, 35, 16777215);
 
-		fontRenderer.drawString("Modifiers remaining: " + tags.getInteger("Modifiers"), xSize + 8, 80, 16777215);
+		fontRenderer.drawString("Modifiers remaining: " + tags.getInteger("Modifiers"), xSize + 8, 57, 16777215);
+		if (tags.hasKey("Tooltip1"));
+			fontRenderer.drawString("Modifiers:", xSize + 8, 68, 16777215);
+		
+		boolean displayToolTips = true;
+		int tipNum = 0;
+		while (displayToolTips)
+		{
+			tipNum++;
+			String tooltip = "ModifierTip"+tipNum;
+			if (tags.hasKey(tooltip))
+			{
+				String tipName = tags.getString(tooltip);
+				fontRenderer.drawString("- "+tipName, xSize + 8, 68 + tipNum*11, 16777215);
+			}
+			else
+				displayToolTips = false;
+		}
+	}
+	
+	void drawHarvestStats(ItemStack stack, ToolCore tool, NBTTagCompound tags) 
+	{
+		int dur = tags.getInteger("Damage");
+		int maxDur = tags.getInteger("TotalDurability");
+		dur = maxDur - dur;
+		fontRenderer.drawString("Durability: " + dur + "/" + maxDur, xSize + 8, 24, 16777215);
+		int damage = tags.getInteger("Attack");
+		fontRenderer.drawString("Damage: " + damage, xSize + 8, 35, 16777215);
+		float mineSpeed = tags.getInteger("MiningSpeed") / 100f;
+		fontRenderer.drawString("Mining Speed: " + mineSpeed, xSize + 8, 46, 16777215);
+		fontRenderer.drawString("Mining Level: " + getHarvestLevelName(tags.getInteger("HarvestLevel")), xSize + 8, 57, 16777215);
+
+		fontRenderer.drawString("Modifiers remaining: " + tags.getInteger("Modifiers"), xSize + 8, 79, 16777215);
+		if (tags.hasKey("Tooltip1"));
+			fontRenderer.drawString("Modifiers:", xSize + 8, 90, 16777215);
+	
+		boolean displayToolTips = true;
+		int tipNum = 0;
+		while (displayToolTips)
+		{
+			tipNum++;
+			String tooltip = "ModifierTip"+tipNum;
+			if (tags.hasKey(tooltip))
+			{
+				String tipName = tags.getString(tooltip);
+				fontRenderer.drawString("- "+tipName, xSize + 8, 90 + tipNum*11, 16777215);
+			}
+			else
+				displayToolTips = false;
+		}
+	}
+	
+	void drawDualStats(ItemStack stack, ToolCore tool, NBTTagCompound tags) 
+	{
+		int dur = tags.getInteger("Damage");
+		int maxDur = tags.getInteger("TotalDurability");
+		dur = maxDur - dur;
+		fontRenderer.drawString("Durability: " + dur + "/" + maxDur, xSize + 8, 24, 16777215);
+		float mineSpeed = tags.getInteger("MiningSpeed") / 100f;
+		float mineSpeed2 = tags.getInteger("MiningSpeed2") / 100f;
+		fontRenderer.drawString("Mining Speeds: ", xSize + 8, 35, 16777215);
+		fontRenderer.drawString("- "+mineSpeed+", "+mineSpeed2, xSize + 8, 46, 16777215);
+		fontRenderer.drawString("Harvest Levels:", xSize + 8, 57, 16777215);
+		fontRenderer.drawString("- " + getHarvestLevelName(tags.getInteger("HarvestLevel")), xSize + 8, 68, 16777215);
+		fontRenderer.drawString("- " + getHarvestLevelName(tags.getInteger("HarvestLevel2")), xSize + 8, 79, 16777215);
+
+		fontRenderer.drawString("Modifiers remaining: " + tags.getInteger("Modifiers"), xSize + 8, 90, 16777215);
+		if (tags.hasKey("Tooltip1"));
+			fontRenderer.drawString("Modifiers:", xSize + 8, 101, 16777215);
+	
+		boolean displayToolTips = true;
+		int tipNum = 0;
+		while (displayToolTips)
+		{
+			tipNum++;
+			String tooltip = "ModifierTip"+tipNum;
+			if (tags.hasKey(tooltip))
+			{
+				String tipName = tags.getString(tooltip);
+				fontRenderer.drawString("- "+tipName, xSize + 8, 101 + tipNum*11, 16777215);
+			}
+			else
+				displayToolTips = false;
+		}
 	}
 
 	void drawToolInformation ()
