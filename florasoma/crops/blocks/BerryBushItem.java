@@ -1,4 +1,4 @@
-package florasoma.berries;
+package florasoma.crops.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
+import florasoma.crops.FloraCrops;
 
 public class BerryBushItem extends ItemBlock
 {
@@ -35,9 +36,9 @@ public class BerryBushItem extends ItemBlock
         {
             Block block = Block.blocksList[world.getBlockId(x, y, z)];
 
-            if (block != null && block.canSustainPlant(world, x, y, z, ForgeDirection.UP, (IPlantable) FloraBerries.instance.berryBush) && world.isAirBlock(x, y + 1, z))
+            if (block != null && block.canSustainPlant(world, x, y, z, ForgeDirection.UP, (IPlantable) FloraCrops.instance.berryBush) && world.isAirBlock(x, y + 1, z))
             {
-                world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraBerries.berryBush.blockID, stack.getItemDamage());
+                world.setBlockAndMetadataWithNotify(x, y + 1, z, FloraCrops.instance.berryBush.blockID, stack.getItemDamage());
                 if (!player.capabilities.isCreativeMode)
                 	stack.stackSize--;
                 if (!world.isRemote)

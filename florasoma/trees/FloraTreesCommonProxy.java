@@ -37,8 +37,8 @@ public class FloraTreesCommonProxy
 		List recipes = CraftingManager.getInstance().getRecipeList();
 		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 0), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 3));
 		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 1), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 0));
-		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 2), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 1));
-		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 3), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 5));
+		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 2), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 5));
+		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 3), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 1));
 		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 4), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 2));
 		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 5), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.planks, 1, 4));
 		addShapedRecipeFirst(recipes, new ItemStack(FloraTrees.doorItem, 1, 6), "##", "##", "##", '#', new ItemStack(FloraTrees.instance.redwood, 1, 0));

@@ -44,6 +44,7 @@ public class PHTools {
         netherCrafter = config.getBlock("Nether Tool Station", 1473).getInt(1473);*/
         
         heldItemBlock = config.getBlock("Held Item Block", 1472).getInt(1472);
+        ores = config.getBlock("Ore Block", 1475).getInt(1475);
         
         materials = config.getItem("Patterns and Misc", "Materials", 14020).getInt(14020);
         toolRod = config.getItem("Patterns and Misc", "Tool Rod", 14021).getInt(14021);
@@ -88,6 +89,7 @@ public class PHTools {
     public static int stoneCrafter;
     public static int netherCrafter;
     public static int heldItemBlock;
+    public static int ores;
     
     //Patterns and misc
     public static int materials;

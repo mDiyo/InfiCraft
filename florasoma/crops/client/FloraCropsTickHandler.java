@@ -1,25 +1,21 @@
-package florasoma.berries;
-
-import florasoma.berries.BerryBush;
-import florasoma.berries.FloraBerries;
+package florasoma.crops.client;
 
 import java.util.EnumSet;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.ModLoader;
-
-
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
+import florasoma.crops.FloraCrops;
 
 /* Tick handler, used for rendering berry bushes between fast/fancy graphics */
 
-public class FloraBerryTickHandler implements ITickHandler
+public class FloraCropsTickHandler implements ITickHandler
 {
 	private Minecraft mc;
 	
 	/* Grabs the minecraft instance */
-	public FloraBerryTickHandler()
+	public FloraCropsTickHandler()
 	{
 		mc = ModLoader.getMinecraftInstance();
 	}
@@ -27,7 +23,7 @@ public class FloraBerryTickHandler implements ITickHandler
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData) 
 	{
-		((BerryBush) FloraBerries.berryBush).setGraphicsLevel(mc.gameSettings.fancyGraphics);
+		FloraCrops.instance.berryBush.setGraphicsLevel(mc.gameSettings.fancyGraphics);
 	}
 
 	@Override

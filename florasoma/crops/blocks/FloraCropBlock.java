@@ -1,4 +1,4 @@
-package florasoma.crops;
+package florasoma.crops.blocks;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,10 +11,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import florasoma.crops.FloraCrops;
 
 public class FloraCropBlock extends BlockFlower
 {
-    protected FloraCropBlock(int id, int tex)
+    public FloraCropBlock(int id, int tex)
     {
         super(id, tex);
         this.setTickRandomly(true);

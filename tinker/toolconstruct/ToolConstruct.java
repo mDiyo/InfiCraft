@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary.OreRegisterEvent;
+import tinker.toolconstruct.worldgen.TBaseWorldGenerator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -14,6 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 /* TConstruct, the successor to InfiTools
  * Now with many much more combinations and many much less IDs!
@@ -38,7 +40,8 @@ public class ToolConstruct
 		PHTools.initProps();
 		materialTab = new TabTools("TConMaterials");
 		toolTab = new TabTools("TConstruct");
-		items = new ToolItems();
+		blockTab = new TabTools("TConstructBlocks");
+		content = new TConstructContent();
 		
 		NetworkRegistry.instance().registerGuiHandler(instance, new GuiHandler());
 	}
@@ -48,21 +51,23 @@ public class ToolConstruct
 	{
 		proxy.registerRenderer();
 		proxy.addNames();
+		GameRegistry.registerWorldGenerator(new TBaseWorldGenerator());
 	}
 	
 	@ForgeSubscribe
     public void registerOre(OreRegisterEvent evt)
 	{
 		if (evt.Name == "battery")
-			items.modE.batteries.add(evt.Ore);
+			content.modE.batteries.add(evt.Ore);
 		
 		if (evt.Name == "basicCircuit")
-			items.modE.circuits.add(evt.Ore);
+			content.modE.circuits.add(evt.Ore);
 	}
 	
-	ToolItems items;
+	TConstructContent content;
 	
 	public static Random tRand = new Random();
 	public static TabTools toolTab;
 	public static TabTools materialTab;
+	public static TabTools blockTab;
 }

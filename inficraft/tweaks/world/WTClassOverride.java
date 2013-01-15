@@ -56,9 +56,9 @@ public class WTClassOverride implements IClassTransformer
 				System.out.println(name + " not found in " + location.getName());
 			else
 			{
-				InputStream zin = zip.getInputStream(entry);
+				DataInputStream zin = (DataInputStream) zip.getInputStream(entry);
 				bytes = new byte[(int) entry.getSize()];
-				zin.read(bytes);
+				zin.readFully(bytes);
 				zin.close();
 			}
 			zip.close();

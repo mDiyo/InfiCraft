@@ -32,8 +32,10 @@ public class Planks extends Block
 	@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int meta)
     {
-		if (meta < 2)
-			return blockIndexInTexture + meta + 1;
+		if (meta == 0)
+			return blockIndexInTexture + 1;
+		if (meta == 1)
+			return blockIndexInTexture + 3;
 		if (meta == 2)
 			return blockIndexInTexture + 4;
 		if (meta == 3)
@@ -41,7 +43,7 @@ public class Planks extends Block
 		if (meta == 4)
 			return blockIndexInTexture + 5;
 		if (meta == 5)
-			return blockIndexInTexture + 3;
+			return blockIndexInTexture + 2;
 		
 		return blockIndexInTexture + meta;
     }

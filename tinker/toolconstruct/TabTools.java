@@ -21,17 +21,6 @@ public class TabTools extends CreativeTabs
 		display = stack;
 	}
 	
-	@SideOnly(Side.CLIENT)
-    /*public int getTabIconItemIndex()
-    {
-		switch (index)
-		{
-		case 1: return ToolItems.pickaxeHead.itemID;
-		case 2: return ToolItems.pickaxe.itemID;
-		default: return Item.pickaxeSteel.itemID;
-		}				
-    }*/
-	
 	public ItemStack getIconItemStack()
     {
 		return display;

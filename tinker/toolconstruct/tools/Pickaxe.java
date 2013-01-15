@@ -1,6 +1,6 @@
 package tinker.toolconstruct.tools;
 
-import tinker.toolconstruct.ToolItems;
+import tinker.toolconstruct.TConstructContent;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 

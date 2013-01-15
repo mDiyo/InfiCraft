@@ -33,7 +33,7 @@ import florasoma.trees.blocks.TreeBlock;
 import florasoma.trees.entities.FloraBoat;
 import florasoma.trees.worldgen.TreeWorldgen;
 
-@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.12d")
+@Mod(modid = "Flora Trees", name = "Flora and Soma Trees", version = "1.4.6_2013.1.15")
 public class FloraTrees
 {
 	/* Proxies for sides, used for graphics processing */

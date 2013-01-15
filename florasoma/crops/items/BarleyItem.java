@@ -1,4 +1,4 @@
-package florasoma.crops;
+package florasoma.crops.items;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import florasoma.common.FloraSomaTab;
+import florasoma.crops.FloraCrops;
 
 public class BarleyItem extends Item
 {

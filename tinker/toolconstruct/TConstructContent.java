@@ -13,7 +13,7 @@ import tinker.toolconstruct.modifiers.*;
 import tinker.toolconstruct.tools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ToolItems
+public class TConstructContent
 {
 	//Patterns and other materials
 	public static Item materials;
@@ -55,11 +55,12 @@ public class ToolItems
 	public static Block netherCrafter;
 	
 	public static Block heldItemBlock;
+	public static Block ores;
 	
 	//Tool modifiers
 	public static ModElectric modE;
 	
-	public ToolItems()
+	public TConstructContent()
 	{
 		createItems();
 		registerMaterials();
@@ -78,6 +79,9 @@ public class ToolItems
 		heldItemBlock = new EquipBlock(PHTools.heldItemBlock, Material.wood);
 		GameRegistry.registerBlock(heldItemBlock, "HeldItemBlock");
 		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.FrypanLogic.class, "FrypanLogic");
+		
+		ores = new TBaseOre(PHTools.ores, 48);
+		GameRegistry.registerBlock(ores, tinker.toolconstruct.blocks.TBaseOreItem.class, "TConstruct.ores");
 
 		//materials = new ToolPart(PHTools.materials, 64, craftingTexture).setItemName("tconstruct.Materials");
 		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture).setItemName("tconstruct.ToolRod");
@@ -185,15 +189,16 @@ public class ToolItems
 		
 		for (int i = 0; i < 11; i++)
 		{
-			GameRegistry.addRecipe(new ItemStack(ToolItems.woodPattern, 1, i + 1), "s", 's', new ItemStack(ToolItems.woodPattern, 1, i));
-			GameRegistry.addRecipe(new ItemStack(ToolItems.stonePattern, 1, i + 1), "s", 's', new ItemStack(ToolItems.stonePattern, 1, i));
-			GameRegistry.addRecipe(new ItemStack(ToolItems.netherPattern, 1, i + 1), "s", 's', new ItemStack(ToolItems.netherPattern, 1, i));
+			GameRegistry.addRecipe(new ItemStack(TConstructContent.woodPattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.woodPattern, 1, i));
+			GameRegistry.addRecipe(new ItemStack(TConstructContent.stonePattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.stonePattern, 1, i));
+			GameRegistry.addRecipe(new ItemStack(TConstructContent.netherPattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.netherPattern, 1, i));
 		}
 	}
 	
 	void setupToolTabs ()
 	{
-		ToolConstruct.materialTab.init(new ItemStack(ToolItems.woodPattern, 1, 0));
+		ToolConstruct.materialTab.init(new ItemStack(TConstructContent.woodPattern, 1, 255));
+		ToolConstruct.blockTab.init(new ItemStack(woodCrafter));
 		ItemStack tool = new ItemStack(longsword, 1, 0);
 
 		NBTTagCompound compound = new NBTTagCompound();
@@ -209,6 +214,8 @@ public class ToolItems
 	ItemStack[] materialArray = { new ItemStack(Block.planks), new ItemStack(Block.cobblestone), new ItemStack(Item.ingotIron), new ItemStack(Item.flint), 
 			new ItemStack(Block.cactus), new ItemStack(Item.bone), new ItemStack(Block.obsidian), new ItemStack(Block.netherrack), new ItemStack(Item.slimeBall), 
 			new ItemStack(Item.paper) };
+	
+	public static String blockTexture = "/tinkertextures/ConstructBlocks.png";
 	
 	public static String craftingTexture = "/tinkertextures/tools/materials.png";
 	public static String patternTexture = "/tinkertextures/tools/patterns.png";

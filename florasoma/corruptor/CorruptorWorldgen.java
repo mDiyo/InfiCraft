@@ -25,7 +25,7 @@ public class CorruptorWorldgen implements IWorldGenerator
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) 
 	{
-		if (chunkGenerator == WorldProviderHell.getProviderForDimension(-1))
+		if (world.provider.dimensionId == -1)
 		{
 			int xCor, yCor, zCor;		
 			

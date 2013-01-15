@@ -1,4 +1,4 @@
-package florasoma.berries;
+package florasoma.crops.client;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -8,14 +8,21 @@ import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class BerryRender implements ISimpleBlockRenderingHandler
 {
+	int berryModelID;
+	
+	public BerryRender()
+	{
+		berryModelID = RenderingRegistry.getNextAvailableRenderId();
+	}
 	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z,
-			Block block, int modelId, RenderBlocks renderer) {
+	public boolean renderWorldBlock (IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
+	{
 
-		if (modelId == FloraBerries.instance.berryModelID)
+		if (modelId == berryModelID)
 		{
 			int md = world.getBlockMetadata(x, y, z);
 			if (md < 4)
@@ -36,12 +43,11 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 		}
 		return false;
 	}
-	
+
 	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelID,
-			RenderBlocks renderer) 
+	public void renderInventoryBlock (Block block, int metadata, int modelID, RenderBlocks renderer)
 	{
-		if (modelID == FloraBerries.instance.berryModelID)
+		if (modelID == berryModelID)
 		{
 			Tessellator tessellator = Tessellator.instance;
 			if (metadata < 4)
@@ -64,16 +70,18 @@ public class BerryRender implements ISimpleBlockRenderingHandler
 	}
 
 	@Override
-	public boolean shouldRender3DInInventory() {
+	public boolean shouldRender3DInInventory ()
+	{
 		return true;
 	}
 
 	@Override
-	public int getRenderId() {
-		return FloraBerries.instance.berryModelID;
+	public int getRenderId ()
+	{
+		return berryModelID;
 	}
-	
-	private void renderDo(RenderBlocks renderblocks, Block block, int meta)
+
+	private void renderDo (RenderBlocks renderblocks, Block block, int meta)
 	{
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);

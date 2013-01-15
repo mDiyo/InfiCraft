@@ -10,6 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import tinker.common.InventoryBlock;
+import tinker.toolconstruct.TConstructContent;
 import tinker.toolconstruct.ToolConstruct;
 import tinker.toolconstruct.client.TableRender;
 
@@ -19,13 +20,13 @@ public class ToolStationBlock extends InventoryBlock
 	public ToolStationBlock(int id, Material material)
 	{
 		super(id, material);
-		this.setCreativeTab(ToolConstruct.materialTab);
+		this.setCreativeTab(ToolConstruct.blockTab);
 		this.setHardness(2f);
 	}
 
     public String getTextureFile()
     {
-        return "/tinkertextures/ConstructBlocks.png";
+        return TConstructContent.blockTexture;
     }
 	
 	public int getBlockTextureFromSideAndMetadata(int side, int meta)

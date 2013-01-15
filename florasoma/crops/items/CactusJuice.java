@@ -1,6 +1,7 @@
-package florasoma.crops;
+package florasoma.crops.items;
 
 import florasoma.common.FloraSomaTab;
+import florasoma.crops.FloraCrops;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 

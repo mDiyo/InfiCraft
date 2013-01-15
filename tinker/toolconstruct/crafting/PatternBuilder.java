@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import tinker.toolconstruct.ToolItems;
+import tinker.toolconstruct.TConstructContent;
 import tinker.toolconstruct.items.Pattern;
 
 import net.minecraft.block.Block;
@@ -146,7 +146,7 @@ public class PatternBuilder
 	public void registerFullMaterial (Item material, int value, String key, ItemStack shard, ItemStack rod, int materialID)
 	{ registerFullMaterial(new ItemStack(material, 1, -1), value, key, shard, rod, materialID); }
 	public void registerFullMaterial (Block material, int value, String key, int materialID)
-	{ registerFullMaterial(new ItemStack(material, 1, -1), value, key, new ItemStack(ToolItems.toolShard, 1, materialID), new ItemStack(ToolItems.toolRod, 1, materialID), materialID); }
+	{ registerFullMaterial(new ItemStack(material, 1, -1), value, key, new ItemStack(TConstructContent.toolShard, 1, materialID), new ItemStack(TConstructContent.toolRod, 1, materialID), materialID); }
 	public void registerFullMaterial (Item material, int value, String key, int materialID)
-	{ registerFullMaterial(new ItemStack(material, 1, -1), value, key, new ItemStack(ToolItems.toolShard, 1, materialID), new ItemStack(ToolItems.toolRod, 1, materialID), materialID); }
+	{ registerFullMaterial(new ItemStack(material, 1, -1), value, key, new ItemStack(TConstructContent.toolShard, 1, materialID), new ItemStack(TConstructContent.toolRod, 1, materialID), materialID); }
 }

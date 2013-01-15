@@ -20,9 +20,9 @@ public class WTContainer extends DummyModContainer
         myMeta.authorList = Arrays.asList(new String[] { "mDiyo" });
         myMeta.description = "World Tweaks, Core mod";
         myMeta.modId = "WorldTweaks";
-        myMeta.version = "1.4.5";
+        myMeta.version = "1.4.7";
         myMeta.name = "World Tweaks";
-	    //myMeta.url = "http://minecraftforge.net/wiki/Using_Access_Transformers";
+	    myMeta.url = "http://www.minecraftforum.net/topic/521617-inficraft";
 	}
 	
 	public boolean registerBus(EventBus bus, LoadController controller) 

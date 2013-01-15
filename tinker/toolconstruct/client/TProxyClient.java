@@ -6,7 +6,7 @@ import java.io.File;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.MinecraftForgeClient;
 import tinker.toolconstruct.TProxyCommon;
-import tinker.toolconstruct.ToolItems;
+import tinker.toolconstruct.TConstructContent;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -17,23 +17,23 @@ public class TProxyClient extends TProxyCommon
 	{
 		RenderingRegistry.registerBlockHandler(new TableRender());
 		
-		MinecraftForgeClient.preloadTexture(ToolItems.craftingTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.baseHeads);
-		MinecraftForgeClient.preloadTexture(ToolItems.baseAccessories);
-		MinecraftForgeClient.preloadTexture(ToolItems.patternTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.swordparts);
-		MinecraftForgeClient.preloadTexture(ToolItems.jokeparts);
+		MinecraftForgeClient.preloadTexture(TConstructContent.craftingTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.baseHeads);
+		MinecraftForgeClient.preloadTexture(TConstructContent.baseAccessories);
+		MinecraftForgeClient.preloadTexture(TConstructContent.patternTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.swordparts);
+		MinecraftForgeClient.preloadTexture(TConstructContent.jokeparts);
 		
-		MinecraftForgeClient.preloadTexture(ToolItems.pickaxeTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.broadswordTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.shovelTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.axeTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.longswordTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.rapierTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.pickaxeTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.broadswordTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.shovelTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.axeTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.longswordTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.rapierTexture);
 		
-		MinecraftForgeClient.preloadTexture(ToolItems.frypanTexture);
-		MinecraftForgeClient.preloadTexture(ToolItems.signTexture);
-		MinecraftForgeClient.preloadTexture("/tinkertextures/ConstructBlocks.png");
+		MinecraftForgeClient.preloadTexture(TConstructContent.frypanTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.signTexture);
+		MinecraftForgeClient.preloadTexture(TConstructContent.blockTexture);
 	}
 	
 	
@@ -67,14 +67,14 @@ public class TProxyClient extends TProxyCommon
 			LanguageRegistry.instance().addStringLocalization(internalName, "en_US", visibleName);
 		}
 		
-		LanguageRegistry.addName(ToolItems.pickaxe, "Pickaxe");
-		LanguageRegistry.addName(ToolItems.shovel, "Shovel");
-		LanguageRegistry.addName(ToolItems.axe, "Axe");
-		LanguageRegistry.addName(ToolItems.broadsword, "Broadsword");
-		LanguageRegistry.addName(ToolItems.longsword, "Longsword");
-		LanguageRegistry.addName(ToolItems.rapier, "Rapier");
-		LanguageRegistry.addName(ToolItems.frypan, "Frying Pan");
-		LanguageRegistry.addName(ToolItems.battlesign, "Battlesign");
+		LanguageRegistry.addName(TConstructContent.pickaxe, "Pickaxe");
+		LanguageRegistry.addName(TConstructContent.shovel, "Shovel");
+		LanguageRegistry.addName(TConstructContent.axe, "Axe");
+		LanguageRegistry.addName(TConstructContent.broadsword, "Broadsword");
+		LanguageRegistry.addName(TConstructContent.longsword, "Longsword");
+		LanguageRegistry.addName(TConstructContent.rapier, "Rapier");
+		LanguageRegistry.addName(TConstructContent.frypan, "Frying Pan");
+		LanguageRegistry.addName(TConstructContent.battlesign, "Battlesign");
 	}
 	
 	@Override

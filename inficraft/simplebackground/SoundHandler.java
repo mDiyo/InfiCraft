@@ -90,7 +90,8 @@ public class SoundHandler
 	@ForgeSubscribe
 	public SoundPoolEntry onBackgroundMusicPlayed(PlayBackgroundMusicEvent evt)
 	{
-		return new SoundPoolEntry(null, null);
+		evt.result = null;
+		return null;
 	}
 	
 	private static HashMap music = new HashMap<String, ArrayList<SoundPoolEntry>>();

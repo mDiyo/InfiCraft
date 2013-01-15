@@ -37,11 +37,10 @@ public class FloraSaplingBlock extends BlockFlower
 
 	public boolean canPlaceBlockAt (World world, int x, int y, int z)
 	{
-		return true;
-		//int var5 = world.getBlockId(x, y, z);
-        //if (var5 == 0 || blocksList[var5].blockMaterial.isReplaceable());
-        //return canBlockStay(world, x, y, z);
-		//return super.canPlaceBlockAt(world, i, j, k) && canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
+		int blockID = world.getBlockId(x, y, z);
+        if (blockID == 0 || blocksList[blockID].blockMaterial.isReplaceable())
+        	return canBlockStay(world, x, y, z);
+        return false;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID (int i)
@@ -52,11 +51,14 @@ public class FloraSaplingBlock extends BlockFlower
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z)
     {
+		int blockID = world.getBlockId(x, y - 1, z);
+		if (blockID == Block.netherrack.blockID || blockID == Block.slowSand.blockID)
+			return true;
 		int md = world.getBlockMetadata(x, y, z) % 8;
 		if (md >= 4)
 			return true;
 		
-        Block soil = blocksList[world.getBlockId(x, y - 1, z)];
+        Block soil = blocksList[blockID];
         return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && 
                 (soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this));
     }

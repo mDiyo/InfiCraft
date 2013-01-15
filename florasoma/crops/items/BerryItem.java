@@ -1,4 +1,4 @@
-package florasoma.berries;
+package florasoma.crops.items;
 
 import java.util.List;
 
@@ -8,12 +8,13 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import florasoma.common.FloraSomaTab;
+import florasoma.crops.FloraCrops;
 
 public class BerryItem extends ItemFood
 {
-    public BerryItem(int i, int j)
+    public BerryItem(int id, int heal)
     {
-        super(i, j, 0.1F, false);
+        super(id, heal, 0.1F, false);
         setHasSubtypes(true);
         setMaxDamage(0);
         iconIndex = 16;
@@ -23,7 +24,7 @@ public class BerryItem extends ItemFood
     @Override
     public int getMaxItemUseDuration(ItemStack itemstack)
     {
-        return 12;
+        return 20;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class BerryItem extends ItemFood
     @Override
     public String getTextureFile()
     {
-        return FloraBerries.seedTexture;
+        return FloraCrops.seedTexture;
     }
     
     /**

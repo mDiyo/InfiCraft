@@ -13,7 +13,7 @@ public class FloraCorruptorClientProxy extends FloraCorruptorCommonProxy
 	@Override
 	public void registerRenderer() 
 	{
-		MinecraftForgeClient.preloadTexture("/mDiyo/inficraft/flora/corruptor/stone.png");
+		MinecraftForgeClient.preloadTexture(FloraCorruptor.texture);
 	}
 	@Override
 	public void addNames()

@@ -1,4 +1,4 @@
-package florasoma.berries;
+package florasoma.crops.blocks;
 
 import java.util.List;
 import java.util.Random;
@@ -19,6 +19,7 @@ import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import florasoma.common.FloraSomaTab;
+import florasoma.crops.FloraCrops;
 
 public class BerryBush extends BlockLeavesBase implements IPlantable
 {
@@ -134,7 +135,7 @@ public class BerryBush extends BlockLeavesBase implements IPlantable
 			if (meta >= 12)
 			{
 				world.setBlockAndMetadataWithNotify(x, y, z, blockID, meta - 4);
-				EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraBerries.berryItem.itemID, 1, meta - 12));
+				EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraCrops.instance.berryItem.itemID, 1, meta - 12));
 				world.spawnEntityInWorld(entityitem);
 				entityitem.onCollideWithPlayer(player);
 			}
@@ -152,7 +153,7 @@ public class BerryBush extends BlockLeavesBase implements IPlantable
 		if (meta >= 12)
 		{
 			world.setBlockAndMetadataWithNotify(x, y, z, blockID, meta - 4);
-			EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraBerries.berryItem.itemID, 1, meta - 12));
+			EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(FloraCrops.instance.berryItem.itemID, 1, meta - 12));
 			world.spawnEntityInWorld(entityitem);
 			entityitem.onCollideWithPlayer(player);
 		}
@@ -181,7 +182,7 @@ public class BerryBush extends BlockLeavesBase implements IPlantable
 
 	public int getRenderType ()
 	{
-		return FloraBerries.instance.berryModelID;
+		return FloraCrops.instance.instance.berryModelID;
 	}
 
 	public boolean shouldSideBeRendered (IBlockAccess iblockaccess, int i, int j, int k, int l)
@@ -201,7 +202,7 @@ public class BerryBush extends BlockLeavesBase implements IPlantable
 	@Override
 	public String getTextureFile ()
 	{
-		return FloraBerries.bushTexture;
+		return FloraCrops.instance.bushTexture;
 	}
 
 	/* Bush growth */

@@ -48,7 +48,7 @@ public class PHCorruptor
         corruptorSpawnDensity = config.get("Corruptor", "Corruptor Spawn Density", 1).getInt(1);
         corruptorSpawnHeight = config.get("Corruptor", "Corruptor Spawn Height", 0).getInt(0);
         corruptorSpawnRange = config.get("Corruptor", "Corruptor Spawn Range", 128).getInt(128);
-        corruptorSpawnSize = config.get("Corruptor", "Corruptor Spawn Slize", 8).getInt(8);
+        corruptorSpawnSize = config.get("Corruptor", "Corruptor Spawn Size", 30).getInt(30);
         corruptionSpeed = config.get("Corruptor", "Corruption Speed", 5).getInt(5);
         corruptionSpread = config.get("Corruptor", "Spread Corruption", true).getBoolean(true);
         

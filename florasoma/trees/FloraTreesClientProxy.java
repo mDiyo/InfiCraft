@@ -7,7 +7,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
-import florasoma.berries.FloraBerryTickHandler;
+import florasoma.crops.client.FloraCropsTickHandler;
 
 public class FloraTreesClientProxy extends FloraTreesCommonProxy
 {
@@ -47,7 +47,7 @@ public class FloraTreesClientProxy extends FloraTreesCommonProxy
 		LanguageRegistry.instance().addStringLocalization("bloodFloraPlanks.name", "en_US", "Bloodplanks");
 		
 		LanguageRegistry.instance().addStringLocalization("eucalyptusFloraSapling.name", "en_US", "Eucalyptus Sapling");
-		LanguageRegistry.instance().addStringLocalization("sakuraFloraSapling.name", "en_US", "White Sapling");
+		LanguageRegistry.instance().addStringLocalization("sakuraFloraSapling.name", "en_US", "Sakura Sapling");
 		LanguageRegistry.instance().addStringLocalization("ghostFloraSapling.name", "en_US", "Ghostwood Sapling");
 		LanguageRegistry.instance().addStringLocalization("bushFloraSapling.name", "en_US", "Hopseed Sapling");
 		LanguageRegistry.instance().addStringLocalization("redwoodFloraSapling.name", "en_US", "Redwood Sapling");

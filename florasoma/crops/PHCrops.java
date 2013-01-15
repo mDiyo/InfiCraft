@@ -53,15 +53,31 @@ public class PHCrops
         potatoBagID = config.getItem("Potato Bag", 12413).getInt(12413);
         carrotBagID = config.getItem("Carrot Bag", 12414).getInt(12414);
         netherWartBagID = config.getItem("Nether Wart Bag", 12415).getInt(12415);
+        
+        berryBlockID = config.getBlock("Berry_Bush", 3257).getInt(3257);
+        berryItemID = config.getItem("Berry_Food", 12402).getInt(12402);
 
         barleySpawnDensity = config.get("Crops", "Barley Spawn Density", 64).getInt(64);
-        barleySpawnHeight = config.get("Crops", "Barley Spawn Height", 64).getInt(64);        
+        barleySpawnRange = config.get("Crops", "Barley Spawn Range", 64).getInt(64);     
+        
+        raspSpawnDensity = config.get("Berries", "Raspberry Spawn Rarity", 14).getInt(14);
+        raspSpawnRange = config.get("Berries", "Raspberry Spawn Range", 128).getInt(128);
+        blueSpawnDensity = config.get("Berries", "Blueberry Spawn Rarity", 12).getInt(12);
+        blueSpawnRange = config.get("Berries", "Blueberry Spawn Range", 128).getInt(128);
+        blackSpawnDensity = config.get("Berries", "Blackberry Spawn Rarity", 10).getInt(10);
+        blackSpawnRange = config.get("Berries", "Blackberry Spawn Range", 128).getInt(128);
+        geoSpawnDensity = config.get("Berries", "Geoberry Spawn Rarity", 14).getInt(14);
+        geoSpawnRange = config.get("Berries", "Geoberry Spawn Range", 128).getInt(128);
+        
+        seaLevel = config.get("general", "Sea level", 64).getInt(64);
        
         /* Save the configuration file */
         config.save();
     }
 	
 	/* Prototype fields, used elsewhere */
+	
+	public static int seaLevel;
 	
 	public static int wheatBagID;
 	public static int barleyBagID;
@@ -77,7 +93,7 @@ public class PHCrops
 	public static int saguaroID;
 	
 	public static int barleySpawnDensity;
-	public static int barleySpawnHeight;
+	public static int barleySpawnRange;
 
 	public static int saguaroSpawnDensity;
 	public static int saguaroSpawnHeight;
@@ -86,4 +102,15 @@ public class PHCrops
 	
 	public static int ingredientsID;
 	
+	public static int raspSpawnDensity;
+	public static int raspSpawnRange;
+	public static int blueSpawnDensity;
+	public static int blueSpawnRange;
+	public static int blackSpawnDensity;
+	public static int blackSpawnRange;
+	public static int geoSpawnDensity;
+	public static int geoSpawnRange;
+	
+	public static int berryItemID;
+	public static int berryBlockID;
 }
