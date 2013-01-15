@@ -25,7 +25,7 @@ public class WTClassOverride implements IClassTransformer
 		if (override.containsKey(name))
 		{
 			//This is a debug measure. Sometimes the files aren't found, we'll tell Java where they are. No, I don't know why the **** you need this.
-			try
+			/*try
 			{
 				Class c = Class.forName(name);
 				System.out.println("Attempting override of: " + name + " " + DFClassOverride.override.get(name));
@@ -34,7 +34,7 @@ public class WTClassOverride implements IClassTransformer
 			{
 				System.out.println("Files were missing! Good job breaking it you numpty");
 				ex.printStackTrace();
-			}
+			}*/
 
 			//Do the real thing
 			bytes = overrideBytes(name, bytes, WorldTweaks.coreLocation);

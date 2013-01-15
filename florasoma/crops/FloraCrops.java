@@ -59,7 +59,7 @@ public class FloraCrops
 		carrotBag = new SeedBag(PHCrops.carrotBagID, Block.carrot, 0).setItemName("carrotBag").setIconIndex(5);
 		netherWartBag = new SeedBag(PHCrops.netherWartBagID, Block.netherStalk, 0).setItemName("wartBag").setIconIndex(6);		
 
-		berryItem = new BerryItem(PHCrops.berryItemID, 2).setItemName("berry");
+		berryItem = new BerryItem(PHCrops.berryItemID, 1).setItemName("berry");
 		berryBush = new BerryBush(PHCrops.berryBlockID, 0);
 		GameRegistry.registerBlock(berryBush, florasoma.crops.blocks.BerryBushItem.class, "BerryBush");
 		
