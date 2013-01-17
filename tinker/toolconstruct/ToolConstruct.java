@@ -22,7 +22,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author: mDiyo
  */
 
-@Mod(modid = "TConstruct", name = "Tool Construct", version = "A12")
+@Mod(modid = "TConstruct", name = "Tool Construct", version = "A14")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 public class ToolConstruct 
 {
@@ -51,7 +51,7 @@ public class ToolConstruct
 	{
 		proxy.registerRenderer();
 		proxy.addNames();
-		GameRegistry.registerWorldGenerator(new TBaseWorldGenerator());
+		//GameRegistry.registerWorldGenerator(new TBaseWorldGenerator());
 	}
 	
 	@ForgeSubscribe

@@ -14,7 +14,7 @@ public class ModElectric extends ModBoolean
 	
 	public ModElectric()
 	{
-		super(null, 9, "Electric");
+		super(new ItemStack[0], 9, "Electric");
 	}
 	
 	@Override
@@ -41,6 +41,16 @@ public class ModElectric extends ModBoolean
 	}
 	
 	@Override
+	protected boolean canModify (ItemStack tool)
+	{
+		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
+		if (!tags.hasKey(key))
+			return tags.getInteger("Modifiers") > 0;
+
+		return false;
+	}
+	
+	@Override
 	public void modify (ItemStack[] input, ItemStack tool)
 	{
 		NBTTagCompound tags = tool.getTagCompound();
@@ -54,6 +64,8 @@ public class ModElectric extends ModBoolean
 			tags.getCompoundTag("InfiTool").setInteger("Modifiers", modifiers);
 			tags.setInteger("charge", 0);
 			tags.setDouble("electricity", 0);
+			tags.setInteger(key, 1);
+			addModifierTip(tool, "\u00a7eElectric");
 		}
 	}
 }

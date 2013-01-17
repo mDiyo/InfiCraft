@@ -20,7 +20,6 @@ public class FloraCropsClientProxy extends FloraCropsCommonProxy
 		RenderingRegistry.registerBlockHandler(new BerryRender());
 		TickRegistry.registerTickHandler(new FloraCropsTickHandler(), Side.CLIENT);
 		MinecraftForgeClient.preloadTexture(FloraCrops.bushTexture);
-		MinecraftForgeClient.preloadTexture(FloraCrops.seedTexture);
 		//TODO: Saguaro Cactus
 		//FloraCrops.getInstance().saguaroModel = ModLoader.getUniqueBlockModelID(this, true);
 	}

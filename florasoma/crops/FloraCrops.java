@@ -28,7 +28,7 @@ import florasoma.crops.worldgen.CropBaseWorldgen;
  * @author: mDiyo
  */
 
-@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2013.1.12")
+@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2013.1.15b")
 public class FloraCrops
 {
 	/* Proxies for sides, used for graphics processing */
@@ -44,14 +44,18 @@ public class FloraCrops
 	{
 		PHCrops.initProps();
 		
-		barleyItem = new BarleyItem(PHCrops.foodID).setIconCoord(0, 3).setItemName("barleyFood");
-		crops = new FloraCropBlock(PHCrops.floraCropsID, 80);
-		barleySeed = new FloraSeeds(PHCrops.barleySeedID, crops.blockID, Block.tilledField.blockID).setIconCoord(1, 2).setItemName("barleySeed");
+		if (PHCrops.enableBarley)
+		{
+			barleyItem = new BarleyItem(PHCrops.foodID).setIconCoord(0, 3).setItemName("barleyFood");
+			crops = new FloraCropBlock(PHCrops.floraCropsID, 80);
+			barleySeed = new FloraSeeds(PHCrops.barleySeedID, crops.blockID, Block.tilledField.blockID).setIconCoord(1, 2).setItemName("barleySeed");
+			GameRegistry.registerBlock(crops, "Flora Crops");
+		}
 		
 		waterDrop = new CactusJuice(PHCrops.ingredientsID + 0, 2, false, 16).setIconCoord(3, 4).setItemName("waterDrop");
 		
-		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, "/infitextures/food.png", "Wheat Flour", CreativeTabs.tabFood).setIconCoord(1, 0);
-		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, "/infitextures/food.png", "Wheat Dough", CreativeTabs.tabFood).setIconCoord(2, 0);
+		wheatFlour = new InfiTexturedItem(PHCrops.ingredientsID + 2, cropTexture, "Wheat Flour", CreativeTabs.tabFood).setIconCoord(1, 4);
+		wheatDough = new InfiTexturedItem(PHCrops.ingredientsID + 3, cropTexture, "Wheat Dough", CreativeTabs.tabFood).setIconCoord(2, 4);
 		
 		wheatBag = new SeedBag(PHCrops.wheatBagID, Block.crops, 0).setItemName("wheatBag").setIconIndex(0);
 		barleyBag = new SeedBag(PHCrops.barleyBagID, crops, 0).setItemName("barleyBag").setIconIndex(1);
@@ -59,11 +63,14 @@ public class FloraCrops
 		carrotBag = new SeedBag(PHCrops.carrotBagID, Block.carrot, 0).setItemName("carrotBag").setIconIndex(5);
 		netherWartBag = new SeedBag(PHCrops.netherWartBagID, Block.netherStalk, 0).setItemName("wartBag").setIconIndex(6);		
 
-		berryItem = new BerryItem(PHCrops.berryItemID, 1).setItemName("berry");
-		berryBush = new BerryBush(PHCrops.berryBlockID, 0);
-		GameRegistry.registerBlock(berryBush, florasoma.crops.blocks.BerryBushItem.class, "BerryBush");
+		if (PHCrops.enableBerries)
+		{
+			berryItem = new BerryItem(PHCrops.berryItemID, 1).setItemName("berry");
+			berryBush = new BerryBush(PHCrops.berryBlockID, 0);
+			GameRegistry.registerBlock(berryBush, florasoma.crops.blocks.BerryBushItem.class, "BerryBush");
+		}
 		
-		GameRegistry.registerBlock(crops, "Flora Crops");
+		
 	}
 
 	@Init
@@ -106,6 +113,5 @@ public class FloraCrops
 	public static int berryModelID;
 
 	public static String bushTexture = "/floratextures/bushes.png";
-	public static String seedTexture = "/floratextures/seeds.png";
 	public static String cropTexture = "/floratextures/crops.png";
 }

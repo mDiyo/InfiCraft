@@ -144,10 +144,10 @@ public class FloraSaplingBlock extends BlockFlower
 		WorldGenerator obj = null;
 		
 		if (md == 1)
-			obj = new EucalyptusTreeGenShort(0, 2);
+			obj = new EucalyptusTreeGenShort(0, 1);
 		
 		else if (md == 2)
-			obj = new BushTreeGen(true, 2, 1, 0);
+			obj = new BushTreeGen(true, 2, 3, 2);
 		
 		else if (md == 3)
 			obj = new SakuraTreeGen(true, 1, 0);

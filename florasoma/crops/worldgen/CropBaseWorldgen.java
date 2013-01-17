@@ -36,43 +36,46 @@ public class CropBaseWorldgen implements IWorldGenerator
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(chunkX * 16 + 16, chunkZ * 16 + 16);
 
 		//Barley
-		if (random.nextInt(5) == 0 && goodClimate(biome, 0.11f, 1.0f, 0.11f, 2f))
+		if (PHCrops.enableBarley && random.nextInt(5) == 0 && goodClimate(biome, 0.11f, 1.0f, 0.11f, 2f))
 		{
 			generateBarley(world, random, xCh, yCh + PHCrops.barleySpawnRange - 64, zCh);
 			generateBarley(world, random, xCh, yCh + PHCrops.barleySpawnRange - 64, zCh);
 		}
 		
 		//Berry bushes
-		if(random.nextInt(PHCrops.raspSpawnDensity) == 0 && goodClimate(biome, 0.5f, 2.0f, 0.2f, 0.4f))
-		{				
-			xCh = xChunk + random.nextInt(16);
-			yCh = random.nextInt(PHCrops.raspSpawnRange) + PHCrops.seaLevel;
-			zCh = zChunk + random.nextInt(16);
-			raspgen.generate(world, random, xCh, yCh, zCh);
-		}
-		
-		if (random.nextInt(PHCrops.blueSpawnDensity) == 0 && goodClimate(biome, 0.3f, 0.81f, 0.3f, 0.8f))
+		if (PHCrops.enableBerries)
 		{
-			xCh = xChunk + random.nextInt(16);
-			yCh = random.nextInt(PHCrops.blueSpawnRange) + PHCrops.seaLevel;
-			zCh = zChunk + random.nextInt(16);
-			bluegen.generate(world, random, xCh, yCh, zCh);
-		}
-		
-		if (random.nextInt(PHCrops.blackSpawnDensity) == 0 && goodClimate(biome, 0.0f, 5.0f, 0.7f, 3.0f))
-		{
-			xCh = xChunk + random.nextInt(16);
-			yCh = random.nextInt(PHCrops.blackSpawnRange) + PHCrops.seaLevel;
-			zCh = zChunk + random.nextInt(16);
-			blackgen.generate(world, random, xCh, yCh, zCh);
-		}
-		
-		if (random.nextInt(PHCrops.geoSpawnDensity) == 0 && goodClimate(biome, 0.0f, 0.3f, 0.0f, 5.0f))
-		{
-			xCh = xChunk + random.nextInt(16);
-			yCh = random.nextInt(PHCrops.geoSpawnRange) + PHCrops.seaLevel;
-			zCh = zChunk + random.nextInt(16);
-			blackgen.generate(world, random, xCh, yCh, zCh);
+			if(random.nextInt(PHCrops.raspSpawnDensity) == 0 && goodClimate(biome, 0.5f, 2.0f, 0.2f, 0.4f))
+			{				
+				xCh = xChunk + random.nextInt(16);
+				yCh = random.nextInt(PHCrops.raspSpawnRange) + PHCrops.seaLevel;
+				zCh = zChunk + random.nextInt(16);
+				raspgen.generate(world, random, xCh, yCh, zCh);
+			}
+			
+			if (random.nextInt(PHCrops.blueSpawnDensity) == 0 && goodClimate(biome, 0.3f, 0.81f, 0.3f, 0.8f))
+			{
+				xCh = xChunk + random.nextInt(16);
+				yCh = random.nextInt(PHCrops.blueSpawnRange) + PHCrops.seaLevel;
+				zCh = zChunk + random.nextInt(16);
+				bluegen.generate(world, random, xCh, yCh, zCh);
+			}
+			
+			if (random.nextInt(PHCrops.blackSpawnDensity) == 0 && goodClimate(biome, 0.5f, 5.0f, 0.7f, 3.0f))
+			{
+				xCh = xChunk + random.nextInt(16);
+				yCh = random.nextInt(PHCrops.blackSpawnRange) + PHCrops.seaLevel;
+				zCh = zChunk + random.nextInt(16);
+				blackgen.generate(world, random, xCh, yCh, zCh);
+			}
+			
+			if (random.nextInt(PHCrops.geoSpawnDensity) == 0 && goodClimate(biome, 0.0f, 0.3f, 0.0f, 5.0f))
+			{
+				xCh = xChunk + random.nextInt(16);
+				yCh = random.nextInt(PHCrops.geoSpawnRange) + PHCrops.seaLevel;
+				zCh = zChunk + random.nextInt(16);
+				geogen.generate(world, random, xCh, yCh, zCh);
+			}
 		}
 	}
 	
@@ -96,8 +99,14 @@ public class CropBaseWorldgen implements IWorldGenerator
 	{
 		float temp = biome.temperature;
 		float rain = biome.rainfall;
+		//System.out.println("Biome: "+biome.biomeName+", temp: "+temp+", rain: "+rain);
 		if (minTemp <= temp && temp <= maxTemp && minRain <= rain && rain <= maxRain)
 			return true;
+		/*{
+			System.out.println("Biome: "+biome.biomeName+", temp: "+temp+", rain: "+rain);
+			System.out.println("minTemp: "+minTemp+", maxTemp: "+maxTemp+", minRain: "+minRain+", maxRain: "+maxRain);
+			return true;
+		}*/
 		return false;
 	}
 	

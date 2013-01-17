@@ -1,37 +1,36 @@
 package tinker.toolconstruct.modifiers;
 
-import tinker.toolconstruct.crafting.ToolMod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class ModRedstone extends ToolMod
 {
-	String key;
 	String tooltipName;
 	int increase;
 	int max;
 
 	public ModRedstone(ItemStack[] items, int effect, int inc)
 	{
-		super(items, effect);
-		key = "Redstone";
+		super(items, effect, "Redstone");
 		tooltipName = "\u00a74Speed";
 		increase = inc;
-		max = 30;
+		max = 25;
 	}
 
 	@Override
-	protected boolean canModify (ItemStack tool)
+	protected boolean canModify (ItemStack tool, ItemStack[] input)
 	{
+		
 		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
 		if (!tags.hasKey(key))
 			return tags.getInteger("Modifiers") > 0;
 
 		int keyPair[] = tags.getIntArray(key);
-		if (keyPair[0] + increase <= max)
+		if (keyPair[0] + increase <= keyPair[1])
 			return true;
 
-		else if (keyPair[0] == max)
+		
+		else if (keyPair[0] == keyPair[1])
 			return tags.getInteger("Modifiers") > 0;
 
 		else
@@ -74,13 +73,13 @@ public class ModRedstone extends ToolMod
 		}
 		
 		int miningSpeed = tags.getInteger("MiningSpeed");
-		miningSpeed += (increase*10);
+		miningSpeed += (increase*8);
 		tags.setInteger("MiningSpeed", miningSpeed);
 		
 		if (tags.hasKey("MiningSpeed2"))
 		{
 			int miningSpeed2 = tags.getInteger("MiningSpeed2");
-			miningSpeed2 += (increase*10);
+			miningSpeed2 += (increase*8);
 			tags.setInteger("MiningSpeed", miningSpeed2);
 		}
 	}
@@ -89,7 +88,7 @@ public class ModRedstone extends ToolMod
 	{
 		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
 		String tip = "ModifierTip"+keys[2];
-		String modName = "\u00a74Redstone ("+keys[0]+"/"+keys[1]+")";
+		String modName = "\u00a7cRedstone ("+keys[0]+"/"+keys[1]+")";
 		tags.setString(tip, modName);
 	}
 }

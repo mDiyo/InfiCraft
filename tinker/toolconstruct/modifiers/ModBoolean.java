@@ -1,19 +1,15 @@
 package tinker.toolconstruct.modifiers;
 
-import tinker.toolconstruct.crafting.ToolMod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 /* Adds a boolean NBTTag */
 
 public class ModBoolean extends ToolMod
-{
-	String key;
-	
+{	
 	public ModBoolean(ItemStack[] items, int effect, String tag)
 	{
-		super(items, effect);
-		key = tag;
+		super(items, effect, tag);
 	}
 	
 	protected boolean canModify (ItemStack tool)

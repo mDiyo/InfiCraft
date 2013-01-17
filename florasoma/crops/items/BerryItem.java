@@ -47,7 +47,7 @@ public class BerryItem extends ItemFood
     @Override
     public String getTextureFile()
     {
-        return FloraCrops.seedTexture;
+        return FloraCrops.cropTexture;
     }
     
     /**

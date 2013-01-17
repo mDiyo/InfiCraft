@@ -42,6 +42,9 @@ public class PHCrops
          * Avoid values below 4096 for items and in the 250-450 range for blocks
          */
         
+        enableBerries = config.get("Disabler", "Enable Berry Bushes", true).getBoolean(true);
+        enableBarley = config.get("Disabler", "Enable Barley", true).getBoolean(true);
+        
         floraCropsID = config.getBlock("Crops", 3260).getInt(3260); 
         
         barleySeedID = config.getItem("Barley Seed", 12403).getInt(12403);
@@ -60,11 +63,11 @@ public class PHCrops
         barleySpawnDensity = config.get("Crops", "Barley Spawn Density", 64).getInt(64);
         barleySpawnRange = config.get("Crops", "Barley Spawn Range", 64).getInt(64);     
         
-        raspSpawnDensity = config.get("Berries", "Raspberry Spawn Rarity", 14).getInt(14);
+        raspSpawnDensity = config.get("Berries", "Raspberry Spawn Rarity", 18).getInt(14);
         raspSpawnRange = config.get("Berries", "Raspberry Spawn Range", 128).getInt(128);
-        blueSpawnDensity = config.get("Berries", "Blueberry Spawn Rarity", 12).getInt(12);
+        blueSpawnDensity = config.get("Berries", "Blueberry Spawn Rarity", 18).getInt(12);
         blueSpawnRange = config.get("Berries", "Blueberry Spawn Range", 128).getInt(128);
-        blackSpawnDensity = config.get("Berries", "Blackberry Spawn Rarity", 10).getInt(10);
+        blackSpawnDensity = config.get("Berries", "Blackberry Spawn Rarity", 16).getInt(10);
         blackSpawnRange = config.get("Berries", "Blackberry Spawn Range", 128).getInt(128);
         geoSpawnDensity = config.get("Berries", "Geoberry Spawn Rarity", 14).getInt(14);
         geoSpawnRange = config.get("Berries", "Geoberry Spawn Range", 128).getInt(128);
@@ -78,6 +81,9 @@ public class PHCrops
 	/* Prototype fields, used elsewhere */
 	
 	public static int seaLevel;
+	
+	public static boolean enableBerries;
+	public static boolean enableBarley;
 	
 	public static int wheatBagID;
 	public static int barleyBagID;

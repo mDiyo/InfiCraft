@@ -1,6 +1,5 @@
 package tinker.toolconstruct.modifiers;
 
-import tinker.toolconstruct.crafting.ToolMod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -12,17 +11,15 @@ public class ModInteger extends ToolMod
 	int initialIncrease;
 	int secondaryIncrease;
 	
-	public ModInteger(ItemStack[] items, int effect, String tag, int increase)
+	public ModInteger(ItemStack[] items, int effect, String dataKey, int increase)
 	{
-		super(items, effect);
-		key = tag;
+		super(items, effect, dataKey);
 		initialIncrease = secondaryIncrease = increase;
 	}
 	
-	public ModInteger(ItemStack[] items, int effect, String tag, int increase1, int increase2)
+	public ModInteger(ItemStack[] items, int effect, String dataKey, int increase1, int increase2)
 	{
-		super(items, effect);
-		key = tag;
+		super(items, effect, dataKey);
 		initialIncrease = increase1;
 		secondaryIncrease = increase2;
 	}

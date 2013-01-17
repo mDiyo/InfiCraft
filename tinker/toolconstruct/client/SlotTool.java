@@ -16,12 +16,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class SlotTool extends Slot
 {
     /** The player that is using the GUI where this slot resides. */
-    private EntityPlayer thePlayer;
+    private EntityPlayer player;
 
-    public SlotTool(EntityPlayer inventoryplayer, IInventory builder, int par3, int par4, int par5)
+    public SlotTool(EntityPlayer entityplayer, IInventory builder, int par3, int par4, int par5)
     {
         super(builder, par3, par4, par5);
-        this.thePlayer = inventoryplayer;
+        this.player = entityplayer;
     }
 
     /**
@@ -59,6 +59,8 @@ public class SlotTool extends Slot
 			tags.getCompoundTag("InfiTool").setBoolean("Built", true);
 			for (int i = 1; i <= 3; i++)
 				inventory.decrStackSize(i, 1);
+			if (!player.worldObj.isRemote)
+				player.worldObj.playAuxSFX(1021, (int)player.posX, (int)player.posY, (int)player.posZ, 0);
 		}
     }
 }

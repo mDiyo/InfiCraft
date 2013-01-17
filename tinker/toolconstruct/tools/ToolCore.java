@@ -228,7 +228,8 @@ public abstract class ToolCore extends Item
 					if (tags.getCompoundTag("InfiTool").hasKey(tooltip))
 					{
 						String tipName = tags.getCompoundTag("InfiTool").getString(tooltip);
-						list.add(tipName);
+						if (!tipName.equals(""))
+							list.add(tipName);
 					}
 					else
 						displayToolTips = false;
@@ -281,7 +282,7 @@ public abstract class ToolCore extends Item
 		case 2:
 			return "Shoddy"; //Stone
 		case 3:
-			return "Unbreaking I"; //Iron
+			return "Reinforced I"; //Iron
 		case 4:
 			return "Shoddy"; //Flint
 		case 5:
@@ -289,7 +290,7 @@ public abstract class ToolCore extends Item
 		case 6:
 			return ""; //Bone
 		case 7:
-			return "Unbreaking III"; //Obsidian
+			return "Reinforced III"; //Obsidian
 		case 8:
 			return "Shoddy"; //Netherrack
 		case 9:
@@ -297,7 +298,7 @@ public abstract class ToolCore extends Item
 		case 10:
 			return "Writable"; //Paper
 		case 11:
-			return "Unbreaking II"; //Cobalt
+			return "Reinforced II"; //Cobalt
 		case 12:
 			return ""; //Ardite
 		case 13:
@@ -518,6 +519,12 @@ public abstract class ToolCore extends Item
 	public boolean canUse (ItemStack itemStack, int amount)
 	{
 		//TODO: Investigate this
+		return false;
+	}
+	
+	@Override
+	public boolean canShowChargeToolTip (ItemStack itemStack)
+	{
 		return false;
 	}
 	

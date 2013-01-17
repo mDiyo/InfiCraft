@@ -1,9 +1,13 @@
 package tinker.toolconstruct.modifiers;
 
-import tinker.toolconstruct.crafting.ToolMod;
+import java.util.Iterator;
+import java.util.Map;
+
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 
 public class ModLapisIncrease extends ToolMod
 {
@@ -12,18 +16,18 @@ public class ModLapisIncrease extends ToolMod
 
 	public ModLapisIncrease(ItemStack[] items, int effect, int inc)
 	{
-		super(items, effect);
-		key = "Lapis";
+		super(items, effect, "Lapis");
 		increase = inc;
 	}
 
 	@Override
-	protected boolean canModify (ItemStack tool)
+	protected boolean canModify (ItemStack tool, ItemStack[] input)
 	{
 		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
 		if (!tags.hasKey(key))
 			return false;
 
+		System.out.println("Checking modify");
 		int keyPair[] = tags.getIntArray(key);
 		
 		if (keyPair[0] + increase <= 100)
@@ -41,12 +45,67 @@ public class ModLapisIncrease extends ToolMod
 		keyPair[0] += increase;
 		tags.setIntArray(key, keyPair);
 		if (keyPair[0] >= 100)
-			tool.addEnchantment(Enchantment.fortune, 3);
+			addEnchantment(tool, Enchantment.fortune, 3);
 		else if (keyPair[0] >= 40)
-			tool.addEnchantment(Enchantment.fortune, 2);
+			addEnchantment(tool, Enchantment.fortune, 2);
 		else if (keyPair[0] >= 10)
-			tool.addEnchantment(Enchantment.fortune, 1);
+			addEnchantment(tool, Enchantment.fortune, 1);
+		
+		updateModTag(tool, keyPair);
 	}
+	
+	public void addEnchantment(ItemStack tool, Enchantment enchant, int level)
+    {
+		/*if (!tool.stackTagCompound.hasKey("ench"))
+        {
+			tool.stackTagCompound.setTag("ench", new NBTTagList("ench"));
+        }*/
+
+        //NBTTagList tags = (NBTTagList)tool.stackTagCompound.getTag("ench");
+		NBTTagList tags = new NBTTagList("ench");
+        Map enchantMap = EnchantmentHelper.getEnchantments(tool);
+        Iterator iterator = enchantMap.keySet().iterator();
+        int index;
+        int lvl;
+        boolean hasEnchant = false;
+        while (iterator.hasNext())
+        {
+    		NBTTagCompound enchantTag = new NBTTagCompound();
+        	index = ((Integer)iterator.next()).intValue();
+        	lvl = (Integer) enchantMap.get(index);
+        	if (index == enchant.effectId)
+        	{
+        		hasEnchant = true;
+        		enchantTag.setShort("id", (short)index);
+        		enchantTag.setShort("lvl", (short)((byte)level));
+        		tags.appendTag(enchantTag);
+        	}
+        	else
+        	{
+        		enchantTag.setShort("id", (short)index);
+        		enchantTag.setShort("lvl", (short)((byte)lvl));
+        		tags.appendTag(enchantTag);
+        	}
+        }
+        if (!hasEnchant)
+        {
+        	NBTTagCompound enchantTag = new NBTTagCompound();
+        	enchantTag.setShort("id", (short)enchant.effectId);
+        	enchantTag.setShort("lvl", (short)((byte)level));
+        	tags.appendTag(enchantTag);
+        }
+        //this.stackTagCompound.setTag("ench", new NBTTagList("ench"));
+        tool.stackTagCompound.setTag("ench", tags);
+        /*if (enchantMap.containsKey(enchant.effectId))
+        {
+        	map.
+        }*/
+        //NBTTagList enchantTags = (NBTTagList)tool.stackTagCompound.getTag("ench");
+        /*NBTTagCompound var4 = new NBTTagCompound();
+        var4.setShort("id", (short)par1Enchantment.effectId);
+        var4.setShort("lvl", (short)((byte)par2));
+        enchantTags.appendTag(var4);*/
+    }
 	
 	void updateModTag (ItemStack tool, int[] keys)
 	{

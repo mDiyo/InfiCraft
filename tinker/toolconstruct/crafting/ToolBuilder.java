@@ -5,6 +5,7 @@ import java.util.*;
 
 import tinker.toolconstruct.EnumMaterial;
 import tinker.toolconstruct.items.ToolPart;
+import tinker.toolconstruct.modifiers.ToolMod;
 import tinker.toolconstruct.tools.ToolCore;
 
 import net.minecraft.item.Item;
@@ -130,7 +131,7 @@ public class ToolBuilder
 		return tool;
 	}
 
-	public ItemStack modifyTool (ItemStack input, ItemStack topSlot, ItemStack bottomSlot)
+	/*public ItemStack modifyTool (ItemStack input, ItemStack topSlot, ItemStack bottomSlot)
 	{
 		ItemStack tool = input.copy();
 		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
@@ -147,6 +148,30 @@ public class ToolBuilder
 		}
 		
 		return tool;
+	}*/
+	
+	public ItemStack modifyTool (ItemStack input, ItemStack topSlot, ItemStack bottomSlot)
+	{
+		ItemStack tool = input.copy();
+		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
+		tags.removeTag("Built");
+		
+		boolean built = false;
+		for (ToolMod mod : toolMods)
+		{
+			ItemStack[] slots = new ItemStack[] {topSlot, bottomSlot};
+			if (mod.matches(slots, tool))
+			{
+				built = true;
+				mod.addMatchingEffect(tool);
+				mod.modify(slots, tool);
+			}
+		}
+		
+		if (built)
+			return tool;
+		else
+			return null;
 	}
 
 	int buildUnbreaking (int head, int handle, int accessory)

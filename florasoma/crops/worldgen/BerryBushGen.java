@@ -24,14 +24,14 @@ public class BerryBushGen extends WorldGenerator
         int height = findGround(world, x, y, z);
         if (height != -1)
         {
-        	System.out.println("Base point: "+x+" "+height+" "+z);
+        	/*System.out.println("Base point: "+x+" "+height+" "+z);
         	switch(metadata)
         	{
         	case 0: System.out.println("Bush type: Raspberry"); break;
         	case 1: System.out.println("Bush type: Blueberry"); break;
         	case 2: System.out.println("Bush type: Blackberry"); break;
         	case 3: System.out.println("Bush type: Geoberry"); break;
-        	}
+        	}*/
             generateNode(world, random, x, height, z);
         }
         return true;

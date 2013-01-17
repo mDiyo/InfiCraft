@@ -15,12 +15,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import florasoma.common.FloraSomaTab;
 import florasoma.trees.FloraTrees;
 
-public class TreeBlock extends BlockLog
+public class FruitTreeBlock extends BlockLog
 {
-    public TreeBlock(int id)
+    public FruitTreeBlock(int id, int texture)
     {
         super(id);
-        blockIndexInTexture = 0;
+        blockIndexInTexture = texture;
         this.setHardness(1.5F);
         this.setResistance(5F);
         this.setStepSound(Block.soundWoodFootstep);        
@@ -69,7 +69,7 @@ public class TreeBlock extends BlockLog
         return FloraTrees.texture;
     }
 
-    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    /*public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
     {
         return metadata % 4 != 2 ? blockFlammability[blockID] : 0;
     }
@@ -85,5 +85,5 @@ public class TreeBlock extends BlockLog
     {
 		for (int i = 0; i < 4; i++)
         par3List.add(new ItemStack(par1, 1, i));
-    }
+    }*/
 }

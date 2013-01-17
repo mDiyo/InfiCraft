@@ -17,7 +17,7 @@ public class PatternBuilder
 	public static PatternBuilder instance = new PatternBuilder();
 	//Map items to their parts with a hashmap
 	List<ItemKey> materials = new ArrayList<ItemKey>();
-	HashMap materialParts = new HashMap<String, MaterialSet>();
+	HashMap materialSets = new HashMap<String, MaterialSet>();
 	
 	//We could use IRecipe if it wasn't tied to InventoryCrafting
 	List<PatternKey> toolPatterns = new ArrayList<PatternKey>();
@@ -30,7 +30,7 @@ public class PatternBuilder
 
 	public void registerMaterialSet (String key, ItemStack shard, ItemStack rod, int materialID)
 	{
-		materialParts.put(key, new MaterialSet(shard, rod, materialID));
+		materialSets.put(key, new MaterialSet(shard, rod, materialID));
 		materials.add(new ItemKey(shard.getItem(), shard.getItemDamage(), 1, key));
 	}
 	
@@ -39,7 +39,7 @@ public class PatternBuilder
 	{
 		materials.add(new ItemKey(material.getItem(), material.getItemDamage(), value, key));
 		materials.add(new ItemKey(shard.getItem(), shard.getItemDamage(), 1, key));
-		materialParts.put(key, new MaterialSet(shard, rod, materialID));
+		materialSets.put(key, new MaterialSet(shard, rod, materialID));
 	}
 
 	public void addToolPattern (ItemStack pattern, Item toolPart)
@@ -52,12 +52,12 @@ public class PatternBuilder
 	{
 		if (material != null && pattern != null)
 		{
-			ItemKey key = getMaterialSet(material);
+			ItemKey key = getItemKey(material);
 			Item toolPart = getMatchingPattern(pattern);
 			
 			if (key != null && toolPart != null)
 			{
-				MaterialSet mat = (MaterialSet) materialParts.get(key.key);
+				MaterialSet mat = (MaterialSet) materialSets.get(key.key);
 				int patternValue = ((Pattern)pattern.getItem()).getPatternCost(pattern.getItemDamage());
 				
 				if ( patternValue < key.value )
@@ -84,7 +84,32 @@ public class PatternBuilder
 		return null;
 	}
 	
-	public ItemKey getMaterialSet (ItemStack material)
+	public int getPartID (ItemStack material)
+	{
+		if (material != null)
+		{
+			ItemKey key = getItemKey(material);
+			if (key != null)
+			{
+				MaterialSet set = (MaterialSet) materialSets.get(key.key);
+				return set.materialID;
+			}
+		}
+		return -1;
+	}
+	
+	public int getPartValue (ItemStack material)
+	{
+		if (material != null)
+		{
+			ItemKey key = getItemKey(material);
+			if (key != null)
+				return key.value;
+		}
+		return 0;
+	}
+	
+	public ItemKey getItemKey (ItemStack material)
 	{
 		Item mat = material.getItem();
 		int damage = material.getItemDamage();
@@ -134,6 +159,20 @@ public class PatternBuilder
 			item = i;
 			damage = d;
 			output = o;
+		}
+	}
+	
+	public class MaterialSet
+	{
+		public final ItemStack shard;
+		public final ItemStack rod;
+		public final int materialID;
+
+		public MaterialSet(ItemStack s, ItemStack r, int id)
+		{
+			shard = s;
+			rod = r;
+			materialID = id;
 		}
 	}
 	
