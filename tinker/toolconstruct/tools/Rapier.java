@@ -36,4 +36,9 @@ public class Rapier extends Weapon
 		mob.hurtResistantTime = 0;
 		return true;
 	}
+	
+	public float getDurabilityModifier ()
+	{
+		return 0.7f;
+	}
 }

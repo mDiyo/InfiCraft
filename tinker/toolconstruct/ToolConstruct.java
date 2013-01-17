@@ -17,7 +17,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-/* TConstruct, the successor to InfiTools
+/** TConstruct, the successor to InfiTools
  * Now with many much more combinations and many much less IDs!
  * @author: mDiyo
  */

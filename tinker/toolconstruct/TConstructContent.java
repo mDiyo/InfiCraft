@@ -35,6 +35,7 @@ public class TConstructContent
 	public static ToolCore battlesign;
 	
 	public static ToolCore mattock;
+	public static ToolCore lumberaxe;
 	
 	//Tool parts
 	public static Item pickaxeHead;
@@ -100,6 +101,7 @@ public class TConstructContent
 		frypan = new FryingPan(PHTools.frypan, frypanTexture);
 		battlesign = new BattleSign(PHTools.battlesign, signTexture);
 		mattock = new Mattock(PHTools.mattock, mattockTexture);
+		lumberaxe = new LumberAxe(PHTools.lumberaxe, lumberaxeTexture);
 				
 		pickaxeHead = new ToolPart(PHTools.pickaxeHead, 0, baseHeads).setItemName("tconstruct.PickaxeHead");
 		shovelHead = new ToolPart(PHTools.shovelHead, 64, baseHeads).setItemName("tconstruct.ShovelHead");
@@ -150,6 +152,7 @@ public class TConstructContent
 		tb.addToolRecipe(frypan, frypanHead);
 		tb.addToolRecipe(battlesign, signHead);
 		tb.addToolRecipe(mattock, axeHead, shovelHead);
+		tb.addToolRecipe(lumberaxe, axeHead, axeHead);
 		
 		tb.registerToolMod(new ModRepair());
 		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.diamond)}, 0, 500, 0f, 3, "Diamond", "\u00a7bDurability +500", "\u00a7b"));
@@ -235,4 +238,5 @@ public class TConstructContent
 	public static String frypanTexture = "/tinkertextures/tools/frypans.png";
 	public static String signTexture = "/tinkertextures/tools/battlesigns.png";
 	public static String mattockTexture = "/tinkertextures/tools/mattock.png";
+	public static String lumberaxeTexture = "/tinkertextures/tools/lumberaxe.png";
 }

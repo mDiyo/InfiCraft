@@ -70,11 +70,12 @@ public class AbilityHelper
 			else
 			{
 				tags.getCompoundTag("InfiTool").setInteger("Damage", damage + dam);
-				int damer = damage * 100 / maxDamage + 1;
+				int toolDamage = damage * 100 / maxDamage + 1;
 				//System.out.println("Damage: " + damer);
-				if (damer >= stack.getItemDamage())
-					stack.damageItem(1, entity);
-				stack.setItemDamage(damage * 100 / maxDamage + 1);
+				int stackDamage = stack.getItemDamage();
+				if (toolDamage >= stackDamage && toolDamage < 100)
+					stack.damageItem(toolDamage - stackDamage, entity);
+				//stack.setItemDamage(damage * 100 / maxDamage + 1);
 			}
 
 			//stack.setItemDamage(1 + (maxDamage - damage) * (stack.getMaxDamage() - 1) / maxDamage);

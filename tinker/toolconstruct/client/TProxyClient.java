@@ -75,6 +75,8 @@ public class TProxyClient extends TProxyCommon
 		LanguageRegistry.addName(TConstructContent.rapier, "Rapier");
 		LanguageRegistry.addName(TConstructContent.frypan, "Frying Pan");
 		LanguageRegistry.addName(TConstructContent.battlesign, "Battlesign");
+		LanguageRegistry.addName(TConstructContent.mattock, "Mattock");
+		LanguageRegistry.addName(TConstructContent.lumberaxe, "Lumber Axe");
 	}
 	
 	@Override
