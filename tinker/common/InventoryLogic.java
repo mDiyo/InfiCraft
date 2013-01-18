@@ -8,9 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 /*
  * A simple logic class for storing items
+ * Abstract to avoid instantiation
  */
 
 public abstract class InventoryLogic extends TileEntity
@@ -94,7 +96,7 @@ public abstract class InventoryLogic extends TileEntity
         
     }
 	
-	public abstract Container getGuiContainer (InventoryPlayer inventoryplayer);
+	public abstract Container getGuiContainer (InventoryPlayer inventoryplayer, World world, int x, int y, int z);
 	
 	/* NBT */
 	@Override

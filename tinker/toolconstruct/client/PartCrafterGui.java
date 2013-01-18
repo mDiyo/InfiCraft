@@ -15,11 +15,13 @@ public class PartCrafterGui extends GuiContainer
 {
 	PartCrafterLogic logic;
 	String title, body = "";
+	boolean drawChestPart;
 	
-	public PartCrafterGui(InventoryPlayer inventoryplayer, PartCrafterLogic partlogic)
+	public PartCrafterGui(InventoryPlayer inventoryplayer, PartCrafterLogic partlogic, World world, int x, int y, int z)
 	{
-		super(partlogic.getGuiContainer(inventoryplayer));
+		super(partlogic.getGuiContainer(inventoryplayer, world, x, y, z));
 		logic = partlogic;
+		drawChestPart = ((PartCrafterContainer)inventorySlots).largeInventory;
 		
 		title = "\u00A7nTool Part Crafting";
 		body = "Place a pattern and a material on the left to get started.\n\nDescriptions not done yet, stay tuned.";
@@ -29,6 +31,8 @@ public class PartCrafterGui extends GuiContainer
 	{
 		this.fontRenderer.drawString(StatCollector.translateToLocal("crafters.PartBuilder"), 6, 6, 4210752);
 		this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		if (drawChestPart)
+			this.fontRenderer.drawString(StatCollector.translateToLocal("inventory.PatternChest"), -108, this.ySize - 148, 4210752);
 		
 		drawToolInformation();
 	}
@@ -67,6 +71,15 @@ public class PartCrafterGui extends GuiContainer
 		{
 			this.drawTexturedModalRect(cornerX + 57, cornerY + 44, 176, 36, 18, 18);
 		}
+		
+		// Draw chest
+		if (drawChestPart)
+		{
+			texID = this.mc.renderEngine.getTexture("/tinkertextures/gui/patternchest.png");
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			this.mc.renderEngine.bindTexture(texID);
+			this.drawTexturedModalRect(cornerX-116, cornerY+11, 0, 0, this.xSize, this.ySize);
+		}
 
 		// Draw description
 		texID = this.mc.renderEngine.getTexture("/tinkertextures/gui/description.png");
@@ -75,16 +88,5 @@ public class PartCrafterGui extends GuiContainer
 		cornerX = (this.width + this.xSize) / 2;
 		cornerY = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(cornerX, cornerY, 0, 0, this.xSize, this.ySize);
-	}
-
-	public void initGui ()
-	{
-		super.initGui();
-		int cornerX = (this.width - this.xSize) / 2;
-		int cornerY = (this.height - this.ySize) / 2;
-
-		this.controlList.clear();
-		this.controlList.add(new GuiButton(1, cornerX - 120, cornerY, 116, 20, "Build Tool Parts"));
-		this.controlList.add(new GuiButton(2, cornerX - 120, cornerY + 20, 116, 20, "Tool Patterns"));
 	}
 }

@@ -22,7 +22,7 @@ public class FryingPan extends Weapon
 	public boolean hitEntity(ItemStack stack, EntityLiving mob, EntityLiving player)
 	{
 		AbilityHelper.hitEntity(stack, mob, player, damageVsEntity);
-		AbilityHelper.knockbackEntity(mob, 2.5f);
+		AbilityHelper.knockbackEntity(mob, 1.7f);
 		mob.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 0)); //5 seconds of stun
 		//Play "thunk" sfx
 		return true;

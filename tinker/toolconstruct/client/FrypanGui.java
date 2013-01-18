@@ -3,6 +3,7 @@ package tinker.toolconstruct.client;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
@@ -13,9 +14,9 @@ public class FrypanGui extends GuiContainer
 {
     public FrypanLogic logic;
 
-    public FrypanGui(InventoryPlayer inventoryplayer, FrypanLogic frypan)
+    public FrypanGui(InventoryPlayer inventoryplayer, FrypanLogic frypan, World world, int x, int y, int z)
     {
-        super(frypan.getGuiContainer(inventoryplayer));
+        super(frypan.getGuiContainer(inventoryplayer, world, x, y, z));
     	//super (new FrypanContainer(inventoryplayer, frypan));
         logic = frypan;
     }

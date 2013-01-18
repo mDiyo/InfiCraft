@@ -16,12 +16,14 @@ public class GuiButtonTool extends GuiButton
      */
     int textureX;
     int textureY;
+    String texture;
 
-    public GuiButtonTool(int id, int posX, int posY, int texX, int texY)
+    public GuiButtonTool(int id, int posX, int posY, int texX, int texY, String tex)
     {
         super(id, posX, posY, 18, 18, "");
         textureX = texX;
         textureY = texY;
+        texture = tex;
     }
 
     /**
@@ -33,7 +35,7 @@ public class GuiButtonTool extends GuiButton
         {
             boolean var4 = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-            mc.renderEngine.bindTexture(mc.renderEngine.getTexture("/tinkertextures/gui/icons.png"));
+            mc.renderEngine.bindTexture(mc.renderEngine.getTexture(texture));
 
             this.field_82253_i = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
             int var5 = this.getHoverState(this.field_82253_i);

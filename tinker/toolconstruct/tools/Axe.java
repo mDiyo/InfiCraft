@@ -43,5 +43,5 @@ public class Axe extends HarvestTool
 		return AbilityHelper.onBlockChanged(itemstack, world, bID, x, y, z, player, random);
 	}
 
-	static Material[] materials = { Material.wood, Material.circuits, Material.cactus, Material.pumpkin, Material.leaves };
+	static Material[] materials = { Material.wood, Material.circuits, Material.cactus, Material.pumpkin };
 }

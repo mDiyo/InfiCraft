@@ -7,7 +7,7 @@ public class ToolStationItemBlock extends ItemBlock
 {
     public static final String blockType[] =
     {
-        "Crafter", "Parts", "Parts", "Parts", "Parts"
+        "Crafter", "Parts", "Parts", "Parts", "Parts", "PatternChest"
     };
 
     public ToolStationItemBlock(int id)

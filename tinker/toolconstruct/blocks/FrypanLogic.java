@@ -13,6 +13,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import tinker.common.IActiveLogic;
 import tinker.common.InventoryLogic;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -281,7 +282,7 @@ public class FrypanLogic extends EquipLogic
 	}
 
 	@Override
-	public Container getGuiContainer (InventoryPlayer inventoryplayer)
+	public Container getGuiContainer (InventoryPlayer inventoryplayer, World world, int x, int y, int z)
 	{
 		return new FrypanContainer(inventoryplayer, this);
 	}

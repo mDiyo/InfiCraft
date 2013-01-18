@@ -7,11 +7,15 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import tinker.toolconstruct.blocks.*;
-import tinker.toolconstruct.tools.*;
+import tinker.toolconstruct.ToolConstruct;
+import tinker.toolconstruct.blocks.ToolStationContainer;
+import tinker.toolconstruct.blocks.ToolStationLogic;
+import tinker.toolconstruct.tools.ToolCore;
+import tinker.toolconstruct.tools.Weapon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -26,9 +30,9 @@ public class ToolStationGui extends GuiContainer
 	int[] slotX, slotY, iconX, iconY;
 	String title, body = "";
 
-	public ToolStationGui(InventoryPlayer inventoryplayer, ToolStationLogic stationlogic)
+	public ToolStationGui(InventoryPlayer inventoryplayer, ToolStationLogic stationlogic, World world, int x, int y, int z)
 	{
-		super(stationlogic.getGuiContainer(inventoryplayer));
+		super(stationlogic.getGuiContainer(inventoryplayer, world, x, y, z));
 		this.logic = stationlogic;
 		toolSlots = (ToolStationContainer) inventorySlots;
 		text = new GuiTextField(this.fontRenderer, this.xSize / 2 - 5, 8, 30, 12);
@@ -46,8 +50,8 @@ public class ToolStationGui extends GuiContainer
 	{
 		this.text.setText("");
 		toolSlots.setToolName("");
-		guiType = 1;
-		setSlotType(1);
+		guiType = 0;
+		setSlotType(0);
 		iconX = new int[] { 0, 1, 2 };
 		iconY = new int[] { 13, 13, 13 };
 		title = "\u00A7nRepair and Modification";
@@ -61,133 +65,54 @@ public class ToolStationGui extends GuiContainer
 		int cornerY = (this.height - this.ySize) / 2;
 
 		this.controlList.clear();
-		GuiButtonTool button = new GuiButtonTool(1, cornerX - 110, cornerY, 3, 0); // Repair
-		button.enabled = false;
-		this.controlList.add(button);
-
-		this.controlList.add(new GuiButtonTool(2, cornerX - 88, cornerY, 4, 0)); //Pickaxe
-		this.controlList.add(new GuiButtonTool(3, cornerX - 66, cornerY, 5, 0)); //Shovel
-		this.controlList.add(new GuiButtonTool(4, cornerX - 44, cornerY, 6, 0)); //Axe
-		this.controlList.add(new GuiButtonTool(5, cornerX - 22, cornerY, 7, 0)); //Ice Axe
-		this.controlList.add(new GuiButtonTool(6, cornerX - 110, cornerY + 22, 8, 0)); //Mattock
-		this.controlList.add(new GuiButtonTool(7, cornerX - 88, cornerY + 22, 0, 1)); //Broadsword
-		this.controlList.add(new GuiButtonTool(8, cornerX - 66, cornerY + 22, 1, 1)); //Longsword
-		this.controlList.add(new GuiButtonTool(9, cornerX - 44, cornerY + 22, 2, 1)); //Rapier
-		this.controlList.add(new GuiButtonTool(10, cornerX - 22, cornerY + 22, 3, 1)); //Frypan
-		this.controlList.add(new GuiButtonTool(11, cornerX - 110, cornerY + 44, 4, 1)); //Battlesign
+		ToolGuiElement repair = ToolConstruct.toolButtons.get(0);
+		GuiButtonTool repairButton = new GuiButtonTool(0, cornerX - 110, cornerY, repair.buttonIconX, repair.buttonIconY, repair.texture); // Repair
+		repairButton.enabled = false;
+		this.controlList.add(repairButton);
+		
+		for (int iter = 1; iter < ToolConstruct.toolButtons.size(); iter++)
+		{
+			ToolGuiElement element = ToolConstruct.toolButtons.get(iter);
+			GuiButtonTool button = new GuiButtonTool(iter, cornerX - 110 + 22*(iter%5), cornerY+22*(iter/5), element.buttonIconX, element.buttonIconY, element.texture); // Repair
+			this.controlList.add(button);
+		}
 	}
 
 	protected void actionPerformed (GuiButton button)
 	{
-		((GuiButton) this.controlList.get(guiType - 1)).enabled = true;
+		((GuiButton) this.controlList.get(guiType)).enabled = true;
 		guiType = button.id;
 		button.enabled = false;
 
-		switch (button.id)
-		{
-		case 1: // Repair
-			setSlotType(1);
-			iconX = new int[] { 0, 1, 2 };
-			iconY = new int[] { 13, 13, 13 };
-			title = "\u00A7nRepair and Modification";
-			body = "The main way to repair or change your tools. Place a tool and a material on the left to get started.";
-			break;
-		case 2: // Pickaxe
-			setSlotType(2);
-			iconX = new int[] { 0, 0, 1 };
-			iconY = new int[] { 2, 3, 3 };
-			title = "\u00A7nPickaxe";
-			body = "The Pickaxe is a basic stone mining tool. It is effective on stone and ores.\n\nRequired parts:\n- Pickaxe Head\n- Tool Binding\n- Handle";
-			break;
-		case 3: // Shovel
-			setSlotType(3);
-			iconX = new int[] { 3, 0, 13 };
-			iconY = new int[] { 2, 3, 13 };
-			title = "\u00A7nShovel";
-			body = "The Shovel is a basic digging tool. It is effective on dirt and sand.\n\nRequired parts:\n- Shovel Head\n- Handle";
-			break;
-		case 4: // Axe
-			setSlotType(3);
-			iconX = new int[] { 2, 0, 13 };
-			iconY = new int[] { 2, 3, 13 };
-			title = "\u00A7nAxe";
-			body = "The Axe is a basic chopping tool. It is effective on wood and leaves.\n\nRequired parts:\n- Axe Head\n- Handle";
-			break;
-		case 5: // Ice Axe
-			setSlotType(2);
-			iconX = new int[] { 0, 0, 5 };
-			iconY = new int[] { 2, 3, 3 };
-			title = "\u00A7nIce Axe";
-			//body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\n<Not available>";
-			body = "The Ice Axe is a tool for harvesting ice, mining, and attacking foes.\n\nSpecial Ability:\n- Wall Climb\nNatural Ability:\n- Ice Harvest\nDamage: Moderate\n\nRequired parts:\n- Pickaxe Head\n- Spike\n- Handle";
-			break;
-		case 6: // Mattock
-			setSlotType(4);
-			iconX = new int[] { 2, 0, 3 };
-			iconY = new int[] { 2, 3, 2 };
-			title = "\u00A7nMattock";
-			//body = "The Cutter Mattock is a multi-use tool.\n\n<Not available>";
-			body = "The Cutter Mattock is a multi-use tool. It is effective on wood, leaves, dirt, and sand.\n\nSpecial Ability: Hoe\n\nRequired parts:\n- Axe Head\n- Shovel Head\n- Handle";
-			break;
-		case 7: // Broadsword
-			setSlotType(2);
-			iconX = new int[] { 1, 0, 2 };
-			iconY = new int[] { 2, 3, 3 };
-			title = "\u00A7nBroadsword";
-			body = "The Broadsword is a defensive weapon. Blocking cuts damage in half.\n\nSpecial Ability: Block\nDamage: Moderate\nDurability: High\n\nRequired parts:\n- Sword Blade\n- Large Guard\n- Handle";
-			break;
-		case 8: // Fencing Sword
-			setSlotType(2);
-			iconX = new int[] { 1, 0, 3 };
-			iconY = new int[] { 2, 3, 3 };
-			title = "\u00A7nLongsword";
-			body = "The Longsword is a balanced weapon. It is useful for knocking enemies away or getting in and out of battle quickly.\n\nSpecial Ability: Lunge\nDamage: Moderate\nDurability: Moderate\n\nRequired parts:\n- Sword Blade\n- Medium Guard\n- Handle";
-			break;
-		case 9: // Rapier
-			setSlotType(2);
-			iconX = new int[] { 1, 0, 4 };
-			iconY = new int[] { 2, 3, 3 };
-			title = "\u00A7nRapier";
-			body = "The Rapier is an offensive weapon that relies on quick strikes to defeat foes.\n\nNatural Abilities:\n- Armor Pierce\n- Zero damage delay\nDamage: High\nDurability: Low\n\nRequired parts:\n- Sword Blade\n- Crossbar\n- Handle";
-			break;
-		case 10: // Frypan
-			setSlotType(3);
-			iconX = new int[] { 4, 0, 13 };
-			iconY = new int[] { 2, 3, 13 };
-			title = "\u00A7nFrying Pan";
-			body = "The Frying is a heavy weapon that uses sheer weight to stun foes.\n\nSpecial Ability: Block\nNatural Ability: Bash\nShift+rClick: Place Frying Pan\nDamage: High\nDurability: High\n\nRequired parts:\n- Pan\n- Handle";
-			break;
-		case 11: // Battlesign
-			setSlotType(3);
-			iconX = new int[] { 5, 0, 13 };
-			iconY = new int[] { 2, 3, 13 };
-			title = "\u00A7nBattlesign";
-			body = "The Battlesign is an advance in weapon technology worthy of Zombie Pigmen everywhere.\n\nSpecial Ability: Block\nShift-rClick: Place sign\nDamage: Low\nDurability: Average\n\nRequired parts:\n- Board\n- Handle";
-			break;
-		}
+		ToolGuiElement element = ToolConstruct.toolButtons.get(guiType);
+		setSlotType(element.slotType);
+		iconX = element.iconsX;
+		iconY = element.iconsY;
+		title = "\u00A7n"+element.title;
+		body = element.body;
 	}
 
 	void setSlotType (int type)
 	{
 		switch (type)
 		{
-		case 1:
+		case 0:
 			slotX = new int[] { 56, 38, 38 }; // Repair
 			slotY = new int[] { 37, 28, 46 };
 			break;
-		case 2:
+		case 1:
 			slotX = new int[] { 56, 56, 56 }; // Three parts
 			slotY = new int[] { 19, 55, 37 };
 			break;
-		case 3:
+		case 2:
 			slotX = new int[] { 56, 56, 14 }; // Two parts
 			slotY = new int[] { 28, 46, 37 };
 			break;
-		case 4:
+		case 3:
 			slotX = new int[] { 38, 47, 56 }; // Double head
 			slotY = new int[] { 28, 46, 28 };
 			break;
-		case 5:
+		case 4:
 			slotX = new int[] { 47, 47, 38, 56 }; // Four parts
 			slotY = new int[] { 19, 55, 37, 37 };
 			break;

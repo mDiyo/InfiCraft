@@ -8,24 +8,29 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class PartCrafterContainer extends Container
+public class PartCrafterChestContainer extends PartCrafterContainer
 {
-	protected InventoryPlayer invPlayer;
-	protected PartCrafterLogic logic;
-	protected Slot[] input;
-	protected Slot[] inventory;
-	public boolean largeInventory;
+	protected PatternHolderLogic patternLogic;
 	
-	public PartCrafterContainer(InventoryPlayer inventoryplayer, PartCrafterLogic partLogic)
+	public PartCrafterChestContainer(InventoryPlayer inventoryplayer, PartCrafterLogic partLogic, PatternHolderLogic pLogic)
 	{
-		invPlayer = inventoryplayer;
-		logic = partLogic;
-		largeInventory = false;
+		super (inventoryplayer, partLogic);
+		patternLogic = pLogic;
+		largeInventory = true;
 		
 		inventory = new Slot[] { new SlotPattern(partLogic, 0, 40, 27), new Slot(partLogic, 1, 58, 27), new SlotPattern(partLogic, 2, 40, 45), new Slot(partLogic, 3, 58, 45),
 				new SlotOnlyTake(partLogic, 4, 102, 27), new SlotOnlyTake(partLogic, 5, 120, 27), new SlotOnlyTake(partLogic, 6, 102, 45), new SlotOnlyTake(partLogic, 7, 120, 45) };		
 		for (int iter = 0; iter < inventory.length; iter ++)
 			this.addSlotToContainer(inventory[iter]);
+		
+		/* Holder inventory */
+		for (int column = 0; column < 5; column++)
+        {
+            for (int row = 0; row < 6; row++)
+            {
+            	this.addSlotToContainer(new SlotPattern(pLogic, row + column * 6, -108 + row * 18, 30 + column * 18));
+            }
+        }
 			
 		/* Player inventory */
 		for (int column = 0; column < 3; column++)
@@ -52,7 +57,6 @@ public class PartCrafterContainer extends Container
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer entityplayer, int i)
     {
-		//TODO: Shift-click override
 		return null;
     }
 }

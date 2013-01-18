@@ -50,8 +50,8 @@ public class PHTools {
         toolRod = config.getItem("Patterns and Misc", "Tool Rod", 14021).getInt(14021);
         toolShard = config.getItem("Patterns and Misc", "Tool Shard", 14022).getInt(14022);
         woodPattern = config.getItem("Patterns and Misc", "Wood Pattern", 14023).getInt(14023);
-        stonePattern = config.getItem("Patterns and Misc", "Stone Pattern", 14024).getInt(14024);
-        netherPattern = config.getItem("Patterns and Misc", "Nether Pattern", 14025).getInt(14025);
+        //stonePattern = config.getItem("Patterns and Misc", "Stone Pattern", 14024).getInt(14024);
+        //netherPattern = config.getItem("Patterns and Misc", "Nether Pattern", 14025).getInt(14025);
         
         pickaxeHead = config.getItem("Tool Parts", "Pickaxe Head", 14026).getInt(14026);
         shovelHead = config.getItem("Tool Parts", "Shovel Head", 14027).getInt(14027);
@@ -66,6 +66,8 @@ public class PHTools {
         
         frypanHead = config.getItem("Tool Parts", "Frypan Head", 14035).getInt(14035);
         signHead = config.getItem("Tool Parts", "Sign Head", 14036).getInt(14036);
+        
+        lumberHead = config.getItem("Tool Parts", "Lumber Axe Head", 14036).getInt(14036);
         
         pickaxe = config.getItem("Tools", "Pickaxe", 14051).getInt(14051);
         shovel = config.getItem("Tools", "Shovel", 14052).getInt(14052);
@@ -97,8 +99,8 @@ public class PHTools {
     public static int toolRod;
     public static int toolShard;
     public static int woodPattern;
-    public static int stonePattern;
-    public static int netherPattern;
+    //public static int stonePattern;
+    //public static int netherPattern;
     
     //Tools
     public static int pickaxe;
@@ -129,6 +131,8 @@ public class PHTools {
     
     public static int frypanHead;
     public static int signHead;
+    
+    public static int lumberHead;
     
     public static int binding;
 }

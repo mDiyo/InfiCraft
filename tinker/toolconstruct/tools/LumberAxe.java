@@ -58,7 +58,7 @@ public class LumberAxe extends HarvestTool
 		return AbilityHelper.onBlockChanged(itemstack, world, bID, x, y, z, player, random);
 	}
 
-	static Material[] materials = { Material.wood, Material.circuits, Material.cactus, Material.pumpkin, Material.leaves };
+	static Material[] materials = { Material.wood, Material.circuits, Material.cactus, Material.pumpkin };
 
 	/* Lumber axes specific */
 
@@ -97,7 +97,6 @@ public class LumberAxe extends HarvestTool
 				}
 			}
 
-			System.out.println("Tree'd " + numLeaves);
 			NBTTagCompound tags = stack.getTagCompound().getCompoundTag("InfiTool");
 			int meta = world.getBlockMetadata(x, y, z);
 			if (numLeaves > 3)
@@ -120,10 +119,10 @@ public class LumberAxe extends HarvestTool
 				for (int zPos = z-1; zPos <= z+1; zPos++)
 				{
 					if (!(tags.getBoolean("Broken")))
-					if (world.getBlockId(xPos, yPos, zPos) == bID && world.getBlockMetadata(xPos, yPos, zPos) == meta)
+					if (world.getBlockId(xPos, yPos, zPos) == bID && world.getBlockMetadata(xPos, yPos, zPos) % 4 == meta % 4)
 					{
-						Block.blocksList[bID].harvestBlock(world, player, xPos, yPos, zPos, meta);
 						world.setBlockWithNotify(xPos, yPos, zPos, 0);
+						Block.blocksList[bID].harvestBlock(world, player, xPos, yPos, zPos, meta);
 						if (!player.capabilities.isCreativeMode)
 							onBlockDestroyed(stack, world, bID, xPos, yPos, zPos, player);
 						breakTree(world, xPos, yPos, zPos, stack, tags, bID, meta, player);
@@ -147,8 +146,9 @@ public class LumberAxe extends HarvestTool
 						Block block = Block.blocksList[blockID];
 						if (block != null && block.blockMaterial == Material.wood)
 						{
-							Block.blocksList[blockID].harvestBlock(world, player, xPos, yPos, zPos, world.getBlockMetadata(xPos, yPos, zPos));
+							int meta = world.getBlockMetadata(xPos, yPos, zPos);
 							world.setBlockWithNotify(xPos, yPos, zPos, 0);
+							Block.blocksList[blockID].harvestBlock(world, player, xPos, yPos, zPos, meta);
 							if (!player.capabilities.isCreativeMode)
 								onBlockDestroyed(stack, world, blockID, xPos, yPos, zPos, player);
 						}

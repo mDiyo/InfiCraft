@@ -20,8 +20,8 @@ public class TConstructContent
 	public static Item toolRod;
 	public static Item toolShard;
 	public static Item woodPattern;
-	public static Item stonePattern;
-	public static Item netherPattern;
+	//public static Item stonePattern;
+	//public static Item netherPattern;
 	
 	//Tools
 	public static ToolCore pickaxe;
@@ -50,10 +50,12 @@ public class TConstructContent
 	public static Item frypanHead;
 	public static Item signHead;
 	
+	public static Item lumberHead;
+	
 	//Crafting blocks
 	public static Block woodCrafter;
-	public static Block stoneCrafter;
-	public static Block netherCrafter;
+	//public static Block stoneCrafter;
+	//public static Block netherCrafter;
 	
 	public static Block heldItemBlock;
 	public static Block ores;
@@ -76,6 +78,7 @@ public class TConstructContent
 		GameRegistry.registerBlock(woodCrafter, tinker.toolconstruct.blocks.ToolStationItemBlock.class, "ToolStationBlock");
 		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.ToolStationLogic.class, "ToolStation");
 		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.PartCrafterLogic.class, "PartCrafter");
+		GameRegistry.registerTileEntity(tinker.toolconstruct.blocks.PatternHolderLogic.class, "PatternHolder");
 		
 		heldItemBlock = new EquipBlock(PHTools.heldItemBlock, Material.wood);
 		GameRegistry.registerBlock(heldItemBlock, "HeldItemBlock");
@@ -88,8 +91,8 @@ public class TConstructContent
 		toolRod = new ToolPart(PHTools.toolRod, 0, craftingTexture).setItemName("tconstruct.ToolRod");
 		toolShard = new ToolPart(PHTools.toolShard, 64, craftingTexture).setItemName("tconstruct.ToolShard");
 		woodPattern = new Pattern(PHTools.woodPattern, 0, patternTexture).setItemName("tconstruct.Pattern");
-		stonePattern = new Pattern(PHTools.stonePattern, 64, patternTexture).setItemName("tconstruct.Pattern");
-		netherPattern = new Pattern(PHTools.netherPattern, 128, patternTexture).setItemName("tconstruct.Pattern");
+		//stonePattern = new Pattern(PHTools.stonePattern, 64, patternTexture).setItemName("tconstruct.Pattern");
+		//netherPattern = new Pattern(PHTools.netherPattern, 128, patternTexture).setItemName("tconstruct.Pattern");
 		
 		pickaxe = new Pickaxe(PHTools.pickaxe, pickaxeTexture);
 		shovel = new Shovel(PHTools.shovel, shovelTexture);
@@ -114,6 +117,8 @@ public class TConstructContent
 		
 		frypanHead = new ToolPart(PHTools.frypanHead, 0, jokeparts).setItemName("tconstruct.FrypanHead");
 		signHead = new ToolPart(PHTools.signHead, 64, jokeparts).setItemName("tconstruct.SignHead");
+		
+		lumberHead = new ToolPart(PHTools.lumberHead, 0, broadheads).setItemName("tconstruct.LumberHead");
 	}
 	
 	void registerMaterials ()
@@ -131,12 +136,12 @@ public class TConstructContent
 		pb.registerFullMaterial(Item.slimeBall, 2, "slime", 8); //TODO: Register a better material
 		pb.registerFullMaterial(Item.paper, 2, "paper", new ItemStack(Item.paper), new ItemStack(toolRod, 1, 9), 9); //TODO: Register a better material
 		
-		Item[] items = { toolRod, pickaxeHead, shovelHead, axeHead, swordBlade, largeGuard, medGuard, crossbar, binding, frypanHead, signHead };
+		Item[] items = { toolRod, pickaxeHead, shovelHead, axeHead, swordBlade, largeGuard, medGuard, crossbar, binding, frypanHead, signHead, lumberHead };
 		for (int iter = 0; iter < items.length; iter++)
 		{
 			pb.addToolPattern(new ItemStack(woodPattern, 1, iter+1), items[iter]);
-			pb.addToolPattern(new ItemStack(stonePattern, 1, iter+1), items[iter]);
-			pb.addToolPattern(new ItemStack(netherPattern, 1, iter+1), items[iter]);
+			//pb.addToolPattern(new ItemStack(stonePattern, 1, iter+1), items[iter]);
+			//pb.addToolPattern(new ItemStack(netherPattern, 1, iter+1), items[iter]);
 		}
 	}
 	
@@ -152,7 +157,7 @@ public class TConstructContent
 		tb.addToolRecipe(frypan, frypanHead);
 		tb.addToolRecipe(battlesign, signHead);
 		tb.addToolRecipe(mattock, axeHead, shovelHead);
-		tb.addToolRecipe(lumberaxe, axeHead, axeHead);
+		tb.addToolRecipe(lumberaxe, lumberHead);
 		
 		tb.registerToolMod(new ModRepair());
 		tb.registerToolMod(new ModDurability(new ItemStack[] {new ItemStack(Item.diamond)}, 0, 500, 0f, 3, "Diamond", "\u00a7bDurability +500", "\u00a7b"));
@@ -185,18 +190,19 @@ public class TConstructContent
 		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 2), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', new ItemStack(Block.wood, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 3), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', new ItemStack(Block.wood, 1, 2));
 		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 4), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', new ItemStack(Block.wood, 1, 3));
+		GameRegistry.addRecipe(new ItemStack(woodCrafter, 1, 5), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', Block.chest);
 		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodCrafter, 1, 1), "p", "w", 'p', new ItemStack(woodPattern, 1, 0), 'w', "logWood"));
 		
 		GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(woodPattern, 1, 0), "ps", "sp", 'p', "plankWood", 's', Item.stick));
-		GameRegistry.addRecipe(new ItemStack(stonePattern, 1, 0), "ps", "sp", 'p', Block.cobblestone, 's', new ItemStack(toolRod, 1, 1));
+		/*GameRegistry.addRecipe(new ItemStack(stonePattern, 1, 0), "ps", "sp", 'p', Block.cobblestone, 's', new ItemStack(toolRod, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(stonePattern, 1, 0), "ps", "sp", 'p', Block.stone, 's', new ItemStack(toolRod, 1, 1));
-		GameRegistry.addRecipe(new ItemStack(netherPattern, 1, 0), "ps", "sp", 'p', Block.netherrack, 's', new ItemStack(toolRod, 1, 7));
+		GameRegistry.addRecipe(new ItemStack(netherPattern, 1, 0), "ps", "sp", 'p', Block.netherrack, 's', new ItemStack(toolRod, 1, 7));*/
 		
-		for (int i = 0; i < 11; i++)
+		for (int i = 0; i < 12; i++)
 		{
 			GameRegistry.addRecipe(new ItemStack(TConstructContent.woodPattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.woodPattern, 1, i));
-			GameRegistry.addRecipe(new ItemStack(TConstructContent.stonePattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.stonePattern, 1, i));
-			GameRegistry.addRecipe(new ItemStack(TConstructContent.netherPattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.netherPattern, 1, i));
+			/*GameRegistry.addRecipe(new ItemStack(TConstructContent.stonePattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.stonePattern, 1, i));
+			GameRegistry.addRecipe(new ItemStack(TConstructContent.netherPattern, 1, i + 1), "s", 's', new ItemStack(TConstructContent.netherPattern, 1, i));*/
 		}
 	}
 	
@@ -228,6 +234,7 @@ public class TConstructContent
 	public static String baseAccessories = "/tinkertextures/tools/baseaccessories.png";
 	public static String swordparts = "/tinkertextures/tools/swordparts.png";
 	public static String jokeparts = "/tinkertextures/tools/jokeparts.png";
+	public static String broadheads = "/tinkertextures/tools/broadheads.png";
 
 	public static String pickaxeTexture = "/tinkertextures/tools/pickaxes.png";
 	public static String broadswordTexture = "/tinkertextures/tools/swordbroad.png";

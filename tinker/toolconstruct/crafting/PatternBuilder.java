@@ -59,8 +59,24 @@ public class PatternBuilder
 			{
 				MaterialSet mat = (MaterialSet) materialSets.get(key.key);
 				int patternValue = ((Pattern)pattern.getItem()).getPatternCost(pattern.getItemDamage());
+				int totalMaterial = key.value * material.stackSize;
 				
-				if ( patternValue < key.value )
+				if (totalMaterial < patternValue) // Not enough material
+					return null;
+				
+				else if ( patternValue == key.value ) //Material only
+					return new ItemStack[] { new ItemStack(toolPart, 1, mat.materialID), null }; 
+				
+				else
+				{
+					if (patternValue % 2 == 1)
+					{
+						return new ItemStack[] { new ItemStack(toolPart, 1, mat.materialID), mat.shard.copy() }; //Material + shard
+					}
+					else
+						return new ItemStack[] { new ItemStack(toolPart, 1, mat.materialID), null };
+				}
+				/*if ( patternValue < totalMaterial )
 				{
 					if (otherPattern != null)
 					{
@@ -78,7 +94,7 @@ public class PatternBuilder
 					return new ItemStack[] { new ItemStack(toolPart, 1, mat.materialID), null }; //Material only
 				
 				else
-					return null; //Not a valid match
+					return null; //Not a valid match*/
 			}			
 		}
 		return null;

@@ -4,8 +4,12 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import tinker.common.InventoryLogic;
+import tinker.toolconstruct.TConstructContent;
 import tinker.toolconstruct.crafting.PatternBuilder;
+import tinker.toolconstruct.items.Pattern;
 
 public class PartCrafterLogic extends InventoryLogic
 {
@@ -26,8 +30,19 @@ public class PartCrafterLogic extends InventoryLogic
 	}
 
 	@Override
-	public Container getGuiContainer (InventoryPlayer inventoryplayer)
+	public Container getGuiContainer (InventoryPlayer inventoryplayer, World world, int x, int y, int z)
 	{
+		for (int xPos = x-1; xPos <= x+1; xPos++)
+		{
+			for (int zPos = z-1; zPos <= z+1; zPos++)
+			{
+				TileEntity tile = world.getBlockTileEntity(xPos, y, zPos);
+				if (tile != null && tile instanceof PatternHolderLogic)
+					return new PartCrafterChestContainer(inventoryplayer, this, (PatternHolderLogic)tile);
+					//return ((PatternHolderLogic) tile).getGuiContainer(player.inventory, world, x, y, z);
+			}
+		}
+		System.out.println("Regular container");
 		return new PartCrafterContainer(inventoryplayer, this);
 	}
 
@@ -39,7 +54,17 @@ public class PartCrafterLogic extends InventoryLogic
 		if (slot == 4 || slot == 5)
 		{
 			if (!craftedTop)
-				super.decrStackSize(1, 1); //Call super to avoid crafting again
+			{
+				int value = PatternBuilder.instance.getPartValue(inventory[1]);
+				int cost = ((Pattern)inventory[0].getItem()).getPatternCost(inventory[0].getItemDamage());
+				if (value > 0)
+				{
+					int decrease = cost / value;
+					if (cost % value != 0)
+						decrease++;
+					super.decrStackSize(1, decrease); //Call super to avoid crafting again
+				}
+			}
 			
 			if (inventory[4] != null || inventory[5] != null)
 				craftedTop = true;
@@ -53,7 +78,17 @@ public class PartCrafterLogic extends InventoryLogic
 		if (slot == 6 || slot == 7)
 		{
 			if (!craftedBottom)
-				super.decrStackSize(3, 1);
+			{
+				int value = PatternBuilder.instance.getPartValue(inventory[3]);
+				int cost = ((Pattern)inventory[2].getItem()).getPatternCost(inventory[2].getItemDamage());
+				if (value > 0)
+				{
+					int decrease = cost / value;
+					if (cost % value != 0)
+						decrease++;
+					super.decrStackSize(3, decrease); //Call super to avoid crafting again
+				}
+			}
 			
 			if (inventory[6] != null || inventory[7] != null)
 				craftedBottom = true;

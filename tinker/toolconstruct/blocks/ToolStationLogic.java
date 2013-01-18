@@ -6,6 +6,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import tinker.common.InventoryLogic;
 import tinker.toolconstruct.crafting.ToolBuilder;
 
@@ -36,7 +37,7 @@ public class ToolStationLogic extends InventoryLogic
 	}
 
 	@Override
-	public Container getGuiContainer (InventoryPlayer inventoryplayer)
+	public Container getGuiContainer (InventoryPlayer inventoryplayer, World world, int x, int y, int z)
 	{
 		container = new ToolStationContainer(inventoryplayer, this);
 		return container;

@@ -17,16 +17,24 @@ public class TableRender implements ISimpleBlockRenderingHandler
 	{
 		if (modelID == tabelModelID)
 		{
-			renderer.setRenderBounds(0.0F, 0.75F, 0.0F, 1.0F, 1.0F, 1.0F);
-			renderDo(renderer, block, metadata);
-			renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 0.25F, 0.75F, 0.25F);
-			renderDo(renderer, block, metadata);
-			renderer.setRenderBounds(0.75F, 0.0F, 0.0F, 1.0F, 0.75F, 0.25F);
-			renderDo(renderer, block, metadata);
-			renderer.setRenderBounds(0.0F, 0.0F, 0.75F, 0.25F, 0.75F, 1.0F);
-			renderDo(renderer, block, metadata);
-			renderer.setRenderBounds(0.75F, 0.0F, 0.75F, 1.0F, 0.75F, 1.0F);
-			renderDo(renderer, block, metadata);
+			if (metadata == 5)
+			{
+				renderer.setRenderBounds(0.0F, 0.0, 0.0F, 1.0F, 0.875F, 1.0F);
+				renderDo(renderer, block, metadata);
+			}
+			else
+			{
+				renderer.setRenderBounds(0.0F, 0.75F, 0.0F, 1.0F, 1.0F, 1.0F);
+				renderDo(renderer, block, metadata);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 0.25F, 0.75F, 0.25F);
+				renderDo(renderer, block, metadata);
+				renderer.setRenderBounds(0.75F, 0.0F, 0.0F, 1.0F, 0.75F, 0.25F);
+				renderDo(renderer, block, metadata);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.75F, 0.25F, 0.75F, 1.0F);
+				renderDo(renderer, block, metadata);
+				renderer.setRenderBounds(0.75F, 0.0F, 0.75F, 1.0F, 0.75F, 1.0F);
+				renderDo(renderer, block, metadata);
+			}
 		}
 	}
 
@@ -35,16 +43,25 @@ public class TableRender implements ISimpleBlockRenderingHandler
 	{
 		if (modelID == tabelModelID)
 		{
-			renderer.setRenderBounds(0.0F, 0.75F, 0.0F, 1.0F, 1.0F, 1.0F);
-			renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 0.25F, 0.75F, 0.25F);
-			renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.75F, 0.0F, 0.0F, 1.0F, 0.75F, 0.25F);
-			renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.0F, 0.0F, 0.75F, 0.25F, 0.75F, 1.0F);
-			renderer.renderStandardBlock(block, x, y, z);
-			renderer.setRenderBounds(0.75F, 0.0F, 0.75F, 1.0F, 0.75F, 1.0F);
-			renderer.renderStandardBlock(block, x, y, z);
+			int metadata = world.getBlockMetadata(x, y, z);
+			if (metadata == 5)
+			{
+				renderer.setRenderBounds(0.0F, 0.0, 0.0F, 1.0F, 0.875F, 1.0F);
+				renderer.renderStandardBlock(block, x, y, z);
+			}
+			else
+			{
+				renderer.setRenderBounds(0.0F, 0.75F, 0.0F, 1.0F, 1.0F, 1.0F);
+				renderer.renderStandardBlock(block, x, y, z);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 0.25F, 0.75F, 0.25F);
+				renderer.renderStandardBlock(block, x, y, z);
+				renderer.setRenderBounds(0.75F, 0.0F, 0.0F, 1.0F, 0.75F, 0.25F);
+				renderer.renderStandardBlock(block, x, y, z);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.75F, 0.25F, 0.75F, 1.0F);
+				renderer.renderStandardBlock(block, x, y, z);
+				renderer.setRenderBounds(0.75F, 0.0F, 0.75F, 1.0F, 0.75F, 1.0F);
+				renderer.renderStandardBlock(block, x, y, z);
+			}
 		}
 		return false;
 	}

@@ -33,7 +33,8 @@ public class Rapier extends Weapon
 	{
 		AbilityHelper.hitEntity(stack, mob, player, damageVsEntity);
 		AbilityHelper.knockbackEntity(mob, 0.5f);
-		mob.hurtResistantTime = 0;
+		if (mob.hurtResistantTime > 10)
+			mob.hurtResistantTime -= 10;
 		return true;
 	}
 	

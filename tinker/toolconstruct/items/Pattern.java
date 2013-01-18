@@ -4,13 +4,14 @@ import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
+import tinker.common.IPattern;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class Pattern extends CraftingItem
+	implements IPattern
 {
 	public Pattern(int id, int icon, String tex)
 	{
@@ -23,12 +24,12 @@ public class Pattern extends CraftingItem
 
 	public String getItemNameIS (ItemStack stack)
 	{
-		int arr = MathHelper.clamp_int(stack.getItemDamage(), 0, 9);
+		int arr = MathHelper.clamp_int(stack.getItemDamage(), 0, 12);
 		return super.getItemName() + "." + patternName[arr];
 	}
 
 	public static final String[] patternName = new String[] { 
-		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding", "frypan", "sign" };
+		"blank", "rod", "pickaxe", "shovel", "axe", "blade", "largeguard", "medguard", "crossbar", "binding", "frypan", "sign", "lumber" };
 
 	public void getSubItems (int id, CreativeTabs tab, List list)
 	{
@@ -81,6 +82,7 @@ public class Pattern extends CraftingItem
 		case 9: return 1;
 		case 10: return 2;
 		case 11: return 2;
+		case 12: return 4;
 		default: return 0;
 		}
 	}
