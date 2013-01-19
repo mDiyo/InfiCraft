@@ -1,10 +1,13 @@
 package florasoma.trees.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import florasoma.common.FloraSomaTab;
+import florasoma.trees.FloraTrees;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -24,6 +27,11 @@ public class LogTwoxTwo extends BlockLog
 		this.setHardness(hardness);
 		this.setCreativeTab(FloraSomaTab.tab);
 	}
+	
+	public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return FloraTrees.bloodwood.blockID;
+    }
 
 	public int damageDropped (int meta)
 	{
