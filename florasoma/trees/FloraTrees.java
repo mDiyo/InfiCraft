@@ -58,7 +58,7 @@ public class FloraTrees
 		floraLeaves = new FloraLeaves(PHTrees.floraLeavesID, 96);
 		floraLeavesNoColor = new FloraLeavesNocolor(PHTrees.cherryLeavesID, 99);
 		floraSapling = new FloraSaplingBlock(PHTrees.floraSaplingID);
-		bloodwood = new LogTwoxTwo(2000, 48, texture, 8f).setBlockName("bloodwood");
+		bloodwood = new LogTwoxTwo(PHTrees.bloodwoodID, 48, texture, 8f).setBlockName("bloodwood");
 		
 		doorItem = new FloraDoorItem(PHTrees.doorItemID).setIconCoord(0, 10).setItemName("redwoodDoorItem");
 		redwoodDoor = new FloraDoor(PHTrees.redwoodDoor, 192, Material.wood, 0);

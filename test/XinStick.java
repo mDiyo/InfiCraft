@@ -1,6 +1,5 @@
 package test;
 
-import tinker.toolconstruct.TConstructContent;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -26,27 +25,7 @@ public class XinStick extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		// System.out.println("Click2");
-		// spawnEntity(player.posX, player.posY, player.posZ, new ArmorStandEntity(world), world, player);
-		// removeChunk(world, player.posX, player.posZ);
-		ItemStack tool = new ItemStack(TConstructContent.pickaxe);
-
-		NBTTagCompound compound = new NBTTagCompound();
-		compound.setCompoundTag("InfiTool", new NBTTagCompound());
-		compound.getCompoundTag("InfiTool").setInteger("Head", 2);
-		compound.getCompoundTag("InfiTool").setInteger("Handle", 1);
-		compound.getCompoundTag("InfiTool").setInteger("Accessory", 5);
-		/*compound.getCompoundTag("InfiTool").setInteger("Effect", 0);
-		compound.getCompoundTag("InfiTool").setInteger("Effect2", 0);*/
-		
-		compound.getCompoundTag("InfiTool").setInteger("Damage", 0);
-		compound.getCompoundTag("InfiTool").setInteger("MaxDamage", 20);
-		compound.getCompoundTag("InfiTool").setBoolean("Broken", false);
-		
-		compound.setCompoundTag("display", new NBTTagCompound());
-		compound.getCompoundTag("display").setString("Name", "\u00A7fTool \u00A78of \u00A7dTesting");
-		tool.setTagCompound(compound);
-		spawnItem(player.posX, player.posY, player.posZ, tool, world);
+		//spawnItem(player.posX, player.posY, player.posZ, tool, world);
 		return stack;
 	}
 

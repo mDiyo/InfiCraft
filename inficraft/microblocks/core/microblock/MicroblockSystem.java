@@ -334,7 +334,7 @@ public class MicroblockSystem implements IMicroblockSystem {
 	};
 	
 	public static void registerManualParts(int n, Block block, int meta) {
-		System.out.println("Registering a part with ID "+n);
+		//System.out.println("Registering a part with ID "+n);
 		registerParts(n*64, block, meta);
 	}
 	
