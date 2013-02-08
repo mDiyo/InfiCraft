@@ -18,7 +18,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author mDiyo
  */
 
-@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "1.4.5_2012.12.14")
+@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "1.4.5_2013.2.8")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class OrizonSlime 
 {

@@ -45,6 +45,7 @@ public class PHSlime {
         slimePoolID = config.getBlock("Slime Pool IDs", 3240).getInt(3240);
 
 		genSlimePools = config.get("general", "Generate Slime Pools", true).getBoolean(true);
+		dimensionGen = config.get("general", "Generate in other dimensions", true).getBoolean(true);
 		slimePoolRarity = config.get("general", "Slime Pool Rarity", 30).getInt(30);
 	    slimePoolHeight = config.get("general", "Slime Pool Height", 64).getInt(64);
 
@@ -57,6 +58,7 @@ public class PHSlime {
     public static int acidPoolID;
     
     public static boolean genSlimePools;
+    public static boolean dimensionGen;
     public static int slimePoolRarity;
     public static int slimePoolHeight;
     

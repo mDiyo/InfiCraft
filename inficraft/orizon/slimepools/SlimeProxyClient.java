@@ -4,8 +4,10 @@ import java.io.File;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelSlime;
+import net.minecraft.client.renderer.RenderEngine;
 import net.minecraft.client.renderer.entity.RenderSlime;
 import net.minecraftforge.client.MinecraftForgeClient;
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -16,6 +18,9 @@ public class SlimeProxyClient extends SlimeProxyCommon
 		MinecraftForgeClient.preloadTexture(OrizonSlime.texture);
 		RenderingRegistry.registerEntityRenderingHandler(inficraft.orizon.slimepools.AirwaterSlimeEntity.class, new RenderSlime(new ModelSlime(16), new ModelSlime(0), 0.25F));
 		//OrizonSlime.slimeModel = RenderingRegistry.getNextAvailableRenderId();
+		RenderEngine renderEngine = FMLClientHandler.instance().getClient().renderEngine;
+		renderEngine.registerTextureFX(new SlimeLiquidStillFX());
+		renderEngine.registerTextureFX(new SlimeLiquidFlowingFX());
 	}
 	
 	public void addNames() 

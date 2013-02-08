@@ -24,7 +24,7 @@ public class WorldGenSlimePools extends WorldGenerator implements IWorldGenerato
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) //IWorldGenerator version
     {
-    	if(PHSlime.genSlimePools)
+    	if(PHSlime.genSlimePools && (world.provider.dimensionId == 0 || PHSlime.dimensionGen))
             generateSlimePool(world, random, chunkX*16, chunkZ*16);
 	}
     

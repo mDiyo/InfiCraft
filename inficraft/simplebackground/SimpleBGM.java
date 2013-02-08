@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * Flavorlicious!
  */
 
-@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.7_2013.1.11")
+@Mod(modid = "SimpleBGM", name = "Simple Background Music", version = "1.4.7_2013.1.30")
 public class SimpleBGM
 {
 	@SideOnly(Side.CLIENT)
@@ -99,6 +99,9 @@ public class SimpleBGM
 	
 	public void playMenuMusic(String sound)
 	{
+		if (bgm == null)
+			return;
+		
 		ArrayList<SoundPoolEntry> songList = SoundHandler.getMusicList(sound);
 		if (songList.size() == 0)
 			return;
