@@ -5,13 +5,14 @@ import java.util.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import cpw.mods.fml.common.IWorldGenerator;
+import florasoma.trees.FloraTrees;
 import florasoma.trees.PHTrees;
 
 public class TreeWorldgen implements IWorldGenerator
 {
 	public TreeWorldgen()
 	{
-		genRedwood = new RedwoodTreeGen(false, PHTrees.redwoodID, 0);
+		genRedwood = new RedwoodTreeGen(false, FloraTrees.redwood.blockID, 0);
 		genBlood = new BloodTreeGen(3, 2);
 		bush = new BushTreeGen(false, 2, 3, 2);
 		pinkSakura = new SakuraTreeGen(false, 1, 0);

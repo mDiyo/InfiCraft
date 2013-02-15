@@ -18,7 +18,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.6_2013.1.11")
+@Mod(modid = "OrizonPastels", name = "Stone, Pastels, and Marble", version = "1.4.7_2013.2.14")
 public class PastelMarble 
 {
 	/* Proxies for sides, used for graphics processing */

@@ -11,14 +11,14 @@ public class CorruptorWorldgen implements IWorldGenerator
 {
 	public CorruptorWorldgen()
 	{
-		corruptred = new CorruptorGen(PHCorruptor.corruptorID, 0, PHCorruptor.corruptorSpawnSize);
-		corruptblue = new CorruptorGen(PHCorruptor.corruptorID, 1, PHCorruptor.corruptorSpawnSize);
-		corruptgreen = new CorruptorGen(PHCorruptor.corruptorID, 2, PHCorruptor.corruptorSpawnSize);
-		corruptamber = new CorruptorGen(PHCorruptor.corruptorID, 3, PHCorruptor.corruptorSpawnSize);
-		corruptmagenta = new CorruptorGen(PHCorruptor.corruptorID, 4, PHCorruptor.corruptorSpawnSize);
-		corruptpurple = new CorruptorGen(PHCorruptor.corruptorID, 5, PHCorruptor.corruptorSpawnSize);
-		corruptyellow = new CorruptorGen(PHCorruptor.corruptorID, 6, PHCorruptor.corruptorSpawnSize);
-		corruptsilver = new CorruptorGen(PHCorruptor.corruptorID, 7, PHCorruptor.corruptorSpawnSize);
+		corruptred = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 0, PHCorruptor.corruptorSpawnSize);
+		corruptblue = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 1, PHCorruptor.corruptorSpawnSize);
+		corruptgreen = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 2, PHCorruptor.corruptorSpawnSize);
+		corruptamber = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 3, PHCorruptor.corruptorSpawnSize);
+		corruptmagenta = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 4, PHCorruptor.corruptorSpawnSize);
+		corruptpurple = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 5, PHCorruptor.corruptorSpawnSize);
+		corruptyellow = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 6, PHCorruptor.corruptorSpawnSize);
+		corruptsilver = new CorruptorGen(FloraCorruptor.instance.corruptor.blockID, 7, PHCorruptor.corruptorSpawnSize);
 	}
 
 	@Override

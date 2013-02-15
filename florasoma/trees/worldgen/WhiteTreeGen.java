@@ -7,7 +7,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import florasoma.trees.FloraTrees;
-import florasoma.trees.PHTrees;
 
 public class WhiteTreeGen extends WorldGenerator
 {

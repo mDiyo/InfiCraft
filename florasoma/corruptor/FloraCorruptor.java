@@ -18,7 +18,7 @@ import florasoma.common.FloraSomaTab;
  * @author: Merdiwen Tirelle Diyo
  */
 
-@Mod(modid = "Soma Corruptor", name = "Flora and Soma Corruptor", version = "1.4.6_2013.1.14")
+@Mod(modid = "Soma Corruptor", name = "Flora and Soma Corruptor", version = "1.4.7_2013.2.14")
 public class FloraCorruptor
 {
 	/* Proxies for sides, used for graphics processing */

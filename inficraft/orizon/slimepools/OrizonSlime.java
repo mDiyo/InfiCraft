@@ -18,7 +18,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author mDiyo
  */
 
-@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "1.4.5_2013.2.8")
+@Mod(modid = "Orizon Slime", name = "Orizon Slime", version = "1.4.7_2013.2.14")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class OrizonSlime 
 {
@@ -48,7 +48,7 @@ public class OrizonSlime
 	@Init
 	public void init(FMLInitializationEvent evt) 
 	{
-		GameRegistry.registerWorldGenerator(new WorldGenSlimePools(PHSlime.slimePoolID));
+		GameRegistry.registerWorldGenerator(new WorldGenSlimePools(slimeStill.blockID));
 		proxy.registerRenderer();
 		proxy.addNames();
 	}

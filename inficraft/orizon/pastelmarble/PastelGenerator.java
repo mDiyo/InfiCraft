@@ -12,13 +12,13 @@ public class PastelGenerator implements IWorldGenerator
 {
 	public PastelGenerator()
 	{
-		marbleWhite = new WorldGenMinable(PHPastel.marbleID, 0, 40);
-		marbleBlack = new WorldGenMinable(PHPastel.marbleID, 1, 40);
-		marbleRose = new WorldGenMinable(PHPastel.marbleID, 2, 40);
-		marbleEmerald = new WorldGenMinable(PHPastel.marbleID, 3, 40);
-		marbleAzure = new WorldGenMinable(PHPastel.marbleID, 4, 40);
+		marbleWhite = new WorldGenMinable(PastelMarble.instance.marble.blockID, 0, 40);
+		marbleBlack = new WorldGenMinable(PastelMarble.instance.marble.blockID, 1, 40);
+		marbleRose = new WorldGenMinable(PastelMarble.instance.marble.blockID, 2, 40);
+		marbleEmerald = new WorldGenMinable(PastelMarble.instance.marble.blockID, 3, 40);
+		marbleAzure = new WorldGenMinable(PastelMarble.instance.marble.blockID, 4, 40);
 		
-		coloredStone = new StoneGenColor(PHPastel.cStoneID, 20);
+		coloredStone = new StoneGenColor(PastelMarble.instance.cStone.blockID, 20);
 	}
 	
 	@Override

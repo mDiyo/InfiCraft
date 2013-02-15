@@ -28,7 +28,7 @@ import florasoma.crops.worldgen.CropBaseWorldgen;
  * @author: mDiyo
  */
 
-@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.6_2013.1.15b")
+@Mod(modid = "Flora Crops", name = "Flora and Soma Crops", version = "1.4.7_2013.2.14")
 public class FloraCrops
 {
 	/* Proxies for sides, used for graphics processing */

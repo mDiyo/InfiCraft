@@ -19,7 +19,7 @@ import florasoma.common.FloraSomaTab;
  * @author: Merdiwen Tirelle Diyo
  */
 
-@Mod(modid = "Flora Clouds", name = "Flora and Soma Clouds", version = "1.4.6_2013.1.12")
+@Mod(modid = "Flora Clouds", name = "Flora and Soma Clouds", version = "1.4.7_2013.2.14")
 public class FloraClouds
 {
 	/* Proxies for sides, used for client-only processing*/

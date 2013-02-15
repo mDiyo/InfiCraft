@@ -31,7 +31,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid = "mod_Test", name = "mod_Test", version = "Test")
 public class mod_Test 
 {
-	//public static Item xinstick;
+	public static Item xinstick;
 	public static Item TArmorChestplate;
 
 	@PreInit
@@ -43,7 +43,7 @@ public class mod_Test
 	public void postInit (FMLPostInitializationEvent evt) throws ScriptException
 	{
 		TArmorChestplate = new TArmor(4598, EnumArmorMaterial.CLOTH, 2, 1);
-		GameRegistry.addRecipe(new ItemStack(Armory.toolrack, 64, 0), "s", 's', Block.dirt);
+		GameRegistry.addRecipe(new ItemStack(Block.waterStill, 64, 0), "s", 's', Block.dirt);
 		GameRegistry.addRecipe(new ItemStack(InfiBlocks.getContentInstance().chiselDiamond, 64, 0), "ss", 's', Block.dirt);
 		GameRegistry.addRecipe(new ItemStack(InfiBlocks.getContentInstance().storageBlock, 64, 0), "s", "s", 's', Block.dirt);
 
@@ -66,7 +66,7 @@ public class mod_Test
 
 	static
 	{
-		//xinstick = new XinStick(10000).setItemName("xinstick");
-		//LanguageRegistry.addName(xinstick, "XinRecord");
+		xinstick = new XinStick(10000).setItemName("xinstick");
+		LanguageRegistry.addName(xinstick, "XinRecord");
 	}
 }

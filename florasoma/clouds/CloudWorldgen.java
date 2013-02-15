@@ -19,24 +19,24 @@ public class CloudWorldgen implements IWorldGenerator
 	
 	public CloudWorldgen()
 	{
-		smallcloud = new CloudGen(PHClouds.cloudID, 0, 10, false);
-		mediumcloud = new CloudGen(PHClouds.cloudID, 0, 20, false);
-		largecloud = new CloudGen(PHClouds.cloudID, 0, 30, false);
-		hugecloud = new CloudGen(PHClouds.cloudID, 0, 40, false);
-		smalldarkcloud = new CloudGen(PHClouds.cloudID, 1, 10, false);
-		mediumdarkcloud = new CloudGen(PHClouds.cloudID, 1, 20, false);
-		largedarkcloud = new CloudGen(PHClouds.cloudID, 1, 30, false);
-		hugedarkcloud = new CloudGen(PHClouds.cloudID, 1, 40, false);
-		tinyashcloud = new CloudGen(PHClouds.cloudID, 2, 3, false);
-		smallashcloud = new CloudGen(PHClouds.cloudID, 2, 10, false);
-		mediumashcloud = new CloudGen(PHClouds.cloudID, 2, 18, false);
-		largeashcloud = new CloudGen(PHClouds.cloudID, 2, 27, false);
-		hugeashcloud = new CloudGen(PHClouds.cloudID, 2, 37, false);
-		tinysulfurcloud = new CloudGen(PHClouds.cloudID, 3, 3, false);
-		smallsulfurcloud = new CloudGen(PHClouds.cloudID, 3, 10, false);
-		mediumsulfurcloud = new CloudGen(PHClouds.cloudID, 3, 18, false);
-		largesulfurcloud = new CloudGen(PHClouds.cloudID, 3, 27, false);
-		hugesulfurcloud = new CloudGen(PHClouds.cloudID, 3, 37, false);
+		smallcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 0, 10, false);
+		mediumcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 0, 20, false);
+		largecloud = new CloudGen(FloraClouds.instance.cloud.blockID, 0, 30, false);
+		hugecloud = new CloudGen(FloraClouds.instance.cloud.blockID, 0, 40, false);
+		smalldarkcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 1, 10, false);
+		mediumdarkcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 1, 20, false);
+		largedarkcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 1, 30, false);
+		hugedarkcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 1, 40, false);
+		tinyashcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 2, 3, false);
+		smallashcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 2, 10, false);
+		mediumashcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 2, 18, false);
+		largeashcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 2, 27, false);
+		hugeashcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 2, 37, false);
+		tinysulfurcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 3, 3, false);
+		smallsulfurcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 3, 10, false);
+		mediumsulfurcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 3, 18, false);
+		largesulfurcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 3, 27, false);
+		hugesulfurcloud = new CloudGen(FloraClouds.instance.cloud.blockID, 3, 37, false);
 	}
 
 	@Override
